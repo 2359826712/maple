@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-label: 'Nunito', system-ui, sans-serif;
+
+  /* Background - warm parchment/cream (adventure scroll feel) */
+  --background-50: 0.985 0.006 88;
+  --background-100: 0.97 0.014 86;
+  --background-200: 0.945 0.02 84;
+  --background-300: 0.905 0.028 82;
+  --background-400: 0.85 0.035 80;
+  --background-500: 0.77 0.04 78;
+  --background-600: 0.65 0.042 76;
+  --background-700: 0.52 0.038 74;
+  --background-800: 0.4 0.03 72;
+  --background-900: 0.28 0.02 70;
+  --background-950: 0.18 0.014 68;
+
+  /* Primary - iconic MapleStory orange (the logo color) */
+  --primary-50: 0.975 0.025 65;
+  --primary-100: 0.94 0.06 60;
+  --primary-200: 0.89 0.10 55;
+  --primary-300: 0.83 0.14 50;
+  --primary-400: 0.76 0.18 46;
+  --primary-500: 0.69 0.21 43;
+  --primary-600: 0.61 0.21 40;
+  --primary-700: 0.51 0.19 37;
+  --primary-800: 0.41 0.15 34;
+  --primary-900: 0.31 0.11 31;
+  --primary-950: 0.22 0.07 28;
+
+  /* Accent - mushroom forest green (Henesys vibes) */
+  --accent-50: 0.975 0.02 152;
+  --accent-100: 0.94 0.05 150;
+  --accent-200: 0.88 0.09 148;
+  --accent-300: 0.80 0.13 146;
+  --accent-400: 0.70 0.15 144;
+  --accent-500: 0.60 0.16 142;
+  --accent-600: 0.50 0.15 140;
+  --accent-700: 0.40 0.13 138;
+  --accent-800: 0.31 0.10 136;
+  --accent-900: 0.23 0.07 134;
+  --accent-950: 0.16 0.05 132;
+
+  /* Secondary - mesos gold / warm amber */
+  --secondary-50: 0.98 0.02 92;
+  --secondary-100: 0.955 0.05 90;
+  --secondary-200: 0.915 0.10 87;
+  --secondary-300: 0.87 0.14 84;
+  --secondary-400: 0.82 0.17 81;
+  --secondary-500: 0.76 0.18 78;
+  --secondary-600: 0.66 0.17 74;
+  --secondary-700: 0.54 0.15 70;
+  --secondary-800: 0.42 0.12 66;
+  --secondary-900: 0.31 0.09 62;
+  --secondary-950: 0.21 0.06 58;
+
+  /* Foreground - warm brown (adventure story text) */
+  --foreground-50: 0.985 0.005 82;
+  --foreground-100: 0.955 0.008 78;
+  --foreground-200: 0.905 0.012 74;
+  --foreground-300: 0.83 0.016 70;
+  --foreground-400: 0.70 0.02 65;
+  --foreground-500: 0.57 0.022 60;
+  --foreground-600: 0.44 0.024 55;
+  --foreground-700: 0.33 0.022 48;
+  --foreground-800: 0.25 0.02 42;
+  --foreground-900: 0.18 0.016 36;
+  --foreground-950: 0.12 0.012 30;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: oklch(var(--background-50));
+  color: oklch(var(--foreground-900));
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+/* === MAPLE LEAF FLOATING ANIMATIONS === */
+
+@keyframes maple-drift-1 {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh) translateX(120px) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes maple-drift-2 {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.85;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(110vh) translateX(-100px) rotate(-480deg);
+    opacity: 0;
+  }
+}
+
+@keyframes maple-drift-3 {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateY(110vh) translateX(60px) rotate(630deg);
+    opacity: 0;
+  }
+}
+
+@keyframes maple-drift-4 {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  7% {
+    opacity: 0.8;
+  }
+  82% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(110vh) translateX(-40px) rotate(-540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes maple-drift-5 {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  4% {
+    opacity: 0.95;
+  }
+  88% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(110vh) translateX(200px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes maple-sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes maple-pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px oklch(var(--primary-400) / 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px oklch(var(--primary-500) / 0.6);
+  }
+}
+
+@keyframes leaf-divider-wave {
+  0% { transform: scaleX(1); opacity: 0.3; }
+  50% { transform: scaleX(1.04); opacity: 0.5; }
+  100% { transform: scaleX(1); opacity: 0.3; }
+}
+
+/* Maple leaf utility classes */
+.leaf-float-1 { animation: maple-drift-1 12s linear infinite; }
+.leaf-float-2 { animation: maple-drift-2 14s linear infinite; }
+.leaf-float-3 { animation: maple-drift-3 11s linear infinite; }
+.leaf-float-4 { animation: maple-drift-4 15s linear infinite; }
+.leaf-float-5 { animation: maple-drift-5 13s linear infinite; }
+
+.leaf-sway { animation: maple-sway 3s ease-in-out infinite; }
+
+/* Maple leaf divider */
+.maple-divider {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.maple-divider::before,
+.maple-divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to right, transparent, oklch(var(--primary-300) / 0.6), transparent);
+  animation: leaf-divider-wave 3s ease-in-out infinite;
+}
+.maple-divider::after {
+  animation-delay: 1.5s;
+}
+
+/* Maple-tinted card hover glow */
+.maple-card-glow {
+  transition: all 0.3s ease;
+}
+.maple-card-glow:hover {
+  box-shadow: 0 4px 24px oklch(var(--primary-400) / 0.15), 0 0 0 1px oklch(var(--primary-300) / 0.3);
+}
+
+/* Game UI style inset border for special containers */
+.maple-border-inset {
+  border: 1px solid oklch(var(--primary-300) / 0.4);
+  box-shadow: inset 0 0 0 1px oklch(var(--background-50) / 0.6), 0 0 0 1px oklch(var(--primary-200) / 0.3);
+}
+
+/* Honeypot hidden anti-spam field */
+.field-supplemental {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Subtle scroll bar - maple tinted */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(var(--background-100));
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--primary-300) / 0.5);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--primary-500) / 0.7);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
