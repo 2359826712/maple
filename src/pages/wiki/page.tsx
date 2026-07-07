@@ -38,7 +38,6 @@ export default function WikiPage() {
   });
 
   const isZh = i18n.language.startsWith('zh');
-  const isJa = i18n.language === 'ja';
 
   const filteredEntries = useMemo(() => {
     let entries = realtimeWikiEntries;
@@ -79,19 +78,16 @@ export default function WikiPage() {
 
   const getTitle = (e: WikiEntry) => {
     if (isZh) return e.titleZh;
-    if (isJa) return e.title;
     return e.title;
   };
 
   const getDesc = (e: WikiEntry) => {
     if (isZh) return e.descriptionZh;
-    if (isJa) return e.description;
     return e.description;
   };
 
   const getContent = (e: WikiEntry) => {
     if (isZh) return e.contentZh;
-    if (isJa) return e.content;
     return e.content;
   };
 
@@ -203,7 +199,7 @@ export default function WikiPage() {
                 className="text-sm text-primary-600 hover:text-primary-700 cursor-pointer flex items-center gap-1"
               >
                 <i className="ri-close-line"></i>
-                {isZh ? '清除筛选' : isJa ? 'フィルターをクリア' : 'Clear filters'}
+                {t('wiki_clear_filters')}
               </button>
             )}
           </div>
@@ -212,10 +208,10 @@ export default function WikiPage() {
             <div className="text-center py-16 bg-background-100 rounded-xl border border-background-200">
               <i className="ri-book-open-line text-4xl text-foreground-300 mb-3"></i>
               <p className="text-foreground-600">
-                {isZh ? '未找到匹配的百科条目' : isJa ? '一致する項目が見つかりません' : 'No matching wiki entries found'}
+                {t('wiki_no_results')}
               </p>
               <p className="text-sm text-foreground-400 mt-1">
-                {isZh ? '尝试其他关键词或分类' : isJa ? '別のキーワードやカテゴリをお試しください' : 'Try a different keyword or category'}
+                {t('wiki_no_results_tip')}
               </p>
             </div>
           ) : (
@@ -259,7 +255,7 @@ export default function WikiPage() {
                     </div>
                     {e.versions.length < 6 && (
                       <div className="mt-2 text-[11px] text-foreground-500">
-                        {isZh ? '适用版本：' : isJa ? '対応バージョン：' : 'Versions: '}
+                        {t('wiki_versions_label')}
                         {e.versions.map((v) => v.toUpperCase()).join(', ')}
                       </div>
                     )}
@@ -325,7 +321,7 @@ export default function WikiPage() {
                 <div className="bg-background-100 rounded-xl p-4 border border-background-200">
                   <div className="text-xs font-semibold text-foreground-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <i className="ri-leaf-fill text-primary-500 text-[10px]"></i>
-                    {isZh ? '详细内容' : isJa ? '詳細' : 'Details'}
+                    {t('wiki_details')}
                   </div>
                   <p className="text-sm text-foreground-800 leading-relaxed whitespace-pre-line">
                     {getContent(selectedEntry)}
@@ -339,7 +335,7 @@ export default function WikiPage() {
                   onClick={() => setSelectedEntry(null)}
                   className="flex-1 h-10 rounded-md bg-primary-500 hover:bg-primary-600 text-background-50 dark:text-foreground-950 text-sm font-semibold cursor-pointer whitespace-nowrap"
                 >
-                  {isZh ? '关闭' : isJa ? '閉じる' : 'Close'}
+                  {t('community_close')}
                 </button>
               </div>
             </div>

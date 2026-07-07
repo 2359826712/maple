@@ -12,7 +12,9 @@ import Footer from './components/Footer';
 import NotificationDrawer from './components/NotificationDrawer';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { notifications, latestNews, trendingGuides, upcomingEvents, communityHighlights, wikiCategories } from '@/mocks/home';
-import { wikiEntries, type WikiCategory, type WikiEntry } from '@/mocks/wiki';
+import { wikiCategoryInfos, wikiEntries, type WikiCategory, type WikiEntry } from '@/mocks/wiki';
+import { getGuideCardCopy } from '@/pages/guides/localizedGuides';
+import { getNewsCategoryLabel, getNewsCopy } from '@/pages/news/localizedNews';
 
 type NewsItem = (typeof latestNews)[number];
 type GuideItem = (typeof trendingGuides)[number];
@@ -66,7 +68,7 @@ function HighlightCard({ icon, title, items, viewAllHref, viewAllLabel }: {
 }
 
 function HighlightsSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: 'maplehub-live-news',
@@ -108,6 +110,11 @@ function HighlightsSection() {
   const verGuides = realtimeGuides.filter((g) => g.versions.includes(versionInfo.id)).slice(0, 3);
   const verEvents = realtimeEvents.filter((e) => e.versions.includes(versionInfo.id)).slice(0, 3);
   const verCommunity = communityHighlights.slice(0, 3);
+  const isZh = i18n.language.startsWith('zh');
+  const wikiCategoryLabels = wikiCategoryInfos.reduce<Record<string, string>>((result, category) => {
+    result[category.name] = isZh ? category.nameZh : category.name;
+    return result;
+  }, {});
 
   return (
     <section className="py-14 md:py-20 bg-background-100">
@@ -115,10 +122,10 @@ function HighlightsSection() {
         <div className="mb-8">
           <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider flex items-center gap-1.5">
             <i className="ri-leaf-fill text-primary-500 text-[10px]"></i>
-            Explore MapleHub
+            {t('home_explore_eyebrow')}
           </div>
           <h2 className="mt-2 font-heading text-2xl md:text-4xl font-semibold text-foreground-950">
-            Everything you need, right where you need it
+            {t('home_explore_title')}
           </h2>
         </div>
 
@@ -127,7 +134,10 @@ function HighlightsSection() {
             <HighlightCard
               icon="ri-newspaper-line"
               title={t('news_title')}
-              items={verNews.map((n) => ({ label: n.title, sub: `${n.category} · ${n.date}` }))}
+              items={verNews.map((n) => {
+                const copy = getNewsCopy(n, i18n.language);
+                return { label: copy.title, sub: `${getNewsCategoryLabel(n.category, i18n.language)} · ${n.date}` };
+              })}
               viewAllHref="/news"
               viewAllLabel={t('guides_browse_all')}
             />
@@ -135,7 +145,10 @@ function HighlightsSection() {
           <HighlightCard
             icon="ri-book-open-line"
             title={t('guides_title_eyebrow')}
-            items={verGuides.map((g) => ({ label: g.title, sub: `${g.class} · ${g.difficulty}` }))}
+            items={verGuides.map((g) => {
+              const copy = getGuideCardCopy(g, i18n.language);
+              return { label: copy.title, sub: `${copy.classLabel} · ${copy.difficulty}` };
+            })}
             viewAllHref="/guides"
             viewAllLabel={t('guides_browse_all')}
           />
@@ -152,9 +165,9 @@ function HighlightsSection() {
           <HighlightCard
             icon="ri-chat-heart-line"
             title={t('community_title_eyebrow')}
-            items={verCommunity.map((c) => ({ label: c.title, sub: `${c.user} · ${c.reactions}+ reactions` }))}
+            items={verCommunity.map((c) => ({ label: c.title, sub: `${c.user} · ${t('home_reactions', { count: c.reactions })}` }))}
             viewAllHref="/community"
-            viewAllLabel="View forum"
+            viewAllLabel={t('community_view_forum')}
           />
           <div className="sm:col-span-2 lg:col-span-3">
             <div className="rounded-xl border border-background-200 bg-background-50 p-5 h-full">
@@ -177,7 +190,7 @@ function HighlightsSection() {
                       <i className={`${c.icon} text-sm`}></i>
                     </div>
                     <div>
-                      <div className="text-xs font-semibold text-foreground-900">{c.name}</div>
+                      <div className="text-xs font-semibold text-foreground-900">{wikiCategoryLabels[c.name] ?? c.name}</div>
                       <div className="text-[10px] text-foreground-600">
                         {(wikiCounts[wikiCategoryMap[c.name]] ?? c.count).toLocaleString()} {t('wiki_entries_suffix')}
                       </div>
@@ -189,7 +202,7 @@ function HighlightsSection() {
                 to="/wiki"
                 className="inline-flex items-center gap-1 mt-auto h-9 px-4 rounded-md bg-primary-500 hover:bg-primary-600 text-background-50 text-xs font-semibold cursor-pointer whitespace-nowrap"
               >
-                Browse Wiki
+                {t('wiki_browse')}
                 <i className="ri-arrow-right-line"></i>
               </Link>
             </div>

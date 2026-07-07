@@ -45,69 +45,89 @@ interface ContentBlock {
 
 type GuideItem = (typeof trendingGuides)[number];
 
-const createGuideDetailFromCard = (guide: GuideItem) => ({
+interface LiveGuideCopy {
+  title: string;
+  classLabel: string;
+  difficulty: string;
+  readTime: string;
+  published: string;
+  updated: string;
+  authorBio: string;
+  summary: string;
+  overviewTitle: string;
+  versionNotesTitle: string;
+  nextStepsTitle: string;
+  overviewText: string;
+  difficultyText: string;
+  readTimeText: string;
+  maintainerText: string;
+  versionsText: string;
+  bodyPendingText: string;
+}
+
+const createGuideDetailFromCard = (guide: GuideItem, copy: LiveGuideCopy) => ({
   ...guideDetail,
   id: guide.id,
-  title: guide.title,
+  title: copy.title,
   slug: guide.id,
   version: guide.versions[0] ?? 'gms',
   author: {
     ...guideDetail.author,
     name: guide.author,
-    bio: `${guide.author} maintains this guide from the live MapleHub guide feed.`,
+    bio: copy.authorBio,
   },
-  classLabel: guide.class,
-  difficulty: guide.difficulty,
-  readTime: guide.length,
-  published: 'Live feed',
-  updated: 'Live update',
+  classLabel: copy.classLabel,
+  difficulty: copy.difficulty,
+  readTime: copy.readTime,
+  published: copy.published,
+  updated: copy.updated,
   upvotes: guide.upvotes,
-  tags: [guide.class, guide.difficulty, ...guide.versions.map((version) => version.toUpperCase())],
+  tags: [copy.classLabel, copy.difficulty, ...guide.versions.map((version) => version.toUpperCase())],
   cover: guide.image,
-  summary: `${guide.title} is maintained from the live guide feed. The page updates automatically when the remote guide source changes.`,
+  summary: copy.summary,
   toc: [
-    { id: 'overview', title: 'Live overview' },
-    { id: 'version-notes', title: 'Version notes' },
-    { id: 'next-steps', title: 'Next steps' },
+    { id: 'overview', title: copy.overviewTitle },
+    { id: 'version-notes', title: copy.versionNotesTitle },
+    { id: 'next-steps', title: copy.nextStepsTitle },
   ],
   sections: [
     {
       id: 'overview',
-      title: 'Live overview',
+      title: copy.overviewTitle,
       content: [
         {
           type: 'paragraph',
-          text: `This guide is synced from the realtime guide collection and is currently tagged for ${guide.class}.`,
+          text: copy.overviewText,
         },
         {
           type: 'list',
           style: 'unordered',
           items: [
-            `Difficulty: ${guide.difficulty}`,
-            `Estimated read time: ${guide.length}`,
-            `Maintainer: ${guide.author}`,
+            copy.difficultyText,
+            copy.readTimeText,
+            copy.maintainerText,
           ],
         },
       ],
     },
     {
       id: 'version-notes',
-      title: 'Version notes',
+      title: copy.versionNotesTitle,
       content: [
         {
           type: 'paragraph',
-          text: `Available versions: ${guide.versions.map((version) => version.toUpperCase()).join(', ')}.`,
+          text: copy.versionsText,
         },
       ],
     },
     {
       id: 'next-steps',
-      title: 'Next steps',
+      title: copy.nextStepsTitle,
       content: [
         {
           type: 'callout',
           variant: 'info',
-          text: 'When a full guide body is published to the live feed, this page will refresh automatically.',
+          text: copy.bodyPendingText,
         },
       ],
     },
@@ -142,25 +162,44 @@ export default function GuideDetail() {
 
   const baseGuide = useMemo(() => {
     if (!liveGuideCard) return guideDetail;
+    const cardCopy = getGuideCardCopy(liveGuideCard, i18n.language);
+    const versions = liveGuideCard.versions.map((liveVersion) => liveVersion.toUpperCase()).join(', ');
+    const liveCopy: LiveGuideCopy = {
+      ...cardCopy,
+      readTime: cardCopy.length,
+      published: t('guide_live_published'),
+      updated: t('guide_live_updated'),
+      authorBio: t('guide_live_author_bio', { author: liveGuideCard.author }),
+      summary: t('guide_live_summary', { title: cardCopy.title }),
+      overviewTitle: t('guide_live_overview'),
+      versionNotesTitle: t('guide_live_version_notes'),
+      nextStepsTitle: t('guide_live_next_steps'),
+      overviewText: t('guide_live_overview_text', { classLabel: cardCopy.classLabel }),
+      difficultyText: t('guide_live_difficulty', { difficulty: cardCopy.difficulty }),
+      readTimeText: t('guide_live_read_time', { readTime: cardCopy.length }),
+      maintainerText: t('guide_live_maintainer', { author: liveGuideCard.author }),
+      versionsText: t('guide_live_versions', { versions }),
+      bodyPendingText: t('guide_live_body_pending'),
+    };
 
-    if (liveGuideCard.id !== guideDetail.id) return createGuideDetailFromCard(liveGuideCard);
+    if (liveGuideCard.id !== guideDetail.id) return createGuideDetailFromCard(liveGuideCard, liveCopy);
 
     return {
       ...guideDetail,
-      title: liveGuideCard.title,
+      title: cardCopy.title,
       version: liveGuideCard.versions[0] ?? guideDetail.version,
       author: {
         ...guideDetail.author,
         name: liveGuideCard.author,
       },
-      classLabel: liveGuideCard.class,
-      difficulty: liveGuideCard.difficulty,
-      readTime: liveGuideCard.length,
+      classLabel: cardCopy.classLabel,
+      difficulty: cardCopy.difficulty,
+      readTime: cardCopy.length,
       upvotes: liveGuideCard.upvotes,
-      tags: [liveGuideCard.class, liveGuideCard.difficulty, ...liveGuideCard.versions.map((version) => version.toUpperCase())],
+      tags: [cardCopy.classLabel, cardCopy.difficulty, ...liveGuideCard.versions.map((version) => version.toUpperCase())],
       cover: liveGuideCard.image,
     };
-  }, [liveGuideCard]);
+  }, [i18n.language, liveGuideCard, t]);
 
   const guideCopy = baseGuide.id === guideDetail.id ? getGuideDetailCopy(baseGuide, i18n.language) : baseGuide;
   const guide = {
