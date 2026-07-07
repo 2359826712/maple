@@ -24,18 +24,40 @@ interface Comment {
 
 interface Props {
   comments: Comment[];
+  isSignedIn: boolean;
+  onAuthRequired: () => void;
 }
 
-function VoteButton({ value, compact }: { value: number; compact?: boolean }) {
+function VoteButton({
+  value,
+  compact,
+  isSignedIn,
+  onAuthRequired,
+}: {
+  value: number;
+  compact?: boolean;
+  isSignedIn: boolean;
+  onAuthRequired: () => void;
+}) {
   const [count, setCount] = useState(value);
   const [voted, setVoted] = useState<'up' | 'down' | null>(null);
 
   const up = () => {
+    if (!isSignedIn) {
+      onAuthRequired();
+      return;
+    }
+
     if (voted === 'up') { setCount(count - 1); setVoted(null); }
     else { setCount(count + (voted === 'down' ? 2 : 1)); setVoted('up'); }
   };
 
   const down = () => {
+    if (!isSignedIn) {
+      onAuthRequired();
+      return;
+    }
+
     if (voted === 'down') { setCount(count + 1); setVoted(null); }
     else { setCount(count - (voted === 'up' ? 2 : 1)); setVoted('down'); }
   };
@@ -53,7 +75,7 @@ function VoteButton({ value, compact }: { value: number; compact?: boolean }) {
   );
 }
 
-export default function CommentSection({ comments }: Props) {
+export default function CommentSection({ comments, isSignedIn, onAuthRequired }: Props) {
   const { t } = useTranslation();
   const [sort, setSort] = useState<'top' | 'new'>('top');
   const [newComment, setNewComment] = useState('');
@@ -66,10 +88,20 @@ export default function CommentSection({ comments }: Props) {
   }, [comments, sort]);
 
   const submitComment = () => {
+    if (!isSignedIn) {
+      onAuthRequired();
+      return;
+    }
+
     setNewComment('');
   };
 
   const submitReply = (_parentId: string) => {
+    if (!isSignedIn) {
+      onAuthRequired();
+      return;
+    }
+
     setReplyTo(null);
     setReplyText('');
   };
@@ -151,9 +183,16 @@ export default function CommentSection({ comments }: Props) {
                 </div>
                 <p className="mt-1 text-sm text-foreground-800 leading-relaxed">{cm.content}</p>
                 <div className="mt-2 flex items-center gap-4">
-                  <VoteButton value={cm.upvotes} compact />
+                  <VoteButton value={cm.upvotes} compact isSignedIn={isSignedIn} onAuthRequired={onAuthRequired} />
                   <button
-                    onClick={() => setReplyTo(replyTo === cm.id ? null : cm.id)}
+                    onClick={() => {
+                      if (!isSignedIn) {
+                        onAuthRequired();
+                        return;
+                      }
+
+                      setReplyTo(replyTo === cm.id ? null : cm.id);
+                    }}
                     className="text-xs font-semibold text-foreground-600 hover:text-primary-600 cursor-pointer"
                   >
                     <i className="ri-reply-line mr-1"></i>{t('guide_reply')}
@@ -206,7 +245,7 @@ export default function CommentSection({ comments }: Props) {
                           </div>
                           <p className="mt-1 text-sm text-foreground-800 leading-relaxed">{rp.content}</p>
                           <div className="mt-1.5">
-                            <VoteButton value={rp.upvotes} compact />
+                            <VoteButton value={rp.upvotes} compact isSignedIn={isSignedIn} onAuthRequired={onAuthRequired} />
                           </div>
                         </div>
                       </div>

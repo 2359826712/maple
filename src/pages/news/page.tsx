@@ -6,6 +6,8 @@ import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { latestNews } from '@/mocks/home';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
+import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
+import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsArticleCopy, getNewsCategoryLabel, getNewsCopy } from './localizedNews';
 
@@ -79,6 +81,8 @@ export default function NewsPage() {
   const [activeArticle, setActiveArticle] = useState<LocalizedNewsItem | null>(null);
   const [saved, setSaved] = useState<Record<string, boolean>>({});
   const [read, setRead] = useState<Record<string, boolean>>({});
+  const [authPrompt, setAuthPrompt] = useState(false);
+  const { isSignedIn } = useAuthSession();
   const {
     items: realtimeNews,
     liveCount,
@@ -149,6 +153,11 @@ export default function NewsPage() {
   };
 
   const toggleSaved = (article: LocalizedNewsItem) => {
+    if (!isSignedIn) {
+      setAuthPrompt(true);
+      return;
+    }
+
     setSaved((current) => ({ ...current, [article.id]: !current[article.id] }));
   };
 
@@ -182,6 +191,11 @@ export default function NewsPage() {
                   onRefresh={syncNow}
                 />
               </div>
+              {authPrompt && (
+                <div className="mb-6">
+                  <AuthRequiredNotice onDismiss={() => setAuthPrompt(false)} />
+                </div>
+              )}
 
               <div className="mb-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-3 items-start">
                 <div className="min-w-0">

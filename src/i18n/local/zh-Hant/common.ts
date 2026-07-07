@@ -34,6 +34,9 @@ const common = {
   auth_sign_up_submit: '建立帳號',
   auth_missing_fields: '請輸入電子郵件和密碼後繼續。',
   auth_success: '{{provider}} 登入已寫入本機工作階段。',
+  auth_required_title: '請先登入',
+  auth_required_desc: '登入後才能使用收藏、留言、按讚和提交內容。',
+  auth_required_cta: '去登入',
 
   hero_badge: '始於 2005',
   hero_title_line1: '你的',

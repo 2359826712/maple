@@ -1,17 +1,17 @@
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
+import { AUTH_SESSION_KEY } from '@/hooks/useAuthSession';
 
 type AuthMode = 'signin' | 'signup';
 type Provider = 'Discord' | 'Google';
 
-const SESSION_KEY = 'maplehub-auth-session';
-
 export default function LoginPage() {
   const { t } = useTranslation();
+  const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
   const [mode, setMode] = useState<AuthMode>('signin');
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ export default function LoginPage() {
   const saveSession = (provider: Provider | 'Email') => {
     const userLabel = provider === 'Email' ? email.trim() || 'mapler@example.com' : `${provider} user`;
     window.localStorage.setItem(
-      SESSION_KEY,
+      AUTH_SESSION_KEY,
       JSON.stringify({
         provider,
         user: userLabel,
@@ -30,6 +30,12 @@ export default function LoginPage() {
       }),
     );
     setMessage(t('auth_success', { provider }));
+    const next = searchParams.get('next');
+    if (next?.startsWith('/')) {
+      window.setTimeout(() => {
+        window.location.assign(next);
+      }, 300);
+    }
   };
 
   const submitEmail = (event: FormEvent<HTMLFormElement>) => {

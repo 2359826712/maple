@@ -34,6 +34,9 @@ const common = {
   auth_sign_up_submit: '创建账号',
   auth_missing_fields: '请输入邮箱和密码后继续。',
   auth_success: '{{provider}} 登录已写入本地会话。',
+  auth_required_title: '请先登录',
+  auth_required_desc: '登录后才能使用收藏、评论、点赞和提交内容。',
+  auth_required_cta: '去登录',
 
   hero_badge: '始于 2005',
   hero_title_line1: '你的',

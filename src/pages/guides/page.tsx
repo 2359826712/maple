@@ -7,6 +7,8 @@ import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { trendingGuides } from '@/mocks/home';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
+import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
+import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getGuideCardCopy } from './localizedGuides';
 
@@ -23,6 +25,8 @@ export default function GuidesPage() {
   const { versionInfo } = useVersion();
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [notifOpen, setNotifOpen] = useState(false);
+  const [authPrompt, setAuthPrompt] = useState(false);
+  const { isSignedIn } = useAuthSession();
   const {
     items: realtimeGuides,
     liveCount,
@@ -34,8 +38,16 @@ export default function GuidesPage() {
     baseItems: trendingGuides,
     remoteUrl: '/realtime/guides.json',
   });
-  const toggleLike = (id: string) =>
+  const requireAuth = () => {
+    if (isSignedIn) return true;
+    setAuthPrompt(true);
+    return false;
+  };
+
+  const toggleLike = (id: string) => {
+    if (!requireAuth()) return;
     setLiked((s) => ({ ...s, [id]: !s[id] }));
+  };
 
   const filteredGuides = useMemo(
     () => realtimeGuides.filter((g) => g.versions.includes(versionInfo.id)),
@@ -80,6 +92,11 @@ export default function GuidesPage() {
                   onRefresh={syncNow}
                 />
               </div>
+              {authPrompt && (
+                <div className="mb-6">
+                  <AuthRequiredNotice onDismiss={() => setAuthPrompt(false)} />
+                </div>
+              )}
 
               {filteredGuides.length === 0 ? (
                 <div className="text-center py-20 text-foreground-600">
@@ -143,7 +160,11 @@ export default function GuidesPage() {
                               {liked[g.id] ? g.upvotes + 1 : g.upvotes}
                             </button>
                             <div className="flex items-center gap-2 text-foreground-600">
-                              <button className="w-9 h-9 rounded-full bg-background-100 hover:bg-accent-100 hover:text-accent-700 flex items-center justify-center cursor-pointer" aria-label="bookmark">
+                              <button
+                                onClick={requireAuth}
+                                className="w-9 h-9 rounded-full bg-background-100 hover:bg-accent-100 hover:text-accent-700 flex items-center justify-center cursor-pointer"
+                                aria-label="bookmark"
+                              >
                                 <i className="ri-bookmark-line"></i>
                               </button>
                               <button className="w-9 h-9 rounded-full bg-background-100 hover:bg-secondary-100 hover:text-secondary-800 flex items-center justify-center cursor-pointer" aria-label="share">

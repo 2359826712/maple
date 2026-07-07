@@ -34,6 +34,9 @@ const common = {
   auth_sign_up_submit: 'アカウントを作成',
   auth_missing_fields: 'メールとパスワードを入力してください。',
   auth_success: '{{provider}}ログインをローカルセッションに保存しました。',
+  auth_required_title: 'ログインが必要です',
+  auth_required_desc: 'お気に入り、コメント、いいね、投稿を使うにはログインしてください。',
+  auth_required_cta: 'ログインへ',
 
   hero_badge: '2005年設立',
   hero_title_line1: 'あなたの',

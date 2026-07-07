@@ -4,10 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { useVersion, VERSIONS } from '@/hooks/VersionContext';
 import Navbar from '@/pages/home/components/Navbar';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
+import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
 import { guideDetail, comments, relatedGuides } from '@/mocks/guide-detail';
 import { trendingGuides } from '@/mocks/home';
 import { communityLinks } from '@/constants/communityLinks';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
+import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import TableOfContents from './components/TableOfContents';
 import AuthorBio from './components/AuthorBio';
@@ -143,6 +145,8 @@ export default function GuideDetail() {
   const [liked, setLiked] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
+  const [authPrompt, setAuthPrompt] = useState(false);
+  const { isSignedIn } = useAuthSession();
   const {
     items: realtimeGuides,
     liveCount,
@@ -373,7 +377,14 @@ export default function GuideDetail() {
             {/* Article actions */}
             <div className="flex items-center gap-2 mb-3">
               <button
-                onClick={() => setBookmarked((v) => !v)}
+                onClick={() => {
+                  if (!isSignedIn) {
+                    setAuthPrompt(true);
+                    return;
+                  }
+
+                  setBookmarked((v) => !v);
+                }}
                 className={`h-9 px-3 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap flex items-center gap-1 ${
                   bookmarked ? 'bg-primary-500 text-background-50' : 'bg-background-100 text-foreground-800 border border-background-200 hover:border-primary-300'
                 }`}
@@ -434,6 +445,11 @@ export default function GuideDetail() {
                 onRefresh={syncNow}
               />
             </div>
+            {authPrompt && (
+              <div className="mt-4">
+                <AuthRequiredNotice onDismiss={() => setAuthPrompt(false)} />
+              </div>
+            )}
 
             {/* Mobile TOC */}
             <details className="lg:hidden mt-4 rounded-xl border border-background-200 bg-background-100 overflow-hidden">
@@ -468,7 +484,14 @@ export default function GuideDetail() {
             {/* Like & share bar */}
             <div className="flex items-center justify-between py-6 border-t border-b border-background-200 my-8">
               <button
-                onClick={() => setLiked((v) => !v)}
+                onClick={() => {
+                  if (!isSignedIn) {
+                    setAuthPrompt(true);
+                    return;
+                  }
+
+                  setLiked((v) => !v);
+                }}
                 className={`flex items-center gap-2 h-11 px-5 rounded-full font-semibold text-sm cursor-pointer whitespace-nowrap ${
                   liked ? 'bg-primary-500 text-background-50' : 'bg-background-100 text-foreground-800 hover:bg-primary-50 hover:text-primary-700'
                 }`}
@@ -501,7 +524,11 @@ export default function GuideDetail() {
 
             {/* Comment section */}
             <div className="mt-6">
-              <CommentSection comments={comments} />
+              <CommentSection
+                comments={comments}
+                isSignedIn={isSignedIn}
+                onAuthRequired={() => setAuthPrompt(true)}
+              />
             </div>
           </div>
 

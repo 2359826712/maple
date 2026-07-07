@@ -34,6 +34,9 @@ const common = {
   auth_sign_up_submit: 'Create account',
   auth_missing_fields: 'Enter your email and password to continue.',
   auth_success: '{{provider}} sign-in is ready for this local session.',
+  auth_required_title: 'Sign in required',
+  auth_required_desc: 'Sign in to save, comment, like, and submit content.',
+  auth_required_cta: 'Sign in',
 
   hero_badge: 'Est. 2005',
   hero_title_line1: 'Your',

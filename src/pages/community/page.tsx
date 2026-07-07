@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
+import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
 import { communityLinks } from '@/constants/communityLinks';
+import { useAuthSession } from '@/hooks/useAuthSession';
 
 type ProposalStatus = 'Pending' | 'Approved' | 'Rejected';
 type ProposalAction = 'Add' | 'Update';
@@ -163,6 +165,8 @@ export default function CommunityPage() {
   const [comments, setComments] = useState<Record<string, string[]>>(() => readStored(PROPOSAL_COMMENTS_KEY, {}));
   const [activeProposal, setActiveProposal] = useState<Proposal | null>(null);
   const [commentDraft, setCommentDraft] = useState('');
+  const [authPrompt, setAuthPrompt] = useState(false);
+  const { isSignedIn } = useAuthSession();
   const [form, setForm] = useState({
     className: 'Erel Light',
     action: 'Add' as ProposalAction,
@@ -210,6 +214,11 @@ export default function CommunityPage() {
   }, [classFilter, kindFilter, proposals, sortBy, statusFilter, timeRange]);
 
   const setVote = (proposal: Proposal, delta: number) => {
+    if (!isSignedIn) {
+      setAuthPrompt(true);
+      return;
+    }
+
     setVoteOverrides((current) => ({
       ...current,
       [proposal.id]: (current[proposal.id] ?? proposal.votes) + delta,
@@ -218,6 +227,11 @@ export default function CommunityPage() {
 
   const submitProposal = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!isSignedIn) {
+      setAuthPrompt(true);
+      return;
+    }
+
     const title = form.title.trim();
     const note = form.note.trim();
     if (!title || !note) return;
@@ -246,6 +260,11 @@ export default function CommunityPage() {
 
   const submitComment = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!isSignedIn) {
+      setAuthPrompt(true);
+      return;
+    }
+
     const comment = commentDraft.trim();
     if (!activeProposal || !comment) return;
 
@@ -280,13 +299,27 @@ export default function CommunityPage() {
                 </div>
                 <button
                   type="button"
-                  onClick={() => setShowForm((value) => !value)}
+                  onClick={() => {
+                    if (!isSignedIn) {
+                      setAuthPrompt(true);
+                      setShowForm(false);
+                      return;
+                    }
+
+                    setShowForm((value) => !value);
+                  }}
                   className="h-10 px-4 rounded-full bg-primary-500 hover:bg-primary-600 text-background-50 text-sm font-semibold cursor-pointer whitespace-nowrap inline-flex items-center justify-center gap-1.5"
                 >
                   <i className={showForm ? 'ri-close-line' : 'ri-add-line'}></i>
                   {showForm ? t('community_cancel') : t('community_submit_proposal')}
                 </button>
               </div>
+
+              {authPrompt && (
+                <div className="mb-6">
+                  <AuthRequiredNotice onDismiss={() => setAuthPrompt(false)} />
+                </div>
+              )}
 
               {showForm && (
                 <form data-testid="proposal-form" onSubmit={submitProposal} className="mb-6 rounded-lg border border-primary-200 bg-background-50 p-4 md:p-5">
