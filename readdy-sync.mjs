@@ -303,7 +303,7 @@ function findReaddyAccessTokenFromEdgeLeveldb(edgeProfileDir) {
   throw new Error('未能确认找到 readdy_access_token。请确认 Edge 已登录 Readdy，且脚本读取的是同一个 profile。');
 }
 
-async function collectUploadEdits(rootDir, includePatterns, excludePatterns, verbose) {
+async function collectUploadEdits(rootDir, includePatterns, excludePatterns, verbose, readContent = true) {
   const allFilesAbs = await walkFiles(rootDir);
   const includes = includePatterns.map(globToRegExp);
   const excludes = excludePatterns.map(globToRegExp);
@@ -324,9 +324,15 @@ async function collectUploadEdits(rootDir, includePatterns, excludePatterns, ver
   const edits = [];
   let totalBytes = 0;
   for (const item of picked) {
-    const content = await fs.readFile(item.abs, 'utf8');
-    totalBytes += Buffer.byteLength(content);
-    edits.push({ action: 'edit', file: item.rel, content });
+    if (readContent) {
+      const content = await fs.readFile(item.abs, 'utf8');
+      totalBytes += Buffer.byteLength(content);
+      edits.push({ action: 'edit', file: item.rel, content });
+    } else {
+      const stat = await fs.stat(item.abs);
+      totalBytes += Number(stat.size || 0);
+      edits.push({ action: 'edit', file: item.rel });
+    }
   }
 
   if (verbose && skippedBinary.length) {
@@ -449,6 +455,34 @@ async function main() {
   const include = (cfg.include.length ? cfg.include : defaultInclude).filter(Boolean);
   const exclude = (cfg.exclude.length ? cfg.exclude : defaultExclude).filter(Boolean);
 
+  const { edits, totalBytes } = await collectUploadEdits(rootDir, include, exclude, cfg.verbose, !cfg.dryRun);
+  if (!edits.length) throw new Error('没有匹配到需要上传的文件（include/exclude 规则可能不正确）。');
+
+  // dry-run：只输出本地上传清单，不触发 token 获取，也不会访问 Readdy API
+  const summary = {
+    ok: true,
+    projectId,
+    root: rootDir,
+    parentVersionID: cfg.parentVersionID ? Number(cfg.parentVersionID) : null,
+    latestBefore: null,
+    upload: {
+      files: edits.length,
+      bytes: totalBytes,
+      mb: Math.round((totalBytes / (1024 * 1024)) * 100) / 100,
+      sampleFiles: edits.slice(0, 30).map(e => e.file),
+      sampleTruncated: edits.length > 30,
+    },
+    dryRun: cfg.dryRun,
+    note: cfg.dryRun
+      ? 'dry-run 不会访问 Readdy；真实上传时将通过 msg_list 自动获取最新 parentVersionID（除非你手动指定 --parent-version）。'
+      : '本脚本不会自动 Publish/Update 生产环境。',
+  };
+
+  if (cfg.dryRun) {
+    console.log(JSON.stringify(summary, null, 2));
+    return;
+  }
+
   // token 读取：优先 env；否则扫描 Edge leveldb
   const tokenFromEnv = process.env.READDY_ACCESS_TOKEN || '';
   const edgeProfile =
@@ -466,9 +500,6 @@ async function main() {
     console.error(`[info] edgeProfile: ${edgeProfile || '(empty)'}`);
   }
 
-  const { edits, totalBytes } = await collectUploadEdits(rootDir, include, exclude, cfg.verbose);
-  if (!edits.length) throw new Error('没有匹配到需要上传的文件（include/exclude 规则可能不正确）。');
-
   let parentVersionID = cfg.parentVersionID ? Number(cfg.parentVersionID) : 0;
   let latestBefore = null;
   if (!parentVersionID) {
@@ -478,28 +509,6 @@ async function main() {
       throw new Error('未能从 msg_list 获取 parentVersionID。可尝试 --parent-version 手动指定。');
     }
     parentVersionID = Number(latestBefore.projectVersionId);
-  }
-
-  const summary = {
-    ok: true,
-    projectId,
-    root: rootDir,
-    parentVersionID,
-    latestBefore,
-    upload: {
-      files: edits.length,
-      bytes: totalBytes,
-      mb: Math.round((totalBytes / (1024 * 1024)) * 100) / 100,
-      sampleFiles: edits.slice(0, 30).map(e => e.file),
-      sampleTruncated: edits.length > 30,
-    },
-    dryRun: cfg.dryRun,
-    note: '本脚本不会自动 Publish/Update 生产环境。',
-  };
-
-  if (cfg.dryRun) {
-    console.log(JSON.stringify(summary, null, 2));
-    return;
   }
 
   if (!cfg.yes) {
@@ -556,4 +565,3 @@ main().catch(error => {
   console.error(`SYNC_FAILED: ${msg}`);
   process.exit(1);
 });
-

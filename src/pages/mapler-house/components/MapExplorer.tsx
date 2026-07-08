@@ -723,7 +723,11 @@ export default function MapExplorer() {
               <button
                 type="button"
                 onClick={() => setNavigatorNode('table')}
-                className="h-11 px-5 rounded-md bg-primary-600 text-background-50 text-sm font-semibold hover:bg-primary-700 inline-flex items-center justify-center gap-2 cursor-pointer"
+                className={`h-11 px-5 rounded-md text-sm font-semibold inline-flex items-center justify-center gap-2 cursor-pointer ${
+                  navigatorNode === 'table'
+                    ? 'bg-red-600 text-background-50 hover:bg-red-700'
+                    : 'border border-background-200 bg-background-50 text-foreground-800 hover:bg-red-50 hover:text-red-700'
+                }`}
               >
                 <i className="ri-table-2"></i>
                 Table View
@@ -731,7 +735,11 @@ export default function MapExplorer() {
               <button
                 type="button"
                 onClick={backToRoot}
-                className="h-11 px-4 rounded-md border border-background-200 bg-background-50 text-sm font-semibold text-foreground-800 hover:text-primary-700 inline-flex items-center justify-center gap-2 cursor-pointer"
+                className={`h-11 px-4 rounded-md text-sm font-semibold inline-flex items-center justify-center gap-2 cursor-pointer ${
+                  navigatorNode !== 'table'
+                    ? 'bg-red-600 text-background-50 hover:bg-red-700'
+                    : 'border border-background-200 bg-background-50 text-foreground-800 hover:bg-red-50 hover:text-red-700'
+                }`}
               >
                 <i className="ri-global-line"></i>
                 World Map
