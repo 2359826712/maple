@@ -16,9 +16,20 @@ const navLinkKeys = [
 interface NavbarProps {
   onOpenNotifications: () => void;
   unread: number;
+  toolMenu?: {
+    label: string;
+    value: string;
+    allLabel: string;
+    favoritesLabel: string;
+    emptyFavoritesLabel: string;
+    options: Array<{ value: string; label: string; icon: string; favorite?: boolean; externalHref?: string }>;
+    favoriteOptions: Array<{ value: string; label: string; icon: string; favorite?: boolean; externalHref?: string }>;
+    onSelect: (value: string) => void;
+    onToggleFavorite: (value: string) => void;
+  };
 }
 
-export default function Navbar({ onOpenNotifications, unread }: NavbarProps) {
+export default function Navbar({ onOpenNotifications, unread, toolMenu }: NavbarProps) {
   const { t, i18n } = useTranslation();
   const { version, versionInfo, setVersion } = useVersion();
   const [scrolled, setScrolled] = useState(false);
@@ -27,9 +38,13 @@ export default function Navbar({ onOpenNotifications, unread }: NavbarProps) {
   const [query, setQuery] = useState('');
   const [versionMenuOpen, setVersionMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [toolMenuOpen, setToolMenuOpen] = useState(false);
+  const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
   const searchRef = useRef<HTMLDivElement | null>(null);
   const versionRef = useRef<HTMLDivElement | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
+  const toolMenuRef = useRef<HTMLDivElement | null>(null);
+  const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -49,9 +64,16 @@ export default function Navbar({ onOpenNotifications, unread }: NavbarProps) {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangMenuOpen(false);
       }
+      if (toolMenuRef.current && !toolMenuRef.current.contains(e.target as Node)) {
+        setToolMenuOpen(false);
+      }
     };
     document.addEventListener('mousedown', onClickOutside);
     return () => document.removeEventListener('mousedown', onClickOutside);
+  }, []);
+
+  useEffect(() => () => {
+    if (toolMenuCloseTimer.current) clearTimeout(toolMenuCloseTimer.current);
   }, []);
 
   const suggestions = query
@@ -80,6 +102,30 @@ export default function Navbar({ onOpenNotifications, unread }: NavbarProps) {
     setVersionMenuOpen(false);
   };
 
+  const openToolMenu = () => {
+    if (toolMenuCloseTimer.current) clearTimeout(toolMenuCloseTimer.current);
+    setToolMenuOpen(true);
+  };
+
+  const closeToolMenuLater = () => {
+    if (toolMenuCloseTimer.current) clearTimeout(toolMenuCloseTimer.current);
+    toolMenuCloseTimer.current = setTimeout(() => setToolMenuOpen(false), 900);
+  };
+
+  const visibleToolOptions =
+    toolMenuTab === 'favorites' ? toolMenu?.favoriteOptions ?? [] : toolMenu?.options ?? [];
+
+  const selectTool = (value: string) => {
+    toolMenu?.onSelect(value);
+    setToolMenuOpen(false);
+    setMenuOpen(false);
+  };
+
+  const toggleToolFavorite = (value: string) => {
+    toolMenu?.onToggleFavorite(value);
+    openToolMenu();
+  };
+
   return (
     <>
       <header
@@ -103,15 +149,116 @@ export default function Navbar({ onOpenNotifications, unread }: NavbarProps) {
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinkKeys.map((l) => (
-              <Link
-                key={l.href}
-                to={l.href}
-                className="px-3 py-2 rounded-md text-sm font-medium text-foreground-700 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
-              >
-                {t(l.key)}
-              </Link>
-            ))}
+            {navLinkKeys.map((l) => {
+              if (l.key === 'nav_tools' && toolMenu) {
+                return (
+                  <div
+                    key={l.href}
+                    ref={toolMenuRef}
+                    className="relative"
+                    onMouseEnter={openToolMenu}
+                    onMouseLeave={closeToolMenuLater}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setToolMenuOpen((open) => !open)}
+                      className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
+                        toolMenuOpen ? 'bg-primary-50 text-primary-700' : 'text-foreground-700 hover:text-primary-600 hover:bg-primary-50'
+                      }`}
+                    >
+                      {t(l.key)}
+                      <i className="ri-arrow-down-s-line text-xs"></i>
+                    </button>
+
+                    {toolMenuOpen && (
+                      <div className="absolute left-0 top-full z-50 w-64 pt-2">
+                        <div className="overflow-hidden rounded-lg border border-background-200 bg-background-50 shadow-xl">
+                        <div className="flex border-b border-background-200 bg-background-100">
+                          <button
+                            type="button"
+                            onClick={() => setToolMenuTab('all')}
+                            className={`flex-1 px-4 py-2.5 text-sm font-semibold cursor-pointer ${
+                              toolMenuTab === 'all' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600 hover:text-primary-700'
+                            }`}
+                          >
+                            {toolMenu.allLabel}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setToolMenuTab('favorites')}
+                            className={`flex-1 px-4 py-2.5 text-sm font-semibold cursor-pointer ${
+                              toolMenuTab === 'favorites' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600 hover:text-primary-700'
+                            }`}
+                          >
+                            {toolMenu.favoritesLabel}
+                          </button>
+                        </div>
+
+                        <div className="py-2">
+                          {visibleToolOptions.length === 0 ? (
+                            <div className="px-4 py-3 text-sm text-foreground-500">{toolMenu.emptyFavoritesLabel}</div>
+                          ) : (
+                            visibleToolOptions.map((option) => (
+                              <div
+                                key={option.value}
+                                className={`flex items-center gap-1 px-2 py-1 ${
+                                  option.value === toolMenu.value
+                                    ? 'bg-primary-50 text-primary-700 font-semibold'
+                                    : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
+                                }`}
+                              >
+                                <button
+                                  type="button"
+                                  onClick={() => selectTool(option.value)}
+                                  className="min-w-0 flex flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm transition-colors cursor-pointer"
+                                >
+                                  <i className={`${option.icon} text-base`}></i>
+                                  <span className="min-w-0 flex-1 truncate">{option.label}</span>
+                                  {option.value === toolMenu.value && <i className="ri-check-line text-primary-600"></i>}
+                                </button>
+                                {option.externalHref && (
+                                  <a
+                                    href={option.externalHref}
+                                    target="_blank"
+                                    rel="nofollow noopener noreferrer"
+                                    className="h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center text-foreground-400 hover:text-primary-700 hover:bg-background-50"
+                                    aria-label={`open ${option.label}`}
+                                    title={`Open ${option.label}`}
+                                  >
+                                    <i className="ri-external-link-line"></i>
+                                  </a>
+                                )}
+                                <button
+                                  type="button"
+                                  onClick={() => toggleToolFavorite(option.value)}
+                                  className={`h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center ${
+                                    option.favorite ? 'text-secondary-700 bg-secondary-100' : 'text-foreground-400 hover:text-secondary-700 hover:bg-background-50'
+                                  }`}
+                                  aria-label={option.favorite ? 'remove favorite' : 'add favorite'}
+                                >
+                                  <i className={option.favorite ? 'ri-star-fill' : 'ri-star-line'}></i>
+                                </button>
+                              </div>
+                            ))
+                          )}
+                        </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={l.href}
+                  to={l.href}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-foreground-700 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
+                >
+                  {t(l.key)}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3 ml-2">
@@ -320,16 +467,105 @@ export default function Navbar({ onOpenNotifications, unread }: NavbarProps) {
         {menuOpen && (
           <div className="lg:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
-              {navLinkKeys.map((l) => (
-                <Link
-                  key={l.href}
-                  to={l.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="py-2 text-sm font-medium text-foreground-800 hover:text-primary-600 cursor-pointer"
-                >
-                  {t(l.key)}
-                </Link>
-              ))}
+              {navLinkKeys.map((l) => {
+                if (l.key === 'nav_tools' && toolMenu) {
+                  return (
+                    <div key={l.href} className="py-1">
+                      <button
+                        type="button"
+                        onClick={() => setToolMenuOpen((open) => !open)}
+                        className="w-full py-2 text-sm font-semibold text-primary-700 cursor-pointer flex items-center justify-between"
+                      >
+                        <span>{t(l.key)}</span>
+                        <i className={`${toolMenuOpen ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'} text-base`}></i>
+                      </button>
+                      {toolMenuOpen && (
+                        <div className="mt-1 overflow-hidden rounded-lg border border-background-200 bg-background-50">
+                          <div className="flex border-b border-background-200 bg-background-100">
+                            <button
+                              type="button"
+                              onClick={() => setToolMenuTab('all')}
+                              className={`flex-1 px-3 py-2 text-sm font-semibold ${
+                                toolMenuTab === 'all' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600'
+                              }`}
+                            >
+                              {toolMenu.allLabel}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setToolMenuTab('favorites')}
+                              className={`flex-1 px-3 py-2 text-sm font-semibold ${
+                                toolMenuTab === 'favorites' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600'
+                              }`}
+                            >
+                              {toolMenu.favoritesLabel}
+                            </button>
+                          </div>
+                          <div className="py-1">
+                            {visibleToolOptions.length === 0 ? (
+                              <div className="px-3 py-3 text-sm text-foreground-500">{toolMenu.emptyFavoritesLabel}</div>
+                            ) : (
+                              visibleToolOptions.map((option) => (
+                                <div
+                                  key={option.value}
+                                  className={`flex items-center gap-1 px-1.5 py-1 ${
+                                    option.value === toolMenu.value
+                                      ? 'bg-primary-50 text-primary-700 font-semibold'
+                                      : 'text-foreground-800 hover:bg-background-100'
+                                  }`}
+                                >
+                                  <button
+                                    type="button"
+                                    onClick={() => selectTool(option.value)}
+                                    className="min-w-0 flex flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm cursor-pointer"
+                                  >
+                                    <i className={`${option.icon} text-base`}></i>
+                                    <span className="min-w-0 flex-1 truncate">{option.label}</span>
+                                  {option.value === toolMenu.value && <i className="ri-check-line text-primary-600"></i>}
+                                </button>
+                                  {option.externalHref && (
+                                    <a
+                                      href={option.externalHref}
+                                      target="_blank"
+                                      rel="nofollow noopener noreferrer"
+                                      className="h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center text-foreground-400 hover:text-primary-700 hover:bg-background-100"
+                                      aria-label={`open ${option.label}`}
+                                      title={`Open ${option.label}`}
+                                    >
+                                      <i className="ri-external-link-line"></i>
+                                    </a>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={() => toggleToolFavorite(option.value)}
+                                    className={`h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center ${
+                                      option.favorite ? 'text-secondary-700 bg-secondary-100' : 'text-foreground-400 hover:text-secondary-700 hover:bg-background-100'
+                                    }`}
+                                    aria-label={option.favorite ? 'remove favorite' : 'add favorite'}
+                                  >
+                                    <i className={option.favorite ? 'ri-star-fill' : 'ri-star-line'}></i>
+                                  </button>
+                                </div>
+                              ))
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="py-2 text-sm font-medium text-foreground-800 hover:text-primary-600 cursor-pointer"
+                  >
+                    {t(l.key)}
+                  </Link>
+                );
+              })}
               <div className="mt-3 pt-3 border-t border-background-200 flex flex-col gap-2">
                 <div className="text-xs text-foreground-500 flex items-center gap-1.5">
                   <i className="ri-leaf-fill text-primary-500 text-xs"></i>
