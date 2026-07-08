@@ -4,6 +4,7 @@ import { mapLocations, monsterImages } from '@/mocks/mapler-house';
 
 type MajorRegion = 'maple' | 'arcane' | 'grandis';
 type SortKey = 'level' | 'exp' | 'meso' | 'spawn' | 'name';
+type NavigatorNode = 'table' | MajorRegion;
 
 type MapLocation = {
   name: string;
@@ -21,6 +22,30 @@ type MapleStoryIoMap = {
   id: number;
   streetName: string;
   name: string;
+};
+
+type MapleStoryIoMobPlacement = {
+  id: number;
+};
+
+type MapleStoryIoMob = {
+  id: number;
+  name: string;
+  meta?: {
+    level?: number;
+    exp?: number;
+    maxHP?: number;
+  };
+};
+
+type MonsterVisual = {
+  key: string;
+  name: string;
+  icon: string;
+  mobId?: number;
+  level?: number;
+  exp?: number;
+  hp?: number;
 };
 
 type MapExpansionRule = {
@@ -45,12 +70,161 @@ type TableRow = MapLocation & {
   hoursLevel: number;
 };
 
+type MapLabel = { label: string; x: number; y: number; tone?: 'light' | 'dark' };
+type MapPin = { zone: string; x: number; y: number; count: number };
+type RootHotspot = { region: MajorRegion; label: string; x: number; y: number; width: number; height: number; note: string };
+
 const MAP_API_REGION = 'GMS';
 const MAP_API_VERSION = '253';
 const MAP_IMAGE_SOURCE = 'MapleStory.io GMS v253 map render';
-const MAPLEMAPS_TABLE_URL = 'https://maplemaps.net/map-table';
-const MAPLEMAPS_WORLD_URL = 'https://maplemaps.net/world-map/?worldMap=WorldMap&parentWorld=';
+
+const MAPLEMAPS_HOME_REGION_IMAGES = {
+  maple: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/maple_world_select.webp',
+  grandis: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/grandis_select.webp',
+  arcane: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/arcane_river_select.webp',
+} as const;
+
+const MAPLEMAPS_HOME_TABLE_IMAGE = 'https://d3uzjcc4cyf4cj.cloudfront.net/other/spreadsheet_light.PNG';
+
+type MaplemapsOverlay = {
+  id: string;
+  img: string;
+  leftPx: number;
+  topPx: number;
+  widthPx: number;
+  heightPx: number;
+};
+
+type MaplemapsWorldMapDef = {
+  worldMap: string;
+  parentWorld: string;
+  base: { src: string; width: number; height: number };
+  overlays: MaplemapsOverlay[];
+};
+
+type MaplemapsWorldMapLink = { linksTo: string; x: number; y: number };
+type MaplemapsWorldMapDot = {
+  description: string | null;
+  type: number;
+  x: number;
+  y: number;
+  mapNumbers: number[];
+  noTooltip?: boolean;
+};
+type MaplemapsWorldMapRemote = {
+  worldMapName: string;
+  parentWorld: string;
+  links: MaplemapsWorldMapLink[];
+  maps: MaplemapsWorldMapDot[];
+};
+
+type MaplemapsMapMeta = {
+  map_id: number;
+  name: string;
+  streetName: string;
+  parentWorld?: string;
+  worldMapName?: string;
+  avgLevel?: number;
+  mobIds?: number[];
+};
+
+async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arcane_river') {
+  const response = await fetch('https://v66rewn65j.execute-api.us-west-2.amazonaws.com/prod/fetch-mongodb', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ reqType: 'regionData', region }),
+  });
+  if (!response.ok) throw new Error(`Maplemaps world-map data failed: ${response.status}`);
+  return (await response.json()) as {
+    worldMapsData: Record<string, MaplemapsWorldMapRemote>;
+    mapsData: Record<string, MaplemapsMapMeta>;
+    mobsData: Record<string, unknown>;
+  };
+}
+
+const MAPLEMAPS_WORLDMAPS: Record<string, MaplemapsWorldMapDef> = {
+  WorldMap: {
+    worldMap: 'WorldMap',
+    parentWorld: '',
+    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap.webp?v=2', width: 640, height: 470 },
+    overlays: [
+      { id: 'WorldMap000', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap000.webp?v=1', leftPx: 118, topPx: 65, widthPx: 53, heightPx: 41 },
+      { id: 'WorldMap010', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap010.webp?v=1', leftPx: 21, topPx: 109, widthPx: 130, heightPx: 117 },
+      { id: 'WorldMap100', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap100.webp?v=1', leftPx: 19, topPx: 219, widthPx: 69, heightPx: 95 },
+      { id: 'WorldMap110', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap110.webp?v=1', leftPx: 442, topPx: 4, widthPx: 193, heightPx: 152 },
+      { id: 'WorldMap170', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap170a.webp?v=1', leftPx: 234, topPx: 395, widthPx: 105, heightPx: 77 },
+      { id: 'WorldMap160', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap160.webp?v=1', leftPx: 26, topPx: 51, widthPx: 101, heightPx: 67 },
+      { id: 'WorldMap020', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap020.webp?v=1', leftPx: 230, topPx: 120, widthPx: 269, heightPx: 217 },
+      { id: 'WorldMap030', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap030.webp?v=1', leftPx: 195, topPx: 229, widthPx: 144, heightPx: 113 },
+      { id: 'WorldMap040', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap040.webp?v=1', leftPx: 146, topPx: 161, widthPx: 95, heightPx: 74 },
+      { id: 'WorldMap050', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap050.webp?v=1', leftPx: 74, topPx: 218, widthPx: 214, heightPx: 245 },
+      { id: 'WorldMap060', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap060.webp?v=1', leftPx: 458, topPx: 203, widthPx: 165, heightPx: 224 },
+      { id: 'WorldMap070', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap070.webp?v=1', leftPx: 274, topPx: 314, widthPx: 219, heightPx: 156 },
+      { id: 'WorldMap080', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap080.webp?v=1', leftPx: 7, topPx: 318, widthPx: 128, heightPx: 127 },
+      { id: 'WorldMap090', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap090.webp?v=1', leftPx: 143, topPx: 83, widthPx: 98, heightPx: 89 },
+    ],
+  },
+  WorldMap160: {
+    worldMap: 'WorldMap160',
+    parentWorld: 'WorldMap',
+    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap160.webp?v=2', width: 640, height: 470 },
+    overlays: [
+      { id: 'WorldMap161', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap161.webp?v=1', leftPx: 146, topPx: 78, widthPx: 418, heightPx: 258 },
+      { id: 'WorldMap169', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap169.webp?v=1', leftPx: 26, topPx: 83, widthPx: 146, heightPx: 142 },
+      { id: 'WorldMap162', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap162.webp?v=1', leftPx: 465, topPx: 71, widthPx: 150, heightPx: 162 },
+      { id: 'WorldMap163', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap163.webp?v=1', leftPx: 51, topPx: 223, widthPx: 196, heightPx: 175 },
+    ],
+  },
+  WGWorldMap: {
+    worldMap: 'WGWorldMap',
+    parentWorld: 'GWorldMap',
+    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WGWorldMap.webp?v=2', width: 640, height: 470 },
+    overlays: [
+      { id: 'WorldMap230', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap230a.webp?v=1', leftPx: 82, topPx: 146, widthPx: 146, heightPx: 128 },
+      { id: 'WorldMap250', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap250.webp?v=1', leftPx: 209, topPx: 127, widthPx: 162, heightPx: 115 },
+      { id: 'WorldMap270', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap270a.webp?v=1', leftPx: 283, topPx: 30, widthPx: 107, heightPx: 119 },
+      { id: 'WorldMap300', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap300.webp?v=1', leftPx: 59, topPx: 51, widthPx: 150, heightPx: 84 },
+      { id: 'WorldMap310', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap310.webp?v=1', leftPx: 66, topPx: 318, widthPx: 194, heightPx: 125 },
+      { id: 'WorldMap320', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap320.webp?v=1', leftPx: 252, topPx: 237, widthPx: 133, heightPx: 119 },
+      { id: 'WorldMap350', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap350.webp?v=1', leftPx: 348, topPx: 193, widthPx: 112, heightPx: 95 },
+    ],
+  },
+  WorldMap082: {
+    worldMap: 'WorldMap082',
+    parentWorld: '',
+    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap082.webp?v=2', width: 640, height: 470 },
+    overlays: [
+      { id: 'WorldMap0821', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0821.webp?v=1', leftPx: 6, topPx: 6, widthPx: 177, heightPx: 183 },
+      { id: 'WorldMap0822', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0822.webp?v=1', leftPx: 34, topPx: 255, widthPx: 217, heightPx: 133 },
+      { id: 'WorldMap0823', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0823.webp?v=1', leftPx: 100, topPx: 123, widthPx: 218, heightPx: 166 },
+      { id: 'WorldMap0824', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0824.webp?v=1', leftPx: 255, topPx: 72, widthPx: 209, heightPx: 161 },
+      { id: 'WorldMap0825', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0825.webp?v=1', leftPx: 238, topPx: 224, widthPx: 181, heightPx: 182 },
+      { id: 'WorldMap0826', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0826.webp?v=1', leftPx: 388, topPx: 169, widthPx: 234, heightPx: 140 },
+      { id: 'WorldMap0827', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0827.webp?v=1', leftPx: 406, topPx: 21, widthPx: 206, heightPx: 175 },
+      { id: 'WorldMap0828', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0828.webp?v=1', leftPx: 170, topPx: 15, widthPx: 156, heightPx: 97 },
+      { id: 'WorldMap0829', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0829.webp?v=1', leftPx: 25, topPx: 356, widthPx: 132, heightPx: 93 },
+      { id: 'WorldMap082a', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap082a.webp?v=1', leftPx: 387, topPx: 281, widthPx: 152, heightPx: 113 },
+    ],
+  },
+};
+
+type WorldMapStackItem = { worldMap: string; parentWorld: string };
 const mapRender = (mapId: number) => `https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/map/${mapId}/render?showPortals=true&showLife=true`;
+const mobIcon = (mobId: number) => `https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/mob/${mobId}/icon`;
+
+const ACKNOWLEDGEMENTS = [
+  { label: 'WzComparerR2', detail: 'Map renders, skills data, icons', href: 'https://github.com/Kagamia/WzComparerR2' },
+  { label: 'MapleNecrocer', detail: 'Map renders', href: 'https://github.com/Elem8100/MapleNecrocer' },
+  { label: 'MapleStory.io', detail: 'Raw data, live map and mob assets', href: 'https://maplestory.io/' },
+  { label: 'StrategyWiki', detail: 'Exp and meso formulas', href: 'https://strategywiki.org/wiki/MapleStory' },
+];
+
+const ROOT_WORLD_IMAGE = 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap.webp?v=2';
+const ROOT_WORLD_HOTSPOTS: RootHotspot[] = [
+  { region: 'maple', label: 'Maple World', x: 26, y: 53, width: 28, height: 32, note: 'Victoria, Orbis, Ludibrium, Zipangu' },
+  { region: 'arcane', label: 'Arcane River', x: 72, y: 77, width: 20, height: 18, note: 'VJ, Chu Chu, Arcana, Limina' },
+  { region: 'grandis', label: 'Grandis', x: 77, y: 38, width: 22, height: 24, note: 'Cernium, Odium, Shangri-La, Carcion' },
+];
 
 const expandedMapRules: MapExpansionRule[] = [
   { street: 'Reverse City', minLevel: 205, maxLevel: 215, limit: 28, monsters: ['Reverse City Mob', 'Research Train Mob'] },
@@ -118,34 +292,43 @@ const regionOptions: Array<{ key: MajorRegion; label: string; hint: string }> = 
   { key: 'grandis', label: 'Grandis Region', hint: 'Lv. 260+ Sacred Force maps' },
 ];
 
-const regionShowcase: Record<MajorRegion, {
-  title: string;
-  hint: string;
-  badge: string;
-  fallback: string;
-  preferredZones: string[];
-}> = {
-  maple: {
-    title: 'Maple World',
-    hint: '经典地区与前中期练级路线',
-    badge: 'Lv. 1-259',
-    fallback: 'from-[#93d0e6] via-[#7db4e2] to-[#f5d284]',
-    preferredZones: ['Ludibrium', 'Leafre', 'Temple of Time', 'Orbis', 'El Nath'],
-  },
-  arcane: {
-    title: 'Arcane River',
-    hint: '五转后主线地图与 200+ 刷图区间',
-    badge: 'Lv. 200-259',
-    fallback: 'from-[#7c72df] via-[#5ab4db] to-[#75d9c4]',
-    preferredZones: ['Arcana', 'Lachelein', 'Moonbridge', 'Esfera', 'Chu Chu Island'],
-  },
-  grandis: {
-    title: 'Grandis',
-    hint: '260+ 圣地路线与后期练级区域',
-    badge: 'Lv. 260-300',
-    fallback: 'from-[#9fd8e9] via-[#8fb28f] to-[#f0c56c]',
-    preferredZones: ['Shangri-La', 'Cernium', 'Odium', 'Arteria', 'Carcion'],
-  },
+const worldMapLabels: Record<MajorRegion, MapLabel[]> = {
+  maple: [
+    { label: 'Maple Island', x: 22, y: 20 },
+    { label: 'Victoria Island', x: 15, y: 40, tone: 'light' },
+    { label: 'Orbis', x: 48, y: 30 },
+    { label: 'El Nath Mts.', x: 59, y: 39 },
+    { label: 'Ludus Lake', x: 43, y: 68 },
+    { label: 'Ossyria', x: 65, y: 60, tone: 'light' },
+    { label: 'Mu Lung Garden', x: 84, y: 63 },
+    { label: 'Nihal Desert', x: 64, y: 80 },
+    { label: 'Minar Forest', x: 31, y: 82 },
+    { label: 'Temple of Time', x: 13, y: 88 },
+    { label: 'Commerci', x: 9, y: 26 },
+    { label: 'Zipangu', x: 8, y: 16 },
+  ],
+  arcane: [
+    { label: 'Vanishing Journey', x: 18, y: 34 },
+    { label: 'Chu Chu Island', x: 35, y: 52 },
+    { label: 'Lachelein', x: 50, y: 34 },
+    { label: 'Arcana', x: 63, y: 55 },
+    { label: 'Morass', x: 75, y: 37 },
+    { label: 'Esfera', x: 82, y: 60 },
+    { label: 'Moonbridge', x: 38, y: 77 },
+    { label: 'Labyrinth', x: 56, y: 76 },
+    { label: 'Limina', x: 72, y: 78, tone: 'light' },
+  ],
+  grandis: [
+    { label: 'Cernium', x: 18, y: 33 },
+    { label: 'Burning Cernium', x: 29, y: 42 },
+    { label: 'Hotel Arcus', x: 44, y: 58 },
+    { label: 'Odium', x: 58, y: 41 },
+    { label: 'Shangri-La', x: 70, y: 54 },
+    { label: 'Arteria', x: 82, y: 34 },
+    { label: 'Carcion', x: 82, y: 70 },
+    { label: 'Tallahart', x: 50, y: 78 },
+    { label: 'Solerian', x: 36, y: 28 },
+  ],
 };
 
 const getZone = (name: string) => name.split('—')[0]?.trim() || name.split('-')[0]?.trim() || 'Other';
@@ -160,10 +343,59 @@ const getMajorRegion = (map: MapLocation): MajorRegion => {
   return 'maple';
 };
 
+const getZonePosition = (zone: string, region: MajorRegion, index: number): { x: number; y: number } => {
+  const normalized = zone.toLowerCase();
+  const known: Record<string, { x: number; y: number }> = {
+    commerci: { x: 9, y: 24 },
+    '天空之城': { x: 46, y: 26 },
+    '少林寺': { x: 90, y: 52 },
+    '倭城': { x: 12, y: 17 },
+    limina: { x: 72, y: 78 },
+    cernium: { x: 18, y: 33 },
+    'hotel arcus': { x: 44, y: 58 },
+    odium: { x: 58, y: 41 },
+    'shangri-la': { x: 70, y: 54 },
+    arteria: { x: 82, y: 34 },
+    solerian: { x: 36, y: 28 },
+    carsion: { x: 82, y: 70 },
+    carcion: { x: 82, y: 70 },
+    '카르시온': { x: 82, y: 70 },
+    'reverse city': { x: 22, y: 42 },
+    'yum yum island': { x: 39, y: 57 },
+    moonbridge: { x: 38, y: 77 },
+    'labyrinth of suffering': { x: 56, y: 76 },
+  };
+
+  const match = Object.entries(known).find(([key]) => normalized.includes(key.toLowerCase()) || zone.includes(key));
+  if (match) return match[1];
+
+  const label = worldMapLabels[region][index % worldMapLabels[region].length];
+  return { x: label.x, y: label.y };
+};
+
 const formatRate = (value: number) => {
   if (value >= 1000) return `${(value / 1000).toFixed(1)}T`;
   return `${Math.round(value)}B`;
 };
+
+const formatCompactStat = (value: number) => {
+  if (value >= 1_000_000_000) return `${(value / 1_000_000_000).toFixed(1)} B`;
+  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)} M`;
+  if (value >= 1_000) return `${(value / 1_000).toFixed(1)} K`;
+  return value.toLocaleString();
+};
+
+const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+const getLevelExpMultiplier = (characterLevel: number, mobLevel: number) => clamp(1.2 - Math.abs(characterLevel - mobLevel) * 0.02, 0.7, 1.2);
+const getLevelMesoMultiplier = (characterLevel: number, mobLevel: number) => clamp(1 - Math.abs(characterLevel - mobLevel) * 0.04, 0, 1);
+const hasRotationHelper = (row: TableRow) => row.majorRegion === 'arcane' || row.majorRegion === 'grandis';
+
+const fallbackMonsterVisuals = (monsters: string[]): MonsterVisual[] =>
+  monsters.map((monster) => ({
+    key: monster,
+    name: monster,
+    icon: monsterImages[monster] || '',
+  }));
 
 const monsterMarkerPositions = [
   { x: 10, y: 73 }, { x: 16, y: 36 }, { x: 23, y: 35 }, { x: 30, y: 48 },
@@ -207,21 +439,19 @@ const toRow = (map: MapLocation): TableRow => {
   };
 };
 
-const getPreferredRegionRow = (rows: TableRow[], region: MajorRegion) => {
-  const preferredZones = regionShowcase[region].preferredZones;
-  for (const zone of preferredZones) {
-    const match = rows.find((row) => row.majorRegion === region && row.zone.includes(zone));
-    if (match) return match;
-  }
-  return rows.find((row) => row.majorRegion === region);
-};
-
 export default function MapExplorer() {
   const { t } = useTranslation();
-  const [selectedRegion, setSelectedRegion] = useState<MajorRegion>('grandis');
+  const [selectedRegion, setSelectedRegion] = useState<MajorRegion>('maple');
+  const [navigatorNode, setNavigatorNode] = useState<NavigatorNode>('maple');
+  const [worldMapStack, setWorldMapStack] = useState<WorldMapStackItem[]>([{ worldMap: 'WorldMap', parentWorld: '' }]);
+  const [maplemapsWorldMapsData, setMaplemapsWorldMapsData] = useState<Record<string, MaplemapsWorldMapRemote>>({});
+  const [maplemapsMapsData, setMaplemapsMapsData] = useState<Record<string, MaplemapsMapMeta>>({});
+  const [loadedMaplemapsRegions, setLoadedMaplemapsRegions] = useState<Record<string, boolean>>({});
   const [selectedZone, setSelectedZone] = useState('all');
   const [query, setQuery] = useState('');
-  const [level, setLevel] = useState(280);
+  const [level, setLevel] = useState(275);
+  const [additionalExpPct, setAdditionalExpPct] = useState(0);
+  const [mesoObtainedPct, setMesoObtainedPct] = useState(0);
   const [showFrenzy, setShowFrenzy] = useState(false);
   const [personalRates, setPersonalRates] = useState(true);
   const [sortKey, setSortKey] = useState<SortKey>('level');
@@ -229,6 +459,9 @@ export default function MapExplorer() {
   const [expandedMaps, setExpandedMaps] = useState<MapLocation[]>([]);
   const [isLoadingExpandedMaps, setIsLoadingExpandedMaps] = useState(true);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
+  const [liveMonsterCache, setLiveMonsterCache] = useState<Record<number, MonsterVisual[]>>({});
+  const [isLoadingMonsterData, setIsLoadingMonsterData] = useState(false);
+  const [monsterDataError, setMonsterDataError] = useState<string | null>(null);
 
   useEffect(() => {
     let isActive = true;
@@ -265,16 +498,6 @@ export default function MapExplorer() {
   const rows = useMemo(() => allMaps.map(toRow), [allMaps]);
   const regionRows = useMemo(() => rows.filter((row) => row.majorRegion === selectedRegion), [rows, selectedRegion]);
   const zones = useMemo(() => ['all', ...Array.from(new Set(regionRows.map((row) => row.zone)))], [regionRows]);
-  const preferredZoneByRegion = useMemo<Record<MajorRegion, string>>(() => ({
-    maple: getPreferredRegionRow(rows, 'maple')?.zone || 'all',
-    arcane: getPreferredRegionRow(rows, 'arcane')?.zone || 'all',
-    grandis: getPreferredRegionRow(rows, 'grandis')?.zone || 'all',
-  }), [rows]);
-  const regionShowcaseRows = useMemo<Record<MajorRegion, TableRow | undefined>>(() => ({
-    maple: getPreferredRegionRow(rows, 'maple'),
-    arcane: getPreferredRegionRow(rows, 'arcane'),
-    grandis: getPreferredRegionRow(rows, 'grandis'),
-  }), [rows]);
 
   const filteredRows = useMemo(() => {
     const normalized = query.trim().toLowerCase();
@@ -311,13 +534,101 @@ export default function MapExplorer() {
     [filteredRows, selectedMapName],
   );
 
+  const currentWorldMap = navigatorNode !== 'table' ? worldMapStack[worldMapStack.length - 1]?.worldMap : null;
+  const currentWorldMapMapIds = useMemo(
+    () =>
+      currentWorldMap
+        ? Object.values(maplemapsMapsData)
+            .filter((entry) => entry.worldMapName === currentWorldMap)
+            .map((entry) => entry.map_id)
+            .filter((mapId) => Number.isFinite(mapId) && mapId > 0)
+        : [],
+    [currentWorldMap, maplemapsMapsData],
+  );
+
   useEffect(() => {
-    if (selectedZone !== 'all') return;
-    const preferredZone = preferredZoneByRegion[selectedRegion];
-    if (preferredZone && preferredZone !== 'all') {
-      setSelectedZone(preferredZone);
+    if (navigatorNode === 'table') return;
+    if (!currentWorldMapMapIds.length) return;
+
+    const selectedId = selectedMap?.mapId;
+    if (selectedId && currentWorldMapMapIds.includes(selectedId)) return;
+
+    const nextRow = rows.find((row) => currentWorldMapMapIds.includes(row.mapId));
+    if (nextRow) {
+      setSelectedMapName(nextRow.name);
     }
-  }, [preferredZoneByRegion, selectedRegion, selectedZone]);
+  }, [currentWorldMapMapIds, navigatorNode, rows, selectedMap]);
+
+  useEffect(() => {
+    let isActive = true;
+
+    if (!selectedMap?.mapId) {
+      setMonsterDataError(null);
+      setIsLoadingMonsterData(false);
+      return;
+    }
+
+    if (liveMonsterCache[selectedMap.mapId]?.length) {
+      setMonsterDataError(null);
+      setIsLoadingMonsterData(false);
+      return;
+    }
+
+    const loadLiveMonsters = async () => {
+      setIsLoadingMonsterData(true);
+      setMonsterDataError(null);
+
+      try {
+        const mapResponse = await fetch(`https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/map/${selectedMap.mapId}`);
+        if (!mapResponse.ok) throw new Error(`MapleStory.io map lookup failed: ${mapResponse.status}`);
+
+        const mapJson = (await mapResponse.json()) as { mobs?: MapleStoryIoMobPlacement[] };
+        const uniqueMobIds = Array.from(
+          new Set((mapJson.mobs || []).map((mob) => Number(mob.id)).filter((mobId) => Number.isFinite(mobId) && mobId > 0)),
+        ).slice(0, 12);
+
+        if (!uniqueMobIds.length) {
+          throw new Error('This map has no live mob data.');
+        }
+
+        const mobEntries = await Promise.all(
+          uniqueMobIds.map(async (mobId) => {
+            const mobResponse = await fetch(`https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/mob/${mobId}`);
+            if (!mobResponse.ok) throw new Error(`Mob lookup failed: ${mobResponse.status}`);
+            const mob = (await mobResponse.json()) as MapleStoryIoMob;
+            return {
+              key: `${mobId}`,
+              mobId,
+              name: mob.name || `Mob ${mobId}`,
+              icon: mobIcon(mobId),
+              level: mob.meta?.level,
+              exp: mob.meta?.exp,
+              hp: mob.meta?.maxHP,
+            } satisfies MonsterVisual;
+          }),
+        );
+
+        if (!isActive) return;
+        setLiveMonsterCache((current) => ({ ...current, [selectedMap.mapId]: mobEntries }));
+      } catch (error) {
+        if (!isActive) return;
+        setMonsterDataError(error instanceof Error ? error.message : 'Could not load live monster data');
+      } finally {
+        if (isActive) setIsLoadingMonsterData(false);
+      }
+    };
+
+    loadLiveMonsters();
+
+    return () => {
+      isActive = false;
+    };
+  }, [liveMonsterCache, selectedMap]);
+
+  const selectedMapMonsters = useMemo<MonsterVisual[]>(
+    () => (selectedMap ? liveMonsterCache[selectedMap.mapId] || fallbackMonsterVisuals(selectedMap.monsters) : []),
+    [liveMonsterCache, selectedMap],
+  );
 
   const selectRelativeMap = (direction: -1 | 1) => {
     if (filteredRows.length === 0) return;
@@ -327,265 +638,275 @@ export default function MapExplorer() {
     setSelectedMapName(filteredRows[nextIndex].name);
   };
 
+  const selectMapById = (mapId: number) => {
+    const row = rows.find((candidate) => candidate.mapId === mapId);
+    if (!row) return;
+    setSelectedMapName(row.name);
+  };
+
+  const mapPins = useMemo<MapPin[]>(
+    () =>
+      zones
+        .filter((zone) => zone !== 'all')
+        .map((zone, index) => {
+          const position = getZonePosition(zone, selectedRegion, index);
+          return {
+            zone,
+            x: position.x,
+            y: position.y,
+            count: regionRows.filter((row) => row.zone === zone).length,
+          };
+        }),
+    [regionRows, selectedRegion, zones],
+  );
+
+  const currentRegion = regionOptions.find((region) => region.key === selectedRegion) || regionOptions[0];
+
+  useEffect(() => {
+    const regionKey = navigatorNode === 'maple' ? 'maple_world' : navigatorNode === 'arcane' ? 'arcane_river' : navigatorNode === 'grandis' ? 'grandis' : null;
+    if (!regionKey) return;
+    if (loadedMaplemapsRegions[regionKey]) return;
+
+    let active = true;
+    (async () => {
+      try {
+        const payload = await fetchMaplemapsRegionData(regionKey);
+        if (!active) return;
+        setMaplemapsWorldMapsData((current) => ({ ...current, ...payload.worldMapsData }));
+        setMaplemapsMapsData((current) => ({ ...current, ...payload.mapsData }));
+        setLoadedMaplemapsRegions((current) => ({ ...current, [regionKey]: true }));
+      } catch (error) {
+        console.warn('[MapExplorer] Failed to load maplemaps world-map data', error);
+      }
+    })();
+
+    return () => {
+      active = false;
+    };
+  }, [loadedMaplemapsRegions, navigatorNode]);
+
+  const enterRegion = (region: MajorRegion) => {
+    setSelectedRegion(region);
+    setSelectedZone('all');
+    setSelectedMapName(null);
+    if (region === 'maple') setWorldMapStack([{ worldMap: 'WorldMap', parentWorld: '' }]);
+    if (region === 'arcane') setWorldMapStack([{ worldMap: 'WorldMap082', parentWorld: '' }]);
+    if (region === 'grandis') setWorldMapStack([{ worldMap: 'WGWorldMap', parentWorld: 'GWorldMap' }]);
+    setNavigatorNode(region);
+  };
+
+  const backToRoot = () => {
+    enterRegion(selectedRegion);
+  };
+
   return (
     <div className="space-y-4">
-      <section className="rounded-xl border border-background-200 bg-[#f5f3ee] shadow-sm">
-        <div className="grid grid-cols-1 gap-6 p-4 md:p-5 xl:grid-cols-[minmax(360px,42%)_minmax(0,1fr)]">
-          <aside className="space-y-4">
-            <div>
-              <div className="text-[13px] font-bold text-foreground-950">Select a Region:</div>
-              <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3 xl:grid-cols-3">
-                {(Object.keys(regionShowcase) as MajorRegion[]).map((regionKey) => {
-                  const config = regionShowcase[regionKey];
-                  const showcaseRow = regionShowcaseRows[regionKey];
-                  const isSelected = selectedRegion === regionKey;
-
-                  return (
-                    <button
-                      key={regionKey}
-                      type="button"
-                      onClick={() => {
-                        setSelectedRegion(regionKey);
-                        setSelectedZone(preferredZoneByRegion[regionKey] || 'all');
-                        setSelectedMapName(null);
-                      }}
-                      className={`group relative aspect-[0.62] overflow-hidden rounded-xl border text-left shadow-sm transition-all cursor-pointer ${
-                        isSelected
-                          ? 'border-primary-500 ring-2 ring-primary-300/70'
-                          : 'border-background-300 hover:-translate-y-0.5 hover:border-primary-300'
-                      }`}
-                    >
-                      {showcaseRow ? (
-                        <img
-                          src={showcaseRow.image}
-                          alt={config.title}
-                          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-[1.03]"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className={`absolute inset-0 bg-gradient-to-br ${config.fallback}`} />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/70" />
-                      <div className="absolute left-3 top-3 rounded-full bg-black/45 px-2.5 py-1 text-[10px] font-semibold text-white backdrop-blur-sm">
-                        {config.badge}
-                      </div>
-                      <div className="absolute inset-x-0 bottom-0 p-3 text-white">
-                        <div className="text-lg font-semibold drop-shadow-sm">{config.title}</div>
-                        <div className="mt-1 text-[11px] leading-4 text-white/90">{config.hint}</div>
-                      </div>
-                    </button>
-                  );
-                })}
+      <section className="rounded-lg border border-background-200 bg-background-50">
+        <div className="border-b border-background-200 bg-gradient-to-r from-primary-50 to-accent-50 p-4">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-1 rounded-full bg-background-50 px-2.5 py-1 text-[11px] font-bold text-primary-700">
+                <i className="ri-map-pin-line"></i>
+                Quick actions
               </div>
+              <h3 className="mt-2 font-heading text-lg font-semibold text-foreground-950">
+                World Map and Table View
+              </h3>
+              <p className="mt-1 text-sm leading-relaxed text-foreground-700">
+                所有交互都在本站内完成：左侧 World Map 下钻，右侧详情与收益计算；也可以切换到 Table View 表格模式浏览。
+              </p>
             </div>
-
-            <div className="rounded-xl border border-background-200 bg-background-50 p-4">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <div className="text-xs font-semibold uppercase tracking-wider text-foreground-500">
-                    {regionShowcase[selectedRegion].title}
-                  </div>
-                  <div className="mt-1 text-sm text-foreground-700">
-                    {regionShowcase[selectedRegion].hint}
-                  </div>
-                </div>
-                <a
-                  href={MAPLEMAPS_WORLD_URL}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  className="inline-flex h-9 items-center gap-1 rounded-md border border-background-200 bg-background-50 px-3 text-xs font-semibold text-foreground-700 hover:text-primary-700"
-                >
-                  世界地图
-                  <i className="ri-external-link-line"></i>
-                </a>
-              </div>
-
-              <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-                <MiniStat label="区域" value={String(zones.length - 1)} />
-                <MiniStat label="结果" value={String(filteredRows.length)} />
-                <MiniStat label="推荐" value={selectedMap ? selectedMap.mapName : '-'} />
-              </div>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedZone('all');
-                    setSelectedMapName(null);
-                  }}
-                  className={`rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer ${
-                    selectedZone === 'all'
-                      ? 'bg-primary-600 text-background-50'
-                      : 'border border-background-200 bg-background-50 text-foreground-700 hover:bg-primary-50'
-                  }`}
-                >
-                  全部地图
-                </button>
-                {zones.filter((zone) => zone !== 'all').slice(0, 8).map((zone) => (
-                  <button
-                    key={zone}
-                    type="button"
-                    onClick={() => {
-                      setSelectedZone(zone);
-                      setSelectedMapName(null);
-                    }}
-                    className={`rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer ${
-                      selectedZone === zone
-                        ? 'bg-secondary-600 text-background-50'
-                        : 'border border-background-200 bg-background-50 text-foreground-700 hover:bg-background-100'
-                    }`}
-                  >
-                    {zone}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] text-foreground-500">
-                <span className="rounded-full border border-background-200 bg-background-100 px-2 py-0.5">
-                  数据库 {allMaps.length} 张地图
-                </span>
-                {isLoadingExpandedMaps && (
-                  <span className="rounded-full border border-primary-200 bg-primary-50 px-2 py-0.5 text-primary-700">
-                    正在加载扩展地图...
-                  </span>
-                )}
-                {mapLoadError && (
-                  <span className="rounded-full border border-secondary-200 bg-secondary-50 px-2 py-0.5 text-secondary-800">
-                    在线地图列表加载失败，当前显示内置数据
-                  </span>
-                )}
-              </div>
+            <div className="flex flex-col sm:flex-row gap-2">
+              <button
+                type="button"
+                onClick={() => setNavigatorNode('table')}
+                className="h-11 px-5 rounded-md bg-primary-600 text-background-50 text-sm font-semibold hover:bg-primary-700 inline-flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <i className="ri-table-2"></i>
+                Table View
+              </button>
+              <button
+                type="button"
+                onClick={backToRoot}
+                className="h-11 px-4 rounded-md border border-background-200 bg-background-50 text-sm font-semibold text-foreground-800 hover:text-primary-700 inline-flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <i className="ri-global-line"></i>
+                World Map
+              </button>
             </div>
-          </aside>
+          </div>
+        </div>
 
-          <main className="min-w-0">
-            <div className="rounded-xl border border-background-200 bg-background-50 shadow-sm">
-              <div className="border-b border-background-200 px-4 py-3">
-                <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                  <div>
-                    <div className="text-[13px] font-bold text-foreground-950">Table View</div>
-                    <div className="mt-1 text-xs text-foreground-500">
-                      选择左侧地区后，在这里筛选地图、怪物和等级区间。
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1.3fr)_360px]">
+          <div className="min-w-0 border-b xl:border-b-0 xl:border-r border-background-200">
+            {navigatorNode === 'table' ? (
+              <>
+                <div className="border-b border-background-200 p-4">
+                  <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-foreground-500">Table View</div>
+                      <div className="mt-1 text-sm font-semibold text-foreground-950">Map Table / {currentRegion.label}</div>
+                      <p className="mt-1 text-xs text-foreground-500">
+                        表格模式：按数值排序，点开行内预览地图图像；右侧依然是本站内详情面板。
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => enterRegion(selectedRegion)}
+                        className="h-9 px-3 rounded-md border border-background-200 bg-background-100 text-xs font-semibold text-foreground-700 hover:bg-primary-50 cursor-pointer inline-flex items-center gap-1"
+                      >
+                        <i className="ri-global-line"></i>
+                        World Map
+                      </button>
                     </div>
                   </div>
-                  <a
-                    href={MAPLEMAPS_TABLE_URL}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
-                    className="inline-flex h-9 items-center gap-1 self-start rounded-md border border-background-200 bg-background-100 px-3 text-xs font-semibold text-foreground-700 hover:text-primary-700"
-                  >
-                    maplemaps.net
-                    <i className="ri-external-link-line"></i>
-                  </a>
-                </div>
-              </div>
 
-              <div className="border-b border-background-200 px-4 py-3">
-                <div className="flex flex-wrap items-center gap-4 text-xs text-foreground-700">
-                  <label className="inline-flex items-center gap-1.5 cursor-pointer">
-                    <input type="checkbox" checked={showFrenzy} onChange={(event) => setShowFrenzy(event.target.checked)} className="accent-primary-600" />
-                    显示 Frenzy 速率
-                  </label>
-                  <label className="inline-flex items-center gap-1.5 cursor-pointer">
-                    <input type="checkbox" checked={personalRates} onChange={(event) => setPersonalRates(event.target.checked)} className="accent-primary-600" />
-                    按角色等级修正收益
-                  </label>
-                  <span className="ml-auto text-foreground-500">
-                    {filteredRows.length === 1 ? t('mh_map_count_one', { count: filteredRows.length }) : t('mh_map_count_other', { count: filteredRows.length })}
-                  </span>
-                </div>
-
-                <div className="mt-3 grid grid-cols-1 gap-2 xl:grid-cols-[minmax(0,1.6fr)_170px_110px_170px_88px]">
-                  <div className="relative">
-                    <i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-foreground-400"></i>
-                    <input
-                      value={query}
-                      onChange={(event) => setQuery(event.target.value)}
-                      placeholder="搜索地图名称、区域或怪物..."
-                      className="h-10 w-full rounded-md border border-background-300 bg-background-50 pl-9 pr-3 text-sm outline-none focus:border-primary-500"
-                    />
-                  </div>
-                  <select
-                    value={selectedZone}
-                    onChange={(event) => {
-                      setSelectedZone(event.target.value);
-                      setSelectedMapName(null);
-                    }}
-                    className="h-10 rounded-md border border-background-300 bg-background-50 px-3 text-sm outline-none focus:border-primary-500"
-                  >
-                    {zones.map((zone) => (
-                      <option key={zone} value={zone}>
-                        {zone === 'all' ? '全部区域' : zone}
-                      </option>
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
+                    {regionOptions.map((region) => (
+                      <button
+                        key={region.key}
+                        type="button"
+                        onClick={() => enterRegion(region.key)}
+                        className={`h-8 px-3 rounded-md text-xs font-semibold cursor-pointer ${
+                          selectedRegion === region.key
+                            ? 'bg-primary-600 text-background-50'
+                            : 'bg-background-50 border border-background-200 text-foreground-700 hover:bg-primary-50'
+                        }`}
+                      >
+                        {region.label}
+                      </button>
                     ))}
-                  </select>
-                  <label className="flex items-center gap-2 rounded-md border border-background-300 bg-background-50 px-3">
-                    <span className="text-xs font-semibold text-foreground-500">等级</span>
-                    <input
-                      type="number"
-                      value={level}
-                      min={1}
-                      max={300}
-                      onChange={(event) => setLevel(Number(event.target.value) || 1)}
-                      className="h-9 min-w-0 flex-1 bg-transparent text-sm font-semibold outline-none"
-                    />
-                  </label>
-                  <select
-                    value={sortKey}
-                    onChange={(event) => setSortKey(event.target.value as SortKey)}
-                    className="h-10 rounded-md border border-background-300 bg-background-50 px-3 text-sm outline-none focus:border-primary-500"
-                  >
-                    <option value="level">按等级</option>
-                    <option value="exp">按经验/小时</option>
-                    <option value="meso">按金币/小时</option>
-                    <option value="spawn">按刷新量</option>
-                    <option value="name">按地图名</option>
-                  </select>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setQuery('');
-                      setSelectedZone('all');
-                      setLevel(280);
-                      setShowFrenzy(false);
-                      setPersonalRates(true);
-                      setSortKey('level');
-                      setSelectedMapName(null);
-                    }}
-                    className="h-10 rounded-md border border-background-300 bg-background-50 px-3 text-sm font-semibold text-foreground-700 hover:bg-background-100 cursor-pointer"
-                  >
-                    重置
-                  </button>
-                </div>
-              </div>
+                  </div>
 
-              <div className="px-4 pb-4">
-                <MapTable
-                  rows={filteredRows}
-                  selectedName={selectedMapName || undefined}
-                  onSelect={(name) => setSelectedMapName((current) => (current === name ? null : name))}
-                  onNavigate={selectRelativeMap}
-                  onCollapse={() => setSelectedMapName(null)}
+                  <div className="mt-4 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_140px_160px] gap-2">
+                    <div className="relative">
+                      <i className="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-foreground-400"></i>
+                      <input
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        placeholder="Filter by name, zone, or mob level"
+                        className="h-10 w-full rounded-md border border-background-300 bg-background-50 pl-9 pr-3 text-sm outline-none focus:border-primary-500"
+                      />
+                    </div>
+                    <label className="flex items-center gap-2 rounded-md border border-background-300 bg-background-50 px-3">
+                      <span className="text-xs font-semibold text-foreground-500">Level</span>
+                      <input
+                        type="number"
+                        value={level}
+                        min={1}
+                        max={300}
+                        onChange={(event) => setLevel(Number(event.target.value) || 1)}
+                        className="h-9 min-w-0 flex-1 bg-transparent text-sm font-semibold outline-none"
+                      />
+                    </label>
+                    <select
+                      value={sortKey}
+                      onChange={(event) => setSortKey(event.target.value as SortKey)}
+                      className="h-10 rounded-md border border-background-300 bg-background-50 px-3 text-sm outline-none focus:border-primary-500"
+                    >
+                      <option value="level">Sort: Level</option>
+                      <option value="exp">Sort: Exp/hr</option>
+                      <option value="meso">Sort: Meso/hr</option>
+                      <option value="spawn">Sort: Spawn</option>
+                      <option value="name">Sort: Map Name</option>
+                    </select>
+                  </div>
+
+                  <div className="mt-3 flex flex-wrap items-center gap-3 text-xs text-foreground-700">
+                    <label className="inline-flex items-center gap-1.5 cursor-pointer">
+                      <input type="checkbox" checked={showFrenzy} onChange={(event) => setShowFrenzy(event.target.checked)} className="accent-primary-600" />
+                      Show frenzy rates
+                    </label>
+                    <label className="inline-flex items-center gap-1.5 cursor-pointer">
+                      <input type="checkbox" checked={personalRates} onChange={(event) => setPersonalRates(event.target.checked)} className="accent-primary-600" />
+                      Personal rates based on character level
+                    </label>
+                    <span className="ml-auto text-foreground-500">
+                      {filteredRows.length === 1 ? t('mh_map_count_one', { count: filteredRows.length }) : t('mh_map_count_other', { count: filteredRows.length })}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-3 md:p-4">
+                  <MapTable
+                    rows={filteredRows}
+                    selectedName={selectedMapName || undefined}
+                    selectedMonsters={selectedMapMonsters}
+                    onSelect={(name) => setSelectedMapName((current) => (current === name ? null : name))}
+                    onNavigate={(direction) => selectRelativeMap(direction)}
+                    onCollapse={() => setSelectedMapName(null)}
+                  />
+                </div>
+              </>
+            ) : (
+              <div className="p-3 md:p-4">
+                <MaplemapsWorldMapPanel
+                  stack={worldMapStack}
+                  worldMapsData={maplemapsWorldMapsData}
+                  onNavigate={(next) => setWorldMapStack((current) => [...current, next])}
+                  onBack={() => setWorldMapStack((current) => (current.length > 1 ? current.slice(0, -1) : current))}
+                  onSelectMapId={(mapId) => selectMapById(mapId)}
                 />
               </div>
-            </div>
-          </main>
+            )}
+          </div>
+
+          <aside className="bg-background-100 p-3 md:p-4 xl:sticky xl:top-24 xl:h-fit">
+            {selectedMap ? (
+              <MapPreview
+                row={selectedMap}
+                monsters={selectedMapMonsters}
+                isLoadingMonsterData={isLoadingMonsterData}
+                monsterDataError={monsterDataError}
+                showFrenzy={showFrenzy}
+                personalRates={personalRates}
+                onChangeShowFrenzy={setShowFrenzy}
+                onChangePersonalRates={setPersonalRates}
+                characterLevel={level}
+                additionalExpPct={additionalExpPct}
+                mesoObtainedPct={mesoObtainedPct}
+                onChangeCharacterLevel={setLevel}
+                onChangeAdditionalExpPct={setAdditionalExpPct}
+                onChangeMesoObtainedPct={setMesoObtainedPct}
+                onBackToWorldMap={() => {
+                  backToRoot();
+                }}
+                onPrevious={() => selectRelativeMap(-1)}
+                onNext={() => selectRelativeMap(1)}
+              />
+            ) : (
+              <div className="rounded-md border border-dashed border-background-300 p-6 text-center text-sm text-foreground-500">
+                {t('mh_map_filter_empty')}
+              </div>
+            )}
+          </aside>
         </div>
 
-        <div className="border-t border-background-200 bg-background-100 px-4 py-3 text-xs leading-relaxed text-foreground-500">
-          Fan-made, non-commercial player tool. Map renders are provided through MapleStory.io using MapleStory game assets.
-          MapleStory and related assets belong to Nexon.
+        <div className="border-t border-background-200 bg-background-100 px-4 py-3 text-xs leading-relaxed text-foreground-500 space-y-2">
+          <p>
+            Fan-made, non-commercial player tool. Map renders and live monster assets are provided through MapleStory.io using MapleStory game assets.
+            MapleStory and related assets belong to Nexon.
+          </p>
+          <div>
+            <span className="font-semibold text-foreground-700">Acknowledgements:</span>{' '}
+            {ACKNOWLEDGEMENTS.map((item, index) => (
+              <Fragment key={item.label}>
+                {index > 0 ? <span className="text-foreground-400"> · </span> : null}
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                  className="text-primary-700 underline underline-offset-2 hover:text-primary-800"
+                >
+                  {item.label}
+                </a>
+                <span>{` — ${item.detail}`}</span>
+              </Fragment>
+            ))}
+          </div>
         </div>
       </section>
-    </div>
-  );
-}
-
-function MiniStat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-lg border border-background-200 bg-background-100 px-3 py-2">
-      <div className="text-[10px] uppercase tracking-wider text-foreground-500">{label}</div>
-      <div className="mt-1 truncate text-sm font-semibold text-foreground-950">{value}</div>
     </div>
   );
 }
@@ -593,12 +914,14 @@ function MiniStat({ label, value }: { label: string; value: string }) {
 function MapTable({
   rows,
   selectedName,
+  selectedMonsters,
   onSelect,
   onNavigate,
   onCollapse,
 }: {
   rows: TableRow[];
   selectedName?: string;
+  selectedMonsters: MonsterVisual[];
   onSelect: (name: string) => void;
   onNavigate: (direction: -1 | 1) => void;
   onCollapse: () => void;
@@ -616,16 +939,16 @@ function MapTable({
       <table className="w-full min-w-[980px] text-sm">
         <thead className="bg-background-100 text-xs text-foreground-600">
           <tr>
-            <th className="px-3 py-2 text-left">预览</th>
-            <th className="px-3 py-2 text-left">地图名</th>
-            <th className="px-3 py-2 text-left">区域</th>
-            <th className="px-3 py-2 text-left">怪物等级</th>
-            <th className="px-3 py-2 text-left">需求</th>
-            <th className="px-3 py-2 text-left">刷新量</th>
-            <th className="px-3 py-2 text-left">每轮容量</th>
-            <th className="px-3 py-2 text-left">经验/小时</th>
-            <th className="px-3 py-2 text-left">金币/小时</th>
-            <th className="px-3 py-2 text-left">升级耗时</th>
+            <th className="px-3 py-2 text-left">Image</th>
+            <th className="px-3 py-2 text-left">Map Name</th>
+            <th className="px-3 py-2 text-left">Region</th>
+            <th className="px-3 py-2 text-left">Mob Lvl</th>
+            <th className="px-3 py-2 text-left">Force</th>
+            <th className="px-3 py-2 text-left">Spawn</th>
+            <th className="px-3 py-2 text-left">Cap/gen</th>
+            <th className="px-3 py-2 text-left">Exp/hr</th>
+            <th className="px-3 py-2 text-left">Meso/hr</th>
+            <th className="px-3 py-2 text-left">Hours/lvl</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-background-200">
@@ -646,7 +969,7 @@ function MapTable({
                           ? 'border-primary-500 bg-primary-600 text-background-50'
                           : 'border-background-300 bg-background-50 text-primary-700 hover:bg-primary-50'
                       }`}
-                      title={isSelected ? '收起地图预览' : '查看地图预览'}
+                      title={isSelected ? 'Collapse map image' : 'View map image'}
                     >
                       <i className={isSelected ? 'ri-arrow-up-s-line' : 'ri-image-line'}></i>
                     </button>
@@ -668,6 +991,7 @@ function MapTable({
                 {isSelected && (
                   <ExpandedMapRow
                     row={row}
+                    monsters={selectedMonsters}
                     colSpan={10}
                     onPrevious={() => onNavigate(-1)}
                     onNext={() => onNavigate(1)}
@@ -685,12 +1009,14 @@ function MapTable({
 
 function ExpandedMapRow({
   row,
+  monsters,
   colSpan,
   onPrevious,
   onNext,
   onCollapse,
 }: {
   row: TableRow;
+  monsters: MonsterVisual[];
   colSpan: number;
   onPrevious: () => void;
   onNext: () => void;
@@ -698,6 +1024,7 @@ function ExpandedMapRow({
 }) {
   const mobsPerHour = row.spawn * 360;
   const instancedMobsPerHour = Math.round(mobsPerHour * 1.03);
+  const displayMonsters = monsters.length ? monsters : fallbackMonsterVisuals(row.monsters);
   const visibleMonsterCount = Math.min(monsterMarkerPositions.length, Math.max(12, row.spawn));
 
   return (
@@ -734,15 +1061,9 @@ function ExpandedMapRow({
               >
                 <i className="ri-arrow-up-s-line"></i>
               </button>
-              <a
-                href={MAPLEMAPS_TABLE_URL}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="mt-8 inline-flex max-w-[130px] items-center gap-2 text-sm font-semibold underline underline-offset-2 hover:text-primary-700"
-              >
+              <div className="mt-8 inline-flex max-w-[130px] items-center gap-2 text-sm font-semibold text-foreground-950">
                 <span className="truncate">{row.mapName}</span>
-                <i className="ri-external-link-line shrink-0 text-lg"></i>
-              </a>
+              </div>
               <dl className="mt-2 space-y-1 text-sm">
                 <div className="flex justify-between gap-3">
                   <dt>Avg Level:</dt>
@@ -763,21 +1084,21 @@ function ExpandedMapRow({
             </div>
 
             {Array.from({ length: visibleMonsterCount }).map((_, index) => {
-              const monster = row.monsters[index % row.monsters.length];
+              const monster = displayMonsters[index % displayMonsters.length];
               const position = monsterMarkerPositions[index % monsterMarkerPositions.length];
 
               return (
                 <div
-                  key={`${monster}-${index}`}
+                  key={`${monster.key}-${index}`}
                   className="absolute z-10 h-9 w-9 -translate-x-1/2 -translate-y-full drop-shadow-[0_3px_3px_rgba(0,0,0,.55)]"
                   style={{ left: `${position.x}%`, top: `${position.y}%` }}
-                  title={monster}
+                  title={monster.name}
                 >
-                  {monsterImages[monster] ? (
-                    <img src={monsterImages[monster]} alt={monster} className="h-full w-full rounded-full object-cover object-top" loading="lazy" />
+                  {monster.icon ? (
+                    <img src={monster.icon} alt={monster.name} className="h-full w-full object-contain" loading="lazy" />
                   ) : (
                     <div className="h-full w-full rounded-full bg-foreground-900 text-background-50 grid place-items-center text-xs font-bold">
-                      {monster.slice(0, 1)}
+                      {monster.name.slice(0, 1)}
                     </div>
                   )}
                 </div>
@@ -820,5 +1141,680 @@ function ExpandedMapRow({
         </div>
       </td>
     </tr>
+  );
+}
+
+function WorldMapPanel({
+  region,
+  pins,
+  selectedZone,
+  onSelectZone,
+}: {
+  region: MajorRegion;
+  pins: MapPin[];
+  selectedZone: string;
+  onSelectZone: (zone: string) => void;
+}) {
+  const title = regionOptions.find((item) => item.key === region)?.label || 'World Map';
+  const labels = worldMapLabels[region];
+  const regionTone = {
+    maple: {
+      sea: 'from-[#8dc8dc] via-[#9bc8d6] to-[#b7c2df]',
+      frame: '#4b3627',
+      title: 'Maple World',
+    },
+    arcane: {
+      sea: 'from-[#6763af] via-[#7fb8d8] to-[#9dd6c8]',
+      frame: '#3e315c',
+      title: 'Arcane River',
+    },
+    grandis: {
+      sea: 'from-[#d7b578] via-[#a9c8b6] to-[#93b8d6]',
+      frame: '#51422d',
+      title: 'Grandis',
+    },
+  }[region];
+
+  return (
+    <div className="rounded-md border border-background-200 bg-background-100 p-3 md:p-4">
+      <div className="mb-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+        <div>
+          <div className="text-sm font-semibold text-foreground-950">World Map</div>
+          <p className="text-xs text-foreground-500">Click a marker on the left map to switch the zone and browse exact maps below.</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => onSelectZone('all')}
+          className={`h-8 px-3 rounded-md text-xs font-semibold cursor-pointer ${
+            selectedZone === 'all' ? 'bg-primary-600 text-background-50' : 'bg-background-50 border border-background-200 text-foreground-700 hover:bg-primary-50'
+          }`}
+        >
+          Show All Maps
+        </button>
+      </div>
+
+      <div className="mx-auto max-w-5xl">
+        <div className={`relative aspect-[16/10] overflow-hidden rounded-md border border-background-300 bg-gradient-to-br ${regionTone.sea} shadow-inner`}>
+          <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <pattern id={`grid-${region}`} width="8" height="8" patternUnits="userSpaceOnUse">
+                <path d="M 8 0 L 0 0 0 8" fill="none" stroke="rgba(255,255,255,.18)" strokeWidth=".18" />
+              </pattern>
+              <filter id={`soft-shadow-${region}`} x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="1.5" stdDeviation="1.2" floodColor="rgba(44,30,17,.32)" />
+              </filter>
+              <radialGradient id={`green-land-${region}`} cx="45%" cy="35%" r="70%">
+                <stop offset="0%" stopColor="#cfe8a0" />
+                <stop offset="55%" stopColor="#8fb678" />
+                <stop offset="100%" stopColor="#547c57" />
+              </radialGradient>
+              <radialGradient id={`snow-land-${region}`} cx="50%" cy="40%" r="70%">
+                <stop offset="0%" stopColor="#f5f2f0" />
+                <stop offset="58%" stopColor="#d6d6df" />
+                <stop offset="100%" stopColor="#9da6b6" />
+              </radialGradient>
+              <radialGradient id={`desert-land-${region}`} cx="50%" cy="45%" r="70%">
+                <stop offset="0%" stopColor="#ead39b" />
+                <stop offset="60%" stopColor="#c69a61" />
+                <stop offset="100%" stopColor="#9b7145" />
+              </radialGradient>
+              <radialGradient id={`magic-land-${region}`} cx="50%" cy="45%" r="70%">
+                <stop offset="0%" stopColor="#d6c4f0" />
+                <stop offset="58%" stopColor="#9a8ed1" />
+                <stop offset="100%" stopColor="#5c5b99" />
+              </radialGradient>
+            </defs>
+            <rect width="100" height="56" fill="transparent" />
+            <rect width="100" height="56" fill={`url(#grid-${region})`} />
+            <path d="M3 5 H97 L95 52 H5 Z" fill="none" stroke={regionTone.frame} strokeWidth="1.25" />
+            <path d="M4.3 6.2 H95.7 L93.9 50.7 H6.1 Z" fill="none" stroke="rgba(255,255,255,.35)" strokeWidth=".3" />
+
+            <g opacity=".55">
+              <path d="M3 12 C10 6 16 9 20 5 C26 0 33 5 38 3" fill="none" stroke="rgba(255,255,255,.55)" strokeWidth="1.3" strokeLinecap="round" />
+              <path d="M68 6 C76 1 86 7 94 4" fill="none" stroke="rgba(255,255,255,.55)" strokeWidth="1.4" strokeLinecap="round" />
+              <path d="M75 50 C83 45 90 52 96 47" fill="none" stroke="rgba(255,255,255,.38)" strokeWidth="1.2" strokeLinecap="round" />
+            </g>
+
+            {region === 'maple' && (
+              <>
+                <path d="M8 21 C12 14 18 13 23 18 C29 24 30 34 25 40 C18 47 8 42 5 34 C2 28 4 24 8 21Z" fill={`url(#green-land-${region})`} stroke="#526f53" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M30 38 C36 30 47 26 57 30 C65 35 65 44 56 49 C46 55 32 52 28 45 C26 42 27 40 30 38Z" fill={`url(#green-land-${region})`} stroke="#526f53" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M57 16 C66 9 81 9 91 19 C85 27 67 28 56 23 C52 21 53 18 57 16Z" fill="#b8ce8b" stroke="#7e8756" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M56 31 C67 25 84 27 92 36 C84 46 66 48 55 40 C51 36 52 33 56 31Z" fill={`url(#desert-land-${region})`} stroke="#91754e" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M36 13 C43 8 52 11 55 18 C50 24 39 24 34 18 C32 16 33 14 36 13Z" fill={`url(#snow-land-${region})`} stroke="#a5a3a5" strokeWidth=".7" filter={`url(#soft-shadow-${region})`} />
+                <path d="M35 41 C42 36 50 37 55 43 C50 49 40 48 34 44Z" fill="#d5e77f" stroke="#849b48" strokeWidth=".7" filter={`url(#soft-shadow-${region})`} />
+                <path d="M9 24 l2 -2 l1.5 4 l1.5 -5 l2 6 l1.5 -4 l2.5 5" fill="none" stroke="#355e35" strokeWidth=".75" />
+                <path d="M31 45 C38 41 48 41 55 45" fill="none" stroke="#4f8a43" strokeWidth=".9" />
+                <path d="M61 20 l2 -4 l2 5 l2 -4 l2 5" fill="none" stroke="#6e7948" strokeWidth=".8" />
+                <path d="M63 36 C68 34 76 34 82 37" fill="none" stroke="#b67b42" strokeWidth=".9" />
+              </>
+            )}
+            {region === 'arcane' && (
+              <>
+                <path d="M8 29 C15 16 31 16 38 28 C31 40 17 42 8 35Z" fill="#9ed18b" stroke="#4f7d45" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M33 17 C46 7 63 15 65 29 C54 36 39 33 33 24Z" fill={`url(#magic-land-${region})`} stroke="#6750a0" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M58 31 C69 22 88 27 93 39 C83 50 67 49 58 40Z" fill="#8ad1d3" stroke="#477d84" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M32 40 C46 34 61 36 74 44 C65 53 44 54 32 47Z" fill="#6570b8" stroke="#383e78" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M41 21 C45 18 52 18 58 21" fill="none" stroke="rgba(255,255,255,.58)" strokeWidth=".8" />
+                <path d="M62 38 C69 35 80 37 88 40" fill="none" stroke="#4f9ca5" strokeWidth=".8" />
+              </>
+            )}
+            {region === 'grandis' && (
+              <>
+                <path d="M8 16 C24 7 41 12 46 27 C34 36 17 33 7 25Z" fill={`url(#desert-land-${region})`} stroke="#8b7442" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M38 31 C48 18 66 19 73 31 C65 45 48 46 38 38Z" fill="#a8bbdc" stroke="#556b8e" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M66 15 C78 8 93 15 95 29 C85 36 72 34 64 25Z" fill="#97c981" stroke="#4f7d45" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M61 38 C74 33 91 39 94 49 C82 55 68 53 60 46Z" fill="#e0d0a1" stroke="#8b7442" strokeWidth=".75" filter={`url(#soft-shadow-${region})`} />
+                <path d="M22 34 C32 29 43 34 44 44 C35 50 23 47 20 41Z" fill="#e6d46f" stroke="#9b8736" strokeWidth=".7" filter={`url(#soft-shadow-${region})`} />
+                <path d="M15 22 C23 18 33 20 41 26" fill="none" stroke="#a6783d" strokeWidth=".9" />
+                <path d="M67 24 C75 21 84 24 91 28" fill="none" stroke="#5a8b51" strokeWidth=".85" />
+                <path d="M66 45 C74 41 84 44 91 48" fill="none" stroke="#b28d57" strokeWidth=".85" />
+              </>
+            )}
+          </svg>
+
+          <div className="absolute left-1/2 top-5 z-20 -translate-x-1/2 rounded-md border border-[#8b5f30] bg-[#e7c57a] px-5 py-2 text-center shadow-md">
+            <div className="font-heading text-lg font-semibold text-[#5a3518]">{regionTone.title || title.replace(' Region', '')}</div>
+          </div>
+
+          {labels.map((label) => (
+            <div
+              key={label.label}
+              className={`absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-sm border px-2 py-0.5 text-[10px] font-bold shadow-sm ${
+                label.tone === 'light'
+                  ? 'border-background-50/40 bg-foreground-800/80 text-background-50'
+                  : 'border-[#8b5f30]/70 bg-[#f8dfaa]/95 text-[#5a3518]'
+              }`}
+              style={{ left: `${label.x}%`, top: `${label.y}%` }}
+            >
+              {label.label}
+            </div>
+          ))}
+
+          {pins.map((pin) => (
+            <button
+              key={pin.zone}
+              type="button"
+              onClick={() => onSelectZone(pin.zone)}
+              className={`absolute z-20 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background-50 shadow-md cursor-pointer ${
+                selectedZone === pin.zone ? 'bg-secondary-500 ring-4 ring-secondary-300/50' : 'bg-primary-500 hover:bg-primary-600'
+              }`}
+              style={{ left: `${Math.min(96, pin.x + 2)}%`, top: `${Math.max(7, pin.y - 1.8)}%` }}
+              title={`${pin.zone} (${pin.count})`}
+              aria-label={`${pin.zone} map marker`}
+            >
+              <span className="sr-only">{pin.zone}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WorldMapNavigatorRoot({
+  rows,
+  onEnterRegion,
+}: {
+  rows: TableRow[];
+  onEnterRegion: (region: MajorRegion) => void;
+}) {
+  const counts = regionOptions.reduce<Record<MajorRegion, number>>(
+    (acc, region) => {
+      acc[region.key] = rows.filter((row) => row.majorRegion === region.key).length;
+      return acc;
+    },
+    { maple: 0, arcane: 0, grandis: 0 },
+  );
+
+  return (
+    <div className="p-4">
+      <section className="rounded-md border border-background-200 bg-background-100 p-4">
+        <h1 className="text-lg font-semibold text-foreground-950">Select a Region:</h1>
+        <div className="mt-4 grid grid-cols-3 gap-3">
+          <button
+            type="button"
+            onClick={() => onEnterRegion('maple')}
+            className="group rounded-md border border-background-200 bg-background-50 overflow-hidden hover:border-primary-300 cursor-pointer"
+            aria-label="Link to Maple World Region"
+          >
+            <img src={MAPLEMAPS_HOME_REGION_IMAGES.maple} alt="Maple World Region" className="w-full h-40 object-cover" loading="lazy" />
+            <div className="p-2 text-xs font-semibold text-foreground-800 flex items-center justify-between">
+              <span>Maple World</span>
+              <span className="text-foreground-500">{counts.maple}</span>
+            </div>
+          </button>
+          <button
+            type="button"
+            onClick={() => onEnterRegion('grandis')}
+            className="group rounded-md border border-background-200 bg-background-50 overflow-hidden hover:border-primary-300 cursor-pointer"
+            aria-label="Link to Grandis Region"
+          >
+            <img src={MAPLEMAPS_HOME_REGION_IMAGES.grandis} alt="Grandis Region" className="w-full h-40 object-cover" loading="lazy" />
+            <div className="p-2 text-xs font-semibold text-foreground-800 flex items-center justify-between">
+              <span>Grandis</span>
+              <span className="text-foreground-500">{counts.grandis}</span>
+            </div>
+          </button>
+          <button
+            type="button"
+            onClick={() => onEnterRegion('arcane')}
+            className="group rounded-md border border-background-200 bg-background-50 overflow-hidden hover:border-primary-300 cursor-pointer"
+            aria-label="Link to Arcane River Region"
+          >
+            <img src={MAPLEMAPS_HOME_REGION_IMAGES.arcane} alt="Arcane River Region" className="w-full h-40 object-cover" loading="lazy" />
+            <div className="p-2 text-xs font-semibold text-foreground-800 flex items-center justify-between">
+              <span>Arcane River</span>
+              <span className="text-foreground-500">{counts.arcane}</span>
+            </div>
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function MaplemapsWorldMapPanel({
+  stack,
+  worldMapsData,
+  onNavigate,
+  onBack,
+  onSelectMapId,
+}: {
+  stack: WorldMapStackItem[];
+  worldMapsData: Record<string, MaplemapsWorldMapRemote>;
+  onNavigate: (next: WorldMapStackItem) => void;
+  onBack: () => void;
+  onSelectMapId: (mapId: number) => void;
+}) {
+  const current = stack[stack.length - 1];
+  const remote = worldMapsData[current.worldMap];
+  const def = MAPLEMAPS_WORLDMAPS[current.worldMap];
+  const base = def?.base || {
+    src: `https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/${current.worldMap}.webp?v=2`,
+    width: 640,
+    height: 470,
+  };
+  const overlays = def?.overlays || [];
+  const linkDots = remote?.links || [];
+  const mapDots = remote?.maps || [];
+
+  return (
+    <div className="rounded-md border border-background-200 bg-background-100 p-3 md:p-4">
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <div>
+          <div className="text-sm font-semibold text-foreground-950">World Map</div>
+          <p className="text-xs text-foreground-500">{current.parentWorld ? `${current.parentWorld} / ` : ''}{current.worldMap}</p>
+        </div>
+        <button
+          type="button"
+          onClick={onBack}
+          disabled={stack.length <= 1}
+          className="h-8 px-3 rounded-md border border-background-200 bg-background-50 text-xs font-semibold text-foreground-700 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer inline-flex items-center gap-1"
+        >
+          <i className="ri-arrow-left-line"></i>
+          Back
+        </button>
+      </div>
+
+      <div className="relative overflow-hidden rounded-md border border-background-300 bg-[#d9eefb] shadow-inner" style={{ aspectRatio: `${base.width} / ${base.height}` }}>
+        <img src={base.src} alt={`World map image: ${current.worldMap}`} className="absolute inset-0 h-full w-full object-contain" loading="lazy" />
+
+        {overlays.map((overlay) => {
+          const left = (overlay.leftPx / base.width) * 100;
+          const top = (overlay.topPx / base.height) * 100;
+          const width = (overlay.widthPx / base.width) * 100;
+          const height = (overlay.heightPx / base.height) * 100;
+          return (
+            <button
+              key={overlay.id}
+              type="button"
+              onClick={() => onNavigate({ worldMap: overlay.id, parentWorld: current.worldMap })}
+              className="absolute opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
+              style={{ left: `${left}%`, top: `${top}%`, width: `${width}%`, height: `${height}%` }}
+              aria-label={`Enter ${overlay.id}`}
+              title={overlay.id}
+            >
+              <img src={overlay.img} alt={overlay.id} className="h-full w-full object-contain" loading="lazy" />
+            </button>
+          );
+        })}
+
+        {overlays.length === 0 && linkDots.map((link) => {
+          const left = ((base.width / 2 + link.x) / base.width) * 100;
+          const top = ((base.height / 2 + link.y) / base.height) * 100;
+          return (
+            <button
+              key={`${current.worldMap}-link-${link.linksTo}`}
+              type="button"
+              onClick={() => onNavigate({ worldMap: link.linksTo, parentWorld: current.worldMap })}
+              className="absolute z-10 -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-transform cursor-pointer"
+              style={{ left: `${left}%`, top: `${top}%` }}
+              aria-label={`Enter ${link.linksTo}`}
+              title={link.linksTo}
+            >
+              <img
+                src="https://d3uzjcc4cyf4cj.cloudfront.net/dots/3.png"
+                alt=""
+                className="h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"
+                loading="lazy"
+              />
+            </button>
+          );
+        })}
+
+        {mapDots.map((dot, index) => {
+          const left = ((base.width / 2 + dot.x) / base.width) * 100;
+          const top = ((base.height / 2 + dot.y) / base.height) * 100;
+          const clickable = Boolean(dot.mapNumbers?.length) && !dot.noTooltip;
+          const mapId = dot.mapNumbers?.[0];
+          const dotImg = `https://d3uzjcc4cyf4cj.cloudfront.net/dots/${dot.type}.png`;
+
+          if (!clickable || !mapId) {
+            return (
+              <img
+                key={`${current.worldMap}-dot-${index}`}
+                src={dotImg}
+                alt=""
+                className="absolute z-10 h-5 w-5 -translate-x-1/2 -translate-y-1/2 p-1.5"
+                style={{ left: `${left}%`, top: `${top}%` }}
+                loading="lazy"
+              />
+            );
+          }
+
+          return (
+            <button
+              key={`${current.worldMap}-dot-${index}`}
+              type="button"
+              onClick={() => onSelectMapId(mapId)}
+              className="absolute z-20 -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-transform cursor-pointer"
+              style={{ left: `${left}%`, top: `${top}%` }}
+              aria-label={`Open map ${mapId}`}
+              title={dot.description || String(mapId)}
+            >
+              <img
+                src={dotImg}
+                alt="World Map Dot"
+                className="h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"
+                loading="lazy"
+              />
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MapBrowserList({
+  rows,
+  selectedName,
+  onSelect,
+}: {
+  rows: TableRow[];
+  selectedName?: string;
+  onSelect: (name: string) => void;
+}) {
+  if (rows.length === 0) {
+    return (
+      <div className="rounded-md border border-dashed border-background-300 bg-background-100 p-10 text-center text-sm text-foreground-500">
+        No maps match the current filters.
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3">
+      <div className="flex items-center justify-between gap-2">
+        <div>
+          <div className="text-sm font-semibold text-foreground-950">Map Browser</div>
+          <p className="text-xs text-foreground-500">Select a map card to update the detail panel on the right.</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {rows.map((row) => {
+          const isSelected = selectedName === row.name;
+          return (
+            <button
+              key={row.name}
+              type="button"
+              onClick={() => onSelect(row.name)}
+              className={`overflow-hidden rounded-md border text-left transition-colors cursor-pointer ${
+                isSelected
+                  ? 'border-primary-500 bg-primary-50 shadow-[0_0_0_1px_rgba(59,130,246,.14)]'
+                  : 'border-background-200 bg-background-50 hover:border-primary-300'
+              }`}
+            >
+              <div className="relative h-36 bg-foreground-950">
+                <img src={row.image} alt={row.name} className="h-full w-full object-cover object-center opacity-90" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+                <div className="absolute left-3 top-3 rounded-full bg-background-50/95 px-2 py-1 text-[10px] font-bold text-foreground-800">
+                  {row.forceLabel}
+                </div>
+                <div className="absolute left-3 right-3 bottom-3">
+                  <div className="font-semibold text-background-50">{row.mapName}</div>
+                  <div className="text-xs text-background-100/90">{row.zone}</div>
+                </div>
+              </div>
+              <div className="grid grid-cols-4 gap-2 p-3 text-[11px] text-foreground-600">
+                <div>
+                  <div className="uppercase text-foreground-400">Mob</div>
+                  <div className="mt-1 font-semibold text-foreground-900">{row.avgLevel}</div>
+                </div>
+                <div>
+                  <div className="uppercase text-foreground-400">Spawn</div>
+                  <div className="mt-1 font-semibold text-foreground-900">{row.spawn}</div>
+                </div>
+                <div>
+                  <div className="uppercase text-foreground-400">Exp/hr</div>
+                  <div className="mt-1 font-semibold text-primary-700">{formatRate(row.expHour)}</div>
+                </div>
+                <div>
+                  <div className="uppercase text-foreground-400">Meso/hr</div>
+                  <div className="mt-1 font-semibold text-foreground-900">{formatRate(row.mesoHour)}</div>
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MapPreview({
+  row,
+  monsters,
+  isLoadingMonsterData,
+  monsterDataError,
+  showFrenzy,
+  personalRates,
+  onChangeShowFrenzy,
+  onChangePersonalRates,
+  characterLevel,
+  additionalExpPct,
+  mesoObtainedPct,
+  onChangeCharacterLevel,
+  onChangeAdditionalExpPct,
+  onChangeMesoObtainedPct,
+  onBackToWorldMap,
+  onPrevious,
+  onNext,
+}: {
+  row: TableRow;
+  monsters: MonsterVisual[];
+  isLoadingMonsterData: boolean;
+  monsterDataError: string | null;
+  showFrenzy: boolean;
+  personalRates: boolean;
+  onChangeShowFrenzy: (value: boolean) => void;
+  onChangePersonalRates: (value: boolean) => void;
+  characterLevel: number;
+  additionalExpPct: number;
+  mesoObtainedPct: number;
+  onChangeCharacterLevel: (value: number) => void;
+  onChangeAdditionalExpPct: (value: number) => void;
+  onChangeMesoObtainedPct: (value: number) => void;
+  onBackToWorldMap: () => void;
+  onPrevious: () => void;
+  onNext: () => void;
+}) {
+  const mobLevels = monsters.map((monster) => monster.level).filter((value): value is number => typeof value === 'number');
+  const mobExps = monsters.map((monster) => monster.exp).filter((value): value is number => typeof value === 'number');
+  const mobHps = monsters.map((monster) => monster.hp).filter((value): value is number => typeof value === 'number');
+  const averageMobLevel = mobLevels.length ? Math.round(mobLevels.reduce((sum, value) => sum + value, 0) / mobLevels.length) : row.avgLevel;
+  const averageMobExp = mobExps.length ? Math.round(mobExps.reduce((sum, value) => sum + value, 0) / mobExps.length) : Math.round(row.expHour / Math.max(row.spawn * 480, 1));
+  const averageMobHp = mobHps.length ? Math.round(mobHps.reduce((sum, value) => sum + value, 0) / mobHps.length) : 0;
+
+  const baseCapacity = row.capPerGen;
+  const spawnPoints = row.spawn;
+  const baseMobsPerHour = 480 * baseCapacity;
+  const instancedMobsPerHour = 480 * Math.min(baseCapacity + 1, spawnPoints);
+  const frenzyMobsPerHour = 1666 * Math.min(Math.round(baseCapacity * 1.7), spawnPoints, 49);
+  const baseExpPerHour = averageMobExp * baseMobsPerHour;
+  const activeMobsPerHour = showFrenzy ? frenzyMobsPerHour : baseMobsPerHour;
+  const activeExpPerHour = averageMobExp * activeMobsPerHour;
+  const activeMesoPerHour = Math.round(7.5 * activeMobsPerHour * averageMobLevel);
+  const levelExpMulti = getLevelExpMultiplier(characterLevel, averageMobLevel);
+  const levelMesoMulti = getLevelMesoMultiplier(characterLevel, averageMobLevel);
+  const extraExpMulti = 1 + additionalExpPct / 100;
+  const extraMesoMulti = 1 + mesoObtainedPct / 100;
+  const personalMobsPerHour = personalRates ? activeMobsPerHour : baseMobsPerHour;
+  const personalExpPerHour = Math.round(personalMobsPerHour * averageMobExp * levelExpMulti * extraExpMulti);
+  const personalMesoPerHour = Math.round(7.5 * personalMobsPerHour * averageMobLevel * levelMesoMulti * extraMesoMulti);
+
+  return (
+    <div className="space-y-4">
+      <div className="rounded-md border border-background-200 bg-background-50 p-3">
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={onBackToWorldMap}
+            className="h-8 px-3 rounded-md border border-background-200 bg-background-100 text-xs font-semibold text-foreground-700 hover:bg-primary-50 cursor-pointer inline-flex items-center gap-1"
+          >
+            <i className="ri-arrow-left-line"></i>
+            Back to World Map
+          </button>
+          {hasRotationHelper(row) && (
+            <button
+              type="button"
+              onClick={() => {
+                // TODO: 站内 Rotation Helper（对齐 maplemaps 功能）
+                onChangePersonalRates(true);
+              }}
+              className="h-8 px-3 rounded-md border border-background-200 bg-background-100 text-xs font-semibold text-foreground-700 hover:bg-primary-50 cursor-pointer inline-flex items-center gap-1"
+              aria-label="Rotation Helper (coming soon)"
+            >
+              Rotation Helper
+              <i className="ri-tools-line"></i>
+            </button>
+          )}
+          <div className="ml-auto flex items-center gap-1">
+            <button
+              type="button"
+              onClick={onPrevious}
+              className="h-8 w-8 rounded-md border border-background-200 bg-background-100 text-foreground-700 hover:bg-primary-50 cursor-pointer"
+              aria-label="Previous map"
+            >
+              <i className="ri-arrow-left-s-line"></i>
+            </button>
+            <button
+              type="button"
+              onClick={onNext}
+              className="h-8 w-8 rounded-md border border-background-200 bg-background-100 text-foreground-700 hover:bg-primary-50 cursor-pointer"
+              aria-label="Next map"
+            >
+              <i className="ri-arrow-right-s-line"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div className="text-[11px] font-bold uppercase tracking-wider text-foreground-500">{row.zone}</div>
+        <h3 className="mt-1 font-heading text-lg font-semibold text-foreground-950">{row.mapName}</h3>
+      </div>
+
+      <img src={row.image} alt={row.name} className="w-full rounded-md border border-background-200 object-cover object-center" loading="lazy" />
+
+      {'imageSource' in row && (
+        <div className="rounded-md border border-background-200 bg-background-50 px-2 py-1 text-[10px] font-semibold text-foreground-500">
+          {row.imageSource}
+        </div>
+      )}
+
+      <section className="rounded-md border border-background-200 bg-background-50 p-3">
+        <div className="text-sm font-semibold text-foreground-950">Monsters</div>
+        {isLoadingMonsterData && (
+          <div className="mt-2 rounded-md border border-primary-200 bg-primary-50 px-2 py-1 text-[10px] font-semibold text-primary-700">
+            Loading live monster sprites...
+          </div>
+        )}
+        {monsterDataError && (
+          <div className="mt-2 rounded-md border border-secondary-200 bg-secondary-50 px-2 py-1 text-[10px] font-semibold text-secondary-800">
+            Live monster data unavailable, showing local fallback names.
+          </div>
+        )}
+        <div className="mt-3 space-y-2">
+          {monsters.map((monster) => (
+            <div key={monster.key} className="rounded-md border border-background-200 bg-background-100 p-3">
+              <div className="flex items-center gap-3">
+                {monster.icon ? (
+                  <img src={monster.icon} alt={monster.name} className="h-10 w-10 object-contain shrink-0" loading="lazy" />
+                ) : null}
+                <div className="min-w-0 flex-1">
+                  <div className="font-semibold text-foreground-900">{monster.name}</div>
+                  <div className="mt-1 grid grid-cols-3 gap-2 text-[11px] text-foreground-600">
+                    <span>Level: {monster.level?.toLocaleString() || row.avgLevel}</span>
+                    <span>Exp: {monster.exp ? formatCompactStat(monster.exp) : '—'}</span>
+                    <span>HP: {monster.hp ? formatCompactStat(monster.hp) : '—'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="rounded-md border border-background-200 bg-background-50 p-3">
+        <div className="flex items-center justify-between gap-2">
+          <div className="text-sm font-semibold text-foreground-950">Base Rates</div>
+          <label className="inline-flex items-center gap-1.5 text-xs text-foreground-600 cursor-pointer">
+            <input type="checkbox" checked={showFrenzy} onChange={(event) => onChangeShowFrenzy(event.target.checked)} className="accent-primary-600" />
+            Show frenzy rates
+          </label>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+          <Stat label="Exp/hr" value={formatRate(activeExpPerHour / 1_000_000)} />
+          <Stat label="Meso/hr" value={formatCompactStat(activeMesoPerHour)} />
+          <Stat label="Mobs/hr" value={activeMobsPerHour.toLocaleString()} />
+          <Stat label="Capacity/gen" value={baseCapacity.toLocaleString()} />
+          <Stat label="Instanced" value={instancedMobsPerHour.toLocaleString()} />
+          <Stat label="Spawn Points" value={spawnPoints.toLocaleString()} />
+          <Stat label={row.majorRegion === 'grandis' ? 'Sacred Force' : row.majorRegion === 'arcane' ? 'Arcane Force' : 'Force'} value={row.forceLabel} />
+          <Stat label="Base Exp/hr" value={formatRate(baseExpPerHour / 1_000_000)} />
+        </div>
+      </section>
+
+      <section className="rounded-md border border-background-200 bg-background-50 p-3">
+        <div className="text-sm font-semibold text-foreground-950">Personal Rates</div>
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <label className="rounded-md border border-background-200 bg-background-100 px-3 py-2">
+            <span className="text-[10px] uppercase text-foreground-500">Character Level</span>
+            <input
+              type="number"
+              value={characterLevel}
+              min={1}
+              max={300}
+              onChange={(event) => onChangeCharacterLevel(Number(event.target.value) || 1)}
+              className="mt-1 w-full bg-transparent text-sm font-semibold outline-none"
+            />
+          </label>
+          <label className="rounded-md border border-background-200 bg-background-100 px-3 py-2">
+            <span className="text-[10px] uppercase text-foreground-500">Additional Exp %</span>
+            <input
+              type="number"
+              value={additionalExpPct}
+              min={0}
+              max={500}
+              onChange={(event) => onChangeAdditionalExpPct(Number(event.target.value) || 0)}
+              className="mt-1 w-full bg-transparent text-sm font-semibold outline-none"
+            />
+          </label>
+          <label className="rounded-md border border-background-200 bg-background-100 px-3 py-2">
+            <span className="text-[10px] uppercase text-foreground-500">Meso Obtained %</span>
+            <input
+              type="number"
+              value={mesoObtainedPct}
+              min={0}
+              max={500}
+              onChange={(event) => onChangeMesoObtainedPct(Number(event.target.value) || 0)}
+              className="mt-1 w-full bg-transparent text-sm font-semibold outline-none"
+            />
+          </label>
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+          <Stat label="Custom Mobs/hr" value={personalMobsPerHour.toLocaleString()} />
+          <Stat label="Exp/hr" value={formatRate(personalExpPerHour / 1_000_000)} />
+          <Stat label="Meso/hr" value={formatCompactStat(personalMesoPerHour)} />
+          <Stat label="Level Exp Multi" value={levelExpMulti.toFixed(2)} />
+          <Stat label="Level Meso Multi" value={levelMesoMulti.toFixed(2)} />
+          <Stat label="Additional Exp" value={`${additionalExpPct}%`} />
+          <Stat label="Meso Obtained" value={`${mesoObtainedPct}%`} />
+          <Stat label="Average Mob Level" value={averageMobLevel.toLocaleString()} />
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-md border border-background-200 bg-background-100 p-2">
+      <div className="text-[10px] uppercase text-foreground-500">{label}</div>
+      <div className="mt-1 font-semibold text-foreground-950">{value}</div>
+    </div>
   );
 }

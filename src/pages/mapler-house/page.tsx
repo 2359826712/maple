@@ -32,7 +32,6 @@ type ToolReference = { name: string; href: string };
 
 const FAVORITES_KEY = 'maplehub-tool-favorites';
 const RECENT_KEY = 'maplehub-tool-recent';
-const MAPLEMAPS_TABLE_URL = 'https://maplemaps.net/map-table';
 
 const sections: Array<{
   key: SectionKey;
@@ -171,7 +170,6 @@ export default function MaplerHousePage() {
           label: t(section.title),
           icon: section.icon,
           favorite: favorites.includes(section.key),
-          externalHref: section.key === 'maps' ? MAPLEMAPS_TABLE_URL : undefined,
         })),
     [favorites, t],
   );
@@ -184,7 +182,6 @@ export default function MaplerHousePage() {
           label: t(section.title),
           icon: section.icon,
           favorite: true,
-          externalHref: section.key === 'maps' ? MAPLEMAPS_TABLE_URL : undefined,
         })),
     [favorites, t],
   );
@@ -334,34 +331,23 @@ function DashboardPanel({
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_340px] gap-4">
-        <div>
-          <h3 className="font-heading text-lg font-semibold text-foreground-950">{t('mh_integrated_title')}</h3>
-          <p className="mt-1 text-sm text-foreground-600">{t('mh_integrated_desc')}</p>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-            <WorkflowStep icon="ri-search-line" title={t('mh_flow_find')} desc={t('mh_flow_find_desc')} />
-            <WorkflowStep icon="ri-calculator-line" title={t('mh_flow_simulate')} desc={t('mh_flow_simulate_desc')} />
-            <WorkflowStep icon="ri-map-pin-line" title={t('mh_flow_route')} desc={t('mh_flow_route_desc')} />
-          </div>
-        </div>
-        <div className="rounded-lg border border-background-200 bg-background-100 p-4">
-          <h3 className="text-sm font-semibold text-foreground-950">{t('mh_recent_tools')}</h3>
-          <div className="mt-3 space-y-2">
-            {(recentTools.length ? recentTools : sections.filter((section) => ['maps', 'enhance', 'growth'].includes(section.key))).slice(0, 3).map((tool) => (
-              <a
-                key={tool.key}
-                href={`#${tool.key}`}
-                onClick={() => onOpen(tool.key)}
-                className="w-full rounded-md bg-background-50 border border-background-200 px-3 py-2 flex items-center gap-2 text-left hover:bg-primary-50 cursor-pointer"
-              >
-                <i className={`${tool.icon} text-primary-600`}></i>
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-foreground-900 truncate">{t(tool.title)}</span>
-                  <span className="block text-xs text-foreground-500 truncate">{t(tool.label)}</span>
-                </span>
-              </a>
-            ))}
-          </div>
+      <div className="rounded-lg border border-background-200 bg-background-100 p-4">
+        <h3 className="text-sm font-semibold text-foreground-950">{t('mh_recent_tools')}</h3>
+        <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-2">
+          {(recentTools.length ? recentTools : sections.filter((section) => ['maps', 'enhance', 'growth'].includes(section.key))).slice(0, 3).map((tool) => (
+            <a
+              key={tool.key}
+              href={`#${tool.key}`}
+              onClick={() => onOpen(tool.key)}
+              className="w-full rounded-md bg-background-50 border border-background-200 px-3 py-2 flex items-center gap-2 text-left hover:bg-primary-50 cursor-pointer"
+            >
+              <i className={`${tool.icon} text-primary-600`}></i>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-foreground-900 truncate">{t(tool.title)}</span>
+                <span className="block text-xs text-foreground-500 truncate">{t(tool.label)}</span>
+              </span>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -424,18 +410,6 @@ function DashboardPanel({
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function WorkflowStep({ icon, title, desc }: { icon: string; title: string; desc: string }) {
-  return (
-    <div className="rounded-lg border border-background-200 bg-background-100 p-4">
-      <div className="w-9 h-9 rounded-md bg-primary-100 text-primary-700 flex items-center justify-center">
-        <i className={icon}></i>
-      </div>
-      <div className="mt-3 font-semibold text-foreground-950">{title}</div>
-      <p className="mt-1 text-xs leading-relaxed text-foreground-600">{desc}</p>
     </div>
   );
 }

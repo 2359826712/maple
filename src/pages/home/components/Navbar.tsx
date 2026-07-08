@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useVersion, VERSIONS, type GameVersion } from '@/hooks/VersionContext';
 
 const navLinkKeys = [
@@ -11,6 +11,20 @@ const navLinkKeys = [
   { key: 'nav_wiki', href: '/wiki' },
   { key: 'nav_rankings', href: '/rankings/classes' },
   { key: 'nav_community', href: '/community' },
+];
+
+const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
+
+const defaultToolSections = [
+  { value: 'simulators', labelKey: 'mh_section_simulators', icon: 'ri-calculator-line' },
+  { value: 'enhance', labelKey: 'mh_section_enhance', icon: 'ri-hammer-line' },
+  { value: 'maps', labelKey: 'mh_section_maps', icon: 'ri-map-pin-line' },
+  { value: 'char-lookup', labelKey: 'mh_section_char_lookup', icon: 'ri-user-search-line' },
+  { value: 'growth', labelKey: 'mh_section_growth', icon: 'ri-line-chart-line' },
+  { value: 'legion', labelKey: 'mh_section_legion', icon: 'ri-layout-grid-line' },
+  { value: 'stats', labelKey: 'mh_section_stats', icon: 'ri-bar-chart-grouped-line' },
+  { value: 'announcements', labelKey: 'mh_section_announcements', icon: 'ri-megaphone-line' },
+  { value: 'fashion', labelKey: 'mh_section_fashion', icon: 'ri-t-shirt-line' },
 ];
 
 interface NavbarProps {
@@ -32,6 +46,8 @@ interface NavbarProps {
 export default function Navbar({ onOpenNotifications, unread, toolMenu }: NavbarProps) {
   const { t, i18n } = useTranslation();
   const { version, versionInfo, setVersion } = useVersion();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -40,10 +56,19 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
   const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
+  const [defaultToolFavorites, setDefaultToolFavorites] = useState<string[]>(() => {
+    try {
+      const value = window.localStorage.getItem(TOOL_FAVORITES_KEY);
+      return value ? JSON.parse(value) as string[] : [];
+    } catch {
+      return [];
+    }
+  });
   const searchRef = useRef<HTMLDivElement | null>(null);
   const versionRef = useRef<HTMLDivElement | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
+  const mobileToolMenuRef = useRef<HTMLDivElement | null>(null);
   const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -64,7 +89,11 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangMenuOpen(false);
       }
-      if (toolMenuRef.current && !toolMenuRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      const insideDesktopTools = toolMenuRef.current?.contains(target);
+      const insideMobileTools = mobileToolMenuRef.current?.contains(target);
+
+      if (!insideDesktopTools && !insideMobileTools) {
         setToolMenuOpen(false);
       }
     };
@@ -75,6 +104,12 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
   useEffect(() => () => {
     if (toolMenuCloseTimer.current) clearTimeout(toolMenuCloseTimer.current);
   }, []);
+
+  useEffect(() => {
+    if (!toolMenu) {
+      window.localStorage.setItem(TOOL_FAVORITES_KEY, JSON.stringify(defaultToolFavorites));
+    }
+  }, [defaultToolFavorites, toolMenu]);
 
   const suggestions = query
     ? [
@@ -102,6 +137,36 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
     setVersionMenuOpen(false);
   };
 
+  const defaultToolValue = location.pathname === '/mapler-house'
+    ? window.location.hash.replace('#', '') || 'dashboard'
+    : '';
+
+  const defaultToolOptions = useMemo(
+    () =>
+      defaultToolSections.map((section) => ({
+        value: section.value,
+        label: t(section.labelKey),
+        icon: section.icon,
+        favorite: defaultToolFavorites.includes(section.value),
+      })),
+    [defaultToolFavorites, t],
+  );
+
+  const effectiveToolMenu = toolMenu ?? {
+    label: t('mh_tool_jump'),
+    value: defaultToolValue,
+    allLabel: t('mh_tool_menu_all'),
+    favoritesLabel: t('mh_tool_menu_favorites'),
+    emptyFavoritesLabel: t('mh_no_favorites'),
+    options: defaultToolOptions,
+    favoriteOptions: defaultToolOptions.filter((option) => option.favorite),
+    onSelect: (value: string) => navigate(`/mapler-house#${value}`),
+    onToggleFavorite: (value: string) =>
+      setDefaultToolFavorites((current) =>
+        current.includes(value) ? current.filter((item) => item !== value) : [value, ...current],
+      ),
+  };
+
   const openToolMenu = () => {
     if (toolMenuCloseTimer.current) clearTimeout(toolMenuCloseTimer.current);
     setToolMenuOpen(true);
@@ -113,16 +178,16 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
   };
 
   const visibleToolOptions =
-    toolMenuTab === 'favorites' ? toolMenu?.favoriteOptions ?? [] : toolMenu?.options ?? [];
+    toolMenuTab === 'favorites' ? effectiveToolMenu.favoriteOptions : effectiveToolMenu.options;
 
   const selectTool = (value: string) => {
-    toolMenu?.onSelect(value);
+    effectiveToolMenu.onSelect(value);
     setToolMenuOpen(false);
     setMenuOpen(false);
   };
 
   const toggleToolFavorite = (value: string) => {
-    toolMenu?.onToggleFavorite(value);
+    effectiveToolMenu.onToggleFavorite(value);
     openToolMenu();
   };
 
@@ -150,29 +215,33 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
 
           <nav className="hidden lg:flex items-center gap-1">
             {navLinkKeys.map((l) => {
-              if (l.key === 'nav_tools' && toolMenu) {
+              if (l.key === 'nav_tools') {
                 return (
                   <div
                     key={l.href}
                     ref={toolMenuRef}
-                    className="relative"
+                    className="relative group"
                     onMouseEnter={openToolMenu}
                     onMouseLeave={closeToolMenuLater}
                   >
                     <button
                       type="button"
-                      onClick={() => setToolMenuOpen((open) => !open)}
+                      onFocus={openToolMenu}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Escape') setToolMenuOpen(false);
+                      }}
+                      aria-haspopup="menu"
+                      aria-expanded={toolMenuOpen}
                       className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
-                        toolMenuOpen ? 'bg-primary-50 text-primary-700' : 'text-foreground-700 hover:text-primary-600 hover:bg-primary-50'
+                        toolMenuOpen ? 'bg-primary-50 text-primary-700' : 'text-foreground-700 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
                       }`}
                     >
                       {t(l.key)}
                       <i className="ri-arrow-down-s-line text-xs"></i>
                     </button>
 
-                    {toolMenuOpen && (
-                      <div className="absolute left-0 top-full z-50 w-64 pt-2">
-                        <div className="overflow-hidden rounded-lg border border-background-200 bg-background-50 shadow-xl">
+                    <div className="invisible absolute left-0 top-full z-50 w-64 pt-2 opacity-0 pointer-events-none transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:visible group-focus-within:opacity-100 group-focus-within:pointer-events-auto">
+                      <div className="overflow-hidden rounded-lg border border-background-200 bg-background-50 shadow-xl">
                         <div className="flex border-b border-background-200 bg-background-100">
                           <button
                             type="button"
@@ -181,7 +250,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                               toolMenuTab === 'all' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600 hover:text-primary-700'
                             }`}
                           >
-                            {toolMenu.allLabel}
+                            {effectiveToolMenu.allLabel}
                           </button>
                           <button
                             type="button"
@@ -190,19 +259,19 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                               toolMenuTab === 'favorites' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600 hover:text-primary-700'
                             }`}
                           >
-                            {toolMenu.favoritesLabel}
+                            {effectiveToolMenu.favoritesLabel}
                           </button>
                         </div>
 
                         <div className="py-2">
                           {visibleToolOptions.length === 0 ? (
-                            <div className="px-4 py-3 text-sm text-foreground-500">{toolMenu.emptyFavoritesLabel}</div>
+                            <div className="px-4 py-3 text-sm text-foreground-500">{effectiveToolMenu.emptyFavoritesLabel}</div>
                           ) : (
                             visibleToolOptions.map((option) => (
                               <div
                                 key={option.value}
                                 className={`flex items-center gap-1 px-2 py-1 ${
-                                  option.value === toolMenu.value
+                                  option.value === effectiveToolMenu.value
                                     ? 'bg-primary-50 text-primary-700 font-semibold'
                                     : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
                                 }`}
@@ -214,7 +283,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                                 >
                                   <i className={`${option.icon} text-base`}></i>
                                   <span className="min-w-0 flex-1 truncate">{option.label}</span>
-                                  {option.value === toolMenu.value && <i className="ri-check-line text-primary-600"></i>}
+                                  {option.value === effectiveToolMenu.value && <i className="ri-check-line text-primary-600"></i>}
                                 </button>
                                 {option.externalHref && (
                                   <a
@@ -242,9 +311,8 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                             ))
                           )}
                         </div>
-                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               }
@@ -468,9 +536,9 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
           <div className="lg:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
               {navLinkKeys.map((l) => {
-                if (l.key === 'nav_tools' && toolMenu) {
+                if (l.key === 'nav_tools') {
                   return (
-                    <div key={l.href} className="py-1">
+                    <div key={l.href} ref={mobileToolMenuRef} className="py-1">
                       <button
                         type="button"
                         onClick={() => setToolMenuOpen((open) => !open)}
@@ -489,7 +557,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                                 toolMenuTab === 'all' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600'
                               }`}
                             >
-                              {toolMenu.allLabel}
+                              {effectiveToolMenu.allLabel}
                             </button>
                             <button
                               type="button"
@@ -498,18 +566,18 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                                 toolMenuTab === 'favorites' ? 'bg-background-50 text-primary-700 border-b-2 border-primary-600' : 'text-foreground-600'
                               }`}
                             >
-                              {toolMenu.favoritesLabel}
+                              {effectiveToolMenu.favoritesLabel}
                             </button>
                           </div>
                           <div className="py-1">
                             {visibleToolOptions.length === 0 ? (
-                              <div className="px-3 py-3 text-sm text-foreground-500">{toolMenu.emptyFavoritesLabel}</div>
+                              <div className="px-3 py-3 text-sm text-foreground-500">{effectiveToolMenu.emptyFavoritesLabel}</div>
                             ) : (
                               visibleToolOptions.map((option) => (
                                 <div
                                   key={option.value}
                                   className={`flex items-center gap-1 px-1.5 py-1 ${
-                                    option.value === toolMenu.value
+                                    option.value === effectiveToolMenu.value
                                       ? 'bg-primary-50 text-primary-700 font-semibold'
                                       : 'text-foreground-800 hover:bg-background-100'
                                   }`}
@@ -521,7 +589,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                                   >
                                     <i className={`${option.icon} text-base`}></i>
                                     <span className="min-w-0 flex-1 truncate">{option.label}</span>
-                                  {option.value === toolMenu.value && <i className="ri-check-line text-primary-600"></i>}
+                                  {option.value === effectiveToolMenu.value && <i className="ri-check-line text-primary-600"></i>}
                                 </button>
                                   {option.externalHref && (
                                     <a
