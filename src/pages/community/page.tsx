@@ -578,7 +578,7 @@ function ProposalCard({
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <a href="/rankings/classes" className="font-heading font-semibold text-primary-700 hover:text-primary-800">
+            <a href="/mapler-house#stats" className="font-heading font-semibold text-primary-700 hover:text-primary-800">
               {proposal.className}
             </a>
             <span className={`px-2 py-0.5 rounded-full font-semibold ${actionStyles[proposal.action]}`}>{proposal.action}</span>

@@ -6,7 +6,6 @@ import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import QuickTools from './components/QuickTools';
-import RankingBoard from './components/RankingBoard';
 import NewsletterCTA from './components/NewsletterCTA';
 import Footer from './components/Footer';
 import NotificationDrawer from './components/NotificationDrawer';
@@ -226,7 +225,6 @@ function HomeContent() {
         <Hero />
         <QuickTools />
         <HighlightsSection />
-        <RankingBoard />
         <NewsletterCTA />
       </main>
       <Footer />

@@ -4,7 +4,7 @@ import { mapLocations, monsterImages } from '@/mocks/mapler-house';
 
 type MajorRegion = 'maple' | 'arcane' | 'grandis';
 type SortKey = 'level' | 'exp' | 'meso' | 'spawn' | 'name';
-type NavigatorNode = 'table' | MajorRegion;
+type NavigatorNode = 'root' | 'table' | MajorRegion;
 
 type MapLocation = {
   name: string;
@@ -442,7 +442,7 @@ const toRow = (map: MapLocation): TableRow => {
 export default function MapExplorer() {
   const { t } = useTranslation();
   const [selectedRegion, setSelectedRegion] = useState<MajorRegion>('maple');
-  const [navigatorNode, setNavigatorNode] = useState<NavigatorNode>('maple');
+  const [navigatorNode, setNavigatorNode] = useState<NavigatorNode>('root');
   const [worldMapStack, setWorldMapStack] = useState<WorldMapStackItem[]>([{ worldMap: 'WorldMap', parentWorld: '' }]);
   const [maplemapsWorldMapsData, setMaplemapsWorldMapsData] = useState<Record<string, MaplemapsWorldMapRemote>>({});
   const [maplemapsMapsData, setMaplemapsMapsData] = useState<Record<string, MaplemapsMapMeta>>({});
@@ -529,12 +529,13 @@ export default function MapExplorer() {
       });
   }, [level, personalRates, query, regionRows, selectedZone, showFrenzy, sortKey]);
 
-  const selectedMap = useMemo(
-    () => filteredRows.find((row) => row.name === selectedMapName) || filteredRows[0],
-    [filteredRows, selectedMapName],
-  );
+  const selectedMap = useMemo(() => {
+    const explicitMap = filteredRows.find((row) => row.name === selectedMapName);
+    if (explicitMap) return explicitMap;
+    return navigatorNode === 'table' ? filteredRows[0] : null;
+  }, [filteredRows, navigatorNode, selectedMapName]);
 
-  const currentWorldMap = navigatorNode !== 'table' ? worldMapStack[worldMapStack.length - 1]?.worldMap : null;
+  const currentWorldMap = navigatorNode !== 'table' && navigatorNode !== 'root' ? worldMapStack[worldMapStack.length - 1]?.worldMap : null;
   const currentWorldMapMapIds = useMemo(
     () =>
       currentWorldMap
@@ -548,16 +549,15 @@ export default function MapExplorer() {
 
   useEffect(() => {
     if (navigatorNode === 'table') return;
+    if (navigatorNode === 'root') return;
     if (!currentWorldMapMapIds.length) return;
+    if (!selectedMapName) return;
 
     const selectedId = selectedMap?.mapId;
     if (selectedId && currentWorldMapMapIds.includes(selectedId)) return;
 
-    const nextRow = rows.find((row) => currentWorldMapMapIds.includes(row.mapId));
-    if (nextRow) {
-      setSelectedMapName(nextRow.name);
-    }
-  }, [currentWorldMapMapIds, navigatorNode, rows, selectedMap]);
+    setSelectedMapName(null);
+  }, [currentWorldMapMapIds, navigatorNode, selectedMap, selectedMapName]);
 
   useEffect(() => {
     let isActive = true;
@@ -696,8 +696,11 @@ export default function MapExplorer() {
   };
 
   const backToRoot = () => {
-    enterRegion(selectedRegion);
+    setSelectedMapName(null);
+    setNavigatorNode('root');
   };
+
+  const isWorldMapDetail = navigatorNode !== 'table' && navigatorNode !== 'root' && Boolean(selectedMapName && selectedMap);
 
   return (
     <div className="space-y-4">
@@ -737,8 +740,8 @@ export default function MapExplorer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1.3fr)_360px]">
-          <div className="min-w-0 border-b xl:border-b-0 xl:border-r border-background-200">
+        <div className={`grid grid-cols-1 ${isWorldMapDetail ? '' : 'xl:grid-cols-[minmax(0,1.3fr)_360px]'}`}>
+          <div className={`min-w-0 border-b border-background-200 ${isWorldMapDetail ? '' : 'xl:border-b-0 xl:border-r'}`}>
             {navigatorNode === 'table' ? (
               <>
                 <div className="border-b border-background-200 p-4">
@@ -839,48 +842,78 @@ export default function MapExplorer() {
                   />
                 </div>
               </>
+            ) : navigatorNode === 'root' ? (
+              <WorldMapNavigatorRoot rows={rows} onEnterRegion={enterRegion} />
+            ) : isWorldMapDetail && selectedMap ? (
+              <div className="p-3 md:p-4">
+                <MapPreview
+                  row={selectedMap}
+                  monsters={selectedMapMonsters}
+                  isLoadingMonsterData={isLoadingMonsterData}
+                  monsterDataError={monsterDataError}
+                  showFrenzy={showFrenzy}
+                  personalRates={personalRates}
+                  onChangeShowFrenzy={setShowFrenzy}
+                  onChangePersonalRates={setPersonalRates}
+                  characterLevel={level}
+                  additionalExpPct={additionalExpPct}
+                  mesoObtainedPct={mesoObtainedPct}
+                  onChangeCharacterLevel={setLevel}
+                  onChangeAdditionalExpPct={setAdditionalExpPct}
+                  onChangeMesoObtainedPct={setMesoObtainedPct}
+                  onBackToWorldMap={() => setSelectedMapName(null)}
+                  onPrevious={() => selectRelativeMap(-1)}
+                  onNext={() => selectRelativeMap(1)}
+                />
+              </div>
             ) : (
               <div className="p-3 md:p-4">
                 <MaplemapsWorldMapPanel
                   stack={worldMapStack}
                   worldMapsData={maplemapsWorldMapsData}
-                  onNavigate={(next) => setWorldMapStack((current) => [...current, next])}
-                  onBack={() => setWorldMapStack((current) => (current.length > 1 ? current.slice(0, -1) : current))}
+                  onNavigate={(next) => {
+                    setSelectedMapName(null);
+                    setWorldMapStack((current) => [...current, next]);
+                  }}
+                  onBack={() => {
+                    setSelectedMapName(null);
+                    setWorldMapStack((current) => (current.length > 1 ? current.slice(0, -1) : current));
+                  }}
                   onSelectMapId={(mapId) => selectMapById(mapId)}
                 />
               </div>
             )}
           </div>
 
-          <aside className="bg-background-100 p-3 md:p-4 xl:sticky xl:top-24 xl:h-fit">
-            {selectedMap ? (
-              <MapPreview
-                row={selectedMap}
-                monsters={selectedMapMonsters}
-                isLoadingMonsterData={isLoadingMonsterData}
-                monsterDataError={monsterDataError}
-                showFrenzy={showFrenzy}
-                personalRates={personalRates}
-                onChangeShowFrenzy={setShowFrenzy}
-                onChangePersonalRates={setPersonalRates}
-                characterLevel={level}
-                additionalExpPct={additionalExpPct}
-                mesoObtainedPct={mesoObtainedPct}
-                onChangeCharacterLevel={setLevel}
-                onChangeAdditionalExpPct={setAdditionalExpPct}
-                onChangeMesoObtainedPct={setMesoObtainedPct}
-                onBackToWorldMap={() => {
-                  backToRoot();
-                }}
-                onPrevious={() => selectRelativeMap(-1)}
-                onNext={() => selectRelativeMap(1)}
-              />
-            ) : (
-              <div className="rounded-md border border-dashed border-background-300 p-6 text-center text-sm text-foreground-500">
-                {t('mh_map_filter_empty')}
-              </div>
-            )}
-          </aside>
+          {!isWorldMapDetail && (
+            <aside className="bg-background-100 p-3 md:p-4 xl:sticky xl:top-24 xl:h-fit">
+              {selectedMap ? (
+                <MapPreview
+                  row={selectedMap}
+                  monsters={selectedMapMonsters}
+                  isLoadingMonsterData={isLoadingMonsterData}
+                  monsterDataError={monsterDataError}
+                  showFrenzy={showFrenzy}
+                  personalRates={personalRates}
+                  onChangeShowFrenzy={setShowFrenzy}
+                  onChangePersonalRates={setPersonalRates}
+                  characterLevel={level}
+                  additionalExpPct={additionalExpPct}
+                  mesoObtainedPct={mesoObtainedPct}
+                  onChangeCharacterLevel={setLevel}
+                  onChangeAdditionalExpPct={setAdditionalExpPct}
+                  onChangeMesoObtainedPct={setMesoObtainedPct}
+                  onBackToWorldMap={backToRoot}
+                  onPrevious={() => selectRelativeMap(-1)}
+                  onNext={() => selectRelativeMap(1)}
+                />
+              ) : (
+                <div className="rounded-md border border-dashed border-background-300 p-6 text-center text-sm text-foreground-500">
+                  先选择一个区域，再沿世界地图逐层点击；到最后一层点击地图点后会打开具体地图详情。
+                </div>
+              )}
+            </aside>
+          )}
         </div>
 
         <div className="border-t border-background-200 bg-background-100 px-4 py-3 text-xs leading-relaxed text-foreground-500 space-y-2">

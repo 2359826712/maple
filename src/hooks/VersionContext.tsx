@@ -20,8 +20,21 @@ export const VERSIONS: VersionInfo[] = [
   { id: 'tms', name: 'TMS', fullName: '新楓之谷', region: 'Taiwan', shortLabel: 'TMS' },
 ];
 
+const VERSION_STORAGE_KEY = 'maplehub-game-version';
+
 export function getVersionInfo(id: GameVersion): VersionInfo {
   return VERSIONS.find((v) => v.id === id) || VERSIONS[0];
+}
+
+function isGameVersion(value: string | null): value is GameVersion {
+  return VERSIONS.some((version) => version.id === value);
+}
+
+function getStoredVersion(): GameVersion {
+  if (typeof window === 'undefined') return 'gms';
+
+  const storedVersion = window.localStorage.getItem(VERSION_STORAGE_KEY);
+  return isGameVersion(storedVersion) ? storedVersion : 'gms';
 }
 
 interface VersionContextType {
@@ -41,7 +54,14 @@ export function useVersion() {
 }
 
 export function VersionProvider({ children }: { children: ReactNode }) {
-  const [version, setVersion] = useState<GameVersion>('gms');
+  const [version, setVersionState] = useState<GameVersion>(getStoredVersion);
+
+  const setVersion = (nextVersion: GameVersion) => {
+    setVersionState(nextVersion);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(VERSION_STORAGE_KEY, nextVersion);
+    }
+  };
 
   const value: VersionContextType = {
     version,

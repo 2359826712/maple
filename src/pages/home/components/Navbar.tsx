@@ -9,7 +9,7 @@ const navLinkKeys = [
   { key: 'nav_events', href: '/events' },
   { key: 'nav_tools', href: '/mapler-house' },
   { key: 'nav_wiki', href: '/wiki' },
-  { key: 'nav_rankings', href: '/rankings/classes' },
+  { key: 'nav_rankings', href: '/rankings' },
   { key: 'nav_community', href: '/community' },
 ];
 

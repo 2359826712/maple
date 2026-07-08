@@ -1,8 +1,9 @@
 import type { RouteObject } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import NotFound from "../pages/NotFound";
 import Home from "../pages/home/page";
 import GuideDetail from "../pages/guides/detail/page";
-import ClassRankings from "../pages/rankings/classes/page";
+import RankingsPage from "../pages/rankings/page";
 import MaplerHouse from "../pages/mapler-house/page";
 import NewsPage from "../pages/news/page";
 import GuidesPage from "../pages/guides/page";
@@ -46,8 +47,12 @@ const routes: RouteObject[] = [
     element: <MapsPage />,
   },
   {
+    path: "/rankings",
+    element: <RankingsPage />,
+  },
+  {
     path: "/rankings/classes",
-    element: <ClassRankings />,
+    element: <Navigate to="/mapler-house#stats" replace />,
   },
   {
     path: "/mapler-house",

@@ -6,13 +6,13 @@ import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import Footer from '@/pages/home/components/Footer';
 import OfficialAnnouncements from './components/OfficialAnnouncements';
 import CharacterSearch from './components/CharacterSearch';
-import ClassStatisticsPanel from './components/ClassStatisticsPanel';
 import GrowthSimulator from './components/GrowthSimulator';
 import EquipmentEnhanceSim from './components/EquipmentEnhanceSim';
 import LegionMapQuery from './components/LegionMapQuery';
 import FashionSimulator from './components/FashionSimulator';
 import Simulators from '@/pages/home/components/Simulators';
 import MapExplorer from './components/MapExplorer';
+import TierOverview from '@/pages/rankings/classes/components/TierOverview';
 import { mapLocations } from '@/mocks/mapler-house';
 
 type SectionKey =
@@ -211,7 +211,7 @@ export default function MaplerHousePage() {
       case 'simulators': return <Simulators />;
       case 'announcements': return <OfficialAnnouncements />;
       case 'char-lookup': return <CharacterSearch />;
-      case 'stats': return <ClassStatisticsPanel />;
+      case 'stats': return <TierOverview />;
       case 'growth': return <GrowthSimulator />;
       case 'enhance': return <EquipmentEnhanceSim />;
       case 'legion': return <LegionMapQuery />;

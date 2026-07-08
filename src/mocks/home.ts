@@ -50,7 +50,7 @@ export const quickTools = [
     desc: 'Live rankings by level, legion power and Union rank across all worlds. Track your main and see who is climbing.',
     icon: 'ri-trophy-line',
     tint: 'primary' as const,
-    href: '/rankings/classes',
+    href: '/rankings',
     tag: 'Live',
     versions: ['gms', 'kms', 'msea', 'jms'],
   },
