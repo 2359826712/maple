@@ -78,38 +78,37 @@ function getEquipsForClass(cls: ClassTier): EquipSlot[] {
   );
 }
 
-function getDefaultInnerAbility(cls: ClassTier): { line1: string; line1Zh: string; line2: string; line2Zh: string; line3: string; line3Zh: string } {
+function getDefaultInnerAbility(cls: ClassTier): { line1: string; line2: string; line3: string } {
   const type = classTypeMap[cls.id] || 'warrior';
   if (type === 'mage') {
-    return { line1: 'Boss Damage +20%', line1Zh: 'Boss 伤害 +20%', line2: 'Magic ATT +21', line2Zh: '魔法攻击力 +21', line3: 'Buff Duration +38%', line3Zh: 'Buff 持续时间 +38%' };
+    return { line1: 'Boss Damage +20%', line2: 'Magic ATT +21', line3: 'Buff Duration +38%' };
   }
   if (type === 'thief') {
-    return { line1: 'Boss Damage +20%', line1Zh: 'Boss 伤害 +20%', line2: 'Attack +21', line2Zh: '攻击力 +21', line3: 'Buff Duration +38%', line3Zh: 'Buff 持续时间 +38%' };
+    return { line1: 'Boss Damage +20%', line2: 'Attack +21', line3: 'Buff Duration +38%' };
   }
-  return { line1: 'Boss Damage +20%', line1Zh: 'Boss 伤害 +20%', line2: 'Attack +21', line2Zh: '攻击力 +21', line3: 'Crit Rate +20-30%', line3Zh: '暴击率 +20-30%' };
+  return { line1: 'Boss Damage +20%', line2: 'Attack +21', line3: 'Crit Rate +20-30%' };
 }
 
-function getDefaultHyperStats(cls: ClassTier): { stat: string; statZh: string; points: number }[] {
+function getDefaultHyperStats(cls: ClassTier): { stat: string; points: number }[] {
   const type = classTypeMap[cls.id] || 'warrior';
   const statName = type === 'mage' ? 'INT' : type === 'thief' ? 'LUK' : type === 'archer' ? 'DEX' : 'STR';
-  const statZh = type === 'mage' ? '智力' : type === 'thief' ? '运气' : type === 'archer' ? '敏捷' : '力量';
   return [
-    { stat: 'Boss Damage', statZh: 'Boss 伤害', points: 15 },
-    { stat: 'IED', statZh: '无视防御', points: 15 },
-    { stat: 'Crit Rate', statZh: '暴击率', points: 10 },
-    { stat: 'Crit Damage', statZh: '暴击伤害', points: 12 },
-    { stat: 'Damage', statZh: '伤害', points: 15 },
-    { stat: statName, statZh, points: 3 },
+    { stat: 'Boss Damage', points: 15 },
+    { stat: 'IED', points: 15 },
+    { stat: 'Crit Rate', points: 10 },
+    { stat: 'Crit Damage', points: 12 },
+    { stat: 'Damage', points: 15 },
+    { stat: statName, points: 3 },
   ];
 }
 
-function getDefaultLinkSkills(cls: ClassTier): { name: string; nameZh: string; effect: string; effectZh: string }[] {
+function getDefaultLinkSkills(cls: ClassTier): { name: string; effect: string }[] {
   return [
-    { name: 'Demon Avenger', nameZh: '恶魔复仇者', effect: 'Damage +10-15%', effectZh: '伤害 +10-15%' },
-    { name: 'Luminous', nameZh: '夜光法师', effect: 'IED +15-20%', effectZh: '无视防御 +15-20%' },
-    { name: 'Ark', nameZh: '亚克', effect: 'Damage during combat +11-16%', effectZh: '战斗中伤害 +11-16%' },
-    { name: 'Kinesis', nameZh: '超能力者', effect: 'Crit Damage +4%', effectZh: '暴击伤害 +4%' },
-    { name: 'Phantom', nameZh: '幻影', effect: 'Crit Rate +10-20%', effectZh: '暴击率 +10-20%' },
+    { name: 'Demon Avenger', effect: 'Damage +10-15%' },
+    { name: 'Luminous', effect: 'IED +15-20%' },
+    { name: 'Ark', effect: 'Damage during combat +11-16%' },
+    { name: 'Kinesis', effect: 'Crit Damage +4%' },
+    { name: 'Phantom', effect: 'Crit Rate +10-20%' },
   ];
 }
 
@@ -136,9 +135,7 @@ export default function EquipmentBuildPanel({ cls, onClose }: { cls: ClassTier; 
   const hyperStats = buildData?.hyperStats ?? getDefaultHyperStats(cls);
   const linkSkills = buildData?.linkSkills ?? getDefaultLinkSkills(cls);
   const rebootNotes = buildData?.rebootNotes ?? 'Equip priorities follow standard BiS progression. Focus on WSE potentials first, then star force accessories to 22★.';
-  const rebootNotesZh = buildData?.rebootNotesZh ?? '装备优先级按标准 BiS 路线走。先搞 WSE 潜能，再把饰品冲到 22★。';
   const interactiveNotes = buildData?.interactiveNotes ?? 'Bonus Potential cubes significantly boost damage ceiling. Prioritize WSE 3L during DMT events.';
-  const interactiveNotesZh = buildData?.interactiveNotesZh ?? '附加潜能提升上限明显。DMT 期间优先 WSE 3L。';
 
   return (
     <BuildPanelShell cls={cls} onClose={onClose}>
@@ -188,17 +185,16 @@ export default function EquipmentBuildPanel({ cls, onClose }: { cls: ClassTier; 
             {equips.map((e, i) => (
               <tr key={i} className="border-b border-background-100 hover:bg-background-50 transition-colors">
                 <td className="py-2.5 px-3 font-semibold text-foreground-800 whitespace-nowrap">
-                  {e.slot} <span className="text-foreground-500 font-normal text-xs">{e.slotZh}</span>
+                  {e.slot}
                 </td>
                 <td className="py-2.5 px-3">
                   <div className="text-foreground-900 font-medium">{e.itemName}</div>
-                  <div className="text-foreground-500 text-xs">{e.itemNameZh}</div>
                 </td>
                 <td className="py-2.5 px-3 text-foreground-600 text-xs hidden md:table-cell">
-                  {e.setEffect}<br /><span className="text-foreground-500">{e.setEffectZh}</span>
+                  {e.setEffect}
                 </td>
                 <td className="py-2.5 px-3 text-foreground-600 text-xs max-w-[220px] hidden lg:table-cell">
-                  {e.notes}<br /><span className="text-foreground-500">{e.notesZh}</span>
+                  {e.notes}
                 </td>
                 <td className="py-2.5 px-3 text-right whitespace-nowrap">
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${tierBadge[e.tier]}`}>
@@ -221,17 +217,14 @@ export default function EquipmentBuildPanel({ cls, onClose }: { cls: ClassTier; 
             <li className="flex items-start gap-1.5 text-xs">
               <span className="text-primary-500 font-bold mt-0.5">1.</span>
               <span className="text-foreground-800">{innerAbility.line1}</span>
-              <span className="text-foreground-500">{innerAbility.line1Zh}</span>
             </li>
             <li className="flex items-start gap-1.5 text-xs">
               <span className="text-foreground-500 font-bold mt-0.5">2.</span>
               <span className="text-foreground-800">{innerAbility.line2}</span>
-              <span className="text-foreground-500">{innerAbility.line2Zh}</span>
             </li>
             <li className="flex items-start gap-1.5 text-xs">
               <span className="text-foreground-500 font-bold mt-0.5">3.</span>
               <span className="text-foreground-800">{innerAbility.line3}</span>
-              <span className="text-foreground-500">{innerAbility.line3Zh}</span>
             </li>
           </ul>
         </div>
@@ -244,7 +237,7 @@ export default function EquipmentBuildPanel({ cls, onClose }: { cls: ClassTier; 
           <ul className="space-y-1">
             {hyperStats.map((hs, i) => (
               <li key={i} className="flex justify-between text-xs">
-                <span className="text-foreground-800">{hs.stat} <span className="text-foreground-500">{hs.statZh}</span></span>
+                <span className="text-foreground-800">{hs.stat}</span>
                 <span className="font-semibold text-primary-600">+{hs.points}</span>
               </li>
             ))}
@@ -260,10 +253,8 @@ export default function EquipmentBuildPanel({ cls, onClose }: { cls: ClassTier; 
             {linkSkills.map((ls, i) => (
               <li key={i} className="text-xs">
                 <span className="font-semibold text-foreground-800">{ls.name}</span>
-                <span className="text-foreground-500 ml-1">{ls.nameZh}</span>
                 <br />
                 <span className="text-foreground-600">{ls.effect}</span>
-                <span className="text-foreground-500 ml-1">{ls.effectZh}</span>
               </li>
             ))}
           </ul>
@@ -274,12 +265,10 @@ export default function EquipmentBuildPanel({ cls, onClose }: { cls: ClassTier; 
         <div className="bg-primary-50/50 rounded-xl p-4 border border-primary-100">
           <div className="text-xs font-bold text-primary-700 mb-1">{t('build_reboot_notes')}</div>
           <p className="text-xs text-primary-900">{rebootNotes}</p>
-          <p className="text-xs text-primary-700 mt-1">{rebootNotesZh}</p>
         </div>
         <div className="bg-secondary-50/50 rounded-xl p-4 border border-secondary-100">
           <div className="text-xs font-bold text-secondary-700 mb-1">{t('build_interactive_notes')}</div>
           <p className="text-xs text-secondary-900">{interactiveNotes}</p>
-          <p className="text-xs text-secondary-700 mt-1">{interactiveNotesZh}</p>
         </div>
       </div>
     </BuildPanelShell>
@@ -312,7 +301,6 @@ function BuildPanelShell({ cls, onClose, children }: { cls: ClassTier; onClose: 
                   )}
                 </div>
                 <span className="font-heading font-semibold text-foreground-950">{cls.name}</span>
-                <span className="text-xs text-foreground-500">{cls.nameZh}</span>
               </div>
               <div className="text-[10px] text-foreground-500 mt-0.5">{t('build_title')}</div>
             </div>

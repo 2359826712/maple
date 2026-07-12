@@ -26,23 +26,33 @@ interface Props {
   comments: Comment[];
   isSignedIn: boolean;
   onAuthRequired: () => void;
+  currentUserInitial?: string;
+  onSubmitComment?: (content: string) => Promise<void> | void;
+  onSubmitReply?: (parentId: string, content: string) => Promise<void> | void;
+  onVote?: (commentId: string, vote: -1 | 1, parentId?: string) => Promise<number | void> | number | void;
 }
 
 function VoteButton({
+  commentId,
+  parentId,
   value,
   compact,
   isSignedIn,
   onAuthRequired,
+  onVote,
 }: {
+  commentId: string;
+  parentId?: string;
   value: number;
   compact?: boolean;
   isSignedIn: boolean;
   onAuthRequired: () => void;
+  onVote?: (commentId: string, vote: -1 | 1, parentId?: string) => Promise<number | void> | number | void;
 }) {
   const [count, setCount] = useState(value);
   const [voted, setVoted] = useState<'up' | 'down' | null>(null);
 
-  const up = () => {
+  const up = async () => {
     if (!isSignedIn) {
       onAuthRequired();
       return;
@@ -50,9 +60,11 @@ function VoteButton({
 
     if (voted === 'up') { setCount(count - 1); setVoted(null); }
     else { setCount(count + (voted === 'down' ? 2 : 1)); setVoted('up'); }
+    const nextCount = await onVote?.(commentId, 1, parentId);
+    if (typeof nextCount === 'number') setCount(nextCount);
   };
 
-  const down = () => {
+  const down = async () => {
     if (!isSignedIn) {
       onAuthRequired();
       return;
@@ -60,22 +72,32 @@ function VoteButton({
 
     if (voted === 'down') { setCount(count + 1); setVoted(null); }
     else { setCount(count - (voted === 'up' ? 2 : 1)); setVoted('down'); }
+    const nextCount = await onVote?.(commentId, -1, parentId);
+    if (typeof nextCount === 'number') setCount(nextCount);
   };
 
   return (
     <div className={`flex items-center ${compact ? 'gap-0.5' : 'gap-1'}`}>
-      <button onClick={up} className={`cursor-pointer ${voted === 'up' ? 'text-primary-600' : 'text-foreground-500 hover:text-primary-600'}`} aria-label="upvote">
+      <button onClick={() => void up()} className={`cursor-pointer ${voted === 'up' ? 'text-primary-600' : 'text-foreground-500 hover:text-primary-600'}`} aria-label="upvote">
         <i className={compact ? 'ri-arrow-up-s-line text-sm' : 'ri-arrow-up-s-line'}></i>
       </button>
       <span className={`font-semibold ${compact ? 'text-xs' : 'text-sm'} text-foreground-800`}>{count}</span>
-      <button onClick={down} className={`cursor-pointer ${voted === 'down' ? 'text-primary-600' : 'text-foreground-500 hover:text-primary-600'}`} aria-label="downvote">
+      <button onClick={() => void down()} className={`cursor-pointer ${voted === 'down' ? 'text-primary-600' : 'text-foreground-500 hover:text-primary-600'}`} aria-label="downvote">
         <i className={compact ? 'ri-arrow-down-s-line text-sm' : 'ri-arrow-down-s-line'}></i>
       </button>
     </div>
   );
 }
 
-export default function CommentSection({ comments, isSignedIn, onAuthRequired }: Props) {
+export default function CommentSection({
+  comments,
+  isSignedIn,
+  onAuthRequired,
+  currentUserInitial = 'Y',
+  onSubmitComment,
+  onSubmitReply,
+  onVote,
+}: Props) {
   const { t } = useTranslation();
   const [sort, setSort] = useState<'top' | 'new'>('top');
   const [newComment, setNewComment] = useState('');
@@ -87,21 +109,27 @@ export default function CommentSection({ comments, isSignedIn, onAuthRequired }:
     return [...comments].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, [comments, sort]);
 
-  const submitComment = () => {
+  const submitComment = async () => {
     if (!isSignedIn) {
       onAuthRequired();
       return;
     }
 
+    const content = newComment.trim();
+    if (!content) return;
+    await onSubmitComment?.(content);
     setNewComment('');
   };
 
-  const submitReply = (_parentId: string) => {
+  const submitReply = async (parentId: string) => {
     if (!isSignedIn) {
       onAuthRequired();
       return;
     }
 
+    const content = replyText.trim();
+    if (!content) return;
+    await onSubmitReply?.(parentId, content);
     setReplyTo(null);
     setReplyText('');
   };
@@ -139,7 +167,7 @@ export default function CommentSection({ comments, isSignedIn, onAuthRequired }:
       <div className="mb-6 p-4 rounded-lg bg-background-100 border border-background-200">
         <div className="flex gap-3">
           <div className="w-9 h-9 rounded-full bg-primary-200 text-primary-800 flex items-center justify-center font-semibold text-sm flex-shrink-0">
-            Y
+            {currentUserInitial}
           </div>
           <div className="flex-1">
             <textarea
@@ -152,7 +180,7 @@ export default function CommentSection({ comments, isSignedIn, onAuthRequired }:
             <div className="mt-2 flex items-center justify-between">
               <span className="text-[11px] text-foreground-600">{newComment.length}/500</span>
               <button
-                onClick={submitComment}
+                onClick={() => void submitComment()}
                 disabled={!newComment.trim()}
                 className="h-9 px-4 rounded-full bg-primary-500 hover:bg-primary-600 text-background-50 dark:text-foreground-950 text-xs font-semibold cursor-pointer whitespace-nowrap disabled:opacity-50"
               >
@@ -183,7 +211,14 @@ export default function CommentSection({ comments, isSignedIn, onAuthRequired }:
                 </div>
                 <p className="mt-1 text-sm text-foreground-800 leading-relaxed">{cm.content}</p>
                 <div className="mt-2 flex items-center gap-4">
-                  <VoteButton value={cm.upvotes} compact isSignedIn={isSignedIn} onAuthRequired={onAuthRequired} />
+                  <VoteButton
+                    commentId={cm.id}
+                    value={cm.upvotes}
+                    compact
+                    isSignedIn={isSignedIn}
+                    onAuthRequired={onAuthRequired}
+                    onVote={onVote}
+                  />
                   <button
                     onClick={() => {
                       if (!isSignedIn) {
@@ -217,7 +252,7 @@ export default function CommentSection({ comments, isSignedIn, onAuthRequired }:
                         {t('guide_cancel')}
                       </button>
                       <button
-                        onClick={() => submitReply(cm.id)}
+                        onClick={() => void submitReply(cm.id)}
                         disabled={!replyText.trim()}
                         className="h-8 px-3 rounded-full bg-primary-500 hover:bg-primary-600 text-background-50 text-xs font-semibold cursor-pointer whitespace-nowrap disabled:opacity-50"
                       >
@@ -245,7 +280,15 @@ export default function CommentSection({ comments, isSignedIn, onAuthRequired }:
                           </div>
                           <p className="mt-1 text-sm text-foreground-800 leading-relaxed">{rp.content}</p>
                           <div className="mt-1.5">
-                            <VoteButton value={rp.upvotes} compact isSignedIn={isSignedIn} onAuthRequired={onAuthRequired} />
+                            <VoteButton
+                              commentId={rp.id}
+                              parentId={cm.id}
+                              value={rp.upvotes}
+                              compact
+                              isSignedIn={isSignedIn}
+                              onAuthRequired={onAuthRequired}
+                              onVote={onVote}
+                            />
                           </div>
                         </div>
                       </div>

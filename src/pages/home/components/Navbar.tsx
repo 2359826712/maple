@@ -2,59 +2,88 @@ import { useEffect, useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useVersion, VERSIONS, type GameVersion } from '@/hooks/VersionContext';
+import { getSiteSearchResults, getPopularSearchTerms } from '@/services/siteSearch';
+import SearchResultList from '@/components/search/SearchResultList';
+import UniversalSearchDialog from '@/components/search/UniversalSearchDialog';
+import { useAuthSession } from '@/hooks/useAuthSession';
+import { mapleSqlApi } from '@/services/mapleSqlApi';
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
   { key: 'nav_guides', href: '/guides' },
   { key: 'nav_events', href: '/events' },
   { key: 'nav_tools', href: '/mapler-house' },
+  { key: 'nav_checklist', href: '/checklist' },
   { key: 'nav_wiki', href: '/wiki' },
   { key: 'nav_rankings', href: '/rankings' },
   { key: 'nav_community', href: '/community' },
 ];
 
+const primaryNavLinkKeys = navLinkKeys.slice(0, 5);
+const secondaryNavLinkKeys = navLinkKeys.slice(5);
+
 const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
 
 const defaultToolSections = [
-  { value: 'simulators', labelKey: 'mh_section_simulators', icon: 'ri-calculator-line' },
-  { value: 'enhance', labelKey: 'mh_section_enhance', icon: 'ri-hammer-line' },
-  { value: 'maps', labelKey: 'mh_section_maps', icon: 'ri-map-pin-line' },
-  { value: 'char-lookup', labelKey: 'mh_section_char_lookup', icon: 'ri-user-search-line' },
-  { value: 'growth', labelKey: 'mh_section_growth', icon: 'ri-line-chart-line' },
-  { value: 'legion', labelKey: 'mh_section_legion', icon: 'ri-layout-grid-line' },
-  { value: 'stats', labelKey: 'mh_section_stats', icon: 'ri-bar-chart-grouped-line' },
-  { value: 'announcements', labelKey: 'mh_section_announcements', icon: 'ri-megaphone-line' },
-  { value: 'fashion', labelKey: 'mh_section_fashion', icon: 'ri-t-shirt-line' },
+  { value: 'char-lookup', labelKey: 'mh_section_char_lookup', icon: 'ri-user-search-line', groupLabelKey: 'mh_tool_group_character' },
+  { value: 'boss-plan', labelKey: 'mh_section_boss_plan', icon: 'ri-shield-flash-line', groupLabelKey: 'mh_tool_group_progression' },
+  { value: 'growth', labelKey: 'mh_section_growth', icon: 'ri-line-chart-line', groupLabelKey: 'mh_tool_group_progression' },
+  { value: 'hexa', labelKey: 'mh_section_hexa', icon: 'ri-hexagon-line', groupLabelKey: 'mh_tool_group_build' },
+  { value: 'links', labelKey: 'mh_section_links', icon: 'ri-links-line', groupLabelKey: 'mh_tool_group_build' },
+  { value: 'legion', labelKey: 'mh_section_legion', icon: 'ri-layout-grid-line', groupLabelKey: 'mh_tool_group_build' },
+  { value: 'enhance', labelKey: 'mh_section_enhance', icon: 'ri-hammer-line', groupLabelKey: 'mh_tool_group_build' },
+  { value: 'stats', labelKey: 'mh_section_stats', icon: 'ri-bar-chart-grouped-line', groupLabelKey: 'mh_tool_group_meta' },
+  { value: 'fashion', labelKey: 'mh_section_fashion', icon: 'ri-t-shirt-line', groupLabelKey: 'mh_tool_group_cosmetic' },
 ];
+
+type ToolMenuOption = {
+  value: string;
+  label: string;
+  icon: string;
+  favorite?: boolean;
+  externalHref?: string;
+  groupLabel?: string;
+};
 
 interface NavbarProps {
   onOpenNotifications: () => void;
   unread: number;
+  guideMenu?: {
+    value: string;
+    options: Array<{ value: string; label: string; icon: string }>;
+    onSelect: (value: string) => void;
+  };
   toolMenu?: {
     label: string;
     value: string;
     allLabel: string;
     favoritesLabel: string;
     emptyFavoritesLabel: string;
-    options: Array<{ value: string; label: string; icon: string; favorite?: boolean; externalHref?: string }>;
-    favoriteOptions: Array<{ value: string; label: string; icon: string; favorite?: boolean; externalHref?: string }>;
+    options: ToolMenuOption[];
+    favoriteOptions: ToolMenuOption[];
     onSelect: (value: string) => void;
     onToggleFavorite: (value: string) => void;
   };
 }
 
-export default function Navbar({ onOpenNotifications, unread, toolMenu }: NavbarProps) {
+export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMenu }: NavbarProps) {
   const { t, i18n } = useTranslation();
   const { version, versionInfo, setVersion } = useVersion();
   const navigate = useNavigate();
   const location = useLocation();
+  const { isSignedIn, displayName, session } = useAuthSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [versionMenuOpen, setVersionMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [guideMenuOpen, setGuideMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
+  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(unread);
   const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
   const [defaultToolFavorites, setDefaultToolFavorites] = useState<string[]>(() => {
     try {
@@ -65,10 +94,16 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
     }
   });
   const searchRef = useRef<HTMLDivElement | null>(null);
+  const mobileSearchRef = useRef<HTMLDivElement | null>(null);
+  const mobileSearchButtonRef = useRef<HTMLButtonElement | null>(null);
+  const mobileSearchInputRef = useRef<HTMLInputElement | null>(null);
   const versionRef = useRef<HTMLDivElement | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
+  const guideMenuRef = useRef<HTMLDivElement | null>(null);
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileToolMenuRef = useRef<HTMLDivElement | null>(null);
+  const moreMenuRef = useRef<HTMLDivElement | null>(null);
+  const guideMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -79,20 +114,46 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
   }, []);
 
   useEffect(() => {
+    const onShortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        setSearchOpen(false);
+        setMobileSearchOpen(false);
+        setMenuOpen(false);
+        setPaletteOpen((current) => !current);
+      }
+    };
+    document.addEventListener('keydown', onShortcut);
+    return () => document.removeEventListener('keydown', onShortcut);
+  }, []);
+
+  useEffect(() => {
     const onClickOutside = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
+      const searchTarget = e.target as Node;
+      const insideDesktopSearch = searchRef.current?.contains(searchTarget);
+      const insideMobileSearch = mobileSearchRef.current?.contains(searchTarget)
+        || mobileSearchButtonRef.current?.contains(searchTarget);
+      if (!insideDesktopSearch) {
         setSearchOpen(false);
       }
+      if (!insideMobileSearch) setMobileSearchOpen(false);
       if (versionRef.current && !versionRef.current.contains(e.target as Node)) {
         setVersionMenuOpen(false);
       }
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangMenuOpen(false);
       }
+      if (moreMenuRef.current && !moreMenuRef.current.contains(e.target as Node)) {
+        setMoreMenuOpen(false);
+      }
       const target = e.target as Node;
+      const insideGuideMenu = guideMenuRef.current?.contains(target);
       const insideDesktopTools = toolMenuRef.current?.contains(target);
       const insideMobileTools = mobileToolMenuRef.current?.contains(target);
 
+      if (!insideGuideMenu) {
+        setGuideMenuOpen(false);
+      }
       if (!insideDesktopTools && !insideMobileTools) {
         setToolMenuOpen(false);
       }
@@ -101,9 +162,40 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
+  useEffect(() => setNotificationCount(unread), [unread]);
+
+  useEffect(() => {
+    if (!isSignedIn) {
+      setNotificationCount(0);
+      return undefined;
+    }
+
+    const refreshCount = () => {
+      void mapleSqlApi.notifications
+        .list(true)
+        .then((items) => setNotificationCount(items.length))
+        .catch(() => undefined);
+    };
+
+    refreshCount();
+    window.addEventListener('focus', refreshCount);
+    window.addEventListener('maplehub-notifications-changed', refreshCount);
+    return () => {
+      window.removeEventListener('focus', refreshCount);
+      window.removeEventListener('maplehub-notifications-changed', refreshCount);
+    };
+  }, [isSignedIn]);
+
   useEffect(() => () => {
+    if (guideMenuCloseTimer.current) clearTimeout(guideMenuCloseTimer.current);
     if (toolMenuCloseTimer.current) clearTimeout(toolMenuCloseTimer.current);
   }, []);
+
+  useEffect(() => {
+    if (!mobileSearchOpen) return undefined;
+    const frame = window.requestAnimationFrame(() => mobileSearchInputRef.current?.focus());
+    return () => window.cancelAnimationFrame(frame);
+  }, [mobileSearchOpen]);
 
   useEffect(() => {
     if (!toolMenu) {
@@ -111,14 +203,25 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
     }
   }, [defaultToolFavorites, toolMenu]);
 
-  const suggestions = query
-    ? [
-        `Class guide: ${query}`,
-        `Boss walkthrough matching "${query}"`,
-        `Wiki entry — ${query}`,
-        `Community threads about ${query}`,
-      ]
-    : ['Hexa nodes tier list', 'Kalos strategy', 'Familiar badges', 'Sunny Sunday times'];
+  const searchResults = useMemo(
+    () => getSiteSearchResults(query, i18n.language, versionInfo.id).slice(0, 5),
+    [i18n.language, query, versionInfo.id],
+  );
+  const popularSearches = useMemo(
+    () => getPopularSearchTerms(i18n.language, versionInfo.id, 5),
+    [i18n.language, versionInfo.id],
+  );
+
+  const openGuideMenu = () => {
+    if (!guideMenu) return;
+    if (guideMenuCloseTimer.current) clearTimeout(guideMenuCloseTimer.current);
+    setGuideMenuOpen(true);
+  };
+
+  const closeGuideMenuLater = () => {
+    if (guideMenuCloseTimer.current) clearTimeout(guideMenuCloseTimer.current);
+    guideMenuCloseTimer.current = setTimeout(() => setGuideMenuOpen(false), 250);
+  };
 
   useEffect(() => {
     document.documentElement.lang = i18n.language;
@@ -148,6 +251,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
         label: t(section.labelKey),
         icon: section.icon,
         favorite: defaultToolFavorites.includes(section.value),
+        groupLabel: t(section.groupLabelKey),
       })),
     [defaultToolFavorites, t],
   );
@@ -186,15 +290,153 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
     setMenuOpen(false);
   };
 
+  const selectGuide = (value: string) => {
+    guideMenu?.onSelect(value);
+    setGuideMenuOpen(false);
+    setMenuOpen(false);
+  };
+
   const toggleToolFavorite = (value: string) => {
     effectiveToolMenu.onToggleFavorite(value);
     openToolMenu();
   };
 
+  const renderToolOption = (option: ToolMenuOption) => (
+    <div
+      key={option.value}
+      className={`flex items-center gap-1 px-2 py-1 ${
+        option.value === effectiveToolMenu.value
+          ? 'bg-primary-50 text-primary-700 font-semibold'
+          : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
+      }`}
+    >
+      <button
+        type="button"
+        onClick={() => selectTool(option.value)}
+        className="min-w-0 flex flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm transition-colors cursor-pointer"
+      >
+        <i className={`${option.icon} text-base`}></i>
+        <span className="min-w-0 flex-1 truncate">{option.label}</span>
+        {option.value === effectiveToolMenu.value && <i className="ri-check-line text-primary-600"></i>}
+      </button>
+      {option.externalHref && (
+        <a
+          href={option.externalHref}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          className="h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center text-foreground-400 hover:text-primary-700 hover:bg-background-50"
+          aria-label={t('nav_tool_open', { name: option.label })}
+          title={t('nav_tool_open', { name: option.label })}
+        >
+          <i className="ri-external-link-line"></i>
+        </a>
+      )}
+      <button
+        type="button"
+        onClick={() => toggleToolFavorite(option.value)}
+        className={`h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center ${
+          option.favorite ? 'text-secondary-700 bg-secondary-100' : 'text-foreground-400 hover:text-secondary-700 hover:bg-background-50'
+        }`}
+        aria-label={option.favorite ? t('nav_tool_remove_favorite') : t('nav_tool_add_favorite')}
+      >
+        <i className={option.favorite ? 'ri-star-fill' : 'ri-star-line'}></i>
+      </button>
+    </div>
+  );
+
+  const renderToolMenuList = (options: ToolMenuOption[], emptyLabel: string, mobile = false) => {
+    if (options.length === 0) {
+      return <div className={`${mobile ? 'px-3' : 'px-4'} py-3 text-sm text-foreground-500`}>{emptyLabel}</div>;
+    }
+
+    let lastGroup = '';
+    return options.map((option) => {
+      const showGroup = Boolean(option.groupLabel && option.groupLabel !== lastGroup);
+      if (option.groupLabel) lastGroup = option.groupLabel;
+
+      return (
+        <div key={option.value}>
+          {showGroup && (
+            <div className={`${mobile ? 'px-3' : 'px-4'} pb-1 pt-2 text-[10px] font-bold uppercase tracking-wider text-foreground-500`}>
+              {option.groupLabel}
+            </div>
+          )}
+          {renderToolOption(option)}
+        </div>
+      );
+    });
+  };
+
+  const submitSearch = (value = query) => {
+    const trimmed = value.trim();
+    if (!trimmed) return;
+    navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+    setSearchOpen(false);
+    setMobileSearchOpen(false);
+    setMenuOpen(false);
+  };
+
+  const renderSearchMenu = (className: string) => (
+    <div className={className} data-testid="site-search-menu">
+      <div className="px-4 py-2 text-xs uppercase tracking-wider text-foreground-500 bg-background-100">
+        {query ? t('nav_search_best_matches') : t('nav_search_popular')}
+      </div>
+      {query ? (
+        <SearchResultList
+          results={searchResults}
+          emptyLabel={t('nav_search_no_match')}
+          onSelect={(result) => {
+            navigate(result.href);
+            setSearchOpen(false);
+            setMobileSearchOpen(false);
+          }}
+        />
+      ) : (
+        <ul className="py-2">
+          {popularSearches.map((suggestion) => (
+            <li key={suggestion}>
+              <button
+                type="button"
+                onClick={() => submitSearch(suggestion)}
+                className="w-full text-left px-4 py-2 text-sm text-foreground-800 hover:bg-primary-50 hover:text-primary-700 flex items-center gap-2 cursor-pointer"
+              >
+                <i className="ri-arrow-right-up-line text-foreground-500"></i>
+                {suggestion}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="px-4 py-2 text-[11px] text-foreground-600 bg-background-100 flex items-center gap-1 rounded-b-xl border-t border-background-200">
+        <i className="ri-leaf-fill text-primary-500 text-xs"></i>
+        {t('nav_search_filtered', { version: versionInfo.shortLabel })}
+      </div>
+    </div>
+  );
+
+  const isNavActive = (href: string) => {
+    if (href.startsWith('http')) return false;
+    if (href === '/') return location.pathname === '/';
+    if (href === '/mapler-house') {
+      return location.pathname === '/mapler-house' || location.pathname === '/maps';
+    }
+    return location.pathname === href || location.pathname.startsWith(`${href}/`);
+  };
+
   return (
     <>
+      <a
+        href="#main-content"
+        className="fixed left-4 top-2 z-[100] -translate-y-16 rounded-lg bg-foreground-950 px-4 py-2 text-sm font-semibold text-background-50 shadow-lg transition-transform focus:translate-y-0"
+      >
+        {t('skip_to_content')}
+      </a>
       <header
-        className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-background-50/97 backdrop-blur-md border-b border-primary-200/30"
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-background-50 border-b ${
+          scrolled
+            ? 'border-primary-300/50 shadow-md'
+            : 'border-primary-300/40 shadow-sm'
+        }`}
       >
         <div className="w-full px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
           {/* === MAPLE LEAF LOGO === */}
@@ -214,7 +456,65 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinkKeys.map((l) => {
+            {primaryNavLinkKeys.map((l) => {
+              const active = isNavActive(l.href);
+
+              if (l.key === 'nav_guides' && guideMenu) {
+                return (
+                  <div
+                    key={l.href}
+                    ref={guideMenuRef}
+                    className="relative group"
+                    onMouseEnter={openGuideMenu}
+                    onMouseLeave={closeGuideMenuLater}
+                  >
+                    <button
+                      type="button"
+                      onFocus={openGuideMenu}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Escape') setGuideMenuOpen(false);
+                      }}
+                      aria-haspopup="menu"
+                      aria-expanded={guideMenuOpen}
+                      aria-current={active ? 'page' : undefined}
+                      className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
+                        guideMenuOpen || active
+                          ? 'bg-primary-100 text-primary-700 shadow-sm'
+                          : 'text-foreground-800 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
+                      }`}
+                    >
+                      {t(l.key)}
+                      <i className="ri-arrow-down-s-line text-xs"></i>
+                    </button>
+
+                    <div
+                      className={`absolute left-0 top-full z-50 w-56 pt-2 transition-opacity duration-150 ${
+                        guideMenuOpen ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none'
+                      }`}
+                    >
+                      <div className="overflow-hidden rounded-lg border border-background-200 bg-background-50 py-2 shadow-xl">
+                        {guideMenu.options.map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => selectGuide(option.value)}
+                            className={`flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm transition-colors cursor-pointer ${
+                              option.value === guideMenu.value
+                                ? 'bg-primary-50 text-primary-700 font-semibold'
+                                : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
+                            }`}
+                          >
+                            <i className={`${option.icon} text-base`}></i>
+                            <span className="min-w-0 flex-1 truncate">{option.label}</span>
+                            {option.value === guideMenu.value && <i className="ri-check-line text-primary-600"></i>}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               if (l.key === 'nav_tools') {
                 return (
                   <div
@@ -232,8 +532,11 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                       }}
                       aria-haspopup="menu"
                       aria-expanded={toolMenuOpen}
+                      aria-current={active ? 'page' : undefined}
                       className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
-                        toolMenuOpen ? 'bg-primary-50 text-primary-700' : 'text-foreground-700 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
+                        toolMenuOpen || active
+                          ? 'bg-primary-100 text-primary-700 shadow-sm'
+                          : 'text-foreground-800 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
                       }`}
                     >
                       {t(l.key)}
@@ -264,52 +567,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                         </div>
 
                         <div className="py-2">
-                          {visibleToolOptions.length === 0 ? (
-                            <div className="px-4 py-3 text-sm text-foreground-500">{effectiveToolMenu.emptyFavoritesLabel}</div>
-                          ) : (
-                            visibleToolOptions.map((option) => (
-                              <div
-                                key={option.value}
-                                className={`flex items-center gap-1 px-2 py-1 ${
-                                  option.value === effectiveToolMenu.value
-                                    ? 'bg-primary-50 text-primary-700 font-semibold'
-                                    : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
-                                }`}
-                              >
-                                <button
-                                  type="button"
-                                  onClick={() => selectTool(option.value)}
-                                  className="min-w-0 flex flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm transition-colors cursor-pointer"
-                                >
-                                  <i className={`${option.icon} text-base`}></i>
-                                  <span className="min-w-0 flex-1 truncate">{option.label}</span>
-                                  {option.value === effectiveToolMenu.value && <i className="ri-check-line text-primary-600"></i>}
-                                </button>
-                                {option.externalHref && (
-                                  <a
-                                    href={option.externalHref}
-                                    target="_blank"
-                                    rel="nofollow noopener noreferrer"
-                                    className="h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center text-foreground-400 hover:text-primary-700 hover:bg-background-50"
-                                    aria-label={`open ${option.label}`}
-                                    title={`Open ${option.label}`}
-                                  >
-                                    <i className="ri-external-link-line"></i>
-                                  </a>
-                                )}
-                                <button
-                                  type="button"
-                                  onClick={() => toggleToolFavorite(option.value)}
-                                  className={`h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center ${
-                                    option.favorite ? 'text-secondary-700 bg-secondary-100' : 'text-foreground-400 hover:text-secondary-700 hover:bg-background-50'
-                                  }`}
-                                  aria-label={option.favorite ? 'remove favorite' : 'add favorite'}
-                                >
-                                  <i className={option.favorite ? 'ri-star-fill' : 'ri-star-line'}></i>
-                                </button>
-                              </div>
-                            ))
-                          )}
+                          {renderToolMenuList(visibleToolOptions, effectiveToolMenu.emptyFavoritesLabel)}
                         </div>
                       </div>
                     </div>
@@ -317,29 +575,95 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                 );
               }
 
+              if (l.href.startsWith('http')) {
+                return (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-2 rounded-md text-sm font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
+                  >
+                    {t(l.key)}
+                  </a>
+                );
+              }
+
               return (
                 <Link
                   key={l.href}
                   to={l.href}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-foreground-700 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
+                  aria-current={active ? 'page' : undefined}
+                  className={`px-3 py-2 rounded-md text-sm transition-colors cursor-pointer whitespace-nowrap ${
+                    active
+                      ? 'bg-primary-100 text-primary-700 font-semibold shadow-sm'
+                      : 'font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50'
+                  }`}
                 >
                   {t(l.key)}
                 </Link>
               );
             })}
+            <div ref={moreMenuRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setMoreMenuOpen((open) => !open)}
+                aria-haspopup="menu"
+                aria-expanded={moreMenuOpen}
+                className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
+                  moreMenuOpen || secondaryNavLinkKeys.some((link) => isNavActive(link.href))
+                    ? 'bg-primary-100 text-primary-700'
+                    : 'text-foreground-800 hover:bg-primary-50 hover:text-primary-600'
+                }`}
+              >
+                {t('nav_more')}
+                <i className="ri-arrow-down-s-line text-xs" />
+              </button>
+              {moreMenuOpen && (
+                <div
+                  className="absolute right-0 top-full z-50 mt-2 w-48 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1 shadow-xl"
+                  role="menu"
+                >
+                  {secondaryNavLinkKeys.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setMoreMenuOpen(false)}
+                      role="menuitem"
+                      className={`flex items-center px-4 py-2.5 text-sm font-medium transition-colors ${
+                        isNavActive(link.href)
+                          ? 'bg-primary-50 text-primary-700'
+                          : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
+                      }`}
+                    >
+                      {t(link.key)}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </nav>
 
           <div className="flex items-center gap-2 md:gap-3 ml-2">
             <div ref={searchRef} className="relative hidden md:block">
-              <button
-                onClick={() => setSearchOpen((v) => !v)}
+              <form
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  submitSearch();
+                }}
                 className={`h-10 flex items-center gap-2 rounded-full px-3 md:px-4 transition-all cursor-pointer whitespace-nowrap ${
                   searchOpen
                     ? 'bg-background-50 border border-primary-400/50 w-72'
                     : 'bg-background-100 border border-background-200 w-56 hover:border-primary-300/60'
                 }`}
               >
-                <i className="ri-search-line text-foreground-500 text-sm"></i>
+                <button
+                  type="submit"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-foreground-500 hover:text-primary-600 cursor-pointer"
+                  aria-label={t('nav_search_button')}
+                >
+                  <i className="ri-search-line text-sm"></i>
+                </button>
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
@@ -347,37 +671,17 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                   placeholder={t('nav_search_placeholder')}
                   className="bg-transparent text-sm text-foreground-900 placeholder:text-foreground-500 outline-none w-full"
                 />
-                <span className="hidden md:inline text-[10px] text-foreground-500 border border-background-300 rounded px-1.5 py-0.5">
-                  ⌘K
-                </span>
-              </button>
-              {searchOpen && (
-                <div className="absolute right-0 mt-2 w-80 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden shadow-lg">
-                  <div className="px-4 py-2 text-xs uppercase tracking-wider text-foreground-500 bg-background-100">
-                    {query ? 'Best matches' : 'Popular right now'}
-                  </div>
-                  <ul className="py-2">
-                    {suggestions.map((s) => (
-                      <li key={s}>
-                        <button
-                          onClick={() => {
-                            setQuery(s);
-                            setSearchOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-2 text-sm text-foreground-800 hover:bg-primary-50 hover:text-primary-700 flex items-center gap-2 cursor-pointer"
-                        >
-                          <i className="ri-arrow-right-up-line text-foreground-500"></i>
-                          {s}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="px-4 py-2 text-[11px] text-foreground-600 bg-background-100 flex items-center gap-1 rounded-b-xl border-t border-background-200">
-                    <i className="ri-leaf-fill text-primary-500 text-xs"></i>
-                    {t('nav_search_filtered', { version: versionInfo.shortLabel })}
-                  </div>
-                </div>
-              )}
+                <button
+                  type="button"
+                  onClick={() => setPaletteOpen(true)}
+                  className="hidden rounded border border-background-300 px-1.5 py-0.5 text-[10px] text-foreground-500 hover:border-primary-300 hover:text-primary-700 md:inline"
+                  aria-label={t('search_palette_open')}
+                  title={t('search_palette_open')}
+                >
+                  ⌘/Ctrl K
+                </button>
+              </form>
+              {searchOpen && renderSearchMenu('absolute right-0 mt-2 w-80 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden shadow-lg')}
             </div>
 
             {/* Version Selector */}
@@ -433,7 +737,7 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
             </div>
 
             {/* Language Switcher */}
-            <div ref={langRef} className="relative">
+            <div ref={langRef} className="relative hidden sm:block">
               <button
                 onClick={() => setLangMenuOpen((v) => !v)}
                 className="h-10 flex items-center gap-1 rounded-full px-2.5 bg-background-100 border border-background-200 hover:border-primary-300/60 text-xs font-semibold text-foreground-800 cursor-pointer whitespace-nowrap"
@@ -497,52 +801,175 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
               )}
             </div>
 
+            {/* Mobile Search */}
+            <button
+              ref={mobileSearchButtonRef}
+              type="button"
+              onClick={() => {
+                setMenuOpen(false);
+                setSearchOpen(false);
+                setMobileSearchOpen((open) => !open);
+              }}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-700 transition-colors hover:border-primary-300/60 hover:bg-primary-50 md:hidden"
+              aria-label={mobileSearchOpen ? t('nav_search_close') : t('nav_search_open')}
+              aria-expanded={mobileSearchOpen}
+              aria-controls="mobile-site-search"
+            >
+              <i className={`${mobileSearchOpen ? 'ri-close-line' : 'ri-search-line'} text-lg`}></i>
+            </button>
+
             {/* Notifications */}
             <button
               onClick={onOpenNotifications}
               className="relative w-10 h-10 flex items-center justify-center rounded-full bg-background-100 border border-background-200 hover:bg-primary-50 hover:border-primary-300/50 transition-colors cursor-pointer"
-              aria-label="notifications"
+              aria-label={t('nav_notifications')}
             >
               <i className="ri-notification-3-line text-foreground-700 text-lg"></i>
-              {unread > 0 && (
+              {notificationCount > 0 && (
                 <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-500 text-background-50 text-[10px] font-bold flex items-center justify-center">
-                  {unread}
+                  {notificationCount > 99 ? '99+' : notificationCount}
                 </span>
               )}
               <span className="absolute inset-0 rounded-full border border-primary-400 animate-pulse-ring pointer-events-none"></span>
             </button>
 
-            {/* Sign In Button */}
-            <Link
-              to="/auth/login"
-              className="hidden sm:flex items-center gap-2 h-10 px-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-600 text-background-50 dark:text-foreground-950 text-sm font-semibold hover:from-primary-600 hover:to-accent-700 transition-all cursor-pointer whitespace-nowrap shadow-sm hover:shadow-md"
-            >
-              <i className="ri-login-circle-line"></i>
-              {t('nav_sign_in')}
-            </Link>
+            {/* Account state */}
+            {isSignedIn ? (
+              <Link
+                to="/checklist"
+                className="hidden h-10 max-w-40 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100 sm:flex"
+                title={t('nav_account_signed_in', { name: displayName })}
+              >
+                {session?.avatarUrl ? (
+                  <img src={session.avatarUrl} alt="" className="h-7 w-7 rounded-full object-cover" />
+                ) : (
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-500 text-xs text-background-50">
+                    {(displayName || '?').slice(0, 1).toUpperCase()}
+                  </span>
+                )}
+                <span className="truncate">{displayName}</span>
+              </Link>
+            ) : (
+              <Link
+                to="/auth/login"
+                className="hidden sm:flex items-center gap-2 h-10 px-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-600 text-background-50 dark:text-foreground-950 text-sm font-semibold hover:from-primary-600 hover:to-accent-700 transition-all cursor-pointer whitespace-nowrap shadow-sm hover:shadow-md"
+              >
+                <i className="ri-login-circle-line"></i>
+                {t('nav_sign_in')}
+              </Link>
+            )}
 
             {/* Mobile Menu Toggle */}
             <button
-              onClick={() => setMenuOpen((v) => !v)}
+              onClick={() => {
+                setSearchOpen(false);
+                setMobileSearchOpen(false);
+                setMenuOpen((v) => !v);
+              }}
               className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-background-100 border border-background-200 cursor-pointer"
-              aria-label="menu"
+              aria-label={menuOpen ? t('nav_menu_close') : t('nav_menu_open')}
             >
               <i className={`${menuOpen ? 'ri-close-line' : 'ri-menu-line'} text-foreground-800 text-xl`}></i>
             </button>
           </div>
         </div>
 
+        {mobileSearchOpen && (
+          <div
+            id="mobile-site-search"
+            ref={mobileSearchRef}
+            className="border-t border-primary-200/20 bg-background-50 px-4 py-3 shadow-md md:hidden"
+          >
+            <form
+              role="search"
+              onSubmit={(event) => {
+                event.preventDefault();
+                submitSearch();
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') setMobileSearchOpen(false);
+              }}
+              className="flex min-h-11 items-center gap-2 rounded-xl border border-background-300 bg-background-100 px-3 focus-within:border-primary-400"
+            >
+              <i className="ri-search-line text-foreground-500"></i>
+              <input
+                ref={mobileSearchInputRef}
+                type="search"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={t('nav_search_placeholder')}
+                aria-label={t('nav_search_placeholder')}
+                className="h-11 min-w-0 flex-1 bg-transparent text-sm text-foreground-900 outline-none placeholder:text-foreground-500"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery('')}
+                  className="flex h-8 w-8 items-center justify-center rounded-full text-foreground-500 hover:bg-background-200 hover:text-foreground-800"
+                  aria-label={t('search_clear_btn')}
+                >
+                  <i className="ri-close-line"></i>
+                </button>
+              )}
+            </form>
+            {renderSearchMenu('mt-2 max-h-[min(60vh,28rem)] overflow-y-auto rounded-xl border border-primary-200/40 bg-background-50 shadow-lg')}
+          </div>
+        )}
+
         {menuOpen && (
           <div className="lg:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
               {navLinkKeys.map((l) => {
+                const active = isNavActive(l.href);
+
+                if (l.key === 'nav_guides' && guideMenu) {
+                  return (
+                    <div key={l.href} className="py-1">
+                      <button
+                        type="button"
+                        onClick={() => setGuideMenuOpen((open) => !open)}
+                        aria-current={active ? 'page' : undefined}
+                        className={`w-full rounded-md px-3 py-2 text-sm font-semibold cursor-pointer flex items-center justify-between ${
+                          active ? 'bg-primary-100 text-primary-700' : 'text-primary-700 hover:bg-primary-50'
+                        }`}
+                      >
+                        <span>{t(l.key)}</span>
+                        <i className={`${guideMenuOpen ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'} text-base`}></i>
+                      </button>
+                      {guideMenuOpen && (
+                        <div className="mt-1 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1">
+                          {guideMenu.options.map((option) => (
+                            <button
+                              key={option.value}
+                              type="button"
+                              onClick={() => selectGuide(option.value)}
+                              className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm cursor-pointer ${
+                                option.value === guideMenu.value
+                                  ? 'bg-primary-50 text-primary-700 font-semibold'
+                                  : 'text-foreground-800 hover:bg-background-100'
+                              }`}
+                            >
+                              <i className={`${option.icon} text-base`}></i>
+                              <span className="min-w-0 flex-1 truncate">{option.label}</span>
+                              {option.value === guideMenu.value && <i className="ri-check-line text-primary-600"></i>}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 if (l.key === 'nav_tools') {
                   return (
                     <div key={l.href} ref={mobileToolMenuRef} className="py-1">
                       <button
                         type="button"
                         onClick={() => setToolMenuOpen((open) => !open)}
-                        className="w-full py-2 text-sm font-semibold text-primary-700 cursor-pointer flex items-center justify-between"
+                        aria-current={active ? 'page' : undefined}
+                        className={`w-full rounded-md px-3 py-2 text-sm font-semibold cursor-pointer flex items-center justify-between ${
+                          active ? 'bg-primary-100 text-primary-700' : 'text-primary-700 hover:bg-primary-50'
+                        }`}
                       >
                         <span>{t(l.key)}</span>
                         <i className={`${toolMenuOpen ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'} text-base`}></i>
@@ -570,56 +997,26 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                             </button>
                           </div>
                           <div className="py-1">
-                            {visibleToolOptions.length === 0 ? (
-                              <div className="px-3 py-3 text-sm text-foreground-500">{effectiveToolMenu.emptyFavoritesLabel}</div>
-                            ) : (
-                              visibleToolOptions.map((option) => (
-                                <div
-                                  key={option.value}
-                                  className={`flex items-center gap-1 px-1.5 py-1 ${
-                                    option.value === effectiveToolMenu.value
-                                      ? 'bg-primary-50 text-primary-700 font-semibold'
-                                      : 'text-foreground-800 hover:bg-background-100'
-                                  }`}
-                                >
-                                  <button
-                                    type="button"
-                                    onClick={() => selectTool(option.value)}
-                                    className="min-w-0 flex flex-1 items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm cursor-pointer"
-                                  >
-                                    <i className={`${option.icon} text-base`}></i>
-                                    <span className="min-w-0 flex-1 truncate">{option.label}</span>
-                                  {option.value === effectiveToolMenu.value && <i className="ri-check-line text-primary-600"></i>}
-                                </button>
-                                  {option.externalHref && (
-                                    <a
-                                      href={option.externalHref}
-                                      target="_blank"
-                                      rel="nofollow noopener noreferrer"
-                                      className="h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center text-foreground-400 hover:text-primary-700 hover:bg-background-100"
-                                      aria-label={`open ${option.label}`}
-                                      title={`Open ${option.label}`}
-                                    >
-                                      <i className="ri-external-link-line"></i>
-                                    </a>
-                                  )}
-                                  <button
-                                    type="button"
-                                    onClick={() => toggleToolFavorite(option.value)}
-                                    className={`h-8 w-8 shrink-0 rounded-md cursor-pointer flex items-center justify-center ${
-                                      option.favorite ? 'text-secondary-700 bg-secondary-100' : 'text-foreground-400 hover:text-secondary-700 hover:bg-background-100'
-                                    }`}
-                                    aria-label={option.favorite ? 'remove favorite' : 'add favorite'}
-                                  >
-                                    <i className={option.favorite ? 'ri-star-fill' : 'ri-star-line'}></i>
-                                  </button>
-                                </div>
-                              ))
-                            )}
+                            {renderToolMenuList(visibleToolOptions, effectiveToolMenu.emptyFavoritesLabel, true)}
                           </div>
                         </div>
                       )}
                     </div>
+                  );
+                }
+
+                if (l.href.startsWith('http')) {
+                  return (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="py-2 text-sm font-medium text-foreground-800 hover:text-primary-600 cursor-pointer"
+                    >
+                      {t(l.key)}
+                    </a>
                   );
                 }
 
@@ -628,7 +1025,12 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                     key={l.href}
                     to={l.href}
                     onClick={() => setMenuOpen(false)}
-                    className="py-2 text-sm font-medium text-foreground-800 hover:text-primary-600 cursor-pointer"
+                    aria-current={active ? 'page' : undefined}
+                    className={`rounded-md px-3 py-2 text-sm cursor-pointer ${
+                      active
+                        ? 'bg-primary-100 text-primary-700 font-semibold'
+                        : 'font-medium text-foreground-800 hover:text-primary-600 hover:bg-primary-50'
+                    }`}
                   >
                     {t(l.key)}
                   </Link>
@@ -687,19 +1089,31 @@ export default function Navbar({ onOpenNotifications, unread, toolMenu }: Navbar
                     繁體
                   </button>
                 </div>
-                <Link
-                  to="/auth/login"
-                  onClick={() => setMenuOpen(false)}
-                  className="mt-2 h-10 px-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-600 text-background-50 dark:text-foreground-950 text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
-                >
-                  <i className="ri-login-circle-line"></i>
-                  {t('nav_sign_in')}
-                </Link>
+                {isSignedIn ? (
+                  <Link
+                    to="/checklist"
+                    onClick={() => setMenuOpen(false)}
+                    className="mt-2 flex h-10 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
+                  >
+                    <i className="ri-user-smile-line" />
+                    {displayName}
+                  </Link>
+                ) : (
+                  <Link
+                    to="/auth/login"
+                    onClick={() => setMenuOpen(false)}
+                    className="mt-2 h-10 px-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-600 text-background-50 dark:text-foreground-950 text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+                  >
+                    <i className="ri-login-circle-line"></i>
+                    {t('nav_sign_in')}
+                  </Link>
+                )}
               </div>
             </nav>
           </div>
         )}
       </header>
+      <UniversalSearchDialog open={paletteOpen} onClose={() => setPaletteOpen(false)} />
     </>
   );
 }

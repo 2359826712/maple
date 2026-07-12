@@ -1,6 +1,9 @@
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
+import { telemetry } from '@/services/telemetry';
 import { useTranslation } from 'react-i18next';
 import { quickTools } from '@/mocks/home';
+import { Link } from 'react-router-dom';
 
 const tintMap: Record<string, { bg: string; text: string; ring: string }> = {
   primary: { bg: 'bg-primary-100', text: 'text-primary-700', ring: 'group-hover:ring-primary-300' },
@@ -12,7 +15,9 @@ export default function QuickTools() {
   const { versionInfo } = useVersion();
   const { t } = useTranslation();
 
-  const filteredTools = quickTools.filter((tool) => tool.versions.includes(versionInfo.id));
+  const filteredTools = quickTools.filter(
+    (tool) => tool.key !== 'char' && isAvailableInVersion(tool.versions, versionInfo.id),
+  );
 
   return (
     <section id="tools" className="py-14 md:py-20 bg-background-50">
@@ -30,13 +35,13 @@ export default function QuickTools() {
               {t('tools_desc')}
             </p>
           </div>
-          <a
-            href="/mapler-house"
+          <Link
+            to="/mapler-house"
             className="hidden md:inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800 cursor-pointer"
           >
-            {t('tools_browse_all')} ({filteredTools.length})
+            {t('tools_browse_all')}
             <i className="ri-arrow-right-line"></i>
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -44,11 +49,12 @@ export default function QuickTools() {
             const tint = tintMap[tItem.tint] || tintMap.primary;
             const toolTag = tItem.versions.length === 1 && tItem.versions[0] !== 'gms'
               ? t('tools_tag_version', { version: tItem.versions[0].toUpperCase() })
-              : (tItem.tag === 'GMS' ? t('tools_tag_gms') : tItem.tag === 'Simulator' ? t('tools_tag_simulator') : tItem.tag === 'Live' ? t('tools_tag_live') : tItem.tag === 'Community' ? t('tools_tag_community') : tItem.tag === 'GMS Only' ? t('tools_tag_gms_only') : tItem.tag);
+              : (tItem.tag === 'GMS' ? t('tools_tag_gms') : tItem.tag === 'Simulator' ? t('tools_tag_simulator') : tItem.tag === 'Live' ? t('tools_tag_live') : tItem.tag === 'Community' ? t('tools_tag_community') : tItem.tag === 'GMS Only' ? t('tools_tag_gms_only') : tItem.tag === 'Tools' ? t('tools_tag_tools') : tItem.tag);
             return (
-              <a
+              <Link
                 key={tItem.key}
-                href={tItem.href}
+                to={tItem.href}
+                onClick={() => telemetry.trackToolUse(tItem.key)}
                 className={`group relative rounded-xl border border-background-200 bg-background-50 p-5 hover:border-primary-300 hover:bg-background-100 transition-all cursor-pointer ring-1 ring-transparent ${tint.ring}`}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -60,14 +66,25 @@ export default function QuickTools() {
                   </span>
                 </div>
                 <h3 className="font-heading text-lg font-semibold text-foreground-950">
-                  {tItem.title}
+                  {t(tItem.titleKey)}
                 </h3>
-                <p className="mt-1 text-sm text-foreground-700">{tItem.desc}</p>
+                <p className="mt-1 text-sm text-foreground-700">{t(tItem.descKey)}</p>
                 <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-primary-700">
                   {t('tools_open')}
                   <i className="ri-arrow-right-line group-hover:translate-x-0.5 transition-transform"></i>
                 </div>
-              </a>
+                <div className="mt-3 flex items-center gap-2 text-[11px] text-foreground-500 border-t border-background-200 pt-3">
+                  <span className="flex items-center gap-0.5">
+                    <i className="ri-global-line text-[10px]"></i>
+                    {tItem.versions.length >= 5 ? t('tools_data_all_versions', 'All versions') : tItem.versions.map((v) => v.toUpperCase()).join(' / ')}
+                  </span>
+                  <span className="text-background-300">·</span>
+                  <span className="flex items-center gap-0.5">
+                    <i className="ri-information-line text-[10px] text-primary-500"></i>
+                    {t(tItem.dataLabelKey)}
+                  </span>
+                </div>
+              </Link>
             );
           })}
         </div>

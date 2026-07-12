@@ -1,54 +1,69 @@
 import type { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import NotFound from "../pages/NotFound";
-import Home from "../pages/home/page";
-import GuideDetail from "../pages/guides/detail/page";
-import RankingsPage from "../pages/rankings/page";
-import MaplerHouse from "../pages/mapler-house/page";
-import NewsPage from "../pages/news/page";
-import GuidesPage from "../pages/guides/page";
-import EventsPage from "../pages/events/page";
-import CommunityPage from "../pages/community/page";
-import MapsPage from "../pages/maps/page";
-import WikiPage from "../pages/wiki/page";
-import LoginPage from "../pages/auth/login/page";
+import { lazy } from "react";
+import { communityLinks } from "@/constants/communityLinks";
+import { RouteLoader } from "@/components/base/RouteLoadingFallback";
+
+const NotFound = lazy(() => import("../pages/NotFound"));
+const Home = lazy(() => import("../pages/home/page"));
+const GuideDetail = lazy(() => import("../pages/guides/detail/page"));
+const RankingsPage = lazy(() => import("../pages/rankings/page"));
+const MaplerHouse = lazy(() => import("../pages/mapler-house/page"));
+const NewsPage = lazy(() => import("../pages/news/page"));
+const GuidesPage = lazy(() => import("../pages/guides/page"));
+const EventsPage = lazy(() => import("../pages/events/page"));
+const MapsPage = lazy(() => import("../pages/maps/page"));
+const WikiPage = lazy(() => import("../pages/wiki/page"));
+const WikiArticlePage = lazy(() => import("../pages/wiki/article"));
+const LoginPage = lazy(() => import("../pages/auth/login/page"));
+const SearchPage = lazy(() => import("../pages/search/page"));
+const ChecklistPage = lazy(() => import("../pages/checklist/page"));
+const LevelGuidePage = lazy(() => import("../pages/guides/level/page"));
+const ToolsPage = lazy(() => import("../pages/tools/page"));
+const BossDetailPage = lazy(() => import("../pages/wiki/boss"));
+const ExternalRedirect = lazy(() => import("@/components/feature/ExternalRedirect"));
+const WikiRedirectPage = lazy(() => import("../pages/wiki/redirect").then((module) => ({ default: module.WikiRedirectPage })));
 
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <Home />,
+    element: <RouteLoader><Home /></RouteLoader>,
   },
   {
     path: "/news",
-    element: <NewsPage />,
+    element: <RouteLoader><NewsPage /></RouteLoader>,
+  },
+  {
+    path: "/search",
+    element: <RouteLoader><SearchPage /></RouteLoader>,
   },
   {
     path: "/guides",
-    element: <GuidesPage />,
+    element: <RouteLoader><GuidesPage /></RouteLoader>,
   },
   {
     path: "/guides/:id",
-    element: <GuideDetail />,
+    element: <RouteLoader><GuideDetail /></RouteLoader>,
   },
   {
     path: "/events",
-    element: <EventsPage />,
+    element: <RouteLoader><EventsPage /></RouteLoader>,
   },
   {
     path: "/community",
-    element: <CommunityPage />,
+    element: <RouteLoader><ExternalRedirect to={communityLinks.reddit} message="Entering MapleStory Community" targetLabel="MapleStory Community" /></RouteLoader>,
   },
   {
     path: "/auth/login",
-    element: <LoginPage />,
+    element: <RouteLoader><LoginPage /></RouteLoader>,
   },
   {
     path: "/maps",
-    element: <MapsPage />,
+    element: <RouteLoader><MapsPage /></RouteLoader>,
   },
   {
     path: "/rankings",
-    element: <RankingsPage />,
+    element: <RouteLoader><RankingsPage /></RouteLoader>,
   },
   {
     path: "/rankings/classes",
@@ -56,15 +71,39 @@ const routes: RouteObject[] = [
   },
   {
     path: "/mapler-house",
-    element: <MaplerHouse />,
+    element: <RouteLoader><MaplerHouse /></RouteLoader>,
+  },
+  {
+    path: "/wiki/article/*",
+    element: <RouteLoader><WikiArticlePage /></RouteLoader>,
+  },
+  {
+    path: "/wiki/boss/*",
+    element: <RouteLoader><BossDetailPage /></RouteLoader>,
+  },
+  {
+    path: "/wiki/redirect",
+    element: <RouteLoader><WikiRedirectPage /></RouteLoader>,
   },
   {
     path: "/wiki",
-    element: <WikiPage />,
+    element: <RouteLoader><WikiPage /></RouteLoader>,
+  },
+  {
+    path: "/checklist",
+    element: <RouteLoader><ChecklistPage /></RouteLoader>,
+  },
+  {
+    path: "/guides/level",
+    element: <RouteLoader><LevelGuidePage /></RouteLoader>,
+  },
+  {
+    path: "/tools",
+    element: <RouteLoader><ToolsPage /></RouteLoader>,
   },
   {
     path: "*",
-    element: <NotFound />,
+    element: <RouteLoader><NotFound /></RouteLoader>,
   },
 ];
 

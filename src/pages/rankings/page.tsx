@@ -9,10 +9,10 @@ export default function RankingsPage() {
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-900">
-      <Navbar onOpenNotifications={() => setNotifOpen(true)} unread={3} />
+      <Navbar onOpenNotifications={() => setNotifOpen(true)} unread={0} />
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />
 
-      <main className="pt-16 md:pt-20">
+      <main id="main-content" tabIndex={-1} className="pt-16 md:pt-20">
         <RankingBoard />
       </main>
 

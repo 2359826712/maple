@@ -48,7 +48,7 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-gradient-to-b from-accent-950 to-foreground-950 border-t border-accent-800/30">
+    <footer className="bg-gradient-to-b from-accent-950 to-foreground-950 dark:to-[#120e0b] border-t border-accent-800/30">
       <div className="w-full px-4 md:px-8 py-14 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
           <div className="col-span-2">
@@ -70,15 +70,16 @@ export default function Footer() {
             </p>
             <div className="mt-5 flex items-center gap-2">
               {[
-                { icon: 'ri-discord-fill', href: communityLinks.discord },
-                { icon: 'ri-reddit-line', href: communityLinks.reddit },
-                { icon: 'ri-twitter-x-line', href: communityLinks.x },
-                { icon: 'ri-twitch-fill', href: communityLinks.twitch },
-                { icon: 'ri-youtube-fill', href: communityLinks.youtube },
+                { icon: 'ri-discord-fill', href: communityLinks.discord, label: 'Discord' },
+                { icon: 'ri-reddit-line', href: communityLinks.reddit, label: 'Reddit' },
+                { icon: 'ri-twitter-x-line', href: communityLinks.x, label: 'X' },
+                { icon: 'ri-twitch-fill', href: communityLinks.twitch, label: 'Twitch' },
+                { icon: 'ri-youtube-fill', href: communityLinks.youtube, label: 'YouTube' },
               ].map((item) => (
                 <a
                   key={item.icon}
                   href={item.href}
+                  aria-label={item.label}
                   target="_blank"
                   rel="nofollow noreferrer"
                   className="w-10 h-10 rounded-full bg-accent-900/40 border border-accent-700/30 hover:border-primary-400 hover:text-primary-400 text-accent-200/60 flex items-center justify-center cursor-pointer transition-colors"

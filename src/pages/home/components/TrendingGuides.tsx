@@ -2,13 +2,12 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
 import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { trendingGuides } from '@/mocks/home';
 import { getGuideCardCopy } from '@/pages/guides/localizedGuides';
 import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
-
-type GuideItem = (typeof trendingGuides)[number];
+import { fetchLiveGuides, liveStorageKeys, type GuideItem } from '@/services/liveContent';
 
 const difficultyColor: Record<string, string> = {
   Beginner: 'bg-accent-100 text-accent-800',
@@ -22,10 +21,10 @@ export default function TrendingGuides() {
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [authPrompt, setAuthPrompt] = useState(false);
   const { isSignedIn } = useAuthSession();
-  const { items: realtimeGuides } = useRealtimeCollection<GuideItem>({
-    storageKey: 'maplehub-live-guides',
-    baseItems: trendingGuides,
-    remoteUrl: '/realtime/guides.json',
+  const { items: realtimeGuides, status: realtimeStatus } = useRealtimeCollection<GuideItem>({
+    storageKey: liveStorageKeys.guides,
+    baseItems: [],
+    remoteLoader: fetchLiveGuides,
   });
   const requireAuth = () => {
     if (isSignedIn) return true;
@@ -39,9 +38,10 @@ export default function TrendingGuides() {
   };
 
   const filteredGuides = useMemo(
-    () => realtimeGuides.filter((g) => g.versions.includes(versionInfo.id)),
+    () => realtimeGuides.filter((guide) => isAvailableInVersion(guide.versions, versionInfo.id)),
     [realtimeGuides, versionInfo.id],
   );
+  const isInitialGuidesSync = realtimeStatus === 'syncing' && realtimeGuides.length === 0;
 
   return (
     <section id="guides" className="py-14 md:py-20 bg-background-50">
@@ -78,9 +78,11 @@ export default function TrendingGuides() {
 
         {filteredGuides.length === 0 ? (
           <div className="text-center py-16 text-foreground-600">
-            <i className="ri-book-open-line text-4xl mb-3 block"></i>
-            <p className="text-lg font-semibold">{t('guides_no_items', { version: versionInfo.shortLabel })}</p>
-            <p className="text-sm mt-1">{t('guides_no_items_tip')}</p>
+            <i className={`${isInitialGuidesSync ? 'ri-loader-4-line animate-spin' : 'ri-book-open-line'} text-4xl mb-3 block`}></i>
+            <p className="text-lg font-semibold">
+              {isInitialGuidesSync ? t('guides_loading') : t('guides_no_items', { version: versionInfo.shortLabel })}
+            </p>
+            <p className="text-sm mt-1">{isInitialGuidesSync ? t('guides_loading_tip') : t('guides_no_items_tip')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">

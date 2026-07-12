@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "project": "MapleHub daily-use improvements",
+  "workspace": ".",
+  "progressFile": "docs/daily-use-plan/PROGRESS.md",
+  "currentPhase": "phase-1-complete-ready-for-phase-2-daily-planner-expansion",
+  "resumePolicy": {
+    "preserveExistingWorktreeChanges": true,
+    "readProgressFileFirst": true,
+    "inspectOnlyLoggedFilesBeforeEditing": true,
+    "runVerificationBeforeCompletion": true
+  },
+  "nextActions": [
+    "Expand Today's Tasks beyond bosses into configurable account and event dailies",
+    "Add delivery options for saved event reminders",
+    "Add weekly completion history and goal projections",
+    "Resolve or restore the unrelated maple_docs wiki strategy fixture before requiring the full accessibility suite"
+  ],
+  "updatedAt": "2026-07-13T01:04:00+08:00"
+}

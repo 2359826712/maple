@@ -1,6 +1,8 @@
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState, type MouseEvent, type PointerEvent } from 'react';
 import { useTranslation } from 'react-i18next';
-import { mapLocations, monsterImages } from '@/mocks/mapler-house';
+import { cachedJsonFetch, realtimeCacheDurations } from '@/services/realtimeCache';
+import { WORLD_MAP_HIT_MASKS, type OverlayHitMask } from './worldMapHitMasks';
+import { mapLocations } from '@/mocks/mapler-house';
 
 type MajorRegion = 'maple' | 'arcane' | 'grandis';
 type SortKey = 'level' | 'exp' | 'meso' | 'spawn' | 'name';
@@ -16,6 +18,12 @@ type MapLocation = {
   version: string;
   image: string;
   imageSource?: string;
+  sourceRegion?: MajorRegion;
+  avgMobExp?: number;
+  capacity?: number;
+  capacityPerGen?: number;
+  numMobs?: number;
+  forceLabel?: string;
 };
 
 type MapleStoryIoMap = {
@@ -48,21 +56,11 @@ type MonsterVisual = {
   hp?: number;
 };
 
-type MapExpansionRule = {
-  street: string;
-  minLevel: number;
-  maxLevel: number;
-  limit: number;
-  monsters: string[];
-  version?: string;
-};
-
 type TableRow = MapLocation & {
   majorRegion: MajorRegion;
   zone: string;
   mapName: string;
   avgLevel: number;
-  forceLabel: string;
   spawn: number;
   capPerGen: number;
   expHour: number;
@@ -76,7 +74,9 @@ type RootHotspot = { region: MajorRegion; label: string; x: number; y: number; w
 
 const MAP_API_REGION = 'GMS';
 const MAP_API_VERSION = '253';
-const MAP_IMAGE_SOURCE = 'MapleStory.io GMS v253 map render';
+const MAPLESTORY_IO_API_BASE = '/maplestory-io-api';
+const MAPLEMAPS_ASSET_BASE = 'https://d3uzjcc4cyf4cj.cloudfront.net';
+const MAP_IMAGE_SOURCE = 'Maplemaps map render';
 
 const MAPLEMAPS_HOME_REGION_IMAGES = {
   maple: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/maple_world_select.webp',
@@ -126,20 +126,35 @@ type MaplemapsMapMeta = {
   worldMapName?: string;
   avgLevel?: number;
   mobIds?: number[];
+  capacityPerGen?: number;
+  capacity?: number;
+  numMobs?: number;
+  sourceRegion?: MajorRegion;
+};
+
+type MaplemapsMobMeta = {
+  mob_id: number;
+  name: string;
+  level?: number;
+  maxHP?: number;
+  exp?: number;
 };
 
 async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arcane_river') {
-  const response = await fetch('https://v66rewn65j.execute-api.us-west-2.amazonaws.com/prod/fetch-mongodb', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ reqType: 'regionData', region }),
-  });
-  if (!response.ok) throw new Error(`Maplemaps world-map data failed: ${response.status}`);
-  return (await response.json()) as {
+  return cachedJsonFetch<{
     worldMapsData: Record<string, MaplemapsWorldMapRemote>;
     mapsData: Record<string, MaplemapsMapMeta>;
-    mobsData: Record<string, unknown>;
-  };
+    mobsData: Record<string, MaplemapsMobMeta>;
+  }>('https://v66rewn65j.execute-api.us-west-2.amazonaws.com/prod/fetch-mongodb', {
+    cacheKey: `maplemaps-region:${region}`,
+    freshMs: realtimeCacheDurations.long,
+    staleMs: realtimeCacheDurations.week,
+    requestInit: {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ reqType: 'regionData', region }),
+    },
+  });
 }
 
 const MAPLEMAPS_WORLDMAPS: Record<string, MaplemapsWorldMapDef> = {
@@ -209,8 +224,132 @@ const MAPLEMAPS_WORLDMAPS: Record<string, MaplemapsWorldMapDef> = {
 };
 
 type WorldMapStackItem = { worldMap: string; parentWorld: string };
-const mapRender = (mapId: number) => `https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/map/${mapId}/render?showPortals=true&showLife=true`;
-const mobIcon = (mobId: number) => `https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/mob/${mobId}/icon`;
+const mapRender = (mapId: number) => `${MAPLEMAPS_ASSET_BASE}/maps/lg/${mapId}.webp?v=2`;
+const mapleStoryIoEndpoint = (path: string) => `${MAPLESTORY_IO_API_BASE}/${MAP_API_REGION}/${MAP_API_VERSION}${path}`;
+const mobIcon = (mobId: number) => mapleStoryIoEndpoint(`/mob/${mobId}/icon`);
+const toPercent = (value: number, total: number) => `${(value / total) * 100}%`;
+
+const WORLD_MAP_LABELS: Record<string, string> = {
+  WorldMap000: 'Maple Island',
+  WorldMap010: 'Victoria Island',
+  WorldMap020: 'Ludus Lake',
+  WorldMap021: 'El Nath Dungeon',
+  WorldMap022: "Lion King's Castle",
+  WorldMap030: 'Nihal Desert',
+  WorldMap040: 'El Nath Mts.',
+  WorldMap050: 'Minar Forest',
+  WorldMap060: 'Mu Lung Garden',
+  WorldMap070: 'Temple of Time',
+  WorldMap080: 'Edelstein',
+  WorldMap090: 'Orbis',
+  WorldMap100: 'Aquarium',
+  WorldMap110: 'Grandis',
+  WorldMap160: 'Masteria',
+  WorldMap170: 'Commerci',
+  WorldMap161: 'Phantom Forest',
+  WorldMap162: 'New Leaf City',
+  WorldMap163: 'Crimsonwood',
+  WorldMap169: 'Haunted House',
+  WorldMap230: 'Cernium',
+  WorldMap250: 'Hotel Arcus',
+  WorldMap270: 'Odium',
+  WorldMap300: 'Shangri-La',
+  WorldMap310: 'Arteria',
+  WorldMap320: 'Carcion',
+  WorldMap350: 'Tallahart',
+  WorldMap0821: 'Vanishing Journey',
+  WorldMap0822: 'Chu Chu Island',
+  WorldMap0823: 'Lachelein',
+  WorldMap0824: 'Arcana',
+  WorldMap0825: 'Morass',
+  WorldMap0826: 'Esfera',
+  WorldMap0827: 'Tenebris',
+  WorldMap08271: 'Moonbridge',
+  WorldMap08272: 'Labyrinth of Suffering',
+  WorldMap08273: 'Limina',
+  WorldMap0828: 'Reverse City',
+  WorldMap0829: 'Yum Yum Island',
+  WorldMap082a: 'Sellas',
+};
+
+const getWorldMapLabel = (worldMapId: string) => WORLD_MAP_LABELS[worldMapId] || worldMapId;
+
+const MAP_DOT_WORLD_LINKS: Record<string, Record<number, string>> = {
+  WorldMap020: {
+    211040300: 'WorldMap021',
+  },
+  WorldMap021: {
+    211060010: 'WorldMap022',
+  },
+  WorldMap0827: {
+    450009100: 'WorldMap08271',
+    450011120: 'WorldMap08272',
+    450012000: 'WorldMap08273',
+  },
+};
+
+const HIDDEN_WORLD_MAP_LINK_DOTS: Record<string, string[]> = {
+  WorldMap020: ['WorldMap021'],
+  WorldMap0827: ['WorldMap08271', 'WorldMap08272', 'WorldMap08273'],
+};
+
+const collectWorldMapNumbers = (worldMap?: MaplemapsWorldMapRemote) => {
+  const mapNumbers = new Set<number>();
+  worldMap?.maps?.forEach((dot) => {
+    dot.mapNumbers?.forEach((mapId) => mapNumbers.add(mapId));
+  });
+  return mapNumbers;
+};
+
+const hitMaskByteCache = new Map<string, Uint8Array>();
+
+const getHitMaskBytes = (mask: OverlayHitMask) => {
+  let bytes = hitMaskByteCache.get(mask.bits);
+  if (!bytes) {
+    const binary = atob(mask.bits);
+    bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+    hitMaskByteCache.set(mask.bits, bytes);
+  }
+  return bytes;
+};
+
+const isOverlayMaskHit = (overlay: MaplemapsOverlay, base: MaplemapsWorldMapDef['base'], mapX: number, mapY: number) => {
+  if (mapX < overlay.leftPx || mapX > overlay.leftPx + overlay.widthPx || mapY < overlay.topPx || mapY > overlay.topPx + overlay.heightPx) {
+    return false;
+  }
+
+  const mask = WORLD_MAP_HIT_MASKS[overlay.id];
+  if (!mask) return true;
+
+  const localX = (mapX - overlay.leftPx) / overlay.widthPx;
+  const localY = (mapY - overlay.topPx) / overlay.heightPx;
+  const col = clamp(Math.floor(localX * mask.width), 0, mask.width - 1);
+  const row = clamp(Math.floor(localY * mask.height), 0, mask.height - 1);
+  const bitIndex = row * mask.width + col;
+  const byte = getHitMaskBytes(mask)[Math.floor(bitIndex / 8)];
+  return Boolean(byte & (1 << (7 - (bitIndex % 8))));
+};
+
+const getEventMapPoint = <T extends HTMLElement>(event: PointerEvent<T> | MouseEvent<T>, base: MaplemapsWorldMapDef['base']) => {
+  const rect = event.currentTarget.getBoundingClientRect();
+  const xPct = (event.clientX - rect.left) / rect.width;
+  const yPct = (event.clientY - rect.top) / rect.height;
+  if (xPct < 0 || xPct > 1 || yPct < 0 || yPct > 1) return null;
+  return {
+    xPct,
+    yPct,
+    mapX: xPct * base.width,
+    mapY: yPct * base.height,
+  };
+};
+
+const findOverlayAtPoint = (overlays: MaplemapsOverlay[], base: MaplemapsWorldMapDef['base'], mapX: number, mapY: number) => {
+  for (let index = overlays.length - 1; index >= 0; index -= 1) {
+    const overlay = overlays[index];
+    if (isOverlayMaskHit(overlay, base, mapX, mapY)) return overlay;
+  }
+  return null;
+};
 
 const ACKNOWLEDGEMENTS = [
   { label: 'WzComparerR2', detail: 'Map renders, skills data, icons', href: 'https://github.com/Kagamia/WzComparerR2' },
@@ -226,7 +365,7 @@ const ROOT_WORLD_HOTSPOTS: RootHotspot[] = [
   { region: 'grandis', label: 'Grandis', x: 77, y: 38, width: 22, height: 24, note: 'Cernium, Odium, Shangri-La, Carcion' },
 ];
 
-const expandedMapRules: MapExpansionRule[] = [
+const expandedMapRules = [
   { street: 'Reverse City', minLevel: 205, maxLevel: 215, limit: 28, monsters: ['Reverse City Mob', 'Research Train Mob'] },
   { street: 'Chu Chu Island', minLevel: 210, maxLevel: 220, limit: 24, monsters: ['Chu Chu Mob', 'Hungry Muto Mob'] },
   { street: 'Yum Yum Island', minLevel: 215, maxLevel: 225, limit: 26, monsters: ['Yum Yum Mob', 'Illiard Mob'] },
@@ -245,46 +384,33 @@ const expandedMapRules: MapExpansionRule[] = [
   { street: 'Arteria', minLevel: 280, maxLevel: 295, limit: 34, monsters: ['Arteria Mob', 'High Flora Guard'] },
   { street: 'Carcion', minLevel: 285, maxLevel: 300, limit: 46, monsters: ['Carcion Mob', 'Abyss Creature'] },
   { street: 'Commerci Republic', minLevel: 160, maxLevel: 210, limit: 40, monsters: ['Grosso Polpo', 'Aqua Patrol'], version: 'gms' },
-  { street: 'Shaolin Temple', minLevel: 250, maxLevel: 275, limit: 24, monsters: ['扫地僧', '铜人'], version: 'cms' },
+  { street: 'Shaolin Temple', minLevel: 250, maxLevel: 275, limit: 24, monsters: ['Sweeping Monk', 'Bronze Man'], version: 'cms' },
   { street: 'Orbis', minLevel: 50, maxLevel: 90, limit: 34, monsters: ['Cloud Mob', 'Sky Sentinel'], version: 'all' },
   { street: 'El Nath', minLevel: 70, maxLevel: 120, limit: 34, monsters: ['Snowfield Mob', 'Ice Sentinel'], version: 'all' },
   { street: 'Ludibrium', minLevel: 90, maxLevel: 130, limit: 40, monsters: ['Toy Mob', 'Clocktower Mob'], version: 'all' },
   { street: 'Leafre', minLevel: 100, maxLevel: 160, limit: 36, monsters: ['Dragon Forest Mob', 'Minar Mob'], version: 'all' },
   { street: 'Temple of Time', minLevel: 140, maxLevel: 200, limit: 36, monsters: ['Memory Guardian', 'Oblivion Guardian'], version: 'all' },
   { street: 'Kritias', minLevel: 170, maxLevel: 210, limit: 36, monsters: ['Kritias Soldier', 'Fallen Mage'], version: 'all' },
-  { street: 'Zipangu', minLevel: 160, maxLevel: 280, limit: 40, monsters: ['侍大将', '忍者'], version: 'jms' },
+  { street: 'Zipangu', minLevel: 160, maxLevel: 280, limit: 40, monsters: ['Samurai General', 'Ninja'], version: 'jms' },
 ];
 
 const excludedMapName = /(cutscene|quest|hidden|entrance|exit|practice|tutorial|event|cash|shop|storage|station|somewhere|safe zone|preview|test|theater|saloon|town)$/i;
 
-const buildExpandedMaps = (apiMaps: MapleStoryIoMap[], featuredMaps: MapLocation[]) => {
-  const usedMapIds = new Set(featuredMaps.map((map) => map.mapId));
-  const expandedMaps: MapLocation[] = [];
-
-  expandedMapRules.forEach((rule) => {
-    const matches = apiMaps
-      .filter((map) => map.streetName === rule.street)
-      .filter((map) => map.id < 900000000 && !usedMapIds.has(map.id) && !excludedMapName.test(map.name))
-      .slice(0, rule.limit);
-
-    matches.forEach((map, index) => {
-      usedMapIds.add(map.id);
-      expandedMaps.push({
-        name: `${map.streetName} — ${map.name}`,
-        mapId: map.id,
-        minLevel: rule.minLevel,
-        maxLevel: rule.maxLevel,
-        monsters: rule.monsters,
-        burning: index % 5 === 0 ? 10 : index % 3 === 0 ? 8 : 6,
-        version: rule.version || 'all',
-        imageSource: MAP_IMAGE_SOURCE,
-        image: mapRender(map.id),
-      });
-    });
-  });
-
-  return expandedMaps;
-};
+const buildExpandedMaps = (apiMaps: MapleStoryIoMap[]) =>
+  apiMaps
+    .filter((map) => map.id < 900000000 && map.streetName && map.name && !excludedMapName.test(map.name))
+    .slice(0, 1500)
+    .map((map) => ({
+      name: `${map.streetName} — ${map.name}`,
+      mapId: map.id,
+      minLevel: 1,
+      maxLevel: 1,
+      monsters: [],
+      burning: 0,
+      version: MAP_API_REGION,
+      imageSource: 'MapleStory.io map list; map render via Maplemaps',
+      image: mapRender(map.id),
+    } satisfies MapLocation));
 
 const regionOptions: Array<{ key: MajorRegion; label: string; hint: string }> = [
   { key: 'maple', label: 'Maple World Region', hint: 'Pre-260 and overseas areas' },
@@ -347,9 +473,9 @@ const getZonePosition = (zone: string, region: MajorRegion, index: number): { x:
   const normalized = zone.toLowerCase();
   const known: Record<string, { x: number; y: number }> = {
     commerci: { x: 9, y: 24 },
-    '天空之城': { x: 46, y: 26 },
-    '少林寺': { x: 90, y: 52 },
-    '倭城': { x: 12, y: 17 },
+    'sky city': { x: 46, y: 26 },
+    'shaolin temple': { x: 90, y: 52 },
+    zipangu: { x: 12, y: 17 },
     limina: { x: 72, y: 78 },
     cernium: { x: 18, y: 33 },
     'hotel arcus': { x: 44, y: 58 },
@@ -374,6 +500,7 @@ const getZonePosition = (zone: string, region: MajorRegion, index: number): { x:
 };
 
 const formatRate = (value: number) => {
+  if (!Number.isFinite(value) || value <= 0) return '-';
   if (value >= 1000) return `${(value / 1000).toFixed(1)}T`;
   return `${Math.round(value)}B`;
 };
@@ -394,7 +521,7 @@ const fallbackMonsterVisuals = (monsters: string[]): MonsterVisual[] =>
   monsters.map((monster) => ({
     key: monster,
     name: monster,
-    icon: monsterImages[monster] || '',
+    icon: '',
   }));
 
 const monsterMarkerPositions = [
@@ -439,6 +566,25 @@ const toRow = (map: MapLocation): TableRow => {
   };
 };
 
+const maplemapsMetaToRow = (mapId: number, meta?: MaplemapsMapMeta): TableRow => {
+  const avgLevel = Math.max(1, Math.round(meta?.avgLevel || 1));
+  const streetName = meta?.streetName?.trim() || 'Maple World';
+  const mapName = meta?.name?.trim() || `Map ${mapId}`;
+  const mobNames = meta?.mobIds?.length ? meta.mobIds.slice(0, 8).map((mobId) => `Mob ${mobId}`) : [];
+
+  return toRow({
+    name: `${streetName} — ${mapName}`,
+    mapId,
+    minLevel: Math.max(1, avgLevel - 5),
+    maxLevel: Math.min(300, Math.max(avgLevel + 5, avgLevel)),
+    monsters: mobNames,
+    burning: 0,
+    version: 'all',
+    image: mapRender(mapId),
+    imageSource: `${MAP_IMAGE_SOURCE}; map metadata from Maplemaps`,
+  });
+};
+
 export default function MapExplorer() {
   const { t } = useTranslation();
   const [selectedRegion, setSelectedRegion] = useState<MajorRegion>('maple');
@@ -456,6 +602,7 @@ export default function MapExplorer() {
   const [personalRates, setPersonalRates] = useState(true);
   const [sortKey, setSortKey] = useState<SortKey>('level');
   const [selectedMapName, setSelectedMapName] = useState<string | null>(null);
+  const [selectedMapIdOverride, setSelectedMapIdOverride] = useState<number | null>(null);
   const [expandedMaps, setExpandedMaps] = useState<MapLocation[]>([]);
   const [isLoadingExpandedMaps, setIsLoadingExpandedMaps] = useState(true);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
@@ -471,13 +618,14 @@ export default function MapExplorer() {
       setMapLoadError(null);
 
       try {
-        const response = await fetch(`https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/map`);
-        if (!response.ok) throw new Error(`MapleStory.io returned ${response.status}`);
-
-        const apiMaps = await response.json() as MapleStoryIoMap[];
+        const apiMaps = await cachedJsonFetch<MapleStoryIoMap[]>(mapleStoryIoEndpoint('/map'), {
+          cacheKey: `maplestoryio-proxy-v2-map-list:${MAP_API_REGION}:${MAP_API_VERSION}`,
+          freshMs: realtimeCacheDurations.long,
+          staleMs: realtimeCacheDurations.week,
+        });
         if (!isActive) return;
 
-        setExpandedMaps(buildExpandedMaps(apiMaps, mapLocations as MapLocation[]));
+        setExpandedMaps(buildExpandedMaps(apiMaps));
       } catch (error) {
         if (!isActive) return;
         setExpandedMaps([]);
@@ -532,8 +680,13 @@ export default function MapExplorer() {
   const selectedMap = useMemo(() => {
     const explicitMap = filteredRows.find((row) => row.name === selectedMapName);
     if (explicitMap) return explicitMap;
+    if (selectedMapIdOverride) {
+      const existingMap = rows.find((row) => row.mapId === selectedMapIdOverride);
+      if (existingMap) return existingMap;
+      return maplemapsMetaToRow(selectedMapIdOverride, maplemapsMapsData[String(selectedMapIdOverride)]);
+    }
     return navigatorNode === 'table' ? filteredRows[0] : null;
-  }, [filteredRows, navigatorNode, selectedMapName]);
+  }, [filteredRows, maplemapsMapsData, navigatorNode, rows, selectedMapIdOverride, selectedMapName]);
 
   const currentWorldMap = navigatorNode !== 'table' && navigatorNode !== 'root' ? worldMapStack[worldMapStack.length - 1]?.worldMap : null;
   const currentWorldMapMapIds = useMemo(
@@ -552,12 +705,14 @@ export default function MapExplorer() {
     if (navigatorNode === 'root') return;
     if (!currentWorldMapMapIds.length) return;
     if (!selectedMapName) return;
+    if (selectedMapIdOverride) return;
 
     const selectedId = selectedMap?.mapId;
     if (selectedId && currentWorldMapMapIds.includes(selectedId)) return;
 
     setSelectedMapName(null);
-  }, [currentWorldMapMapIds, navigatorNode, selectedMap, selectedMapName]);
+    setSelectedMapIdOverride(null);
+  }, [currentWorldMapMapIds, navigatorNode, selectedMap, selectedMapIdOverride, selectedMapName]);
 
   useEffect(() => {
     let isActive = true;
@@ -579,23 +734,31 @@ export default function MapExplorer() {
       setMonsterDataError(null);
 
       try {
-        const mapResponse = await fetch(`https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/map/${selectedMap.mapId}`);
-        if (!mapResponse.ok) throw new Error(`MapleStory.io map lookup failed: ${mapResponse.status}`);
-
-        const mapJson = (await mapResponse.json()) as { mobs?: MapleStoryIoMobPlacement[] };
+        const mapJson = await cachedJsonFetch<{ mobs?: MapleStoryIoMobPlacement[] }>(
+          mapleStoryIoEndpoint(`/map/${selectedMap.mapId}`),
+          {
+            cacheKey: `maplestoryio-proxy-v2-map:${MAP_API_REGION}:${MAP_API_VERSION}:${selectedMap.mapId}`,
+            freshMs: realtimeCacheDurations.long,
+            staleMs: realtimeCacheDurations.week,
+          },
+        );
         const uniqueMobIds = Array.from(
           new Set((mapJson.mobs || []).map((mob) => Number(mob.id)).filter((mobId) => Number.isFinite(mobId) && mobId > 0)),
         ).slice(0, 12);
 
         if (!uniqueMobIds.length) {
-          throw new Error('This map has no live mob data.');
+          if (!isActive) return;
+          setLiveMonsterCache((current) => ({ ...current, [selectedMap.mapId]: [] }));
+          return;
         }
 
         const mobEntries = await Promise.all(
           uniqueMobIds.map(async (mobId) => {
-            const mobResponse = await fetch(`https://maplestory.io/api/${MAP_API_REGION}/${MAP_API_VERSION}/mob/${mobId}`);
-            if (!mobResponse.ok) throw new Error(`Mob lookup failed: ${mobResponse.status}`);
-            const mob = (await mobResponse.json()) as MapleStoryIoMob;
+            const mob = await cachedJsonFetch<MapleStoryIoMob>(mapleStoryIoEndpoint(`/mob/${mobId}`), {
+              cacheKey: `maplestoryio-proxy-v2-mob:${MAP_API_REGION}:${MAP_API_VERSION}:${mobId}`,
+              freshMs: realtimeCacheDurations.long,
+              staleMs: realtimeCacheDurations.week,
+            });
             return {
               key: `${mobId}`,
               mobId,
@@ -635,13 +798,22 @@ export default function MapExplorer() {
     const currentIndex = filteredRows.findIndex((row) => row.name === selectedMapName);
     const baseIndex = currentIndex >= 0 ? currentIndex : 0;
     const nextIndex = (baseIndex + direction + filteredRows.length) % filteredRows.length;
+    setSelectedMapIdOverride(null);
     setSelectedMapName(filteredRows[nextIndex].name);
   };
 
   const selectMapById = (mapId: number) => {
     const row = rows.find((candidate) => candidate.mapId === mapId);
-    if (!row) return;
-    setSelectedMapName(row.name);
+    if (row) {
+      setSelectedMapIdOverride(null);
+      setSelectedMapName(row.name);
+      return;
+    }
+
+    const meta = maplemapsMapsData[String(mapId)];
+    const fallbackRow = maplemapsMetaToRow(mapId, meta);
+    setSelectedMapIdOverride(mapId);
+    setSelectedMapName(fallbackRow.name);
   };
 
   const mapPins = useMemo<MapPin[]>(
@@ -689,6 +861,7 @@ export default function MapExplorer() {
     setSelectedRegion(region);
     setSelectedZone('all');
     setSelectedMapName(null);
+    setSelectedMapIdOverride(null);
     if (region === 'maple') setWorldMapStack([{ worldMap: 'WorldMap', parentWorld: '' }]);
     if (region === 'arcane') setWorldMapStack([{ worldMap: 'WorldMap082', parentWorld: '' }]);
     if (region === 'grandis') setWorldMapStack([{ worldMap: 'WGWorldMap', parentWorld: 'GWorldMap' }]);
@@ -697,6 +870,7 @@ export default function MapExplorer() {
 
   const backToRoot = () => {
     setSelectedMapName(null);
+    setSelectedMapIdOverride(null);
     setNavigatorNode('root');
   };
 
@@ -705,7 +879,7 @@ export default function MapExplorer() {
   return (
     <div className="space-y-4">
       <section className="rounded-lg border border-background-200 bg-background-50">
-        <div className="border-b border-background-200 bg-gradient-to-r from-primary-50 to-accent-50 p-4">
+        <div className="border-b border-background-200 bg-gradient-to-r from-primary-50 to-accent-50 dark:from-background-100 dark:to-accent-950 p-4">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-1 rounded-full bg-background-50 px-2.5 py-1 text-[11px] font-bold text-primary-700">
@@ -716,7 +890,7 @@ export default function MapExplorer() {
                 World Map and Table View
               </h3>
               <p className="mt-1 text-sm leading-relaxed text-foreground-700">
-                所有交互都在本站内完成：左侧 World Map 下钻，右侧详情与收益计算；也可以切换到 Table View 表格模式浏览。
+                {t('mh_map_instruction_world')}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2">
@@ -758,7 +932,7 @@ export default function MapExplorer() {
                       <div className="text-xs font-bold uppercase tracking-wider text-foreground-500">Table View</div>
                       <div className="mt-1 text-sm font-semibold text-foreground-950">Map Table / {currentRegion.label}</div>
                       <p className="mt-1 text-xs text-foreground-500">
-                        表格模式：按数值排序，点开行内预览地图图像；右侧依然是本站内详情面板。
+                        {t('mh_map_instruction_table')}
                       </p>
                     </div>
                     <div className="flex items-center gap-2">
@@ -844,9 +1018,15 @@ export default function MapExplorer() {
                     rows={filteredRows}
                     selectedName={selectedMapName || undefined}
                     selectedMonsters={selectedMapMonsters}
-                    onSelect={(name) => setSelectedMapName((current) => (current === name ? null : name))}
+                    onSelect={(name) => {
+                      setSelectedMapIdOverride(null);
+                      setSelectedMapName((current) => (current === name ? null : name));
+                    }}
                     onNavigate={(direction) => selectRelativeMap(direction)}
-                    onCollapse={() => setSelectedMapName(null)}
+                    onCollapse={() => {
+                      setSelectedMapName(null);
+                      setSelectedMapIdOverride(null);
+                    }}
                   />
                 </div>
               </>
@@ -869,7 +1049,10 @@ export default function MapExplorer() {
                   onChangeCharacterLevel={setLevel}
                   onChangeAdditionalExpPct={setAdditionalExpPct}
                   onChangeMesoObtainedPct={setMesoObtainedPct}
-                  onBackToWorldMap={() => setSelectedMapName(null)}
+                  onBackToWorldMap={() => {
+                    setSelectedMapName(null);
+                    setSelectedMapIdOverride(null);
+                  }}
                   onPrevious={() => selectRelativeMap(-1)}
                   onNext={() => selectRelativeMap(1)}
                 />
@@ -881,10 +1064,12 @@ export default function MapExplorer() {
                   worldMapsData={maplemapsWorldMapsData}
                   onNavigate={(next) => {
                     setSelectedMapName(null);
+                    setSelectedMapIdOverride(null);
                     setWorldMapStack((current) => [...current, next]);
                   }}
                   onBack={() => {
                     setSelectedMapName(null);
+                    setSelectedMapIdOverride(null);
                     setWorldMapStack((current) => (current.length > 1 ? current.slice(0, -1) : current));
                   }}
                   onSelectMapId={(mapId) => selectMapById(mapId)}
@@ -917,7 +1102,7 @@ export default function MapExplorer() {
                 />
               ) : (
                 <div className="rounded-md border border-dashed border-background-300 p-6 text-center text-sm text-foreground-500">
-                  先选择一个区域，再沿世界地图逐层点击；到最后一层点击地图点后会打开具体地图详情。
+                  {t('mh_map_instruction_general')}
                 </div>
               )}
             </aside>
@@ -1066,7 +1251,7 @@ function ExpandedMapRow({
   const mobsPerHour = row.spawn * 360;
   const instancedMobsPerHour = Math.round(mobsPerHour * 1.03);
   const displayMonsters = monsters.length ? monsters : fallbackMonsterVisuals(row.monsters);
-  const visibleMonsterCount = Math.min(monsterMarkerPositions.length, Math.max(12, row.spawn));
+  const visibleMonsterCount = displayMonsters.length ? Math.min(monsterMarkerPositions.length, Math.max(12, row.spawn)) : 0;
 
   return (
     <tr className="bg-background-50">
@@ -1437,8 +1622,68 @@ function MaplemapsWorldMapPanel({
     height: 470,
   };
   const overlays = def?.overlays || [];
-  const linkDots = remote?.links || [];
-  const mapDots = remote?.maps || [];
+  const linkDots = useMemo(() => remote?.links || [], [remote?.links]);
+  const mapDots = useMemo(() => remote?.maps || [], [remote?.maps]);
+  const dotWorldMapLinks = useMemo(() => {
+    const result = new Map<number, string>();
+    if (overlays.length > 0) return result;
+
+    const explicitLinks = MAP_DOT_WORLD_LINKS[current.worldMap] || {};
+    const childMapNumbers = new Map<string, Set<number>>();
+    linkDots.forEach((link) => {
+      childMapNumbers.set(link.linksTo, collectWorldMapNumbers(worldMapsData[link.linksTo]));
+    });
+
+    mapDots.forEach((dot, index) => {
+      const mapId = dot.mapNumbers?.[0];
+      if (mapId && explicitLinks[mapId]) {
+        result.set(index, explicitLinks[mapId]);
+        return;
+      }
+
+      if (!dot.mapNumbers?.length) return;
+      const matchingLinks = linkDots.filter((link) => {
+        const childNumbers = childMapNumbers.get(link.linksTo);
+        return dot.mapNumbers.some((candidateMapId) => childNumbers?.has(candidateMapId));
+      });
+      if (!matchingLinks.length) return;
+
+      const firstMapMatch = matchingLinks.find((link) => worldMapsData[link.linksTo]?.maps?.some((childDot) => childDot.mapNumbers?.[0] === mapId));
+      result.set(index, (firstMapMatch || matchingLinks[0]).linksTo);
+    });
+
+    return result;
+  }, [current.worldMap, linkDots, mapDots, overlays.length, worldMapsData]);
+  const hiddenLinkDots = useMemo(() => {
+    const hidden = new Set(HIDDEN_WORLD_MAP_LINK_DOTS[current.worldMap] || []);
+    dotWorldMapLinks.forEach((worldMapId) => hidden.add(worldMapId));
+    return hidden;
+  }, [current.worldMap, dotWorldMapLinks]);
+  const [hoveredOverlayId, setHoveredOverlayId] = useState<string | null>(null);
+  const [hoveredOverlayPoint, setHoveredOverlayPoint] = useState<{ x: number; y: number } | null>(null);
+  const hoveredOverlay = hoveredOverlayId ? overlays.find((overlay) => overlay.id === hoveredOverlayId) : null;
+
+  const handleOverlayPointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!overlays.length) return;
+    const point = getEventMapPoint(event, base);
+    if (!point) {
+      setHoveredOverlayId(null);
+      setHoveredOverlayPoint(null);
+      return;
+    }
+
+    const overlay = findOverlayAtPoint(overlays, base, point.mapX, point.mapY);
+    setHoveredOverlayId(overlay?.id || null);
+    setHoveredOverlayPoint(overlay ? { x: point.xPct * 100, y: point.yPct * 100 } : null);
+  };
+
+  const handleOverlayClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (!overlays.length) return;
+    const point = getEventMapPoint(event, base);
+    if (!point) return;
+    const overlay = findOverlayAtPoint(overlays, base, point.mapX, point.mapY);
+    if (overlay) onNavigate({ worldMap: overlay.id, parentWorld: current.worldMap });
+  };
 
   return (
     <div className="rounded-md border border-background-200 bg-background-100 p-3 md:p-4">
@@ -1458,89 +1703,133 @@ function MaplemapsWorldMapPanel({
         </button>
       </div>
 
-      <div className="relative overflow-hidden rounded-md border border-background-300 bg-[#d9eefb] shadow-inner" style={{ aspectRatio: `${base.width} / ${base.height}` }}>
+      <div
+        className={`relative overflow-hidden rounded-md border border-background-300 bg-[#d9eefb] shadow-inner ${hoveredOverlay ? 'cursor-pointer' : ''}`}
+        style={{ aspectRatio: `${base.width} / ${base.height}` }}
+        onPointerMove={handleOverlayPointerMove}
+        onPointerLeave={() => {
+          setHoveredOverlayId(null);
+          setHoveredOverlayPoint(null);
+        }}
+        onClick={handleOverlayClick}
+      >
         <img src={base.src} alt={`World map image: ${current.worldMap}`} className="absolute inset-0 h-full w-full object-contain" loading="lazy" />
 
         {overlays.map((overlay) => {
-          const left = (overlay.leftPx / base.width) * 100;
-          const top = (overlay.topPx / base.height) * 100;
-          const width = (overlay.widthPx / base.width) * 100;
-          const height = (overlay.heightPx / base.height) * 100;
           return (
-            <button
-              key={overlay.id}
-              type="button"
-              onClick={() => onNavigate({ worldMap: overlay.id, parentWorld: current.worldMap })}
-              className="absolute opacity-0 hover:opacity-100 transition-opacity cursor-pointer"
-              style={{ left: `${left}%`, top: `${top}%`, width: `${width}%`, height: `${height}%` }}
-              aria-label={`Enter ${overlay.id}`}
-              title={overlay.id}
-            >
-              <img src={overlay.img} alt={overlay.id} className="h-full w-full object-contain" loading="lazy" />
-            </button>
+            <img
+              key={`${overlay.id}-preview`}
+              src={overlay.img}
+              alt=""
+              className={`pointer-events-none absolute z-10 object-contain transition-opacity duration-150 ${
+                hoveredOverlayId === overlay.id ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{
+                left: toPercent(overlay.leftPx, base.width),
+                top: toPercent(overlay.topPx, base.height),
+                width: toPercent(overlay.widthPx, base.width),
+                height: toPercent(overlay.heightPx, base.height),
+              }}
+              loading="lazy"
+            />
           );
         })}
 
+        {hoveredOverlay && hoveredOverlayPoint && (
+          <div
+            className="pointer-events-none absolute z-30 max-w-[9rem] -translate-x-1/2 -translate-y-[calc(100%+8px)] rounded bg-foreground-950/85 px-2 py-1 text-[10px] font-semibold leading-tight text-background-50 shadow-sm"
+            style={{ left: `${hoveredOverlayPoint.x}%`, top: `${hoveredOverlayPoint.y}%` }}
+          >
+            {getWorldMapLabel(hoveredOverlay.id)}
+          </div>
+        )}
+
+        {overlays.length > 0 && (
+          <div className="sr-only">
+            {overlays.map((overlay) => (
+              <button key={overlay.id} type="button" onClick={() => onNavigate({ worldMap: overlay.id, parentWorld: current.worldMap })}>
+                Enter {getWorldMapLabel(overlay.id)}
+              </button>
+            ))}
+          </div>
+        )}
+
         {overlays.length === 0 && linkDots.map((link) => {
+          if (hiddenLinkDots.has(link.linksTo)) return null;
+
           const left = ((base.width / 2 + link.x) / base.width) * 100;
           const top = ((base.height / 2 + link.y) / base.height) * 100;
+          const label = getWorldMapLabel(link.linksTo);
+
           return (
-            <button
-              key={`${current.worldMap}-link-${link.linksTo}`}
-              type="button"
-              onClick={() => onNavigate({ worldMap: link.linksTo, parentWorld: current.worldMap })}
-              className="absolute z-10 -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-transform cursor-pointer"
-              style={{ left: `${left}%`, top: `${top}%` }}
-              aria-label={`Enter ${link.linksTo}`}
-              title={link.linksTo}
-            >
+            <div key={`${current.worldMap}-link-${link.linksTo}`} className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
               <img
                 src="https://d3uzjcc4cyf4cj.cloudfront.net/dots/3.png"
                 alt=""
-                className="h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"
+                title={label}
+                className="pointer-events-none h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"
                 loading="lazy"
               />
-            </button>
+              <button
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onNavigate({ worldMap: link.linksTo, parentWorld: current.worldMap });
+                }}
+                className="pointer-events-auto group absolute left-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-md border border-transparent bg-transparent transition-colors hover:border-primary-300/80 hover:bg-primary-100/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 cursor-pointer"
+                aria-label={`Enter ${label}`}
+                title={label}
+              >
+                <span className="pointer-events-none absolute left-1/2 bottom-full z-30 mb-1 max-w-[9rem] -translate-x-1/2 rounded bg-foreground-950/85 px-2 py-1 text-[10px] font-semibold leading-tight text-background-50 opacity-0 shadow-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                  {label}
+                </span>
+              </button>
+            </div>
           );
         })}
 
         {mapDots.map((dot, index) => {
           const left = ((base.width / 2 + dot.x) / base.width) * 100;
           const top = ((base.height / 2 + dot.y) / base.height) * 100;
-          const clickable = Boolean(dot.mapNumbers?.length) && !dot.noTooltip;
           const mapId = dot.mapNumbers?.[0];
+          const linkedWorldMap = dotWorldMapLinks.get(index);
+          const label = dot.description || (linkedWorldMap ? getWorldMapLabel(linkedWorldMap) : String(mapId));
+          const canOpenDot = Boolean(mapId && (linkedWorldMap || overlays.length === 0));
           const dotImg = `https://d3uzjcc4cyf4cj.cloudfront.net/dots/${dot.type}.png`;
 
-          if (!clickable || !mapId) {
-            return (
-              <img
-                key={`${current.worldMap}-dot-${index}`}
-                src={dotImg}
-                alt=""
-                className="absolute z-10 h-5 w-5 -translate-x-1/2 -translate-y-1/2 p-1.5"
-                style={{ left: `${left}%`, top: `${top}%` }}
-                loading="lazy"
-              />
-            );
-          }
+          if (!mapId) return null;
 
           return (
-            <button
-              key={`${current.worldMap}-dot-${index}`}
-              type="button"
-              onClick={() => onSelectMapId(mapId)}
-              className="absolute z-20 -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-transform cursor-pointer"
-              style={{ left: `${left}%`, top: `${top}%` }}
-              aria-label={`Open map ${mapId}`}
-              title={dot.description || String(mapId)}
-            >
+            <div key={`${current.worldMap}-dot-${index}`} className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
               <img
                 src={dotImg}
-                alt="World Map Dot"
-                className="h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"
+                alt=""
+                className="pointer-events-none h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"
                 loading="lazy"
               />
-            </button>
+              {canOpenDot && (
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    if (linkedWorldMap) {
+                      onNavigate({ worldMap: linkedWorldMap, parentWorld: current.worldMap });
+                      return;
+                    }
+                    onSelectMapId(mapId);
+                  }}
+                  className="pointer-events-auto group absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-sm border border-transparent bg-transparent transition-colors hover:border-primary-300/80 hover:bg-primary-100/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 cursor-pointer"
+                  aria-label={linkedWorldMap ? `Enter ${label}` : `Open map ${mapId}`}
+                  title={label}
+                >
+                  {linkedWorldMap && (
+                    <span className="pointer-events-none absolute left-1/2 bottom-full z-30 mb-1 max-w-[9rem] -translate-x-1/2 rounded bg-foreground-950/85 px-2 py-1 text-[10px] font-semibold leading-tight text-background-50 opacity-0 shadow-sm transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                      {label}
+                    </span>
+                  )}
+                </button>
+              )}
+            </div>
           );
         })}
       </div>
@@ -1665,6 +1954,7 @@ function MapPreview({
   const mobLevels = monsters.map((monster) => monster.level).filter((value): value is number => typeof value === 'number');
   const mobExps = monsters.map((monster) => monster.exp).filter((value): value is number => typeof value === 'number');
   const mobHps = monsters.map((monster) => monster.hp).filter((value): value is number => typeof value === 'number');
+  const shouldShowMonstersSection = monsters.length > 0 || row.monsters.length > 0;
   const averageMobLevel = mobLevels.length ? Math.round(mobLevels.reduce((sum, value) => sum + value, 0) / mobLevels.length) : row.avgLevel;
   const averageMobExp = mobExps.length ? Math.round(mobExps.reduce((sum, value) => sum + value, 0) / mobExps.length) : Math.round(row.expHour / Math.max(row.spawn * 480, 1));
   const averageMobHp = mobHps.length ? Math.round(mobHps.reduce((sum, value) => sum + value, 0) / mobHps.length) : 0;
@@ -1746,38 +2036,40 @@ function MapPreview({
         </div>
       )}
 
-      <section className="rounded-md border border-background-200 bg-background-50 p-3">
-        <div className="text-sm font-semibold text-foreground-950">Monsters</div>
-        {isLoadingMonsterData && (
-          <div className="mt-2 rounded-md border border-primary-200 bg-primary-50 px-2 py-1 text-[10px] font-semibold text-primary-700">
-            Loading live monster sprites...
-          </div>
-        )}
-        {monsterDataError && (
-          <div className="mt-2 rounded-md border border-secondary-200 bg-secondary-50 px-2 py-1 text-[10px] font-semibold text-secondary-800">
-            Live monster data unavailable, showing local fallback names.
-          </div>
-        )}
-        <div className="mt-3 space-y-2">
-          {monsters.map((monster) => (
-            <div key={monster.key} className="rounded-md border border-background-200 bg-background-100 p-3">
-              <div className="flex items-center gap-3">
-                {monster.icon ? (
-                  <img src={monster.icon} alt={monster.name} className="h-10 w-10 object-contain shrink-0" loading="lazy" />
-                ) : null}
-                <div className="min-w-0 flex-1">
-                  <div className="font-semibold text-foreground-900">{monster.name}</div>
-                  <div className="mt-1 grid grid-cols-3 gap-2 text-[11px] text-foreground-600">
-                    <span>Level: {monster.level?.toLocaleString() || row.avgLevel}</span>
-                    <span>Exp: {monster.exp ? formatCompactStat(monster.exp) : '—'}</span>
-                    <span>HP: {monster.hp ? formatCompactStat(monster.hp) : '—'}</span>
+      {shouldShowMonstersSection && (
+        <section className="rounded-md border border-background-200 bg-background-50 p-3">
+          <div className="text-sm font-semibold text-foreground-950">Monsters</div>
+          {isLoadingMonsterData && (
+            <div className="mt-2 rounded-md border border-primary-200 bg-primary-50 px-2 py-1 text-[10px] font-semibold text-primary-700">
+              Loading live monster sprites...
+            </div>
+          )}
+          {monsterDataError && (
+            <div className="mt-2 rounded-md border border-secondary-200 bg-secondary-50 px-2 py-1 text-[10px] font-semibold text-secondary-800">
+              Live monster data unavailable, showing local fallback names.
+            </div>
+          )}
+          <div className="mt-3 space-y-2">
+            {monsters.map((monster) => (
+                <div key={monster.key} className="rounded-md border border-background-200 bg-background-100 p-3">
+                  <div className="flex items-center gap-3">
+                    {monster.icon ? (
+                      <img src={monster.icon} alt={monster.name} className="h-10 w-10 object-contain shrink-0" loading="lazy" />
+                    ) : null}
+                    <div className="min-w-0 flex-1">
+                      <div className="font-semibold text-foreground-900">{monster.name}</div>
+                      <div className="mt-1 grid grid-cols-3 gap-2 text-[11px] text-foreground-600">
+                        <span>Level: {monster.level?.toLocaleString() || row.avgLevel}</span>
+                        <span>Exp: {monster.exp ? formatCompactStat(monster.exp) : '—'}</span>
+                        <span>HP: {monster.hp ? formatCompactStat(monster.hp) : '—'}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+              ))}
+          </div>
+        </section>
+      )}
 
       <section className="rounded-md border border-background-200 bg-background-50 p-3">
         <div className="flex items-center justify-between gap-2">

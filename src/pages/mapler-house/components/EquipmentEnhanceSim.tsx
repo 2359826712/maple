@@ -52,10 +52,10 @@ function CubeSimulator() {
 
   const getCubeRateKey = (name: string) => {
     const n = name.toLowerCase();
-    if (n.includes('red') || n.includes('레드') || n.includes('红色') || n.includes('紅色') || n.includes('レッド')) return 'red';
-    if (n.includes('black') || n.includes('블랙') || n.includes('黑色') || n.includes('黑色') || n.includes('ブラック')) return 'black';
-    if (n.includes('bonus') || n.includes('에디') || n.includes('附加') || n.includes('附加') || n.includes('ボーナス')) return 'bonus';
-    if (n.includes('violet') || n.includes('바이올렛') || n.includes('神话') || n.includes('バイオレット')) return 'violet';
+    if (n.includes('red')) return 'red';
+    if (n.includes('black')) return 'black';
+    if (n.includes('bonus')) return 'bonus';
+    if (n.includes('violet')) return 'violet';
     return 'red';
   };
 

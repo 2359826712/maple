@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-
-type RealtimeStatusType = 'idle' | 'syncing' | 'live';
+import type { RealtimeStatus as RealtimeStatusType } from '@/hooks/useRealtimeCollection';
 
 interface RealtimeStatusProps {
   status: RealtimeStatusType;
@@ -18,6 +17,7 @@ export default function RealtimeStatus({
 }: RealtimeStatusProps) {
   const { t, i18n } = useTranslation();
   const isSyncing = status === 'syncing';
+  const isUnavailable = status === 'unavailable';
   const formattedTime = useMemo(() => {
     const date = new Date(lastSyncedAt);
     if (Number.isNaN(date.getTime())) return '--:--:--';
@@ -30,20 +30,26 @@ export default function RealtimeStatus({
   }, [i18n.language, lastSyncedAt]);
 
   return (
-    <div className="rounded-xl border border-primary-200 bg-primary-50/70 px-4 py-3 text-sm text-foreground-800">
+    <div aria-live="polite" className={`rounded-xl border px-4 py-3 text-sm text-foreground-800 ${isUnavailable ? 'border-accent-200 bg-accent-50/70' : 'border-primary-200 bg-primary-50/70'}`}>
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-500 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-background-50">
+            <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-background-50 ${isUnavailable ? 'bg-accent-600' : 'bg-primary-500'}`}>
               <span className={`h-1.5 w-1.5 rounded-full bg-background-50 ${isSyncing ? 'animate-pulse' : ''}`}></span>
-              {isSyncing ? t('content_live_syncing') : t('content_live_badge')}
+              {isSyncing ? t('content_live_syncing') : isUnavailable ? t('content_live_unavailable') : t('content_live_badge')}
             </span>
             <span className="text-xs font-semibold text-primary-800">
-              {t('content_live_items', { count: liveCount })}
+              {isUnavailable
+                ? t('content_live_not_verified')
+                : isSyncing && liveCount === 0
+                ? t('content_live_loading_items')
+                : t('content_live_items', { count: liveCount })}
             </span>
           </div>
           <p className="mt-1 text-xs text-foreground-600">
-            {t('content_live_last_sync', { time: formattedTime })} · {t('content_live_auto')}
+            {isUnavailable && !lastSyncedAt
+              ? t('content_live_no_success')
+              : `${t('content_live_last_sync', { time: formattedTime })} · ${t('content_live_auto')}`}
           </p>
         </div>
 

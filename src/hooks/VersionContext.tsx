@@ -1,33 +1,21 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, type ReactNode } from 'react';
+import {
+  getVersionDefinition,
+  isGameVersion,
+  versionDefinitions,
+  type GameVersion,
+  type VersionDefinition,
+} from '@/domain/regionModel';
 
-export type GameVersion = 'gms' | 'kms' | 'msea' | 'jms' | 'cms' | 'tms';
-
-export interface VersionInfo {
-  id: GameVersion;
-  name: string;
-  fullName: string;
-  region: string;
-  shortLabel: string;
-}
-
-export const VERSIONS: VersionInfo[] = [
-  { id: 'gms', name: 'GMS', fullName: 'Global MapleStory', region: 'Global', shortLabel: 'GMS' },
-  { id: 'kms', name: 'KMS', fullName: '한국 메이플스토리', region: 'Korea', shortLabel: 'KMS' },
-  { id: 'msea', name: 'MSEA', fullName: 'MapleStory SEA', region: 'SE Asia', shortLabel: 'MSEA' },
-  { id: 'jms', name: 'JMS', fullName: '日本メイプルストーリー', region: 'Japan', shortLabel: 'JMS' },
-  { id: 'cms', name: 'CMS', fullName: '冒险岛 online', region: 'China', shortLabel: 'CMS' },
-  { id: 'tms', name: 'TMS', fullName: '新楓之谷', region: 'Taiwan', shortLabel: 'TMS' },
-];
+export type { GameVersion } from '@/domain/regionModel';
+export type VersionInfo = VersionDefinition;
+export const VERSIONS = versionDefinitions;
 
 const VERSION_STORAGE_KEY = 'maplehub-game-version';
 
 export function getVersionInfo(id: GameVersion): VersionInfo {
-  return VERSIONS.find((v) => v.id === id) || VERSIONS[0];
-}
-
-function isGameVersion(value: string | null): value is GameVersion {
-  return VERSIONS.some((version) => version.id === value);
+  return getVersionDefinition(id);
 }
 
 function getStoredVersion(): GameVersion {

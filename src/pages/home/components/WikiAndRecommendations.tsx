@@ -1,9 +1,11 @@
-import { useMemo } from 'react';
+import { FormEvent, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { wikiCategories, recommendations } from '@/mocks/home';
-import { wikiEntries, type WikiCategory, type WikiEntry } from '@/mocks/wiki';
+import { wikiCategoryInfos, type WikiCategory, type WikiEntry } from '@/mocks/wiki';
+import { fetchLiveWikiEntries, liveStorageKeys } from '@/services/liveContent';
 
 const tintMap: Record<string, string> = {
   primary: 'bg-primary-100 text-primary-700',
@@ -20,43 +22,47 @@ const recommendationHref: Record<string, string> = {
 
 const categoryNameMap: Record<string, WikiCategory> = {
   Classes: 'classes',
+  Locations: 'locations',
+  Monsters: 'monsters',
   Bosses: 'bosses',
-  'Items & Sets': 'items',
-  'Maps & Regions': 'maps',
-  'NPCs & Quests': 'npcs',
-  Systems: 'systems',
+  NPCs: 'npcs',
+  Quests: 'quests',
+  Items: 'items',
+  Updates: 'updates',
+  Content: 'content',
+  Other: 'other',
 };
 
 export default function WikiAndRecommendations() {
   const { t } = useTranslation();
   const { versionInfo } = useVersion();
+  const navigate = useNavigate();
+  const [wikiQuery, setWikiQuery] = useState('');
   const { items: realtimeWikiEntries } = useRealtimeCollection<WikiEntry>({
-    storageKey: 'maplehub-live-wiki',
-    baseItems: wikiEntries,
-    remoteUrl: '/realtime/wiki.json',
+    storageKey: liveStorageKeys.wiki,
+    baseItems: [],
+    remoteLoader: fetchLiveWikiEntries,
   });
   const wikiStats = useMemo(
     () =>
       realtimeWikiEntries.reduce(
         (result, entry) => {
           result.total += 1;
-          result.categories[entry.category] += 1;
+          result.categories[entry.category] = (result.categories[entry.category] ?? 0) + 1;
           return result;
         },
         {
           total: 0,
-          categories: {
-            classes: 0,
-            bosses: 0,
-            items: 0,
-            maps: 0,
-            npcs: 0,
-            systems: 0,
-          } as Record<WikiCategory, number>,
+          categories: Object.fromEntries(wikiCategoryInfos.map((category) => [category.key, 0])) as Record<WikiCategory, number>,
         },
       ),
     [realtimeWikiEntries],
   );
+  const submitWikiSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const trimmed = wikiQuery.trim();
+    if (trimmed) navigate(`/search?q=${encodeURIComponent(trimmed)}`);
+  };
 
   return (
     <section id="wiki" className="py-14 md:py-20 bg-background-50">
@@ -76,18 +82,26 @@ export default function WikiAndRecommendations() {
                 <p className="mt-3 text-sm md:text-base opacity-95">
                   {t('wiki_desc')}
                 </p>
-                <div className="mt-5 flex flex-col sm:flex-row gap-2 bg-background-50 rounded-full p-1.5 max-w-md">
+                <form
+                  onSubmit={submitWikiSearch}
+                  className="mt-5 flex flex-col sm:flex-row gap-2 bg-background-50 rounded-full p-1.5 max-w-md"
+                >
                   <div className="flex items-center gap-2 flex-1 pl-3">
                     <i className="ri-book-2-line text-primary-700"></i>
                     <input
+                      value={wikiQuery}
+                      onChange={(event) => setWikiQuery(event.target.value)}
                       placeholder={t('wiki_search_placeholder')}
                       className="w-full h-9 bg-transparent text-sm text-foreground-900 placeholder:text-foreground-500 outline-none"
                     />
                   </div>
-                  <button className="h-10 px-4 rounded-full bg-foreground-950 text-background-50 text-sm font-semibold cursor-pointer whitespace-nowrap">
+                  <button
+                    type="submit"
+                    className="h-10 px-4 rounded-full bg-foreground-950 text-background-50 text-sm font-semibold cursor-pointer whitespace-nowrap"
+                  >
                     {t('wiki_search_btn')}
                   </button>
-                </div>
+                </form>
               </div>
               <div className="absolute right-6 top-6 hidden md:flex flex-col items-end gap-2 opacity-95">
                 <div className="w-16 h-16 rounded-full bg-background-50/25 backdrop-blur flex items-center justify-center animate-float">
@@ -144,24 +158,31 @@ export default function WikiAndRecommendations() {
             </div>
 
             <div className="space-y-3">
-              {recommendations.map((r) => (
-                <a
-                  key={r.title}
-                  href={recommendationHref[r.kind] ?? '/guides'}
-                  className="flex items-start gap-3 p-3 rounded-lg bg-background-100 hover:bg-secondary-50 hover:border-secondary-200 border border-transparent transition-colors cursor-pointer"
-                >
-                  <div className={`w-10 h-10 rounded-lg ${tintMap[r.tint]} flex items-center justify-center`}>
-                    <i className={r.icon}></i>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[11px] font-semibold text-foreground-500 uppercase tracking-wider">
-                      {r.kind}
+              {recommendations.map((r) => {
+                const href = recommendationHref[r.kind] ?? '/guides';
+                const isExternal = href.startsWith('http');
+
+                return (
+                  <a
+                    key={r.title}
+                    href={href}
+                    target={isExternal ? '_blank' : undefined}
+                    rel={isExternal ? 'noreferrer' : undefined}
+                    className="flex items-start gap-3 p-3 rounded-lg bg-background-100 hover:bg-secondary-50 hover:border-secondary-200 border border-transparent transition-colors cursor-pointer"
+                  >
+                    <div className={`w-10 h-10 rounded-lg ${tintMap[r.tint]} flex items-center justify-center`}>
+                      <i className={r.icon}></i>
                     </div>
-                    <div className="text-sm text-foreground-900 leading-snug">{r.title}</div>
-                  </div>
-                  <i className="ri-arrow-right-s-line text-foreground-500"></i>
-                </a>
-              ))}
+                    <div className="flex-1 min-w-0">
+                      <div className="text-[11px] font-semibold text-foreground-500 uppercase tracking-wider">
+                        {r.kind}
+                      </div>
+                      <div className="text-sm text-foreground-900 leading-snug">{r.title}</div>
+                    </div>
+                    <i className="ri-arrow-right-s-line text-foreground-500"></i>
+                  </a>
+                );
+              })}
             </div>
 
             <button className="mt-4 w-full h-10 rounded-md bg-secondary-500 hover:bg-secondary-600 text-background-50 dark:text-foreground-950 text-sm font-semibold cursor-pointer whitespace-nowrap">

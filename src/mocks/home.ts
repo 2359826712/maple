@@ -1,315 +1,97 @@
-export const newsTicker = [
-  { text: 'Official: v.269 Ride the Lightning patch notes updated June 30, 2026', versions: ['gms'] },
-  { text: 'Official: Challenger World runs June 17 through September 8, 2026', versions: ['gms'] },
-  { text: 'Official: Star Force cost compensation scheduled for June 25 maintenance', versions: ['gms'] },
-  { text: 'Official: Accessory Miracle Time compensation notice published for the June 26 issue', versions: ['gms'] },
-  { text: 'Official: July 1 Cash Shop update adds Songless Bird Mount and a new damage skin', versions: ['gms'] },
-];
+export const newsTicker = [];
 
-export const heroStats = [
-  { label: 'Active players', value: '184,720', icon: 'ri-user-heart-line' },
-  { label: 'Guides published', value: '2,481', icon: 'ri-book-open-line' },
-  { label: 'Tools live', value: '46', icon: 'ri-tools-line' },
-  { label: 'Wiki entries', value: '18,904', icon: 'ri-database-2-line' },
-];
+export const heroStats = [];
 
 export const quickTools = [
   {
     key: 'char',
-    title: 'Character Lookup',
-    desc: 'Search any player IGN across GMS, KMS, MSEA and more — view level, legion, guild and estimated stat breakdowns.',
+    titleKey: 'tools_char_title',
+    descKey: 'tools_char_desc',
     icon: 'ri-search-eye-line',
     tint: 'primary' as const,
     href: '/mapler-house#char-lookup',
     tag: 'Live',
+    dataLabelKey: 'tools_data_official_feed',
     versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
   },
   {
     key: 'starforce',
-    title: 'Star Force Sim',
-    desc: 'Version-tuned rates with Sunday & 5/10/15 event overlays. Simulate enhancement costs and boom odds before you commit.',
+    titleKey: 'tools_starforce_title',
+    descKey: 'tools_starforce_desc',
     icon: 'ri-star-smile-line',
     tint: 'secondary' as const,
     href: '/mapler-house#enhance',
     tag: 'Simulator',
+    dataLabelKey: 'tools_data_estimate',
     versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
   },
   {
     key: 'cube',
-    title: 'Cube Simulator',
-    desc: 'Red / Black / Bonus cube math with tier-up probability. Estimate meso cost before rolling for Legendary lines.',
+    titleKey: 'tools_cube_title',
+    descKey: 'tools_cube_desc',
     icon: 'ri-dice-line',
     tint: 'accent' as const,
     href: '/mapler-house#enhance',
     tag: 'Simulator',
+    dataLabelKey: 'tools_data_estimate',
     versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
   },
   {
     key: 'ranking',
-    title: 'Ranking Board',
-    desc: 'Live rankings by level, legion power and Union rank across all worlds. Track your main and see who is climbing.',
+    titleKey: 'tools_ranking_title',
+    descKey: 'tools_ranking_desc',
     icon: 'ri-trophy-line',
     tint: 'primary' as const,
     href: '/rankings',
     tag: 'Live',
+    dataLabelKey: 'tools_data_official_feed',
     versions: ['gms', 'kms', 'msea', 'jms'],
   },
   {
     key: 'mapler',
-    title: 'Mapler House',
-    desc: 'Design your dream Maple home with the community layout planner. Browse blueprints or share your own creation.',
+    titleKey: 'tools_mapler_title',
+    descKey: 'tools_mapler_desc',
     icon: 'ri-home-heart-line',
     tint: 'accent' as const,
-    href: '/mapler-house#fashion',
-    tag: 'Community',
+    href: '/mapler-house#dashboard',
+    tag: 'Tools',
+    dataLabelKey: 'tools_data_local_planner',
     versions: ['gms', 'kms', 'jms', 'tms'],
   },
+];
+
+export const dailyHubs = [
   {
-    key: 'familiar',
-    title: 'Familiar Planner',
-    desc: 'GMS-exclusive Familiar system builder & badge combo tester. Stack damage badges and preview familiar lineups.',
-    icon: 'ri-ghost-smile-line',
+    href: '/mapler-house#char-lookup',
+    icon: 'ri-search-eye-line',
+    titleKey: 'hub_char_lookup',
+    descKey: 'hub_char_lookup_desc',
+    tint: 'primary' as const,
+    actionKey: 'hub_char_lookup_action',
+  },
+  {
+    href: '/checklist',
+    icon: 'ri-checkbox-circle-line',
+    titleKey: 'hub_daily_tasks',
+    descKey: 'hub_daily_tasks_desc',
+    tint: 'accent' as const,
+    actionKey: 'hub_daily_tasks_action',
+  },
+  {
+    href: '/wiki/boss',
+    icon: 'ri-skull-2-line',
+    titleKey: 'hub_boss_guide',
+    descKey: 'hub_boss_guide_desc',
     tint: 'secondary' as const,
-    href: '/mapler-house#legion',
-    tag: 'GMS Only',
-    versions: ['gms'],
+    actionKey: 'hub_boss_guide_action',
   },
 ];
 
-export const latestNews = [
-  {
-    id: 'n1',
-    category: 'Patch Notes',
-    title: '[Updated 6/30] v.269 - Ride the Lightning Patch Notes',
-    excerpt:
-      'The official v.269 update notes cover Ride the Lightning, including New Job: Erel Light, SHINE: The Power of Starlight, and New Boss: Malefic Star.',
-    author: 'Nexon',
-    date: 'Jun 30, 2026',
-    reads: 'Official',
-    sourceUrl: 'https://www.nexon.com/maplestory/news/update/41138/v-269-ride-the-lightning-patch-notes',
-    tag: 'primary' as const,
-    versions: ['gms'],
-    image: 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png',
-  },
-  {
-    id: 'n2',
-    category: 'Event',
-    title: 'Challenger World and Burning Events!',
-    excerpt:
-      'Nexon details the Challenger World event running from June 17, 2026 after maintenance through September 8, 2026, alongside Burning event participation.',
-    author: 'Nexon',
-    date: 'Jun 17, 2026',
-    reads: 'Official',
-    sourceUrl: 'https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events',
-    tag: 'accent' as const,
-    versions: ['gms'],
-    image: 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png',
-  },
-  {
-    id: 'n3',
-    category: 'General',
-    title: 'Compensation for the 6/20 Unscheduled Maintenance',
-    excerpt:
-      'Nexon states that Star Force enhancement costs incorrectly deducted from players will be restored during the June 25 maintenance.',
-    author: 'Nexon',
-    date: 'Jun 24, 2026',
-    reads: 'Official',
-    sourceUrl: 'https://www.nexon.com/maplestory/news/general/42254/compensation-for-the-6-20-unscheduled-maintenance',
-    tag: 'secondary' as const,
-    versions: ['gms'],
-    image: 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png',
-  },
-  {
-    id: 'n4',
-    category: 'General',
-    title: 'Notice Regarding 6/26 Accessory Miracle Time Issue Compensation',
-    excerpt:
-      'The official notice explains compensation rules for the June 26 Accessory Miracle Time issue, including that cubes used after reaching Legendary are not eligible.',
-    author: 'Nexon',
-    date: 'Jun 26, 2026',
-    reads: 'Official',
-    sourceUrl: 'https://www.nexon.com/maplestory/news/general/42362/notice-regarding-6-26-accessory-miracle-time-issue-compensation',
-    tag: 'secondary' as const,
-    versions: ['gms'],
-    image: 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png',
-  },
-  {
-    id: 'n5',
-    category: 'Cash Shop',
-    title: 'Cash Shop Update for July 1',
-    excerpt:
-      'The July 1 Cash Shop update includes the permanent Songless Bird Mount and a new damage skin, according to the official sale notice.',
-    author: 'Nexon',
-    date: 'Jul 1, 2026',
-    reads: 'Official',
-    sourceUrl: 'https://www.nexon.com/maplestory/news/sale/41483/cash-shop-update-for-july-1',
-    tag: 'accent' as const,
-    versions: ['gms'],
-    image: 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png',
-  },
-];
+export const latestNews = [];
 
-export const trendingGuides = [
-  {
-    id: 'g1',
-    title: '6th Job unlock roadmap: from level 260 to full HEXA nodes',
-    class: 'All Classes',
-    difficulty: 'Advanced' as const,
-    length: '18 min',
-    upvotes: 1284,
-    author: 'HexaSensei',
-    versions: ['gms', 'kms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Fantasy%20cartoon%20magical%20skill%20tree%20with%20glowing%20orange%20nodes%20on%20cream%20background%2C%20soft%20warm%20lighting%2C%20whimsical%20painterly%20style%2C%20simple%20elegant%20composition%2C%20game%20UI%20illustration%20with%20wide%20negative%20space%20for%20text%20overlay&width=600&height=400&seq=maple-guide-hexa&orientation=landscape',
-  },
-  {
-    id: 'g2',
-    title: 'Reboot mesos progression — 4B to 40B in three weeks (GMS)',
-    class: 'Reboot Only',
-    difficulty: 'Intermediate' as const,
-    length: '12 min',
-    upvotes: 964,
-    author: 'RebootRuby',
-    versions: ['gms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Piles%20of%20golden%20fantasy%20coins%20stacked%20on%20cream%20wooden%20surface%2C%20warm%20lighting%2C%20soft%20painterly%20cartoon%20illustration%20style%2C%20clean%20simple%20background%2C%20whimsical%20treasure%20scene%20for%20MMO%20guide%20thumbnail%20with%20wide%20cinematic%20framing&width=600&height=400&seq=maple-guide-reboot&orientation=landscape',
-  },
-  {
-    id: 'g3',
-    title: 'Kanna funding order — bossing setup optimized for GMS interactive',
-    class: 'Kanna',
-    difficulty: 'Beginner' as const,
-    length: '9 min',
-    upvotes: 812,
-    author: 'FoxWhisker',
-    versions: ['gms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Chibi%20fox%20mage%20girl%20in%20kimono%20casting%20warm%20orange%20magic%20on%20cream%20background%2C%20soft%20painterly%20cartoon%20style%2C%20whimsical%20anime%20illustration%20for%20MMO%20class%20guide%2C%20wide%20cinematic%20layout%2C%20simple%20elegant%20composition%20with%20negative%20space&width=600&height=400&seq=maple-guide-kanna&orientation=landscape',
-  },
-  {
-    id: 'g4',
-    title: 'Familiar system 101 — badge crafting tree for damage stackers',
-    class: 'GMS Exclusive',
-    difficulty: 'Intermediate' as const,
-    length: '14 min',
-    upvotes: 703,
-    author: 'BadgeCraft',
-    versions: ['gms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Cute%20fantasy%20monster%20cards%20fanned%20out%20on%20cream%20table%2C%20teal%20and%20orange%20highlights%2C%20warm%20soft%20lighting%2C%20painterly%20cartoon%20illustration%2C%20whimsical%20trading%20card%20scene%20for%20MMO%20guide%2C%20wide%20cinematic%20composition%20with%20negative%20space&width=600&height=400&seq=maple-guide-familiar&orientation=landscape',
-  },
-  {
-    id: 'g5',
-    title: 'Lomien to Kalos — legion power thresholds you actually need',
-    class: 'End Game',
-    difficulty: 'Advanced' as const,
-    length: '22 min',
-    upvotes: 668,
-    author: 'KalosCleaner',
-    versions: ['gms', 'kms', 'msea'],
-    image:
-      'https://readdy.ai/api/search-image?query=Cosmic%20fantasy%20boss%20silhouette%20surrounded%20by%20soft%20orange%20energy%20on%20cream%20background%2C%20whimsical%20painterly%20cartoon%20style%20MMO%20illustration%2C%20wide%20cinematic%20composition%2C%20simple%20elegant%20layout%20with%20negative%20space%20for%20guide%20thumbnail&width=600&height=400&seq=maple-guide-kalos&orientation=landscape',
-  },
-  {
-    id: 'g6',
-    title: 'Sol Erda daily loop — 3 minutes per character, every day',
-    class: 'All Classes',
-    difficulty: 'Beginner' as const,
-    length: '7 min',
-    upvotes: 541,
-    author: 'ErdaMuse',
-    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Glowing%20blue%20teal%20magical%20fragments%20floating%20on%20cream%20background%2C%20whimsical%20painterly%20cartoon%20style%20MMO%20illustration%2C%20soft%20warm%20highlights%2C%20wide%20cinematic%20composition%2C%20simple%20elegant%20layout%20with%20negative%20space%20for%20MMO%20guide%20thumbnail&width=600&height=400&seq=maple-guide-erda&orientation=landscape',
-  },
-  {
-    id: 'g7',
-    title: 'KMS Cube tier-up strategy — optimal Miracle Time spending',
-    class: 'All Classes',
-    difficulty: 'Intermediate' as const,
-    length: '10 min',
-    upvotes: 892,
-    author: 'CubeMasterK',
-    versions: ['kms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Magical%20rainbow%20cubes%20floating%20above%20a%20soft%20cream%20surface%2C%20warm%20golden%20highlights%2C%20painterly%20cartoon%20MMO%20illustration%20style%2C%20wide%20cinematic%20composition%2C%20simple%20elegant%20layout%20with%20negative%20space%20for%20text&width=600&height=400&seq=maple-guide-cubes&orientation=landscape',
-  },
-  {
-    id: 'g8',
-    title: 'MSEA Adele revamp guide — new skill rotations & bossing setup',
-    class: 'Adele',
-    difficulty: 'Intermediate' as const,
-    length: '15 min',
-    upvotes: 445,
-    author: 'SEA_AdeleMain',
-    versions: ['msea'],
-    image:
-      'https://readdy.ai/api/search-image?query=Elegant%20fantasy%20female%20warrior%20with%20floating%20ether%20blades%20on%20cream%20background%2C%20soft%20warm%20painterly%20cartoon%20illustration%2C%20wide%20cinematic%20layout%2C%20MMO%20class%20guide%20thumbnail%20style%2C%20negative%20space%20for%20text&width=600&height=400&seq=maple-guide-adele&orientation=landscape',
-  },
-];
+export const trendingGuides = [];
 
-export const upcomingEvents = [
-  {
-    id: 'e1',
-    name: 'Marvel Machine',
-    window: 'Jul 20 – Aug 3',
-    reward: 'Absolab & Arcane Umbra',
-    rarity: 'Legendary' as const,
-    days: 13,
-    icon: 'ri-vip-crown-line',
-    versions: ['gms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Whimsical%20cartoon%20slot%20machine%20with%20golden%20highlights%20and%20soft%20orange%20glow%20on%20cream%20background%2C%20painterly%20illustration%20style%2C%20warm%20lighting%2C%20wide%20cinematic%20composition%2C%20simple%20elegant%20layout%20with%20plenty%20of%20negative%20space&width=700&height=420&seq=maple-event-marvel&orientation=landscape',
-  },
-  {
-    id: 'e2',
-    name: 'Burning World: Kronos',
-    window: 'Aug 6 – Nov 5',
-    reward: 'x3 EXP up to level 200',
-    rarity: 'Seasonal' as const,
-    days: 30,
-    icon: 'ri-fire-line',
-    versions: ['gms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Warm%20orange%20flame%20particles%20swirling%20around%20a%20cream%20portal%2C%20whimsical%20painterly%20fantasy%20cartoon%20illustration%20MMO%20style%2C%20soft%20lighting%2C%20wide%20cinematic%20composition%2C%20simple%20elegant%20layout%20with%20plenty%20of%20negative%20space%20for%20text&width=700&height=420&seq=maple-event-burning&orientation=landscape',
-  },
-  {
-    id: 'e3',
-    name: 'Sunny Sundays',
-    window: 'Every Sunday · 6 – 10 PM',
-    reward: '2x EXP + 2x Drop',
-    rarity: 'Weekly' as const,
-    days: 2,
-    icon: 'ri-sun-line',
-    versions: ['gms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Sun%20rising%20over%20cream%20clouds%20with%20warm%20yellow%20orange%20glow%2C%20whimsical%20painterly%20cartoon%20MMO%20fantasy%20illustration%20style%2C%20soft%20lighting%2C%20cheerful%20mood%2C%20wide%20cinematic%20composition%2C%20simple%20elegant%20layout%20with%20negative%20space%20for%20text&width=700&height=420&seq=maple-event-sunday&orientation=landscape',
-  },
-  {
-    id: 'e4',
-    name: 'Miracle Time',
-    window: 'Jul 25 – Jul 27',
-    reward: 'Double tier-up chance for cubes',
-    rarity: 'Legendary' as const,
-    days: 18,
-    icon: 'ri-magic-line',
-    versions: ['kms'],
-    image:
-      'https://readdy.ai/api/search-image?query=Magical%20glowing%20rainbow%20cubes%20swirling%20upward%20on%20soft%20cream%20background%2C%20golden%20sparkles%2C%20whimsical%20painterly%20cartoon%20MMO%20style%2C%20wide%20cinematic%20composition%2C%20elegant%20layout%20with%20negative%20space&width=700&height=420&seq=maple-event-miracle&orientation=landscape',
-  },
-  {
-    id: 'e5',
-    name: 'MSEA Summer Splash',
-    window: 'Aug 1 – Aug 14',
-    reward: 'Exclusive swimsuit cosmetics + chair',
-    rarity: 'Seasonal' as const,
-    days: 25,
-    icon: 'ri-umbrella-line',
-    versions: ['msea'],
-    image:
-      'https://readdy.ai/api/search-image?query=Tropical%20beach%20scene%20with%20cartoon%20MMO%20characters%20on%20cream%20sand%2C%20soft%20warm%20summer%20lighting%2C%20painterly%20whimsical%20illustration%2C%20wide%20cinematic%20composition%2C%20elegant%20layout%20with%20negative%20space%20for%20event%20banner&width=700&height=420&seq=maple-event-splash&orientation=landscape',
-  },
-];
+export const upcomingEvents = [];
 
 export const videoCards = [
   {
@@ -507,7 +289,7 @@ export const toolShowcase = [
   },
   {
     name: 'Hyper Stat Calculator',
-    detail: 'Point-by-point stat comparison for interactive & Reboot.',
+    detail: 'Point-by-point stat comparison for Interactive and Heroic worlds.',
     icon: 'ri-bar-chart-2-line',
     versions: ['gms', 'kms', 'msea', 'jms'],
   },
@@ -552,11 +334,15 @@ export const notifications = [
 
 export const wikiCategories = [
   { name: 'Classes', count: 46, icon: 'ri-sword-line' },
+  { name: 'Locations', count: 574, icon: 'ri-map-pin-line' },
+  { name: 'Monsters', count: 1200, icon: 'ri-skull-2-line' },
   { name: 'Bosses', count: 38, icon: 'ri-ghost-2-line' },
-  { name: 'Items & Sets', count: 812, icon: 'ri-shield-star-line' },
-  { name: 'Maps & Regions', count: 574, icon: 'ri-map-2-line' },
-  { name: 'NPCs & Quests', count: 1690, icon: 'ri-chat-quote-line' },
-  { name: 'Systems', count: 92, icon: 'ri-settings-3-line' },
+  { name: 'NPCs', count: 900, icon: 'ri-chat-quote-line' },
+  { name: 'Quests', count: 790, icon: 'ri-scroll-line' },
+  { name: 'Items', count: 812, icon: 'ri-shield-star-line' },
+  { name: 'Updates', count: 80, icon: 'ri-refresh-line' },
+  { name: 'Content', count: 92, icon: 'ri-book-2-line' },
+  { name: 'Other', count: 120, icon: 'ri-more-line' },
 ];
 
 export const recommendations = [
@@ -580,15 +366,15 @@ export const recommendations = [
   },
   {
     kind: 'Video',
-    title: 'Watch: Reboot vs Interactive 2026 comparison',
+    title: 'Watch: Heroic vs Interactive 2026 comparison',
     icon: 'ri-play-circle-line',
     tint: 'primary' as const,
   },
 ];
 
 export const themePresets = [
-  { key: 'cream', name: 'Cream Adventure', color: 'oklch(0.99 0.008 85)', ring: 'oklch(0.67 0.2 38)' },
-  { key: 'mint', name: 'Mint Meadow', color: 'oklch(0.97 0.02 165)', ring: 'oklch(0.63 0.14 164)' },
-  { key: 'sunset', name: 'Sunset Ember', color: 'oklch(0.96 0.04 55)', ring: 'oklch(0.58 0.2 36)' },
-  { key: 'sand', name: 'Golden Sand', color: 'oklch(0.97 0.04 90)', ring: 'oklch(0.74 0.17 78)' },
+  { key: 'cream', nameKey: 'theme_cream', color: 'oklch(0.99 0.008 85)', ring: 'oklch(0.67 0.2 38)' },
+  { key: 'mint', nameKey: 'theme_mint', color: 'oklch(0.97 0.02 165)', ring: 'oklch(0.63 0.14 164)' },
+  { key: 'sunset', nameKey: 'theme_sunset', color: 'oklch(0.96 0.04 55)', ring: 'oklch(0.58 0.2 36)' },
+  { key: 'sand', nameKey: 'theme_sand', color: 'oklch(0.97 0.04 90)', ring: 'oklch(0.74 0.17 78)' },
 ];

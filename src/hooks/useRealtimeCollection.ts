@@ -1,16 +1,19 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { cachedJsonFetch, realtimeCacheDurations } from '@/services/realtimeCache';
 
-type RealtimeStatus = 'idle' | 'syncing' | 'live';
+export type RealtimeStatus = 'idle' | 'syncing' | 'live' | 'unavailable';
 
 interface RealtimeOptions<T extends { id: string }> {
   storageKey: string;
   baseItems: T[];
   intervalMs?: number;
   remoteUrl?: string;
+  remoteLoader?: () => Promise<RemotePayload<T> | T[] | null>;
 }
 
 const channelName = 'maplehub-realtime-content';
 const defaultIntervalMs = 10000;
+const syncMetadataSuffix = ':last-successful-sync';
 
 type RemotePayload<T extends { id: string }> = {
   items: T[];
@@ -42,6 +45,24 @@ const writeStoredItems = <T,>(key: string, items: T[]) => {
     window.localStorage.setItem(key, JSON.stringify(items));
   } catch {
     // Local storage can be full or disabled; live state still updates in memory.
+  }
+};
+
+const readStoredSyncTime = (key: string) => {
+  if (typeof window === 'undefined') return '';
+  try {
+    return window.localStorage.getItem(`${key}${syncMetadataSuffix}`) ?? '';
+  } catch {
+    return '';
+  }
+};
+
+const writeStoredSyncTime = (key: string, value: string) => {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(`${key}${syncMetadataSuffix}`, value);
+  } catch {
+    // Freshness remains available in memory when storage is unavailable.
   }
 };
 
@@ -81,16 +102,31 @@ const applyRemotePayload = <T extends { id: string }>(storedItems: T[], payload:
 
 const sameCollection = <T,>(a: T[], b: T[]) => JSON.stringify(a) === JSON.stringify(b);
 
-const fetchRemoteItems = async <T extends { id: string }>(remoteUrl?: string): Promise<RemotePayload<T> | null> => {
-  if (typeof window === 'undefined' || !remoteUrl) return null;
+const fetchRemoteItems = async <T extends { id: string }>(
+  storageKey: string,
+  intervalMs: number,
+  remoteUrl?: string,
+  remoteLoader?: () => Promise<RemotePayload<T> | T[] | null>,
+): Promise<RemotePayload<T> | null> => {
+  if (typeof window === 'undefined') return null;
+
+  if (remoteLoader) {
+    try {
+      return normalizeRemotePayload<T>(await remoteLoader());
+    } catch {
+      return null;
+    }
+  }
+
+  if (!remoteUrl) return null;
 
   try {
     const url = new URL(remoteUrl, window.location.origin);
-    url.searchParams.set('_', Date.now().toString());
-    const response = await window.fetch(url, { cache: 'no-store' });
-    if (!response.ok) return null;
-
-    const data = await response.json();
+    const data = await cachedJsonFetch<unknown>(url.toString(), {
+      cacheKey: `realtime-collection:${storageKey}:${url.toString()}`,
+      freshMs: intervalMs,
+      staleMs: realtimeCacheDurations.long,
+    });
     return normalizeRemotePayload<T>(data);
   } catch {
     return null;
@@ -102,27 +138,45 @@ export function useRealtimeCollection<T extends { id: string }>({
   baseItems,
   intervalMs = defaultIntervalMs,
   remoteUrl,
+  remoteLoader,
 }: RealtimeOptions<T>) {
   const [liveItems, setLiveItems] = useState<T[]>(() => readStoredItems<T>(storageKey));
+  const [replaceBaseItems, setReplaceBaseItems] = useState(false);
   const [status, setStatus] = useState<RealtimeStatus>('idle');
-  const [lastSyncedAt, setLastSyncedAt] = useState(() => new Date().toISOString());
+  const [lastSyncedAt, setLastSyncedAt] = useState(() => readStoredSyncTime(storageKey));
+  const syncingRef = useRef(false);
 
   const syncNow = useCallback(async () => {
+    if (syncingRef.current) return;
+
+    syncingRef.current = true;
     setStatus('syncing');
-    const storedItems = readStoredItems<T>(storageKey);
-    const remotePayload = await fetchRemoteItems<T>(remoteUrl);
-    const nextItems = remotePayload ? applyRemotePayload(storedItems, remotePayload) : storedItems;
-    const changed = !sameCollection(storedItems, nextItems);
+    try {
+      const storedItems = readStoredItems<T>(storageKey);
+      const remotePayload = await fetchRemoteItems<T>(storageKey, intervalMs, remoteUrl, remoteLoader);
+      const nextItems = remotePayload ? applyRemotePayload(storedItems, remotePayload) : storedItems;
+      const changed = !sameCollection(storedItems, nextItems);
 
-    if (changed) {
-      writeStoredItems(storageKey, nextItems);
-      publishRealtimeUpdate(storageKey);
+      if (remotePayload) {
+        setReplaceBaseItems(remotePayload.replace);
+      }
+
+      if (changed) {
+        writeStoredItems(storageKey, nextItems);
+        publishRealtimeUpdate(storageKey);
+      }
+
+      setLiveItems(nextItems);
+      if (remotePayload) {
+        const syncedAt = new Date().toISOString();
+        setLastSyncedAt(syncedAt);
+        writeStoredSyncTime(storageKey, syncedAt);
+      }
+      window.setTimeout(() => setStatus(remotePayload ? 'live' : 'unavailable'), 200);
+    } finally {
+      syncingRef.current = false;
     }
-
-    setLiveItems(nextItems);
-    setLastSyncedAt(new Date().toISOString());
-    window.setTimeout(() => setStatus('live'), 200);
-  }, [remoteUrl, storageKey]);
+  }, [intervalMs, remoteLoader, remoteUrl, storageKey]);
 
   useEffect(() => {
     void syncNow();
@@ -162,7 +216,10 @@ export function useRealtimeCollection<T extends { id: string }>({
     };
   }, [intervalMs, storageKey, syncNow]);
 
-  const items = useMemo(() => mergeById(baseItems, liveItems), [baseItems, liveItems]);
+  const items = useMemo(
+    () => (replaceBaseItems && liveItems.length > 0 ? liveItems : mergeById(baseItems, liveItems)),
+    [baseItems, liveItems, replaceBaseItems],
+  );
 
   return {
     items,

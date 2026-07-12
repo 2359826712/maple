@@ -4,10 +4,15 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
-import { AUTH_SESSION_KEY } from '@/hooks/useAuthSession';
+import { saveAuthSession } from '@/hooks/useAuthSession';
+import { mapleSqlApi, MapleApiError, type AuthResponse } from '@/services/mapleSqlApi';
 
 type AuthMode = 'signin' | 'signup';
-type Provider = 'Discord' | 'Google';
+
+const deriveUsername = (email: string) => {
+  const localPart = email.split('@')[0] || 'mapler';
+  return localPart.toLowerCase().replace(/[^a-z0-9_]+/g, '_').replace(/^_+|_+$/g, '').slice(0, 30) || 'mapler';
+};
 
 export default function LoginPage() {
   const { t } = useTranslation();
@@ -17,19 +22,24 @@ export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
-  const saveSession = (provider: Provider | 'Email') => {
-    const userLabel = provider === 'Email' ? email.trim() || 'mapler@example.com' : `${provider} user`;
-    window.localStorage.setItem(
-      AUTH_SESSION_KEY,
-      JSON.stringify({
-        provider,
-        user: userLabel,
-        mode,
-        signedInAt: new Date().toISOString(),
-      }),
-    );
-    setMessage(t('auth_success', { provider }));
+  const saveSession = (provider: 'Email', response: AuthResponse) => {
+    const userLabel = response.user.display_name || response.user.username || response.user.email;
+    saveAuthSession({
+      provider,
+      user: userLabel,
+      mode,
+      signedInAt: new Date().toISOString(),
+      accessToken: response.access_token,
+      tenantId: response.tenant_id,
+      userId: response.user.id,
+      email: response.user.email,
+      username: response.user.username,
+      displayName: response.user.display_name,
+      avatarUrl: response.user.avatar_url,
+    });
+    setMessage(t('auth_success', { provider: provider === 'Email' ? 'Maple SQL' : provider }));
     const next = searchParams.get('next');
     if (next?.startsWith('/')) {
       window.setTimeout(() => {
@@ -44,15 +54,39 @@ export default function LoginPage() {
       setMessage(t('auth_missing_fields'));
       return;
     }
-    saveSession('Email');
+
+    setSubmitting(true);
+    setMessage('');
+    const normalizedEmail = email.trim().toLowerCase();
+
+    void (async () => {
+      try {
+        const response = mode === 'signin'
+          ? await mapleSqlApi.auth.login({
+              email: normalizedEmail,
+              password,
+            })
+          : await mapleSqlApi.auth.signup({
+              email: normalizedEmail,
+              username: deriveUsername(normalizedEmail),
+              display_name: deriveUsername(normalizedEmail),
+              password,
+            });
+        saveSession('Email', response);
+      } catch (error) {
+        setMessage(error instanceof MapleApiError ? error.message : 'Unable to sign in right now.');
+      } finally {
+        setSubmitting(false);
+      }
+    })();
   };
 
   return (
     <div className="min-h-screen bg-background-50">
-      <Navbar onOpenNotifications={() => setNotifOpen(true)} unread={3} />
+      <Navbar onOpenNotifications={() => setNotifOpen(true)} unread={0} />
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />
 
-      <main className="pt-24 md:pt-28 pb-12">
+      <main id="main-content" tabIndex={-1} className="pt-24 md:pt-28 pb-12">
         <section className="w-full px-4 md:px-8">
           <div className="max-w-md mx-auto">
             <Link to="/" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground-600 hover:text-primary-700 mb-5">
@@ -91,17 +125,6 @@ export default function LoginPage() {
                   </button>
                 </div>
 
-                <div className="space-y-2">
-                  <ProviderButton provider="Discord" icon="ri-discord-fill" onClick={() => saveSession('Discord')} />
-                  <ProviderButton provider="Google" icon="ri-google-fill" onClick={() => saveSession('Google')} />
-                </div>
-
-                <div className="flex items-center gap-3 my-5">
-                  <div className="flex-1 h-px bg-background-200"></div>
-                  <span className="text-xs text-foreground-500">{t('auth_or_email')}</span>
-                  <div className="flex-1 h-px bg-background-200"></div>
-                </div>
-
                 <form onSubmit={submitEmail} className="space-y-4">
                   <label className="block">
                     <span className="text-xs font-semibold text-foreground-700">{t('auth_email')}</span>
@@ -127,21 +150,19 @@ export default function LoginPage() {
                     />
                   </label>
 
-                  <div className="flex items-center justify-between gap-3 text-xs">
+                  <div className="text-xs">
                     <label className="flex items-center gap-2 text-foreground-600">
                       <input type="checkbox" className="h-4 w-4 rounded border-background-300 accent-primary-600" />
                       {t('auth_remember')}
                     </label>
-                    <button type="button" className="font-semibold text-primary-700 hover:text-primary-800 cursor-pointer">
-                      {t('auth_forgot')}
-                    </button>
                   </div>
 
                   <button
                     type="submit"
+                    disabled={submitting}
                     className="w-full h-11 rounded-md bg-primary-600 hover:bg-primary-700 text-background-50 font-semibold text-sm cursor-pointer whitespace-nowrap"
                   >
-                    {mode === 'signin' ? t('auth_sign_in_submit') : t('auth_sign_up_submit')}
+                    {submitting ? 'Connecting...' : mode === 'signin' ? t('auth_sign_in_submit') : t('auth_sign_up_submit')}
                   </button>
                 </form>
 
@@ -158,20 +179,5 @@ export default function LoginPage() {
 
       <Footer />
     </div>
-  );
-}
-
-function ProviderButton({ provider, icon, onClick }: { provider: Provider; icon: string; onClick: () => void }) {
-  const { t } = useTranslation();
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="w-full h-11 rounded-md border border-background-200 bg-background-50 hover:bg-background-100 text-sm font-semibold text-foreground-800 flex items-center justify-center gap-2 cursor-pointer"
-    >
-      <i className={`${icon} text-lg`}></i>
-      {t('auth_continue_with', { provider })}
-    </button>
   );
 }

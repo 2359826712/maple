@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
 import { classTiers, versionTiers, tierOrder, tierColors, classImages, type TierLevel, type ClassRole, type ClassTier } from '@/mocks/class-rankings';
 import EquipmentBuildPanel from './EquipmentBuildPanel';
 
@@ -22,7 +23,7 @@ export default function TierOverview() {
   const filtered = useMemo(() => {
     const overrides = versionTiers[version] || {};
     let list = classTiers
-      .filter((c) => c.versions.includes(version))
+      .filter((classEntry) => isAvailableInVersion(classEntry.versions, version))
       .map((c) => {
         const o = overrides[c.id];
         if (!o) return c;
@@ -82,6 +83,10 @@ export default function TierOverview() {
   return (
     <section id="tier-list" className="py-14 md:py-20">
       <div className="w-full px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="mb-6 rounded-xl border border-accent-200 bg-accent-50 p-4 text-left text-sm text-foreground-800" role="note">
+          <div className="font-semibold text-foreground-950">Editorial prototype — not verified progression advice</div>
+          <p className="mt-1">Class grades and build suggestions below are subjective placeholders. They are not derived from official clear data and may not match the current regional patch.</p>
+        </div>
         <div className="text-center mb-8">
           <span className="inline-block text-xs font-bold uppercase tracking-[0.15em] text-primary-600 mb-2">
             {t('tier_title_eyebrow')}
@@ -225,7 +230,6 @@ function ClassCard({ cls, activeRole, onClick, onCompare, isCompared, compareDis
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="font-heading font-semibold text-foreground-950 text-sm whitespace-nowrap">{cls.name}</span>
-              <span className="text-[11px] text-foreground-500 whitespace-nowrap">{cls.nameZh}</span>
               {cls.gmsExclusive && (
                 <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-primary-100 text-primary-700 whitespace-nowrap">
                   {t('tier_gms_exclusive')}

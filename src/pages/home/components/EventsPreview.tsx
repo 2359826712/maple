@@ -2,9 +2,12 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { upcomingEvents } from '@/mocks/home';
-
-type EventItem = (typeof upcomingEvents)[number];
+import { fetchLiveEvents, liveStorageKeys, type EventItem } from '@/services/liveContent';
+import {
+  daysUntilEventBoundary,
+  formatServerDateRange,
+  isAvailableInVersion,
+} from '@/domain/regionModel';
 
 const rarityStyle: Record<string, string> = {
   Legendary: 'bg-primary-500 text-background-50',
@@ -13,18 +16,20 @@ const rarityStyle: Record<string, string> = {
 };
 
 export default function EventsPreview() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
-  const { items: realtimeEvents } = useRealtimeCollection<EventItem>({
-    storageKey: 'maplehub-live-events',
-    baseItems: upcomingEvents,
-    remoteUrl: '/realtime/events.json',
+  const { items: realtimeEvents, status, lastSyncedAt } = useRealtimeCollection<EventItem>({
+    storageKey: liveStorageKeys.events,
+    baseItems: [],
+    remoteLoader: fetchLiveEvents,
   });
 
   const filteredEvents = useMemo(
-    () => realtimeEvents.filter((e) => e.versions.includes(versionInfo.id)),
+    () => realtimeEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
     [realtimeEvents, versionInfo.id],
   );
+  const eventWindow = (event: EventItem) =>
+    formatServerDateRange(event.windowStart, event.windowEnd, versionInfo.id, i18n.language);
 
   return (
     <section id="events" className="py-14 md:py-20 bg-background-100">
@@ -39,17 +44,19 @@ export default function EventsPreview() {
               {t('events_title')}
             </h2>
           </div>
-          <button className="hidden md:inline-flex h-10 px-4 rounded-full bg-background-50 border border-background-200 hover:border-accent-400 text-sm font-semibold text-foreground-800 cursor-pointer whitespace-nowrap">
-            <i className="ri-calendar-2-line mr-1"></i>
-            {t('events_calendar')}
-          </button>
         </div>
 
         {filteredEvents.length === 0 ? (
           <div className="text-center py-16 text-foreground-600">
-            <i className="ri-calendar-event-line text-4xl mb-3 block"></i>
-            <p className="text-lg font-semibold">{t('events_no_items', { version: versionInfo.shortLabel })}</p>
-            <p className="text-sm mt-1">{t('events_no_items_tip')}</p>
+            <i className={`${status === 'unavailable' && !lastSyncedAt ? 'ri-cloud-off-line' : 'ri-calendar-event-line'} text-4xl mb-3 block`}></i>
+            <p className="text-lg font-semibold">
+              {status === 'unavailable' && !lastSyncedAt
+                ? t('content_live_not_verified')
+                : t('events_no_items', { version: versionInfo.shortLabel })}
+            </p>
+            <p className="text-sm mt-1">
+              {status === 'unavailable' && !lastSyncedAt ? t('content_live_no_success') : t('events_no_items_tip')}
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -69,7 +76,8 @@ export default function EventsPreview() {
                   </span>
                   <div className="absolute bottom-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-background-50/95 text-foreground-900 text-[11px] font-semibold">
                     <i className="ri-timer-line text-primary-600"></i>
-                    {t('events_starts_in')} {e.days} {t('events_days')}
+                    {Date.now() < Date.parse(e.windowStart) ? t('events_starts_in') : t('events_ends_in')}{' '}
+                    {daysUntilEventBoundary(e.windowStart, e.windowEnd)} {t('events_days')}
                   </div>
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
@@ -79,22 +87,22 @@ export default function EventsPreview() {
                     </div>
                     <div>
                       <h3 className="font-heading font-semibold text-foreground-950 text-lg">{e.name}</h3>
-                      <div className="text-xs text-foreground-600">{e.window}</div>
+                      <div className="text-xs text-foreground-600">{eventWindow(e)}</div>
                     </div>
                   </div>
                   <div className="mt-4 p-3 rounded-lg bg-background-100 flex items-center gap-2 text-sm text-foreground-800">
                     <i className="ri-gift-2-line text-secondary-700"></i>
-                    <span>{t('events_reward')} · <span className="font-semibold text-foreground-900">{e.reward}</span></span>
+                    <span>{t('events_reward')} · <span className="font-semibold text-foreground-900">{e.rewards.join(' · ') || t('events_reward_unlisted')}</span></span>
                   </div>
-                  <div className="mt-4 flex gap-2">
-                    <button className="flex-1 h-10 rounded-md bg-primary-500 hover:bg-primary-600 text-background-50 dark:text-foreground-950 text-sm font-semibold cursor-pointer whitespace-nowrap">
-                      <i className="ri-notification-line mr-1"></i>
-                      {t('events_remind')}
-                    </button>
-                    <button className="h-10 w-10 rounded-md bg-background-100 hover:bg-accent-100 hover:text-accent-700 text-foreground-800 flex items-center justify-center cursor-pointer" aria-label="share">
-                      <i className="ri-share-line"></i>
-                    </button>
-                  </div>
+                  <a
+                    href={e.sourceUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
+                  >
+                    {t('events_open_source')}
+                    <i className="ri-external-link-line ml-1.5"></i>
+                  </a>
                 </div>
               </article>
             ))}

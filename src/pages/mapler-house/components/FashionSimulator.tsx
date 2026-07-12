@@ -1,6 +1,7 @@
 import { useMemo, useState, type SyntheticEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
 
 type SlotKey = 'Hat' | 'Overall' | 'Cape' | 'Shoes' | 'Weapon';
 
@@ -87,7 +88,7 @@ export default function FashionSimulator() {
   const { t } = useTranslation();
   const { version } = useVersion();
   const presets = useMemo(
-    () => outfitPresets.filter((preset) => preset.versions.includes('all') || preset.versions.includes(version)),
+    () => outfitPresets.filter((preset) => isAvailableInVersion(preset.versions, version)),
     [version],
   );
   const [activePreset, setActivePreset] = useState(0);

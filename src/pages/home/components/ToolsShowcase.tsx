@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
 import { toolShowcase } from '@/mocks/home';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ export default function ToolsShowcase() {
   const { versionInfo } = useVersion();
   const navigate = useNavigate();
 
-  const filteredTools = toolShowcase.filter((tool) => tool.versions.includes(versionInfo.id));
+  const filteredTools = toolShowcase.filter((tool) => isAvailableInVersion(tool.versions, versionInfo.id));
 
   return (
     <section className="py-14 md:py-20 bg-background-100">

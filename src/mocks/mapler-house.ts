@@ -1,48 +1,3 @@
-export const officialAnnouncements = [
-  // GMS
-  { id: 'oa1', title: '[Updated July 6] v.253 Known Issues & Hotfix Timeline', category: 'Patch Notes', date: '2026-07-06', summary: 'Kishin visual bug fixed on Kanna. Hayato Phantom Blade crash resolved. Solerian coin shop currency display corrected. Sol Janus Dust explosion not applying during certain boss mechanics — fix expected July 8.', source: 'GMS Official', versions: ['gms'] },
-  { id: 'oa2', title: 'Sunny Sunday Schedule — July 2026', category: 'Event', date: '2026-07-05', summary: 'July 12: 2x EXP & Drop. July 19: 50% off Star Force 5/10/15. July 26: 30% off Ability Resets. All times 6 PM–10 PM PDT. Applies to all worlds including Reboot Kronos & Hyperion.', source: 'GMS Official', versions: ['gms'] },
-  { id: 'oa3', title: 'Marvel Machine Returns — July 20 through August 3', category: 'Event', date: '2026-07-04', summary: 'Absolab weapon boxes, Arcane Umbra armor selectors, and Legacy Outfit boxes return. New items: Eternal Flame title (stats: +20 all stat, +10 atk/m.atk) and Solerian Damage Skin.', source: 'GMS Official', versions: ['gms'] },
-  { id: 'oa4', title: 'Scheduled Maintenance — July 8, 2026', category: 'Maintenance', date: '2026-07-03', summary: 'All GMS worlds offline 6 AM–10 AM PDT. Server stability improvements. Cash Shop inventory expansion for Solerian coin items. Familiar badge UI tooltip update.', source: 'GMS Official', versions: ['gms'] },
-  { id: 'oa5', title: 'GMS Class Popularity — June 2026 Statistics', category: 'Community', date: '2026-07-02', summary: 'Top 5 classes by level 250+ population: Night Lord (12.4%), Kanna (10.1%), Adele (9.7%), Hero (8.3%), Dawn Warrior (7.8%). Fastest growing: Lynn (+340% vs May), Khali (+210%).', source: 'GMS Rankings API', versions: ['gms'] },
-  { id: 'oa6', title: 'Phantom Forest & Masteria Blockbuster — Permanent Content Update', category: 'Content', date: '2026-07-01', summary: 'Masteria Through Time blockbuster now available as permanent content. Phantom Forest daily quests offer bonus 6th job Sol Erda fragments. Crimsonwood Keep party quest revamped for levels 200+.', source: 'GMS Official', versions: ['gms'] },
-  // KMS
-  { id: 'oa-k1', title: '7월 7일 테스트 월드 v1.2.398 패치노트', category: 'Patch Notes', date: '2026-07-07', summary: '솔 에르다 조각 드롭률 15% 증가. 카링 하드 모드 버그 수정. 헥사 스탯 코어 최대 레벨 30으로 확장. 신규 이벤트: 썸머 아일랜드 탐험대.', source: 'KMS Official', versions: ['kms'] },
-  { id: 'oa-k2', title: '썬데이 메이플 — 7월 일정 안내', category: 'Event', date: '2026-07-05', summary: '7월 12일: 경험치 2배 & 드롭 2배. 7월 19일: 스타포스 5/10/15 성공 시 1+1. 7월 26일: 어빌리티 재설정 50% 할인. 모든 이벤트 오전 10시~오후 10시.', source: 'KMS Official', versions: ['kms'] },
-  { id: 'oa-k3', title: '2026 여름 대규모 업데이트 — 새로운 시작 챕터 2', category: 'Content', date: '2026-07-03', summary: '신규 지역: 카르시온 심층부 오픈. 신규 보스: 칼로스 엑스트림 모드 추가. 신규 6차 스킬: 마스터리 코어 III, 인핸스먼트 코어 IV. 이벤트 기간: 7월 17일~9월 10일.', source: 'KMS Official', versions: ['kms'] },
-  { id: 'oa-k4', title: '정기 점검 안내 — 7월 10일(목)', category: 'Maintenance', date: '2026-07-06', summary: '전 서버 오전 6시~오전 10시 점검. 서버 안정화 작업 및 신규 이벤트 데이터 추가. 캐시아이템 일부 가격 조정. 몬스터 라이프 시즌 리셋.', source: 'KMS Official', versions: ['kms'] },
-  { id: 'oa-k5', title: 'KMS 6월 직업 통계 — 아델 1위 탈환', category: 'Community', date: '2026-07-04', summary: '250레벨 이상 인구 TOP5: 아델(10.8%), 나이트로드(9.2%), 은월(8.7%), 히어로(8.1%), 소울마스터(7.5%). 가장 빠르게 성장 중: 카인(+420%), 라라(+280%).', source: 'KMS Rankings API', versions: ['kms'] },
-  { id: 'oa-k6', title: '메이플 스토리 23주년 기념 — 히스토리 이벤트', category: 'Event', date: '2026-07-01', summary: '23주년 기념 히스토리 던전 오픈. 역대 보스 몬스터 컬렉션 이벤트. 23주년 기념 코인샵 한정 아이템: 레전드리 잠재능력 부여 주문서 100%, 23주년 기념 의자.', source: 'KMS Official', versions: ['kms'] },
-  // CMS
-  { id: 'oa-c1', title: '7月6日 V206版本更新公告 — 夏日狂欢季', category: 'Patch Notes', date: '2026-07-06', summary: '夏日狂欢季活动上线：每日签到送六转材料、夏日限定时装、特殊潜能魔方。修复双弩精灵连击Bug。新增国服专属BOSS：年兽(困难模式)。', source: 'CMS Official (盛大)', versions: ['cms'] },
-  { id: 'oa-c2', title: '夏日大促 — 魔法宠物&皇家理发返场', category: 'Event', date: '2026-07-04', summary: '7月11日~7月25日：魔法宠物限时返场(死亡不掉亲密)。皇家理发券50%附加概率UP。永恒之塔礼包限时折扣(含22星强化券)。充值满额送神话潜能魔方。', source: 'CMS Official (盛大)', versions: ['cms'] },
-  { id: 'oa-c3', title: '国服特色内容 — 武侠之路第二章开启', category: 'Content', date: '2026-07-02', summary: '武侠之路第二章：少林寺地下城开放(260+)。新国服专属装备：少林金钟罩(披风)、易筋经(称号)。门派系统优化：门派战跨服匹配开启。', source: 'CMS Official (盛大)', versions: ['cms'] },
-  { id: 'oa-c4', title: '7月9日全区全服停机维护公告', category: 'Maintenance', date: '2026-07-05', summary: '7月9日 5:00~10:00 全区全服停机维护。数据库优化升级，减少卡顿。拍卖行搜索功能重构。部分区服合服准备(蓝蜗牛+蘑菇仔)。', source: 'CMS Official (盛大)', versions: ['cms'] },
-  { id: 'oa-c5', title: 'CMS 6月人气职业排行 — 虎影登顶', category: 'Community', date: '2026-07-03', summary: '250级以上人口TOP5：虎影(13.2%), 阿黛尔(11.5%), 夜光(9.8%), 双弩精灵(9.1%), 圣骑士(8.0%). 虎影受益于国服特色氪金上限，Boss输出登顶。', source: 'CMS Community Stats', versions: ['cms'] },
-  { id: 'oa-c6', title: '国服专属周年庆 — 冒险岛21周年', category: 'Event', date: '2026-07-01', summary: '21周年庆系列活动：周年庆专属地图、BOSS挑战赛(全服竞速)、周年庆纪念勋章(全属性+30)。累计登录送神话武器箱(可自选)。限时兑换：21周年纪念时装套装。', source: 'CMS Official (盛大)', versions: ['cms'] },
-  // TMS
-  { id: 'oa-t1', title: '7/6更新 V264版本 — 夏日海岛大冒险', category: 'Patch Notes', date: '2026-07-06', summary: '夏日海岛活动：钓鱼大赛、沙滩派对、椰子投掷迷你游戏。修复阴阳师灵力回复异常。新增伤害字型：萤火虫字型、海洋字型。商城新品：夏日泳装福袋。', source: 'TMS Official (游戏橘子)', versions: ['tms'] },
-  { id: 'oa-t2', title: '橘子支付限定 — 储值满额三重送', category: 'Event', date: '2026-07-05', summary: '7月10日~8月10日：橘子支付储值满3000送神话潜能魔方×5。满5000加码送传说潜能100%卷。满10000送灭龙骑士铠甲选择箱。限量前500名，先储先得。', source: 'TMS Official (游戏橘子)', versions: ['tms'] },
-  { id: 'oa-t3', title: '新枫之谷×进击的巨人 联名合作', category: 'Content', date: '2026-07-03', summary: '进击的巨人联名活动：立体机动装置骑宠、调查兵团披风、艾连/米卡莎/里维发型。联名副本：玛利亚之墙防卫战(每日1次)。限定武器：超硬质刃(双手剑外型)。', source: 'TMS Official (游戏橘子)', versions: ['tms'] },
-  { id: 'oa-t4', title: '7月8日例行维护公告', category: 'Maintenance', date: '2026-07-07', summary: '7月8日 06:00~10:00 全伺服器停机维护。修正部分地图掉落异常。调整Reboot伺服器怪物HP倍率(下修5%)。公会技能初始化补偿发放。', source: 'TMS Official (游戏橘子)', versions: ['tms'] },
-  { id: 'oa-t5', title: 'TMS 6月热门职业 — 影武者重回T0', category: 'Community', date: '2026-07-04', summary: '250等以上人口TOP5：影武者(11.8%), 夜使者(10.5%), 精灵游侠(9.2%), 杰诺(8.7%), 凯撒(8.1%)。受台服特色装备影响，影武者Boss输出重回T0。', source: 'TMS Community Stats', versions: ['tms'] },
-  { id: 'oa-t6', title: '新枫之谷嘉年华 — 台南线下活动', category: 'Event', date: '2026-07-01', summary: '7月20日台南南纺购物中心：线下见面会。现场活动：真人Boss挑战赛、Cosplay大赛、限量周边贩售。线上同步直播，观看抽奖送轮回碑石(90天)。', source: 'TMS Official (游戏橘子)', versions: ['tms'] },
-  // JMS
-  { id: 'oa-j1', title: '7月7日更新 Ver.4.23 — 夏の思い出イベント', category: 'Patch Notes', date: '2026-07-07', summary: '夏の思い出イベント：花火大会、金魚すくいミニゲーム、浴衣コーデコンテスト。カンナ・ハヤトのスキルバランス調整(上方修正)。新ボス：カロス(ハードモード)実装。', source: 'JMS Official (ネクソン)', versions: ['jms'] },
-  { id: 'oa-j2', title: 'サマーカムバックキャンペーン — 復帰者応援', category: 'Event', date: '2026-07-05', summary: '7月15日~8月31日：90日以上未ログインユーザー対象、復帰時経験値3倍(30日間)。タイフーングロースポーション×3プレゼント。フレンド招待で両方に報酬。', source: 'JMS Official (ネクソン)', versions: ['jms'] },
-  { id: 'oa-j3', title: '戦国時代アップデート — 新エリア「倭城」', category: 'Content', date: '2026-07-03', summary: '新マップ倭城(265+)。カンナ・ハヤト専用ストーリークエスト追加。新装備：倭刀(カンナ専用), 無双槍(ハヤト専用)。新ボス：織田信長(週間)。', source: 'JMS Official (ネクソン)', versions: ['jms'] },
-  { id: 'oa-j4', title: '定期メンテナンス — 7月10日', category: 'Maintenance', date: '2026-07-06', summary: '7月10日 8:00~14:00(JST) 全ワールドメンテナンス。サーバー機器交換作業。カンナの霊力システム不具合修正。イベントデータ事前投入。', source: 'JMS Official (ネクソン)', versions: ['jms'] },
-  { id: 'oa-j5', title: 'JMS 6月人気職 — カンナ不動の1位', category: 'Community', date: '2026-07-04', summary: '250レベル以上人口TOP5：カンナ(16.2%), ハヤト(12.5%), ナイトロード(8.8%), アデル(7.6%), ビショップ(7.1%)。カンナの霊力改善でさらに人気上昇、ハヤトも戦国アップデートで復権。', source: 'JMS Rankings API', versions: ['jms'] },
-  { id: 'oa-j6', title: 'メイプルストーリー×鬼滅の刃 コラボ第2弾', category: 'Event', date: '2026-07-01', summary: '鬼滅の刃コラボ第2弾：柱合会議イベント、日輪刀アバター武器(9種)、蝶屋敷マップ。炭治郎・禰豆子・善逸・伊之助の限定ペット復刻。コラボ期間：7月15日~9月15日。', source: 'JMS Official (ネクソン)', versions: ['jms'] },
-  // MSEA
-  { id: 'oa-m1', title: '[7 July] v243 Patch — Aqua Festival 2026', category: 'Patch Notes', date: '2026-07-06', summary: 'Aqua Festival event: Water Gun mini-game, Splash Damage weekly boss rush, Tropical Resort themed dungeon. New 6th job skill cores for all classes. Lynn skill balance: +15% damage on Nature\'s Wrath.', source: 'MSEA Official (PlayPark)', versions: ['msea'] },
-  { id: 'oa-m2', title: 'Cash Shop Update — Royal Style & Petite Pets', category: 'Event', date: '2026-07-05', summary: 'New Royal Style: Ocean Explorer Set (M/F). Petite Luna Pets: Dreamy Luna, Twinkle Luna, Starlight Luna (all 3 buff pets). Premium Surprise Style Box rotation: Blossom Collection added.', source: 'MSEA Official (PlayPark)', versions: ['msea'] },
-  { id: 'oa-m3', title: 'MSEA Roadmap — H2 2026 Content Preview', category: 'Content', date: '2026-07-02', summary: 'August: Solerian region complete, Kalos Extreme mode. September: New Archer class teaser. October: Halloween Night Troupe returns. November: Black Mage Remastered challenge. December: Winter mega-update with 7th job teaser.', source: 'MSEA Official (PlayPark)', versions: ['msea'] },
-  { id: 'oa-m4', title: 'Game Patch & Maintenance — 9 July', category: 'Maintenance', date: '2026-07-05', summary: 'All MSEA worlds offline 7 AM–12 PM (GMT+8). Server hardware upgrade. Fix Aquila world channel lag issues. Auction House listing limit increased to 30 items.', source: 'MSEA Official (PlayPark)', versions: ['msea'] },
-  { id: 'oa-m5', title: 'MSEA June Class Popularity — Adele #1 Streak Continues', category: 'Community', date: '2026-07-03', summary: 'Top 5 classes 250+: Adele (11.2%), Night Lord (9.8%), Hero (8.9%), Bishop (8.5%), Dawn Warrior (7.6%). Mega Burning event pushed Lyn population +390%, Khali +260%.', source: 'MSEA Community Stats', versions: ['msea'] },
-  { id: 'oa-m6', title: 'PlayPark 17th Anniversary — MapleSEA Celebration', category: 'Event', date: '2026-07-01', summary: '17th Anniversary events: Daily gift box (Sol Erda fragments, cubes), Anniversary coin shop (17th anni medal, chairs, damage skins). Special: 17-star guaranteed enhancement scroll (once per account).', source: 'MSEA Official (PlayPark)', versions: ['msea'] },
-];
-
 export const classStatistics = [
   // GMS-specific
   { class: 'Night Lord', icon: 'ri-moon-line', popularity: 12.4, bossClear: 94, mobbing: 78, support: 12, trend: 'up', version: 'gms' },
@@ -116,7 +71,7 @@ export const mockCharacters: Record<string, {
     achievements: ['Verus Hilla Solo', 'Darknell Solo', '8k Legion'], version: 'gms',
   },
   shadowmage: {
-    ign: 'ShadowMage', server: 'Kronos (GMS Reboot)', level: 282, class: 'Bishop', legion: 9800, popularity: 5400, guild: 'Divine',
+    ign: 'ShadowMage', server: 'Kronos (GMS Heroic)', level: 282, class: 'Bishop', legion: 9800, popularity: 5400, guild: 'Divine',
     achievements: ['Verus Hilla Party', 'Lucid Hard Solo', '8.5k Legion'], version: 'gms',
   },
   dragonfist: {
@@ -346,26 +301,26 @@ export const cubeTypes: Record<string, { name: string; icon: string; tierUpBase:
     { name: 'Violet Cube', icon: 'ri-magic-line', tierUpBase: 25.0, primeLineBase: 10.0, cost: '50M mesos' },
   ],
   kms: [
-    { name: '레드 큐브', icon: 'ri-contrast-drop-2-line', tierUpBase: 6.0, primeLineBase: 2.0, cost: '9M mesos' },
-    { name: '블랙 큐브', icon: 'ri-contrast-drop-line', tierUpBase: 12.0, primeLineBase: 4.0, cost: '18M mesos' },
-    { name: '에디셔널 큐브', icon: 'ri-sparkling-line', tierUpBase: 4.0, primeLineBase: 1.5, cost: '7M mesos' },
-    { name: '바이올렛 큐브', icon: 'ri-magic-line', tierUpBase: 22.0, primeLineBase: 8.0, cost: '40M mesos' },
+    { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 6.0, primeLineBase: 2.0, cost: '9M mesos' },
+    { name: 'Black Cube', icon: 'ri-contrast-drop-line', tierUpBase: 12.0, primeLineBase: 4.0, cost: '18M mesos' },
+    { name: 'Bonus Cube', icon: 'ri-sparkling-line', tierUpBase: 4.0, primeLineBase: 1.5, cost: '7M mesos' },
+    { name: 'Violet Cube', icon: 'ri-magic-line', tierUpBase: 22.0, primeLineBase: 8.0, cost: '40M mesos' },
   ],
   cms: [
-    { name: '红色魔方', icon: 'ri-contrast-drop-2-line', tierUpBase: 8.0, primeLineBase: 3.0, cost: '15M mesos' },
-    { name: '黑色魔方', icon: 'ri-contrast-drop-line', tierUpBase: 15.0, primeLineBase: 5.5, cost: '25M mesos' },
-    { name: '附加魔方', icon: 'ri-sparkling-line', tierUpBase: 5.0, primeLineBase: 2.0, cost: '10M mesos' },
-    { name: '神话魔方', icon: 'ri-magic-line', tierUpBase: 30.0, primeLineBase: 12.0, cost: '60M mesos' },
+    { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 8.0, primeLineBase: 3.0, cost: '15M mesos' },
+    { name: 'Black Cube', icon: 'ri-contrast-drop-line', tierUpBase: 15.0, primeLineBase: 5.5, cost: '25M mesos' },
+    { name: 'Bonus Cube', icon: 'ri-sparkling-line', tierUpBase: 5.0, primeLineBase: 2.0, cost: '10M mesos' },
+    { name: 'Violet Cube', icon: 'ri-magic-line', tierUpBase: 30.0, primeLineBase: 12.0, cost: '60M mesos' },
   ],
   tms: [
-    { name: '紅色方塊', icon: 'ri-contrast-drop-2-line', tierUpBase: 7.5, primeLineBase: 2.8, cost: '14M mesos' },
-    { name: '黑色方塊', icon: 'ri-contrast-drop-line', tierUpBase: 15.0, primeLineBase: 5.5, cost: '24M mesos' },
-    { name: '附加方塊', icon: 'ri-sparkling-line', tierUpBase: 5.0, primeLineBase: 2.0, cost: '10M mesos' },
+    { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 7.5, primeLineBase: 2.8, cost: '14M mesos' },
+    { name: 'Black Cube', icon: 'ri-contrast-drop-line', tierUpBase: 15.0, primeLineBase: 5.5, cost: '24M mesos' },
+    { name: 'Bonus Cube', icon: 'ri-sparkling-line', tierUpBase: 5.0, primeLineBase: 2.0, cost: '10M mesos' },
   ],
   jms: [
-    { name: 'レッドキューブ', icon: 'ri-contrast-drop-2-line', tierUpBase: 6.5, primeLineBase: 2.2, cost: '10M mesos' },
-    { name: 'ブラックキューブ', icon: 'ri-contrast-drop-line', tierUpBase: 13.0, primeLineBase: 4.5, cost: '20M mesos' },
-    { name: 'ボーナスキューブ', icon: 'ri-sparkling-line', tierUpBase: 4.2, primeLineBase: 1.6, cost: '8M mesos' },
+    { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 6.5, primeLineBase: 2.2, cost: '10M mesos' },
+    { name: 'Black Cube', icon: 'ri-contrast-drop-line', tierUpBase: 13.0, primeLineBase: 4.5, cost: '20M mesos' },
+    { name: 'Bonus Cube', icon: 'ri-sparkling-line', tierUpBase: 4.2, primeLineBase: 1.6, cost: '8M mesos' },
   ],
   msea: [
     { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 7.0, primeLineBase: 2.5, cost: '12M mesos' },
@@ -401,26 +356,26 @@ export const flameTiers: Record<string, { name: string; icon: string; bonusRange
     { name: 'Rainbow Rebirth Flame', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: 'Event only', baseChance: 75 },
   ],
   kms: [
-    { name: '강력한 환생의 불꽃', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '7M mesos', baseChance: 22 },
-    { name: '영원한 환생의 불꽃', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '25M mesos', baseChance: 38 },
-    { name: '검은 환생의 불꽃', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '38M mesos', baseChance: 55 },
-    { name: '레인보우 환생의 불꽃', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: '이벤트 전용', baseChance: 80 },
+    { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '7M mesos', baseChance: 22 },
+    { name: 'Eternal Rebirth Flame', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '25M mesos', baseChance: 38 },
+    { name: 'Black Rebirth Flame', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '38M mesos', baseChance: 55 },
+    { name: 'Rainbow Rebirth Flame', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: 'Event only', baseChance: 80 },
   ],
   cms: [
-    { name: '强力涅槃火焰', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '10M mesos', baseChance: 18 },
-    { name: '永恒涅槃火焰', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '32M mesos', baseChance: 32 },
-    { name: '黑暗涅槃火焰', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '48M mesos', baseChance: 48 },
-    { name: '彩虹涅槃火焰', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: '活动限定', baseChance: 72 },
+    { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '10M mesos', baseChance: 18 },
+    { name: 'Eternal Rebirth Flame', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '32M mesos', baseChance: 32 },
+    { name: 'Black Rebirth Flame', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '48M mesos', baseChance: 48 },
+    { name: 'Rainbow Rebirth Flame', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: 'Event only', baseChance: 72 },
   ],
   tms: [
-    { name: '強力重生火焰', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '10M mesos', baseChance: 20 },
-    { name: '永恆重生火焰', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '32M mesos', baseChance: 35 },
-    { name: '黑色重生火焰', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '48M mesos', baseChance: 50 },
+    { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '10M mesos', baseChance: 20 },
+    { name: 'Eternal Rebirth Flame', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '32M mesos', baseChance: 35 },
+    { name: 'Black Rebirth Flame', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '48M mesos', baseChance: 50 },
   ],
   jms: [
-    { name: '強力な転生の炎', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '8M mesos', baseChance: 21 },
-    { name: '永遠の転生の炎', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '28M mesos', baseChance: 36 },
-    { name: '黒の転生の炎', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '42M mesos', baseChance: 52 },
+    { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '8M mesos', baseChance: 21 },
+    { name: 'Eternal Rebirth Flame', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '28M mesos', baseChance: 36 },
+    { name: 'Black Rebirth Flame', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '42M mesos', baseChance: 52 },
   ],
   msea: [
     { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '9M mesos', baseChance: 20 },
@@ -471,23 +426,25 @@ export const legionGridBlocks: Record<string, { class: string; shape: string; ti
   ],
 };
 
-const mapRender = (mapId: number) => `https://maplestory.io/api/GMS/253/map/${mapId}/render?showPortals=true&showLife=true`;
+const MAPLEMAPS_ASSET_BASE = 'https://d3uzjcc4cyf4cj.cloudfront.net';
+const MAP_IMAGE_SOURCE = 'Maplemaps map render';
+const mapRender = (mapId: number) => `${MAPLEMAPS_ASSET_BASE}/maps/lg/${mapId}.webp?v=2`;
 
 export const mapLocations = [
-  { name: 'Limina — End of the World 1-4', mapId: 450012330, minLevel: 255, maxLevel: 270, monsters: ['Ascendion', 'Foreberion', 'Embrion'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(450012330) },
-  { name: 'Limina — End of the World 1-5', mapId: 450012340, minLevel: 255, maxLevel: 270, monsters: ['Ascendion', 'Foreberion'], burning: 8, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(450012340) },
-  { name: 'Cernium — Royal Library 4', mapId: 410000730, minLevel: 260, maxLevel: 275, monsters: ['Adept of Light', 'Scholar Ghost'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410000730) },
-  { name: 'Cernium — Western City Ramparts 2', mapId: 410000600, minLevel: 260, maxLevel: 275, monsters: ['Sword of Light', 'Shield of Light'], burning: 8, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410000600) },
-  { name: 'Hotel Arcus — Rusty Corridor 4', mapId: 410003180, minLevel: 270, maxLevel: 280, monsters: ['Desperate Thief', 'Steel Xenoroid'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410003180) },
-  { name: 'Odium — Laboratory 3', mapId: 410007014, minLevel: 275, maxLevel: 285, monsters: ['Blinded Soldier', 'Blinded Mage'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410007014) },
-  { name: 'Shangri-La — Peach Blossom Spring 1', mapId: 410007026, minLevel: 280, maxLevel: 290, monsters: ['Spring Spirit', 'Autumn Spirit'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410007026) },
-  { name: 'Carcion — Sunken Ruins 4', mapId: 410007667, minLevel: 285, maxLevel: 295, monsters: ['Solerian Guard', 'Solerian Priest'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410007667) },
-  { name: 'Carcion — Giant Coral Colony 1', mapId: 410007620, minLevel: 285, maxLevel: 300, monsters: ['Sand Giant', 'Crystal Scorpion'], burning: 10, version: 'all', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410007620) },
-  { name: 'Commerci Republic — Rosa Coast 3', mapId: 865010100, minLevel: 180, maxLevel: 210, monsters: ['Grosso Polpo', 'Aqua Patrol'], burning: 10, version: 'gms', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(865010100) },
-  { name: '카르시온 — 심연의 통로 3', mapId: 410007608, minLevel: 290, maxLevel: 300, monsters: ['심연의 파수꾼', '어둠의 정령'], burning: 10, version: 'kms', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(410007608) },
-  { name: '少林寺 — 藏经阁', mapId: 701220300, minLevel: 260, maxLevel: 275, monsters: ['扫地僧', '铜人'], burning: 10, version: 'cms', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(701220300) },
-  { name: '天空之城 — 雲海步道', mapId: 200010000, minLevel: 200, maxLevel: 220, monsters: ['雲精靈', '雷鳥'], burning: 8, version: 'tms', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(200010000) },
-  { name: '倭城 — 天守閣', mapId: 800040000, minLevel: 265, maxLevel: 280, monsters: ['侍大将', '忍者'], burning: 10, version: 'jms', imageSource: 'MapleStory.io GMS v253 map render', image: mapRender(800040000) },
+  { name: 'Limina — End of the World 1-4', mapId: 450012330, minLevel: 255, maxLevel: 270, monsters: ['Ascendion', 'Foreberion', 'Embrion'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(450012330) },
+  { name: 'Limina — End of the World 1-5', mapId: 450012340, minLevel: 255, maxLevel: 270, monsters: ['Ascendion', 'Foreberion'], burning: 8, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(450012340) },
+  { name: 'Cernium — Royal Library 4', mapId: 410000730, minLevel: 260, maxLevel: 275, monsters: ['Adept of Light', 'Scholar Ghost'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410000730) },
+  { name: 'Cernium — Western City Ramparts 2', mapId: 410000600, minLevel: 260, maxLevel: 275, monsters: ['Sword of Light', 'Shield of Light'], burning: 8, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410000600) },
+  { name: 'Hotel Arcus — Rusty Corridor 4', mapId: 410003180, minLevel: 270, maxLevel: 280, monsters: ['Desperate Thief', 'Steel Xenoroid'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410003180) },
+  { name: 'Odium — Laboratory 3', mapId: 410007014, minLevel: 275, maxLevel: 285, monsters: ['Blinded Soldier', 'Blinded Mage'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007014) },
+  { name: 'Shangri-La — Peach Blossom Spring 1', mapId: 410007026, minLevel: 280, maxLevel: 290, monsters: ['Spring Spirit', 'Autumn Spirit'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007026) },
+  { name: 'Carcion — Sunken Ruins 4', mapId: 410007667, minLevel: 285, maxLevel: 295, monsters: ['Solerian Guard', 'Solerian Priest'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007667) },
+  { name: 'Carcion — Giant Coral Colony 1', mapId: 410007620, minLevel: 285, maxLevel: 300, monsters: ['Sand Giant', 'Crystal Scorpion'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007620) },
+  { name: 'Commerci Republic — Rosa Coast 3', mapId: 865010100, minLevel: 180, maxLevel: 210, monsters: ['Grosso Polpo', 'Aqua Patrol'], burning: 10, version: 'gms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(865010100) },
+  { name: '카르시온 — 심연의 통로 3', mapId: 410007608, minLevel: 290, maxLevel: 300, monsters: ['심연의 파수꾼', '어둠의 정령'], burning: 10, version: 'kms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007608) },
+  { name: '少林寺 — 藏经阁', mapId: 701220300, minLevel: 260, maxLevel: 275, monsters: ['扫地僧', '铜人'], burning: 10, version: 'cms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(701220300) },
+  { name: '天空之城 — 雲海步道', mapId: 200010000, minLevel: 200, maxLevel: 220, monsters: ['雲精靈', '雷鳥'], burning: 8, version: 'tms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(200010000) },
+  { name: '倭城 — 天守閣', mapId: 800040000, minLevel: 265, maxLevel: 280, monsters: ['侍大将', '忍者'], burning: 10, version: 'jms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(800040000) },
 ];
 
 export const fashionItems = [

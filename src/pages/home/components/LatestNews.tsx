@@ -1,11 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type SyntheticEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { latestNews } from '@/mocks/home';
 import { getNewsCategoryLabel, getNewsCopy } from '@/pages/news/localizedNews';
-
-type NewsItem = (typeof latestNews)[number];
+import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -15,21 +14,34 @@ const tagStyle: Record<string, string> = {
   secondary: 'bg-secondary-100 text-secondary-900',
 };
 
+const fallbackNewsImage = 'https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png';
+
+const applyNewsImageFallback = (event: SyntheticEvent<HTMLImageElement>) => {
+  const image = event.currentTarget;
+  if (image.dataset.fallbackApplied === 'true') {
+    image.style.display = 'none';
+    return;
+  }
+
+  image.dataset.fallbackApplied = 'true';
+  image.src = fallbackNewsImage;
+};
+
 export default function LatestNews() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const [active, setActive] = useState('All');
   const [shared, setShared] = useState<string | null>(null);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
-    storageKey: 'maplehub-live-news',
-    baseItems: latestNews,
-    remoteUrl: '/realtime/news.json',
+    storageKey: liveStorageKeys.news,
+    baseItems: [],
+    remoteLoader: fetchLiveNews,
   });
 
   const versionList = useMemo(
     () =>
       realtimeNews
-        .filter((n) => n.versions.includes(versionInfo.id))
+        .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
           ...getNewsCopy(n, i18n.language),
@@ -42,7 +54,12 @@ export default function LatestNews() {
     [active, versionList],
   );
 
-  const share = (id: string) => {
+  const share = async (id: string, url: string) => {
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // Clipboard can be unavailable in restricted browser contexts.
+    }
     setShared(id);
     setTimeout(() => setShared(null), 1500);
   };
@@ -94,9 +111,10 @@ export default function LatestNews() {
               >
                 <div className={`relative overflow-hidden ${i === 0 ? 'h-64 md:h-80' : 'h-44'}`}>
                   <img
-                    src={n.image}
+                    src={n.image || fallbackNewsImage}
                     alt={n.title}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    onError={applyNewsImageFallback}
                   />
                   <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${tagStyle[n.tag]}`}>
                     {n.categoryLabel}
@@ -107,16 +125,14 @@ export default function LatestNews() {
                     </span>
                   )}
                   <div className="absolute bottom-3 right-3 flex gap-1.5">
-                    {['ri-twitter-x-line', 'ri-facebook-fill', 'ri-discord-line', 'ri-link'].map((ic) => (
-                      <button
-                        key={ic}
-                        onClick={() => share(n.id + ic)}
-                        className="w-8 h-8 rounded-full bg-background-50/95 hover:bg-primary-500 hover:text-background-50 text-foreground-800 flex items-center justify-center cursor-pointer transition-colors"
-                        aria-label="share"
-                      >
-                        <i className={ic}></i>
-                      </button>
-                    ))}
+                    <button
+                      type="button"
+                      onClick={() => void share(n.id, n.sourceUrl)}
+                      className="w-8 h-8 rounded-full bg-background-50/95 hover:bg-primary-500 hover:text-background-50 text-foreground-800 flex items-center justify-center cursor-pointer transition-colors"
+                      aria-label={t('news_share_aria', { title: n.title, channel: 'link' })}
+                    >
+                      <i className="ri-link"></i>
+                    </button>
                   </div>
                   {shared && shared.startsWith(n.id) && (
                     <div className="absolute bottom-14 right-3 px-3 py-1.5 rounded-md bg-foreground-900 text-background-50 text-xs">

@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
+import { mapleSqlApi, MapleApiError } from '@/services/mapleSqlApi';
 
 export default function NewsletterCTA() {
   const { t } = useTranslation();
@@ -21,43 +22,23 @@ export default function NewsletterCTA() {
     }
     formData.delete('website_alt');
 
-    const payload = new URLSearchParams();
-    formData.forEach((v, k) => payload.append(k, v.toString()));
-
     setStatus('submitting');
     setErrorMsg('');
 
     try {
-      const response = await fetch('https://readdy.ai/api/form/d966rcttfb6ioa7s1l5g', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: payload.toString(),
+      await mapleSqlApi.newsletter.subscribe({
+        first_name: (formData.get('first_name') as string) || '',
+        ign: (formData.get('ign') as string) || '',
+        email: (formData.get('email') as string) || '',
+        world: (formData.get('world') as string) || '',
+        locale: navigator.language || 'en',
       });
-      const responseText = await response.text();
-      let parsed: { code?: string; meta?: { message?: string; detail?: string } } = {};
-      try {
-        parsed = JSON.parse(responseText);
-      } catch {
-        parsed = {};
-      }
-      const serverMsg = parsed?.meta?.message || parsed?.meta?.detail || responseText;
-      const isSpam = typeof serverMsg === 'string' && serverMsg.toLowerCase().includes('spam');
-
-      if (response.ok && parsed?.code === 'OK' && !isSpam) {
-        setStatus('success');
-        formEl.reset();
-        setTimeout(() => setStatus('idle'), 3500);
-      } else {
-        setStatus('error');
-        setErrorMsg(
-          typeof serverMsg === 'string' && serverMsg.length > 0
-            ? serverMsg
-            : 'Could not subscribe right now, please try again.'
-        );
-      }
-    } catch {
+      setStatus('success');
+      formEl.reset();
+      setTimeout(() => setStatus('idle'), 3500);
+    } catch (error) {
       setStatus('error');
-      setErrorMsg('Network error — please try again in a moment.');
+      setErrorMsg(error instanceof MapleApiError ? error.message : 'Network error, please try again in a moment.');
     }
   };
 
@@ -69,7 +50,7 @@ export default function NewsletterCTA() {
             className="absolute inset-0 opacity-30"
             style={{
               backgroundImage:
-                "url('https://readdy.ai/api/search-image?query=Whimsical%20cartoon%20fantasy%20MMO%20wide%20scenery%20with%20warm%20sunset%20clouds%20over%20cream%20floating%20islands%2C%20soft%20orange%20teal%20highlights%2C%20painterly%20illustration%20style%2C%20airy%20mood%2C%20high%20detail%2C%20wide%20cinematic%20composition%20with%20negative%20space%20across%20the%20top&width=1600&height=600&seq=maple-cta-bg&orientation=landscape')",
+                "url('/cta-bg.svg')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -147,8 +128,8 @@ export default function NewsletterCTA() {
                 >
                   <option>Bera (Interactive)</option>
                   <option>Scania (Interactive)</option>
-                  <option>Kronos (Reboot)</option>
-                  <option>Hyperion (Reboot)</option>
+                  <option>Kronos (Heroic)</option>
+                  <option>Hyperion (Heroic)</option>
                 </select>
               </label>
 

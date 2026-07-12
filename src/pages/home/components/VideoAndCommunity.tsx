@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
+import { isAvailableInVersion } from '@/domain/regionModel';
 import { videoCards, communityHighlights } from '@/mocks/home';
 import { communityLinks } from '@/constants/communityLinks';
 
@@ -7,7 +9,7 @@ export default function VideoAndCommunity() {
   const { t } = useTranslation();
   const { versionInfo } = useVersion();
 
-  const filteredVideos = videoCards.filter((v) => v.versions.includes(versionInfo.id));
+  const filteredVideos = videoCards.filter((video) => isAvailableInVersion(video.versions, versionInfo.id));
 
   return (
     <section id="community" className="py-14 md:py-20 bg-background-50">
@@ -59,7 +61,7 @@ export default function VideoAndCommunity() {
                         alt={v.title}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground-950/60 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground-950/60 via-transparent to-transparent dark:from-[#120e0b]/60"></div>
                       <span className="absolute inset-0 flex items-center justify-center cursor-pointer">
                         <span className="w-14 h-14 rounded-full bg-background-50/95 flex items-center justify-center group-hover:bg-primary-500 group-hover:text-background-50 transition-colors">
                           <i className="ri-play-fill text-2xl text-primary-700 group-hover:text-background-50"></i>
@@ -107,9 +109,9 @@ export default function VideoAndCommunity() {
 
             <div className="space-y-3">
               {communityHighlights.map((c) => (
-                <a
+                <Link
                   key={c.id}
-                  href="/community"
+                  to="/community"
                   className="block p-4 rounded-lg bg-background-50 border border-background-200 hover:border-accent-300 transition-colors cursor-pointer"
                 >
                   <div className="flex gap-3">
@@ -138,7 +140,7 @@ export default function VideoAndCommunity() {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
 

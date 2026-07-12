@@ -1,4 +1,5 @@
 import type { GameVersion } from '@/hooks/VersionContext';
+import { cachedJsonFetch, realtimeCacheDurations } from './realtimeCache';
 
 export type RankingBoardKey = 'overall' | 'world' | 'legion';
 export type RankingWorldKey = 'all' | 'bera' | 'scania' | 'kronos' | 'hyperion';
@@ -32,7 +33,7 @@ type FetchNexonRankingsOptions = {
 };
 
 export const rankingWorlds: Array<{ key: RankingWorldKey; label: string; worldId?: number }> = [
-  { key: 'all', label: 'All Worlds' },
+  { key: 'all', label: 'All GMS North America Worlds' },
   { key: 'bera', label: 'Bera', worldId: 1 },
   { key: 'scania', label: 'Scania', worldId: 19 },
   { key: 'kronos', label: 'Kronos', worldId: 45 },
@@ -101,16 +102,17 @@ export async function fetchNexonRankings(options: FetchNexonRankingsOptions) {
   }
 
   const params = buildRankingParams(options);
-  const response = await fetch(`${apiBase}/${region}?${params.toString()}`, {
-    headers: { Accept: 'application/json' },
-    signal: options.signal,
+  const requestUrl = `${apiBase}/${region}?${params.toString()}`;
+  const data = await cachedJsonFetch<NexonRankingResponse>(requestUrl, {
+    cacheKey: `nexon-rankings:${region}:${params.toString()}`,
+    freshMs: 2 * 60 * 1000,
+    staleMs: realtimeCacheDurations.medium,
+    requestInit: {
+      headers: { Accept: 'application/json' },
+      signal: options.signal,
+    },
   });
 
-  if (!response.ok) {
-    throw new Error(`Nexon rankings request failed with ${response.status}`);
-  }
-
-  const data = (await response.json()) as NexonRankingResponse;
   if (!Array.isArray(data.ranks)) {
     throw new Error('Nexon rankings response is missing ranks');
   }

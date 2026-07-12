@@ -6,6 +6,7 @@ import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
 import { communityLinks } from '@/constants/communityLinks';
 import { useAuthSession } from '@/hooks/useAuthSession';
+import { mapleSqlApi, MapleApiError, type CommunityProposal as ApiCommunityProposal, type CommunityProposalComment } from '@/services/mapleSqlApi';
 
 type ProposalStatus = 'Pending' | 'Approved' | 'Rejected';
 type ProposalAction = 'Add' | 'Update';
@@ -26,10 +27,6 @@ interface Proposal {
   votes: number;
 }
 
-const USER_PROPOSALS_KEY = 'maplehub-community-submissions';
-const PROPOSAL_VOTES_KEY = 'maplehub-community-submission-votes';
-const PROPOSAL_COMMENTS_KEY = 'maplehub-community-submission-comments';
-
 const classOptions = [
   'Adele',
   'Angelic Buster',
@@ -46,90 +43,6 @@ const classOptions = [
 ];
 
 const kindOptions: ProposalKind[] = ['Class overview', 'HEXA Skill Upgrade Order', 'Skill Sequence', 'Burst Rotation', 'Culvert'];
-
-const maplerHouseAsset = (fileName: string) =>
-  `https://img.maplerhouse.com/pending/guide-assets/fF8hKAnMrOJgIcGrHIcDXtBPXx1aDzCM/${fileName}`;
-
-const communityImages = {
-  erelBurst: maplerHouseAsset('cd7ca56c-f625-4411-8968-9d2152f45a83.png'),
-  erelHexa: maplerHouseAsset('5f544f51-d055-4881-a2f9-4dbae573372b.png'),
-  kannaOverview: maplerHouseAsset('7df464d1-c39a-48eb-8bc8-2017209c295e.webp'),
-};
-
-const initialProposals: Proposal[] = [
-  {
-    id: 'p1',
-    className: 'Erel Light',
-    action: 'Add',
-    kind: 'Burst Rotation',
-    title: 'Add guide images',
-    note: 'New v.269 job page needs a burst rotation screenshot for the first release pass.',
-    status: 'Approved',
-    author: 'MaplerWorker',
-    createdAt: '2026-06-22T06:22:00Z',
-    previousImages: [],
-    proposedImages: [communityImages.erelBurst],
-    votes: 0,
-  },
-  {
-    id: 'p2',
-    className: 'Erel Light',
-    action: 'Add',
-    kind: 'HEXA Skill Upgrade Order',
-    title: 'Add guide images',
-    note: 'The HEXA page has text, but needs a clear proposed upgrade order image.',
-    status: 'Approved',
-    author: 'MaplerWorker',
-    createdAt: '2026-06-22T06:22:00Z',
-    previousImages: [],
-    proposedImages: [communityImages.erelHexa],
-    votes: 0,
-  },
-  {
-    id: 'p3',
-    className: 'Kanna',
-    action: 'Add',
-    kind: 'Class overview',
-    title: 'Add guide images',
-    note: 'Kanna overview needs a clearer image for beginner readers comparing summon coverage.',
-    status: 'Approved',
-    author: 'MaplerWorker',
-    createdAt: '2026-06-20T16:06:00Z',
-    previousImages: [],
-    proposedImages: [communityImages.kannaOverview],
-    votes: 0,
-  },
-  {
-    id: 'p4',
-    className: 'Sia Astelle',
-    action: 'Update',
-    kind: 'Class overview',
-    title: 'Add missing content',
-    note: 'Replace outdated overview images and add one missing charged-state visual.',
-    status: 'Approved',
-    author: 'dooger',
-    createdAt: '2026-06-20T15:11:00Z',
-    previousImages: [communityImages.erelBurst, communityImages.erelHexa],
-    proposedImages: [communityImages.kannaOverview, communityImages.erelBurst, communityImages.erelHexa],
-    votes: 0,
-  },
-];
-
-const readStored = <T,>(key: string, fallback: T): T => {
-  if (typeof window === 'undefined') return fallback;
-
-  try {
-    const raw = window.localStorage.getItem(key);
-    return raw ? (JSON.parse(raw) as T) : fallback;
-  } catch {
-    return fallback;
-  }
-};
-
-const writeStored = (key: string, value: unknown) => {
-  if (typeof window === 'undefined') return;
-  window.localStorage.setItem(key, JSON.stringify(value));
-};
 
 const statusStyles: Record<ProposalStatus, string> = {
   Pending: 'bg-secondary-100 text-secondary-900',
@@ -151,6 +64,26 @@ const formatDate = (date: string) =>
     minute: '2-digit',
   }).format(new Date(date));
 
+const shortUserLabel = (value?: string | null) => {
+  if (!value) return 'Maple SQL User';
+  return value.length > 10 ? `${value.slice(0, 8)}...` : value;
+};
+
+const fromApiProposal = (proposal: ApiCommunityProposal): Proposal => ({
+  id: proposal.id,
+  className: proposal.class_name,
+  action: proposal.action as ProposalAction,
+  kind: proposal.kind as ProposalKind,
+  title: proposal.title,
+  note: proposal.note,
+  status: proposal.status as ProposalStatus,
+  author: shortUserLabel(proposal.created_by),
+  createdAt: proposal.created_at,
+  previousImages: proposal.previous_images,
+  proposedImages: proposal.proposed_images,
+  votes: proposal.votes,
+});
+
 export default function CommunityPage() {
   const { t } = useTranslation();
   const [notifOpen, setNotifOpen] = useState(false);
@@ -160,12 +93,13 @@ export default function CommunityPage() {
   const [kindFilter, setKindFilter] = useState<'All' | ProposalKind>('All');
   const [sortBy, setSortBy] = useState('Newest');
   const [showForm, setShowForm] = useState(false);
-  const [userProposals, setUserProposals] = useState<Proposal[]>(() => readStored(USER_PROPOSALS_KEY, []));
-  const [voteOverrides, setVoteOverrides] = useState<Record<string, number>>(() => readStored(PROPOSAL_VOTES_KEY, {}));
-  const [comments, setComments] = useState<Record<string, string[]>>(() => readStored(PROPOSAL_COMMENTS_KEY, {}));
+  const [remoteProposals, setRemoteProposals] = useState<Proposal[]>([]);
+  const [comments, setComments] = useState<Record<string, string[]>>({});
   const [activeProposal, setActiveProposal] = useState<Proposal | null>(null);
   const [commentDraft, setCommentDraft] = useState('');
   const [authPrompt, setAuthPrompt] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
   const { isSignedIn } = useAuthSession();
   const [form, setForm] = useState({
     className: 'Erel Light',
@@ -177,28 +111,52 @@ export default function CommunityPage() {
   });
 
   useEffect(() => {
-    writeStored(USER_PROPOSALS_KEY, userProposals);
-  }, [userProposals]);
+    if (!isSignedIn) {
+      setRemoteProposals([]);
+      setComments({});
+      setLoading(false);
+      setErrorMsg('');
+      return;
+    }
+
+    setLoading(true);
+    setErrorMsg('');
+    void mapleSqlApi.community
+      .listProposals({
+        status: statusFilter === 'All' ? '' : statusFilter,
+        className: classFilter === 'All' ? '' : classFilter,
+        kind: kindFilter === 'All' ? '' : kindFilter,
+        sort: sortBy === 'Most liked' ? 'Score' : sortBy,
+      })
+      .then((items) => setRemoteProposals(items.map(fromApiProposal)))
+      .catch((error) => {
+        setErrorMsg(error instanceof MapleApiError ? error.message : 'Failed to load community proposals.');
+      })
+      .finally(() => setLoading(false));
+  }, [classFilter, isSignedIn, kindFilter, sortBy, statusFilter]);
 
   useEffect(() => {
-    writeStored(PROPOSAL_VOTES_KEY, voteOverrides);
-  }, [voteOverrides]);
-
-  useEffect(() => {
-    writeStored(PROPOSAL_COMMENTS_KEY, comments);
-  }, [comments]);
+    if (!activeProposal || !isSignedIn) return;
+    void mapleSqlApi.community
+      .listProposalComments(activeProposal.id)
+      .then((items: CommunityProposalComment[]) => {
+        setComments((current) => ({
+          ...current,
+          [activeProposal.id]: items.map((item) => item.content),
+        }));
+      })
+      .catch(() => {
+        // Keep existing comments fallback if comments fail to load.
+      });
+  }, [activeProposal, isSignedIn]);
 
   const proposals = useMemo(
-    () =>
-      [...userProposals, ...initialProposals].map((proposal) => ({
-        ...proposal,
-        votes: voteOverrides[proposal.id] ?? proposal.votes,
-      })),
-    [userProposals, voteOverrides],
+    () => (isSignedIn ? remoteProposals : []),
+    [isSignedIn, remoteProposals],
   );
 
   const filteredProposals = useMemo(() => {
-    const now = new Date('2026-07-07T00:00:00Z').getTime();
+    const now = Date.now();
     const rangeMs = Number(timeRange) * 31 * 24 * 60 * 60 * 1000;
 
     return proposals
@@ -219,10 +177,17 @@ export default function CommunityPage() {
       return;
     }
 
-    setVoteOverrides((current) => ({
-      ...current,
-      [proposal.id]: (current[proposal.id] ?? proposal.votes) + delta,
-    }));
+    void mapleSqlApi.community
+      .voteProposal(proposal.id, delta > 0 ? 1 : -1)
+      .then((result) => {
+        setRemoteProposals((current) =>
+          current.map((item) => (item.id === proposal.id ? { ...item, votes: result.votes } : item)),
+        );
+        setActiveProposal((current) => (current?.id === proposal.id ? { ...current, votes: result.votes } : current));
+      })
+      .catch((error) => {
+        setErrorMsg(error instanceof MapleApiError ? error.message : 'Failed to vote on proposal.');
+      });
   };
 
   const submitProposal = (event: FormEvent<HTMLFormElement>) => {
@@ -237,25 +202,27 @@ export default function CommunityPage() {
     if (!title || !note) return;
 
     const imageUrl = form.imageUrl.trim();
-    const proposal: Proposal = {
-      id: `user-${Date.now()}`,
-      className: form.className,
-      action: form.action,
-      kind: form.kind,
-      title,
-      note,
-      status: 'Pending',
-      author: t('community_post_user'),
-      createdAt: new Date().toISOString(),
-      previousImages: [],
-      proposedImages: imageUrl ? [imageUrl] : [],
-      votes: 0,
-    };
-
-    setUserProposals((current) => [proposal, ...current]);
-    setActiveProposal(proposal);
-    setShowForm(false);
-    setForm((current) => ({ ...current, title: '', note: '', imageUrl: '' }));
+    setErrorMsg('');
+    void mapleSqlApi.community
+      .createProposal({
+        class_name: form.className,
+        action: form.action,
+        kind: form.kind,
+        title,
+        note,
+        proposed_images: imageUrl ? [imageUrl] : [],
+        previous_images: [],
+      })
+      .then((created) => {
+        const mapped = fromApiProposal(created);
+        setRemoteProposals((current) => [mapped, ...current]);
+        setActiveProposal(mapped);
+        setShowForm(false);
+        setForm((current) => ({ ...current, title: '', note: '', imageUrl: '' }));
+      })
+      .catch((error) => {
+        setErrorMsg(error instanceof MapleApiError ? error.message : 'Failed to create proposal.');
+      });
   };
 
   const submitComment = (event: FormEvent<HTMLFormElement>) => {
@@ -268,19 +235,26 @@ export default function CommunityPage() {
     const comment = commentDraft.trim();
     if (!activeProposal || !comment) return;
 
-    setComments((current) => ({
-      ...current,
-      [activeProposal.id]: [...(current[activeProposal.id] ?? []), comment],
-    }));
-    setCommentDraft('');
+    void mapleSqlApi.community
+      .addProposalComment(activeProposal.id, comment)
+      .then(() => {
+        setComments((current) => ({
+          ...current,
+          [activeProposal.id]: [...(current[activeProposal.id] ?? []), comment],
+        }));
+        setCommentDraft('');
+      })
+      .catch((error) => {
+        setErrorMsg(error instanceof MapleApiError ? error.message : 'Failed to add comment.');
+      });
   };
 
   return (
     <div className="min-h-screen bg-background-50">
-      <Navbar onOpenNotifications={() => setNotifOpen(true)} unread={3} />
+      <Navbar onOpenNotifications={() => setNotifOpen(true)} unread={0} />
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />
 
-      <main className="pt-20 md:pt-24">
+      <main id="main-content" tabIndex={-1} className="pt-20 md:pt-24">
         <section className="py-10 md:py-14">
           <div className="w-full px-4 md:px-8">
             <div className="max-w-7xl mx-auto">
@@ -318,6 +292,11 @@ export default function CommunityPage() {
               {authPrompt && (
                 <div className="mb-6">
                   <AuthRequiredNotice onDismiss={() => setAuthPrompt(false)} />
+                </div>
+              )}
+              {errorMsg && (
+                <div className="mb-6 rounded-lg border border-primary-200 bg-primary-50 px-4 py-3 text-sm text-primary-700">
+                  {errorMsg}
                 </div>
               )}
 
@@ -442,6 +421,19 @@ export default function CommunityPage() {
                 </aside>
 
                 <div className="space-y-4">
+                  {loading && (
+                    <div className="rounded-lg border border-background-200 bg-background-100 p-4 text-sm text-foreground-700">
+                      Loading proposals...
+                    </div>
+                  )}
+                  {!loading && filteredProposals.length === 0 && (
+                    <div className="rounded-lg border border-background-200 bg-background-100 p-8 text-center text-sm text-foreground-700">
+                      <i className="ri-database-2-line mb-2 block text-3xl text-foreground-400"></i>
+                      {isSignedIn
+                        ? 'No verified community proposals are available for these filters.'
+                        : 'Sign in to load verified community proposals from the database. Demo proposals are no longer shown.'}
+                    </div>
+                  )}
                   {filteredProposals.map((proposal) => (
                     <ProposalCard
                       key={proposal.id}
@@ -669,7 +661,7 @@ function CommunityImage({ src, alt, index }: { src: string; alt: string; index: 
 
   if (failed) {
     return (
-      <div className="h-28 w-full rounded-md border border-background-200 bg-gradient-to-br from-primary-100 via-background-50 to-accent-100 p-3 flex flex-col justify-between overflow-hidden">
+      <div className="h-28 w-full rounded-md border border-background-200 bg-gradient-to-br from-primary-100 via-background-50 to-accent-100 dark:from-background-200 dark:via-background-100 dark:to-accent-950 p-3 flex flex-col justify-between overflow-hidden">
         <div className="h-7 w-7 rounded-md bg-primary-500/15 text-primary-700 flex items-center justify-center">
           <i className="ri-image-line"></i>
         </div>
