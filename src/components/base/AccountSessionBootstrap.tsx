@@ -10,6 +10,7 @@ import { mapleSqlApi } from '@/services/mapleSqlApi';
 import {
   ACCOUNT_CACHE_OWNER_KEY,
   ACCOUNT_DATA_CHANGED_EVENT,
+  clearAccountDataCache,
   collectAccountData,
   saveCurrentAccountData,
   syncAccountDataAfterLogin,
@@ -36,6 +37,11 @@ export default function AccountSessionBootstrap() {
   const lastSnapshot = useRef('');
 
   useEffect(() => {
+    if (session?.userId || localStorage.getItem(AUTO_LOGIN_ENABLED_KEY) === 'true') return;
+    if (localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY)) clearAccountDataCache();
+  }, [session?.userId]);
+
+  useEffect(() => {
     if (readAuthSession() || localStorage.getItem(AUTO_LOGIN_ENABLED_KEY) !== 'true') return;
     let active = true;
     void mapleSqlApi.auth.refresh()
@@ -47,6 +53,7 @@ export default function AccountSessionBootstrap() {
       })
       .catch(() => {
         localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+        clearAccountDataCache();
         clearAuthSession();
       });
     return () => { active = false; };
@@ -60,6 +67,7 @@ export default function AccountSessionBootstrap() {
         .then((response) => saveAuthSession(toSession(response)))
         .catch(() => {
           localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+          clearAccountDataCache();
           clearAuthSession();
         });
     }, refreshIn);

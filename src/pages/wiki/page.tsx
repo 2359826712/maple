@@ -15,7 +15,8 @@ type PopularWikiItem = {
   i18nKey: string;
 };
 
-const popularWikiItems: PopularWikiItem[] = [
+// eslint-disable-next-line react-refresh/only-export-components
+export const popularWikiItems: PopularWikiItem[] = [
   {
     title: 'Classes',
     titleZh: '职业',
@@ -50,7 +51,7 @@ const popularWikiItems: PopularWikiItem[] = [
     descriptionZh: '200 级后的核心区域与成长内容。',
     category: 'Locations',
     icon: 'ri-map-2-line',
-    i18nKey: 'arcane-river',
+    i18nKey: 'arcane_river',
   },
   {
     title: 'Grandis',
@@ -77,7 +78,7 @@ const popularWikiItems: PopularWikiItem[] = [
     descriptionZh: '冒险岛核心终局 Boss 之一。',
     category: 'Bosses',
     icon: 'ri-magic-line',
-    i18nKey: 'black-mage',
+    i18nKey: 'black_mage',
   },
   {
     title: 'Lucid',
@@ -149,7 +150,7 @@ const popularWikiItems: PopularWikiItem[] = [
     descriptionZh: '装备强化系统与成长参考。',
     category: 'Equipment',
     icon: 'ri-star-line',
-    i18nKey: 'star-force',
+    i18nKey: 'star_force',
   },
   {
     title: 'Potential',
@@ -167,18 +168,19 @@ const popularWikiItems: PopularWikiItem[] = [
     descriptionZh: '六转成长系统与核心强化。',
     category: 'Systems',
     icon: 'ri-hexagon-line',
-    i18nKey: 'hexa-matrix',
+    i18nKey: 'hexa_matrix',
   },
 ];
 
-const previewSections = [
+// eslint-disable-next-line react-refresh/only-export-components
+export const previewSections = [
   {
     title: 'Class Progression',
     titleZh: '职业成长',
     body: 'MapleStory classes are grouped into Explorer, Cygnus Knights, Heroes, Resistance, Nova, Flora, Anima, Sengoku, Shine, and other special branches. Each class page on the wiki usually contains job advancement details, skill names, story background, and related systems.',
     bodyZh: 'MapleStory 职业通常分为冒险家、皇家骑士团、英雄、反抗者、诺巴、雷普、阿尼玛、战国、Shine 以及特殊职业等分支。Wiki 的职业页面一般包含转职、技能、职业背景与相关系统资料。',
     links: ['Classes', 'Link Skill', 'Legion System'],
-    i18nKey: 'class-prog',
+    i18nKey: 'class_prog',
   },
   {
     title: 'Equipment Systems',
@@ -186,7 +188,7 @@ const previewSections = [
     body: 'The most-used equipment references include Star Force, Potential, Bonus Potential, scrolling, flames, set effects, and boss accessories. These systems are often checked when planning upgrades or comparing gear.',
     bodyZh: '常用装备资料包括星之力、潜能、附加潜能、卷轴、火花、套装效果与 Boss 饰品。玩家规划强化路线或比较装备时通常会查这些页面。',
     links: ['Star Force', 'Potential', 'Equipment'],
-    i18nKey: 'equip-sys',
+    i18nKey: 'equip_sys',
   },
   {
     title: 'Bossing',
@@ -209,11 +211,28 @@ const previewSections = [
 const localArticlePath = (title: string) =>
   `/wiki/article/${encodeURIComponent(title)}`;
 
+const categoryKeys: Record<string, string> = {
+  Classes: 'wiki_category_classes',
+  Systems: 'wiki_category_systems',
+  Locations: 'wiki_category_locations',
+  Bosses: 'wiki_category_bosses',
+  Equipment: 'wiki_category_equipment',
+};
+
+const extraArticleTitleKeys: Record<string, string> = {
+  Equipment: 'wiki_art_equipment',
+  Locations: 'wiki_art_locations',
+};
+
 export default function WikiPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [notifOpen, setNotifOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const localizedArticleTitle = (title: string) => {
+    const popularItem = popularWikiItems.find((item) => item.title === title);
+    return popularItem ? t(`wiki_art_${popularItem.i18nKey}`) : t(extraArticleTitleKeys[title] || title);
+  };
 
   const openArticle = (title: string) => {
     navigate(localArticlePath(title));
@@ -282,7 +301,7 @@ export default function WikiPage() {
                           {t('wiki_art_' + item.i18nKey)}
                         </span>
                         <span className="mt-1 inline-flex bg-background-100 px-2 py-0.5 text-xs text-foreground-600">
-                          {item.category}
+                          {t(categoryKeys[item.category] || item.category)}
                         </span>
                       </span>
                     </div>
@@ -313,7 +332,7 @@ export default function WikiPage() {
                           onClick={() => openArticle(link)}
                           className="border border-background-300 bg-background-50 px-2.5 py-1 text-xs font-semibold text-primary-600 hover:bg-primary-50 hover:underline"
                         >
-                          {link}
+                          {localizedArticleTitle(link)}
                         </button>
                       ))}
                     </div>

@@ -2,6 +2,9 @@
 
 import { describe, expect, it, vi } from 'vitest';
 import {
+  extractOfficialArticleImage,
+  getNewsFallbackImage,
+  getRegionalContentImage,
   normalizeEventFeed,
   normalizeTmsBulletins,
   officialArticleHref,
@@ -16,6 +19,27 @@ import type { WikiMirrorPageRecord } from './mapleSqlApi';
 import type { WikiEntry } from '@/mocks/wiki';
 
 describe('official regional news adapters', () => {
+  it('uses distinct branded fallbacks for regional servers', () => {
+    expect(new Set([
+      getNewsFallbackImage('jms'),
+      getNewsFallbackImage('tms'),
+      getNewsFallbackImage('msea'),
+    ]).size).toBe(3);
+    expect(getRegionalContentImage(getNewsFallbackImage('gms'), 'jms')).toBe(getNewsFallbackImage('jms'));
+  });
+
+  it('prefers real article artwork over generic social and tracking images', () => {
+    const image = extractOfficialArticleImage(`
+      <meta property="og:image" content="http://media.example.com/facebook/maplestory.png">
+      <main>
+        <img width="1" height="1" src="https://tracker.example.com/pixel.png">
+        <img data-src="/uploads/summer-event.webp" alt="Summer event">
+      </main>
+    `, 'https://maplestory.example.com/news/123');
+
+    expect(image).toBe('https://maplestory.example.com/uploads/summer-event.webp');
+  });
+
   it('imports KMS notices and events', () => {
     const items = parseKmsListing(`
       <ul><li>
@@ -42,7 +66,7 @@ describe('official regional news adapters', () => {
   it('imports MapleStorySEA listing rows as in-site news cards', () => {
     const items = parseMseaListing(`
       <ul><li class="title_links">[08.07] :
-        <a href="https://www.maplesea.com/events/view/v252_Sunday_Jul/">July Sunday Maple Benefits</a>
+        <a href="https://www.maplesea.com/events/view/v252_Sunday_Jul/"><img src="/images/sunday.jpg">July Sunday Maple Benefits</a>
       </li></ul>
     `, 'Event');
 
@@ -52,6 +76,7 @@ describe('official regional news adapters', () => {
       category: 'Event',
       versions: ['msea'],
       sourceUrl: 'https://www.maplesea.com/events/view/v252_Sunday_Jul/',
+      image: 'https://www.maplesea.com/images/sunday.jpg',
     });
   });
 
@@ -59,7 +84,7 @@ describe('official regional news adapters', () => {
     const items = parseJmsListing(`
       <table class="notice-list"><tr>
         <td class="category"><p class="event">イベント</p></td>
-        <td class="ttl"><p><a href="/notice/view/?alias=abc&amp;id=event">サンデーメイプル</a></p></td>
+        <td class="ttl"><p><a href="/notice/view/?alias=abc&amp;id=event"><img data-src="/images/sunday.png">サンデーメイプル</a></p></td>
         <td class="date">2026.07.08</td><td class="view">20662</td>
       </tr></table>
     `);
@@ -69,6 +94,7 @@ describe('official regional news adapters', () => {
       category: 'Event',
       versions: ['jms'],
       sourceUrl: 'https://maplestory.nexon.co.jp/notice/view/?alias=abc&id=event',
+      image: 'https://maplestory.nexon.co.jp/images/sunday.png',
     });
   });
 
@@ -94,6 +120,15 @@ describe('official regional news adapters', () => {
       versions: ['tms'],
       sourceUrl: 'https://maplestory.beanfun.com/bulletin?bid=82054',
     });
+  });
+
+  it('keeps a real TMS thumbnail and upgrades it to HTTPS', () => {
+    const items = normalizeTmsBulletins([{
+      bullentinId: '82055', bullentinCatId: '72', startDate: '2026/07/09',
+      title: '夏日活動', urlLink: null, thumbnail: 'http://maplestory.beanfun.com/images/summer.jpg',
+    }]);
+
+    expect(items[0].image).toBe('https://maplestory.beanfun.com/images/summer.jpg');
   });
 });
 
@@ -174,13 +209,15 @@ const validEvent = {
 
 describe('live event import boundary', () => {
   it('accepts a canonical event feed envelope', () => {
-    const items = normalizeEventFeed({ items: [validEvent] }, Date.parse('2026-07-11T00:00:00.000Z'));
+    const imageUrl = 'https://example.com/summer-event.jpg';
+    const items = normalizeEventFeed({ items: [{ ...validEvent, imageUrl }] }, Date.parse('2026-07-11T00:00:00.000Z'));
     expect(items).toHaveLength(1);
     expect(items[0]).toMatchObject({
       id: validEvent.id,
       name: validEvent.title,
       regions: ['gms'],
       rewards: ['Event Ring'],
+      image: imageUrl,
     });
   });
 

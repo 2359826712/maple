@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
@@ -7,17 +7,20 @@ import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
 import { getPopularSearchTerms } from '@/services/siteSearch';
 import FloatingLeaves from '@/components/feature/FloatingLeaves';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 
 export default function Hero() {
   const { versionInfo } = useVersion();
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveNews,
+    remoteLoader: loadNews,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const searchChips = useMemo(
     () => getPopularSearchTerms(i18n.language, versionInfo.id, 4),
@@ -26,11 +29,11 @@ export default function Hero() {
 
   const filteredTicker = useMemo(
     () =>
-      realtimeNews
+      localizedNews
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .slice(0, 8)
         .map((item) => ({ text: `${item.title} · ${item.date}` })),
-    [realtimeNews, versionInfo.id],
+    [localizedNews, versionInfo.id],
   );
   const searchGuides = (query: string) => {
     const trimmed = query.trim();

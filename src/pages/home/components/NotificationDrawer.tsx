@@ -21,13 +21,25 @@ const colorForType = (type: string) => {
   return 'secondary';
 };
 
-const formatWhen = (createdAt: string, locale: string) =>
-  new Intl.DateTimeFormat(locale, {
-    month: 'short',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-  }).format(new Date(createdAt));
+const formatWhen = (createdAt: string, locale: string) => {
+  const date = new Date(createdAt);
+  if (!Number.isFinite(date.getTime())) return '';
+  try {
+    return new Intl.DateTimeFormat(locale, {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+    }).format(date);
+  } catch {
+    return new Intl.DateTimeFormat(undefined, {
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+    }).format(date);
+  }
+};
 
 const announceNotificationChange = () => {
   window.dispatchEvent(new Event('maplehub-notifications-changed'));
@@ -50,7 +62,7 @@ export default function NotificationDrawer({ open, onClose }: Props) {
     setError('');
     void mapleSqlApi.notifications
       .list()
-      .then((notifications) => setItems(notifications))
+      .then((notifications) => setItems(Array.isArray(notifications) ? notifications : []))
       .catch(() => {
         setError('notifications_load_error');
       })

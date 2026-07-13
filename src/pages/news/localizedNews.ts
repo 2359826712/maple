@@ -1,8 +1,11 @@
-import type { NewsItem } from '@/services/liveContent';
+import type { NewsContentLanguage, NewsItem, NewsTranslation } from '@/services/liveContent';
 
 type NewsCopy = {
   title: string;
   excerpt: string;
+  date: string;
+  sourceLanguage: NewsContentLanguage;
+  usesOriginalCopy: boolean;
 };
 
 type ArticleCopy = {
@@ -38,18 +41,64 @@ const categoryLabels: Record<string, Record<string, string>> = {
   },
 };
 
-const normalizeLanguage = (language: string) => {
-  if (language.startsWith('zh-Hant')) return 'zh-Hant';
-  if (language.startsWith('zh')) return 'zh';
-  if (language.startsWith('ja')) return 'ja';
-  if (language.startsWith('ko')) return 'ko';
+export const normalizeNewsLanguage = (language: string): NewsContentLanguage => {
+  const normalized = language.toLowerCase();
+  if (normalized.startsWith('zh-hant') || normalized.startsWith('zh-tw') || normalized.startsWith('zh-hk')) return 'zh-Hant';
+  if (normalized.startsWith('zh')) return 'zh';
+  if (normalized.startsWith('ja')) return 'ja';
+  if (normalized.startsWith('ko')) return 'ko';
   return 'en';
 };
 
-export function getNewsCopy(news: NewsItem, _language: string): NewsCopy {
+const validTranslation = (value: NewsTranslation | undefined): value is NewsTranslation =>
+  Boolean(value?.title?.trim() && value?.excerpt?.trim());
+
+const sourceLanguagesByVersion: Record<string, NewsContentLanguage> = {
+  gms: 'en',
+  kms: 'ko',
+  msea: 'en',
+  jms: 'ja',
+  tms: 'zh-Hant',
+};
+
+export const getNewsSourceLanguageForVersion = (version: string): NewsContentLanguage =>
+  sourceLanguagesByVersion[version] || 'en';
+
+export const getNewsSourceLanguage = (news: NewsItem): NewsContentLanguage =>
+  news.sourceLanguage || getNewsSourceLanguageForVersion(news.versions[0] || 'gms');
+
+export const newsSourceLanguageTranslationKey: Record<NewsContentLanguage, string> = {
+  en: 'news_source_language_en',
+  zh: 'news_source_language_zh',
+  'zh-Hant': 'news_source_language_zh_hant',
+  ja: 'news_source_language_ja',
+  ko: 'news_source_language_ko',
+};
+
+export const formatNewsDate = (publishedAt: string, language: string, fallback = '') => {
+  const date = new Date(publishedAt);
+  if (Number.isNaN(date.getTime())) return fallback;
+
+  return new Intl.DateTimeFormat(normalizeNewsLanguage(language), {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+};
+
+export function getNewsCopy(news: NewsItem, language: string): NewsCopy {
+  const requestedLanguage = normalizeNewsLanguage(language);
+  const sourceLanguage = getNewsSourceLanguage(news);
+  const translation = news.translations?.[requestedLanguage];
+  const localized = requestedLanguage !== sourceLanguage && validTranslation(translation);
+
   return {
-    title: news.title,
-    excerpt: news.excerpt,
+    title: localized ? translation.title.trim() : news.title,
+    excerpt: localized ? translation.excerpt.trim() : news.excerpt,
+    date: formatNewsDate(news.publishedAt, requestedLanguage, news.date),
+    sourceLanguage,
+    usesOriginalCopy: requestedLanguage !== sourceLanguage && !localized,
   };
 }
 
@@ -58,5 +107,5 @@ export function getNewsArticleCopy(_id: string, _language: string, fallback: Art
 }
 
 export function getNewsCategoryLabel(category: string, language: string): string {
-  return categoryLabels[category]?.[normalizeLanguage(language)] ?? category;
+  return categoryLabels[category]?.[normalizeNewsLanguage(language)] ?? category;
 }

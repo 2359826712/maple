@@ -10,12 +10,15 @@ const GuideDetail = lazy(() => import("../pages/guides/detail/page"));
 const RankingsPage = lazy(() => import("../pages/rankings/page"));
 const MaplerHouse = lazy(() => import("../pages/mapler-house/page"));
 const NewsPage = lazy(() => import("../pages/news/page"));
+const UpcomingUpdatesPage = lazy(() => import("../pages/upcoming/page"));
+const UpcomingUpdateDetailPage = lazy(() => import("../pages/upcoming/detail/page"));
 const GuidesPage = lazy(() => import("../pages/guides/page"));
 const EventsPage = lazy(() => import("../pages/events/page"));
 const MapsPage = lazy(() => import("../pages/maps/page"));
 const WikiPage = lazy(() => import("../pages/wiki/page"));
 const WikiArticlePage = lazy(() => import("../pages/wiki/article"));
 const LoginPage = lazy(() => import("../pages/auth/login/page"));
+const AccountPage = lazy(() => import("../pages/account/page"));
 const SearchPage = lazy(() => import("../pages/search/page"));
 const OfficialSourcePage = lazy(() => import("../pages/source/page"));
 const ChecklistPage = lazy(() => import("../pages/checklist/page"));
@@ -33,6 +36,14 @@ const routes: RouteObject[] = [
   {
     path: "/news",
     element: <RouteLoader><NewsPage /></RouteLoader>,
+  },
+  {
+    path: "/upcoming",
+    element: <RouteLoader><UpcomingUpdatesPage /></RouteLoader>,
+  },
+  {
+    path: "/upcoming/:postId",
+    element: <RouteLoader><UpcomingUpdateDetailPage /></RouteLoader>,
   },
   {
     path: "/search",
@@ -61,6 +72,10 @@ const routes: RouteObject[] = [
   {
     path: "/auth/login",
     element: <RouteLoader><LoginPage /></RouteLoader>,
+  },
+  {
+    path: "/account",
+    element: <RouteLoader><AccountPage /></RouteLoader>,
   },
   {
     path: "/maps",

@@ -8,6 +8,29 @@ import { fetchWikiEntryByTitleLocalFirst, fetchWikiEntryContent, type WikiEntry 
 import { sanitizeMirroredHtml } from '@/services/sanitizeHtml';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { useTranslatedWikiEntry } from './useTranslatedWikiEntry';
+
+const articleTitleKeys: Record<string, string> = {
+  Classes: 'wiki_art_classes',
+  'Link Skill': 'wiki_art_link_skill',
+  'Legion System': 'wiki_art_legion',
+  'Arcane River': 'wiki_art_arcane_river',
+  Grandis: 'wiki_art_grandis',
+  Bosses: 'wiki_art_bosses',
+  'Black Mage': 'wiki_art_black_mage',
+  Lucid: 'wiki_art_lucid',
+  Will: 'wiki_art_will',
+  Lotus: 'wiki_art_lotus',
+  Gloom: 'wiki_art_gloom',
+  'Guardian Angel Slime': 'wiki_art_gas',
+  Magnus: 'wiki_art_magnus',
+  Damien: 'wiki_art_damien',
+  'Star Force': 'wiki_art_star_force',
+  Potential: 'wiki_art_potential',
+  'Hexa Matrix': 'wiki_art_hexa_matrix',
+  Equipment: 'wiki_art_equipment',
+  Locations: 'wiki_art_locations',
+};
 
 export default function WikiArticlePage() {
   const { t, i18n } = useTranslation();
@@ -21,11 +44,15 @@ export default function WikiArticlePage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imgLoadFailed, setImgLoadFailed] = useState(false);
 
-  const isZh = i18n.language.startsWith('zh');
   const title = titleParam ? decodeURIComponent(titleParam).replace(/_/g, ' ') : '';
 
   // Detect File: namespace pages
   const isFilePage = title.startsWith('File:');
+  const preferredTitle = entry && articleTitleKeys[entry.title] ? t(articleTitleKeys[entry.title]) : undefined;
+  const translatedEntry = useTranslatedWikiEntry(entry, isFilePage ? 'en' : i18n.language, preferredTitle);
+  const displayTitle = translatedEntry.title || title;
+  const htmlContent = translatedEntry.htmlContent;
+  const textContent = translatedEntry.textContent;
 
   // Primary: construct CDN URL directly from the File: title
   // All wiki images are hosted at media.maplestorywiki.net/yetidb/{filename}
@@ -38,9 +65,9 @@ export default function WikiArticlePage() {
 
   // Fallback: extract image URL from parsed HTML content
   const htmlExtractedUrl = useMemo(() => {
-    if (!isFilePage || !entry?.htmlContent) return null;
+    if (!isFilePage || !htmlContent) return null;
     const parser = new DOMParser();
-    const doc = parser.parseFromString(entry.htmlContent, 'text/html');
+    const doc = parser.parseFromString(htmlContent, 'text/html');
     const fullImg = doc.querySelector('.fullImageLink img, .mw-file-description img');
     if (fullImg) {
       const src = fullImg.getAttribute('src');
@@ -59,9 +86,9 @@ export default function WikiArticlePage() {
       }
     });
     if (best) return best.src;
-    const cdnMatch = entry.htmlContent.match(/(?:https?:)?\/\/(?:media\.maplestorywiki\.net|upload\.wikimedia\.org|static\.wikia\.nocookie\.net)\/[^"'\s<>]+\.(?:png|jpg|jpeg|gif|webp)(?:\?[^"'\s<>]*)?/i);
+    const cdnMatch = htmlContent.match(/(?:https?:)?\/\/(?:media\.maplestorywiki\.net|upload\.wikimedia\.org|static\.wikia\.nocookie\.net)\/[^"'\s<>]+\.(?:png|jpg|jpeg|gif|webp)(?:\?[^"'\s<>]*)?/i);
     return cdnMatch?.[0]?.startsWith('//') ? `https:${cdnMatch[0]}` : cdnMatch?.[0] ?? null;
-  }, [isFilePage, entry?.htmlContent]);
+  }, [htmlContent, isFilePage]);
 
   // Effective image URL: CDN construction is primary (deterministic from filename), HTML extraction is fallback
   const effectiveFileImageUrl = useMemo(() => {
@@ -251,9 +278,6 @@ export default function WikiArticlePage() {
     navigate(`/wiki/article/${encodeURIComponent(decoded)}`);
   };
 
-  const displayTitle = entry ? (isZh ? entry.titleZh : entry.title) : title;
-  const htmlContent = entry ? (isZh ? entry.htmlContentZh || entry.htmlContent : entry.htmlContent) : null;
-  const textContent = entry ? (isZh ? entry.contentZh : entry.content) : '';
   usePageMetadata(
     displayTitle || 'MapleStory Wiki',
     (textContent || `MapleStory wiki information about ${displayTitle}.`).slice(0, 180),
@@ -465,6 +489,22 @@ export default function WikiArticlePage() {
                   <div className="mt-3">
                     <ShareButton title={displayTitle} text={(textContent || '').slice(0, 140)} />
                   </div>
+                  {translatedEntry.status === 'translating' && (
+                    <div className="mt-3 inline-flex items-center gap-2 text-sm text-primary-700" role="status">
+                      <i className="ri-loader-4-line animate-spin" aria-hidden="true" />
+                      {t('wiki_article_translating')}
+                    </div>
+                  )}
+                  {translatedEntry.status === 'needs-action' && (
+                    <button
+                      type="button"
+                      onClick={translatedEntry.retry}
+                      className="mt-3 inline-flex h-9 items-center gap-2 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
+                    >
+                      <i className="ri-translate-2" aria-hidden="true" />
+                      {t('wiki_article_translate')}
+                    </button>
+                  )}
 
                   <div
                     className="wiki-article-content wiki-vector-article wiki-mainpage-article mt-5"

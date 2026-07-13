@@ -9,6 +9,7 @@ import {
   AUTO_LOGIN_ENABLED_KEY,
   REMEMBERED_ACCOUNT_KEY,
   saveAuthSession,
+  useAuthSession,
 } from '@/hooks/useAuthSession';
 import { mapleSqlApi, MapleApiError, type AuthResponse } from '@/services/mapleSqlApi';
 import { syncAccountDataAfterLogin } from '@/services/accountDataSync';
@@ -32,6 +33,7 @@ export default function LoginPage() {
   const [autoLogin, setAutoLogin] = useState(false);
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const { isSignedIn, displayName } = useAuthSession();
 
   const saveSession = async (provider: 'Email', response: AuthResponse) => {
     const userLabel = response.user.display_name || response.user.username || response.user.email;
@@ -64,12 +66,13 @@ export default function LoginPage() {
 
     setPassword('');
     setMessage(t('auth_success', { provider: provider === 'Email' ? 'Maple SQL' : provider }));
-    const next = searchParams.get('next');
-    if (next?.startsWith('/')) {
-      window.setTimeout(() => {
-        window.location.assign(next);
-      }, 300);
-    }
+    const requestedNext = searchParams.get('next');
+    const next = requestedNext?.startsWith('/') && !requestedNext.startsWith('//')
+      ? requestedNext
+      : '/account';
+    window.setTimeout(() => {
+      window.location.assign(next);
+    }, 300);
     return true;
   };
 
@@ -131,6 +134,24 @@ export default function LoginPage() {
               </div>
 
               <div className="p-6">
+                {isSignedIn ? (
+                  <div className="rounded-lg border border-primary-200 bg-primary-50 p-5 text-center">
+                    <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl text-white">
+                      <i className="ri-check-line" aria-hidden="true" />
+                    </span>
+                    <h2 className="mt-3 font-heading text-lg font-semibold text-foreground-950">
+                      {t('auth_already_signed_in', { name: displayName })}
+                    </h2>
+                    <p className="mt-1 text-sm text-foreground-600">{t('auth_already_signed_in_desc')}</p>
+                    <Link
+                      to="/account"
+                      className="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary-600 px-5 text-sm font-semibold text-white hover:bg-primary-700"
+                    >
+                      <i className="ri-user-settings-line" aria-hidden="true" />
+                      {t('auth_open_account')}
+                    </Link>
+                  </div>
+                ) : (<>
                 <div className="grid grid-cols-2 gap-1 rounded-md bg-background-100 p-1 mb-5">
                   <button
                     type="button"
@@ -215,8 +236,24 @@ export default function LoginPage() {
                     {message}
                   </div>
                 )}
+                </>)}
               </div>
             </div>
+
+            {!isSignedIn && (
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {[
+                  ['ri-cloud-line', 'auth_benefit_sync'],
+                  ['ri-notification-3-line', 'auth_benefit_notifications'],
+                  ['ri-chat-heart-line', 'auth_benefit_community'],
+                ].map(([icon, label]) => (
+                  <div key={label} className="rounded-lg border border-background-200 bg-background-50 p-3 text-center text-xs font-medium text-foreground-700">
+                    <i className={`${icon} mb-1 block text-lg text-primary-600`} aria-hidden="true" />
+                    {t(label)}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       </main>

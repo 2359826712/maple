@@ -1,9 +1,10 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { fetchLiveEvents, liveStorageKeys, officialArticleHref, type EventItem } from '@/services/liveContent';
+import { fetchLiveEvents, getRegionalContentImage, liveStorageKeys, officialArticleHref, type EventItem } from '@/services/liveContent';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import {
   daysUntilEventBoundary,
   formatServerDateRange,
@@ -19,10 +20,11 @@ const rarityStyle: Record<string, string> = {
 export default function EventsPreview() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
   const { items: realtimeEvents, status, lastSyncedAt } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    remoteLoader: loadEvents,
   });
 
   const filteredEvents = useMemo(
@@ -68,9 +70,10 @@ export default function EventsPreview() {
               >
                 <div className="relative h-40 md:h-44">
                   <img
-                    src={e.image}
+                    src={getRegionalContentImage(e.image, versionInfo.id)}
                     alt={e.name}
                     className="w-full h-full object-cover object-top"
+                    onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                   />
                   <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${rarityStyle[e.rarity]}`}>
                     {e.rarity}

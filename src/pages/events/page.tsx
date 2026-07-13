@@ -11,6 +11,7 @@ import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import {
   fetchLiveEvents,
   fetchLiveNews,
+  getRegionalContentImage,
   liveStorageKeys,
   officialArticleHref,
   type EventItem,
@@ -20,6 +21,9 @@ import { daysUntilEventBoundary, formatServerDateRange, isAvailableInVersion } f
 import EventGoalProjection from './EventGoalProjection';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 
 const EVENT_REMINDERS_KEY = 'maplehub-event-reminders';
 const EVENT_REMINDER_DELIVERY_KEY = 'maplehub-event-reminder-delivery';
@@ -55,6 +59,8 @@ export default function EventsPage() {
   const [reminders, setReminders] = useState<string[]>(readEventReminders);
   const [reminderDelivery, setReminderDelivery] = useState<ReminderDelivery>(readReminderDelivery);
   const [deliveryMessage, setDeliveryMessage] = useState('');
+  const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const {
     items: realtimeEvents,
     liveCount,
@@ -64,7 +70,7 @@ export default function EventsPage() {
   } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    remoteLoader: loadEvents,
   });
   const {
     items: realtimeNews,
@@ -73,8 +79,9 @@ export default function EventsPage() {
   } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveNews,
+    remoteLoader: loadNews,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const filteredEvents = useMemo(
     () => realtimeEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
@@ -90,10 +97,10 @@ export default function EventsPage() {
     [filteredEvents],
   );
   const officialEventNews = useMemo(
-    () => realtimeNews
+    () => localizedNews
       .filter((item) => item.category === 'Event' && isAvailableInVersion(item.versions, versionInfo.id))
       .slice(0, 6),
-    [realtimeNews, versionInfo.id],
+    [localizedNews, versionInfo.id],
   );
   const eventWindow = (event: EventItem) =>
     formatServerDateRange(event.windowStart, event.windowEnd, versionInfo.id, i18n.language);
@@ -103,6 +110,10 @@ export default function EventsPage() {
     `${versionInfo.shortLabel} MapleStory Events`,
     `Current ${versionInfo.shortLabel} event dates, rewards, deadlines, and reminder tools.`,
   );
+
+  useEffect(() => {
+    setActiveEvent(null);
+  }, [versionInfo.id]);
 
   useEffect(() => {
     const requestedGoal = searchParams.get('goal');
@@ -307,9 +318,13 @@ export default function EventsPage() {
                       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                         {officialEventNews.map((item) => (
                           <article key={item.id} className="flex flex-col overflow-hidden rounded-xl border border-background-200 bg-background-50">
-                            {item.image && (
-                              <img src={item.image} alt="" loading="lazy" className="h-32 w-full object-cover" />
-                            )}
+                            <img
+                              src={getRegionalContentImage(item.image, versionInfo.id)}
+                              alt=""
+                              loading="lazy"
+                              className="h-32 w-full object-cover"
+                              onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
+                            />
                             <div className="flex flex-1 flex-col p-4">
                               <div className="text-xs font-semibold text-primary-700">
                                 {t('events_published')} · {item.date}
@@ -320,6 +335,9 @@ export default function EventsPage() {
                               <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-foreground-600">
                                 {item.excerpt}
                               </p>
+                              {item.usesOriginalCopy && (
+                                <NewsOriginalLanguageNotice sourceLanguage={item.sourceLanguage} className="mt-2" />
+                              )}
                               <Link
                                 to={officialArticleHref(item.sourceUrl, item.title, versionInfo.id)}
                                 className="mt-4 inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
@@ -349,9 +367,10 @@ export default function EventsPage() {
                     >
                       <div className="relative h-40 md:h-44">
                         <img
-                          src={e.image}
+                          src={getRegionalContentImage(e.image, versionInfo.id)}
                           alt={e.name}
                           className="w-full h-full object-cover object-top"
+                          onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                         />
                         <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${rarityStyle[e.rarity]}`}>
                           {e.rarity}
@@ -434,7 +453,12 @@ export default function EventsPage() {
         >
           <article className="max-h-[88vh] w-full max-w-3xl overflow-y-auto rounded-xl border border-primary-200/40 bg-background-50 shadow-xl">
             <div className="relative h-52 overflow-hidden">
-              <img src={activeEvent.image} alt={activeEvent.name} className="h-full w-full object-cover object-top" />
+              <img
+                src={getRegionalContentImage(activeEvent.image, versionInfo.id)}
+                alt={activeEvent.name}
+                className="h-full w-full object-cover object-top"
+                onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground-950/75 to-transparent dark:from-[#120e0b]/75"></div>
               <button
                 type="button"

@@ -13,7 +13,9 @@ vi.mock('./mapleSqlApi', () => ({
 
 import {
   ACCOUNT_CACHE_OWNER_KEY,
+  ACCOUNT_LAST_SYNCED_AT_KEY,
   collectAccountData,
+  saveCurrentAccountData,
   syncAccountDataAfterLogin,
 } from './accountDataSync';
 
@@ -52,5 +54,24 @@ describe('account data migration', () => {
     expect(localStorage.getItem('maplehub-characters:v2')).toContain('remote-1');
     expect(localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY)).toBe('user-2');
   });
-});
 
+  it('includes Link Skill planner state in account synchronization', () => {
+    localStorage.setItem('maplehub-link-planner:v2:gms', '{"ranks":{"mercedes":3}}');
+    expect(collectAccountData()).toEqual({
+      'maplehub-link-planner:v2:gms': '{"ranks":{"mercedes":3}}',
+    });
+  });
+
+  it('records the server timestamp after a successful account save', async () => {
+    localStorage.setItem('maplehub-characters:v2', '[{"id":"local-1"}]');
+    api.save.mockResolvedValue({
+      data: { 'maplehub-characters:v2': '[{"id":"local-1"}]' },
+      revision: 7,
+      updated_at: '2026-07-13T07:30:00.000Z',
+    });
+
+    await saveCurrentAccountData();
+
+    expect(localStorage.getItem(ACCOUNT_LAST_SYNCED_AT_KEY)).toBe('2026-07-13T07:30:00.000Z');
+  });
+});

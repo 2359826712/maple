@@ -12,7 +12,7 @@ export const quickTools = [
     href: '/mapler-house#char-lookup',
     tag: 'Live',
     dataLabelKey: 'tools_data_official_feed',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     key: 'starforce',
@@ -23,7 +23,7 @@ export const quickTools = [
     href: '/mapler-house#enhance',
     tag: 'Simulator',
     dataLabelKey: 'tools_data_estimate',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     key: 'cube',
@@ -34,7 +34,7 @@ export const quickTools = [
     href: '/mapler-house#enhance',
     tag: 'Simulator',
     dataLabelKey: 'tools_data_estimate',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     key: 'ranking',
@@ -279,13 +279,13 @@ export const toolShowcase = [
     name: 'Legion Optimizer',
     detail: 'Best board layout by attacker, buff, or damage-taken profile.',
     icon: 'ri-layout-grid-line',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     name: 'Nodestone Simulator',
     detail: 'Skill node crafting probability, per-class recommended trios.',
     icon: 'ri-stack-line',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     name: 'Hyper Stat Calculator',

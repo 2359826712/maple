@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   fetchNexonRankings,
@@ -18,6 +18,62 @@ type DisplayRank = NexonRankingRow & {
   worldName: string;
 };
 
+const rankingThemes: Record<GameVersion, {
+  accent: string;
+  board: string;
+  header: string;
+  row: string;
+  footer: string;
+  button: string;
+  podium: [string, string, string];
+}> = {
+  gms: {
+    accent: 'text-emerald-700',
+    board: 'border-emerald-200 bg-white shadow-sm',
+    header: 'bg-gradient-to-r from-emerald-950 to-emerald-800 text-emerald-50',
+    row: 'border-emerald-100 hover:bg-emerald-50/70',
+    footer: 'border-emerald-100 bg-emerald-50/60',
+    button: 'border-emerald-200 bg-white text-emerald-800 hover:border-emerald-400 hover:bg-emerald-50',
+    podium: ['bg-emerald-700 text-white', 'bg-slate-300 text-slate-900', 'bg-amber-200 text-amber-950'],
+  },
+  kms: {
+    accent: 'text-blue-700',
+    board: 'border-blue-200 bg-white shadow-[0_12px_35px_rgba(30,64,175,0.08)]',
+    header: 'bg-gradient-to-r from-slate-950 via-blue-950 to-blue-900 text-blue-50',
+    row: 'border-blue-100 hover:bg-blue-50/70',
+    footer: 'border-blue-100 bg-blue-50/60',
+    button: 'border-blue-200 bg-white text-blue-800 hover:border-blue-400 hover:bg-blue-50',
+    podium: ['bg-amber-400 text-slate-950', 'bg-slate-300 text-slate-900', 'bg-orange-300 text-orange-950'],
+  },
+  jms: {
+    accent: 'text-rose-700',
+    board: 'border-rose-200 bg-white shadow-[0_12px_35px_rgba(190,24,93,0.07)]',
+    header: 'bg-gradient-to-r from-rose-800 via-red-700 to-orange-600 text-white',
+    row: 'border-rose-100 hover:bg-rose-50/70',
+    footer: 'border-rose-100 bg-rose-50/60',
+    button: 'border-rose-200 bg-white text-rose-800 hover:border-rose-400 hover:bg-rose-50',
+    podium: ['bg-rose-700 text-white', 'bg-slate-300 text-slate-900', 'bg-orange-300 text-orange-950'],
+  },
+  tms: {
+    accent: 'text-amber-800',
+    board: 'border-amber-300 bg-white shadow-[0_12px_35px_rgba(180,83,9,0.08)]',
+    header: 'bg-gradient-to-r from-amber-900 via-orange-800 to-orange-600 text-amber-50',
+    row: 'border-amber-100 hover:bg-amber-50/80',
+    footer: 'border-amber-100 bg-amber-50/70',
+    button: 'border-amber-300 bg-white text-amber-900 hover:border-amber-500 hover:bg-amber-50',
+    podium: ['bg-amber-500 text-amber-950', 'bg-slate-300 text-slate-900', 'bg-orange-300 text-orange-950'],
+  },
+  msea: {
+    accent: 'text-foreground-700',
+    board: 'border-background-200 bg-background-50',
+    header: 'bg-background-100 text-foreground-600',
+    row: 'border-background-200/70 hover:bg-background-100',
+    footer: 'border-background-200 bg-background-100',
+    button: 'border-background-300 bg-background-50 text-foreground-700 hover:border-primary-300 hover:text-primary-700',
+    podium: ['bg-primary-500 text-background-50', 'bg-secondary-400 text-secondary-950', 'bg-accent-400 text-accent-950'],
+  },
+};
+
 const trendIcon: Record<RankingTrend, string> = {
   up: 'ri-arrow-up-line text-accent-600',
   down: 'ri-arrow-down-line text-primary-600',
@@ -32,7 +88,11 @@ function formatCompact(value: number) {
 }
 
 function getTrend(row: DisplayRank): { trend: RankingTrend; labelKey: string; delta?: number } {
-  if (!row.startRank || row.startRank === row.rank) {
+  if (!row.startRank) {
+    return { trend: 'flat', labelKey: 'rankings_source_official' };
+  }
+
+  if (row.startRank === row.rank) {
     return { trend: 'flat', labelKey: 'rankings_no_change' };
   }
 
@@ -48,22 +108,25 @@ export default function RankingBoard() {
   const { version, versionInfo, setVersion } = useVersion();
   const [world, setWorld] = useState<RankingWorldKey>('all');
   const [board, setBoard] = useState<RankingBoardKey>('overall');
-  const [searchInput, setSearchInput] = useState('');
-  const [characterName, setCharacterName] = useState('');
   const [ranks, setRanks] = useState<DisplayRank[]>([]);
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [hasNext, setHasNext] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [reloadKey, setReloadKey] = useState(0);
 
-  const selectedBoard = useMemo(
-    () => rankingBoards.find((option) => option.key === board) ?? rankingBoards[0],
-    [board],
-  );
   const rankingSupported = isRankingVersionSupported(version);
+  const usesGmsFilters = version === 'gms';
+  const theme = rankingThemes[version];
 
   useEffect(() => {
     if (!rankingSupported) {
       setRanks([]);
+      setPageCount(1);
+      setTotalCount(0);
+      setHasNext(false);
       setError('');
       setIsLoading(false);
       return;
@@ -73,9 +136,12 @@ export default function RankingBoard() {
     setIsLoading(true);
     setError('');
 
-    fetchNexonRankings({ version, board, world, characterName, signal: controller.signal })
+    fetchNexonRankings({ version, board, world, page, signal: controller.signal })
       .then((data) => {
-        setRanks(data.ranks.slice(0, 10));
+        setRanks(data.ranks);
+        setPageCount(data.pageCount);
+        setTotalCount(data.totalCount);
+        setHasNext(data.hasNext);
       })
       .catch((requestError: unknown) => {
         if (requestError instanceof DOMException && requestError.name === 'AbortError') {
@@ -91,22 +157,25 @@ export default function RankingBoard() {
       });
 
     return () => controller.abort();
-  }, [board, characterName, rankingSupported, reloadKey, t, version, world]);
+  }, [board, page, rankingSupported, reloadKey, t, version, world]);
 
   const handleBoardChange = (nextBoard: RankingBoardKey) => {
     setBoard(nextBoard);
+    setPage(1);
     if (nextBoard !== 'overall' && world === 'all') {
       setWorld('kronos');
     }
   };
 
-  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setCharacterName(searchInput.trim());
+  const handleVersionChange = (nextVersion: GameVersion) => {
+    setPage(1);
+    setBoard('overall');
+    setWorld('all');
+    setVersion(nextVersion);
   };
 
   const getMetric = (rank: DisplayRank) => {
-    if (board === 'legion') {
+    if (board === 'legion' || version === 'tms') {
       if (rank.raidPower > 0) {
         return `${t('rankings_raid_power')} ${formatCompact(rank.raidPower)}`;
       }
@@ -128,7 +197,7 @@ export default function RankingBoard() {
       <div className="w-full px-4 md:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
           <div>
-            <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider flex items-center gap-1.5">
+            <div className={`text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 ${theme.accent}`}>
               <i className="ri-leaf-fill text-primary-500 text-[10px]"></i>
               {t('rankings_title_eyebrow')}
             </div>
@@ -139,7 +208,7 @@ export default function RankingBoard() {
           <div className="flex flex-wrap gap-2">
             <select
               value={version}
-              onChange={(event) => setVersion(event.target.value as GameVersion)}
+              onChange={(event) => handleVersionChange(event.target.value as GameVersion)}
               className="h-10 px-3 rounded-full border border-background-300 bg-background-50 text-sm text-foreground-800 pr-8 outline-none focus:border-primary-400 cursor-pointer"
               aria-label={t('rankings_version_label')}
             >
@@ -149,30 +218,34 @@ export default function RankingBoard() {
                 </option>
               ))}
             </select>
-            <select
-              value={world}
-              onChange={(event) => setWorld(event.target.value as RankingWorldKey)}
-              className="h-10 px-3 rounded-full border border-background-300 bg-background-50 text-sm text-foreground-800 pr-8 outline-none focus:border-primary-400 cursor-pointer"
-              disabled={!rankingSupported}
-            >
-              {rankingWorlds.map((option) => (
-                <option key={option.key} value={option.key} disabled={board !== 'overall' && option.key === 'all'}>
-                  {option.key === 'all' ? t('rankings_worlds_all') : option.label}
-                </option>
-              ))}
-            </select>
-            <select
-              value={board}
-              onChange={(event) => handleBoardChange(event.target.value as RankingBoardKey)}
-              className="h-10 px-3 rounded-full border border-background-300 bg-background-50 text-sm text-foreground-800 pr-8 outline-none focus:border-primary-400 cursor-pointer"
-              disabled={!rankingSupported}
-            >
-              {rankingBoards.map((option) => (
-                <option key={option.key} value={option.key}>
-                  {t(option.labelKey)}
-                </option>
-              ))}
-            </select>
+            {usesGmsFilters && (
+              <>
+                <select
+                  value={world}
+                  onChange={(event) => { setWorld(event.target.value as RankingWorldKey); setPage(1); }}
+                  className="h-10 px-3 rounded-full border border-background-300 bg-background-50 text-sm text-foreground-800 pr-8 outline-none focus:border-primary-400 cursor-pointer"
+                  disabled={!rankingSupported}
+                >
+                  {rankingWorlds.map((option) => (
+                    <option key={option.key} value={option.key} disabled={board !== 'overall' && option.key === 'all'}>
+                      {option.key === 'all' ? t('rankings_worlds_all') : option.label}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  value={board}
+                  onChange={(event) => handleBoardChange(event.target.value as RankingBoardKey)}
+                  className="h-10 px-3 rounded-full border border-background-300 bg-background-50 text-sm text-foreground-800 pr-8 outline-none focus:border-primary-400 cursor-pointer"
+                  disabled={!rankingSupported}
+                >
+                  {rankingBoards.map((option) => (
+                    <option key={option.key} value={option.key}>
+                      {t(option.labelKey)}
+                    </option>
+                  ))}
+                </select>
+              </>
+            )}
           </div>
         </div>
 
@@ -180,14 +253,16 @@ export default function RankingBoard() {
           <OfficialServerLinks preferred="rankings" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <div className="lg:col-span-2 rounded-xl border border-background-200 bg-background-50 overflow-hidden">
-            <div className="grid grid-cols-12 px-5 py-3 bg-background-100 text-[11px] uppercase tracking-wider text-foreground-600 font-semibold">
+        <div>
+          <div data-ranking-server={version} className={`overflow-hidden rounded-xl border ${theme.board}`}>
+            <div className={`grid grid-cols-12 px-5 py-3 text-[11px] font-semibold uppercase tracking-wider ${theme.header}`}>
               <div className="col-span-1">#</div>
               <div className="col-span-4">Character</div>
               <div className="col-span-3">Class · World</div>
               <div className="col-span-2 text-right">Level</div>
-              <div className="col-span-2 text-right">{t('rankings_metric')}</div>
+              <div className="col-span-2 text-right">
+                {version === 'tms' ? t('rankings_raid_power') : version === 'kms' ? 'EXP' : t('rankings_metric')}
+              </div>
             </div>
 
             {!rankingSupported ? (
@@ -214,24 +289,25 @@ export default function RankingBoard() {
                 {t('rankings_empty')}
               </div>
             ) : (
-              <ul>
-                {ranks.map((rank) => {
+              <>
+                <ul>
+                  {ranks.map((rank) => {
                   const movement = getTrend(rank);
 
                   return (
                     <li
                       key={`${rank.rank}-${rank.characterName}-${rank.worldID}`}
-                      className="grid grid-cols-12 px-5 py-3.5 items-center border-t border-background-200/70 hover:bg-background-100 transition-colors"
+                      className={`grid grid-cols-12 items-center border-t px-5 py-3.5 transition-colors ${theme.row}`}
                     >
                       <div className="col-span-1">
                         <div
                           className={`w-8 h-8 rounded-md flex items-center justify-center font-heading font-semibold text-sm ${
                             rank.rank === 1
-                              ? 'bg-primary-500 text-background-50'
+                              ? theme.podium[0]
                               : rank.rank === 2
-                                ? 'bg-secondary-400 text-secondary-950'
+                                ? theme.podium[1]
                                 : rank.rank === 3
-                                  ? 'bg-accent-400 text-accent-950'
+                                  ? theme.podium[2]
                                   : 'bg-background-100 text-foreground-700'
                           }`}
                         >
@@ -272,62 +348,40 @@ export default function RankingBoard() {
                       </div>
                     </li>
                   );
-                })}
-              </ul>
+                  })}
+                </ul>
+                <div className={`flex flex-wrap items-center justify-between gap-3 border-t px-5 py-3 ${theme.footer}`}>
+                  <div className="text-xs font-medium text-foreground-600">
+                    {t('rankings_page_status', { page })}{pageCount > 1 ? ` / ${pageCount}` : ''}
+                    {totalCount > 0 && (
+                      <span className="ml-2">{t('rankings_total_count', { count: totalCount.toLocaleString() })}</span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setPage((current) => Math.max(1, current - 1))}
+                      disabled={page <= 1 || isLoading}
+                      className={`inline-flex h-9 items-center gap-1 rounded-full border px-3 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${theme.button}`}
+                    >
+                      <i className="ri-arrow-left-s-line" aria-hidden="true" />
+                      {t('rankings_previous')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPage((current) => current + 1)}
+                      disabled={(!hasNext && page >= pageCount) || isLoading}
+                      className={`inline-flex h-9 items-center gap-1 rounded-full border px-3 text-xs font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${theme.button}`}
+                    >
+                      {t('rankings_next')}
+                      <i className="ri-arrow-right-s-line" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+              </>
             )}
           </div>
 
-          <div className="rounded-xl border border-background-200 bg-background-100 p-5">
-            <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-lg bg-primary-500 text-background-50 flex items-center justify-center">
-                <i className="ri-line-chart-line"></i>
-              </div>
-              <div>
-                <div className="font-heading font-semibold text-foreground-950">{t('rankings_your_card')}</div>
-                <div className="text-xs text-foreground-600">{t('rankings_track_hint')}</div>
-              </div>
-            </div>
-            <form className="mt-5 space-y-3" onSubmit={handleSearch}>
-              <label className="block">
-                <span className="text-xs font-semibold text-foreground-700">IGN</span>
-                <input
-                  value={searchInput}
-                  onChange={(event) => setSearchInput(event.target.value)}
-                  placeholder={t('rankings_ign_placeholder')}
-                  className="mt-1 w-full h-10 rounded-md border border-background-300 bg-background-50 px-3 text-sm outline-none focus:border-primary-500"
-                  disabled={!rankingSupported}
-                />
-              </label>
-              <label className="block">
-                <span className="text-xs font-semibold text-foreground-700">World</span>
-                <select
-                  value={world === 'all' ? 'kronos' : world}
-                  onChange={(event) => setWorld(event.target.value as RankingWorldKey)}
-                  className="mt-1 w-full h-10 rounded-md border border-background-300 bg-background-50 px-3 text-sm outline-none focus:border-primary-500 cursor-pointer"
-                  disabled={!rankingSupported}
-                >
-                  {rankingWorlds
-                    .filter((option) => option.key !== 'all')
-                    .map((option) => (
-                      <option key={option.key} value={option.key}>
-                        {option.label}
-                      </option>
-                    ))}
-                </select>
-              </label>
-              <button
-                disabled={!rankingSupported}
-                className="w-full h-10 rounded-md bg-secondary-500 hover:bg-secondary-600 disabled:bg-background-300 disabled:text-foreground-500 text-background-50 dark:text-foreground-950 text-sm font-semibold cursor-pointer disabled:cursor-not-allowed whitespace-nowrap"
-              >
-                <i className="ri-search-line mr-1"></i>
-                {t('rankings_track_btn')}
-              </button>
-            </form>
-            <div className="mt-5 p-3 rounded-lg bg-background-50 border border-background-200 text-xs text-foreground-700 flex items-start gap-2">
-              <i className="ri-shield-check-line text-accent-600 mt-0.5"></i>
-              <span>{t('rankings_api_note', { board: t(selectedBoard.labelKey), version: versionInfo.shortLabel })}</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>

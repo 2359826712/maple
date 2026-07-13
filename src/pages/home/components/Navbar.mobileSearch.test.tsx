@@ -85,6 +85,20 @@ function renderNavbar() {
 }
 
 describe('Navbar mobile site search', () => {
+  it('shows the former More destinations directly in the desktop navigation', () => {
+    renderNavbar();
+
+    const desktopNavigation = document.querySelector('header nav.hidden.xl\\:flex');
+    expect(desktopNavigation).toBeTruthy();
+    const scopedNavigation = within(desktopNavigation as HTMLElement);
+
+    expect(scopedNavigation.getByRole('link', { name: 'nav_upcoming' }).getAttribute('href')).toBe('/upcoming');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('href')).toBe('/wiki');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community');
+    expect(scopedNavigation.queryByText('nav_more')).toBeNull();
+  });
+
   it('offers Korean and persists it as the active language', () => {
     renderNavbar();
 

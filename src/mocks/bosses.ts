@@ -34,7 +34,7 @@ export interface BossInfo {
   /** Source page used during verification. */
   sourceUrl: string;
   /** Game versions for which this record is valid. */
-  regions: Array<'gms' | 'kms' | 'msea' | 'jms' | 'cms' | 'tms' | 'all'>;
+  regions: Array<'gms' | 'kms' | 'msea' | 'jms' | 'tms' | 'all'>;
 }
 
 type BossDefinition = Omit<BossInfo, 'sourceUrl' | 'regions'>;

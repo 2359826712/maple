@@ -1,6 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, type ReactNode } from 'react';
-import i18n from '@/i18n';
+import { createContext, Fragment, useContext, useState, type ReactNode } from 'react';
 import {
   getVersionDefinition,
   isGameVersion,
@@ -14,13 +13,6 @@ export type VersionInfo = VersionDefinition;
 export const VERSIONS = versionDefinitions;
 
 const VERSION_STORAGE_KEY = 'maplehub-game-version';
-const VERSION_LANGUAGES: Record<GameVersion, string> = {
-  gms: 'en',
-  kms: 'ko',
-  jms: 'ja',
-  tms: 'zh-Hant',
-  msea: 'en',
-};
 
 export function getVersionInfo(id: GameVersion): VersionInfo {
   return getVersionDefinition(id);
@@ -55,12 +47,7 @@ export function VersionProvider({ children }: { children: ReactNode }) {
   const setVersion = (nextVersion: GameVersion) => {
     setVersionState(nextVersion);
     if (typeof window !== 'undefined') {
-      const language = VERSION_LANGUAGES[nextVersion];
       window.localStorage.setItem(VERSION_STORAGE_KEY, nextVersion);
-      window.localStorage.setItem('i18nextLng', language);
-      window.localStorage.setItem('maplehub-language', language);
-      document.documentElement.lang = language;
-      void i18n.changeLanguage(language);
     }
   };
 
@@ -72,7 +59,7 @@ export function VersionProvider({ children }: { children: ReactNode }) {
 
   return (
     <VersionContext.Provider value={value}>
-      {children}
+      <Fragment key={version}>{children}</Fragment>
     </VersionContext.Provider>
   );
 }

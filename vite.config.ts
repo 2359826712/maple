@@ -107,6 +107,18 @@ export default defineConfig({
         },
         rewrite: (path) => path.replace(/^\/api\/jms/, ""),
       },
+      "/api/tms-ranking": {
+        target: "https://maplestory-event.beanfun.com",
+        changeOrigin: true,
+        secure: true,
+        timeout: 30000,
+        proxyTimeout: 30000,
+        headers: {
+          Referer: "https://maplestory-event.beanfun.com/UnionWebRank/Index",
+          "User-Agent": "Mozilla/5.0 MapleHubContentMirror/1.0",
+        },
+        rewrite: (path) => path.replace(/^\/api\/tms-ranking/, "/api/UnionWebRank"),
+      },
       "/api/tms": {
         target: "https://maplestory.beanfun.com",
         changeOrigin: true,

@@ -1,24 +1,30 @@
+import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { fetchLiveNews, fetchLiveEvents, fetchLiveGuides, liveStorageKeys, type NewsItem, type EventItem, type GuideItem } from '@/services/liveContent';
-import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
+import { fetchLiveNews, fetchLiveEvents, fetchLiveGuides, getRegionalContentImage, liveStorageKeys, type NewsItem, type EventItem, type GuideItem } from '@/services/liveContent';
+import { getNewsCategoryLabel, newsSourceLanguageTranslationKey } from '@/pages/news/localizedNews';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 
 export default function CurrentVersionHighlights() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
+  const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
 
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveNews,
+    remoteLoader: loadNews,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
   const { items: realtimeEvents } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    remoteLoader: loadEvents,
   });
   const { items: realtimeGuides } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
@@ -26,9 +32,9 @@ export default function CurrentVersionHighlights() {
     remoteLoader: fetchLiveGuides,
   });
 
-  const topNews = realtimeNews.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
+  const topNews = localizedNews.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
   const topEvent = realtimeEvents.find((item) => isAvailableInVersion(item.regions, versionInfo.id)) ?? null;
-  const topEventNews = realtimeNews.find((item) => (
+  const topEventNews = localizedNews.find((item) => (
     item.category === 'Event' && isAvailableInVersion(item.versions, versionInfo.id)
   )) ?? null;
   const topGuide = realtimeGuides.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
@@ -42,7 +48,9 @@ export default function CurrentVersionHighlights() {
     href: '/news',
     hrefLabel: t('home_cv_all_news'),
     image: topNews.image,
-    sourceCue: undefined,
+    sourceCue: topNews.usesOriginalCopy
+      ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]) })
+      : undefined,
   } : {
     kind: 'fallback' as const,
     icon: 'ri-newspaper-line',
@@ -69,7 +77,9 @@ export default function CurrentVersionHighlights() {
     href: '/events',
     hrefLabel: t('home_cv_all_events'),
     image: topEventNews.image,
-    sourceCue: undefined,
+    sourceCue: topEventNews.usesOriginalCopy
+      ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]) })
+      : undefined,
   } : {
     kind: 'fallback' as const,
     icon: 'ri-calendar-event-line',
@@ -146,10 +156,11 @@ export default function CurrentVersionHighlights() {
               {card.image && (
                 <div className="h-36 overflow-hidden">
                   <img
-                    src={card.image}
+                    src={getRegionalContentImage(card.image, versionInfo.id)}
                     alt=""
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                   />
                   <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-transparent to-background-50/80" />
                 </div>

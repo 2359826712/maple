@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, type SyntheticEvent } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
@@ -10,11 +10,14 @@ import RealtimeStatus from '@/components/feature/RealtimeStatus';
 import OfficialServerLinks from '@/components/feature/OfficialServerLinks';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsCategoryLabel, getNewsCopy } from './localizedNews';
-import { fetchLiveNews, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import { fetchLiveNews, getRegionalContentImage, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
 import { readJson, writeJsonWithRecovery } from '@/services/persistentStorage';
 import ShareButton from '@/components/feature/ShareButton';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import NewsOriginalLanguageNotice from './NewsOriginalLanguageNotice';
+import { useLocalizedNewsItems } from './useLocalizedNewsItems';
 
-type LocalizedNewsItem = NewsItem & { categoryLabel: string };
+type LocalizedNewsItem = NewsItem & ReturnType<typeof getNewsCopy> & { categoryLabel: string };
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -22,19 +25,6 @@ const tagStyle: Record<string, string> = {
   primary: 'bg-primary-100 text-primary-800',
   accent: 'bg-accent-100 text-accent-800',
   secondary: 'bg-secondary-100 text-secondary-900',
-};
-
-const fallbackNewsImage = 'https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png';
-
-const applyNewsImageFallback = (event: SyntheticEvent<HTMLImageElement>) => {
-  const image = event.currentTarget;
-  if (image.dataset.fallbackApplied === 'true') {
-    image.style.display = 'none';
-    return;
-  }
-
-  image.dataset.fallbackApplied = 'true';
-  image.src = fallbackNewsImage;
 };
 
 const NEWS_STATE_KEY = 'maplehub-news-state:v1';
@@ -68,6 +58,7 @@ export default function NewsPage() {
   const [saved, setSaved] = useState<Record<string, boolean>>(initialNewsState.saved);
   const [read, setRead] = useState<Record<string, boolean>>(initialNewsState.read);
   const [storageError, setStorageError] = useState(false);
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const {
     items: realtimeNews,
     liveCount,
@@ -77,19 +68,23 @@ export default function NewsPage() {
   } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveNews,
+    remoteLoader: loadNews,
   });
+  const {
+    items: localizedNews,
+    status: translationStatus,
+    retry: retryTranslation,
+  } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const versionList = useMemo(
     () =>
-      realtimeNews
+      localizedNews
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
-          ...getNewsCopy(n, i18n.language),
           categoryLabel: getNewsCategoryLabel(n.category, i18n.language),
         })),
-    [i18n.language, realtimeNews, versionInfo.id],
+    [i18n.language, localizedNews, versionInfo.id],
   );
   const counts = useMemo(
     () =>
@@ -167,6 +162,16 @@ export default function NewsPage() {
               <div className="mb-6">
                 <OfficialServerLinks preferred="news" />
               </div>
+              {translationStatus === 'needs-action' && (
+                <button
+                  type="button"
+                  onClick={retryTranslation}
+                  className="mb-6 inline-flex h-10 items-center gap-2 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
+                >
+                  <i className="ri-translate-2" aria-hidden="true" />
+                  {t('news_translate_content')}
+                </button>
+              )}
               {storageError && (
                 <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700" role="status" aria-live="polite">
                   {t('news_storage_error', { defaultValue: 'News state could not be saved locally. Existing data was not deleted.' })}
@@ -243,10 +248,10 @@ export default function NewsPage() {
                     >
                       <div className={`relative overflow-hidden ${i === 0 ? 'h-64 md:h-80' : 'h-44'}`}>
                         <img
-                          src={n.image || fallbackNewsImage}
+                          src={getRegionalContentImage(n.image, n.versions[0] || versionInfo.id)}
                           alt={n.title}
                           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                          onError={applyNewsImageFallback}
+                          onError={(event) => applyRegionalImageFallback(event.currentTarget, n.versions[0] || versionInfo.id)}
                         />
                         <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${tagStyle[n.tag]}`}>
                           {n.categoryLabel}
@@ -271,6 +276,9 @@ export default function NewsPage() {
                           {n.title}
                         </h3>
                         <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
+                        {n.usesOriginalCopy && (
+                          <NewsOriginalLanguageNotice sourceLanguage={n.sourceLanguage} className="mt-2" />
+                        )}
                         <div className="mt-4 flex flex-wrap gap-2">
                           <Link
                             data-testid={`read-${n.id}`}
@@ -315,7 +323,7 @@ export default function NewsPage() {
                           </div>
                           <span className="flex items-center gap-1">
                             <i className="ri-eye-line"></i>
-                            {n.reads}
+                            {n.reads === 'Official' ? t('news_open_source') : n.reads}
                           </span>
                         </div>
                       </div>

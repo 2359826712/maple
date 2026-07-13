@@ -350,8 +350,13 @@ export const mapleSqlApi = {
   },
 
   notifications: {
-    list: (unreadOnly = false) =>
-      request<MapleNotification[]>(`/notifications${unreadOnly ? '?unread=1' : ''}`, { auth: true }),
+    list: async (unreadOnly = false) => {
+      const items = await request<MapleNotification[] | null>(
+        `/notifications${unreadOnly ? '?unread=1' : ''}`,
+        { auth: true },
+      );
+      return Array.isArray(items) ? items : [];
+    },
     markRead: (id: string) =>
       request<{ ok: true }>(`/notifications/${id}/read`, { method: 'POST', auth: true }),
     markAllRead: () =>

@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useCallback, useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useCharacters } from '@/hooks/useCharacters';
@@ -30,6 +30,8 @@ import {
   selectNextBestAction,
   type NextBestActionCandidate,
 } from '@/domain/nextBestAction';
+import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -40,7 +42,7 @@ function formatCountdown(ms: number): string {
 }
 
 export default function TodayInMapleSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { version } = useVersion();
   const {
     activeCharacter,
@@ -58,6 +60,8 @@ export default function TodayInMapleSection() {
     activeCharacter?.world || activeCharacter?.server || '',
   );
   const eventGoals = useEventGoals();
+  const loadNews = useCallback(() => fetchLiveNews(version), [version]);
+  const loadEvents = useCallback(() => fetchLiveEvents(version), [version]);
 
   // Tick every second for countdown
   useEffect(() => {
@@ -69,12 +73,13 @@ export default function TodayInMapleSection() {
   const { items: newsItems, lastSyncedAt: newsSyncedAt, status: newsStatus } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${version}`,
     baseItems: [],
-    remoteLoader: fetchLiveNews,
+    remoteLoader: loadNews,
   });
+  const { items: localizedNewsItems } = useLocalizedNewsItems(newsItems, i18n.language);
   const { items: eventItems, lastSyncedAt: eventsSyncedAt, status: eventsStatus } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${version}`,
     baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    remoteLoader: loadEvents,
   });
 
   // Checklist progress computation
@@ -128,11 +133,11 @@ export default function TodayInMapleSection() {
 
   // Latest news (most recent first)
   const latestNews = useMemo(() => {
-    return newsItems
+    return localizedNewsItems
       .filter((n) => isAvailableInVersion(n.versions, version))
       .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
       .slice(0, 1);
-  }, [newsItems, version]);
+  }, [localizedNewsItems, version]);
 
   const dailyCountdown = millisecondsUntilReset('daily', version, now);
   const weeklyCountdown = millisecondsUntilReset('weekly', version, now);
@@ -454,7 +459,7 @@ export default function TodayInMapleSection() {
                   {latestNews[0].title}
                 </p>
                 <span className="inline-block rounded px-1.5 py-0.5 text-[10px] font-medium bg-background-100 text-foreground-600">
-                  {latestNews[0].category}
+                  {getNewsCategoryLabel(latestNews[0].category, i18n.language)}
                 </span>
               </div>
             ) : (

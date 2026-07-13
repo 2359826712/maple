@@ -50,12 +50,16 @@ export const versionDefinitions: readonly VersionDefinition[] = [
       website: 'https://maplestory.nexon.co.jp/',
       events: 'https://maplestory.nexon.co.jp/notice/event/',
       news: 'https://maplestory.nexon.co.jp/notice/news/',
+      rankings: 'https://maplestory.nexon.co.jp/community/exp/ranking/',
     },
   },
   {
     id: 'tms', name: 'TMS', fullName: '新楓之谷', region: 'Taiwan', shortLabel: 'TMS',
     utcOffset: 8, weeklyResetDay: 3, timeZone: 'Asia/Taipei', defaultLanguage: 'zh-Hant',
-    officialLinks: { website: 'https://maplestory.beanfun.com/main' },
+    officialLinks: {
+      website: 'https://maplestory.beanfun.com/main',
+      rankings: 'https://maplestory-event.beanfun.com/UnionWebRank/Index',
+    },
   },
   {
     id: 'msea', name: 'MSEA', fullName: 'MapleStorySEA', region: 'Southeast Asia', shortLabel: 'MSEA',

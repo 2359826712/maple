@@ -11,13 +11,6 @@ export const classStatistics = [
   { class: 'Dawn Warrior', icon: 'ri-sun-line', popularity: 7.5, bossClear: 85, mobbing: 84, support: 15, trend: 'up', version: 'kms' },
   { class: 'Bishop', icon: 'ri-heart-pulse-line', popularity: 6.8, bossClear: 72, mobbing: 62, support: 99, trend: 'up', version: 'kms' },
   { class: 'Kain', icon: 'ri-flashlight-line', popularity: 5.6, bossClear: 88, mobbing: 82, support: 12, trend: 'up', version: 'kms' },
-  // CMS-specific
-  { class: 'Hoyoung', icon: 'ri-brush-4-line', popularity: 13.2, bossClear: 96, mobbing: 90, support: 15, trend: 'up', version: 'cms' },
-  { class: 'Adele', icon: 'ri-sword-line', popularity: 11.5, bossClear: 91, mobbing: 86, support: 16, trend: 'flat', version: 'cms' },
-  { class: 'Luminous', icon: 'ri-sun-foggy-line', popularity: 9.8, bossClear: 85, mobbing: 92, support: 10, trend: 'up', version: 'cms' },
-  { class: 'Mercedes', icon: 'ri-arrow-left-right-line', popularity: 9.1, bossClear: 80, mobbing: 78, support: 12, trend: 'down', version: 'cms' },
-  { class: 'Paladin', icon: 'ri-shield-star-line', popularity: 8.0, bossClear: 76, mobbing: 62, support: 88, trend: 'up', version: 'cms' },
-  { class: 'Night Lord', icon: 'ri-moon-line', popularity: 7.2, bossClear: 88, mobbing: 74, support: 8, trend: 'flat', version: 'cms' },
   // TMS-specific
   { class: 'Dual Blade', icon: 'ri-knife-blood-line', popularity: 11.8, bossClear: 95, mobbing: 82, support: 10, trend: 'up', version: 'tms' },
   { class: 'Night Lord', icon: 'ri-moon-line', popularity: 10.5, bossClear: 92, mobbing: 76, support: 10, trend: 'flat', version: 'tms' },
@@ -94,19 +87,6 @@ export const mockCharacters: Record<string, {
   krshade: {
     ign: '잊혀진자', server: 'Elysium (KMS)', level: 288, class: 'Shade', legion: 11500, popularity: 7200, guild: '무명',
     achievements: ['Verus Hilla Solo', 'Darknell Hard', '10k Legion'], version: 'kms',
-  },
-  // CMS
-  cnfrost: {
-    ign: '冰霜魔導', server: 'Blue Snail (CMS)', level: 284, class: 'Ice Lightning', legion: 10200, popularity: 6600, guild: '冰封王座',
-    achievements: ['Verus Hilla Solo', 'Darknell Hard', '8.8k Legion'], version: 'cms',
-  },
-  cnhoyoung: {
-    ign: '虎影天下', server: 'Purple Cat (CMS)', level: 293, class: 'Hoyoung', legion: 13000, popularity: 9800, guild: '武林至尊',
-    achievements: ['Kalos Solo', 'Karing Hard Clear', '12k Legion', 'Liberated Genesis'], version: 'cms',
-  },
-  cnadele: {
-    ign: '剑舞飞扬', server: 'Red Snail (CMS)', level: 286, class: 'Adele', legion: 10800, popularity: 7200, guild: '星辰大海',
-    achievements: ['Black Mage Party', 'Seren Solo', '9.5k Legion'], version: 'cms',
   },
   // TMS
   twstar: {
@@ -197,29 +177,6 @@ export const growthData: Record<string, {
       dailySolErdaFragment: 18,
     },
   },
-  cms: {
-    potions: [
-      { name: '极限成长秘药', icon: 'ri-flask-line', levels: '1–10', chance: 100, rarity: 'Epic' },
-      { name: '成长秘药 (200–209)', icon: 'ri-medicine-bottle-line', levels: '1', chance: 100, rarity: 'Rare' },
-      { name: '成长秘药 (200–219)', icon: 'ri-medicine-bottle-line', levels: '1', chance: 100, rarity: 'Rare' },
-      { name: '成长秘药 (200–229)', icon: 'ri-medicine-bottle-line', levels: '1', chance: 100, rarity: 'Epic' },
-      { name: '台风成长秘药', icon: 'ri-tornado-line', levels: '1', chance: 100, rarity: 'Legendary' },
-    ],
-    sixthJob: {
-      stages: [
-        { name: 'Origin Skill (Lv1)', solErda: 100, solErdaFragment: 500, hours: 7 },
-        { name: 'Mastery Core I', solErda: 150, solErdaFragment: 750, hours: 11 },
-        { name: 'Mastery Core II', solErda: 200, solErdaFragment: 1000, hours: 15 },
-        { name: 'Enhancement Core I', solErda: 250, solErdaFragment: 1250, hours: 19 },
-        { name: 'Enhancement Core II', solErda: 300, solErdaFragment: 1500, hours: 23 },
-        { name: 'Enhancement Core III', solErda: 350, solErdaFragment: 1750, hours: 27 },
-        { name: 'HEXA Stat Core I', solErda: 400, solErdaFragment: 2000, hours: 31 },
-        { name: 'HEXA Stat Core II', solErda: 500, solErdaFragment: 2500, hours: 39 },
-      ],
-      dailySolErda: 700,
-      dailySolErdaFragment: 15,
-    },
-  },
   tms: {
     potions: [
       { name: '終極成長密藥', icon: 'ri-flask-line', levels: '1–10', chance: 100, rarity: 'Epic' },
@@ -306,12 +263,6 @@ export const cubeTypes: Record<string, { name: string; icon: string; tierUpBase:
     { name: 'Bonus Cube', icon: 'ri-sparkling-line', tierUpBase: 4.0, primeLineBase: 1.5, cost: '7M mesos' },
     { name: 'Violet Cube', icon: 'ri-magic-line', tierUpBase: 22.0, primeLineBase: 8.0, cost: '40M mesos' },
   ],
-  cms: [
-    { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 8.0, primeLineBase: 3.0, cost: '15M mesos' },
-    { name: 'Black Cube', icon: 'ri-contrast-drop-line', tierUpBase: 15.0, primeLineBase: 5.5, cost: '25M mesos' },
-    { name: 'Bonus Cube', icon: 'ri-sparkling-line', tierUpBase: 5.0, primeLineBase: 2.0, cost: '10M mesos' },
-    { name: 'Violet Cube', icon: 'ri-magic-line', tierUpBase: 30.0, primeLineBase: 12.0, cost: '60M mesos' },
-  ],
   tms: [
     { name: 'Red Cube', icon: 'ri-contrast-drop-2-line', tierUpBase: 7.5, primeLineBase: 2.8, cost: '14M mesos' },
     { name: 'Black Cube', icon: 'ri-contrast-drop-line', tierUpBase: 15.0, primeLineBase: 5.5, cost: '24M mesos' },
@@ -335,17 +286,17 @@ export const cubeTierRates = [
   { from: 'Unique', to: 'Legendary', red: 1.0, black: 2.0, bonus: 0.5, violet: 4.0 },
 ];
 
-export const starForceRates: Record<number, { success: number; fail: number; destroy: number; cost: string; cost_kms?: string; cost_cms?: string; cost_tms?: string; cost_jms?: string }> = {
-  0: { success: 95, fail: 5, destroy: 0, cost: '5k', cost_kms: '4k', cost_cms: '6k', cost_tms: '5.5k' },
-  5: { success: 80, fail: 20, destroy: 0, cost: '15k', cost_kms: '12k', cost_cms: '18k', cost_tms: '16k' },
-  10: { success: 65, fail: 35, destroy: 0, cost: '50k', cost_kms: '40k', cost_cms: '55k', cost_tms: '52k' },
-  12: { success: 55, fail: 45, destroy: 0, cost: '120k', cost_kms: '100k', cost_cms: '130k', cost_tms: '125k' },
-  15: { success: 30, fail: 68, destroy: 2, cost: '350k', cost_kms: '300k', cost_cms: '380k', cost_tms: '360k' },
-  17: { success: 30, fail: 67, destroy: 3, cost: '700k', cost_kms: '600k', cost_cms: '750k', cost_tms: '720k' },
-  20: { success: 30, fail: 63, destroy: 7, cost: '1.5M', cost_kms: '1.3M', cost_cms: '1.6M', cost_tms: '1.55M' },
-  22: { success: 30, fail: 60, destroy: 10, cost: '3M', cost_kms: '2.5M', cost_cms: '3.2M', cost_tms: '3.1M' },
-  23: { success: 15, fail: 70, destroy: 15, cost: '5M', cost_kms: '4.5M', cost_cms: '5.5M', cost_tms: '5.2M' },
-  24: { success: 10, fail: 70, destroy: 20, cost: '8M', cost_kms: '7M', cost_cms: '8.5M', cost_tms: '8.2M' },
+export const starForceRates: Record<number, { success: number; fail: number; destroy: number; cost: string; cost_kms?: string; cost_tms?: string; cost_jms?: string }> = {
+  0: { success: 95, fail: 5, destroy: 0, cost: '5k', cost_kms: '4k', cost_tms: '5.5k' },
+  5: { success: 80, fail: 20, destroy: 0, cost: '15k', cost_kms: '12k', cost_tms: '16k' },
+  10: { success: 65, fail: 35, destroy: 0, cost: '50k', cost_kms: '40k', cost_tms: '52k' },
+  12: { success: 55, fail: 45, destroy: 0, cost: '120k', cost_kms: '100k', cost_tms: '125k' },
+  15: { success: 30, fail: 68, destroy: 2, cost: '350k', cost_kms: '300k', cost_tms: '360k' },
+  17: { success: 30, fail: 67, destroy: 3, cost: '700k', cost_kms: '600k', cost_tms: '720k' },
+  20: { success: 30, fail: 63, destroy: 7, cost: '1.5M', cost_kms: '1.3M', cost_tms: '1.55M' },
+  22: { success: 30, fail: 60, destroy: 10, cost: '3M', cost_kms: '2.5M', cost_tms: '3.1M' },
+  23: { success: 15, fail: 70, destroy: 15, cost: '5M', cost_kms: '4.5M', cost_tms: '5.2M' },
+  24: { success: 10, fail: 70, destroy: 20, cost: '8M', cost_kms: '7M', cost_tms: '8.2M' },
 };
 
 export const flameTiers: Record<string, { name: string; icon: string; bonusRange: string; cost: string; baseChance: number }[]> = {
@@ -360,12 +311,6 @@ export const flameTiers: Record<string, { name: string; icon: string; bonusRange
     { name: 'Eternal Rebirth Flame', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '25M mesos', baseChance: 38 },
     { name: 'Black Rebirth Flame', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '38M mesos', baseChance: 55 },
     { name: 'Rainbow Rebirth Flame', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: 'Event only', baseChance: 80 },
-  ],
-  cms: [
-    { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '10M mesos', baseChance: 18 },
-    { name: 'Eternal Rebirth Flame', icon: 'ri-fire-fill', bonusRange: 'Tier 1–5', cost: '32M mesos', baseChance: 32 },
-    { name: 'Black Rebirth Flame', icon: 'ri-contrast-line', bonusRange: 'Tier 2–5', cost: '48M mesos', baseChance: 48 },
-    { name: 'Rainbow Rebirth Flame', icon: 'ri-rainbow-line', bonusRange: 'Tier 3–6', cost: 'Event only', baseChance: 72 },
   ],
   tms: [
     { name: 'Powerful Rebirth Flame', icon: 'ri-fire-line', bonusRange: 'Tier 1–4', cost: '10M mesos', baseChance: 20 },
@@ -407,10 +352,6 @@ export const legionGridBlocks: Record<string, { class: string; shape: string; ti
     { class: 'Kain', shape: 'cross', tier: 'SSS', stats: '+80 LUK, +5% Boss' },
     { class: 'Lara', shape: 'diamond', tier: 'SS', stats: '+5% Elemental Resist' },
   ],
-  cms: [
-    { class: 'Hoyoung', shape: 'tall', tier: 'SSS', stats: '+100 LUK, +8% Crit Damage' },
-    { class: 'Kain', shape: 'cross', tier: 'SSS', stats: '+80 LUK, +5% Boss' },
-  ],
   tms: [
     { class: 'Kain', shape: 'cross', tier: 'SSS', stats: '+80 LUK, +5% Boss' },
     { class: 'Shade', shape: 'wind', tier: 'SSS', stats: '+8% Survival Chance' },
@@ -442,7 +383,6 @@ export const mapLocations = [
   { name: 'Carcion — Giant Coral Colony 1', mapId: 410007620, minLevel: 285, maxLevel: 300, monsters: ['Sand Giant', 'Crystal Scorpion'], burning: 10, version: 'all', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007620) },
   { name: 'Commerci Republic — Rosa Coast 3', mapId: 865010100, minLevel: 180, maxLevel: 210, monsters: ['Grosso Polpo', 'Aqua Patrol'], burning: 10, version: 'gms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(865010100) },
   { name: '카르시온 — 심연의 통로 3', mapId: 410007608, minLevel: 290, maxLevel: 300, monsters: ['심연의 파수꾼', '어둠의 정령'], burning: 10, version: 'kms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(410007608) },
-  { name: '少林寺 — 藏经阁', mapId: 701220300, minLevel: 260, maxLevel: 275, monsters: ['扫地僧', '铜人'], burning: 10, version: 'cms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(701220300) },
   { name: '天空之城 — 雲海步道', mapId: 200010000, minLevel: 200, maxLevel: 220, monsters: ['雲精靈', '雷鳥'], burning: 8, version: 'tms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(200010000) },
   { name: '倭城 — 天守閣', mapId: 800040000, minLevel: 265, maxLevel: 280, monsters: ['侍大将', '忍者'], burning: 10, version: 'jms', imageSource: MAP_IMAGE_SOURCE, image: mapRender(800040000) },
 ];
@@ -463,9 +403,6 @@ export const fashionItems = [
   { name: 'Gachapon Ticket (GMS)', icon: 'ri-gift-line', category: 'Gacha', rarity: 'Rare', versions: ['gms'] },
   // KMS exclusive
   { name: '몬스터 라이프 코인', icon: 'ri-coin-line', category: 'Farm', rarity: 'Rare', versions: ['kms'] },
-  // CMS exclusive
-  { name: '门派贡献令牌', icon: 'ri-vip-line', category: 'Faction', rarity: 'Epic', versions: ['cms'] },
-  { name: '武侠时装礼盒', icon: 'ri-box-3-line', category: 'Outfit', rarity: 'Legendary', versions: ['cms'] },
   // TMS exclusive
   { name: '輪迴碑石 (90天)', icon: 'ri-hourglass-line', category: 'Equip', rarity: 'Legendary', versions: ['tms'] },
   // JMS exclusive
@@ -477,11 +414,10 @@ export const fashionSimOutfits = [
   { set: 'Sol Eternal Set', pieces: ['Sol Eternal Hat', 'Sol Eternal Suit', 'Sol Eternal Cape', 'Sol Eternal Wings', 'Sol Eternal Aura Ring'], rarity: 'Legendary', versions: ['gms'] },
   { set: 'Midnight Aristocrat Set', pieces: ['Obsidian Top Hat', 'Velvet Tailcoat', 'Silver Cravat', 'Monocle', 'Walking Cane'], rarity: 'Epic', versions: ['gms', 'kms', 'msea'] },
   { set: 'Cherry Blossom Festival Set', pieces: ['Blossom Hairpin', 'Sakura Kimono', 'Wooden Sandals', 'Paper Umbrella', 'Floral Fan'], rarity: 'Epic', versions: ['jms', 'tms'] },
-  { set: 'Dragon Knight Set', pieces: ['Dragon Helm', 'Scale Armor', 'Dragon Wing Cape', 'Flame Gauntlets', 'Dragon Tail Boots'], rarity: 'Legendary', versions: ['kms', 'cms'] },
+  { set: 'Dragon Knight Set', pieces: ['Dragon Helm', 'Scale Armor', 'Dragon Wing Cape', 'Flame Gauntlets', 'Dragon Tail Boots'], rarity: 'Legendary', versions: ['kms'] },
   // Additional version-specific sets
   { set: 'Cosmic Horoscope Set', pieces: ['Starlight Crown', 'Zodiac Robe', 'Galaxy Cape', 'Constellation Ring', 'Astral Staff'], rarity: 'Legendary', versions: ['gms'] },
   { set: '한복 정원 세트', pieces: ['비녀', '당의', '버선', '노리개', '부채'], rarity: 'Epic', versions: ['kms'] },
-  { set: '武侠至尊套装', pieces: ['斗笠', '武侠长袍', '披风', '护腕', '长剑'], rarity: 'Legendary', versions: ['cms'] },
   { set: '元宵節燈籠套裝', pieces: ['燈籠頭飾', '錦衣', '繡花鞋', '花燈', '紙鳶'], rarity: 'Epic', versions: ['tms'] },
   { set: '戦国武将セット', pieces: ['兜', '鎧', '陣羽織', '軍配', '太刀'], rarity: 'Legendary', versions: ['jms'] },
   { set: 'Tropical Paradise Set', pieces: ['Flower Crown', 'Aloha Shirt', 'Board Shorts', 'Flip Flops', 'Coconut Drink'], rarity: 'Epic', versions: ['msea', 'gms'] },

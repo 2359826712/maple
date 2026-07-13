@@ -31,6 +31,7 @@ type SearchableResult = SiteSearchResult & {
 
 const staticRoutes = [
   { id: 'route-news', href: '/news', section: 'news' as const, icon: 'ri-newspaper-line', titles: ['News', '资讯', 'ニュース', '資訊', '뉴스'] },
+  { id: 'route-upcoming', href: '/upcoming', section: 'news' as const, icon: 'ri-radar-line', titles: ['Upcoming Updates', '未来版本', '今後のアップデート', '未來版本', '향후 업데이트'] },
   { id: 'route-guides', href: '/guides', section: 'guides' as const, icon: 'ri-book-open-line', titles: ['Guides', '攻略', 'ガイド', '攻略', '가이드'] },
   { id: 'route-events', href: '/events', section: 'events' as const, icon: 'ri-calendar-event-line', titles: ['Events', '活动', 'イベント', '活動', '이벤트'] },
   { id: 'route-checklist', href: '/checklist', section: 'tools' as const, icon: 'ri-checkbox-circle-line', titles: ['Daily Boss Checklist', '每日 Boss 清单', 'デイリーボスチェックリスト', '每日 Boss 清單', '일일 보스 체크리스트'] },

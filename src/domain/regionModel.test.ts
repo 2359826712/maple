@@ -43,9 +43,12 @@ describe('region/version model', () => {
 
   it('keeps official destinations with the server definition', () => {
     expect(getOfficialContentUrl('kms', 'events')).toBe('https://maplestory.nexon.com/news/event');
+    expect(getOfficialContentUrl('kms', 'rankings')).toBe('https://maplestory.nexon.com/N23Ranking/World/Total');
     expect(getOfficialContentUrl('jms', 'news')).toBe('https://maplestory.nexon.co.jp/notice/news/');
+    expect(getOfficialContentUrl('jms', 'rankings')).toBe('https://maplestory.nexon.co.jp/community/exp/ranking/');
     expect(getOfficialContentUrl('jms', 'website')).toBe('https://maplestory.nexon.co.jp/');
     expect(getOfficialContentUrl('tms', 'website')).toBe('https://maplestory.beanfun.com/main');
+    expect(getOfficialContentUrl('tms', 'rankings')).toBe('https://maplestory-event.beanfun.com/UnionWebRank/Index');
     expect(getOfficialContentUrl('msea', 'website')).toBe('https://www.maplesea.com/');
   });
 

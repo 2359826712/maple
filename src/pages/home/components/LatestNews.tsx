@@ -1,12 +1,15 @@
-import { useMemo, useState, type SyntheticEvent } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { getNewsCategoryLabel, getNewsCopy } from '@/pages/news/localizedNews';
-import { fetchLiveNews, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
+import { fetchLiveNews, getRegionalContentImage, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
 import ShareButton from '@/components/feature/ShareButton';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -16,39 +19,27 @@ const tagStyle: Record<string, string> = {
   secondary: 'bg-secondary-100 text-secondary-900',
 };
 
-const fallbackNewsImage = 'https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png';
-
-const applyNewsImageFallback = (event: SyntheticEvent<HTMLImageElement>) => {
-  const image = event.currentTarget;
-  if (image.dataset.fallbackApplied === 'true') {
-    image.style.display = 'none';
-    return;
-  }
-
-  image.dataset.fallbackApplied = 'true';
-  image.src = fallbackNewsImage;
-};
-
 export default function LatestNews() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const [active, setActive] = useState('All');
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
-    remoteLoader: fetchLiveNews,
+    remoteLoader: loadNews,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const versionList = useMemo(
     () =>
-      realtimeNews
+      localizedNews
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
-          ...getNewsCopy(n, i18n.language),
           categoryLabel: getNewsCategoryLabel(n.category, i18n.language),
         })),
-    [i18n.language, realtimeNews, versionInfo.id],
+    [i18n.language, localizedNews, versionInfo.id],
   );
   const list = useMemo(
     () => (active === 'All' ? versionList : versionList.filter((n) => n.category === active)),
@@ -102,10 +93,10 @@ export default function LatestNews() {
               >
                 <div className={`relative overflow-hidden ${i === 0 ? 'h-64 md:h-80' : 'h-44'}`}>
                   <img
-                    src={n.image || fallbackNewsImage}
+                    src={getRegionalContentImage(n.image, n.versions[0] || versionInfo.id)}
                     alt={n.title}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    onError={applyNewsImageFallback}
+                    onError={(event) => applyRegionalImageFallback(event.currentTarget, n.versions[0] || versionInfo.id)}
                   />
                   <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${tagStyle[n.tag]}`}>
                     {n.categoryLabel}
@@ -130,6 +121,9 @@ export default function LatestNews() {
                     {n.title}
                   </h3>
                   <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
+                  {n.usesOriginalCopy && (
+                    <NewsOriginalLanguageNotice sourceLanguage={n.sourceLanguage} className="mt-2" />
+                  )}
                   <div className="mt-4 flex items-center justify-between text-xs text-foreground-600">
                     <div className="flex items-center gap-2">
                       <div className="w-6 h-6 rounded-full bg-primary-200 text-primary-800 flex items-center justify-center font-semibold text-[10px]">
@@ -141,7 +135,7 @@ export default function LatestNews() {
                     </div>
                     <span className="flex items-center gap-1">
                       <i className="ri-eye-line"></i>
-                      {n.reads}
+                      {n.reads === 'Official' ? t('news_open_source') : n.reads}
                     </span>
                   </div>
                   <Link

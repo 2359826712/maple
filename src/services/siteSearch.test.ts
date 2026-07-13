@@ -13,6 +13,13 @@ describe('universal site search index', () => {
     ]));
   });
 
+  it('finds the upcoming updates destination', () => {
+    const results = getSiteSearchResults('upcoming updates', 'en', 'gms');
+    expect(results).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: 'route-upcoming', href: '/upcoming' }),
+    ]));
+  });
+
   it.each([
     ['zh', '每日 Boss 清单'],
     ['ja', 'デイリーボスチェックリスト'],

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" role="img" aria-labelledby="title desc">
+  <title id="title">KMS official news</title><desc id="desc">Korean MapleStory branded news placeholder</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#34256f"/><stop offset="1" stop-color="#7667d8"/></linearGradient></defs>
+  <rect width="1200" height="628" fill="url(#g)"/><circle cx="1010" cy="80" r="240" fill="#fff" opacity=".08"/><circle cx="1060" cy="520" r="300" fill="#ffda72" opacity=".12"/>
+  <path d="M170 140c90 35 151 109 181 224-80-50-157-61-231-32 39-58 56-122 50-192Z" fill="#ffcf55"/><path d="M145 364c78-25 148-12 211 40-73 18-131 55-174 111-8-58-20-108-37-151Z" fill="#fff" opacity=".92"/>
+  <text x="430" y="280" fill="#fff" font-family="Arial,sans-serif" font-size="72" font-weight="700">KMS</text><text x="430" y="350" fill="#fff" opacity=".9" font-family="Arial,sans-serif" font-size="34">메이플스토리 공식 소식</text>
+</svg>

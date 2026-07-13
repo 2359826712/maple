@@ -7,9 +7,12 @@ import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { isGameVersion } from '@/domain/regionModel';
 import { fetchOfficialArticleDocument, type OfficialArticleDocument } from '@/services/liveContent';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { getNewsSourceLanguageForVersion, normalizeNewsLanguage } from '@/pages/news/localizedNews';
+import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
+import { useTranslatedOfficialDocument } from './useTranslatedOfficialDocument';
 
 export default function OfficialSourcePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [params] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
   const [article, setArticle] = useState<OfficialArticleDocument | null>(null);
@@ -18,6 +21,10 @@ export default function OfficialSourcePage() {
   const sourceUrl = params.get('url') || '';
   const rawServer = params.get('server');
   const server = isGameVersion(rawServer) ? rawServer : 'gms';
+  const sourceLanguage = getNewsSourceLanguageForVersion(server);
+  const articleUsesOriginalLanguage = normalizeNewsLanguage(i18n.language) !== sourceLanguage;
+  const translatedDocument = useTranslatedOfficialDocument(article, sourceLanguage, i18n.language);
+  const displayedArticle = translatedDocument.article;
 
   usePageMetadata(title, t('source_mirror_label'));
 
@@ -58,6 +65,27 @@ export default function OfficialSourcePage() {
               {t('source_mirror_label')} · {server.toUpperCase()}
             </div>
             <h1 className="mt-3 font-heading text-2xl font-semibold text-foreground-950 md:text-4xl">{title}</h1>
+            {articleUsesOriginalLanguage && translatedDocument.status === 'unavailable' && (
+              <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-amber-900">
+                <NewsOriginalLanguageNotice sourceLanguage={sourceLanguage} className="text-amber-900" />
+              </div>
+            )}
+            {translatedDocument.status === 'translating' && (
+              <div className="mt-4 inline-flex items-center gap-2 text-sm text-primary-700" role="status">
+                <i className="ri-loader-4-line animate-spin" aria-hidden="true" />
+                {t('source_translating')}
+              </div>
+            )}
+            {translatedDocument.status === 'needs-action' && (
+              <button
+                type="button"
+                onClick={translatedDocument.retry}
+                className="mt-4 inline-flex h-9 items-center gap-2 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
+              >
+                <i className="ri-translate-2" aria-hidden="true" />
+                {t('source_translate')}
+              </button>
+            )}
 
             {status === 'loading' && (
               <div className="py-16 text-center text-sm text-foreground-600" role="status">
@@ -69,14 +97,14 @@ export default function OfficialSourcePage() {
                 {t('source_unavailable')}
               </div>
             )}
-            {status === 'ready' && article?.html && (
+            {status === 'ready' && displayedArticle?.html && (
               <div
                 className="mt-8 space-y-4 text-sm leading-7 text-foreground-800 [&_a]:text-primary-700 [&_a]:underline [&_h1]:mt-8 [&_h1]:text-2xl [&_h2]:mt-8 [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:text-lg [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_li]:ml-5 [&_li]:list-disc [&_p]:my-4 [&_table]:w-full [&_table]:overflow-x-auto"
-                dangerouslySetInnerHTML={{ __html: article.html }}
+                dangerouslySetInnerHTML={{ __html: displayedArticle.html }}
               />
             )}
-            {status === 'ready' && article && !article.html && (
-              <div className="mt-8 whitespace-pre-wrap text-sm leading-7 text-foreground-800">{article.text}</div>
+            {status === 'ready' && displayedArticle && !displayedArticle.html && (
+              <div className="mt-8 whitespace-pre-wrap text-sm leading-7 text-foreground-800">{displayedArticle.text}</div>
             )}
 
             {sourceUrl && (

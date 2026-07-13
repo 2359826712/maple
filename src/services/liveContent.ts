@@ -9,7 +9,7 @@ import {
   type EventDataRecord,
 } from '@/domain/contentSchemas';
 import { sanitizeMirroredHtml } from './sanitizeHtml';
-import { isGameVersion, type GameVersion } from '@/domain/regionModel';
+import type { GameVersion } from '@/domain/regionModel';
 
 export type { WikiCategory, WikiEntry } from '@/mocks/wiki';
 
@@ -26,6 +26,17 @@ export type NewsItem = {
   tag: 'primary' | 'accent' | 'secondary';
   versions: string[];
   image: string;
+  /** Language used by the official source copy. */
+  sourceLanguage?: NewsContentLanguage;
+  /** Editorial or backend-provided translations, keyed by interface locale. */
+  translations?: Partial<Record<NewsContentLanguage, NewsTranslation>>;
+};
+
+export type NewsContentLanguage = 'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko';
+
+export type NewsTranslation = {
+  title: string;
+  excerpt: string;
 };
 
 export type GuideItem = {
@@ -137,8 +148,37 @@ const sourceLabels: Record<string, string> = {
 };
 
 const allVersions = ['gms', 'kms', 'msea', 'jms', 'tms'];
+const newsSourceLanguages: Record<GameVersion, NewsContentLanguage> = {
+  gms: 'en',
+  kms: 'ko',
+  msea: 'en',
+  jms: 'ja',
+  tms: 'zh-Hant',
+};
+
+const newsContentLanguages: NewsContentLanguage[] = ['en', 'zh', 'zh-Hant', 'ja', 'ko'];
+const isNewsContentLanguage = (value: unknown): value is NewsContentLanguage =>
+  typeof value === 'string' && newsContentLanguages.includes(value as NewsContentLanguage);
+
+export const getNewsSourceLanguageForVersion = (version: GameVersion | string): NewsContentLanguage =>
+  newsSourceLanguages[version as GameVersion] || 'en';
 const officialNewsImage = 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png';
+const regionalNewsFallbacks: Record<GameVersion, string> = {
+  gms: officialNewsImage,
+  kms: '/news-fallback-kms.svg',
+  jms: '/news-fallback-jms.svg',
+  tms: '/news-fallback-tms.svg',
+  msea: '/news-fallback-msea.svg',
+};
 const imageUrlPattern = /https?:\/\/[^\s"'<>]+?\.(?:png|jpe?g|webp)(?:\?[^\s"'<>]+)?/i;
+
+export const getNewsFallbackImage = (version: GameVersion | string) =>
+  regionalNewsFallbacks[version as GameVersion] || officialNewsImage;
+
+export const getRegionalContentImage = (image: string | undefined, version: GameVersion | string) => {
+  if (!image || (version !== 'gms' && image === officialNewsImage)) return getNewsFallbackImage(version);
+  return image;
+};
 
 const grandisClassUrls = ['/api/grandis-library/classes', 'https://grandislibrary.com/classes'];
 const grandisContentUrls = ['/api/grandis-library/content', 'https://grandislibrary.com/content'];
@@ -1304,14 +1344,15 @@ const normalizeRegionalNews = (payload: unknown, version: GameVersion): NewsItem
   return source.flatMap((item): NewsItem[] => {
     if (!item || typeof item !== 'object' || typeof (item as { id?: unknown }).id !== 'string') return [];
     const news = item as NewsItem;
-    return [{ ...news, versions: [version] }];
+    return [{
+      ...news,
+      versions: [version],
+      image: getRegionalContentImage(news.image, version),
+      sourceLanguage: isNewsContentLanguage(news.sourceLanguage)
+        ? news.sourceLanguage
+        : getNewsSourceLanguageForVersion(version),
+    }];
   });
-};
-
-const activeContentVersion = (): GameVersion => {
-  if (typeof window === 'undefined') return 'gms';
-  const stored = window.localStorage.getItem('maplehub-game-version');
-  return isGameVersion(stored) ? stored : 'gms';
 };
 
 type GmsOfficialNews = {
@@ -1380,8 +1421,115 @@ const newsItem = (input: {
   sourceUrl: input.sourceUrl,
   tag: tagForCategory(input.category),
   versions: [input.version],
-  image: input.image || officialNewsImage,
+  image: input.image || getNewsFallbackImage(input.version),
+  sourceLanguage: getNewsSourceLanguageForVersion(input.version),
 });
+
+const normalizeOfficialImageUrl = (value: string | null | undefined, pageUrl: string) => {
+  if (!value) return '';
+  try {
+    const url = new URL(value.replace(/&amp;/g, '&').trim(), pageUrl);
+    if (url.protocol === 'http:') url.protocol = 'https:';
+    return url.protocol === 'https:' ? url.toString() : '';
+  } catch {
+    return '';
+  }
+};
+
+const ignoredArticleImagePattern = /(?:doubleclick|facebook\.com\/tr|\/logo(?:[_./-]|$)|as_footer|icon_rating|\/ratings?\.|\/nexon\.(?:png|gif)|PP_vert|\/facebook\/maplestory\.png)/i;
+
+export const extractOfficialArticleImage = (html: string, pageUrl: string) => {
+  const document = new DOMParser().parseFromString(html, 'text/html');
+  const contentSelectors = [
+    '.new_board_con img',
+    '.contents_wrap img',
+    '.content-item img',
+    '#contents_Subpage img',
+    '.mBulletin-content img',
+    '.notice-view img',
+    '.view-content img',
+    '.entry-content img',
+    'article img',
+    'main img',
+  ];
+  const imageNodes = contentSelectors.flatMap((selector) =>
+    Array.from(document.querySelectorAll<HTMLImageElement>(selector)));
+  const contentImages = imageNodes.flatMap((image) => {
+    const width = Number(image.getAttribute('width') || 0);
+    const height = Number(image.getAttribute('height') || 0);
+    if ((width > 0 && width <= 2) || (height > 0 && height <= 2)) return [];
+    const candidate = normalizeOfficialImageUrl(
+      image.getAttribute('data-src') || image.getAttribute('data-original') || image.getAttribute('src'),
+      pageUrl,
+    );
+    return candidate && !ignoredArticleImagePattern.test(candidate) ? [candidate] : [];
+  });
+  if (contentImages[0]) return contentImages[0];
+
+  const socialImage = document.querySelector<HTMLMetaElement>(
+    'meta[property="og:image"], meta[name="twitter:image"], meta[property="twitter:image"]',
+  )?.content;
+  const normalizedSocialImage = normalizeOfficialImageUrl(socialImage, pageUrl);
+  if (normalizedSocialImage && !ignoredArticleImagePattern.test(normalizedSocialImage)) return normalizedSocialImage;
+
+  const markdownImage = html.match(/!\[[^\]]*\]\((https?:\/\/[^)]+)\)/i)?.[1]
+    || html.match(imageUrlPattern)?.[0];
+  const normalizedMarkdownImage = normalizeOfficialImageUrl(markdownImage, pageUrl);
+  return normalizedMarkdownImage && !ignoredArticleImagePattern.test(normalizedMarkdownImage)
+    ? normalizedMarkdownImage
+    : '';
+};
+
+const articleImageFetchUrls = (sourceUrl: string, version: GameVersion) => {
+  const urls = [`/api/official-content/article?url=${encodeURIComponent(sourceUrl)}`];
+  try {
+    const source = new URL(sourceUrl);
+    const proxyPrefix = version === 'kms'
+      ? '/api/kms'
+      : version === 'jms'
+        ? '/api/jms'
+        : version === 'msea'
+          ? '/api/msea'
+          : version === 'tms'
+            ? '/api/tms'
+            : '';
+    if (proxyPrefix) urls.push(`${proxyPrefix}${source.pathname}${source.search}`);
+  } catch {
+    // The validated source URL remains available to the backend mirror.
+  }
+  return urls;
+};
+
+const fetchOfficialArticleImage = async (sourceUrl: string, version: GameVersion) => {
+  for (const url of articleImageFetchUrls(sourceUrl, version)) {
+    try {
+      const html = await cachedTextFetch(url, {
+        cacheKey: `official-article-image:${version}:${sourceUrl}:${url}`,
+        freshMs: realtimeCacheDurations.long,
+        staleMs: realtimeCacheDurations.week,
+        timeoutMs: 8_000,
+      });
+      const image = extractOfficialArticleImage(html, sourceUrl);
+      if (image) return image;
+    } catch {
+      // Try the next server-specific transport before keeping the branded fallback.
+    }
+  }
+  return '';
+};
+
+const hydrateRegionalImages = async <T extends { image: string; sourceUrl: string }>(
+  items: T[],
+  version: GameVersion,
+  limit = 12,
+) => {
+  const fallback = getNewsFallbackImage(version);
+  return Promise.all(items.map(async (item, index) => {
+    if (index >= limit || (item.image && item.image !== fallback && item.image !== officialNewsImage)) return item;
+    const image = await fetchOfficialArticleImage(item.sourceUrl, version);
+    return image ? { ...item, image } : { ...item, image: fallback };
+  }));
+};
 
 const fetchGmsOfficialNews = async () => {
   let rows: GmsOfficialNews[];
@@ -1437,7 +1585,7 @@ export const parseKmsListing = (html: string, category: NewsItem['category']) =>
         category,
         publishedAt,
         sourceUrl: absoluteUrl(href, 'https://maplestory.nexon.com/'),
-        image: image || undefined,
+        image: image ? normalizeOfficialImageUrl(image, 'https://maplestory.nexon.com/') : undefined,
         author: '메이플스토리',
       })];
     });
@@ -1448,7 +1596,8 @@ const fetchKmsOfficialNews = async () => {
     textFetchWithMetadata(['/api/official-content/kms/news', '/api/kms/News/Notice', 'https://maplestory.nexon.com/News/Notice']),
     textFetchWithMetadata(['/api/official-content/kms/events', '/api/kms/News/Event', 'https://maplestory.nexon.com/News/Event']),
   ]);
-  return [...parseKmsListing(newsPage.text, 'General'), ...parseKmsListing(eventsPage.text, 'Event')].slice(0, 40);
+  const items = [...parseKmsListing(newsPage.text, 'General'), ...parseKmsListing(eventsPage.text, 'Event')].slice(0, 40);
+  return hydrateRegionalImages(items, 'kms');
 };
 
 export const parseMseaListing = (html: string, category: NewsItem['category']) => {
@@ -1460,9 +1609,14 @@ export const parseMseaListing = (html: string, category: NewsItem['category']) =
     if (!href || !title) return [];
     const publishedAt = listingDateToIso(node.textContent || '');
     const sourceUrl = absoluteUrl(href.replace(/^http:/, 'https:'), 'https://www.maplesea.com/');
+    const listingImage = node.querySelector<HTMLImageElement>('img');
+    const image = normalizeOfficialImageUrl(
+      listingImage?.getAttribute('data-src') || listingImage?.getAttribute('src'),
+      sourceUrl,
+    );
     return [newsItem({
       id: `msea-${category}-${slugFromText(sourceUrl)}-${index}`,
-      version: 'msea', title, category, publishedAt, sourceUrl, author: 'MapleStorySEA',
+      version: 'msea', title, category, publishedAt, sourceUrl, image: image || undefined, author: 'MapleStorySEA',
     })];
   });
 };
@@ -1472,7 +1626,8 @@ const fetchMseaOfficialNews = async () => {
     textFetchWithMetadata(['/api/official-content/msea/news', '/api/msea/news/', 'https://www.maplesea.com/news/']),
     textFetchWithMetadata(['/api/official-content/msea/events', '/api/msea/events/', 'https://www.maplesea.com/events/']),
   ]);
-  return [...parseMseaListing(newsPage.text, 'General'), ...parseMseaListing(eventsPage.text, 'Event')].slice(0, 30);
+  const items = [...parseMseaListing(newsPage.text, 'General'), ...parseMseaListing(eventsPage.text, 'Event')].slice(0, 30);
+  return hydrateRegionalImages(items, 'msea');
 };
 
 export const parseJmsListing = (html: string) => {
@@ -1484,10 +1639,17 @@ export const parseJmsListing = (html: string) => {
     if (!title || !href) return [];
     const categoryText = row.querySelector('td.category')?.textContent || '';
     const publishedAt = listingDateToIso(row.querySelector('td.date')?.textContent || '');
+    const listingImage = row.querySelector<HTMLImageElement>('img');
+    const sourceUrl = absoluteUrl(href, 'https://maplestory.nexon.co.jp/');
+    const image = normalizeOfficialImageUrl(
+      listingImage?.getAttribute('data-src') || listingImage?.getAttribute('src'),
+      sourceUrl,
+    );
     return [newsItem({
       id: `jms-${slugFromText(href)}-${index}`,
       version: 'jms', title, category: officialCategory(categoryText), publishedAt,
-      sourceUrl: absoluteUrl(href, 'https://maplestory.nexon.co.jp/'),
+      sourceUrl,
+      image: image || undefined,
       reads: row.querySelector('td.view')?.textContent?.trim(),
       author: 'メイプルストーリー',
     })];
@@ -1516,7 +1678,7 @@ const fetchJmsOfficialNews = async () => {
     '/api/jms/notice/_noticelist/?id=all&p=1',
     'https://maplestory.nexon.co.jp/notice/_noticelist/?id=all&p=1',
   ]);
-  return parseJmsListing(page.text).slice(0, 30);
+  return hydrateRegionalImages(parseJmsListing(page.text).slice(0, 30), 'jms');
 };
 
 const fetchTmsOfficialNews = async () => {
@@ -1529,7 +1691,7 @@ const fetchTmsOfficialNews = async () => {
       staleMs: realtimeCacheDurations.week,
     });
     const rows = mirrored.data?.myDataSet?.table || [];
-    if (rows.length > 0) return normalizeTmsBulletins(rows);
+    if (rows.length > 0) return hydrateRegionalImages(normalizeTmsBulletins(rows), 'tms');
   } catch {
     // Local Vite proxy fallback keeps standalone frontend development working.
   }
@@ -1558,7 +1720,7 @@ const fetchTmsOfficialNews = async () => {
       body: new URLSearchParams({ Kind: '0', Page: '1', method: '0', PageSize: '20' }).toString(),
     },
   });
-  return normalizeTmsBulletins(payload.data?.myDataSet?.table || []);
+  return hydrateRegionalImages(normalizeTmsBulletins(payload.data?.myDataSet?.table || []), 'tms');
 };
 
 export const normalizeTmsBulletins = (rows: TmsBulletin[]) => rows.map((row) => newsItem({
@@ -1568,16 +1730,18 @@ export const normalizeTmsBulletins = (rows: TmsBulletin[]) => rows.map((row) => 
     category: row.bullentinCatId === '72' ? 'Event' : row.bullentinCatId === '67' ? 'Patch Notes' : 'General',
     publishedAt: listingDateToIso(row.startDate),
     sourceUrl: row.urlLink || `https://maplestory.beanfun.com/bulletin?bid=${row.bullentinId}`,
-    image: row.thumbnail || undefined,
+    image: row.thumbnail ? normalizeOfficialImageUrl(row.thumbnail, 'https://maplestory.beanfun.com/') : undefined,
     author: '新楓之谷',
   }));
 
-export async function fetchLiveNews(version: GameVersion = activeContentVersion()): Promise<RemotePayload<NewsItem>> {
+export async function fetchLiveNews(version: GameVersion): Promise<RemotePayload<NewsItem>> {
   if (version !== 'gms') {
     try {
       const feed = await mapleSqlApi.realtimeContent.get<unknown>(`news:${version}`);
       const mirroredItems = normalizeRegionalNews(feed.payload, version);
-      if (mirroredItems.length > 0) return { items: mirroredItems, replace: true };
+      if (mirroredItems.length > 0) {
+        return { items: await hydrateRegionalImages(mirroredItems, version), replace: true };
+      }
     } catch {
       // Fall through to the official website adapter when no server-side mirror exists.
     }
@@ -1657,7 +1821,7 @@ export async function fetchOfficialArticleDocument(
   return { html, text: stripMarkup(html), sourceUrl };
 }
 
-export function normalizeEventFeed(payload: unknown, nowMs = Date.now()): EventItem[] {
+export function normalizeEventFeed(payload: unknown, nowMs = Date.now(), version: GameVersion = 'gms'): EventItem[] {
   const candidates = Array.isArray(payload)
     ? payload
     : payload && typeof payload === 'object' && Array.isArray((payload as { items?: unknown[] }).items)
@@ -1682,7 +1846,7 @@ export function normalizeEventFeed(payload: unknown, nowMs = Date.now()): EventI
       rarity: rarityForTitle(event.title),
       icon: iconForTitle(event.title),
       regions: event.regions,
-      image: officialNewsImage,
+      image: event.imageUrl || getNewsFallbackImage(version),
       sourceUrl: event.sourceUrl,
       sourceLabel: event.source,
       lastVerified: event.lastVerified,
@@ -1692,14 +1856,14 @@ export function normalizeEventFeed(payload: unknown, nowMs = Date.now()): EventI
   return items;
 }
 
-export async function fetchLiveEvents(version: GameVersion = activeContentVersion()): Promise<RemotePayload<EventItem>> {
+export async function fetchLiveEvents(version: GameVersion): Promise<RemotePayload<EventItem>> {
   let feed;
   try {
     feed = await mapleSqlApi.realtimeContent.get<unknown>(`events:${version}`);
   } catch {
     feed = await mapleSqlApi.realtimeContent.get<unknown>('events');
   }
-  const items = normalizeEventFeed(feed.payload);
+  const items = await hydrateRegionalImages(normalizeEventFeed(feed.payload, Date.now(), version), version);
 
   return { items, replace: true };
 }

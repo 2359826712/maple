@@ -53,6 +53,7 @@ export const isReconstructableStorageKey = (key: string) =>
 export const isPlayerDataStorageKey = (key: string) =>
   playerDataExactKeys.has(key) ||
   key.startsWith('maplehub-characters:v2:') ||
+  key.startsWith('maplehub-link-planner:') ||
   key === 'maplehub-checklist' ||
   key.startsWith('maplehub-checklist-');
 

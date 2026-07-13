@@ -71,6 +71,13 @@ export function useAuthSession() {
   }, [session]);
 
   useEffect(() => {
+    if (!session?.expiresAt) return undefined;
+    const expiresIn = Math.max(0, Date.parse(session.expiresAt) - Date.now());
+    const timer = window.setTimeout(refresh, expiresIn + 25);
+    return () => window.clearTimeout(timer);
+  }, [refresh, session?.expiresAt]);
+
+  useEffect(() => {
     const onStorage = (event: StorageEvent) => {
       if (event.key === AUTH_SESSION_KEY) refresh();
     };

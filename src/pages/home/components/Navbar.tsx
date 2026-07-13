@@ -11,6 +11,7 @@ import { clearAccountDataCache, saveCurrentAccountData } from '@/services/accoun
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
+  { key: 'nav_upcoming', href: '/upcoming' },
   { key: 'nav_guides', href: '/guides' },
   { key: 'nav_events', href: '/events' },
   { key: 'nav_tools', href: '/mapler-house' },
@@ -19,9 +20,6 @@ const navLinkKeys = [
   { key: 'nav_rankings', href: '/rankings' },
   { key: 'nav_community', href: '/community' },
 ];
-
-const primaryNavLinkKeys = navLinkKeys.slice(0, 5);
-const secondaryNavLinkKeys = navLinkKeys.slice(5);
 
 const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
 
@@ -83,7 +81,6 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [guideMenuOpen, setGuideMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
-  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(unread);
   const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
@@ -104,7 +101,6 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const guideMenuRef = useRef<HTMLDivElement | null>(null);
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileToolMenuRef = useRef<HTMLDivElement | null>(null);
-  const moreMenuRef = useRef<HTMLDivElement | null>(null);
   const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const guideMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -145,9 +141,6 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
       }
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangMenuOpen(false);
-      }
-      if (moreMenuRef.current && !moreMenuRef.current.contains(e.target as Node)) {
-        setMoreMenuOpen(false);
       }
       if (accountMenuRef.current && !accountMenuRef.current.contains(e.target as Node)) {
         setAccountMenuOpen(false);
@@ -463,7 +456,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             : 'border-primary-300/40 shadow-sm'
         }`}
       >
-        <div className="w-full px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
+        <div className="w-full px-4 md:px-8 xl:px-4 2xl:px-8 h-16 md:h-20 flex items-center justify-between">
           {/* === MAPLE LEAF LOGO === */}
           <Link to="/" className="flex items-center gap-2.5 cursor-pointer flex-shrink-0 group">
             <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center maple-pulse-glow group-hover:scale-105 transition-transform">
@@ -480,8 +473,8 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
-            {primaryNavLinkKeys.map((l) => {
+          <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
+            {navLinkKeys.map((l) => {
               const active = isNavActive(l.href);
 
               if (l.key === 'nav_guides' && guideMenu) {
@@ -502,7 +495,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       aria-haspopup="menu"
                       aria-expanded={guideMenuOpen}
                       aria-current={active ? 'page' : undefined}
-                      className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
+                      className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
                         guideMenuOpen || active
                           ? 'bg-primary-100 text-primary-700 shadow-sm'
                           : 'text-foreground-800 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
@@ -558,7 +551,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       aria-haspopup="menu"
                       aria-expanded={toolMenuOpen}
                       aria-current={active ? 'page' : undefined}
-                      className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
+                      className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
                         toolMenuOpen || active
                           ? 'bg-primary-100 text-primary-700 shadow-sm'
                           : 'text-foreground-800 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
@@ -607,7 +600,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     href={l.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-3 py-2 rounded-md text-sm font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
+                    className="px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
                   >
                     {t(l.key)}
                   </a>
@@ -619,7 +612,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   key={l.href}
                   to={l.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`px-3 py-2 rounded-md text-sm transition-colors cursor-pointer whitespace-nowrap ${
+                  className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm transition-colors cursor-pointer whitespace-nowrap ${
                     active
                       ? 'bg-primary-100 text-primary-700 font-semibold shadow-sm'
                       : 'font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50'
@@ -629,47 +622,9 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 </Link>
               );
             })}
-            <div ref={moreMenuRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setMoreMenuOpen((open) => !open)}
-                aria-haspopup="menu"
-                aria-expanded={moreMenuOpen}
-                className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
-                  moreMenuOpen || secondaryNavLinkKeys.some((link) => isNavActive(link.href))
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-foreground-800 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                {t('nav_more')}
-                <i className="ri-arrow-down-s-line text-xs" />
-              </button>
-              {moreMenuOpen && (
-                <div
-                  className="absolute right-0 top-full z-50 mt-2 w-48 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1 shadow-xl"
-                  role="menu"
-                >
-                  {secondaryNavLinkKeys.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={() => setMoreMenuOpen(false)}
-                      role="menuitem"
-                      className={`flex items-center px-4 py-2.5 text-sm font-medium transition-colors ${
-                        isNavActive(link.href)
-                          ? 'bg-primary-50 text-primary-700'
-                          : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
-                      }`}
-                    >
-                      {t(link.key)}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-3 ml-2">
+          <div className="ml-2 flex items-center gap-2 md:gap-3 xl:ml-1 xl:gap-1 2xl:ml-2 2xl:gap-3">
             <div ref={searchRef} className="relative hidden md:block">
               {location.pathname === '/' ? (
                 <button
@@ -688,8 +643,8 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 }}
                 className={`h-10 flex items-center gap-2 rounded-full px-3 md:px-4 transition-all cursor-pointer whitespace-nowrap ${
                   searchOpen
-                    ? 'bg-background-50 border border-primary-400/50 w-72'
-                    : 'bg-background-100 border border-background-200 w-56 hover:border-primary-300/60'
+                    ? 'bg-background-50 border border-primary-400/50 w-44 2xl:w-72'
+                    : 'bg-background-100 border border-background-200 w-32 2xl:w-56 hover:border-primary-300/60'
                 }`}
               >
                 <button
@@ -890,7 +845,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   onClick={() => setAccountMenuOpen((open) => !open)}
                   aria-haspopup="menu"
                   aria-expanded={accountMenuOpen}
-                  className="flex h-10 max-w-44 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100"
+                  className="flex h-10 max-w-32 2xl:max-w-44 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100"
                   title={t('nav_account_signed_in', { name: displayName })}
                 >
                   {session?.avatarUrl ? (
@@ -906,7 +861,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 {accountMenuOpen && (
                   <div className="absolute right-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1 shadow-xl" role="menu">
                     <Link
-                      to="/checklist"
+                      to="/account"
                       onClick={() => setAccountMenuOpen(false)}
                       role="menuitem"
                       className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-foreground-800 hover:bg-background-100"
@@ -943,7 +898,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 setMobileSearchOpen(false);
                 setMenuOpen((v) => !v);
               }}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 lg:hidden cursor-pointer"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 xl:hidden cursor-pointer"
               aria-label={menuOpen ? t('nav_menu_close') : t('nav_menu_open')}
             >
               <i className={`${menuOpen ? 'ri-close-line' : 'ri-menu-line'} text-foreground-800 text-xl`}></i>
@@ -994,7 +949,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
         )}
 
         {menuOpen && (
-          <div className="lg:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
+          <div className="xl:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
               {navLinkKeys.map((l) => {
                 const active = isNavActive(l.href);
@@ -1177,7 +1132,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 {isSignedIn ? (
                   <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-2">
                     <Link
-                      to="/checklist"
+                      to="/account"
                       onClick={() => setMenuOpen(false)}
                       className="flex h-10 min-w-0 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
                     >

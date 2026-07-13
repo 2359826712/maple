@@ -55,6 +55,29 @@ describe('canonical content schemas', () => {
     }).ok).toBe(false);
   });
 
+  it('accepts complete locale-keyed news translations and rejects partial translations', () => {
+    const news = {
+      id: 'kms-notice',
+      title: '닉네임 옥션',
+      excerpt: '닉네임 옥션 안내',
+      author: '메이플스토리',
+      publishedAt: '2026-07-01T00:00:00.000Z',
+      category: 'General',
+      regions: ['kms'],
+      sourceUrl: 'https://maplestory.nexon.com/News/Notice/1',
+      sourceLanguage: 'ko',
+    };
+
+    expect(validateNewsData({
+      ...news,
+      translations: { zh: { title: '角色名拍卖', excerpt: '角色名拍卖活动公告' } },
+    }).ok).toBe(true);
+    expect(validateNewsData({
+      ...news,
+      translations: { zh: { title: '角色名拍卖' } },
+    }).ok).toBe(false);
+  });
+
   it('requires non-empty rendered wiki content', () => {
     expect(validateWikiData({
       title: 'Lotus',

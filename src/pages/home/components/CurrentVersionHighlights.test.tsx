@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { VersionProvider } from '@/hooks/VersionContext';
+import { useVersion, VersionProvider } from '@/hooks/VersionContext';
 import i18n from '@/i18n';
 
 vi.mock('@/hooks/useRealtimeCollection', () => ({
@@ -22,9 +22,21 @@ vi.mock('@/services/liveContent', () => ({
 }));
 
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
+import { fetchLiveNews } from '@/services/liveContent';
 import CurrentVersionHighlights from './CurrentVersionHighlights';
 
 const mockUseRealtimeCollection = vi.mocked(useRealtimeCollection);
+const mockFetchLiveNews = vi.mocked(fetchLiveNews);
+
+function VersionSwitchProbe() {
+  const { setVersion } = useVersion();
+  return (
+    <>
+      <button type="button" onClick={() => setVersion('gms')}>Switch to GMS</button>
+      <CurrentVersionHighlights />
+    </>
+  );
+}
 
 describe('CurrentVersionHighlights resilience', () => {
   beforeEach(async () => {
@@ -70,5 +82,33 @@ describe('CurrentVersionHighlights resilience', () => {
     expect(screen.getByText('Hero Class Overview')).toBeTruthy();
     expect(screen.getByText('英语来源 · Grandis Library')).toBeTruthy();
     expect(screen.getAllByRole('link')).toHaveLength(3);
+  });
+
+  it('binds live requests to the newly selected version instead of the previous KMS setting', async () => {
+    localStorage.setItem('maplehub-game-version', 'kms');
+    mockFetchLiveNews.mockResolvedValue({ items: [], replace: true });
+
+    render(
+      <MemoryRouter>
+        <VersionProvider>
+          <VersionSwitchProbe />
+        </VersionProvider>
+      </MemoryRouter>,
+    );
+
+    const kmsOptions = mockUseRealtimeCollection.mock.calls
+      .map(([options]) => options)
+      .find((options) => options.storageKey === 'test-news:kms');
+    await kmsOptions?.remoteLoader?.();
+    expect(mockFetchLiveNews).toHaveBeenLastCalledWith('kms');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Switch to GMS' }));
+
+    const gmsOptions = [...mockUseRealtimeCollection.mock.calls]
+      .reverse()
+      .map(([options]) => options)
+      .find((options) => options.storageKey === 'test-news:gms');
+    await gmsOptions?.remoteLoader?.();
+    expect(mockFetchLiveNews).toHaveBeenLastCalledWith('gms');
   });
 });

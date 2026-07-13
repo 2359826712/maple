@@ -2,6 +2,7 @@
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { useState } from 'react';
 import i18n from '@/i18n';
 import { useVersion, VersionProvider } from './VersionContext';
 
@@ -10,10 +11,17 @@ function Probe() {
   return (
     <div>
       <output>{version}</output>
+      <button type="button" onClick={() => setVersion('gms')}>GMS</button>
       <button type="button" onClick={() => setVersion('jms')}>JMS</button>
       <button type="button" onClick={() => setVersion('tms')}>TMS</button>
     </div>
   );
+}
+
+function ServerModuleProbe() {
+  const { version } = useVersion();
+  const [loadedForVersion] = useState(version);
+  return <output aria-label="loaded module server">{loadedForVersion} module content</output>;
 }
 
 describe('server selection', () => {
@@ -24,21 +32,39 @@ describe('server selection', () => {
 
   afterEach(() => cleanup());
 
-  it('persists across provider consumers and follows the selected server language', async () => {
+  it('persists the selected server without changing the interface language', async () => {
     const view = render(<VersionProvider><Probe /></VersionProvider>);
     fireEvent.click(screen.getByRole('button', { name: 'JMS' }));
 
     expect(screen.getByText('jms')).toBeTruthy();
-    await waitFor(() => expect(i18n.language).toBe('ja'));
-    expect(document.documentElement.lang).toBe('ja');
+    await waitFor(() => expect(i18n.language).toBe('en'));
+    expect(document.documentElement.lang).not.toBe('ja');
     expect(localStorage.getItem('maplehub-game-version')).toBe('jms');
+    expect(localStorage.getItem('maplehub-language')).toBeNull();
+    expect(localStorage.getItem('i18nextLng')).toBe('en');
 
     view.unmount();
     render(<VersionProvider><Probe /></VersionProvider>);
     expect(screen.getByText('jms')).toBeTruthy();
 
     fireEvent.click(screen.getByRole('button', { name: 'TMS' }));
-    await waitFor(() => expect(i18n.language).toBe('zh-Hant'));
-    expect(localStorage.getItem('maplehub-language')).toBe('zh-Hant');
+    await waitFor(() => expect(i18n.language).toBe('en'));
+    expect(localStorage.getItem('maplehub-game-version')).toBe('tms');
+    expect(localStorage.getItem('maplehub-language')).toBeNull();
+  });
+
+  it('remounts every server-related module when switching away from KMS', () => {
+    localStorage.setItem('maplehub-game-version', 'kms');
+
+    render(
+      <VersionProvider>
+        <Probe />
+        <ServerModuleProbe />
+      </VersionProvider>,
+    );
+
+    expect(screen.getByLabelText('loaded module server').textContent).toBe('kms module content');
+    fireEvent.click(screen.getByRole('button', { name: 'GMS' }));
+    expect(screen.getByLabelText('loaded module server').textContent).toBe('gms module content');
   });
 });

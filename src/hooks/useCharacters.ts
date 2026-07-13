@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getAccessToken } from '@/hooks/useAuthSession';
+import { ACCOUNT_CACHE_CHANGED_EVENT, ACCOUNT_CACHE_OWNER_KEY } from '@/services/accountDataSync';
 import {
   applyStorageTransaction,
   deleteAllPlayerData,
@@ -35,7 +36,22 @@ const NEWS_STATE_KEY = 'maplehub-news-state:v1';
 const EXPORT_FORMAT = 'maplehub-export';
 const EXPORT_VERSION = 3;
 const MAX_IMPORT_BYTES = 5 * 1024 * 1024;
-const PREFERENCE_KEYS = ['maplehub-game-version', 'maplehub-language', 'i18nextLng', 'maplehub-theme', 'maplehub-color-mode', 'maplehub-tool-favorites', 'maplehub-guide-reading-progress:v1', 'maplehub-routine-tasks:v2', 'maplehub-event-goals:v2'] as const;
+const PREFERENCE_KEYS = [
+  'maplehub-game-version',
+  'maplehub-language',
+  'i18nextLng',
+  'maplehub-theme',
+  'maplehub-color-mode',
+  'maplehub-tool-favorites',
+  'maplehub-guide-reading-progress:v1',
+  'maplehub-routine-tasks:v2',
+  'maplehub-event-goals:v2',
+  'maplehub-link-planner:v2:gms',
+  'maplehub-link-planner:v2:kms',
+  'maplehub-link-planner:v2:jms',
+  'maplehub-link-planner:v2:tms',
+  'maplehub-link-planner:v2:msea',
+] as const;
 const MAX_FIELD_LENGTH = 200;
 const MAX_PREFERENCE_LENGTH = 100_000;
 const forbiddenRecordKeys = new Set(['__proto__', 'prototype', 'constructor']);
@@ -351,12 +367,15 @@ function migrateLegacyData(characters: CharacterProfile[]): CharacterProfile[] {
   return result.ok ? updated : characters;
 }
 
+function loadCharactersForCurrentSession() {
+  const belongsToAccount = Boolean(localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY));
+  if (belongsToAccount && !getAccessToken()) return [];
+  return migrateLegacyData(loadLocalCharacters());
+}
+
 export function useCharacters() {
   const isLoggedIn = Boolean(getAccessToken());
-  const [characters, setCharacters] = useState<CharacterProfile[]>(() => {
-    const loaded = loadLocalCharacters();
-    return migrateLegacyData(loaded);
-  });
+  const [characters, setCharacters] = useState<CharacterProfile[]>(loadCharactersForCurrentSession);
   const [activeCharId, setActiveCharId] = useState<string | null>(
     () => characters[0]?.id ?? null,
   );
@@ -371,6 +390,23 @@ export function useCharacters() {
   const prevCharIdRef = useRef(activeCharId);
   const taskOwnerRef = useRef(activeCharId);
   const configOwnerRef = useRef(activeCharId);
+
+  useEffect(() => {
+    const reloadAccountData = () => {
+      const nextCharacters = loadCharactersForCurrentSession();
+      const nextActive = nextCharacters.find((character) => character.isDefault) ?? nextCharacters[0] ?? null;
+      taskOwnerRef.current = nextActive?.id ?? null;
+      configOwnerRef.current = nextActive?.id ?? null;
+      prevCharIdRef.current = nextActive?.id ?? null;
+      setCharacters(nextCharacters);
+      setActiveCharId(nextActive?.id ?? null);
+      setTasks(nextActive ? loadChecklist(nextActive.id) : {});
+      setChecklistConfig(nextActive ? loadChecklistConfig(nextActive.id) : null);
+    };
+
+    window.addEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
+    return () => window.removeEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
+  }, []);
 
   const safeSave = useCallback((key: string, data: unknown) => {
     const result = writeJsonWithRecovery(localStorage, key, data);
