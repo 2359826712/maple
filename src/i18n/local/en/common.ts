@@ -9,6 +9,7 @@ const common = {
   nav_rankings: 'Rankings',
   nav_community: 'Community',
   nav_more: 'More',
+  mobile_primary_navigation: 'Primary player navigation',
   nav_search_placeholder: 'Search guides, bosses, classes...',
   nav_search_open: 'Open site search',
   nav_search_close: 'Close site search',

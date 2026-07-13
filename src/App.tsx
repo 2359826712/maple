@@ -10,6 +10,7 @@ import PageTelemetry from "@/components/base/PageTelemetry";
 import ThemeSwitcher from "@/pages/home/components/ThemeSwitcher";
 import { ThemeProvider } from "@/hooks/ThemeContext";
 import AccountSessionBootstrap from "@/components/base/AccountSessionBootstrap";
+import MobilePrimaryNav from "@/components/navigation/MobilePrimaryNav";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
               <ScrollToTop />
               <PageTelemetry />
               <AppRoutes />
+              <MobilePrimaryNav />
               <ThemeSwitcher />
             </VersionProvider>
           </ErrorBoundary>

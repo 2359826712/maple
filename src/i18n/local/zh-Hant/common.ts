@@ -8,6 +8,7 @@ const common = {
   nav_rankings: '排行榜',
   nav_community: '社群',
   nav_more: '更多',
+  mobile_primary_navigation: '玩家主要導覽',
   nav_checklist: '每日任務',
   nav_search_placeholder: '搜尋攻略、Boss、職業...',
   nav_search_open: '開啟站內搜尋',

@@ -9,6 +9,7 @@ const common = {
   nav_rankings: '排行榜',
   nav_community: '社区',
   nav_more: '更多',
+  mobile_primary_navigation: '玩家主要导航',
   nav_search_placeholder: '搜索攻略、Boss、职业...',
   nav_search_open: '打开站内搜索',
   nav_search_close: '关闭站内搜索',

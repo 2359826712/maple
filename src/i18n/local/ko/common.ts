@@ -11,6 +11,7 @@ const common = {
   nav_rankings: '랭킹',
   nav_community: '커뮤니티',
   nav_more: '더보기',
+  mobile_primary_navigation: '플레이어 주요 탐색',
   nav_search_placeholder: '가이드, 보스, 직업 검색...',
   nav_search_button: '검색',
   nav_notifications: '알림',

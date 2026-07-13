@@ -8,6 +8,7 @@ const common = {
   nav_rankings: 'ランキング',
   nav_community: 'コミュニティ',
   nav_more: 'その他',
+  mobile_primary_navigation: 'プレイヤー向けメインナビゲーション',
   nav_checklist: 'チェックリスト',
   nav_search_placeholder: 'ガイド、ボス、職業を検索...',
   nav_search_open: 'サイト内検索を開く',
