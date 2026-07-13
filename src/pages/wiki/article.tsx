@@ -6,6 +6,8 @@ import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { fetchWikiEntryByTitleLocalFirst, fetchWikiEntryContent, type WikiEntry } from '@/services/liveContent';
 import { sanitizeMirroredHtml } from '@/services/sanitizeHtml';
+import ShareButton from '@/components/feature/ShareButton';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 export default function WikiArticlePage() {
   const { t, i18n } = useTranslation();
@@ -252,6 +254,10 @@ export default function WikiArticlePage() {
   const displayTitle = entry ? (isZh ? entry.titleZh : entry.title) : title;
   const htmlContent = entry ? (isZh ? entry.htmlContentZh || entry.htmlContent : entry.htmlContent) : null;
   const textContent = entry ? (isZh ? entry.contentZh : entry.content) : '';
+  usePageMetadata(
+    displayTitle || 'MapleStory Wiki',
+    (textContent || `MapleStory wiki information about ${displayTitle}.`).slice(0, 180),
+  );
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
@@ -455,6 +461,9 @@ export default function WikiArticlePage() {
                         · {t('wiki_article_synced', 'Synced')} {entry.lastSynced.slice(0, 10)}
                       </span>
                     )}
+                  </div>
+                  <div className="mt-3">
+                    <ShareButton title={displayTitle} text={(textContent || '').slice(0, 140)} />
                   </div>
 
                   <div

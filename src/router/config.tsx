@@ -17,6 +17,7 @@ const WikiPage = lazy(() => import("../pages/wiki/page"));
 const WikiArticlePage = lazy(() => import("../pages/wiki/article"));
 const LoginPage = lazy(() => import("../pages/auth/login/page"));
 const SearchPage = lazy(() => import("../pages/search/page"));
+const OfficialSourcePage = lazy(() => import("../pages/source/page"));
 const ChecklistPage = lazy(() => import("../pages/checklist/page"));
 const LevelGuidePage = lazy(() => import("../pages/guides/level/page"));
 const ToolsPage = lazy(() => import("../pages/tools/page"));
@@ -36,6 +37,10 @@ const routes: RouteObject[] = [
   {
     path: "/search",
     element: <RouteLoader><SearchPage /></RouteLoader>,
+  },
+  {
+    path: "/source",
+    element: <RouteLoader><OfficialSourcePage /></RouteLoader>,
   },
   {
     path: "/guides",

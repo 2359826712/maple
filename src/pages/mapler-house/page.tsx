@@ -334,14 +334,14 @@ export default function MaplerHousePage() {
               <a
                 href="#dashboard"
                 onClick={() => openSection('dashboard')}
-                className="h-10 px-4 rounded-full border border-background-200 bg-background-50 hover:bg-primary-50 text-sm font-semibold text-foreground-800 cursor-pointer whitespace-nowrap inline-flex items-center"
+                className="inline-flex h-11 items-center rounded-full border border-background-300 bg-background-50 px-4 text-sm font-semibold text-foreground-900 hover:border-primary-400 hover:bg-primary-50 cursor-pointer whitespace-nowrap"
               >
                 <i className="ri-dashboard-3-line mr-1"></i>
                 {t('mh_back_dashboard')}
               </a>
             )}
           </div>
-          <div className="rounded-lg border border-background-200 bg-background-50 p-4 md:p-6">
+          <div className="rounded-lg border border-background-300 bg-background-50 p-4 md:p-6">
             {renderSection()}
           </div>
         </section>
@@ -363,9 +363,9 @@ export default function MaplerHousePage() {
 
 function Metric({ label, value, icon }: { label: string; value: string; icon: string }) {
   return (
-    <div className="rounded-lg border border-background-200 bg-background-100 p-3">
+    <div className="rounded-lg border border-background-300 bg-background-100 p-3">
       <div className="flex items-center justify-between gap-2">
-        <span className="text-xs text-foreground-500">{label}</span>
+        <span className="text-xs font-medium text-foreground-700">{label}</span>
         <i className={`${icon} text-primary-600`}></i>
       </div>
       <div className="mt-2 font-heading text-xl font-semibold text-foreground-950">{value}</div>
@@ -413,7 +413,7 @@ function DashboardPanel({
         ))}
       </div>
 
-      <div className="rounded-lg border border-background-200 bg-background-100 p-4">
+      <div className="rounded-lg border border-background-300 bg-background-100 p-4">
         <h3 className="text-sm font-semibold text-foreground-950">{t('mh_recent_tools')}</h3>
         <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-2">
           {(recentTools.length ? recentTools : sections.filter((section) => ['char-lookup', 'enhance', 'growth'].includes(section.key))).slice(0, 3).map((tool) => (
@@ -421,12 +421,12 @@ function DashboardPanel({
               key={tool.key}
               href={`#${tool.key}`}
               onClick={() => onOpen(tool.key)}
-              className="w-full rounded-md bg-background-50 border border-background-200 px-3 py-2 flex items-center gap-2 text-left hover:bg-primary-50 cursor-pointer"
+              className="flex min-h-11 w-full items-center gap-2 rounded-md border border-background-300 bg-background-50 px-3 py-2 text-left hover:border-primary-400 hover:bg-primary-50 cursor-pointer"
             >
               <i className={`${tool.icon} text-primary-600`}></i>
               <span className="min-w-0">
                 <span className="block text-sm font-semibold text-foreground-900 truncate">{t(tool.title)}</span>
-                <span className="block text-xs text-foreground-500 truncate">{t(tool.label)}</span>
+                <span className="block truncate text-xs text-foreground-700">{t(tool.label)}</span>
               </span>
             </a>
           ))}
@@ -483,11 +483,11 @@ function DashboardPanel({
           </div>
         </div>
 
-        <div className="rounded-lg border border-background-200 bg-background-100 p-4">
+        <div className="rounded-lg border border-background-300 bg-background-100 p-4">
           <h3 className="text-sm font-semibold text-foreground-950">{t('mh_favorite_tools')}</h3>
           <div className="mt-3 space-y-2">
             {favoriteTools.length === 0 ? (
-              <div className="rounded-md border border-dashed border-background-300 bg-background-50 p-4 text-sm text-foreground-500">
+              <div className="rounded-md border border-dashed border-background-400 bg-background-50 p-4 text-sm text-foreground-700">
                 {t('mh_no_favorites')}
               </div>
             ) : (
@@ -496,7 +496,7 @@ function DashboardPanel({
                   key={tool.key}
                   href={`#${tool.key}`}
                   onClick={() => onOpen(tool.key)}
-                  className="w-full rounded-md bg-background-50 border border-background-200 px-3 py-2 flex items-center gap-2 text-left hover:bg-secondary-50 cursor-pointer"
+                  className="flex min-h-11 w-full items-center gap-2 rounded-md border border-background-300 bg-background-50 px-3 py-2 text-left hover:border-secondary-400 hover:bg-secondary-50 cursor-pointer"
                 >
                   <i className={`${tool.icon} text-secondary-700`}></i>
                   <span className="text-sm font-semibold text-foreground-900">{t(tool.title)}</span>
@@ -543,7 +543,7 @@ function ExternalTools({
 
   return (
     <section className="max-w-7xl mx-auto px-4 md:px-8 pb-12">
-      <div className="rounded-lg border border-background-200 bg-background-50 p-4">
+      <div className="rounded-lg border border-background-300 bg-background-50 p-4">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-semibold text-foreground-700">{t('mh_external_tools_title')}</h3>
           <div className="md:max-w-xs">
@@ -562,11 +562,11 @@ function ExternalTools({
               href={link.href}
               target="_blank"
               rel="nofollow noopener noreferrer"
-              className="flex items-center gap-2 px-2.5 py-2 rounded-md border border-background-200 bg-background-100 hover:border-foreground-300 hover:bg-background-100/80 transition-colors cursor-pointer group"
+              className="group flex min-h-11 items-center gap-2 rounded-md border border-background-300 bg-background-100 px-2.5 py-2 transition-colors hover:border-foreground-400 hover:bg-background-100/80 cursor-pointer"
             >
               <div className="w-7 h-7 rounded bg-background-200/60 flex items-center justify-center flex-shrink-0">
                 {link.icon.startsWith('ri-') ? (
-                  <i className={`${link.icon} text-xs text-foreground-500`}></i>
+                  <i className={`${link.icon} text-xs text-foreground-700`}></i>
                 ) : (
                   <span className="text-xs">{link.icon}</span>
                 )}

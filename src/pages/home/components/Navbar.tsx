@@ -5,8 +5,9 @@ import { useVersion, VERSIONS, type GameVersion } from '@/hooks/VersionContext';
 import { getSiteSearchResults, getPopularSearchTerms } from '@/services/siteSearch';
 import SearchResultList from '@/components/search/SearchResultList';
 import UniversalSearchDialog from '@/components/search/UniversalSearchDialog';
-import { useAuthSession } from '@/hooks/useAuthSession';
+import { AUTO_LOGIN_ENABLED_KEY, clearAuthSession, useAuthSession } from '@/hooks/useAuthSession';
 import { mapleSqlApi } from '@/services/mapleSqlApi';
+import { clearAccountDataCache, saveCurrentAccountData } from '@/services/accountDataSync';
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
@@ -83,6 +84,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [guideMenuOpen, setGuideMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
   const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(unread);
   const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
   const [defaultToolFavorites, setDefaultToolFavorites] = useState<string[]>(() => {
@@ -103,6 +105,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileToolMenuRef = useRef<HTMLDivElement | null>(null);
   const moreMenuRef = useRef<HTMLDivElement | null>(null);
+  const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const guideMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -145,6 +148,9 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
       }
       if (moreMenuRef.current && !moreMenuRef.current.contains(e.target as Node)) {
         setMoreMenuOpen(false);
+      }
+      if (accountMenuRef.current && !accountMenuRef.current.contains(e.target as Node)) {
+        setAccountMenuOpen(false);
       }
       const target = e.target as Node;
       const insideGuideMenu = guideMenuRef.current?.contains(target);
@@ -211,6 +217,25 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     () => getPopularSearchTerms(i18n.language, versionInfo.id, 5),
     [i18n.language, versionInfo.id],
   );
+
+  const handleSignOut = async () => {
+    try {
+      await saveCurrentAccountData();
+    } catch {
+      // The server may already be unavailable; logout still clears this device.
+    }
+    try {
+      await mapleSqlApi.auth.logout();
+    } catch {
+      // Clearing the local session remains safe when the server cannot be reached.
+    }
+    clearAccountDataCache();
+    localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+    clearAuthSession();
+    setAccountMenuOpen(false);
+    setMenuOpen(false);
+    navigate('/');
+  };
 
   const openGuideMenu = () => {
     if (!guideMenu) return;
@@ -646,7 +671,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
           <div className="flex items-center gap-2 md:gap-3 ml-2">
             <div ref={searchRef} className="relative hidden md:block">
-              <form
+              {location.pathname === '/' ? (
+                <button
+                  type="button"
+                  onClick={() => setPaletteOpen(true)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-600 hover:border-primary-300/60 hover:text-primary-700"
+                  aria-label={t('search_palette_open')}
+                  title={`${t('search_palette_open')} · ⌘/Ctrl K`}
+                >
+                  <i className="ri-search-line" aria-hidden="true"></i>
+                </button>
+              ) : <form
                 onSubmit={(event) => {
                   event.preventDefault();
                   submitSearch();
@@ -681,6 +716,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   ⌘/Ctrl K
                 </button>
               </form>
+              }
               {searchOpen && renderSearchMenu('absolute right-0 mt-2 w-80 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden shadow-lg')}
             </div>
 
@@ -721,9 +757,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                           }`}>
                             {ver.shortLabel[0]}
                           </span>
-                          <div className="flex flex-col">
-                            <span className="text-sm leading-tight">{ver.name}</span>
-                            <span className="text-[10px] text-foreground-500 leading-tight">{ver.region}</span>
+                          <div className="flex min-w-0 flex-col">
+                            <span className="truncate text-sm leading-tight">{ver.fullName}</span>
+                            <span className="flex items-center gap-1.5 text-[10px] leading-tight text-foreground-500">
+                              {ver.shortLabel} · {ver.region}
+                            </span>
                           </div>
                           {version === ver.id && (
                             <i className="ri-check-line text-primary-600 ml-auto"></i>
@@ -744,7 +782,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 title={t('nav_lang_label')}
               >
                 <i className="ri-global-line"></i>
-                <span className="hidden lg:inline">{i18n.language === 'zh' ? '中文' : i18n.language === 'ja' ? '日本語' : i18n.language === 'zh-Hant' ? '繁體' : 'EN'}</span>
+                <span className="hidden lg:inline">{i18n.language === 'zh' ? '中文' : i18n.language === 'ja' ? '日本語' : i18n.language === 'ko' ? '한국어' : i18n.language === 'zh-Hant' ? '繁體' : 'EN'}</span>
               </button>
               {langMenuOpen && (
                 <div className="absolute right-0 mt-2 w-36 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden z-50 shadow-lg">
@@ -772,6 +810,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       >
                         <span>🇨🇳</span> 中文
                         {i18n.language === 'zh' && <i className="ri-check-line ml-auto text-primary-600"></i>}
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => switchLang('ko')}
+                        className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2 cursor-pointer ${
+                          i18n.language === 'ko' ? 'bg-primary-50 text-primary-700 font-semibold' : 'text-foreground-800 hover:bg-background-100'
+                        }`}
+                      >
+                        <span>🇰🇷</span> 한국어
+                        {i18n.language === 'ko' && <i className="ri-check-line ml-auto text-primary-600"></i>}
                       </button>
                     </li>
                     <li>
@@ -810,7 +859,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 setSearchOpen(false);
                 setMobileSearchOpen((open) => !open);
               }}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-700 transition-colors hover:border-primary-300/60 hover:bg-primary-50 md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 transition-colors hover:border-primary-400 hover:bg-primary-50 md:hidden"
               aria-label={mobileSearchOpen ? t('nav_search_close') : t('nav_search_open')}
               aria-expanded={mobileSearchOpen}
               aria-controls="mobile-site-search"
@@ -821,7 +870,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             {/* Notifications */}
             <button
               onClick={onOpenNotifications}
-              className="relative w-10 h-10 flex items-center justify-center rounded-full bg-background-100 border border-background-200 hover:bg-primary-50 hover:border-primary-300/50 transition-colors cursor-pointer"
+              className="relative flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 transition-colors hover:border-primary-400 hover:bg-primary-50 cursor-pointer"
               aria-label={t('nav_notifications')}
             >
               <i className="ri-notification-3-line text-foreground-700 text-lg"></i>
@@ -835,20 +884,48 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
             {/* Account state */}
             {isSignedIn ? (
-              <Link
-                to="/checklist"
-                className="hidden h-10 max-w-40 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100 sm:flex"
-                title={t('nav_account_signed_in', { name: displayName })}
-              >
-                {session?.avatarUrl ? (
-                  <img src={session.avatarUrl} alt="" className="h-7 w-7 rounded-full object-cover" />
-                ) : (
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-500 text-xs text-background-50">
-                    {(displayName || '?').slice(0, 1).toUpperCase()}
-                  </span>
+              <div ref={accountMenuRef} className="relative hidden sm:block">
+                <button
+                  type="button"
+                  onClick={() => setAccountMenuOpen((open) => !open)}
+                  aria-haspopup="menu"
+                  aria-expanded={accountMenuOpen}
+                  className="flex h-10 max-w-44 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100"
+                  title={t('nav_account_signed_in', { name: displayName })}
+                >
+                  {session?.avatarUrl ? (
+                    <img src={session.avatarUrl} alt="" className="h-7 w-7 rounded-full object-cover" />
+                  ) : (
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-500 text-xs text-background-50">
+                      {(displayName || '?').slice(0, 1).toUpperCase()}
+                    </span>
+                  )}
+                  <span className="truncate">{displayName}</span>
+                  <i className="ri-arrow-down-s-line text-xs" aria-hidden="true" />
+                </button>
+                {accountMenuOpen && (
+                  <div className="absolute right-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1 shadow-xl" role="menu">
+                    <Link
+                      to="/checklist"
+                      onClick={() => setAccountMenuOpen(false)}
+                      role="menuitem"
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-foreground-800 hover:bg-background-100"
+                    >
+                      <i className="ri-user-settings-line" aria-hidden="true" />
+                      {t('nav_account_dashboard')}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      role="menuitem"
+                      className="flex w-full items-center gap-2 border-t border-background-200 px-4 py-2.5 text-left text-sm font-medium text-red-700 hover:bg-red-50"
+                    >
+                      <i className="ri-logout-circle-r-line" aria-hidden="true" />
+                      {t('nav_sign_out')}
+                    </button>
+                  </div>
                 )}
-                <span className="truncate">{displayName}</span>
-              </Link>
+              </div>
             ) : (
               <Link
                 to="/auth/login"
@@ -866,7 +943,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 setMobileSearchOpen(false);
                 setMenuOpen((v) => !v);
               }}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-background-100 border border-background-200 cursor-pointer"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 lg:hidden cursor-pointer"
               aria-label={menuOpen ? t('nav_menu_close') : t('nav_menu_open')}
             >
               <i className={`${menuOpen ? 'ri-close-line' : 'ri-menu-line'} text-foreground-800 text-xl`}></i>
@@ -905,7 +982,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 <button
                   type="button"
                   onClick={() => setQuery('')}
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-foreground-500 hover:bg-background-200 hover:text-foreground-800"
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-foreground-700 hover:bg-background-200 hover:text-foreground-950"
                   aria-label={t('search_clear_btn')}
                 >
                   <i className="ri-close-line"></i>
@@ -1037,7 +1114,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 );
               })}
               <div className="mt-3 pt-3 border-t border-background-200 flex flex-col gap-2">
-                <div className="text-xs text-foreground-500 flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 text-xs font-medium text-foreground-700">
                   <i className="ri-leaf-fill text-primary-500 text-xs"></i>
                   {t('nav_version_label')}
                 </div>
@@ -1046,58 +1123,76 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     <button
                       key={ver.id}
                       onClick={() => { setVersion(ver.id); setMenuOpen(false); }}
-                      className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                        version === ver.id ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                      className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                        version === ver.id ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                       }`}
                     >
                       {ver.name}
                     </button>
                   ))}
                 </div>
-                <div className="text-xs text-foreground-500 mt-1">{t('nav_lang_label')}</div>
+                <div className="mt-1 text-xs font-medium text-foreground-700">{t('nav_lang_label')}</div>
                 <div className="flex gap-1.5">
                   <button
                     onClick={() => switchLang('en')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'en' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'en' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     English
                   </button>
                   <button
                     onClick={() => switchLang('zh')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'zh' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'zh' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     中文
                   </button>
                   <button
+                    onClick={() => switchLang('ko')}
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'ko' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
+                    }`}
+                  >
+                    한국어
+                  </button>
+                  <button
                     onClick={() => switchLang('ja')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'ja' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'ja' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     日本語
                   </button>
                   <button
                     onClick={() => switchLang('zh-Hant')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'zh-Hant' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'zh-Hant' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     繁體
                   </button>
                 </div>
                 {isSignedIn ? (
-                  <Link
-                    to="/checklist"
-                    onClick={() => setMenuOpen(false)}
-                    className="mt-2 flex h-10 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
-                  >
-                    <i className="ri-user-smile-line" />
-                    {displayName}
-                  </Link>
+                  <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+                    <Link
+                      to="/checklist"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex h-10 min-w-0 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
+                    >
+                      <i className="ri-user-smile-line" />
+                      <span className="truncate">{displayName}</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="flex h-10 items-center justify-center gap-1.5 rounded-full border border-red-200 bg-white px-3 text-sm font-semibold text-red-700"
+                    >
+                      <i className="ri-logout-circle-r-line" aria-hidden="true" />
+                      {t('nav_sign_out')}
+                    </button>
+                  </div>
                 ) : (
                   <Link
                     to="/auth/login"

@@ -1,10 +1,12 @@
 import { useMemo, useState, type SyntheticEvent } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsCategoryLabel, getNewsCopy } from '@/pages/news/localizedNews';
-import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
+import { fetchLiveNews, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import ShareButton from '@/components/feature/ShareButton';
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -31,9 +33,8 @@ export default function LatestNews() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const [active, setActive] = useState('All');
-  const [shared, setShared] = useState<string | null>(null);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
-    storageKey: liveStorageKeys.news,
+    storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
     remoteLoader: fetchLiveNews,
   });
@@ -53,16 +54,6 @@ export default function LatestNews() {
     () => (active === 'All' ? versionList : versionList.filter((n) => n.category === active)),
     [active, versionList],
   );
-
-  const share = async (id: string, url: string) => {
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      // Clipboard can be unavailable in restricted browser contexts.
-    }
-    setShared(id);
-    setTimeout(() => setShared(null), 1500);
-  };
 
   return (
     <section id="news" className="py-14 md:py-20 bg-background-100">
@@ -125,20 +116,14 @@ export default function LatestNews() {
                     </span>
                   )}
                   <div className="absolute bottom-3 right-3 flex gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => void share(n.id, n.sourceUrl)}
-                      className="w-8 h-8 rounded-full bg-background-50/95 hover:bg-primary-500 hover:text-background-50 text-foreground-800 flex items-center justify-center cursor-pointer transition-colors"
-                      aria-label={t('news_share_aria', { title: n.title, channel: 'link' })}
-                    >
-                      <i className="ri-link"></i>
-                    </button>
+                    <ShareButton
+                      compact
+                      title={n.title}
+                      text={n.excerpt}
+                      url={`/news?q=${encodeURIComponent(n.title)}`}
+                      className="h-8 w-8 bg-background-50/95 hover:bg-primary-500 hover:text-background-50"
+                    />
                   </div>
-                  {shared && shared.startsWith(n.id) && (
-                    <div className="absolute bottom-14 right-3 px-3 py-1.5 rounded-md bg-foreground-900 text-background-50 text-xs">
-                      {t('news_shared_toast')}
-                    </div>
-                  )}
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <h3 className={`font-heading font-semibold text-foreground-950 ${i === 0 ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>
@@ -159,6 +144,13 @@ export default function LatestNews() {
                       {n.reads}
                     </span>
                   </div>
+                  <Link
+                    to={officialArticleHref(n.sourceUrl, n.title, versionInfo.id)}
+                    className="mt-4 inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 text-xs font-semibold text-background-50 hover:bg-primary-600"
+                  >
+                    <i className="ri-book-open-line" aria-hidden="true" />
+                    {t('news_read_article')}
+                  </Link>
                 </div>
               </article>
             ))}

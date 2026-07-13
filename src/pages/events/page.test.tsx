@@ -11,9 +11,23 @@ vi.mock('@/pages/home/components/Navbar', () => ({ default: () => null }));
 vi.mock('@/pages/home/components/Footer', () => ({ default: () => null }));
 vi.mock('@/pages/home/components/NotificationDrawer', () => ({ default: () => null }));
 vi.mock('@/components/feature/RealtimeStatus', () => ({ default: () => null }));
+
+const collectionState = vi.hoisted(() => ({
+  eventOverride: null as null | Record<string, unknown>,
+  newsItems: [] as Array<Record<string, unknown>>,
+}));
+
 vi.mock('@/hooks/useRealtimeCollection', () => ({
-  useRealtimeCollection: () => ({
-    items: [{
+  useRealtimeCollection: ({ storageKey }: { storageKey: string }) => storageKey.startsWith('maplehub-online-official-news')
+    ? {
+      items: collectionState.newsItems,
+      liveCount: collectionState.newsItems.length,
+      lastSyncedAt: collectionState.newsItems.length > 0 ? new Date().toISOString() : '',
+      status: collectionState.newsItems.length > 0 ? 'live' : 'unavailable',
+      syncNow: vi.fn(),
+    }
+    : collectionState.eventOverride ?? ({
+      items: [{
       id: 'event-one',
       name: 'Golden Week',
       windowStart: new Date(Date.now() - 86_400_000).toISOString(),
@@ -26,12 +40,12 @@ vi.mock('@/hooks/useRealtimeCollection', () => ({
       sourceUrl: 'https://example.com/event',
       sourceLabel: 'Official',
       lastVerified: new Date().toISOString(),
-    }],
-    liveCount: 1,
-    lastSyncedAt: new Date().toISOString(),
-    status: 'live',
-    syncNow: vi.fn(),
-  }),
+      }],
+      liveCount: 1,
+      lastSyncedAt: new Date().toISOString(),
+      status: 'live',
+      syncNow: vi.fn(),
+    }),
 }));
 
 import EventsPage from './page';
@@ -39,6 +53,8 @@ import EventsPage from './page';
 describe('event reminders', () => {
   beforeEach(async () => {
     window.localStorage.clear();
+    collectionState.eventOverride = null;
+    collectionState.newsItems = [];
     await i18n.changeLanguage('en');
   });
 
@@ -61,5 +77,61 @@ describe('event reminders', () => {
     await user.click(screen.getByLabelText('Remove reminder'));
     expect(screen.getByLabelText('Remind me')).toBeTruthy();
     expect(window.localStorage.getItem('maplehub-event-reminders')).toBe('[]');
+  });
+
+  it('keeps in-app delivery as the default and explains unsupported browser alerts', async () => {
+    Reflect.deleteProperty(window, 'Notification');
+    const user = userEvent.setup();
+    render(
+      <MemoryRouter>
+        <VersionProvider>
+          <EventsPage />
+        </VersionProvider>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('button', { name: 'In-app only' }).getAttribute('aria-pressed')).toBe('true');
+    await user.click(screen.getByRole('button', { name: 'Browser alerts' }));
+    expect(screen.getByText('This browser does not support notifications. In-app reminders remain active.')).toBeTruthy();
+    expect(window.localStorage.getItem('maplehub-event-reminder-delivery')).toBeNull();
+  });
+
+  it('shows official event news without presenting unverified dates as a schedule', () => {
+    collectionState.eventOverride = {
+      items: [],
+      liveCount: 0,
+      lastSyncedAt: '',
+      status: 'unavailable',
+      syncNow: vi.fn(),
+    };
+    collectionState.newsItems = [{
+      id: 'official-event-news',
+      category: 'Event',
+      title: 'Momentum Pass',
+      excerpt: 'Read the official announcement for details.',
+      author: 'MapleStory',
+      date: 'Jul 1, 2026',
+      publishedAt: '2026-07-01T00:00:00.000Z',
+      reads: 'Live',
+      sourceUrl: 'https://example.com/momentum-pass',
+      tag: 'accent',
+      versions: ['gms'],
+      image: '/event-news.webp',
+    }];
+
+    render(
+      <MemoryRouter>
+        <VersionProvider>
+          <EventsPage />
+        </VersionProvider>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('heading', { name: 'Verified event schedule unavailable' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Official event news is still available' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Momentum Pass' })).toBeTruthy();
+    const href = screen.getByRole('link', { name: 'Open official article' }).getAttribute('href') || '';
+    expect(href).toContain('/source?');
+    expect(new URL(href, 'https://maplehub.test').searchParams.get('url')).toBe('https://example.com/momentum-pass');
   });
 });

@@ -9,6 +9,7 @@ import { VersionProvider } from "@/hooks/VersionContext";
 import PageTelemetry from "@/components/base/PageTelemetry";
 import ThemeSwitcher from "@/pages/home/components/ThemeSwitcher";
 import { ThemeProvider } from "@/hooks/ThemeContext";
+import AccountSessionBootstrap from "@/components/base/AccountSessionBootstrap";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             fallback={(_error, reset) => <AppErrorFallback onReset={reset} />}
           >
             <VersionProvider>
+              <AccountSessionBootstrap />
               <ScrollToTop />
               <PageTelemetry />
               <AppRoutes />

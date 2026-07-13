@@ -2,13 +2,14 @@ import i18n, { type BackendModule, type ReadCallback } from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const supportedLanguages = ['en', 'zh', 'ja', 'zh-Hant'] as const;
+const supportedLanguages = ['en', 'zh', 'ja', 'ko', 'zh-Hant'] as const;
 type SupportedLanguage = (typeof supportedLanguages)[number];
 
 const localeLoaders: Record<SupportedLanguage, () => Promise<{ default: Record<string, string> }>> = {
   en: () => import('./local/en/common'),
   zh: () => import('./local/zh/common'),
   ja: () => import('./local/ja/common'),
+  ko: () => import('./local/ko/common'),
   'zh-Hant': () => import('./local/zh-Hant/common'),
 };
 
@@ -16,6 +17,7 @@ const normalizeLanguage = (language: string): SupportedLanguage => {
   if (language.toLowerCase().startsWith('zh-hant')) return 'zh-Hant';
   if (language.toLowerCase().startsWith('zh')) return 'zh';
   if (language.toLowerCase().startsWith('ja')) return 'ja';
+  if (language.toLowerCase().startsWith('ko')) return 'ko';
   return 'en';
 };
 
@@ -40,13 +42,13 @@ export const i18nReady = i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    ...(storedLanguage ? { lng: storedLanguage } : {}),
+    lng: storedLanguage || 'en',
     fallbackLng: 'en',
     supportedLngs: [...supportedLanguages],
     ns: ['translation'],
     defaultNS: 'translation',
     detection: {
-      order: ['localStorage', 'navigator'],
+      order: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
     },

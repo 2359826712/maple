@@ -12,7 +12,7 @@ interface RealtimeOptions<T extends { id: string }> {
 }
 
 const channelName = 'maplehub-realtime-content';
-const defaultIntervalMs = 10000;
+const defaultIntervalMs = 60000;
 const syncMetadataSuffix = ':last-successful-sync';
 
 type RemotePayload<T extends { id: string }> = {
@@ -144,12 +144,23 @@ export function useRealtimeCollection<T extends { id: string }>({
   const [replaceBaseItems, setReplaceBaseItems] = useState(false);
   const [status, setStatus] = useState<RealtimeStatus>('idle');
   const [lastSyncedAt, setLastSyncedAt] = useState(() => readStoredSyncTime(storageKey));
-  const syncingRef = useRef(false);
+  const liveItemsStorageKeyRef = useRef(storageKey);
+  const syncingKeysRef = useRef(new Set<string>());
+  const activeStorageKeyRef = useRef(storageKey);
+  activeStorageKeyRef.current = storageKey;
+
+  useEffect(() => {
+    liveItemsStorageKeyRef.current = storageKey;
+    setLiveItems(readStoredItems<T>(storageKey));
+    setReplaceBaseItems(false);
+    setLastSyncedAt(readStoredSyncTime(storageKey));
+    setStatus('idle');
+  }, [storageKey]);
 
   const syncNow = useCallback(async () => {
-    if (syncingRef.current) return;
+    if (syncingKeysRef.current.has(storageKey)) return;
 
-    syncingRef.current = true;
+    syncingKeysRef.current.add(storageKey);
     setStatus('syncing');
     try {
       const storedItems = readStoredItems<T>(storageKey);
@@ -166,15 +177,21 @@ export function useRealtimeCollection<T extends { id: string }>({
         publishRealtimeUpdate(storageKey);
       }
 
+      if (activeStorageKeyRef.current !== storageKey) return;
+
       setLiveItems(nextItems);
       if (remotePayload) {
         const syncedAt = new Date().toISOString();
         setLastSyncedAt(syncedAt);
         writeStoredSyncTime(storageKey, syncedAt);
       }
-      window.setTimeout(() => setStatus(remotePayload ? 'live' : 'unavailable'), 200);
+      window.setTimeout(() => {
+        if (activeStorageKeyRef.current === storageKey) {
+          setStatus(remotePayload ? 'live' : 'unavailable');
+        }
+      }, 200);
     } finally {
-      syncingRef.current = false;
+      syncingKeysRef.current.delete(storageKey);
     }
   }, [intervalMs, remoteLoader, remoteUrl, storageKey]);
 
@@ -216,16 +233,21 @@ export function useRealtimeCollection<T extends { id: string }>({
     };
   }, [intervalMs, storageKey, syncNow]);
 
+  const partitionIsCurrent = liveItemsStorageKeyRef.current === storageKey;
+  const activeLiveItems = partitionIsCurrent ? liveItems : readStoredItems<T>(storageKey);
+  const activeReplaceBaseItems = partitionIsCurrent ? replaceBaseItems : false;
   const items = useMemo(
-    () => (replaceBaseItems && liveItems.length > 0 ? liveItems : mergeById(baseItems, liveItems)),
-    [baseItems, liveItems, replaceBaseItems],
+    () => (activeReplaceBaseItems && activeLiveItems.length > 0
+      ? activeLiveItems
+      : mergeById(baseItems, activeLiveItems)),
+    [activeLiveItems, activeReplaceBaseItems, baseItems],
   );
 
   return {
     items,
-    liveCount: liveItems.length,
-    lastSyncedAt,
-    status,
+    liveCount: activeLiveItems.length,
+    lastSyncedAt: partitionIsCurrent ? lastSyncedAt : readStoredSyncTime(storageKey),
+    status: partitionIsCurrent ? status : 'idle',
     syncNow,
   };
 }

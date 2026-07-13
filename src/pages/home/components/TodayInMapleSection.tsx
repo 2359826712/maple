@@ -23,6 +23,13 @@ import {
   getBossChecklistRules,
   getTrackedDifficulty,
 } from '@/domain/bossChecklistRules';
+import { useRoutineTasks } from '@/hooks/useRoutineTasks';
+import { useEventGoals } from '@/hooks/useEventGoals';
+import {
+  getNextBestActionHref,
+  selectNextBestAction,
+  type NextBestActionCandidate,
+} from '@/domain/nextBestAction';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -35,8 +42,22 @@ function formatCountdown(ms: number): string {
 export default function TodayInMapleSection() {
   const { t } = useTranslation();
   const { version } = useVersion();
-  const { activeCharacter, tasks, checklistConfig } = useCharacters();
+  const {
+    activeCharacter,
+    activeCharId,
+    characters = [],
+    setActiveCharId,
+    tasks,
+    checklistConfig,
+  } = useCharacters();
   const [now, setNow] = useState(Date.now());
+  const routines = useRoutineTasks(
+    version,
+    activeCharacter?.id ?? null,
+    now,
+    activeCharacter?.world || activeCharacter?.server || '',
+  );
+  const eventGoals = useEventGoals();
 
   // Tick every second for countdown
   useEffect(() => {
@@ -46,12 +67,12 @@ export default function TodayInMapleSection() {
 
   // Realtime data
   const { items: newsItems, lastSyncedAt: newsSyncedAt, status: newsStatus } = useRealtimeCollection<NewsItem>({
-    storageKey: liveStorageKeys.news,
+    storageKey: `${liveStorageKeys.news}:${version}`,
     baseItems: [],
     remoteLoader: fetchLiveNews,
   });
   const { items: eventItems, lastSyncedAt: eventsSyncedAt, status: eventsStatus } = useRealtimeCollection<EventItem>({
-    storageKey: liveStorageKeys.events,
+    storageKey: `${liveStorageKeys.events}:${version}`,
     baseItems: [],
     remoteLoader: fetchLiveEvents,
   });
@@ -114,6 +135,69 @@ export default function TodayInMapleSection() {
   }, [newsItems, version]);
 
   const dailyCountdown = millisecondsUntilReset('daily', version, now);
+  const weeklyCountdown = millisecondsUntilReset('weekly', version, now);
+  const dailyRoutines = routines.selectedTasks.filter((task) => task.period === 'daily');
+  const weeklyRoutines = routines.selectedTasks.filter((task) => task.period === 'weekly');
+  const totalDailyTasks = (checklistProgress?.totalDaily ?? 0) + dailyRoutines.length;
+  const doneDailyTasks = (checklistProgress?.doneDaily ?? 0) + dailyRoutines.filter(routines.isComplete).length;
+  const totalWeeklyTasks = (checklistProgress?.totalWeekly ?? 0) + weeklyRoutines.length;
+  const doneWeeklyTasks = (checklistProgress?.doneWeekly ?? 0) + weeklyRoutines.filter(routines.isComplete).length;
+  const nextActionCandidates: NextBestActionCandidate[] = [
+    ...routines.selectedTasks.map((task, index) => ({
+      id: `routine:${task.id}`,
+      titleKey: task.titleKey,
+      period: task.period,
+      scope: task.scope,
+      remaining: routines.isComplete(task) ? 0 : 1,
+      priority: index,
+    })),
+    {
+      id: 'bosses:daily',
+      titleKey: 'dashboard_next_daily_bosses',
+      period: 'daily' as const,
+      scope: 'character' as const,
+      remaining: Math.max(0, (checklistProgress?.totalDaily ?? 0) - (checklistProgress?.doneDaily ?? 0)),
+      priority: 100,
+    },
+    {
+      id: 'bosses:weekly',
+      titleKey: 'dashboard_next_weekly_bosses',
+      period: 'weekly' as const,
+      scope: 'character' as const,
+      remaining: Math.max(0, (checklistProgress?.totalWeekly ?? 0) - (checklistProgress?.doneWeekly ?? 0)),
+      priority: 100,
+    },
+    ...eventGoals.flatMap((goal): NextBestActionCandidate[] => {
+      const dueInMs = Date.parse(goal.windowEnd) - now;
+      if (!Number.isFinite(dueInMs) || dueInMs <= 0 || goal.rewardClaimed) return [];
+      if (goal.requirementComplete) {
+        return [{
+          id: `event-claim:${goal.id}`,
+          titleKey: 'dashboard_next_event_claim',
+          period: 'daily',
+          scope: 'account',
+          remaining: 1,
+          priority: -20,
+          dueInMs,
+        }];
+      }
+      if (goal.target <= 0 || goal.current >= goal.target) return [];
+      return [{
+        id: `event-pace:${goal.id}`,
+        titleKey: 'dashboard_next_event_pace',
+        period: 'daily',
+        scope: 'account',
+        remaining: goal.target - goal.current,
+        priority: -10,
+        dueInMs,
+      }];
+    }),
+  ];
+  const nextAction = selectNextBestAction({
+    candidates: nextActionCandidates,
+    dailyResetInMs: dailyCountdown,
+    weeklyResetInMs: weeklyCountdown,
+  });
   const characterDetails = [
     t('dashboard_character_level', { level: activeCharacter?.level ?? 0 }),
     activeCharacter?.className,
@@ -143,6 +227,25 @@ export default function TodayInMapleSection() {
               {t('dashboard_welcome', { name: activeCharacter.name })}
             </h1>
             <p className="mt-2 text-sm font-medium text-foreground-700">{characterDetails}</p>
+            {characters.length > 1 && (
+              <label className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-foreground-700">
+                <span>{t('dashboard_roster_switch')}</span>
+                <select
+                  value={activeCharId ?? ''}
+                  onChange={(event) => setActiveCharId(event.target.value)}
+                  className="h-9 rounded-full border border-background-300 bg-white px-3 text-sm font-medium text-foreground-900"
+                >
+                  {characters.map((character) => (
+                    <option key={character.id} value={character.id}>
+                      {character.name} · Lv. {character.level}
+                    </option>
+                  ))}
+                </select>
+                <span className="font-normal text-foreground-500">
+                  {t('dashboard_roster_count', { count: characters.length })}
+                </span>
+              </label>
+            )}
             <p className="mt-1 max-w-2xl text-sm text-foreground-600 md:text-base">
               {t('dashboard_welcome_desc')}
             </p>
@@ -153,14 +256,69 @@ export default function TodayInMapleSection() {
               </p>
             )}
           </div>
-          <Link
-            to="/mapler-house"
-            className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-primary-200 bg-background-50 px-4 text-sm font-semibold text-primary-700 hover:border-primary-300 hover:bg-primary-50"
-          >
-            <i className="ri-user-settings-line" />
-            {t('dashboard_character_tools')}
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              to="/checklist#quick-actions"
+              className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-background-300 bg-background-50 px-4 text-sm font-semibold text-foreground-700 hover:border-primary-300 hover:bg-primary-50"
+            >
+              <i className="ri-download-cloud-2-line" />
+              {t('dashboard_backup_data')}
+            </Link>
+            <Link
+              to="/mapler-house"
+              className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-primary-200 bg-background-50 px-4 text-sm font-semibold text-primary-700 hover:border-primary-300 hover:bg-primary-50"
+            >
+              <i className="ri-user-settings-line" />
+              {t('dashboard_character_tools')}
+            </Link>
+          </div>
         </div>
+
+        {nextAction && (
+          <Link
+            to={getNextBestActionHref(nextAction)}
+            className="group mx-auto mb-4 flex max-w-5xl flex-col gap-4 rounded-xl border border-primary-200 bg-white p-4 shadow-sm transition hover:border-primary-300 hover:shadow-md sm:flex-row sm:items-center sm:justify-between"
+            aria-label={t('dashboard_next_open', { task: t(nextAction.titleKey) })}
+          >
+            <div className="flex min-w-0 items-start gap-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-100 text-primary-700">
+                <i className="ri-focus-3-line text-lg" aria-hidden="true" />
+              </span>
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-primary-600">
+                  {t('dashboard_next_eyebrow')}
+                </p>
+                <h2 className="mt-0.5 font-heading text-base font-semibold text-foreground-950 md:text-lg">
+                  {t(nextAction.titleKey)}
+                </h2>
+                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-foreground-600">
+                  <span className="inline-flex items-center gap-1">
+                    <i className="ri-timer-line text-primary-600" aria-hidden="true" />
+                    {t(
+                      nextAction.period === 'daily'
+                        ? 'dashboard_next_daily_reason'
+                        : 'dashboard_next_weekly_reason',
+                      { time: formatCountdown(nextAction.resetInMs) },
+                    )}
+                  </span>
+                  <span className="rounded-full bg-background-100 px-2 py-0.5 font-semibold text-foreground-700">
+                    {t(
+                      nextAction.scope === 'account'
+                        ? 'routine_scope_account'
+                        : nextAction.scope === 'world'
+                          ? 'routine_scope_world'
+                          : 'routine_scope_character',
+                    )}
+                  </span>
+                </div>
+              </div>
+            </div>
+            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-primary-700">
+              {t('dashboard_next_cta')}
+              <i className="ri-arrow-right-line transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </span>
+          </Link>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {/* Card 1: Daily Tasks */}
@@ -181,19 +339,19 @@ export default function TodayInMapleSection() {
               <i className="ri-timer-line text-primary-600" />
               {t('dashboard_tasks_countdown', { time: formatCountdown(dailyCountdown) })}
             </div>
-            {checklistProgress && checklistProgress.totalDaily > 0 ? (
+            {totalDailyTasks > 0 ? (
               <>
                 <div className="mb-2">
                   <div className="flex items-baseline justify-between mb-1">
                     <span className="text-xs text-foreground-600">
                       {t('dashboard_tasks_progress', {
-                        done: checklistProgress.doneDaily,
-                        total: checklistProgress.totalDaily,
+                        done: doneDailyTasks,
+                        total: totalDailyTasks,
                       })}
                     </span>
                     <span className="text-xs font-semibold text-primary-700">
                       {t('dashboard_tasks_remaining', {
-                        count: Math.max(0, checklistProgress.totalDaily - checklistProgress.doneDaily),
+                        count: Math.max(0, totalDailyTasks - doneDailyTasks),
                       })}
                     </span>
                   </div>
@@ -202,21 +360,19 @@ export default function TodayInMapleSection() {
                       className="h-full rounded-full bg-primary-500 transition-all"
                       style={{
                         width: `${
-                          checklistProgress.totalDaily > 0
-                            ? Math.round(
-                                (checklistProgress.doneDaily / checklistProgress.totalDaily) * 100,
-                              )
+                          totalDailyTasks > 0
+                            ? Math.round((doneDailyTasks / totalDailyTasks) * 100)
                             : 0
                         }%`,
                       }}
                     />
                   </div>
                 </div>
-                {checklistProgress.totalWeekly > 0 && (
+                {totalWeeklyTasks > 0 && (
                   <p className="text-xs text-foreground-500">
                     {t('dashboard_tasks_progress', {
-                      done: checklistProgress.doneWeekly,
-                      total: checklistProgress.totalWeekly,
+                      done: doneWeeklyTasks,
+                      total: totalWeeklyTasks,
                     })}{' '}
                     · {t('checklist_type_weekly')}
                   </p>

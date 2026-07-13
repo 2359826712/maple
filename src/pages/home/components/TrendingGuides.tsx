@@ -7,6 +7,7 @@ import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getGuideCardCopy } from '@/pages/guides/localizedGuides';
 import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
+import ShareButton from '@/components/feature/ShareButton';
 import { fetchLiveGuides, liveStorageKeys, type GuideItem } from '@/services/liveContent';
 
 const difficultyColor: Record<string, string> = {
@@ -147,9 +148,12 @@ export default function TrendingGuides() {
                         >
                           <i className="ri-bookmark-line"></i>
                         </button>
-                        <button className="w-9 h-9 rounded-full bg-background-100 hover:bg-secondary-100 hover:text-secondary-800 flex items-center justify-center cursor-pointer" aria-label="share">
-                          <i className="ri-share-forward-line"></i>
-                        </button>
+                        <ShareButton
+                          compact
+                          title={copy.title}
+                          text={g.excerpt}
+                          url={`/guides/${encodeURIComponent(g.id)}`}
+                        />
                       </div>
                     </div>
                   </div>

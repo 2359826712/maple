@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import en from './local/en/common';
 import ja from './local/ja/common';
+import ko from './local/ko/common';
 import zh from './local/zh/common';
 import zhHant from './local/zh-Hant/common';
 import { dailyHubs, quickTools, themePresets } from '../mocks/home';
 
-const locales = { en, ja, zh, 'zh-Hant': zhHant } as const;
+const locales = { en, ja, ko, zh, 'zh-Hant': zhHant } as const;
 const sourceModules = import.meta.glob('../**/*.{ts,tsx}', {
   eager: true,
   import: 'default',

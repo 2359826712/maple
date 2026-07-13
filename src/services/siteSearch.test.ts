@@ -16,6 +16,7 @@ describe('universal site search index', () => {
   it.each([
     ['zh', '每日 Boss 清单'],
     ['ja', 'デイリーボスチェックリスト'],
+    ['ko', '일일 보스 체크리스트'],
     ['zh-Hant', '每日 Boss 清單'],
   ])('returns localized static route titles for %s', (language, title) => {
     const results = getSiteSearchResults('checklist', language, 'gms');

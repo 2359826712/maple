@@ -17,6 +17,9 @@ vi.mock('react-i18next', () => ({
         nav_search_filtered: `Results filtered to ${String(options?.version ?? 'GMS')} content`,
         search_section_bosses: 'Bosses',
         search_clear_btn: 'Clear',
+        nav_sign_in: 'Sign in',
+        nav_sign_out: 'Sign out',
+        nav_account_dashboard: 'Account & checklist',
       };
       return copy[key] ?? key;
     },
@@ -62,7 +65,10 @@ vi.mock('@/services/siteSearch', () => ({
     : [],
 }));
 
-afterEach(() => cleanup());
+afterEach(() => {
+  cleanup();
+  localStorage.clear();
+});
 
 function CurrentPath() {
   const location = useLocation();
@@ -79,10 +85,23 @@ function renderNavbar() {
 }
 
 describe('Navbar mobile site search', () => {
+  it('offers Korean and persists it as the active language', () => {
+    renderNavbar();
+
+    fireEvent.click(screen.getByRole('button', { name: 'nav_menu_open' }));
+    fireEvent.click(screen.getByRole('button', { name: '한국어' }));
+
+    expect(localStorage.getItem('i18nextLng')).toBe('ko');
+    expect(localStorage.getItem('maplehub-language')).toBe('ko');
+    expect(document.documentElement.lang).toBe('ko');
+  });
+
   it('opens from the mobile navbar and reuses site-search result navigation', async () => {
     renderNavbar();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Open site search' }));
+    const trigger = screen.getByRole('button', { name: 'Open site search' });
+    expect(trigger.className).toContain('h-11');
+    fireEvent.click(trigger);
 
     const mobileSearch = document.getElementById('mobile-site-search');
     expect(mobileSearch).toBeTruthy();
@@ -108,5 +127,28 @@ describe('Navbar mobile site search', () => {
 
     expect(document.getElementById('mobile-site-search')).toBeNull();
     expect(screen.getByRole('button', { name: 'Open site search' })).toBeTruthy();
+  });
+});
+
+describe('Navbar account menu', () => {
+  it('clears the browser auth session when signing out', async () => {
+    sessionStorage.setItem('maplehub-auth-session', JSON.stringify({
+      provider: 'local',
+      user: 'Test Mapler',
+      displayName: 'Test Mapler',
+      mode: 'test',
+      signedInAt: new Date().toISOString(),
+      expiresAt: new Date(Date.now() + 60_000).toISOString(),
+      accessToken: 'test-token',
+    }));
+    renderNavbar();
+
+    const accountButton = screen.getByText('Test Mapler').closest('button');
+    expect(accountButton).toBeTruthy();
+    fireEvent.click(accountButton as HTMLButtonElement);
+    fireEvent.click(screen.getByRole('menuitem', { name: 'Sign out' }));
+
+    await waitFor(() => expect(sessionStorage.getItem('maplehub-auth-session')).toBeNull());
+    expect(screen.getByText('Sign in')).toBeTruthy();
   });
 });

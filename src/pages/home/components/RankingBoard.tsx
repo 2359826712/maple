@@ -9,6 +9,7 @@ import {
   type RankingBoardKey,
   type RankingWorldKey,
 } from '@/services/nexonRankings';
+import OfficialServerLinks from '@/components/feature/OfficialServerLinks';
 import { useVersion, VERSIONS, type GameVersion } from '@/hooks/VersionContext';
 
 type RankingTrend = 'up' | 'down' | 'flat';
@@ -173,6 +174,10 @@ export default function RankingBoard() {
               ))}
             </select>
           </div>
+        </div>
+
+        <div className="mb-5">
+          <OfficialServerLinks preferred="rankings" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">

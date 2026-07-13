@@ -7,6 +7,8 @@ import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { bosses } from '@/mocks/bosses';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
+import ShareButton from '@/components/feature/ShareButton';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 const rarityColors: Record<string, string> = {
   Common: 'bg-background-100 text-foreground-950',
@@ -34,6 +36,10 @@ export default function BossDetailPage() {
           ),
       ) || null,
     [bossName, version],
+  );
+  usePageMetadata(
+    boss ? `${boss.name} Boss Guide` : 'MapleStory Boss Guides',
+    boss ? `Mechanics, requirements, rewards, and ${boss.difficulty.join('/')} strategies for ${boss.name}.` : 'MapleStory boss mechanics, requirements, and rewards.',
   );
 
   // No boss name provided — show Boss listing index
@@ -70,6 +76,7 @@ export default function BossDetailPage() {
   }
 
   const currentDiff = boss.difficulty[activeDifficulty];
+  const isPlanningOnly = boss.dataSource.startsWith('Planning only');
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
@@ -124,6 +131,9 @@ export default function BossDetailPage() {
               <h1 className="font-serif text-3xl font-normal text-foreground-950">
                 {boss.name}
               </h1>
+              <div className="mt-3">
+                <ShareButton title={`${boss.name} Boss Guide`} text={`Mechanics, requirements, and rewards for ${boss.name}.`} />
+              </div>
               <div className="mt-2 flex flex-wrap gap-2">
                 {boss.difficulty.map((d, i) => (
                   <button
@@ -156,10 +166,12 @@ export default function BossDetailPage() {
                   <dt className="text-foreground-600">{t('boss_min_level')}</dt>
                   <dd className="font-semibold">Lv.{boss.minLevel}</dd>
                 </div>
-                <div className="flex justify-between">
-                  <dt className="text-foreground-600">{t('boss_recommended_bp')}</dt>
-                  <dd className="font-semibold">{boss.recommendedBp.toLocaleString()}</dd>
-                </div>
+                {!isPlanningOnly && (
+                  <div className="flex justify-between">
+                    <dt className="text-foreground-600">{t('boss_recommended_bp')}</dt>
+                    <dd className="font-semibold">{boss.recommendedBp.toLocaleString()}</dd>
+                  </div>
+                )}
                 <div className="flex justify-between">
                   <dt className="text-foreground-600">
                     {boss.weeklyLimit > 0 ? t('boss_weekly_limit') : t('boss_daily_limit')}
@@ -168,14 +180,18 @@ export default function BossDetailPage() {
                     {boss.weeklyLimit > 0 ? boss.weeklyLimit : boss.dailyLimit}
                   </dd>
                 </div>
-                <div className="flex justify-between">
-                  <dt className="text-foreground-600">{t('boss_exp')}</dt>
-                  <dd className="font-semibold">{boss.expReward.toLocaleString()}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-foreground-600">{t('boss_mesos')}</dt>
-                  <dd className="font-semibold">{boss.mesoReward.toLocaleString()}</dd>
-                </div>
+                {!isPlanningOnly && (
+                  <>
+                    <div className="flex justify-between">
+                      <dt className="text-foreground-600">{t('boss_exp')}</dt>
+                      <dd className="font-semibold">{boss.expReward.toLocaleString()}</dd>
+                    </div>
+                    <div className="flex justify-between">
+                      <dt className="text-foreground-600">{t('boss_mesos')}</dt>
+                      <dd className="font-semibold">{boss.mesoReward.toLocaleString()}</dd>
+                    </div>
+                  </>
+                )}
               </dl>
               <div className="mt-3 flex items-center gap-2 border-t border-background-100 pt-2 text-[11px] text-foreground-600">
                 <span className="flex items-center gap-0.5">
@@ -199,8 +215,33 @@ export default function BossDetailPage() {
             </div>
           </div>
 
+          {isPlanningOnly && (
+            <div className="mb-8 rounded-lg border border-amber-300 bg-amber-50 p-5 text-amber-950">
+              <div className="flex items-start gap-3">
+                <i className="ri-information-line mt-0.5 text-xl text-amber-700" aria-hidden="true"></i>
+                <div>
+                  <h2 className="font-semibold">Verified details are not available yet</h2>
+                  <p className="mt-1 text-sm leading-6">
+                    MapleHub is showing entry and reset information only. Rewards, battle-power targets, mechanics, and strategies stay hidden until a trustworthy GMS source is connected.
+                  </p>
+                  {boss.sourceUrl && (
+                    <a
+                      href={boss.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-md bg-amber-800 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-900"
+                    >
+                      Open the official boss guide
+                      <i className="ri-external-link-line" aria-hidden="true"></i>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Phases */}
-          <div className="mb-8">
+          {boss.phases.length > 0 && <div className="mb-8">
             <h2 className="mb-4 border-b border-background-300 pb-2 font-serif text-xl font-normal">
               {t('boss_phases')}
             </h2>
@@ -227,10 +268,10 @@ export default function BossDetailPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
 
           {/* Tips */}
-          <div className="mb-8">
+          {boss.tips.length > 0 && <div className="mb-8">
             <h2 className="mb-4 border-b border-background-300 pb-2 font-serif text-xl font-normal">
               {t('boss_strategy')}
             </h2>
@@ -244,10 +285,10 @@ export default function BossDetailPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
 
           {/* Drops */}
-          <div className="mb-8">
+          {boss.drops.length > 0 && <div className="mb-8">
             <h2 className="mb-4 border-b border-background-300 pb-2 font-serif text-xl font-normal">
               {t('boss_drops')}
             </h2>
@@ -274,7 +315,7 @@ export default function BossDetailPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </div>}
 
           {/* Related bosses */}
           <div className="border-t border-background-100 pt-6">
@@ -456,11 +497,11 @@ function BossListingIndex({
                       </div>
                       <div className="flex justify-between">
                         <dt>BP</dt>
-                        <dd className="font-semibold text-foreground-950">{b.recommendedBp.toLocaleString()}</dd>
+                        <dd className="font-semibold text-foreground-950">{b.recommendedBp > 0 ? b.recommendedBp.toLocaleString() : 'Pending'}</dd>
                       </div>
                       <div className="flex justify-between">
                         <dt>{t('boss_card_mesos')}</dt>
-                        <dd className="font-semibold text-foreground-950">{b.mesoReward >= 1_000_000 ? `${(b.mesoReward / 1_000_000).toFixed(0)}M` : b.mesoReward.toLocaleString()}</dd>
+                        <dd className="font-semibold text-foreground-950">{b.mesoReward > 0 ? (b.mesoReward >= 1_000_000 ? `${(b.mesoReward / 1_000_000).toFixed(0)}M` : b.mesoReward.toLocaleString()) : 'Pending'}</dd>
                       </div>
                     </dl>
 

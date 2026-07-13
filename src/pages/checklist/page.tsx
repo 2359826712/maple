@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
@@ -31,6 +31,7 @@ import {
   type BossDifficultyChecklistRule,
 } from '@/domain/bossChecklistRules';
 import ChecklistBossRow from './ChecklistBossRow';
+import RoutineChecklist from './RoutineChecklist';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -44,9 +45,13 @@ export default function ChecklistPage() {
   const { t } = useTranslation();
   const { version, setVersion } = useVersion();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
   const [now, setNow] = useState(Date.now());
-  const [filter, setFilter] = useState<'all' | 'daily' | 'weekly'>('all');
+  const [filter, setFilter] = useState<'all' | 'daily' | 'weekly'>(() => {
+    const period = searchParams.get('period');
+    return period === 'daily' || period === 'weekly' ? period : 'all';
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [isEditingChecklist, setIsEditingChecklist] = useState(false);
   const [showIneligible, setShowIneligible] = useState(false);
@@ -318,9 +323,13 @@ export default function ChecklistPage() {
     [regionBosses, version],
   );
   const defaultSelectedTaskIds = useMemo(() => eligibleBosses.flatMap((boss) => {
-    const rule = rulesByBossId.get(boss.id)?.at(-1);
+    const comfortablyUnlocked = (activeCharacter?.level ?? 0) >= boss.minLevel + 10;
+    if (!comfortablyUnlocked) return [];
+    const rules = rulesByBossId.get(boss.id) ?? [];
+    const dailyRules = rules.filter((rule) => rule.period === 'daily');
+    const rule = dailyRules.at(-1) ?? rules.at(0);
     return rule ? [checklistTaskId(boss.id, rule.difficulty)] : [];
-  }), [eligibleBosses, rulesByBossId]);
+  }), [activeCharacter?.level, eligibleBosses, rulesByBossId]);
   const rawSelectedTaskIds = checklistConfig?.selectedTaskIds ?? defaultSelectedTaskIds;
   const normalizedSelectedTaskIds = useMemo(
     () => normalizeTrackedDifficulties(regionBosses, rawSelectedTaskIds),
@@ -534,11 +543,19 @@ export default function ChecklistPage() {
             </div>
           </div>
 
+          <RoutineChecklist
+            version={version}
+            characterId={activeCharId}
+            periodFilter={filter}
+            nowMs={now}
+            world={activeCharacter?.world || activeCharacter?.server || ''}
+          />
+
           {isPrimaryEmptyState ? emptyStateContent : (<>
           {/* Progress cards */}
           <div className="mb-6 grid gap-4 sm:grid-cols-3">
             {/* Daily progress */}
-            <div className="border border-background-300 bg-white p-4">
+            <div id="quick-actions" className="scroll-mt-24 border border-background-300 bg-white p-4">
               <div className="mb-1 flex items-center justify-between">
                 <span className="text-sm font-semibold text-foreground-950">
                   {t('checklist_daily')}
@@ -776,7 +793,7 @@ export default function ChecklistPage() {
             emptyStateContent
           ) : (<>
           {/* One responsive row per boss; difficulty controls appear only in edit mode. */}
-          <div className={compact ? 'space-y-1.5' : 'space-y-2.5'}>
+          <div id="boss-checklist" className={`scroll-mt-24 ${compact ? 'space-y-1.5' : 'space-y-2.5'}`}>
             {(() => {
               const renderResetHeader = (
                 period: 'daily' | 'weekly',

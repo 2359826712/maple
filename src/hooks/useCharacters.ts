@@ -33,9 +33,9 @@ const LEGACY_CHARACTERS_KEY = 'maplehub-characters';
 const LEGACY_CHECKLIST_KEY = 'maplehub-checklist';
 const NEWS_STATE_KEY = 'maplehub-news-state:v1';
 const EXPORT_FORMAT = 'maplehub-export';
-const EXPORT_VERSION = 2;
+const EXPORT_VERSION = 3;
 const MAX_IMPORT_BYTES = 5 * 1024 * 1024;
-const PREFERENCE_KEYS = ['maplehub-game-version', 'maplehub-language', 'i18nextLng', 'maplehub-theme', 'maplehub-color-mode', 'maplehub-tool-favorites', 'maplehub-guide-reading-progress:v1'] as const;
+const PREFERENCE_KEYS = ['maplehub-game-version', 'maplehub-language', 'i18nextLng', 'maplehub-theme', 'maplehub-color-mode', 'maplehub-tool-favorites', 'maplehub-guide-reading-progress:v1', 'maplehub-routine-tasks:v2', 'maplehub-event-goals:v2'] as const;
 const MAX_FIELD_LENGTH = 200;
 const MAX_PREFERENCE_LENGTH = 100_000;
 const forbiddenRecordKeys = new Set(['__proto__', 'prototype', 'constructor']);
@@ -53,6 +53,10 @@ interface MapleHubExportEnvelope {
 
 interface MapleHubExportEnvelopeV1 extends Omit<MapleHubExportEnvelope, 'version' | 'checklistConfigs'> {
   version: 1;
+}
+
+interface MapleHubExportEnvelopeV2 extends Omit<MapleHubExportEnvelope, 'version'> {
+  version: 2;
 }
 
 const isCharacterProfile = (value: unknown): value is CharacterProfile => {
@@ -160,11 +164,11 @@ const hasValidEnvelopeCore = (value: Record<string, unknown>) => {
   return isPreferenceRecord(value.preferences);
 };
 
-const isExportEnvelopeV2 = (value: unknown): value is MapleHubExportEnvelope => {
+const isExportEnvelopeWithChecklist = (value: unknown, version: number) => {
   if (!isPlainRecord(value)) return false;
   const allowedKeys = new Set(['format', 'version', 'exportedAt', 'characters', 'checklists', 'checklistConfigs', 'newsState', 'preferences']);
   if (!hasExactKeys(value, [...allowedKeys])) return false;
-  if (value.format !== EXPORT_FORMAT || value.version !== EXPORT_VERSION) return false;
+  if (value.format !== EXPORT_FORMAT || value.version !== version) return false;
   if (!hasValidEnvelopeCore(value)) return false;
   if (!isPlainRecord(value.checklistConfigs) || !hasSafeKeys(value.checklistConfigs)) return false;
   return Object.entries(value.checklistConfigs).every(([characterId, config]) =>
@@ -172,6 +176,12 @@ const isExportEnvelopeV2 = (value: unknown): value is MapleHubExportEnvelope => 
     && isChecklistConfiguration(config),
   );
 };
+
+const isExportEnvelopeV3 = (value: unknown): value is MapleHubExportEnvelope =>
+  isExportEnvelopeWithChecklist(value, EXPORT_VERSION);
+
+const isExportEnvelopeV2 = (value: unknown): value is MapleHubExportEnvelopeV2 =>
+  isExportEnvelopeWithChecklist(value, 2);
 
 const isExportEnvelopeV1 = (value: unknown): value is MapleHubExportEnvelopeV1 => {
   if (!isPlainRecord(value)) return false;
@@ -185,7 +195,8 @@ export function parseMapleHubImport(text: string):
   if (new Blob([text]).size > MAX_IMPORT_BYTES) return { ok: false, reason: 'too-large' };
   try {
     const envelope = JSON.parse(text) as unknown;
-    if (isExportEnvelopeV2(envelope)) return { ok: true, envelope };
+    if (isExportEnvelopeV3(envelope)) return { ok: true, envelope };
+    if (isExportEnvelopeV2(envelope)) return { ok: true, envelope: { ...envelope, version: EXPORT_VERSION } };
     if (isExportEnvelopeV1(envelope)) {
       return { ok: true, envelope: { ...envelope, version: EXPORT_VERSION, checklistConfigs: {} } };
     }

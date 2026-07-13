@@ -31,6 +31,7 @@ export const guideLocale = (language: string) => {
   if (language.startsWith('zh-Hant')) return 'zh-Hant';
   if (language.startsWith('zh')) return 'zh';
   if (language.startsWith('ja')) return 'ja';
+  if (language.startsWith('ko')) return 'ko';
   return 'en';
 };
 

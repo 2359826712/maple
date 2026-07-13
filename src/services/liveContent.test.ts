@@ -3,12 +3,99 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
   normalizeEventFeed,
+  normalizeTmsBulletins,
+  officialArticleHref,
+  parseJmsListing,
+  parseKmsListing,
+  parseMseaListing,
   parseGrandisSectionPage,
   validateHydratedWikiEntry,
   wikiEntryFromMirrorRecord,
 } from './liveContent';
 import type { WikiMirrorPageRecord } from './mapleSqlApi';
 import type { WikiEntry } from '@/mocks/wiki';
+
+describe('official regional news adapters', () => {
+  it('imports KMS notices and events', () => {
+    const items = parseKmsListing(`
+      <ul><li>
+        <p><a href="/News/Notice/All/149495"><em><img src="notice.png" alt="[공지]"></em><span>운영정책 안내</span></a></p>
+        <div class="heart_date">2026.07.09</div>
+      </li></ul>
+    `, 'General');
+
+    expect(items[0]).toMatchObject({
+      title: '운영정책 안내',
+      versions: ['kms'],
+      sourceUrl: 'https://maplestory.nexon.com/News/Notice/All/149495',
+    });
+  });
+
+  it('builds an internal route for official articles', () => {
+    const href = officialArticleHref('https://www.maplesea.com/news/view/example/', 'Example', 'msea');
+    const url = new URL(href, 'https://maplehub.test');
+    expect(url.pathname).toBe('/source');
+    expect(url.searchParams.get('url')).toBe('https://www.maplesea.com/news/view/example/');
+    expect(url.searchParams.get('server')).toBe('msea');
+  });
+
+  it('imports MapleStorySEA listing rows as in-site news cards', () => {
+    const items = parseMseaListing(`
+      <ul><li class="title_links">[08.07] :
+        <a href="https://www.maplesea.com/events/view/v252_Sunday_Jul/">July Sunday Maple Benefits</a>
+      </li></ul>
+    `, 'Event');
+
+    expect(items).toHaveLength(1);
+    expect(items[0]).toMatchObject({
+      title: 'July Sunday Maple Benefits',
+      category: 'Event',
+      versions: ['msea'],
+      sourceUrl: 'https://www.maplesea.com/events/view/v252_Sunday_Jul/',
+    });
+  });
+
+  it('imports JMS notice table rows with their official article URL', () => {
+    const items = parseJmsListing(`
+      <table class="notice-list"><tr>
+        <td class="category"><p class="event">イベント</p></td>
+        <td class="ttl"><p><a href="/notice/view/?alias=abc&amp;id=event">サンデーメイプル</a></p></td>
+        <td class="date">2026.07.08</td><td class="view">20662</td>
+      </tr></table>
+    `);
+
+    expect(items[0]).toMatchObject({
+      title: 'サンデーメイプル',
+      category: 'Event',
+      versions: ['jms'],
+      sourceUrl: 'https://maplestory.nexon.co.jp/notice/view/?alias=abc&id=event',
+    });
+  });
+
+  it('imports the safe JMS markdown mirror when the official site blocks the backend client', () => {
+    const items = parseJmsListing(`
+      | カテゴリ | 件名 | 日付 | 表示回数 |
+      | --- | --- | --- | --- |
+      | イベント | [スペシャルサンデー](https://maplestory.nexon.co.jp/notice/view/?alias=abc&id=all) | 2026.07.08 | 20688 |
+    `);
+
+    expect(items[0]).toMatchObject({ title: 'スペシャルサンデー', category: 'Event', versions: ['jms'] });
+  });
+
+  it('normalizes TMS bulletin API records', () => {
+    const items = normalizeTmsBulletins([{
+      bullentinId: '82054', bullentinCatId: '72', startDate: '2026/07/08',
+      title: '潘朵拉箱子', urlLink: null,
+    }]);
+
+    expect(items[0]).toMatchObject({
+      title: '潘朵拉箱子',
+      category: 'Event',
+      versions: ['tms'],
+      sourceUrl: 'https://maplestory.beanfun.com/bulletin?bid=82054',
+    });
+  });
+});
 
 describe('Grandis class landing import', () => {
   it('replaces upstream swiper markup with grouped h2 + container sections (GL layout)', () => {

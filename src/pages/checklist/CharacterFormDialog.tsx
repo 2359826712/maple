@@ -128,7 +128,7 @@ export default function CharacterFormDialog({
                 onChange={(e) => setServer(e.target.value)}
                 className="w-full border border-background-300 bg-white px-3 py-2 text-sm outline-none focus:border-primary-600"
               >
-                {['GMS', 'KMS', 'MSEA', 'JMS', 'CMS', 'TMS'].map((s) => (
+                {['GMS', 'KMS', 'MSEA', 'JMS', 'TMS'].map((s) => (
                   <option key={s} value={s}>{s}</option>
                 ))}
               </select>

@@ -35,11 +35,17 @@ describe('homepage audience states', () => {
     expect(screen.queryByText('Returning player dashboard')).toBeNull();
     expect(screen.getByText('Version highlights')).toBeTruthy();
     expect(screen.getByText('Quick tools')).toBeTruthy();
+
+    const hero = screen.getByText('New player hero');
+    const highlights = screen.getByText('Version highlights');
+    const shortcuts = screen.getByText('New player shortcuts');
+    expect(hero.compareDocumentPosition(highlights) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(highlights.compareDocumentPosition(shortcuts) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it('promotes the personal dashboard for a returning player', () => {
     mockUseCharacters.mockReturnValue({
-      activeCharacter: { id: 'local-1', name: 'Mapler', level: 260 },
+      activeCharacter: { id: 'local-1', name: 'Mapler', level: 260, className: '', world: '', server: '' },
     } as never);
 
     renderHome();
@@ -51,5 +57,17 @@ describe('homepage audience states', () => {
     const dashboard = screen.getByText('Returning player dashboard');
     const highlights = screen.getByText('Version highlights');
     expect(dashboard.compareDocumentPosition(highlights) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it('treats the legacy level-one placeholder as unconfigured', () => {
+    mockUseCharacters.mockReturnValue({
+      activeCharacter: { id: 'legacy-1', name: 'My Character', level: 1, className: '', world: '', server: '' },
+    } as never);
+
+    renderHome();
+
+    expect(screen.getByText('New player hero')).toBeTruthy();
+    expect(screen.getByText('New player shortcuts')).toBeTruthy();
+    expect(screen.queryByText('Returning player dashboard')).toBeNull();
   });
 });

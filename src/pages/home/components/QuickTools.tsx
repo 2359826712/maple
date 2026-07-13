@@ -4,6 +4,7 @@ import { telemetry } from '@/services/telemetry';
 import { useTranslation } from 'react-i18next';
 import { quickTools } from '@/mocks/home';
 import { Link } from 'react-router-dom';
+import { usePinnedTools } from '@/hooks/usePinnedTools';
 
 const tintMap: Record<string, { bg: string; text: string; ring: string }> = {
   primary: { bg: 'bg-primary-100', text: 'text-primary-700', ring: 'group-hover:ring-primary-300' },
@@ -14,10 +15,19 @@ const tintMap: Record<string, { bg: string; text: string; ring: string }> = {
 export default function QuickTools() {
   const { versionInfo } = useVersion();
   const { t } = useTranslation();
+  const { pinnedKeys, togglePinned } = usePinnedTools();
 
-  const filteredTools = quickTools.filter(
-    (tool) => tool.key !== 'char' && isAvailableInVersion(tool.versions, versionInfo.id),
-  );
+  const pinnedIndex = new Map(pinnedKeys.map((key, index) => [key, index]));
+  const filteredTools = quickTools
+    .filter((tool) => tool.key !== 'char' && isAvailableInVersion(tool.versions, versionInfo.id))
+    .sort((a, b) => {
+      const aPinned = pinnedIndex.get(a.key);
+      const bPinned = pinnedIndex.get(b.key);
+      if (aPinned !== undefined && bPinned !== undefined) return aPinned - bPinned;
+      if (aPinned !== undefined) return -1;
+      if (bPinned !== undefined) return 1;
+      return quickTools.indexOf(a) - quickTools.indexOf(b);
+    });
 
   return (
     <section id="tools" className="py-14 md:py-20 bg-background-50">
@@ -47,44 +57,59 @@ export default function QuickTools() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredTools.map((tItem) => {
             const tint = tintMap[tItem.tint] || tintMap.primary;
+            const pinned = pinnedIndex.has(tItem.key);
             const toolTag = tItem.versions.length === 1 && tItem.versions[0] !== 'gms'
               ? t('tools_tag_version', { version: tItem.versions[0].toUpperCase() })
               : (tItem.tag === 'GMS' ? t('tools_tag_gms') : tItem.tag === 'Simulator' ? t('tools_tag_simulator') : tItem.tag === 'Live' ? t('tools_tag_live') : tItem.tag === 'Community' ? t('tools_tag_community') : tItem.tag === 'GMS Only' ? t('tools_tag_gms_only') : tItem.tag === 'Tools' ? t('tools_tag_tools') : tItem.tag);
             return (
-              <Link
+              <article
                 key={tItem.key}
-                to={tItem.href}
-                onClick={() => telemetry.trackToolUse(tItem.key)}
-                className={`group relative rounded-xl border border-background-200 bg-background-50 p-5 hover:border-primary-300 hover:bg-background-100 transition-all cursor-pointer ring-1 ring-transparent ${tint.ring}`}
+                className={`group relative rounded-xl border bg-background-50 transition-all ring-1 ring-transparent hover:border-primary-300 hover:bg-background-100 ${pinned ? 'border-primary-300 shadow-sm' : 'border-background-200'} ${tint.ring}`}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-lg ${tint.bg} ${tint.text} flex items-center justify-center`}>
-                    <i className={`${tItem.icon} text-2xl`}></i>
+                <button
+                  type="button"
+                  onClick={() => togglePinned(tItem.key)}
+                  className={`absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full border transition ${pinned ? 'border-secondary-400 bg-secondary-100 text-secondary-800' : 'border-background-300 bg-background-50 text-foreground-700 hover:border-secondary-400 hover:text-secondary-800'}`}
+                  aria-pressed={pinned}
+                  aria-label={t(pinned ? 'tools_unpin' : 'tools_pin', { tool: t(tItem.titleKey) })}
+                  title={t(pinned ? 'tools_unpin' : 'tools_pin', { tool: t(tItem.titleKey) })}
+                >
+                  <i className={pinned ? 'ri-pushpin-fill' : 'ri-pushpin-line'} aria-hidden="true" />
+                </button>
+                <Link
+                  to={tItem.href}
+                  onClick={() => telemetry.trackToolUse(tItem.key)}
+                  className="block cursor-pointer p-5"
+                >
+                  <div className="mb-4 flex items-start justify-between pr-9">
+                    <div className={`w-12 h-12 rounded-lg ${tint.bg} ${tint.text} flex items-center justify-center`}>
+                      <i className={`${tItem.icon} text-2xl`}></i>
+                    </div>
+                    <span className={`px-2 py-1 rounded-full text-[10px] font-semibold ${tint.bg} ${tint.text} whitespace-nowrap`}>
+                      {toolTag}
+                    </span>
                   </div>
-                  <span className={`px-2 py-1 rounded-full text-[10px] font-semibold ${tint.bg} ${tint.text} whitespace-nowrap`}>
-                    {toolTag}
-                  </span>
-                </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground-950">
-                  {t(tItem.titleKey)}
-                </h3>
-                <p className="mt-1 text-sm text-foreground-700">{t(tItem.descKey)}</p>
-                <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-primary-700">
-                  {t('tools_open')}
-                  <i className="ri-arrow-right-line group-hover:translate-x-0.5 transition-transform"></i>
-                </div>
-                <div className="mt-3 flex items-center gap-2 text-[11px] text-foreground-500 border-t border-background-200 pt-3">
-                  <span className="flex items-center gap-0.5">
-                    <i className="ri-global-line text-[10px]"></i>
-                    {tItem.versions.length >= 5 ? t('tools_data_all_versions', 'All versions') : tItem.versions.map((v) => v.toUpperCase()).join(' / ')}
-                  </span>
-                  <span className="text-background-300">·</span>
-                  <span className="flex items-center gap-0.5">
-                    <i className="ri-information-line text-[10px] text-primary-500"></i>
-                    {t(tItem.dataLabelKey)}
-                  </span>
-                </div>
-              </Link>
+                  <h3 className="font-heading text-lg font-semibold text-foreground-950">
+                    {t(tItem.titleKey)}
+                  </h3>
+                  <p className="mt-1 text-sm text-foreground-700">{t(tItem.descKey)}</p>
+                  <div className="mt-4 flex items-center gap-1 text-sm font-semibold text-primary-700">
+                    {t('tools_open')}
+                    <i className="ri-arrow-right-line group-hover:translate-x-0.5 transition-transform"></i>
+                  </div>
+                  <div className="mt-3 flex items-center gap-2 text-[11px] text-foreground-500 border-t border-background-200 pt-3">
+                    <span className="flex items-center gap-0.5">
+                      <i className="ri-global-line text-[10px]"></i>
+                      {tItem.versions.length >= 5 ? t('tools_data_all_versions', 'All versions') : tItem.versions.map((v) => v.toUpperCase()).join(' / ')}
+                    </span>
+                    <span className="text-background-300">·</span>
+                    <span className="flex items-center gap-0.5">
+                      <i className="ri-information-line text-[10px] text-primary-500"></i>
+                      {t(tItem.dataLabelKey)}
+                    </span>
+                  </div>
+                </Link>
+              </article>
             );
           })}
         </div>

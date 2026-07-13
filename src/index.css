@@ -1953,6 +1953,11 @@ textarea:focus-visible,
   /* Live ticker scrolling */
   .animate-marquee {
     animation: none !important;
+    transform: none !important;
+  }
+
+  .animate-marquee .ticker-duplicate {
+    display: none !important;
   }
 
   /* Version badge pulse */

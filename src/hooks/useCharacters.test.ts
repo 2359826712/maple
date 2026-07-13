@@ -26,17 +26,31 @@ describe('MapleHub backup validation', () => {
     const result = parseMapleHubImport(JSON.stringify(validEnvelope));
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.envelope.version).toBe(2);
+      expect(result.envelope.version).toBe(3);
       expect(result.envelope.checklistConfigs).toEqual({});
     }
   });
 
-  it('accepts the current version-two envelope with validated checklist configuration', () => {
+  it('migrates a version-two envelope with validated checklist configuration', () => {
     const result = parseMapleHubImport(JSON.stringify({
       ...validEnvelope,
       version: 2,
       checklistConfigs: {
         'local-1': { selectedTaskIds: ['lotus:Normal'], updatedAt: '2026-07-11T00:00:00.000Z' },
+      },
+    }));
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.envelope.version).toBe(3);
+  });
+
+  it('accepts version three backups containing routine history and event goals', () => {
+    const result = parseMapleHubImport(JSON.stringify({
+      ...validEnvelope,
+      version: 3,
+      checklistConfigs: {},
+      preferences: {
+        'maplehub-routine-tasks:v2': JSON.stringify({ selectedIds: [], completedPeriods: {}, history: [] }),
+        'maplehub-event-goals:v2': JSON.stringify({}),
       },
     }));
     expect(result.ok).toBe(true);

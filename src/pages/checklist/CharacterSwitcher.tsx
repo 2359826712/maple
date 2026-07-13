@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { CharacterProfile } from '@/hooks/useCharacters';
 
@@ -21,6 +21,16 @@ export default function CharacterSwitcher({
 }: CharacterSwitcherProps) {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState<string | null>(null);
+  const [pendingDelete, setPendingDelete] = useState<CharacterProfile | null>(null);
+
+  useEffect(() => {
+    if (!pendingDelete) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setPendingDelete(null);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [pendingDelete]);
 
   if (characters.length === 0) {
     return (
@@ -38,6 +48,7 @@ export default function CharacterSwitcher({
   }
 
   return (
+    <>
     <div className="mb-4 flex flex-wrap items-center gap-2">
       {characters.map((char) => (
         <div key={char.id} className="relative">
@@ -81,7 +92,7 @@ export default function CharacterSwitcher({
               </button>
               <button
                 type="button"
-                onClick={() => { onDelete(char.id); setMenuOpen(null); }}
+                onClick={() => { setPendingDelete(char); setMenuOpen(null); }}
                 className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm text-red-600 hover:bg-red-50"
               >
                 <i className="ri-delete-bin-line text-xs"></i>
@@ -92,5 +103,44 @@ export default function CharacterSwitcher({
         </div>
       ))}
     </div>
+    {pendingDelete && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-foreground-950/40">
+        <div
+          role="alertdialog"
+          aria-modal="true"
+          aria-labelledby="delete-character-title"
+          aria-describedby="delete-character-description"
+          className="mx-4 w-full max-w-md rounded-lg border border-background-300 bg-white p-6 shadow-xl"
+        >
+          <h2 id="delete-character-title" className="text-lg font-semibold text-foreground-950">
+            {t('char_delete_confirm_title', { name: pendingDelete.name })}
+          </h2>
+          <p id="delete-character-description" className="mt-2 text-sm leading-6 text-foreground-600">
+            {t('char_delete_confirm_desc')}
+          </p>
+          <div className="mt-5 flex gap-2">
+            <button
+              type="button"
+              autoFocus
+              onClick={() => setPendingDelete(null)}
+              className="h-11 flex-1 rounded-md border border-background-300 bg-white text-sm font-semibold text-foreground-950 hover:bg-background-50"
+            >
+              {t('char_cancel')}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                onDelete(pendingDelete.id);
+                setPendingDelete(null);
+              }}
+              className="h-11 flex-1 rounded-md bg-red-700 text-sm font-semibold text-white hover:bg-red-800"
+            >
+              {t('char_delete_btn')}
+            </button>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }

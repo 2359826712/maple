@@ -1,4 +1,4 @@
-export const regions = ['gms', 'kms', 'msea', 'jms', 'cms', 'tms', 'all'] as const;
+export const regions = ['gms', 'kms', 'msea', 'jms', 'tms', 'all'] as const;
 
 export type Region = (typeof regions)[number];
 

@@ -9,6 +9,7 @@ import {
   type EventDataRecord,
 } from '@/domain/contentSchemas';
 import { sanitizeMirroredHtml } from './sanitizeHtml';
+import { isGameVersion, type GameVersion } from '@/domain/regionModel';
 
 export type { WikiCategory, WikiEntry } from '@/mocks/wiki';
 
@@ -72,7 +73,7 @@ export type EventItem = {
 };
 
 export const liveStorageKeys = {
-  news: 'maplehub-online-news',
+  news: 'maplehub-online-official-news-v2',
   guides: 'maplehub-online-grandis-guides-v6',
   events: 'maplehub-online-events:v2',
   tools: 'maplehub-online-tools',
@@ -92,16 +93,6 @@ export type GrandisGuideSectionPage = {
   text: string;
   sourceUrl: string;
   sourceSyncedAt: string;
-};
-
-type SteamNewsItem = {
-  gid: string;
-  title: string;
-  url: string;
-  author?: string;
-  contents?: string;
-  date?: number;
-  feedlabel?: string;
 };
 
 type WikiApiPage = {
@@ -145,15 +136,9 @@ const sourceLabels: Record<string, string> = {
   mswiki: 'MapleStory Wiki',
 };
 
-const allVersions = ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'];
-const steamHeaderImage = 'https://cdn.cloudflare.steamstatic.com/steam/apps/216150/header.jpg';
+const allVersions = ['gms', 'kms', 'msea', 'jms', 'tms'];
 const officialNewsImage = 'https://g.nexonstatic.com/media/igbblld4/1200x628-v269-ride-the-lightning-update-maplestory.png';
 const imageUrlPattern = /https?:\/\/[^\s"'<>]+?\.(?:png|jpe?g|webp)(?:\?[^\s"'<>]+)?/i;
-
-const steamNewsUrls = [
-  '/api/steam-maplestory-news',
-  'https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/',
-];
 
 const grandisClassUrls = ['/api/grandis-library/classes', 'https://grandislibrary.com/classes'];
 const grandisContentUrls = ['/api/grandis-library/content', 'https://grandislibrary.com/content'];
@@ -693,7 +678,7 @@ const rarityForTitle = (title: string): EventItem['rarity'] => {
 
 const sourceImageForGuide = (source: string) => {
   if (source === 'Grandis Library') return 'https://grandislibrary.com/headers/verdel.png';
-  return steamHeaderImage;
+  return officialNewsImage;
 };
 
 const grandisUrlForPath = (path: string) => absoluteUrl(path, 'https://grandislibrary.com');
@@ -1284,7 +1269,7 @@ const parseGucciTools = (html: string) => {
 
 const wikiCategoryForPage = (title: string, categories: string[] = []): WikiCategory => {
   const normalized = [title, ...categories.map((category) => category.replace(/^Category:/i, ''))].join(' ').toLowerCase();
-  if (/(patch|update|updates|v\.\d+|kms|kmst|gms|cms|tms|jms|msea|patch notes|release)/.test(normalized)) return 'updates';
+  if (/(patch|update|updates|v\.\d+|kms|kmst|gms|tms|jms|msea|patch notes|release)/.test(normalized)) return 'updates';
   if (/(quest|quests|storyline|pre-requisite|pre-requisites|advancement quest)/.test(normalized)) return 'quests';
   if (/(npc|npcs|merchant|shop|store|vendor|24\s*hr|24hr|mobile store)/.test(normalized)) return 'npcs';
   if (/(boss|bosses|balrog|zakum|horntail|hilla|lotus|damien|lucid|will|seren|kalos|black mage|kaling|karing|verus hilla|gloom|darknell)/.test(normalized)) return 'bosses';
@@ -1309,50 +1294,367 @@ const iconForWikiCategory: Record<WikiCategory, string> = {
   other: 'ri-more-line',
 };
 
-export async function fetchLiveNews(): Promise<RemotePayload<NewsItem>> {
-  const data = await jsonFetch<{ appnews?: { newsitems?: SteamNewsItem[] } }>(steamNewsUrls, {
-    appid: 216150,
-    count: 12,
-    maxlength: 900,
-    format: 'json',
-  });
+const normalizeRegionalNews = (payload: unknown, version: GameVersion): NewsItem[] => {
+  const source = Array.isArray(payload)
+    ? payload
+    : payload && typeof payload === 'object' && Array.isArray((payload as { items?: unknown[] }).items)
+      ? (payload as { items: unknown[] }).items
+      : [];
 
-  const candidates = (data.appnews?.newsitems || []).map((item): NewsItem => {
-    const category = classifyNews(item.title);
-    const publishedAt = new Date((item.date || Math.floor(Date.now() / 1000)) * 1000).toISOString();
-    return {
-      id: `steam-news-${item.gid}`,
-      category,
-      title: item.title,
-      excerpt: firstSentence(item.contents, 'Official MapleStory news from the live Steam news feed.'),
-      author: item.author || item.feedlabel || 'MapleStory',
-      date: formatDate(item.date),
-      publishedAt,
-      reads: 'Live',
-      sourceUrl: item.url,
-      tag: tagForCategory(category),
-      versions: ['gms'],
-      image: extractImage(item.contents),
-    };
+  return source.flatMap((item): NewsItem[] => {
+    if (!item || typeof item !== 'object' || typeof (item as { id?: unknown }).id !== 'string') return [];
+    const news = item as NewsItem;
+    return [{ ...news, versions: [version] }];
   });
+};
 
-  const items = candidates.filter((item) => {
-    const validation = validateNewsData({
-      id: item.id,
-      title: item.title,
-      excerpt: item.excerpt,
-      author: item.author,
-      publishedAt: item.publishedAt,
-      category: item.category,
-      regions: ['gms'],
-      sourceUrl: item.sourceUrl,
-      imageUrl: item.image,
+const activeContentVersion = (): GameVersion => {
+  if (typeof window === 'undefined') return 'gms';
+  const stored = window.localStorage.getItem('maplehub-game-version');
+  return isGameVersion(stored) ? stored : 'gms';
+};
+
+type GmsOfficialNews = {
+  id: number;
+  name: string;
+  summary?: string;
+  category: string;
+  liveDate: string;
+  imageThumbnail?: string;
+};
+
+type TmsBulletin = {
+  bullentinId: string;
+  bullentinCatId: string;
+  startDate: string;
+  title: string;
+  urlLink?: string | null;
+  thumbnail?: string | null;
+};
+
+const officialCategory = (value: string): NewsItem['category'] => {
+  const normalized = value.toLowerCase();
+  if (normalized.includes('event') || normalized.includes('活動') || normalized.includes('イベント')) return 'Event';
+  if (normalized.includes('sale') || normalized.includes('cash') || normalized.includes('shop') || normalized.includes('商城')) return 'Cash Shop';
+  if (normalized.includes('update') || normalized.includes('maintenance') || normalized.includes('更新') || normalized.includes('メンテナンス')) return 'Patch Notes';
+  return 'General';
+};
+
+const displayDate = (publishedAt: string) => new Intl.DateTimeFormat('en-US', {
+  year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+}).format(new Date(publishedAt));
+
+const listingDateToIso = (value: string) => {
+  const full = value.match(/(20\d{2})[./-](\d{1,2})[./-](\d{1,2})/);
+  if (full) return new Date(Date.UTC(Number(full[1]), Number(full[2]) - 1, Number(full[3]))).toISOString();
+
+  const short = value.match(/(\d{1,2})[./](\d{1,2})/);
+  if (!short) return new Date().toISOString();
+  const now = new Date();
+  let year = now.getUTCFullYear();
+  const candidate = new Date(Date.UTC(year, Number(short[2]) - 1, Number(short[1])));
+  if (candidate.getTime() > now.getTime() + 31 * 86_400_000) year -= 1;
+  return new Date(Date.UTC(year, Number(short[2]) - 1, Number(short[1]))).toISOString();
+};
+
+const newsItem = (input: {
+  id: string;
+  version: GameVersion;
+  title: string;
+  category: NewsItem['category'];
+  publishedAt: string;
+  sourceUrl: string;
+  excerpt?: string;
+  reads?: string;
+  image?: string;
+  author: string;
+}): NewsItem => ({
+  id: input.id,
+  category: input.category,
+  title: input.title.trim(),
+  excerpt: input.excerpt?.trim() || input.title.trim(),
+  author: input.author,
+  date: displayDate(input.publishedAt),
+  publishedAt: input.publishedAt,
+  reads: input.reads || 'Official',
+  sourceUrl: input.sourceUrl,
+  tag: tagForCategory(input.category),
+  versions: [input.version],
+  image: input.image || officialNewsImage,
+});
+
+const fetchGmsOfficialNews = async () => {
+  let rows: GmsOfficialNews[];
+  try {
+    rows = await cachedJsonFetch<GmsOfficialNews[]>('/api/official-content/gms/news', {
+      cacheKey: 'official-news:gms:backend',
+      freshMs: realtimeCacheDurations.medium,
+      staleMs: realtimeCacheDurations.week,
     });
-    if ('issues' in validation) console.warn('[MapleHub] Rejected invalid news import.', item.id, validation.issues);
-    return validation.ok;
+  } catch {
+    rows = await cachedJsonFetch<GmsOfficialNews[]>('https://g.nexonstatic.com/maplestory/cms/v1/news', {
+      cacheKey: 'official-news:gms',
+      freshMs: realtimeCacheDurations.medium,
+      staleMs: realtimeCacheDurations.week,
+    });
+  }
+  return rows.slice(0, 30).map((row) => {
+    const category = officialCategory(row.category);
+    return newsItem({
+      id: `gms-${row.id}`,
+      version: 'gms',
+      title: row.name,
+      category,
+      publishedAt: row.liveDate,
+      sourceUrl: `https://www.nexon.com/maplestory/news/${row.category.toLowerCase()}/${row.id}/${slugFromText(row.name)}`,
+      excerpt: stripMarkup(row.summary),
+      image: row.imageThumbnail ? absoluteUrl(row.imageThumbnail, 'https://g.nexonstatic.com') : undefined,
+      author: 'MapleStory Global',
+    });
+  });
+};
+
+export const parseKmsListing = (html: string, category: NewsItem['category']) => {
+  const document = new DOMParser().parseFromString(html, 'text/html');
+  const seen = new Set<string>();
+  return Array.from(document.querySelectorAll<HTMLAnchorElement>('a[href*="/News/Notice/"], a[href*="/News/Event/"]'))
+    .flatMap((anchor): NewsItem[] => {
+      const href = anchor.getAttribute('href');
+      if (!href || !/\/(?:Notice\/(?:All|Notice|Inspection)\/\d+|Event\/\d+)$/i.test(href) || seen.has(href)) return [];
+      const container = anchor.closest('li') || anchor.parentElement;
+      const anchors = Array.from(container?.querySelectorAll<HTMLAnchorElement>(`a[href="${href}"]`) || []);
+      const title = anchors
+        .map((candidate) => candidate.textContent?.replace(/\s+/g, ' ').trim() || '')
+        .find((text) => text && !/^20\d{2}[.\/-]/.test(text));
+      if (!title) return [];
+      seen.add(href);
+      const publishedAt = listingDateToIso(container?.textContent || '');
+      const image = anchors.map((candidate) => candidate.querySelector('img')?.getAttribute('src')).find(Boolean);
+      return [newsItem({
+        id: `kms-${slugFromText(href)}`,
+        version: 'kms',
+        title,
+        category,
+        publishedAt,
+        sourceUrl: absoluteUrl(href, 'https://maplestory.nexon.com/'),
+        image: image || undefined,
+        author: '메이플스토리',
+      })];
+    });
+};
+
+const fetchKmsOfficialNews = async () => {
+  const [newsPage, eventsPage] = await Promise.all([
+    textFetchWithMetadata(['/api/official-content/kms/news', '/api/kms/News/Notice', 'https://maplestory.nexon.com/News/Notice']),
+    textFetchWithMetadata(['/api/official-content/kms/events', '/api/kms/News/Event', 'https://maplestory.nexon.com/News/Event']),
+  ]);
+  return [...parseKmsListing(newsPage.text, 'General'), ...parseKmsListing(eventsPage.text, 'Event')].slice(0, 40);
+};
+
+export const parseMseaListing = (html: string, category: NewsItem['category']) => {
+  const document = new DOMParser().parseFromString(html, 'text/html');
+  return Array.from(document.querySelectorAll('li.title_links')).flatMap((node, index): NewsItem[] => {
+    const anchor = node.querySelector('a');
+    const href = anchor?.getAttribute('href')?.trim();
+    const title = anchor?.textContent?.replace(/\s+/g, ' ').trim();
+    if (!href || !title) return [];
+    const publishedAt = listingDateToIso(node.textContent || '');
+    const sourceUrl = absoluteUrl(href.replace(/^http:/, 'https:'), 'https://www.maplesea.com/');
+    return [newsItem({
+      id: `msea-${category}-${slugFromText(sourceUrl)}-${index}`,
+      version: 'msea', title, category, publishedAt, sourceUrl, author: 'MapleStorySEA',
+    })];
+  });
+};
+
+const fetchMseaOfficialNews = async () => {
+  const [newsPage, eventsPage] = await Promise.all([
+    textFetchWithMetadata(['/api/official-content/msea/news', '/api/msea/news/', 'https://www.maplesea.com/news/']),
+    textFetchWithMetadata(['/api/official-content/msea/events', '/api/msea/events/', 'https://www.maplesea.com/events/']),
+  ]);
+  return [...parseMseaListing(newsPage.text, 'General'), ...parseMseaListing(eventsPage.text, 'Event')].slice(0, 30);
+};
+
+export const parseJmsListing = (html: string) => {
+  const document = new DOMParser().parseFromString(html, 'text/html');
+  const tableItems = Array.from(document.querySelectorAll('table.notice-list tr')).flatMap((row, index): NewsItem[] => {
+    const anchor = row.querySelector<HTMLAnchorElement>('td.ttl a');
+    const title = anchor?.textContent?.replace(/\s+/g, ' ').trim();
+    const href = anchor?.getAttribute('href');
+    if (!title || !href) return [];
+    const categoryText = row.querySelector('td.category')?.textContent || '';
+    const publishedAt = listingDateToIso(row.querySelector('td.date')?.textContent || '');
+    return [newsItem({
+      id: `jms-${slugFromText(href)}-${index}`,
+      version: 'jms', title, category: officialCategory(categoryText), publishedAt,
+      sourceUrl: absoluteUrl(href, 'https://maplestory.nexon.co.jp/'),
+      reads: row.querySelector('td.view')?.textContent?.trim(),
+      author: 'メイプルストーリー',
+    })];
+  });
+  if (tableItems.length > 0) return tableItems;
+
+  return (document.body.textContent || '').split('\n').flatMap((line, index): NewsItem[] => {
+    const match = line.trim().match(/^\|\s*([^|]+?)\s*\|\s*\[([^\]]+)\]\((https:\/\/maplestory\.nexon\.co\.jp\/notice\/view\/[^)]+)\)\s*\|\s*(20\d{2}\.\d{2}\.\d{2})\s*\|\s*([^|]+?)\s*\|$/);
+    if (!match) return [];
+    return [newsItem({
+      id: `jms-${slugFromText(match[3])}-${index}`,
+      version: 'jms',
+      title: match[2],
+      category: officialCategory(match[1]),
+      publishedAt: listingDateToIso(match[4]),
+      sourceUrl: match[3],
+      reads: match[5].trim(),
+      author: 'メイプルストーリー',
+    })];
+  });
+};
+
+const fetchJmsOfficialNews = async () => {
+  const page = await textFetchWithMetadata([
+    '/api/official-content/jms/news',
+    '/api/jms/notice/_noticelist/?id=all&p=1',
+    'https://maplestory.nexon.co.jp/notice/_noticelist/?id=all&p=1',
+  ]);
+  return parseJmsListing(page.text).slice(0, 30);
+};
+
+const fetchTmsOfficialNews = async () => {
+  try {
+    const mirrored = await cachedJsonFetch<{
+      data?: { myDataSet?: { table?: TmsBulletin[] } };
+    }>('/api/official-content/tms/news', {
+      cacheKey: 'official-news:tms:backend',
+      freshMs: realtimeCacheDurations.medium,
+      staleMs: realtimeCacheDurations.week,
+    });
+    const rows = mirrored.data?.myDataSet?.table || [];
+    if (rows.length > 0) return normalizeTmsBulletins(rows);
+  } catch {
+    // Local Vite proxy fallback keeps standalone frontend development working.
+  }
+
+  const mainPage = await cachedTextFetch('/api/tms/main', {
+    cacheKey: 'official-news:tms:csrf-page',
+    freshMs: realtimeCacheDurations.medium,
+    staleMs: realtimeCacheDurations.long,
+    timeoutMs: 15_000,
+  });
+  const document = new DOMParser().parseFromString(mainPage, 'text/html');
+  const token = document.querySelector<HTMLInputElement>('input[name="__RequestVerificationToken"]')?.value || '';
+  const payload = await cachedJsonFetch<{
+    data?: { myDataSet?: { table?: TmsBulletin[] } };
+  }>('/api/tms/main?handler=BulletinProxy', {
+    cacheKey: 'official-news:tms',
+    freshMs: realtimeCacheDurations.medium,
+    staleMs: realtimeCacheDurations.week,
+    requestInit: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'X-CSRF-TOKEN': token,
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+      body: new URLSearchParams({ Kind: '0', Page: '1', method: '0', PageSize: '20' }).toString(),
+    },
+  });
+  return normalizeTmsBulletins(payload.data?.myDataSet?.table || []);
+};
+
+export const normalizeTmsBulletins = (rows: TmsBulletin[]) => rows.map((row) => newsItem({
+    id: `tms-${row.bullentinId}`,
+    version: 'tms',
+    title: row.title,
+    category: row.bullentinCatId === '72' ? 'Event' : row.bullentinCatId === '67' ? 'Patch Notes' : 'General',
+    publishedAt: listingDateToIso(row.startDate),
+    sourceUrl: row.urlLink || `https://maplestory.beanfun.com/bulletin?bid=${row.bullentinId}`,
+    image: row.thumbnail || undefined,
+    author: '新楓之谷',
+  }));
+
+export async function fetchLiveNews(version: GameVersion = activeContentVersion()): Promise<RemotePayload<NewsItem>> {
+  if (version !== 'gms') {
+    try {
+      const feed = await mapleSqlApi.realtimeContent.get<unknown>(`news:${version}`);
+      const mirroredItems = normalizeRegionalNews(feed.payload, version);
+      if (mirroredItems.length > 0) return { items: mirroredItems, replace: true };
+    } catch {
+      // Fall through to the official website adapter when no server-side mirror exists.
+    }
+  }
+
+  const items = version === 'gms'
+    ? await fetchGmsOfficialNews()
+    : version === 'kms'
+      ? await fetchKmsOfficialNews()
+    : version === 'msea'
+      ? await fetchMseaOfficialNews()
+      : version === 'jms'
+        ? await fetchJmsOfficialNews()
+        : version === 'tms'
+          ? await fetchTmsOfficialNews()
+          : [];
+  return { items, replace: true };
+}
+
+export type OfficialArticleDocument = {
+  html: string;
+  text: string;
+  sourceUrl: string;
+};
+
+export const officialArticleHref = (sourceUrl: string, title: string, version: GameVersion) => {
+  const params = new URLSearchParams({ url: sourceUrl, title, server: version });
+  return `/source?${params.toString()}`;
+};
+
+export async function fetchOfficialArticleDocument(
+  sourceUrl: string,
+  version: GameVersion,
+): Promise<OfficialArticleDocument> {
+  if (version === 'gms') {
+    const id = sourceUrl.match(/\/news\/[^/]+\/(\d+)/i)?.[1];
+    if (id) {
+      const officialArticleUrl = `https://g.nexonstatic.com/maplestory/cms/v1/news/${id}`;
+      const article = await cachedJsonFetch<{ body?: string }>(
+        `/api/official-content/article?url=${encodeURIComponent(officialArticleUrl)}`,
+        {
+          cacheKey: `official-article:gms:${id}`,
+          freshMs: realtimeCacheDurations.long,
+          staleMs: realtimeCacheDurations.week,
+        },
+      );
+      const html = sanitizeMirroredHtml(article.body || '', 'https://g.nexonstatic.com');
+      return { html, text: stripMarkup(html), sourceUrl };
+    }
+  }
+
+  const raw = await cachedTextFetch(`/api/official-content/article?url=${encodeURIComponent(sourceUrl)}`, {
+    cacheKey: `official-article:${sourceUrl}`,
+    freshMs: realtimeCacheDurations.long,
+    staleMs: realtimeCacheDurations.week,
+    timeoutMs: 20_000,
   });
 
-  return { items, replace: true };
+  if (/^Title:\s/m.test(raw) && /Markdown Content:/m.test(raw)) {
+    const text = raw.split(/Markdown Content:\s*/m)[1]?.trim() || raw;
+    return { html: '', text, sourceUrl };
+  }
+
+  const document = new DOMParser().parseFromString(raw, 'text/html');
+  const selector = version === 'msea'
+    ? '#contents_Subpage'
+    : version === 'kms'
+      ? '.new_board_con, .contents_wrap'
+    : version === 'jms'
+      ? '.content-item'
+      : version === 'tms'
+        ? '.mBulletin-content'
+        : 'main, article';
+  const content = document.querySelector<HTMLElement>(selector) || document.body;
+  const origin = new URL(sourceUrl).origin;
+  const html = sanitizeMirroredHtml(content.innerHTML, origin);
+  return { html, text: stripMarkup(html), sourceUrl };
 }
 
 export function normalizeEventFeed(payload: unknown, nowMs = Date.now()): EventItem[] {
@@ -1390,8 +1692,13 @@ export function normalizeEventFeed(payload: unknown, nowMs = Date.now()): EventI
   return items;
 }
 
-export async function fetchLiveEvents(): Promise<RemotePayload<EventItem>> {
-  const feed = await mapleSqlApi.realtimeContent.get<unknown>('events');
+export async function fetchLiveEvents(version: GameVersion = activeContentVersion()): Promise<RemotePayload<EventItem>> {
+  let feed;
+  try {
+    feed = await mapleSqlApi.realtimeContent.get<unknown>(`events:${version}`);
+  } catch {
+    feed = await mapleSqlApi.realtimeContent.get<unknown>('events');
+  }
   const items = normalizeEventFeed(feed.payload);
 
   return { items, replace: true };
@@ -1454,6 +1761,8 @@ export async function fetchLiveGuideContent(guide: GuideItem): Promise<GuideItem
   return nextGuide;
 }
 
+const warnedInvalidToolImports = new Set<string>();
+
 export async function fetchLiveToolResources(): Promise<RemotePayload<ToolResourceItem>> {
   const gucciHtml = await textFetch(gucciToolUrls, {
     freshMs: realtimeCacheDurations.long,
@@ -1472,7 +1781,10 @@ export async function fetchLiveToolResources(): Promise<RemotePayload<ToolResour
       sourceUrl: item.href,
       lastVerified,
     });
-    if ('issues' in validation) console.warn('[MapleHub] Rejected invalid tool import.', item.id, validation.issues);
+    if ('issues' in validation && !warnedInvalidToolImports.has(item.id)) {
+      warnedInvalidToolImports.add(item.id);
+      console.warn('[MapleHub] Rejected invalid tool import.', item.id, validation.issues);
+    }
     return validation.ok;
   });
   return { items, replace: true };

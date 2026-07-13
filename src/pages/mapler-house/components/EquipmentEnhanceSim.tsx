@@ -2,16 +2,68 @@ import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { cubeTypes, cubeTierRates, starForceRates, flameTiers } from '@/mocks/mapler-house';
+import { getToolProvenance } from '@/domain/toolProvenance';
 
 type TabType = 'cube' | 'starforce' | 'flame';
 const CUBE_TIERS = ['Rare', 'Epic', 'Unique', 'Legendary'];
 
 export default function EquipmentEnhanceSim() {
   const { t } = useTranslation();
+  const { versionInfo } = useVersion();
   const [activeTab, setActiveTab] = useState<TabType>('cube');
+  const provenance = getToolProvenance({ evidence: 'estimate' });
+  const assumptionKey = {
+    cube: 'mh_enhance_assumptions_cube',
+    starforce: 'mh_enhance_assumptions_starforce',
+    flame: 'mh_enhance_assumptions_flame',
+  }[activeTab];
 
   return (
     <div className="space-y-5">
+      <section
+        aria-labelledby="enhancement-data-title"
+        className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-amber-950"
+      >
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h3 id="enhancement-data-title" className="text-sm font-bold">
+              {t('mh_enhance_provenance_title')}
+            </h3>
+            <p className="mt-1 max-w-3xl text-xs leading-relaxed text-amber-900">
+              {t('mh_enhance_provenance_desc')}
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2" aria-label={t('mh_enhance_data_status')}>
+            <span className="rounded-full border border-amber-300 bg-background-50 px-2.5 py-1 text-[11px] font-semibold">
+              {t(provenance.evidenceLabelKey)}
+            </span>
+            <span className="rounded-full border border-amber-300 bg-background-50 px-2.5 py-1 text-[11px] font-semibold">
+              {t(provenance.freshnessLabelKey)}
+            </span>
+          </div>
+        </div>
+
+        <dl className="mt-4 grid gap-3 text-xs sm:grid-cols-3">
+          <div>
+            <dt className="font-semibold text-amber-800">{t('mh_enhance_region_version')}</dt>
+            <dd className="mt-0.5 font-bold">{versionInfo.shortLabel}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-amber-800">{t('mh_enhance_source')}</dt>
+            <dd className="mt-0.5 font-bold">{t('mh_enhance_source_reference')}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-amber-800">{t('mh_enhance_last_checked')}</dt>
+            <dd className="mt-0.5 font-bold">{t('mh_enhance_last_checked_unavailable')}</dd>
+          </div>
+        </dl>
+
+        <div className="mt-4 rounded-lg border border-amber-200 bg-background-50/80 p-3">
+          <div className="text-xs font-bold">{t('mh_enhance_assumptions_title')}</div>
+          <p className="mt-1 text-xs leading-relaxed text-amber-900">{t(assumptionKey)}</p>
+        </div>
+      </section>
+
       <div className="flex bg-background-100 rounded-full p-1 gap-1">
         {([
           { key: 'cube' as TabType, label: t('mh_enhance_cube'), icon: 'ri-dice-line' },
@@ -179,7 +231,6 @@ function StarForceSimulator() {
 
   const getVersionCost = (rates: typeof starForceRates[number]) => {
     if (version === 'kms' && rates.cost_kms) return rates.cost_kms;
-    if (version === 'cms' && rates.cost_cms) return rates.cost_cms;
     if (version === 'tms' && rates.cost_tms) return rates.cost_tms;
     if (version === 'jms' && rates.cost_jms) return rates.cost_jms;
     return rates.cost;

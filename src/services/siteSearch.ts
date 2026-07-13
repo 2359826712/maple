@@ -30,20 +30,21 @@ type SearchableResult = SiteSearchResult & {
 };
 
 const staticRoutes = [
-  { id: 'route-news', href: '/news', section: 'news' as const, icon: 'ri-newspaper-line', titles: ['News', '资讯', 'ニュース', '資訊'] },
-  { id: 'route-guides', href: '/guides', section: 'guides' as const, icon: 'ri-book-open-line', titles: ['Guides', '攻略', 'ガイド', '攻略'] },
-  { id: 'route-events', href: '/events', section: 'events' as const, icon: 'ri-calendar-event-line', titles: ['Events', '活动', 'イベント', '活動'] },
-  { id: 'route-checklist', href: '/checklist', section: 'tools' as const, icon: 'ri-checkbox-circle-line', titles: ['Daily Boss Checklist', '每日 Boss 清单', 'デイリーボスチェックリスト', '每日 Boss 清單'] },
-  { id: 'route-tools', href: '/mapler-house', section: 'tools' as const, icon: 'ri-tools-line', titles: ['Mapler House Tools', 'Mapler House 工具', 'Mapler House ツール', 'Mapler House 工具'] },
-  { id: 'route-wiki', href: '/wiki', section: 'wiki' as const, icon: 'ri-book-2-line', titles: ['MapleStory Wiki', '冒险岛百科', 'メイプルストーリーWiki', '楓之谷百科'] },
-  { id: 'route-maps', href: '/maps', section: 'maps' as const, icon: 'ri-map-2-line', titles: ['World Maps', '世界地图', 'ワールドマップ', '世界地圖'] },
-  { id: 'route-rankings', href: '/rankings', section: 'tools' as const, icon: 'ri-bar-chart-grouped-line', titles: ['Rankings', '排行榜', 'ランキング', '排行榜'] },
+  { id: 'route-news', href: '/news', section: 'news' as const, icon: 'ri-newspaper-line', titles: ['News', '资讯', 'ニュース', '資訊', '뉴스'] },
+  { id: 'route-guides', href: '/guides', section: 'guides' as const, icon: 'ri-book-open-line', titles: ['Guides', '攻略', 'ガイド', '攻略', '가이드'] },
+  { id: 'route-events', href: '/events', section: 'events' as const, icon: 'ri-calendar-event-line', titles: ['Events', '活动', 'イベント', '活動', '이벤트'] },
+  { id: 'route-checklist', href: '/checklist', section: 'tools' as const, icon: 'ri-checkbox-circle-line', titles: ['Daily Boss Checklist', '每日 Boss 清单', 'デイリーボスチェックリスト', '每日 Boss 清單', '일일 보스 체크리스트'] },
+  { id: 'route-tools', href: '/mapler-house', section: 'tools' as const, icon: 'ri-tools-line', titles: ['Mapler House Tools', 'Mapler House 工具', 'Mapler House ツール', 'Mapler House 工具', 'Mapler House 도구'] },
+  { id: 'route-wiki', href: '/wiki', section: 'wiki' as const, icon: 'ri-book-2-line', titles: ['MapleStory Wiki', '冒险岛百科', 'メイプルストーリーWiki', '楓之谷百科', '메이플스토리 위키'] },
+  { id: 'route-maps', href: '/maps', section: 'maps' as const, icon: 'ri-map-2-line', titles: ['World Maps', '世界地图', 'ワールドマップ', '世界地圖', '월드맵'] },
+  { id: 'route-rankings', href: '/rankings', section: 'tools' as const, icon: 'ri-bar-chart-grouped-line', titles: ['Rankings', '排行榜', 'ランキング', '排行榜', '랭킹'] },
 ] as const;
 
 const languageIndex = (language: string) => {
   if (language === 'zh-Hant') return 3;
   if (language.startsWith('zh')) return 1;
   if (language.startsWith('ja')) return 2;
+  if (language.startsWith('ko')) return 4;
   return 0;
 };
 

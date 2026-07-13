@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { fetchLiveEvents, liveStorageKeys, type EventItem } from '@/services/liveContent';
+import { fetchLiveEvents, liveStorageKeys, officialArticleHref, type EventItem } from '@/services/liveContent';
 import {
   daysUntilEventBoundary,
   formatServerDateRange,
@@ -19,7 +20,7 @@ export default function EventsPreview() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const { items: realtimeEvents, status, lastSyncedAt } = useRealtimeCollection<EventItem>({
-    storageKey: liveStorageKeys.events,
+    storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
     baseItems: [],
     remoteLoader: fetchLiveEvents,
   });
@@ -94,15 +95,13 @@ export default function EventsPreview() {
                     <i className="ri-gift-2-line text-secondary-700"></i>
                     <span>{t('events_reward')} · <span className="font-semibold text-foreground-900">{e.rewards.join(' · ') || t('events_reward_unlisted')}</span></span>
                   </div>
-                  <a
-                    href={e.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id)}
                     className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
                   >
                     {t('events_open_source')}
-                    <i className="ri-external-link-line ml-1.5"></i>
-                  </a>
+                    <i className="ri-book-open-line ml-1.5"></i>
+                  </Link>
                 </div>
               </article>
             ))}

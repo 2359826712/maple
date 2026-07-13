@@ -12,6 +12,8 @@ import GuideScrollTopButton from '../components/GuideScrollTopButton';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import GuideFreshnessBar from '../components/GuideFreshnessBar';
+import ShareButton from '@/components/feature/ShareButton';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { writeGuideReadingProgress } from '@/services/guideReadingProgress';
 
 const sectionId = (value: string) =>
@@ -228,6 +230,10 @@ export default function GuideDetail() {
   const isInitialGuidesSync = realtimeStatus === 'syncing' && realtimeGuides.length === 0;
   const copy = guide ? getGuideCardCopy(guide, i18n.language) : null;
   const sourceUrl = guide?.sourceUrl || 'https://grandislibrary.com/';
+  usePageMetadata(
+    copy?.title || 'MapleStory Guides',
+    guide?.excerpt || 'Version-aware MapleStory class, progression, and boss guides.',
+  );
 
   const scrollToGuideHash = useCallback((hash: string, behavior: 'auto' | 'smooth' = 'smooth') => {
     if (!hash || typeof window === 'undefined') return;
@@ -505,6 +511,9 @@ export default function GuideDetail() {
                   <span>{t('guides_read_time_estimate', { time: copy?.length })}</span>
                   <span>•</span>
                   <span>Grandis Library</span>
+                </div>
+                <div className="mt-5 flex justify-center">
+                  <ShareButton title={copy?.title || 'MapleStory guide'} text={guide.excerpt} />
                 </div>
                 <div className="mx-auto mt-5 max-w-3xl text-left">
                   <GuideFreshnessBar sourceSyncedAt={guide.sourceSyncedAt} versions={guide.versions} />

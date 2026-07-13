@@ -67,6 +67,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   let response: Response;
   try {
     response = await fetch(buildUrl(path), {
+      credentials: 'include',
       ...(rest as Record<string, unknown>),
       headers: requestHeaders,
       body: body === undefined ? undefined : JSON.stringify(body),
@@ -100,6 +101,8 @@ export type AuthUser = {
 
 export type AuthResponse = {
   access_token: string;
+  access_expires_at: string;
+  auto_login_expires_at?: string;
   user: AuthUser;
   tenant_id: string;
 };
@@ -259,11 +262,22 @@ export const mapleSqlApi = {
   },
 
   auth: {
-    login: (payload: { email: string; password: string }) =>
+    login: (payload: { email: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/login', { method: 'POST', body: payload }),
-    signup: (payload: { email: string; username: string; display_name: string; password: string }) =>
+    signup: (payload: { email: string; username: string; display_name: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/signup', { method: 'POST', body: payload }),
+    refresh: () => request<AuthResponse>('/auth/refresh', { method: 'POST' }),
+    logout: () => request<void>('/auth/logout', { method: 'POST' }),
     me: () => request<{ user_id: string; tenant_id: string }>('/me', { auth: true }),
+  },
+  accountData: {
+    get: () => request<{ data: Record<string, string>; revision: number; updated_at?: string }>('/player-data', { auth: true }),
+    save: (data: Record<string, string>) =>
+      request<{ data: Record<string, string>; revision: number; updated_at: string }>('/player-data', {
+        method: 'PUT',
+        auth: true,
+        body: { data },
+      }),
   },
   newsletter: {
     subscribe: (payload: NewsletterSubscribeInput) =>

@@ -384,7 +384,6 @@ const expandedMapRules = [
   { street: 'Arteria', minLevel: 280, maxLevel: 295, limit: 34, monsters: ['Arteria Mob', 'High Flora Guard'] },
   { street: 'Carcion', minLevel: 285, maxLevel: 300, limit: 46, monsters: ['Carcion Mob', 'Abyss Creature'] },
   { street: 'Commerci Republic', minLevel: 160, maxLevel: 210, limit: 40, monsters: ['Grosso Polpo', 'Aqua Patrol'], version: 'gms' },
-  { street: 'Shaolin Temple', minLevel: 250, maxLevel: 275, limit: 24, monsters: ['Sweeping Monk', 'Bronze Man'], version: 'cms' },
   { street: 'Orbis', minLevel: 50, maxLevel: 90, limit: 34, monsters: ['Cloud Mob', 'Sky Sentinel'], version: 'all' },
   { street: 'El Nath', minLevel: 70, maxLevel: 120, limit: 34, monsters: ['Snowfield Mob', 'Ice Sentinel'], version: 'all' },
   { street: 'Ludibrium', minLevel: 90, maxLevel: 130, limit: 40, monsters: ['Toy Mob', 'Clocktower Mob'], version: 'all' },

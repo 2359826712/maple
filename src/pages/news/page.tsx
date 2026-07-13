@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type SyntheticEvent } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
@@ -7,10 +7,12 @@ import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
+import OfficialServerLinks from '@/components/feature/OfficialServerLinks';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsCategoryLabel, getNewsCopy } from './localizedNews';
-import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
+import { fetchLiveNews, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
 import { readJson, writeJsonWithRecovery } from '@/services/persistentStorage';
+import ShareButton from '@/components/feature/ShareButton';
 
 type LocalizedNewsItem = NewsItem & { categoryLabel: string };
 
@@ -59,7 +61,6 @@ export default function NewsPage() {
   const { versionInfo } = useVersion();
   const [searchParams] = useSearchParams();
   const [active, setActive] = useState('All');
-  const [shared, setShared] = useState<string | null>(null);
   const [notifOpen, setNotifOpen] = useState(false);
   const [query, setQuery] = useState(searchParams.get('q') ?? '');
   const [viewMode, setViewMode] = useState<'all' | 'saved' | 'unread'>('all');
@@ -74,7 +75,7 @@ export default function NewsPage() {
     status: realtimeStatus,
     syncNow,
   } = useRealtimeCollection<NewsItem>({
-    storageKey: liveStorageKeys.news,
+    storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
     baseItems: [],
     remoteLoader: fetchLiveNews,
   });
@@ -125,17 +126,6 @@ export default function NewsPage() {
     setStorageError(!result.ok);
   }, [read, saved]);
 
-  const share = async (article: LocalizedNewsItem, channel: string) => {
-    const url = article.sourceUrl;
-    try {
-      await navigator.clipboard?.writeText(url);
-    } catch {
-      // Clipboard access can be blocked in some browser contexts; the in-app toast still confirms the action.
-    }
-    setShared(article.id + channel);
-    setTimeout(() => setShared(null), 1500);
-  };
-
   const markArticleRead = (article: LocalizedNewsItem) => {
     setRead((current) => ({ ...current, [article.id]: true }));
   };
@@ -173,6 +163,9 @@ export default function NewsPage() {
                   liveCount={liveCount}
                   onRefresh={syncNow}
                 />
+              </div>
+              <div className="mb-6">
+                <OfficialServerLinks preferred="news" />
               </div>
               {storageError && (
                 <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700" role="status" aria-live="polite">
@@ -264,20 +257,14 @@ export default function NewsPage() {
                           </span>
                         )}
                         <div className="absolute bottom-3 right-3 flex gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => share(n, 'link')}
-                            className="w-8 h-8 rounded-full bg-background-50/95 hover:bg-primary-500 hover:text-background-50 text-foreground-800 flex items-center justify-center cursor-pointer transition-colors"
-                            aria-label={t('news_share_aria', { title: n.title, channel: 'link' })}
-                          >
-                            <i className="ri-link"></i>
-                          </button>
+                          <ShareButton
+                            compact
+                            title={n.title}
+                            text={n.excerpt}
+                            url={`/news?q=${encodeURIComponent(n.title)}`}
+                            className="h-8 w-8 bg-background-50/95 hover:bg-primary-500 hover:text-background-50"
+                          />
                         </div>
-                        {shared && shared.startsWith(n.id) && (
-                          <div className="absolute bottom-14 right-3 px-3 py-1.5 rounded-md bg-foreground-900 text-background-50 text-xs">
-                            {t('news_shared_toast')}
-                          </div>
-                        )}
                       </div>
                       <div className="p-5 flex-1 flex flex-col">
                         <h3 className={`font-heading font-semibold text-foreground-950 ${i === 0 ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>
@@ -285,17 +272,15 @@ export default function NewsPage() {
                         </h3>
                         <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
                         <div className="mt-4 flex flex-wrap gap-2">
-                          <a
+                          <Link
                             data-testid={`read-${n.id}`}
-                            href={n.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer noopener"
+                            to={officialArticleHref(n.sourceUrl, n.title, versionInfo.id)}
                             onClick={() => markArticleRead(n)}
                             className="h-9 px-4 rounded-full bg-primary-500 hover:bg-primary-600 text-background-50 text-xs font-semibold cursor-pointer whitespace-nowrap"
                           >
                             <i className="ri-book-open-line mr-1"></i>
                             {t('news_read_article')}
-                          </a>
+                          </Link>
                           <button
                             type="button"
                             data-testid={`save-${n.id}`}

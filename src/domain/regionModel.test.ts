@@ -3,6 +3,7 @@ import {
   gameVersions,
   daysUntilEventBoundary,
   formatServerDateRange,
+  getOfficialContentUrl,
   getVersionDefinition,
   isAvailableInVersion,
   isGameVersion,
@@ -38,6 +39,14 @@ describe('region/version model', () => {
   it('rejects unknown versions', () => {
     expect(isGameVersion('ems')).toBe(false);
     expect(isGameVersion(null)).toBe(false);
+  });
+
+  it('keeps official destinations with the server definition', () => {
+    expect(getOfficialContentUrl('kms', 'events')).toBe('https://maplestory.nexon.com/news/event');
+    expect(getOfficialContentUrl('jms', 'news')).toBe('https://maplestory.nexon.co.jp/notice/news/');
+    expect(getOfficialContentUrl('jms', 'website')).toBe('https://maplestory.nexon.co.jp/');
+    expect(getOfficialContentUrl('tms', 'website')).toBe('https://maplestory.beanfun.com/main');
+    expect(getOfficialContentUrl('msea', 'website')).toBe('https://www.maplesea.com/');
   });
 
   it('calculates reset countdowns using server time instead of the browser timezone', () => {
@@ -77,18 +86,16 @@ describe('region/version model', () => {
     expect(ms).toBeLessThanOrEqual(24 * 60 * 60 * 1000);
   });
 
-  it('calculates daily reset for JMS, CMS, and TMS using distinct timezones', () => {
+  it('calculates daily reset for JMS and TMS using distinct timezones', () => {
     // 2026-07-11T15:30:00Z = 00:30 JST+9, 23:30 CST+8, 23:30 TST+8
     const instant = Date.parse('2026-07-11T15:30:00.000Z');
     // JMS (UTC+9): server time 00:30 Jul 12 → 23.5h until next midnight
     expect(millisecondsUntilReset('daily', 'jms', instant)).toBe(23.5 * 60 * 60 * 1000);
-    // CMS (UTC+8): server time 23:30 Jul 11 → 0.5h until midnight
-    expect(millisecondsUntilReset('daily', 'cms', instant)).toBe(0.5 * 60 * 60 * 1000);
-    // TMS (UTC+8): same offset as CMS → 0.5h
+    // TMS (UTC+8) → 0.5h
     expect(millisecondsUntilReset('daily', 'tms', instant)).toBe(0.5 * 60 * 60 * 1000);
   });
 
-  it('uses Wednesday reset for MSEA/JMS/CMS/TMS (weeklyResetDay=3)', () => {
+  it('uses Wednesday reset for MSEA/JMS/TMS (weeklyResetDay=3)', () => {
     // 2026-07-08 is a Wednesday; at 23:00 UTC, server time for UTC+8 is 07:00 Thu
     const wednesdayLateUtc = Date.parse('2026-07-08T23:00:00.000Z');
     // MSEA (UTC+8): server is already Thursday → next Wednesday is 6 days away
@@ -116,7 +123,7 @@ describe('region/version model', () => {
   });
 
   it('formats event dates in each supported locale', () => {
-    const locales = ['en', 'zh', 'ja', 'zh-Hant'] as const;
+    const locales = ['en', 'zh', 'ja', 'ko', 'zh-Hant'] as const;
     for (const locale of locales) {
       const result = formatServerDateRange(eventStart, eventEnd, 'gms', locale);
       expect(result, `locale ${locale}`).toBeTruthy();
@@ -125,7 +132,7 @@ describe('region/version model', () => {
   });
 
   it('formats cross-locale x cross-version matrix without errors', () => {
-    const locales = ['en', 'zh', 'ja', 'zh-Hant'] as const;
+    const locales = ['en', 'zh', 'ja', 'ko', 'zh-Hant'] as const;
     for (const version of gameVersions) {
       for (const locale of locales) {
         const result = formatServerDateRange(eventStart, eventEnd, version, locale);
@@ -141,8 +148,8 @@ describe('region/version model', () => {
     expect(kmsResult).toContain('Jul 12');
     expect(jmsResult).toContain('Jul 12');
 
-    // But CMS/MSEA/TMS (UTC+8) → 23:00 → still Jul 11
-    const cmsResult = formatServerDateRange(eventStart, eventEnd, 'cms', 'en-US');
-    expect(cmsResult).toContain('Jul 11');
+    // But MSEA/TMS (UTC+8) → 23:00 → still Jul 11
+    const tmsResult = formatServerDateRange(eventStart, eventEnd, 'tms', 'en-US');
+    expect(tmsResult).toContain('Jul 11');
   });
 });

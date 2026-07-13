@@ -2,12 +2,18 @@ import { useCallback, useEffect, useState } from 'react';
 import { telemetry } from '@/services/telemetry';
 
 export const AUTH_SESSION_KEY = 'maplehub-auth-session';
+export const AUTH_SESSION_CHANGED_EVENT = 'maplehub-auth-session-changed';
+export const REMEMBERED_ACCOUNT_KEY = 'maplehub-remembered-account';
+export const AUTO_LOGIN_ENABLED_KEY = 'maplehub-auto-login-enabled';
+export const AUTO_LOGIN_DAYS = 7;
 
 export interface AuthSession {
   provider: string;
   user: string;
   mode: string;
   signedInAt: string;
+  expiresAt: string;
+  autoLoginExpiresAt?: string;
   accessToken?: string;
   tenantId?: string;
   userId?: string;
@@ -21,10 +27,15 @@ export const readAuthSession = (): AuthSession | null => {
   if (typeof window === 'undefined') return null;
 
   try {
-    const raw = window.localStorage.getItem(AUTH_SESSION_KEY);
+    const raw = window.sessionStorage.getItem(AUTH_SESSION_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    return parsed && typeof parsed.user === 'string' ? (parsed as AuthSession) : null;
+    if (!parsed || typeof parsed.user !== 'string' || !Number.isFinite(Date.parse(parsed.expiresAt))) return null;
+    if (Date.parse(parsed.expiresAt) <= Date.now()) {
+      window.sessionStorage.removeItem(AUTH_SESSION_KEY);
+      return null;
+    }
+    return parsed as AuthSession;
   } catch {
     return null;
   }
@@ -32,14 +43,16 @@ export const readAuthSession = (): AuthSession | null => {
 
 export function saveAuthSession(session: AuthSession) {
   if (typeof window === 'undefined') return;
-  window.localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(session));
-  window.dispatchEvent(new StorageEvent('storage', { key: AUTH_SESSION_KEY }));
+  window.localStorage.removeItem(AUTH_SESSION_KEY);
+  window.sessionStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(session));
+  window.dispatchEvent(new CustomEvent(AUTH_SESSION_CHANGED_EVENT));
 }
 
 export function clearAuthSession() {
   if (typeof window === 'undefined') return;
   window.localStorage.removeItem(AUTH_SESSION_KEY);
-  window.dispatchEvent(new StorageEvent('storage', { key: AUTH_SESSION_KEY }));
+  window.sessionStorage.removeItem(AUTH_SESSION_KEY);
+  window.dispatchEvent(new CustomEvent(AUTH_SESSION_CHANGED_EVENT));
 }
 
 export function getAccessToken() {
@@ -63,10 +76,12 @@ export function useAuthSession() {
     };
 
     window.addEventListener('storage', onStorage);
+    window.addEventListener(AUTH_SESSION_CHANGED_EVENT, refresh);
     window.addEventListener('focus', refresh);
 
     return () => {
       window.removeEventListener('storage', onStorage);
+      window.removeEventListener(AUTH_SESSION_CHANGED_EVENT, refresh);
       window.removeEventListener('focus', refresh);
     };
   }, [refresh]);

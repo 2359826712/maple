@@ -85,16 +85,44 @@ export default defineConfig({
       "X-Content-Type-Options": "nosniff",
     },
     proxy: {
+      "/api/kms": {
+        target: "https://maplestory.nexon.com",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api\/kms/, ""),
+      },
+      "/api/msea": {
+        target: "https://www.maplesea.com",
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api\/msea/, ""),
+      },
+      "/api/jms": {
+        target: "https://maplestory.nexon.co.jp",
+        changeOrigin: true,
+        secure: true,
+        headers: {
+          Referer: "https://maplestory.nexon.co.jp/notice/all/",
+          "User-Agent": "Mozilla/5.0 MapleHubContentMirror/1.0",
+        },
+        rewrite: (path) => path.replace(/^\/api\/jms/, ""),
+      },
+      "/api/tms": {
+        target: "https://maplestory.beanfun.com",
+        changeOrigin: true,
+        secure: true,
+        timeout: 30000,
+        proxyTimeout: 30000,
+        headers: {
+          Referer: "https://maplestory.beanfun.com/main",
+          "User-Agent": "Mozilla/5.0 MapleHubContentMirror/1.0",
+        },
+        rewrite: (path) => path.replace(/^\/api\/tms/, ""),
+      },
       "/api/maplestory": {
         target: "https://www.nexon.com",
         changeOrigin: true,
         secure: true,
-      },
-      "/api/steam-maplestory-news": {
-        target: "https://api.steampowered.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/steam-maplestory-news/, "/ISteamNews/GetNewsForApp/v2/"),
       },
       "/api/reddit-maplestory": {
         target: "https://www.reddit.com",
