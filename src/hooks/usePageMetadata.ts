@@ -26,6 +26,22 @@ const languageMetadata = {
   'zh-Hant': { hreflang: 'zh-Hant', locale: 'zh_TW' },
 } as const;
 
+const MAX_TITLE_LENGTH = 60;
+
+export const buildPageTitle = (title: string) => {
+  const suffix = ` · ${SITE_NAME}`;
+  const hasSiteName = title.includes(SITE_NAME);
+  const fullTitle = hasSiteName ? title : `${title}${suffix}`;
+  if (fullTitle.length <= MAX_TITLE_LENGTH) return fullTitle;
+
+  if (hasSiteName) {
+    return `${fullTitle.slice(0, MAX_TITLE_LENGTH - 1).trimEnd()}…`;
+  }
+
+  const availableTitleLength = MAX_TITLE_LENGTH - suffix.length;
+  return `${title.slice(0, availableTitleLength - 1).trimEnd()}…${suffix}`;
+};
+
 const upsertMeta = (selector: string, attributes: Record<string, string>, content: string) => {
   let element = document.head.querySelector<HTMLMetaElement>(selector);
   if (!element) {
@@ -52,7 +68,7 @@ export function usePageMetadata(
   const currentPathname = typeof window !== 'undefined' ? window.location.pathname : '/';
 
   useEffect(() => {
-    const fullTitle = title.includes(SITE_NAME) ? title : `${title} · ${SITE_NAME}`;
+    const fullTitle = buildPageTitle(title);
     const canonicalUrl = new URL(canonicalPath || currentPathname, `${SITE_URL}/`).href;
     const imageUrl = new URL(image, `${SITE_URL}/`).href;
     const robots = `${noIndex ? 'noindex' : 'index'}, ${noFollow ? 'nofollow' : 'follow'}, max-image-preview:large`;

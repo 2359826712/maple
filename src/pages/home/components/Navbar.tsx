@@ -9,7 +9,7 @@ import { AUTO_LOGIN_ENABLED_KEY, clearAuthSession, useAuthSession } from '@/hook
 import { mapleSqlApi } from '@/services/mapleSqlApi';
 import { clearAccountDataCache, saveCurrentAccountData } from '@/services/accountDataSync';
 import { SITE_NAME, SITE_TAGLINE } from '@/constants/site';
-import { localizeHref, normalizeLanguage, stripLanguageSuffix, withLanguageSuffix } from '@/i18n/languageRouting';
+import { localizeHref, normalizeLanguage, stripRouteSuffixes, withRouteSuffixes } from '@/i18n/languageRouting';
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
@@ -72,7 +72,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const { version, versionInfo, setVersion } = useVersion();
   const navigate = useNavigate();
   const location = useLocation();
-  const routePathname = stripLanguageSuffix(location.pathname);
+  const routePathname = stripRouteSuffixes(location.pathname);
   const { isSignedIn, displayName, session } = useAuthSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -268,7 +268,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     void i18n.changeLanguage(language);
     navigate(
       {
-        pathname: withLanguageSuffix(location.pathname, language),
+        pathname: withRouteSuffixes(location.pathname, language, versionInfo.id),
         search: location.search,
         hash: location.hash,
       },
@@ -634,7 +634,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               return (
                 <Link
                   key={l.href}
-                  to={localizeHref(l.href, i18n.language)}
+                  to={localizeHref(l.href, i18n.language, versionInfo.id)}
                   aria-current={active ? 'page' : undefined}
                   className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm transition-colors cursor-pointer whitespace-nowrap ${
                     active
@@ -1079,7 +1079,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 return (
                   <Link
                     key={l.href}
-                    to={localizeHref(l.href, i18n.language)}
+                    to={localizeHref(l.href, i18n.language, versionInfo.id)}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active ? 'page' : undefined}
                     className={`rounded-md px-3 py-2 text-sm cursor-pointer ${

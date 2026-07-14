@@ -113,6 +113,7 @@ export default function BossDetailPage() {
                   <img
                     src={boss.image}
                     alt={boss.name}
+                    title={`${boss.name} MapleStory boss`}
                     className="max-h-full max-w-full object-contain"
                     loading="lazy"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -127,6 +128,7 @@ export default function BossDetailPage() {
                     <img
                       src={boss.image}
                       alt={boss.name}
+                      title={`${boss.name} MapleStory boss`}
                       className="max-h-full max-w-full object-contain"
                       loading="lazy"
                       onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
@@ -457,6 +459,7 @@ function BossListingIndex({
                       <img
                         src={b.image}
                         alt={b.name}
+                        title={`${b.name} MapleStory boss`}
                         className="h-full w-full object-contain p-2"
                         loading="lazy"
                         onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.display = 'none'; }}

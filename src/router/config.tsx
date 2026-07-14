@@ -1,30 +1,34 @@
 import type { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { lazy } from "react";
 import { communityLinks } from "@/constants/communityLinks";
-import NotFound from "../pages/NotFound";
-import Home from "../pages/home/page";
-import GuideDetail from "../pages/guides/detail/page";
-import RankingsPage from "../pages/rankings/page";
-import MaplerHouse from "../pages/mapler-house/page";
-import NewsPage from "../pages/news/page";
-import UpcomingUpdatesPage from "../pages/upcoming/page";
-import UpcomingUpdateDetailPage from "../pages/upcoming/detail/page";
-import GuidesPage from "../pages/guides/page";
-import EventsPage from "../pages/events/page";
-import MapsPage from "../pages/maps/page";
-import WikiPage from "../pages/wiki/page";
-import WikiArticlePage from "../pages/wiki/article";
-import LoginPage from "../pages/auth/login/page";
-import AccountPage from "../pages/account/page";
-import SearchPage from "../pages/search/page";
-import OfficialSourcePage from "../pages/source/page";
-import ChecklistPage from "../pages/checklist/page";
-import LevelGuidePage from "../pages/guides/level/page";
-import ToolsPage from "../pages/tools/page";
-import BossDetailPage from "../pages/wiki/boss";
 import ExternalRedirect from "@/components/feature/ExternalRedirect";
-import { WikiRedirectPage } from "../pages/wiki/redirect";
-import { languagePathSegments, supportedLanguages } from "@/i18n/languageRouting";
+import { languagePathSegments, serverPathSegments, supportedLanguages, supportedServers } from "@/i18n/languageRouting";
+
+const NotFound = lazy(() => import("../pages/NotFound"));
+const Home = lazy(() => import("../pages/home/page"));
+const GuideDetail = lazy(() => import("../pages/guides/detail/page"));
+const RankingsPage = lazy(() => import("../pages/rankings/page"));
+const MaplerHouse = lazy(() => import("../pages/mapler-house/page"));
+const NewsPage = lazy(() => import("../pages/news/page"));
+const UpcomingUpdatesPage = lazy(() => import("../pages/upcoming/page"));
+const UpcomingUpdateDetailPage = lazy(() => import("../pages/upcoming/detail/page"));
+const GuidesPage = lazy(() => import("../pages/guides/page"));
+const EventsPage = lazy(() => import("../pages/events/page"));
+const MapsPage = lazy(() => import("../pages/maps/page"));
+const WikiPage = lazy(() => import("../pages/wiki/page"));
+const WikiArticlePage = lazy(() => import("../pages/wiki/article"));
+const LoginPage = lazy(() => import("../pages/auth/login/page"));
+const AccountPage = lazy(() => import("../pages/account/page"));
+const SearchPage = lazy(() => import("../pages/search/page"));
+const OfficialSourcePage = lazy(() => import("../pages/source/page"));
+const ChecklistPage = lazy(() => import("../pages/checklist/page"));
+const LevelGuidePage = lazy(() => import("../pages/guides/level/page"));
+const ToolsPage = lazy(() => import("../pages/tools/page"));
+const BossDetailPage = lazy(() => import("../pages/wiki/boss"));
+const WikiRedirectPage = lazy(() =>
+  import("../pages/wiki/redirect").then((module) => ({ default: module.WikiRedirectPage })),
+);
 
 const localizableRoutes: RouteObject[] = [
   {
@@ -138,6 +142,31 @@ const localizedRoutes: RouteObject[] = supportedLanguages.flatMap((language) => 
   ];
 });
 
+const localizedServerRoutes: RouteObject[] = supportedLanguages.flatMap((language) => {
+  const languageSegment = languagePathSegments[language];
+  return supportedServers.flatMap((server) => {
+    const serverSegment = serverPathSegments[server];
+    return [
+      ...localizableRoutes.map((route) => ({
+        ...route,
+        path: `${appendLanguagePath(route.path || '/', languageSegment)}/${serverSegment}`,
+      })),
+      {
+        path: `/wiki/article/:articlePath/${languageSegment}/${serverSegment}`,
+        element: <WikiArticlePage />,
+      },
+      {
+        path: `/wiki/boss/${languageSegment}/${serverSegment}`,
+        element: <BossDetailPage />,
+      },
+      {
+        path: `/wiki/boss/:bossName/${languageSegment}/${serverSegment}`,
+        element: <BossDetailPage />,
+      },
+    ];
+  });
+});
+
 const routes: RouteObject[] = [
   ...localizableRoutes,
   {
@@ -149,6 +178,7 @@ const routes: RouteObject[] = [
     element: <BossDetailPage />,
   },
   ...localizedRoutes,
+  ...localizedServerRoutes,
   {
     path: "*",
     element: <NotFound />,

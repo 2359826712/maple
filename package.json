@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/generate-localized-static-routes.mjs",
+    "build": "vite build && node scripts/generate-localized-static-routes.mjs && node scripts/verify-seo-output.mjs",
     "analyze:bundle": "node scripts/analyze-bundle.mjs",
     "preview": "vite preview",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",

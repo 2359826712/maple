@@ -8,6 +8,7 @@ const indexFile = new URL('index.html', outputDirectory);
 const catalog = JSON.parse(await readFile(new URL('../src/seo/routeMetadata.json', import.meta.url), 'utf8'));
 const baseHtml = await readFile(indexFile, 'utf8');
 const languages = Object.keys(catalog.languages);
+const servers = ['GMS', 'KMS', 'JMS', 'TMS', 'MSEA'];
 const routes = Object.entries(catalog.routes);
 const siteUrl = 'https://mpstorys.com';
 
@@ -17,10 +18,21 @@ const escapeHtml = (value) => String(value)
   .replaceAll('<', '&lt;')
   .replaceAll('>', '&gt;');
 
+const buildPageTitle = (title) => {
+  const suffix = ' · MPStorys';
+  const hasSiteName = title.includes('MPStorys');
+  const fullTitle = hasSiteName ? title : `${title}${suffix}`;
+  if (fullTitle.length <= 60) return fullTitle;
+  if (hasSiteName) return `${fullTitle.slice(0, 59).trimEnd()}…`;
+  return `${title.slice(0, 60 - suffix.length - 1).trimEnd()}…${suffix}`;
+};
+
 const localizedPath = (route, language) => {
   const baseRoute = route === '/' ? '' : route.replace(/\/+$/, '');
   return `${baseRoute}/${catalog.languages[language].segment}` || '/';
 };
+
+const localizedServerPath = (route, language, server) => `${localizedPath(route, language)}/${server}`;
 
 const absoluteUrl = (pathname) => `${siteUrl}${pathname}`;
 
@@ -31,16 +43,16 @@ const setMeta = (html, attribute, key, content) => {
   return html.replace(pattern, replacement);
 };
 
-const renderPage = ({ entry, language, localized, route }) => {
+const renderPage = ({ entry, language, localized, route, server }) => {
   const languageConfig = catalog.languages[language];
   const copy = entry.copy[language] || entry.copy.en;
-  const fullTitle = copy.title.includes('MPStorys') ? copy.title : `${copy.title} · MPStorys`;
+  const fullTitle = buildPageTitle(copy.title);
   const canonicalRoute = entry.canonicalRoute || route;
   const canonicalPath = localized
-    ? localizedPath(canonicalRoute, language)
-    : localizedPath(canonicalRoute, 'en');
+    ? localizedServerPath(canonicalRoute, language, server || 'GMS')
+    : localizedServerPath(canonicalRoute, 'en', 'GMS');
   const canonicalUrl = absoluteUrl(canonicalPath);
-  const isIndexable = localized && entry.index;
+  const isIndexable = localized && Boolean(server) && entry.index;
   const shouldFollow = localized ? entry.follow !== false : true;
   const robots = `${isIndexable ? 'index' : 'noindex'}, ${shouldFollow ? 'follow' : 'nofollow'}, max-image-preview:large`;
 
@@ -62,8 +74,8 @@ const renderPage = ({ entry, language, localized, route }) => {
   const alternateLinks = isIndexable
     ? languages.map((alternateLanguage) => {
       const config = catalog.languages[alternateLanguage];
-      return `    <link rel="alternate" hreflang="${config.hreflang}" href="${absoluteUrl(localizedPath(route, alternateLanguage))}" />`;
-    }).concat(`    <link rel="alternate" hreflang="x-default" href="${absoluteUrl(localizedPath(route, 'en'))}" />`)
+      return `    <link rel="alternate" hreflang="${config.hreflang}" href="${absoluteUrl(localizedServerPath(route, alternateLanguage, server))}" />`;
+    }).concat(`    <link rel="alternate" hreflang="x-default" href="${absoluteUrl(localizedServerPath(route, 'en', server))}" />`)
     : [];
 
   const localeAlternates = isIndexable
@@ -96,12 +108,22 @@ for (const [route, entry] of routes) {
       renderPage({ entry, language, localized: true, route }),
       'utf8',
     );
+
+    for (const server of servers) {
+      const serverDirectory = join(localizedDirectory, server);
+      await mkdir(serverDirectory, { recursive: true });
+      await writeFile(
+        join(serverDirectory, 'index.html'),
+        renderPage({ entry, language, localized: true, route, server }),
+        'utf8',
+      );
+    }
   }
 }
 
 const sitemapUrls = routes
   .filter(([, entry]) => entry.index)
-  .flatMap(([route]) => languages.map((language) => `  <url>\n    <loc>${absoluteUrl(localizedPath(route, language))}</loc>\n  </url>`));
+  .flatMap(([route]) => languages.flatMap((language) => servers.map((server) => `  <url>\n    <loc>${absoluteUrl(localizedServerPath(route, language, server))}</loc>\n  </url>`)));
 
 await writeFile(
   new URL('sitemap.xml', outputDirectory),
@@ -109,4 +131,4 @@ await writeFile(
   'utf8',
 );
 
-console.log(`Generated ${routes.length * (languages.length + 1)} route-aware SEO entry files and ${sitemapUrls.length} sitemap URLs.`);
+console.log(`Generated ${routes.length * (1 + languages.length + languages.length * servers.length)} route-aware SEO entry files and ${sitemapUrls.length} sitemap URLs.`);

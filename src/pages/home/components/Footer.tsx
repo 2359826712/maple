@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { communityLinks } from '@/constants/communityLinks';
 import { SITE_NAME } from '@/constants/site';
 import { localizeHref } from '@/i18n/languageRouting';
+import { useVersion } from '@/hooks/VersionContext';
 
 const groups = [
   {
@@ -47,6 +48,7 @@ const groups = [
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
+  const { version } = useVersion();
 
   return (
     <footer className="bg-gradient-to-b from-accent-950 to-foreground-950 dark:to-[#120e0b] border-t border-accent-800/30">
@@ -104,7 +106,7 @@ export default function Footer() {
                   return (
                     <li key={l.nameKey}>
                     <a
-                      href={isExternal ? l.href : localizeHref(l.href, i18n.language)}
+                      href={isExternal ? l.href : localizeHref(l.href, i18n.language, version)}
                       target={isExternal ? '_blank' : undefined}
                       rel={isExternal ? 'noreferrer' : undefined}
                       className="text-sm text-accent-200/60 hover:text-primary-400 cursor-pointer transition-colors"

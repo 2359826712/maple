@@ -871,6 +871,27 @@ export default function ChecklistPage() {
         </div>
         )}
         </ErrorBoundary>
+
+        <section className="mx-auto max-w-6xl px-4 pb-12 pt-4 md:px-8" aria-labelledby="checklist-about-title">
+          <div className="border-t border-background-300 pt-8">
+            <h2 id="checklist-about-title" className="font-heading text-xl font-semibold text-foreground-950 md:text-2xl">
+              {t('checklist_about_title')}
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground-600">
+              {t('checklist_about_desc')}
+            </p>
+            <ul className="mt-4 grid gap-3 text-sm leading-6 text-foreground-700 md:grid-cols-2">
+              <li className="border border-background-300 bg-white p-4">
+                <strong className="block text-foreground-950">{t('checklist_about_tracking_title')}</strong>
+                <span>{t('checklist_about_tracking_desc')}</span>
+              </li>
+              <li className="border border-background-300 bg-white p-4">
+                <strong className="block text-foreground-950">{t('checklist_about_privacy_title')}</strong>
+                <span>{t('checklist_about_privacy_desc')}</span>
+              </li>
+            </ul>
+          </div>
+        </section>
       </main>
 
       <Footer />

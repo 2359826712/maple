@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { localizeHref, stripLanguageSuffix } from '@/i18n/languageRouting';
+import { localizeHref, stripRouteSuffixes } from '@/i18n/languageRouting';
+import { useVersion } from '@/hooks/VersionContext';
 
 const destinations = [
   { href: '/', labelKey: 'dashboard_title', icon: 'ri-home-5-line' },
@@ -16,8 +17,9 @@ function isDestinationActive(pathname: string, href: string) {
 
 export default function MobilePrimaryNav() {
   const { t, i18n } = useTranslation();
+  const { version } = useVersion();
   const { pathname } = useLocation();
-  const routePathname = stripLanguageSuffix(pathname);
+  const routePathname = stripRouteSuffixes(pathname);
 
   if (routePathname.startsWith('/auth/')) return null;
 
@@ -35,7 +37,7 @@ export default function MobilePrimaryNav() {
             return (
               <NavLink
                 key={destination.href}
-                to={localizeHref(destination.href, i18n.language)}
+                to={localizeHref(destination.href, i18n.language, version)}
                 aria-current={active ? 'page' : undefined}
                 className={`flex min-h-14 min-w-0 flex-col items-center justify-center gap-0.5 rounded-lg px-1 text-[11px] font-semibold transition-colors ${
                   active

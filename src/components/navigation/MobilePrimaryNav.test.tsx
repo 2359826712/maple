@@ -23,21 +23,21 @@ describe('MobilePrimaryNav', () => {
     renderNav('/');
 
     expect(screen.getAllByRole('link')).toHaveLength(4);
-    expect(screen.getByRole('link', { name: 'dashboard_title' }).getAttribute('href')).toBe('/en');
-    expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en');
-    expect(screen.getByRole('link', { name: 'nav_search_button' }).getAttribute('href')).toBe('/search/en');
-    expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en');
+    expect(screen.getByRole('link', { name: 'dashboard_title' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_search_button' }).getAttribute('href')).toBe('/search/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS');
   });
 
   it('marks the current section for assistive technology', () => {
-    renderNav('/checklist/en');
+    renderNav('/checklist/en/GMS');
 
     expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('aria-current')).toBe('page');
     expect(screen.getByRole('link', { name: 'dashboard_title' }).hasAttribute('aria-current')).toBe(false);
   });
 
   it('stays out of authentication flows', () => {
-    renderNav('/auth/login/en');
+    renderNav('/auth/login/en/GMS');
 
     expect(screen.queryByRole('navigation')).toBeNull();
   });

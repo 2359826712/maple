@@ -32,7 +32,7 @@ describe('LocaleRouteSync', () => {
     renderRoute('/news?category=event#latest');
 
     await waitFor(() => {
-      expect(screen.getByLabelText('Current route').textContent).toBe('/news/en?category=event#latest');
+      expect(screen.getByLabelText('Current route').textContent).toBe('/news/en/GMS?category=event#latest');
     });
   });
 
@@ -42,5 +42,13 @@ describe('LocaleRouteSync', () => {
     await waitFor(() => expect(i18n.language).toBe('ja'));
     expect(localStorage.getItem('i18nextLng')).toBe('ja');
     expect(document.documentElement.lang).toBe('ja');
+    expect(screen.getByLabelText('Current route').textContent).toBe('/guides/grandis-content-progression-guide/ja/GMS');
+  });
+
+  it('uses the static URL suffix as the server authority', async () => {
+    renderRoute('/rankings/zh-hant/TMS');
+
+    await waitFor(() => expect(localStorage.getItem('maplehub-game-version')).toBe('tms'));
+    expect(document.documentElement.dataset.server).toBe('tms');
   });
 });

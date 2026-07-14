@@ -103,7 +103,11 @@ function getTrend(row: DisplayRank): { trend: RankingTrend; labelKey: string; de
   return { trend: 'down', labelKey: 'rankings_down_week', delta: row.rank - row.startRank };
 }
 
-export default function RankingBoard() {
+interface RankingBoardProps {
+  headingLevel?: 'h1' | 'h2';
+}
+
+export default function RankingBoard({ headingLevel = 'h2' }: RankingBoardProps) {
   const { t, i18n } = useTranslation();
   const { version, versionInfo, setVersion } = useVersion();
   const [world, setWorld] = useState<RankingWorldKey>('all');
@@ -120,6 +124,7 @@ export default function RankingBoard() {
   const rankingSupported = isRankingVersionSupported(version);
   const usesGmsFilters = version === 'gms';
   const theme = rankingThemes[version];
+  const Heading = headingLevel;
 
   useEffect(() => {
     if (!rankingSupported) {
@@ -201,9 +206,9 @@ export default function RankingBoard() {
               <i className="ri-leaf-fill text-primary-500 text-[10px]"></i>
               {t('rankings_title_eyebrow')}
             </div>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-semibold text-foreground-950">
+            <Heading className="mt-2 font-heading text-2xl md:text-4xl font-semibold text-foreground-950">
               {t('rankings_title')}
-            </h2>
+            </Heading>
           </div>
           <div className="flex flex-wrap gap-2">
             <select

@@ -2,8 +2,9 @@ import { useLocation } from 'react-router-dom';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import {
   getPathLanguage,
-  stripLanguageSuffix,
-  withLanguageSuffix,
+  getPathServer,
+  stripRouteSuffixes,
+  withRouteSuffixes,
   type SupportedLanguage,
 } from '@/i18n/languageRouting';
 import metadataCatalog from '@/seo/routeMetadata.json';
@@ -55,7 +56,8 @@ function MetadataEffect({
 export default function RouteMetadata() {
   const { pathname } = useLocation();
   const language = getPathLanguage(pathname) || 'en';
-  const routePathname = stripLanguageSuffix(pathname);
+  const server = getPathServer(pathname) || 'gms';
+  const routePathname = stripRouteSuffixes(pathname);
   const normalizedPath = routePathname.length > 1 ? routePathname.replace(/\/+$/, '') : routePathname;
 
   if (pageManagedRoutes.some((pattern) => pattern.test(normalizedPath))) return null;
@@ -63,7 +65,7 @@ export default function RouteMetadata() {
   const metadata = routes[normalizedPath];
   if (metadata) {
     const canonicalPath = metadata.canonicalRoute
-      ? withLanguageSuffix(metadata.canonicalRoute, language)
+      ? withRouteSuffixes(metadata.canonicalRoute, language, server)
       : undefined;
     return (
       <MetadataEffect

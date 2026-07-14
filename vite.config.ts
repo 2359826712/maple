@@ -71,6 +71,29 @@ export default defineConfig({
   build: {
     sourcemap: true,
     outDir: 'out',
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: 'react-vendor',
+              test: /node_modules[\\/](?:react|react-dom|react-router|scheduler)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: 'i18n-vendor',
+              test: /node_modules[\\/](?:i18next|react-i18next|i18next-browser-languagedetector)[\\/]/,
+              priority: 15,
+            },
+            {
+              name: 'locales',
+              test: /src[\\/]i18n[\\/]local[\\/]/,
+              priority: 10,
+            },
+          ],
+        },
+      },
+    },
   },
   resolve: {
     alias: {

@@ -27,6 +27,7 @@ function ServerModuleProbe() {
 describe('server selection', () => {
   beforeEach(async () => {
     localStorage.clear();
+    window.history.replaceState({}, '', '/');
     await i18n.changeLanguage('en');
   });
 
@@ -66,5 +67,14 @@ describe('server selection', () => {
     expect(screen.getByLabelText('loaded module server').textContent).toBe('kms module content');
     fireEvent.click(screen.getByRole('button', { name: 'GMS' }));
     expect(screen.getByLabelText('loaded module server').textContent).toBe('gms module content');
+  });
+
+  it('uses and updates the static server URL suffix', () => {
+    window.history.replaceState({}, '', '/news/ja/JMS');
+    render(<VersionProvider><Probe /></VersionProvider>);
+
+    expect(screen.getByText('jms')).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: 'GMS' }));
+    expect(window.location.pathname).toBe('/news/ja/GMS');
   });
 });

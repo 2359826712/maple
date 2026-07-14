@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, Fragment, useContext, useState, type ReactNode } from 'react';
+import { createContext, Fragment, useContext, useEffect, useState, type ReactNode } from 'react';
 import {
   getVersionDefinition,
   isGameVersion,
@@ -7,6 +7,7 @@ import {
   type GameVersion,
   type VersionDefinition,
 } from '@/domain/regionModel';
+import { getPathServer, withServerSuffix } from '@/i18n/languageRouting';
 
 export type { GameVersion } from '@/domain/regionModel';
 export type VersionInfo = VersionDefinition;
@@ -21,6 +22,8 @@ export function getVersionInfo(id: GameVersion): VersionInfo {
 function getStoredVersion(): GameVersion {
   if (typeof window === 'undefined') return 'gms';
 
+  const pathVersion = getPathServer(window.location.pathname);
+  if (pathVersion) return pathVersion;
   const storedVersion = window.localStorage.getItem(VERSION_STORAGE_KEY);
   return isGameVersion(storedVersion) ? storedVersion : 'gms';
 }
@@ -44,10 +47,31 @@ export function useVersion() {
 export function VersionProvider({ children }: { children: ReactNode }) {
   const [version, setVersionState] = useState<GameVersion>(getStoredVersion);
 
+  useEffect(() => {
+    const syncVersionFromPath = () => {
+      const pathVersion = getPathServer(window.location.pathname);
+      if (!pathVersion) return;
+      setVersionState((current) => current === pathVersion ? current : pathVersion);
+      window.localStorage.setItem(VERSION_STORAGE_KEY, pathVersion);
+      document.documentElement.dataset.server = pathVersion;
+    };
+
+    syncVersionFromPath();
+    window.addEventListener('popstate', syncVersionFromPath);
+    return () => window.removeEventListener('popstate', syncVersionFromPath);
+  }, []);
+
   const setVersion = (nextVersion: GameVersion) => {
     setVersionState(nextVersion);
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(VERSION_STORAGE_KEY, nextVersion);
+      document.documentElement.dataset.server = nextVersion;
+      const nextPathname = withServerSuffix(window.location.pathname, nextVersion);
+      const nextUrl = `${nextPathname}${window.location.search}${window.location.hash}`;
+      if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== nextUrl) {
+        window.history.replaceState(window.history.state, '', nextUrl);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
     }
   };
 

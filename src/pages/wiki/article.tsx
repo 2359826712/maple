@@ -284,8 +284,8 @@ export default function WikiArticlePage() {
   };
 
   usePageMetadata(
-    displayTitle || 'MapleStory Wiki',
-    (textContent || `MapleStory wiki information about ${displayTitle}.`).slice(0, 180),
+    `${displayTitle || 'Article'} · MapleStory Wiki`,
+    (textContent || `Read MapleStory wiki information, guides, mechanics, and reference details about ${displayTitle || 'this topic'}.`).slice(0, 180),
     { type: 'article' },
   );
 
@@ -356,11 +356,16 @@ export default function WikiArticlePage() {
 
             {/* Article */}
             {loading ? (
-              <div className="flex items-center gap-3 py-20 text-foreground-600">
-                <i className="ri-loader-4-line animate-spin text-2xl"></i>
-                <span className="text-sm">
-                  {t('wiki_article_loading')}
-                </span>
+              <div className="py-12">
+                <h1 className="font-serif text-3xl font-normal leading-tight text-foreground-950 md:text-[2.1rem]">
+                  {displayTitle || 'MapleStory Wiki'}
+                </h1>
+                <div className="mt-5 flex items-center gap-3 text-foreground-600" role="status">
+                  <i className="ri-loader-4-line animate-spin text-2xl" aria-hidden="true"></i>
+                  <span className="text-sm">
+                    {t('wiki_article_loading')}
+                  </span>
+                </div>
               </div>
             ) : isFilePage ? (
               /* File: pages always show the file viewer, even without mirror/API data */
@@ -384,6 +389,7 @@ export default function WikiArticlePage() {
                           <img
                             src={effectiveFileImageUrl}
                             alt={title}
+                            title={title}
                             className="max-h-[520px] max-w-full object-contain"
                             loading="eager"
                             decoding="async"
@@ -459,9 +465,9 @@ export default function WikiArticlePage() {
             ) : error || !entry ? (
               <div className="border border-background-300 bg-background-50 px-6 py-16 text-center">
                 <i className="ri-file-warning-line mb-3 block text-4xl text-background-300"></i>
-                <p className="text-lg font-serif text-foreground-950">
+                <h1 className="text-lg font-serif text-foreground-950">
                   {t('wiki_article_not_found')}
-                </p>
+                </h1>
                 <p className="mt-2 text-sm text-foreground-600">
                   {t('wiki_article_not_found_desc', { title })}
                 </p>
@@ -577,6 +583,7 @@ export default function WikiArticlePage() {
           <img
             src={effectiveFileImageUrl}
             alt={title}
+            title={title}
             className="max-h-[90vh] max-w-[90vw] object-contain"
             decoding="async"
             onClick={(e) => e.stopPropagation()}
