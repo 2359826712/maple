@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getGoogleButtonLocale } from './googleIdentity';
+import { getGoogleButtonLocale, getGoogleIdentityScriptUrl } from './googleIdentity';
 
 describe('getGoogleButtonLocale', () => {
   it.each([
@@ -13,5 +13,12 @@ describe('getGoogleButtonLocale', () => {
     ['unknown', 'en'],
   ])('maps %s to %s', (language, expected) => {
     expect(getGoogleButtonLocale(language)).toBe(expected);
+  });
+});
+
+describe('getGoogleIdentityScriptUrl', () => {
+  it('forces the requested locale when loading Google Identity Services', () => {
+    expect(getGoogleIdentityScriptUrl('en')).toBe('https://accounts.google.com/gsi/client?hl=en');
+    expect(getGoogleIdentityScriptUrl('zh_TW')).toBe('https://accounts.google.com/gsi/client?hl=zh_TW');
   });
 });

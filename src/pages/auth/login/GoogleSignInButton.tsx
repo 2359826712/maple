@@ -4,7 +4,6 @@ import {
   getGoogleButtonLocale,
   googleClientId,
   loadGoogleIdentity,
-  type GoogleAccountsId,
 } from '@/services/googleIdentity';
 
 type Props = {
@@ -16,7 +15,6 @@ type Props = {
 export default function GoogleSignInButton({ disabled = false, onCredential, onUnavailable }: Props) {
   const { i18n } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
-  const identityRef = useRef<GoogleAccountsId | null>(null);
   const credentialHandlerRef = useRef(onCredential);
   const unavailableHandlerRef = useRef(onUnavailable);
   const [ready, setReady] = useState(false);
@@ -28,15 +26,16 @@ export default function GoogleSignInButton({ disabled = false, onCredential, onU
   useEffect(() => {
     let active = true;
     const container = containerRef.current;
+    setReady(false);
     if (!container || !googleClientId) {
       unavailableHandlerRef.current();
       return undefined;
     }
 
-    void loadGoogleIdentity()
+    void loadGoogleIdentity(locale)
       .then((identity) => {
         if (!active) return;
-        identityRef.current = identity;
+        container.replaceChildren();
         identity.initialize({
           client_id: googleClientId,
           auto_select: false,
@@ -46,6 +45,16 @@ export default function GoogleSignInButton({ disabled = false, onCredential, onU
             else unavailableHandlerRef.current();
           },
         });
+        identity.renderButton(container, {
+          type: 'standard',
+          theme: 'outline',
+          size: 'large',
+          text: 'continue_with',
+          shape: 'rectangular',
+          logo_alignment: 'left',
+          width: Math.min(400, Math.max(240, container.clientWidth || 360)),
+          locale,
+        });
         setReady(true);
       })
       .catch(() => {
@@ -54,30 +63,9 @@ export default function GoogleSignInButton({ disabled = false, onCredential, onU
 
     return () => {
       active = false;
-      identityRef.current = null;
       container.replaceChildren();
     };
-  }, []);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const identity = identityRef.current;
-    if (!ready || !container || !identity) return undefined;
-
-    container.replaceChildren();
-    identity.renderButton(container, {
-      type: 'standard',
-      theme: 'outline',
-      size: 'large',
-      text: 'continue_with',
-      shape: 'rectangular',
-      logo_alignment: 'left',
-      width: Math.min(400, Math.max(240, container.clientWidth || 360)),
-      locale,
-    });
-
-    return () => container.replaceChildren();
-  }, [locale, ready]);
+  }, [locale]);
 
   return (
     <div

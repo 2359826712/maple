@@ -10,6 +10,7 @@
  * 用法示例：
  *   node readdy-sync.mjs --project <PROJECT_ID>
  *   node readdy-sync.mjs --project <PROJECT_ID> --root "D:\\Desktop\\maple"
+ *   node readdy-sync.mjs --project <PROJECT_ID> --remote-prefix frontend
  *   node readdy-sync.mjs --project <PROJECT_ID> --dry-run
  *
  * 可选环境变量：
@@ -33,6 +34,7 @@ readdy-sync.mjs
 
 可选：
   --root <DIR>                    本地项目根目录（默认当前目录）
+  --remote-prefix <PATH>          远端路径前缀（例如 frontend）；用于覆盖已有子目录中的同路径文件
   --include <PATTERN>             上传包含规则（可多次填写）。默认：src/** + 常见配置文件
   --exclude <PATTERN>             排除规则（可多次填写）。默认：node_modules/** out/** dist/** .env* **/*.log maple.zip
   --edge-profile <DIR>            Edge profile 路径（默认：LOCALAPPDATA\\Microsoft\\Edge\\User Data\\Default）
@@ -53,6 +55,7 @@ function parseArgs(argv) {
   const out = {
     projectId: '',
     root: process.cwd(),
+    remotePrefix: '',
     include: [],
     exclude: [],
     edgeProfile: '',
@@ -68,6 +71,7 @@ function parseArgs(argv) {
     if (!key) break;
     if (key === '--project') out.projectId = String(args.shift() || '');
     else if (key === '--root') out.root = String(args.shift() || '');
+    else if (key === '--remote-prefix') out.remotePrefix = String(args.shift() || '');
     else if (key === '--include') out.include.push(String(args.shift() || ''));
     else if (key === '--exclude') out.exclude.push(String(args.shift() || ''));
     else if (key === '--edge-profile') out.edgeProfile = String(args.shift() || '');
@@ -168,6 +172,16 @@ async function walkFiles(rootDir) {
 function normalizeRelPath(rootDir, absFile) {
   const rel = path.relative(rootDir, absFile);
   return rel.split(path.sep).join('/');
+}
+
+function normalizeRemotePrefix(value) {
+  const prefix = String(value || '').replace(/\\/g, '/').replace(/^\/+|\/+$/g, '');
+  if (!prefix) return '';
+  const segments = prefix.split('/');
+  if (segments.some(segment => !segment || segment === '.' || segment === '..')) {
+    throw new Error(`远端路径前缀不安全: ${value}`);
+  }
+  return prefix;
 }
 
 function makeHeaders(token, projectId) {
@@ -303,7 +317,7 @@ function findReaddyAccessTokenFromEdgeLeveldb(edgeProfileDir) {
   throw new Error('未能确认找到 readdy_access_token。请确认 Edge 已登录 Readdy，且脚本读取的是同一个 profile。');
 }
 
-async function collectUploadEdits(rootDir, includePatterns, excludePatterns, verbose, readContent = true) {
+async function collectUploadEdits(rootDir, includePatterns, excludePatterns, remotePrefix, verbose, readContent = true) {
   const allFilesAbs = await walkFiles(rootDir);
   const includes = includePatterns.map(globToRegExp);
   const excludes = excludePatterns.map(globToRegExp);
@@ -327,11 +341,11 @@ async function collectUploadEdits(rootDir, includePatterns, excludePatterns, ver
     if (readContent) {
       const content = await fs.readFile(item.abs, 'utf8');
       totalBytes += Buffer.byteLength(content);
-      edits.push({ action: 'edit', file: item.rel, content });
+      edits.push({ action: 'edit', file: remotePrefix ? `${remotePrefix}/${item.rel}` : item.rel, content });
     } else {
       const stat = await fs.stat(item.abs);
       totalBytes += Number(stat.size || 0);
-      edits.push({ action: 'edit', file: item.rel });
+      edits.push({ action: 'edit', file: remotePrefix ? `${remotePrefix}/${item.rel}` : item.rel });
     }
   }
 
@@ -427,6 +441,7 @@ async function main() {
   const cfg = parseArgs(process.argv.slice(2));
   const projectId = assertProjectId(cfg.projectId || process.env.READDY_PROJECT_ID);
   const rootDir = path.resolve(cfg.root);
+  const remotePrefix = normalizeRemotePrefix(cfg.remotePrefix);
   const maxPages = Math.max(1, Math.min(50, Number(cfg.maxPages) || DEFAULT_MAX_MSG_PAGES));
 
   const defaultInclude = [
@@ -455,7 +470,7 @@ async function main() {
   const include = (cfg.include.length ? cfg.include : defaultInclude).filter(Boolean);
   const exclude = (cfg.exclude.length ? cfg.exclude : defaultExclude).filter(Boolean);
 
-  const { edits, totalBytes } = await collectUploadEdits(rootDir, include, exclude, cfg.verbose, !cfg.dryRun);
+  const { edits, totalBytes } = await collectUploadEdits(rootDir, include, exclude, remotePrefix, cfg.verbose, !cfg.dryRun);
   if (!edits.length) throw new Error('没有匹配到需要上传的文件（include/exclude 规则可能不正确）。');
 
   // dry-run：只输出本地上传清单，不触发 token 获取，也不会访问 Readdy API
@@ -463,6 +478,7 @@ async function main() {
     ok: true,
     projectId,
     root: rootDir,
+    remotePrefix,
     parentVersionID: cfg.parentVersionID ? Number(cfg.parentVersionID) : null,
     latestBefore: null,
     upload: {

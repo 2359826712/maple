@@ -52,36 +52,50 @@ declare global {
 }
 
 let scriptPromise: Promise<GoogleAccountsId> | null = null;
+let loadingLocale: string | null = null;
+let loadedLocale: string | null = null;
+let loadGeneration = 0;
 
-export const loadGoogleIdentity = () => {
+export const getGoogleIdentityScriptUrl = (locale: string) =>
+  `https://accounts.google.com/gsi/client?hl=${encodeURIComponent(locale)}`;
+
+export const loadGoogleIdentity = (locale = 'en') => {
   const existing = window.google?.accounts?.id;
-  if (existing) return Promise.resolve(existing);
-  if (scriptPromise) return scriptPromise;
+  if (existing && loadedLocale === locale) return Promise.resolve(existing);
+  if (scriptPromise && loadingLocale === locale) return scriptPromise;
+
+  const generation = ++loadGeneration;
+  loadingLocale = locale;
+  document.querySelectorAll('script[data-maplehub-google-identity]').forEach((script) => script.remove());
 
   scriptPromise = new Promise<GoogleAccountsId>((resolve, reject) => {
     const finish = () => {
+      if (generation !== loadGeneration) {
+        reject(new Error('A newer Google Identity locale was requested'));
+        return;
+      }
       const api = window.google?.accounts?.id;
-      if (api) resolve(api);
+      if (api) {
+        loadedLocale = locale;
+        resolve(api);
+      }
       else reject(new Error('Google Identity Services did not initialize'));
     };
 
-    const existingScript = document.querySelector<HTMLScriptElement>('script[data-maplehub-google-identity]');
-    if (existingScript) {
-      existingScript.addEventListener('load', finish, { once: true });
-      existingScript.addEventListener('error', () => reject(new Error('Unable to load Google Identity Services')), { once: true });
-      return;
-    }
-
     const script = document.createElement('script');
-    script.src = 'https://accounts.google.com/gsi/client';
+    script.src = getGoogleIdentityScriptUrl(locale);
     script.async = true;
     script.defer = true;
     script.dataset.maplehubGoogleIdentity = 'true';
+    script.dataset.locale = locale;
     script.addEventListener('load', finish, { once: true });
     script.addEventListener('error', () => reject(new Error('Unable to load Google Identity Services')), { once: true });
     document.head.appendChild(script);
   }).catch((error) => {
-    scriptPromise = null;
+    if (generation === loadGeneration) {
+      scriptPromise = null;
+      loadingLocale = null;
+    }
     throw error;
   });
 
