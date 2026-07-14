@@ -1,4 +1,6 @@
 node_modules/
+readdy-api-capture*.json
+.readdy-api-capture*.json
 out/
 dist/
 .env
