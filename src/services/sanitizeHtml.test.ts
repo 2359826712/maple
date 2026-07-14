@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest';
-import { sanitizeMirroredHtml } from './sanitizeHtml';
+import { prepareStaticHtmlForRender, sanitizeMirroredHtml } from './sanitizeHtml';
 
 describe('sanitizeMirroredHtml', () => {
   it('removes executable markup and event handlers', () => {
@@ -38,6 +38,12 @@ describe('sanitizeMirroredHtml', () => {
     expect(output).toContain('data-guide-region="gms"');
     expect(output).toContain('data-guide-source-synced-at="2026-07-12T08:00:00.000Z"');
     expect(output).not.toContain('data-secret');
+  });
+
+  it('preserves lazy asynchronous image hints for large static articles', () => {
+    const output = sanitizeMirroredHtml('<img src="https://example.com/item.png" loading="lazy" decoding="async">');
+    expect(output).toContain('loading="lazy"');
+    expect(output).toContain('decoding="async"');
   });
 
   it('neutralizes the OWASP XSS filter-evasion payload classes', () => {
@@ -77,5 +83,27 @@ describe('sanitizeMirroredHtml', () => {
         }
       }
     }
+  });
+});
+
+describe('prepareStaticHtmlForRender', () => {
+  it('defers article images and marks only substantial off-screen sections', () => {
+    const largeSection = `<section><h2>Large</h2>${'<p>article paragraph</p>'.repeat(10)}<img src="https://example.com/a.png"><img src="https://example.com/b.png"></section>`;
+    const output = prepareStaticHtmlForRender(`<main><div><div class="content-container">${largeSection}<section><p>Small</p></section></div></div></main>`);
+    const documentFragment = new DOMParser().parseFromString(output, 'text/html');
+    const sections = documentFragment.querySelectorAll('section');
+
+    expect(sections[0].hasAttribute('data-static-content-block')).toBe(true);
+    expect(sections[1].hasAttribute('data-static-content-block')).toBe(false);
+    for (const image of documentFragment.querySelectorAll('img')) {
+      expect(image.getAttribute('loading')).toBe('lazy');
+      expect(image.getAttribute('decoding')).toBe('async');
+    }
+  });
+
+  it('still sanitizes executable markup before rendering', () => {
+    const output = prepareStaticHtmlForRender('<div><script>alert(1)</script><img src="https://example.com/a.png" onerror="alert(2)"></div>');
+    expect(output).not.toContain('script');
+    expect(output).not.toContain('onerror');
   });
 });

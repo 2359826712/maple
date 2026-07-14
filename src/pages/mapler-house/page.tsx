@@ -17,6 +17,7 @@ import BossReadinessPlanner from './components/BossReadinessPlanner';
 import TierOverview from '@/pages/rankings/classes/components/TierOverview';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
 import { fetchLiveToolResources, liveStorageKeys, type ToolResourceItem } from '@/services/liveContent';
+import { useLocalizedToolResources } from './useLocalizedToolResources';
 
 type SectionKey =
   | 'dashboard'
@@ -168,7 +169,7 @@ function getInitialSection(): SectionKey {
 }
 
 export default function MaplerHousePage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const [activeSection, setActiveSection] = useState<SectionKey>(getInitialSection);
   const [showNotifications, setShowNotifications] = useState(false);
@@ -185,6 +186,7 @@ export default function MaplerHousePage() {
     baseItems: [],
     remoteLoader: fetchLiveToolResources,
   });
+  const localizedToolResources = useLocalizedToolResources(liveToolResources, i18n.language);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -348,7 +350,7 @@ export default function MaplerHousePage() {
 
         <ExternalTools
           t={t}
-          liveTools={liveToolResources}
+          liveTools={localizedToolResources}
           status={liveToolStatus}
           liveCount={liveToolCount}
           lastSyncedAt={liveToolSyncedAt}

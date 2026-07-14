@@ -5,7 +5,7 @@ import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { fetchWikiEntryByTitleLocalFirst, fetchWikiEntryContent, type WikiEntry } from '@/services/liveContent';
-import { sanitizeMirroredHtml } from '@/services/sanitizeHtml';
+import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { useTranslatedWikiEntry } from './useTranslatedWikiEntry';
@@ -35,7 +35,7 @@ const articleTitleKeys: Record<string, string> = {
 export default function WikiArticlePage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { '*': titleParam } = useParams<{ '*': string }>();
+  const { '*': legacyTitleParam, articlePath } = useParams<{ '*': string; articlePath: string }>();
   const [notifOpen, setNotifOpen] = useState(false);
   const [entry, setEntry] = useState<WikiEntry | null>(null);
   const [loading, setLoading] = useState(true);
@@ -44,6 +44,7 @@ export default function WikiArticlePage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imgLoadFailed, setImgLoadFailed] = useState(false);
 
+  const titleParam = articlePath || legacyTitleParam;
   const title = titleParam ? decodeURIComponent(titleParam).replace(/_/g, ' ') : '';
 
   // Detect File: namespace pages
@@ -53,6 +54,10 @@ export default function WikiArticlePage() {
   const displayTitle = translatedEntry.title || title;
   const htmlContent = translatedEntry.htmlContent;
   const textContent = translatedEntry.textContent;
+  const renderedHtmlContent = useMemo(
+    () => htmlContent ? prepareStaticHtmlForRender(htmlContent) : '',
+    [htmlContent],
+  );
 
   // Primary: construct CDN URL directly from the File: title
   // All wiki images are hosted at media.maplestorywiki.net/yetidb/{filename}
@@ -281,6 +286,7 @@ export default function WikiArticlePage() {
   usePageMetadata(
     displayTitle || 'MapleStory Wiki',
     (textContent || `MapleStory wiki information about ${displayTitle}.`).slice(0, 180),
+    { type: 'article' },
   );
 
   return (
@@ -363,7 +369,7 @@ export default function WikiArticlePage() {
                   {title}
                 </h1>
                 <div className="mt-1 text-sm text-foreground-600">
-                  From the MapleStory Wiki, mirrored inside MapleHub
+                  From the MapleStory Wiki, mirrored inside MPStorys
                 </div>
 
                 <div className="mt-5 mb-6">
@@ -380,6 +386,7 @@ export default function WikiArticlePage() {
                             alt={title}
                             className="max-h-[520px] max-w-full object-contain"
                             loading="eager"
+                            decoding="async"
                             onError={() => setImgLoadFailed(true)}
                           />
                           <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-opacity group-hover:opacity-100">
@@ -432,9 +439,9 @@ export default function WikiArticlePage() {
                         {t('wiki_file_description')}
                       </summary>
                       <div
-                        className="wiki-article-content wiki-vector-article mt-3 border-t border-background-100 pt-4"
+                        className="wiki-article-content wiki-vector-article static-article-content mt-3 border-t border-background-100 pt-4"
                         onClick={handleArticleClick}
-                        dangerouslySetInnerHTML={{ __html: sanitizeMirroredHtml(htmlContent || '') }}
+                        dangerouslySetInnerHTML={{ __html: renderedHtmlContent }}
                       />
                     </details>
                   ) : entry && textContent ? (
@@ -479,7 +486,7 @@ export default function WikiArticlePage() {
                     {displayTitle}
                   </h1>
                   <div className="mt-1 text-sm text-foreground-600">
-                    {t('wiki_article_from_source', 'From the MapleStory Wiki, mirrored inside MapleHub')}
+                    {t('wiki_article_from_source', 'From the MapleStory Wiki, mirrored inside MPStorys')}
                     {entry.lastSynced && (
                       <span className="ml-2 text-foreground-400">
                         · {t('wiki_article_synced', 'Synced')} {entry.lastSynced.slice(0, 10)}
@@ -489,29 +496,12 @@ export default function WikiArticlePage() {
                   <div className="mt-3">
                     <ShareButton title={displayTitle} text={(textContent || '').slice(0, 140)} />
                   </div>
-                  {translatedEntry.status === 'translating' && (
-                    <div className="mt-3 inline-flex items-center gap-2 text-sm text-primary-700" role="status">
-                      <i className="ri-loader-4-line animate-spin" aria-hidden="true" />
-                      {t('wiki_article_translating')}
-                    </div>
-                  )}
-                  {translatedEntry.status === 'needs-action' && (
-                    <button
-                      type="button"
-                      onClick={translatedEntry.retry}
-                      className="mt-3 inline-flex h-9 items-center gap-2 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
-                    >
-                      <i className="ri-translate-2" aria-hidden="true" />
-                      {t('wiki_article_translate')}
-                    </button>
-                  )}
-
                   <div
-                    className="wiki-article-content wiki-vector-article wiki-mainpage-article mt-5"
+                    className="wiki-article-content wiki-vector-article wiki-mainpage-article static-article-content mt-5"
                     onClick={handleArticleClick}
                   >
                     {htmlContent && !looksLikeWikitext(htmlContent) ? (
-                      <div dangerouslySetInnerHTML={{ __html: sanitizeMirroredHtml(htmlContent || '') }} />
+                      <div dangerouslySetInnerHTML={{ __html: renderedHtmlContent }} />
                     ) : hydrating ? (
                       <div className="flex items-center gap-3 py-20 text-foreground-600">
                         <i className="ri-loader-4-line animate-spin text-2xl"></i>
@@ -588,6 +578,7 @@ export default function WikiArticlePage() {
             src={effectiveFileImageUrl}
             alt={title}
             className="max-h-[90vh] max-w-[90vw] object-contain"
+            decoding="async"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

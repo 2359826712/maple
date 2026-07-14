@@ -1,88 +1,68 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import type { WikiEntry } from '@/services/liveContent';
-import {
-  BrowserTranslationError,
-  prepareBrowserTranslation,
-  translateHtml,
-  translateText,
-  type TranslationLanguage,
-} from '@/services/browserTranslation';
 import { normalizeNewsLanguage } from '@/pages/news/localizedNews';
+import { translateStaticText } from '@/services/staticTranslation';
 
-type TranslationStatus = 'original' | 'translating' | 'translated' | 'needs-action' | 'unavailable';
-
-type TranslatedEntry = {
-  title: string;
-  htmlContent?: string;
-  textContent: string;
-};
+type TranslationStatus = 'original' | 'translated' | 'unavailable';
 
 const distinct = (translated: string | undefined, original: string | undefined) =>
   Boolean(translated?.trim() && translated.trim() !== original?.trim());
 
 export function useTranslatedWikiEntry(entry: WikiEntry | null, language: string, preferredTitle?: string) {
-  const targetLanguage = normalizeNewsLanguage(language) as TranslationLanguage;
-  const [translated, setTranslated] = useState<TranslatedEntry | null>(null);
-  const [status, setStatus] = useState<TranslationStatus>('original');
-  const [attempt, setAttempt] = useState(0);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    setTranslated(null);
-
-    if (!entry || targetLanguage === 'en') {
-      setStatus('original');
-      return () => controller.abort();
+  const targetLanguage = normalizeNewsLanguage(useDeferredValue(language));
+  const initial = useMemo(() => {
+    if (!entry) {
+      return { title: '', htmlContent: undefined, textContent: '', status: 'original' as TranslationStatus };
     }
 
     const providedChinese = targetLanguage === 'zh' || targetLanguage === 'zh-Hant';
     const providedTitle = providedChinese && distinct(entry.titleZh, entry.title) ? entry.titleZh : undefined;
     const providedHtml = providedChinese && distinct(entry.htmlContentZh, entry.htmlContent) ? entry.htmlContentZh : undefined;
     const providedText = providedChinese && distinct(entry.contentZh, entry.content) ? entry.contentZh : undefined;
+    const hasStaticTranslation = Boolean(providedTitle && (providedHtml || providedText));
+    const status: TranslationStatus = targetLanguage === 'en'
+      ? 'original'
+      : hasStaticTranslation ? 'translated' : 'unavailable';
 
-    if (providedTitle && (providedHtml || providedText)) {
-      setTranslated({
-        title: preferredTitle || providedTitle,
-        htmlContent: providedHtml,
-        textContent: providedText || entry.content,
-      });
-      setStatus('translated');
-      return () => controller.abort();
+    return {
+      title: preferredTitle || providedTitle || entry.title,
+      htmlContent: providedHtml || entry.htmlContent,
+      textContent: providedText || entry.content,
+      status,
+    };
+  }, [entry, preferredTitle, targetLanguage]);
+  const [result, setResult] = useState(initial);
+
+  useEffect(() => {
+    let cancelled = false;
+    if (!entry || initial.status !== 'unavailable') {
+      setResult(initial);
+      return () => { cancelled = true; };
     }
 
-    setStatus('translating');
+    const htmlSource = entry.htmlContent?.trim();
     void (async () => {
-      try {
-        const translatedTitle = preferredTitle || await translateText(entry.title, 'en', targetLanguage, controller.signal);
-        const translatedHtml = entry.htmlContent
-          ? await translateHtml(entry.htmlContent, 'en', targetLanguage, controller.signal)
-          : undefined;
-        const translatedContent = translatedHtml
-          ? entry.content
-          : await translateText(entry.content, 'en', targetLanguage, controller.signal);
-        if (controller.signal.aborted) return;
-        setTranslated({ title: translatedTitle, htmlContent: translatedHtml, textContent: translatedContent });
-        setStatus('translated');
-      } catch (error) {
-        if (controller.signal.aborted) return;
-        setStatus(error instanceof BrowserTranslationError && error.code === 'needs-user-activation'
-          ? 'needs-action'
-          : 'unavailable');
-      }
-    })();
+      const title = await translateStaticText(entry.title, targetLanguage, { sourceLanguage: 'en' })
+        .catch(() => entry.title);
+      const originalContent = htmlSource || entry.content;
+      const content = await translateStaticText(originalContent, targetLanguage, {
+        sourceLanguage: 'en',
+        format: htmlSource ? 'html' : 'text',
+      }).catch(() => originalContent);
+      return { title, content };
+    })().then(({ title, content }) => {
+      if (cancelled) return;
+      setResult({
+        title: preferredTitle || title,
+        htmlContent: htmlSource ? content : undefined,
+        textContent: htmlSource ? entry.content : content,
+        status: title !== entry.title || content !== (htmlSource || entry.content) ? 'translated' : 'unavailable',
+      });
+    }).catch(() => {
+      if (!cancelled) setResult(initial);
+    });
+    return () => { cancelled = true; };
+  }, [entry, initial, preferredTitle, targetLanguage]);
 
-    return () => controller.abort();
-  }, [attempt, entry, preferredTitle, targetLanguage]);
-
-  return useMemo(() => ({
-    title: translated?.title || preferredTitle || entry?.title || '',
-    htmlContent: translated?.htmlContent || entry?.htmlContent,
-    textContent: translated?.textContent || entry?.content || '',
-    status,
-    retry: () => {
-      void prepareBrowserTranslation('en', targetLanguage)
-        .catch(() => undefined)
-        .finally(() => setAttempt((value) => value + 1));
-    },
-  }), [entry, preferredTitle, status, targetLanguage, translated]);
+  return result;
 }

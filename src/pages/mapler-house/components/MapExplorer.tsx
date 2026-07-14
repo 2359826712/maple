@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { cachedJsonFetch, realtimeCacheDurations } from '@/services/realtimeCache';
 import { WORLD_MAP_HIT_MASKS, type OverlayHitMask } from './worldMapHitMasks';
 import { mapLocations } from '@/mocks/mapler-house';
+import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services/staticTranslation';
 
 type MajorRegion = 'maple' | 'arcane' | 'grandis';
 type SortKey = 'level' | 'exp' | 'meso' | 'spawn' | 'name';
@@ -74,7 +75,7 @@ type RootHotspot = { region: MajorRegion; label: string; x: number; y: number; w
 
 const MAP_API_REGION = 'GMS';
 const MAP_API_VERSION = '253';
-const MAPLESTORY_IO_API_BASE = '/maplestory-io-api';
+const MAPLESTORY_IO_API_BASE = 'https://maplestory.io/api';
 const MAPLEMAPS_ASSET_BASE = 'https://d3uzjcc4cyf4cj.cloudfront.net';
 const MAP_IMAGE_SOURCE = 'Maplemaps map render';
 
@@ -140,14 +141,14 @@ type MaplemapsMobMeta = {
   exp?: number;
 };
 
-async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arcane_river') {
-  return cachedJsonFetch<{
+async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arcane_river', language: string) {
+  const payload = await cachedJsonFetch<{
     worldMapsData: Record<string, MaplemapsWorldMapRemote>;
     mapsData: Record<string, MaplemapsMapMeta>;
     mobsData: Record<string, MaplemapsMobMeta>;
   }>('https://v66rewn65j.execute-api.us-west-2.amazonaws.com/prod/fetch-mongodb', {
     cacheKey: `maplemaps-region:${region}`,
-    freshMs: realtimeCacheDurations.long,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
     requestInit: {
       method: 'POST',
@@ -155,6 +156,40 @@ async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arc
       body: JSON.stringify({ reqType: 'regionData', region }),
     },
   });
+  const targetLanguage = normalizeStaticContentLanguage(language);
+  if (targetLanguage === 'en') return payload;
+
+  const worldMapsData = Object.fromEntries(Object.entries(payload.worldMapsData).map(([key, value]) => [key, {
+    ...value,
+    maps: value.maps.map((dot) => ({ ...dot })),
+  }]));
+  const mapsData = Object.fromEntries(Object.entries(payload.mapsData).map(([key, value]) => [key, { ...value }]));
+  const mobsData = Object.fromEntries(Object.entries(payload.mobsData).map(([key, value]) => [key, { ...value }]));
+  const labels = Array.from(new Set([
+    ...Object.values(worldMapsData).flatMap((value) => [value.worldMapName, ...value.maps.map((dot) => dot.description || '')]),
+    ...Object.values(mapsData).flatMap((value) => [value.name, value.streetName]),
+    ...Object.values(mobsData).map((value) => value.name),
+  ].filter(Boolean)));
+  try {
+    const translations = await translateStaticTexts(labels, targetLanguage, { sourceLanguage: 'en' });
+    const localized = new Map(labels.map((label, index) => [label, translations[index] || label]));
+    Object.values(worldMapsData).forEach((value) => {
+      value.worldMapName = localized.get(value.worldMapName) || value.worldMapName;
+      value.maps.forEach((dot) => {
+        if (dot.description) dot.description = localized.get(dot.description) || dot.description;
+      });
+    });
+    Object.values(mapsData).forEach((value) => {
+      value.name = localized.get(value.name) || value.name;
+      value.streetName = localized.get(value.streetName) || value.streetName;
+    });
+    Object.values(mobsData).forEach((value) => {
+      value.name = localized.get(value.name) || value.name;
+    });
+  } catch {
+    return payload;
+  }
+  return { worldMapsData, mapsData, mobsData };
 }
 
 const MAPLEMAPS_WORLDMAPS: Record<string, MaplemapsWorldMapDef> = {
@@ -585,7 +620,7 @@ const maplemapsMetaToRow = (mapId: number, meta?: MaplemapsMapMeta): TableRow =>
 };
 
 export default function MapExplorer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedRegion, setSelectedRegion] = useState<MajorRegion>('maple');
   const [navigatorNode, setNavigatorNode] = useState<NavigatorNode>('root');
   const [worldMapStack, setWorldMapStack] = useState<WorldMapStackItem[]>([{ worldMap: 'WorldMap', parentWorld: '' }]);
@@ -619,12 +654,24 @@ export default function MapExplorer() {
       try {
         const apiMaps = await cachedJsonFetch<MapleStoryIoMap[]>(mapleStoryIoEndpoint('/map'), {
           cacheKey: `maplestoryio-proxy-v2-map-list:${MAP_API_REGION}:${MAP_API_VERSION}`,
-          freshMs: realtimeCacheDurations.long,
+          freshMs: realtimeCacheDurations.refresh,
           staleMs: realtimeCacheDurations.week,
         });
         if (!isActive) return;
 
         setExpandedMaps(buildExpandedMaps(apiMaps));
+        const targetLanguage = normalizeStaticContentLanguage(i18n.language);
+        if (targetLanguage !== 'en') {
+          const localizedMaps = apiMaps.map((map) => ({ ...map }));
+          const labels = localizedMaps.flatMap((map) => [map.streetName, map.name]);
+          const translations = await translateStaticTexts(labels, targetLanguage, { sourceLanguage: 'en' })
+            .catch(() => labels);
+          localizedMaps.forEach((map, index) => {
+            map.streetName = translations[index * 2] || map.streetName;
+            map.name = translations[index * 2 + 1] || map.name;
+          });
+          if (isActive) setExpandedMaps(buildExpandedMaps(localizedMaps));
+        }
       } catch (error) {
         if (!isActive) return;
         setExpandedMaps([]);
@@ -639,7 +686,14 @@ export default function MapExplorer() {
     return () => {
       isActive = false;
     };
-  }, []);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    setLiveMonsterCache({});
+    setLoadedMaplemapsRegions({});
+    setMaplemapsWorldMapsData({});
+    setMaplemapsMapsData({});
+  }, [i18n.language]);
 
   const allMaps = useMemo(() => [...(mapLocations as MapLocation[]), ...expandedMaps], [expandedMaps]);
   const rows = useMemo(() => allMaps.map(toRow), [allMaps]);
@@ -737,7 +791,7 @@ export default function MapExplorer() {
           mapleStoryIoEndpoint(`/map/${selectedMap.mapId}`),
           {
             cacheKey: `maplestoryio-proxy-v2-map:${MAP_API_REGION}:${MAP_API_VERSION}:${selectedMap.mapId}`,
-            freshMs: realtimeCacheDurations.long,
+            freshMs: realtimeCacheDurations.refresh,
             staleMs: realtimeCacheDurations.week,
           },
         );
@@ -751,24 +805,33 @@ export default function MapExplorer() {
           return;
         }
 
-        const mobEntries = await Promise.all(
-          uniqueMobIds.map(async (mobId) => {
-            const mob = await cachedJsonFetch<MapleStoryIoMob>(mapleStoryIoEndpoint(`/mob/${mobId}`), {
+        const mobs = await Promise.all(
+          uniqueMobIds.map((mobId) =>
+            cachedJsonFetch<MapleStoryIoMob>(mapleStoryIoEndpoint(`/mob/${mobId}`), {
               cacheKey: `maplestoryio-proxy-v2-mob:${MAP_API_REGION}:${MAP_API_VERSION}:${mobId}`,
-              freshMs: realtimeCacheDurations.long,
+              freshMs: realtimeCacheDurations.refresh,
               staleMs: realtimeCacheDurations.week,
-            });
-            return {
+            }),
+          ),
+        );
+        const originalNames = mobs.map((mob, index) => mob.name || `Mob ${uniqueMobIds[index]}`);
+        const targetLanguage = normalizeStaticContentLanguage(i18n.language);
+        const localizedNames = targetLanguage === 'en'
+          ? originalNames
+          : await translateStaticTexts(originalNames, targetLanguage, { sourceLanguage: 'en' })
+              .catch(() => originalNames);
+        const mobEntries = mobs.map((mob, index) => {
+          const mobId = uniqueMobIds[index];
+          return {
               key: `${mobId}`,
               mobId,
-              name: mob.name || `Mob ${mobId}`,
+              name: localizedNames[index] || originalNames[index],
               icon: mobIcon(mobId),
               level: mob.meta?.level,
               exp: mob.meta?.exp,
               hp: mob.meta?.maxHP,
             } satisfies MonsterVisual;
-          }),
-        );
+        });
 
         if (!isActive) return;
         setLiveMonsterCache((current) => ({ ...current, [selectedMap.mapId]: mobEntries }));
@@ -785,7 +848,7 @@ export default function MapExplorer() {
     return () => {
       isActive = false;
     };
-  }, [liveMonsterCache, selectedMap]);
+  }, [i18n.language, liveMonsterCache, selectedMap]);
 
   const selectedMapMonsters = useMemo<MonsterVisual[]>(
     () => (selectedMap ? liveMonsterCache[selectedMap.mapId] || fallbackMonsterVisuals(selectedMap.monsters) : []),
@@ -841,7 +904,7 @@ export default function MapExplorer() {
     let active = true;
     (async () => {
       try {
-        const payload = await fetchMaplemapsRegionData(regionKey);
+        const payload = await fetchMaplemapsRegionData(regionKey, i18n.language);
         if (!active) return;
         setMaplemapsWorldMapsData((current) => ({ ...current, ...payload.worldMapsData }));
         setMaplemapsMapsData((current) => ({ ...current, ...payload.mapsData }));
@@ -854,7 +917,7 @@ export default function MapExplorer() {
     return () => {
       active = false;
     };
-  }, [loadedMaplemapsRegions, navigatorNode]);
+  }, [i18n.language, loadedMaplemapsRegions, navigatorNode]);
 
   const enterRegion = (region: MajorRegion) => {
     setSelectedRegion(region);
@@ -1555,7 +1618,7 @@ function WorldMapNavigatorRoot({
   return (
     <div className="p-4">
       <section className="rounded-md border border-background-200 bg-background-100 p-4">
-        <h1 className="text-lg font-semibold text-foreground-950">Select a Region:</h1>
+        <h2 className="text-lg font-semibold text-foreground-950">Select a Region:</h2>
         <div className="mt-4 grid grid-cols-3 gap-3">
           <button
             type="button"

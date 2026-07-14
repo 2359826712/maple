@@ -30,7 +30,7 @@ describe('AppErrorFallback', () => {
     );
 
     expect(screen.getByRole('alert')).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'MapleHub hit an unexpected error' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MPStorys hit an unexpected error' })).toBeTruthy();
 
     fireEvent.click(screen.getByRole('button', { name: 'Try Again' }));
     expect(onReset).toHaveBeenCalledTimes(1);
@@ -54,7 +54,7 @@ describe('AppErrorFallback', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: 'MapleHub hit an unexpected error' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MPStorys hit an unexpected error' })).toBeTruthy();
     consoleError.mockRestore();
   });
 });

@@ -10,6 +10,7 @@ import {
   ORANGE_MUSHROOM_TIME_ZONE,
   type UpcomingUpdateFeed,
 } from '@/services/upcomingUpdates';
+import { useLocalizedUpcomingFeed } from './localizedUpcoming';
 
 const ORANGE_MUSHROOM_KMST_URL = 'https://orangemushroom.net/category/kmst/';
 
@@ -55,6 +56,7 @@ export default function UpcomingUpdatesPage() {
   const [notifOpen, setNotifOpen] = useState(false);
   const [feed, setFeed] = useState<UpcomingUpdateFeed | null>(null);
   const [feedStatus, setFeedStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const localizedFeed = useLocalizedUpcomingFeed(feed, i18n.language);
 
   usePageMetadata(t('upcoming_title'), t('upcoming_meta_desc'));
 
@@ -141,9 +143,9 @@ export default function UpcomingUpdatesPage() {
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-foreground-600 md:text-base">{t('upcoming_latest_desc')}</p>
               </div>
-              {feed?.sourceSyncedAt && (
+              {localizedFeed?.sourceSyncedAt && (
                 <p className="text-xs text-foreground-500">
-                  {t('upcoming_feed_updated', { date: formatDate(feed.sourceSyncedAt) })}
+                  {t('upcoming_feed_updated', { date: formatDate(localizedFeed.sourceSyncedAt) })}
                 </p>
               )}
             </div>
@@ -182,9 +184,9 @@ export default function UpcomingUpdatesPage() {
               </div>
             )}
 
-            {feedStatus === 'ready' && feed && (
+            {feedStatus === 'ready' && localizedFeed && (
               <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {feed.items.map((post) => (
+                {localizedFeed.items.map((post) => (
                   <article key={post.id} className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-background-200 bg-background-50 shadow-sm transition hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md">
                     <div className="relative h-44 overflow-hidden bg-gradient-to-br from-primary-100 to-secondary-100">
                       {post.image ? (
@@ -192,6 +194,7 @@ export default function UpcomingUpdatesPage() {
                           src={post.image}
                           alt=""
                           loading="lazy"
+                          decoding="async"
                           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
                         />
                       ) : (

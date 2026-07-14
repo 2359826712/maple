@@ -8,6 +8,8 @@ import { fetchLiveNews, fetchLiveEvents, fetchLiveGuides, getRegionalContentImag
 import { getNewsCategoryLabel, newsSourceLanguageTranslationKey } from '@/pages/news/localizedNews';
 import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
+import { getGuideCardCopy, useLocalizedGuideItems } from '@/pages/guides/localizedGuides';
 
 export default function CurrentVersionHighlights() {
   const { t, i18n } = useTranslation();
@@ -26,18 +28,20 @@ export default function CurrentVersionHighlights() {
     baseItems: [],
     remoteLoader: loadEvents,
   });
+  const localizedEvents = useLocalizedEvents(realtimeEvents, i18n.language);
   const { items: realtimeGuides } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
     baseItems: [],
     remoteLoader: fetchLiveGuides,
   });
+  const localizedGuides = useLocalizedGuideItems(realtimeGuides, i18n.language);
 
   const topNews = localizedNews.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
-  const topEvent = realtimeEvents.find((item) => isAvailableInVersion(item.regions, versionInfo.id)) ?? null;
+  const topEvent = localizedEvents.find((item) => isAvailableInVersion(item.regions, versionInfo.id)) ?? null;
   const topEventNews = localizedNews.find((item) => (
     item.category === 'Event' && isAvailableInVersion(item.versions, versionInfo.id)
   )) ?? null;
-  const topGuide = realtimeGuides.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
+  const topGuide = localizedGuides.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
 
   const newsCard = topNews ? {
     kind: 'live' as const,
@@ -91,8 +95,8 @@ export default function CurrentVersionHighlights() {
     kind: 'live' as const,
     icon: 'ri-book-open-line',
     label: t('home_cv_top_guide'),
-    title: topGuide.title,
-    sub: `${topGuide.class} · ${topGuide.difficulty}`,
+    title: getGuideCardCopy(topGuide, i18n.language).title,
+    sub: `${getGuideCardCopy(topGuide, i18n.language).classLabel} · ${getGuideCardCopy(topGuide, i18n.language).difficulty}`,
     sourceCue: t('home_cv_english_source', { source: topGuide.sourceLabel || 'Grandis Library' }),
     href: '/guides',
     hrefLabel: t('home_cv_all_guides'),

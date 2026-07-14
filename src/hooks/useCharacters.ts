@@ -229,11 +229,11 @@ function generateId(): string {
 function loadLocalCharacters(): CharacterProfile[] {
   try {
     const migration = migrateStorageKey(localStorage, LEGACY_CHARACTERS_KEY, CHARACTERS_KEY, isCharacterList);
-    if (migration.status === 'failed') console.warn('[MapleHub] Character migration failed; legacy data was preserved.', migration.error);
+    if (migration.status === 'failed') console.warn('[MPStorys] Character migration failed; legacy data was preserved.', migration.error);
     const parsed = readJson<unknown>(localStorage, CHARACTERS_KEY);
     return isCharacterList(parsed) ? parsed : [];
   } catch (error) {
-    console.warn('[MapleHub] Failed to load characters; stored data was preserved.', error);
+    console.warn('[MPStorys] Failed to load characters; stored data was preserved.', error);
     return [];
   }
 }
@@ -311,11 +311,11 @@ export function resolveActiveCharacter(
 function loadChecklist(charId: string): TaskState {
   try {
     const migration = migrateStorageKey(localStorage, legacyChecklistKey(charId), checklistKey(charId), isTaskState);
-    if (migration.status === 'failed') console.warn('[MapleHub] Checklist migration failed; legacy data was preserved.', migration.error);
+    if (migration.status === 'failed') console.warn('[MPStorys] Checklist migration failed; legacy data was preserved.', migration.error);
     const parsed = readJson<unknown>(localStorage, checklistKey(charId));
     return isTaskState(parsed) ? parsed : {};
   } catch (error) {
-    console.warn('[MapleHub] Failed to load checklist; stored data was preserved.', error);
+    console.warn('[MPStorys] Failed to load checklist; stored data was preserved.', error);
     return {};
   }
 }
@@ -329,7 +329,7 @@ function loadChecklistConfig(charId: string): ChecklistConfiguration | null {
     const parsed = readJson<unknown>(localStorage, checklistConfigKey(charId));
     return isChecklistConfiguration(parsed) ? parsed : null;
   } catch (error) {
-    console.warn('[MapleHub] Failed to load checklist configuration; stored data was preserved.', error);
+    console.warn('[MPStorys] Failed to load checklist configuration; stored data was preserved.', error);
     return null;
   }
 }
@@ -358,7 +358,7 @@ function migrateLegacyData(characters: CharacterProfile[]): CharacterProfile[] {
     const checklistResult = writeStorageValueWithRecovery(localStorage, checklistKey(defaultChar.id), legacyRaw);
     if ('error' in checklistResult) throw checklistResult.error;
   } catch (error) {
-    console.warn('[MapleHub] Failed to migrate legacy checklist data; legacy data was preserved.', error);
+    console.warn('[MPStorys] Failed to migrate legacy checklist data; legacy data was preserved.', error);
     return characters;
   }
 
@@ -417,7 +417,7 @@ export function useCharacters() {
       const msg = result.quotaExceeded
         ? 'Storage full — your progress is still in this tab but could not be saved. Export your data from Quick Actions to keep it safe.'
         : 'Failed to save data locally.';
-      console.warn('[MapleHub]', msg, result.error);
+      console.warn('[MPStorys]', msg, result.error);
       setSaveError(msg);
     }
   }, []);
@@ -550,8 +550,8 @@ export function useCharacters() {
     const mutations = buildImportMutations(envelope, characters);
     const transaction = applyStorageTransaction(localStorage, mutations);
     if ('error' in transaction) {
-      if (transaction.rollbackError) console.error('[MapleHub] Import rollback failed.', transaction.rollbackError);
-      console.warn('[MapleHub] Import failed; previous data was restored.', transaction.error);
+      if (transaction.rollbackError) console.error('[MPStorys] Import rollback failed.', transaction.rollbackError);
+      console.warn('[MPStorys] Import failed; previous data was restored.', transaction.error);
       return { ok: false as const, message: 'Import failed. Your previous data was restored.' };
     }
 
@@ -568,7 +568,7 @@ export function useCharacters() {
     setChecklistConfig(nextConfig);
     setSaveError(null);
     setLastSaved(Date.now());
-    return { ok: true as const, message: 'MapleHub data imported successfully.' };
+    return { ok: true as const, message: 'MPStorys data imported successfully.' };
   }, [characters]);
 
   const activeCharacter = characters.find((c) => c.id === activeCharId) ?? null;

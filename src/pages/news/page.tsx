@@ -70,11 +70,7 @@ export default function NewsPage() {
     baseItems: [],
     remoteLoader: loadNews,
   });
-  const {
-    items: localizedNews,
-    status: translationStatus,
-    retry: retryTranslation,
-  } = useLocalizedNewsItems(realtimeNews, i18n.language);
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const versionList = useMemo(
     () =>
@@ -162,16 +158,6 @@ export default function NewsPage() {
               <div className="mb-6">
                 <OfficialServerLinks preferred="news" />
               </div>
-              {translationStatus === 'needs-action' && (
-                <button
-                  type="button"
-                  onClick={retryTranslation}
-                  className="mb-6 inline-flex h-10 items-center gap-2 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
-                >
-                  <i className="ri-translate-2" aria-hidden="true" />
-                  {t('news_translate_content')}
-                </button>
-              )}
               {storageError && (
                 <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700" role="status" aria-live="polite">
                   {t('news_storage_error', { defaultValue: 'News state could not be saved locally. Existing data was not deleted.' })}
@@ -250,6 +236,8 @@ export default function NewsPage() {
                         <img
                           src={getRegionalContentImage(n.image, n.versions[0] || versionInfo.id)}
                           alt={n.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                           onError={(event) => applyRegionalImageFallback(event.currentTarget, n.versions[0] || versionInfo.id)}
                         />

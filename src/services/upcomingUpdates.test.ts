@@ -57,9 +57,10 @@ describe('Orange Mushroom KMST feed', () => {
 
     const feed = await fetchUpcomingUpdates();
     const requestUrl = String(fetchMock.mock.calls[0]?.[0]);
+    const sourceUrl = new URL(requestUrl, window.location.origin).searchParams.get('url') || '';
 
-    expect(requestUrl).toContain('public-api.wordpress.com');
-    expect(requestUrl).toContain('category=KMST');
+    expect(sourceUrl).toContain('public-api.wordpress.com');
+    expect(sourceUrl).toContain('category=KMST');
     expect(feed.total).toBe(1);
     expect(feed.items[0]?.title).toBe('Test update');
     expect(feed.sourceSyncedAt).toEqual(expect.any(String));
@@ -98,7 +99,9 @@ describe('Orange Mushroom KMST feed', () => {
 
     const article = await fetchUpcomingUpdateArticle('orange-mushroom-83613');
 
-    expect(String(fetchMock.mock.calls[0]?.[0])).toContain('/posts/83613');
+    const requestUrl = String(fetchMock.mock.calls[0]?.[0]);
+    const sourceUrl = new URL(requestUrl, window.location.origin).searchParams.get('url') || '';
+    expect(sourceUrl).toContain('/posts/83613');
     expect(article.contentHtml).toContain('Full article content.');
   });
 

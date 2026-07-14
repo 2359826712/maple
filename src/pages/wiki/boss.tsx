@@ -19,11 +19,12 @@ const rarityColors: Record<string, string> = {
 
 export default function BossDetailPage() {
   const { t } = useTranslation();
-  const { '*': bossParam } = useParams<{ '*': string }>();
+  const { '*': legacyBossParam, bossName: localizedBossParam } = useParams<{ '*': string; bossName: string }>();
   const [notifOpen, setNotifOpen] = useState(false);
   const [activeDifficulty, setActiveDifficulty] = useState(0);
   const { version } = useVersion();
 
+  const bossParam = localizedBossParam || legacyBossParam;
   const bossName = bossParam ? decodeURIComponent(bossParam).replace(/_/g, ' ') : '';
 
   const boss = useMemo(
@@ -40,6 +41,11 @@ export default function BossDetailPage() {
   usePageMetadata(
     boss ? `${boss.name} Boss Guide` : 'MapleStory Boss Guides',
     boss ? `Mechanics, requirements, rewards, and ${boss.difficulty.join('/')} strategies for ${boss.name}.` : 'MapleStory boss mechanics, requirements, and rewards.',
+    {
+      image: boss?.image || undefined,
+      imageAlt: boss ? `${boss.name} Boss Guide` : 'MapleStory Boss Guides',
+      type: 'article',
+    },
   );
 
   // No boss name provided — show Boss listing index
@@ -222,7 +228,7 @@ export default function BossDetailPage() {
                 <div>
                   <h2 className="font-semibold">Verified details are not available yet</h2>
                   <p className="mt-1 text-sm leading-6">
-                    MapleHub is showing entry and reset information only. Rewards, battle-power targets, mechanics, and strategies stay hidden until a trustworthy GMS source is connected.
+                    MPStorys is showing entry and reset information only. Rewards, battle-power targets, mechanics, and strategies stay hidden until a trustworthy GMS source is connected.
                   </p>
                   {boss.sourceUrl && (
                     <a

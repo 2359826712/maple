@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
@@ -10,6 +10,7 @@ import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { getNewsSourceLanguageForVersion, normalizeNewsLanguage } from '@/pages/news/localizedNews';
 import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
 import { useTranslatedOfficialDocument } from './useTranslatedOfficialDocument';
+import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 
 export default function OfficialSourcePage() {
   const { t, i18n } = useTranslation();
@@ -17,6 +18,7 @@ export default function OfficialSourcePage() {
   const [notifOpen, setNotifOpen] = useState(false);
   const [article, setArticle] = useState<OfficialArticleDocument | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading');
+  const [retryKey, setRetryKey] = useState(0);
   const title = params.get('title')?.trim() || t('source_mirror_label');
   const sourceUrl = params.get('url') || '';
   const rawServer = params.get('server');
@@ -25,11 +27,16 @@ export default function OfficialSourcePage() {
   const articleUsesOriginalLanguage = normalizeNewsLanguage(i18n.language) !== sourceLanguage;
   const translatedDocument = useTranslatedOfficialDocument(article, sourceLanguage, i18n.language);
   const displayedArticle = translatedDocument.article;
+  const renderedArticleHtml = useMemo(
+    () => displayedArticle?.html ? prepareStaticHtmlForRender(displayedArticle.html) : '',
+    [displayedArticle?.html],
+  );
 
-  usePageMetadata(title, t('source_mirror_label'));
+  usePageMetadata(title, t('source_mirror_label'), { noIndex: true });
 
   useEffect(() => {
     let active = true;
+    let retryTimer: number | undefined;
     setStatus('loading');
     setArticle(null);
     if (!sourceUrl) {
@@ -44,10 +51,16 @@ export default function OfficialSourcePage() {
         setStatus(result.html || result.text ? 'ready' : 'unavailable');
       })
       .catch(() => {
-        if (active) setStatus('unavailable');
+        if (active) {
+          setStatus('unavailable');
+          retryTimer = window.setTimeout(() => setRetryKey((value) => value + 1), 12_000);
+        }
       });
-    return () => { active = false; };
-  }, [server, sourceUrl]);
+    return () => {
+      active = false;
+      if (retryTimer !== undefined) window.clearTimeout(retryTimer);
+    };
+  }, [retryKey, server, sourceUrl]);
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-900">
@@ -70,23 +83,6 @@ export default function OfficialSourcePage() {
                 <NewsOriginalLanguageNotice sourceLanguage={sourceLanguage} className="text-amber-900" />
               </div>
             )}
-            {translatedDocument.status === 'translating' && (
-              <div className="mt-4 inline-flex items-center gap-2 text-sm text-primary-700" role="status">
-                <i className="ri-loader-4-line animate-spin" aria-hidden="true" />
-                {t('source_translating')}
-              </div>
-            )}
-            {translatedDocument.status === 'needs-action' && (
-              <button
-                type="button"
-                onClick={translatedDocument.retry}
-                className="mt-4 inline-flex h-9 items-center gap-2 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
-              >
-                <i className="ri-translate-2" aria-hidden="true" />
-                {t('source_translate')}
-              </button>
-            )}
-
             {status === 'loading' && (
               <div className="py-16 text-center text-sm text-foreground-600" role="status">
                 <i className="ri-loader-4-line mr-2 animate-spin" aria-hidden="true" />{t('source_loading')}
@@ -94,13 +90,21 @@ export default function OfficialSourcePage() {
             )}
             {status === 'unavailable' && (
               <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900" role="alert">
-                {t('source_unavailable')}
+                <p>{t('source_unavailable')}</p>
+                <button
+                  type="button"
+                  onClick={() => setRetryKey((value) => value + 1)}
+                  className="mt-4 inline-flex min-h-10 items-center gap-1 rounded-full bg-primary-600 px-4 font-semibold text-white hover:bg-primary-700"
+                >
+                  <i className="ri-refresh-line" aria-hidden="true" />
+                  {t('rankings_retry')}
+                </button>
               </div>
             )}
             {status === 'ready' && displayedArticle?.html && (
               <div
-                className="mt-8 space-y-4 text-sm leading-7 text-foreground-800 [&_a]:text-primary-700 [&_a]:underline [&_h1]:mt-8 [&_h1]:text-2xl [&_h2]:mt-8 [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:text-lg [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_li]:ml-5 [&_li]:list-disc [&_p]:my-4 [&_table]:w-full [&_table]:overflow-x-auto"
-                dangerouslySetInnerHTML={{ __html: displayedArticle.html }}
+                className="static-article-content mt-8 space-y-4 text-sm leading-7 text-foreground-800 [&_a]:text-primary-700 [&_a]:underline [&_h1]:mt-8 [&_h1]:text-2xl [&_h2]:mt-8 [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:text-lg [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_li]:ml-5 [&_li]:list-disc [&_p]:my-4 [&_table]:w-full [&_table]:overflow-x-auto"
+                dangerouslySetInnerHTML={{ __html: renderedArticleHtml }}
               />
             )}
             {status === 'ready' && displayedArticle && !displayedArticle.html && (

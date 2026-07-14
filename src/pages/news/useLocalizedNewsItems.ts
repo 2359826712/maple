@@ -1,80 +1,68 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import type { NewsItem } from '@/services/liveContent';
-import { BrowserTranslationError, prepareBrowserTranslation, translateText } from '@/services/browserTranslation';
 import { getNewsCopy, normalizeNewsLanguage } from './localizedNews';
+import { translateStaticTexts } from '@/services/staticTranslation';
+import { useDeepStableValue } from '@/hooks/useDeepStableValue';
 
-type TranslationStatus = 'idle' | 'translating' | 'translated' | 'needs-action' | 'unavailable';
-
-type BrowserCopy = {
-  title: string;
-  excerpt: string;
-};
+type TranslationStatus = 'translated' | 'translating' | 'unavailable';
 
 export function useLocalizedNewsItems(items: NewsItem[], language: string) {
-  const targetLanguage = normalizeNewsLanguage(language);
-  const [browserCopies, setBrowserCopies] = useState<Record<string, BrowserCopy>>({});
-  const [status, setStatus] = useState<TranslationStatus>('idle');
-  const [attempt, setAttempt] = useState(0);
+  const stableItems = useDeepStableValue(items);
+  const targetLanguage = normalizeNewsLanguage(useDeferredValue(language));
+  const localizedItems = useMemo(
+    () => stableItems.map((item) => ({ ...item, ...getNewsCopy(item, targetLanguage) })),
+    [stableItems, targetLanguage],
+  );
+  const [translatedItems, setTranslatedItems] = useState(localizedItems);
+  const [retryKey, setRetryKey] = useState(0);
+  const [status, setStatus] = useState<TranslationStatus>(() => localizedItems.some((item) => item.usesOriginalCopy)
+    ? 'unavailable'
+    : 'translated');
 
   useEffect(() => {
-    const controller = new AbortController();
-    const pending = items
-      .map((item) => ({ item, copy: getNewsCopy(item, targetLanguage) }))
-      .filter(({ copy }) => copy.usesOriginalCopy);
-
-    if (pending.length === 0) {
+    let cancelled = false;
+    let retryTimer: number | undefined;
+    const missingIndexes = localizedItems.flatMap((item, index) => item.usesOriginalCopy ? [index] : []);
+    if (missingIndexes.length === 0) {
       setStatus('translated');
-      return () => controller.abort();
+      return () => { cancelled = true; };
     }
 
-    setBrowserCopies({});
+    setTranslatedItems((current) => current.length === localizedItems.length
+      && current.every((item, index) => item.id === localizedItems[index]?.id)
+      ? current
+      : localizedItems);
     setStatus('translating');
-    void (async () => {
-      try {
-        for (const { item, copy } of pending) {
-          const [title, excerpt] = await Promise.all([
-            translateText(item.title, copy.sourceLanguage, targetLanguage, controller.signal),
-            translateText(item.excerpt, copy.sourceLanguage, targetLanguage, controller.signal),
-          ]);
-          if (controller.signal.aborted) return;
-          setBrowserCopies((current) => ({ ...current, [item.id]: { title, excerpt } }));
-        }
+    const texts = missingIndexes.flatMap((index) => [stableItems[index].title, stableItems[index].excerpt]);
+    void translateStaticTexts(texts, targetLanguage)
+      .then((translations) => {
+        if (cancelled) return;
+        const next = [...localizedItems];
+        missingIndexes.forEach((itemIndex, translationIndex) => {
+          next[itemIndex] = {
+            ...next[itemIndex],
+            title: translations[translationIndex * 2] || next[itemIndex].title,
+            excerpt: translations[translationIndex * 2 + 1] || next[itemIndex].excerpt,
+            usesOriginalCopy: false,
+          };
+        });
+        setTranslatedItems(next);
         setStatus('translated');
-      } catch (error) {
-        if (controller.signal.aborted) return;
-        setStatus(error instanceof BrowserTranslationError && error.code === 'needs-user-activation'
-          ? 'needs-action'
-          : 'unavailable');
-      }
-    })();
-
-    return () => controller.abort();
-  }, [attempt, items, targetLanguage]);
-
-  const localizedItems = useMemo(() => items.map((item) => {
-    const copy = getNewsCopy(item, targetLanguage);
-    const browserCopy = browserCopies[item.id];
-    return {
-      ...item,
-      ...copy,
-      ...(browserCopy || {}),
-      usesOriginalCopy: browserCopy ? false : copy.usesOriginalCopy,
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setStatus('unavailable');
+          retryTimer = window.setTimeout(() => setRetryKey((value) => value + 1), 12_000);
+        }
+      });
+    return () => {
+      cancelled = true;
+      if (retryTimer !== undefined) window.clearTimeout(retryTimer);
     };
-  }), [browserCopies, items, targetLanguage]);
-
-  const retry = () => {
-    const sourceLanguage = items
-      .map((item) => getNewsCopy(item, targetLanguage))
-      .find((copy) => copy.usesOriginalCopy)?.sourceLanguage;
-    if (!sourceLanguage) return;
-    void prepareBrowserTranslation(sourceLanguage, targetLanguage)
-      .catch(() => undefined)
-      .finally(() => setAttempt((value) => value + 1));
-  };
+  }, [localizedItems, retryKey, stableItems, targetLanguage]);
 
   return {
-    items: localizedItems,
+    items: localizedItems.some((item) => item.usesOriginalCopy) ? translatedItems : localizedItems,
     status,
-    retry,
   };
 }

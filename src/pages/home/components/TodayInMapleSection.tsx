@@ -32,6 +32,7 @@ import {
 } from '@/domain/nextBestAction';
 import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -76,11 +77,12 @@ export default function TodayInMapleSection() {
     remoteLoader: loadNews,
   });
   const { items: localizedNewsItems } = useLocalizedNewsItems(newsItems, i18n.language);
-  const { items: eventItems, lastSyncedAt: eventsSyncedAt, status: eventsStatus } = useRealtimeCollection<EventItem>({
+  const { items: rawEventItems, lastSyncedAt: eventsSyncedAt, status: eventsStatus } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${version}`,
     baseItems: [],
     remoteLoader: loadEvents,
   });
+  const eventItems = useLocalizedEvents(rawEventItems, i18n.language);
 
   // Checklist progress computation
   const checklistProgress = useMemo(() => {

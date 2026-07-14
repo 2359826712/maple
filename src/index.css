@@ -1205,6 +1205,17 @@ textarea:focus-visible,
   vertical-align: middle;
 }
 
+/* Long cached articles stay fully present in the DOM, but off-screen sections
+   do not consume layout and paint time until they approach the viewport. */
+.static-article-content [data-static-content-block] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 32rem;
+}
+
+.grandis-article-content [data-static-content-block] {
+  contain-intrinsic-size: auto 48rem;
+}
+
 .grandis-article-content .maplehub-rendered-lazyload {
   margin: 1.25rem 0 2.25rem;
 }

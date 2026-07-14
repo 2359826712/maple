@@ -1,6 +1,7 @@
 import type { WikiCategory, WikiEntry } from '@/mocks/wiki';
+import { apiEndpoint } from './apiEndpoint';
 import { mapleSqlApi, type WikiMirrorPageRecord } from './mapleSqlApi';
-import { cachedJsonFetch, cachedTextFetch, getRealtimeCacheSavedAt, realtimeCacheDurations } from './realtimeCache';
+import { cachedJsonFetch, cachedTextFetch, cachedValueLoad, getRealtimeCacheSavedAt, realtimeCacheDurations } from './realtimeCache';
 import {
   validateEventData,
   validateNewsData,
@@ -56,6 +57,14 @@ export type GuideItem = {
   contentHtml?: string;
   contentText?: string;
   sourceSyncedAt?: string;
+  localizedLanguage?: NewsContentLanguage;
+  localizedCopy?: {
+    title: string;
+    classLabel: string;
+    difficulty: string;
+    length: string;
+    excerpt?: string;
+  };
 };
 
 export type ToolResourceItem = {
@@ -139,10 +148,6 @@ type ParsedWikiPage = {
   html: string;
 };
 
-type GuideDetailDbPayload = {
-  guide: GuideItem;
-};
-
 const sourceLabels: Record<string, string> = {
   mswiki: 'MapleStory Wiki',
 };
@@ -180,10 +185,10 @@ export const getRegionalContentImage = (image: string | undefined, version: Game
   return image;
 };
 
-const grandisClassUrls = ['/api/grandis-library/classes', 'https://grandislibrary.com/classes'];
-const grandisContentUrls = ['/api/grandis-library/content', 'https://grandislibrary.com/content'];
-const grandisEventsUrls = ['/api/grandis-library/events', 'https://grandislibrary.com/events'];
-const gucciToolUrls = ['/api/gucci-guild/tools', 'https://gucciguild.com/tools'];
+const grandisClassUrls = ['https://grandislibrary.com/classes'];
+const grandisContentUrls = ['https://grandislibrary.com/content'];
+const grandisEventsUrls = ['https://grandislibrary.com/events'];
+const gucciToolUrls = ['https://gucciguild.com/tools'];
 
 const mapleStoryWikiApiUrls = ['https://maplestorywiki.net/api.php'];
 
@@ -224,7 +229,7 @@ const jsonFetch = async <T,>(
       try {
         return await cachedJsonFetch<T>(candidateUrl, {
           cacheKey: `live-content:${candidateUrl}`,
-          freshMs: cacheOptions.freshMs ?? 10 * 1000,
+          freshMs: cacheOptions.freshMs ?? realtimeCacheDurations.refresh,
           staleMs: cacheOptions.staleMs ?? realtimeCacheDurations.medium,
         });
       } catch (error) {
@@ -238,7 +243,7 @@ const jsonFetch = async <T,>(
 
 const textFetchWithMetadata = async (
   urls: string[],
-  cacheOptions: { freshMs?: number; staleMs?: number } = {},
+  cacheOptions: { freshMs?: number; staleMs?: number; timeoutMs?: number } = {},
 ): Promise<{ text: string; sourceSyncedAt: string }> => {
   let lastError: unknown = null;
 
@@ -251,9 +256,9 @@ const textFetchWithMetadata = async (
         const cacheKey = `live-content:${candidateUrl}`;
         const text = await cachedTextFetch(candidateUrl, {
           cacheKey,
-          freshMs: cacheOptions.freshMs ?? realtimeCacheDurations.long,
+          freshMs: cacheOptions.freshMs ?? realtimeCacheDurations.refresh,
           staleMs: cacheOptions.staleMs ?? realtimeCacheDurations.week,
-          timeoutMs: 8000,
+          timeoutMs: cacheOptions.timeoutMs ?? 50_000,
           transform: sanitizeMirroredHtml,
         });
         const savedAt = getRealtimeCacheSavedAt(cacheKey) ?? Date.now();
@@ -269,7 +274,7 @@ const textFetchWithMetadata = async (
 
 const textFetch = async (
   urls: string[],
-  cacheOptions: { freshMs?: number; staleMs?: number } = {},
+  cacheOptions: { freshMs?: number; staleMs?: number; timeoutMs?: number } = {},
 ) => (await textFetchWithMetadata(urls, cacheOptions)).text;
 
 const stripMarkup = (value = '') =>
@@ -426,7 +431,7 @@ export const wikiEntryFromMirrorRecord = (page: WikiMirrorPageRecord): WikiEntry
     categories: tags,
   });
   if ('issues' in validation) {
-    console.warn('[MapleHub] Rejected invalid mirrored wiki record.', page.id, validation.issues);
+    console.warn('[MPStorys] Rejected invalid mirrored wiki record.', page.id, validation.issues);
     return null;
   }
 
@@ -508,7 +513,7 @@ export const validateHydratedWikiEntry = (
     categories: entry.tags,
   });
   if ('issues' in validation) {
-    console.warn('[MapleHub] Rejected invalid hydrated wiki content.', entry.id, validation.issues);
+    console.warn('[MPStorys] Rejected invalid hydrated wiki content.', entry.id, validation.issues);
     return null;
   }
 
@@ -566,7 +571,7 @@ const fetchWikiPageText = async (source: (typeof wikiSearchSources)[number], tit
       format: 'json',
       origin: '*',
     },
-    { freshMs: realtimeCacheDurations.week, staleMs: realtimeCacheDurations.week },
+    { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week },
   );
 
   return parseWikiHtml(parsed.parse?.text?.['*'] || '', source.host);
@@ -627,7 +632,7 @@ export async function fetchWikiEntryByTitle(title: string): Promise<WikiEntry | 
       inprop: 'url',
       format: 'json',
       origin: '*',
-    }, { freshMs: realtimeCacheDurations.medium, staleMs: realtimeCacheDurations.week });
+    }, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week });
     const page = Object.values(pageData.query?.pages || {}).find((item) => item.pageid > 0 && item.title);
     const parsedPage = await fetchWikiPageText(source, page?.title || title);
 
@@ -651,7 +656,12 @@ export async function fetchWikiEntryByTitleLocalFirst(title: string): Promise<Wi
 
   // Try local mirror first
   try {
-    const mirrorPage = await mapleSqlApi.wikiMirror.getPageByTitle(title.replace(/\s+/g, '_'));
+    const mirrorTitle = title.replace(/\s+/g, '_');
+    const mirrorPage = await cachedValueLoad(
+      `wiki-mirror:title:${mirrorTitle}`,
+      () => mapleSqlApi.wikiMirror.getPageByTitle(mirrorTitle),
+      { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week },
+    );
     if (mirrorPage?.content_html) {
       const mirrorEntry = wikiEntryFromMirrorRecord(mirrorPage);
       if (mirrorEntry) return mirrorEntry;
@@ -727,54 +737,9 @@ const grandisProxyUrlsFor = (url: string) => {
   try {
     const parsed = new URL(url, window.location.origin);
     if (parsed.hostname !== 'grandislibrary.com') return [url];
-    return [`/api/grandis-library${parsed.pathname}${parsed.search}`, parsed.toString()];
+    return [parsed.toString()];
   } catch {
     return [url];
-  }
-};
-
-const liveGuideDbCacheKey = (guide: GuideItem) => `grandis-guide-detail:${guide.id}:${guide.sourceUrl || ''}`;
-
-const readLiveGuideDbCache = async (guide: GuideItem) => {
-  if (!guide.sourceUrl) return null;
-
-  try {
-    const record = await mapleSqlApi.realtimeContent.get<GuideDetailDbPayload>(liveGuideDbCacheKey(guide));
-    const cachedGuide = record.payload?.guide;
-    const contentHtml = sanitizeMirroredHtml(cachedGuide?.contentHtml || record.content_html || '');
-    if (!cachedGuide || !contentHtml) return null;
-    return {
-      ...guide,
-      ...cachedGuide,
-      contentHtml,
-      contentText: cachedGuide.contentText || record.content_text,
-      sourceSyncedAt: cachedGuide.sourceSyncedAt || guide.sourceSyncedAt || record.synced_at || record.updated_at,
-    };
-  } catch {
-    return null;
-  }
-};
-
-const writeLiveGuideDbCache = async (guide: GuideItem) => {
-  if (!guide.sourceUrl || !guide.contentHtml) return;
-
-  const expiresAt = new Date(Date.now() + realtimeCacheDurations.long).toISOString();
-  const contentHtml = sanitizeMirroredHtml(guide.contentHtml);
-  if (!contentHtml) return;
-  const sanitizedGuide = { ...guide, contentHtml };
-  try {
-    await mapleSqlApi.realtimeContent.upsert<GuideDetailDbPayload>({
-      key: liveGuideDbCacheKey(guide),
-      source: 'grandis-library',
-      source_url: guide.sourceUrl,
-      content_type: 'guide-detail',
-      payload: { guide: sanitizedGuide },
-      content_text: guide.contentText || '',
-      content_html: contentHtml,
-      expires_at: expiresAt,
-    });
-  } catch {
-    // The database cache is best-effort. Direct live fetching still works without it.
   }
 };
 
@@ -929,8 +894,11 @@ const grandisClassPortraits: Record<string, Array<[string, string]>> = {
   ],
 };
 
-const grandisClassUrl = (group: string, name: string) =>
-  grandisUrlForPath(`/${grandisClassGroupPaths[group] || slugFromText(group)}/${slugFromText(name)}`);
+const grandisClassUrl = (group: string, name: string) => {
+  const rawSlug = slugFromText(name);
+  const classSlug = rawSlug === 'buccanner' ? 'buccaneer' : rawSlug;
+  return grandisUrlForPath(`/${grandisClassGroupPaths[group] || slugFromText(group)}/${classSlug}`);
+};
 
 const grandisGuideSectionForPath = (path: string): GuideItem['guideSection'] | null => {
   const firstPart = path
@@ -1030,6 +998,7 @@ const parseGrandisArticle = (html: string, sourceUrl: string) => {
     const src = node.getAttribute('src') || '';
     node.setAttribute('src', absoluteUrl(src, sourceUrl));
     node.setAttribute('loading', 'lazy');
+    node.setAttribute('decoding', 'async');
   });
   article.querySelectorAll('iframe[src], video[src], source[src]').forEach((node) => {
     const src = node.getAttribute('src') || '';
@@ -1480,34 +1449,17 @@ export const extractOfficialArticleImage = (html: string, pageUrl: string) => {
     : '';
 };
 
-const articleImageFetchUrls = (sourceUrl: string, version: GameVersion) => {
-  const urls = [`/api/official-content/article?url=${encodeURIComponent(sourceUrl)}`];
-  try {
-    const source = new URL(sourceUrl);
-    const proxyPrefix = version === 'kms'
-      ? '/api/kms'
-      : version === 'jms'
-        ? '/api/jms'
-        : version === 'msea'
-          ? '/api/msea'
-          : version === 'tms'
-            ? '/api/tms'
-            : '';
-    if (proxyPrefix) urls.push(`${proxyPrefix}${source.pathname}${source.search}`);
-  } catch {
-    // The validated source URL remains available to the backend mirror.
-  }
-  return urls;
-};
+const articleImageFetchUrls = (sourceUrl: string, _version: GameVersion) =>
+  [apiEndpoint(`/official-content/article?url=${encodeURIComponent(sourceUrl)}`)];
 
 const fetchOfficialArticleImage = async (sourceUrl: string, version: GameVersion) => {
   for (const url of articleImageFetchUrls(sourceUrl, version)) {
     try {
       const html = await cachedTextFetch(url, {
         cacheKey: `official-article-image:${version}:${sourceUrl}:${url}`,
-        freshMs: realtimeCacheDurations.long,
+        freshMs: realtimeCacheDurations.refresh,
         staleMs: realtimeCacheDurations.week,
-        timeoutMs: 8_000,
+        timeoutMs: 50_000,
       });
       const image = extractOfficialArticleImage(html, sourceUrl);
       if (image) return image;
@@ -1532,20 +1484,11 @@ const hydrateRegionalImages = async <T extends { image: string; sourceUrl: strin
 };
 
 const fetchGmsOfficialNews = async () => {
-  let rows: GmsOfficialNews[];
-  try {
-    rows = await cachedJsonFetch<GmsOfficialNews[]>('/api/official-content/gms/news', {
-      cacheKey: 'official-news:gms:backend',
-      freshMs: realtimeCacheDurations.medium,
-      staleMs: realtimeCacheDurations.week,
-    });
-  } catch {
-    rows = await cachedJsonFetch<GmsOfficialNews[]>('https://g.nexonstatic.com/maplestory/cms/v1/news', {
-      cacheKey: 'official-news:gms',
-      freshMs: realtimeCacheDurations.medium,
-      staleMs: realtimeCacheDurations.week,
-    });
-  }
+  const rows = await cachedJsonFetch<GmsOfficialNews[]>(apiEndpoint('/official-content/gms/news'), {
+    cacheKey: 'official-news:gms:backend',
+    freshMs: realtimeCacheDurations.refresh,
+    staleMs: realtimeCacheDurations.week,
+  });
   return rows.slice(0, 30).map((row) => {
     const category = officialCategory(row.category);
     return newsItem({
@@ -1593,8 +1536,8 @@ export const parseKmsListing = (html: string, category: NewsItem['category']) =>
 
 const fetchKmsOfficialNews = async () => {
   const [newsPage, eventsPage] = await Promise.all([
-    textFetchWithMetadata(['/api/official-content/kms/news', '/api/kms/News/Notice', 'https://maplestory.nexon.com/News/Notice']),
-    textFetchWithMetadata(['/api/official-content/kms/events', '/api/kms/News/Event', 'https://maplestory.nexon.com/News/Event']),
+    textFetchWithMetadata([apiEndpoint('/official-content/kms/news')]),
+    textFetchWithMetadata([apiEndpoint('/official-content/kms/events')]),
   ]);
   const items = [...parseKmsListing(newsPage.text, 'General'), ...parseKmsListing(eventsPage.text, 'Event')].slice(0, 40);
   return hydrateRegionalImages(items, 'kms');
@@ -1623,8 +1566,8 @@ export const parseMseaListing = (html: string, category: NewsItem['category']) =
 
 const fetchMseaOfficialNews = async () => {
   const [newsPage, eventsPage] = await Promise.all([
-    textFetchWithMetadata(['/api/official-content/msea/news', '/api/msea/news/', 'https://www.maplesea.com/news/']),
-    textFetchWithMetadata(['/api/official-content/msea/events', '/api/msea/events/', 'https://www.maplesea.com/events/']),
+    textFetchWithMetadata([apiEndpoint('/official-content/msea/news')]),
+    textFetchWithMetadata([apiEndpoint('/official-content/msea/events')]),
   ]);
   const items = [...parseMseaListing(newsPage.text, 'General'), ...parseMseaListing(eventsPage.text, 'Event')].slice(0, 30);
   return hydrateRegionalImages(items, 'msea');
@@ -1674,53 +1617,20 @@ export const parseJmsListing = (html: string) => {
 
 const fetchJmsOfficialNews = async () => {
   const page = await textFetchWithMetadata([
-    '/api/official-content/jms/news',
-    '/api/jms/notice/_noticelist/?id=all&p=1',
-    'https://maplestory.nexon.co.jp/notice/_noticelist/?id=all&p=1',
+    apiEndpoint('/official-content/jms/news'),
   ]);
   return hydrateRegionalImages(parseJmsListing(page.text).slice(0, 30), 'jms');
 };
 
 const fetchTmsOfficialNews = async () => {
-  try {
-    const mirrored = await cachedJsonFetch<{
-      data?: { myDataSet?: { table?: TmsBulletin[] } };
-    }>('/api/official-content/tms/news', {
-      cacheKey: 'official-news:tms:backend',
-      freshMs: realtimeCacheDurations.medium,
-      staleMs: realtimeCacheDurations.week,
-    });
-    const rows = mirrored.data?.myDataSet?.table || [];
-    if (rows.length > 0) return hydrateRegionalImages(normalizeTmsBulletins(rows), 'tms');
-  } catch {
-    // Local Vite proxy fallback keeps standalone frontend development working.
-  }
-
-  const mainPage = await cachedTextFetch('/api/tms/main', {
-    cacheKey: 'official-news:tms:csrf-page',
-    freshMs: realtimeCacheDurations.medium,
-    staleMs: realtimeCacheDurations.long,
-    timeoutMs: 15_000,
-  });
-  const document = new DOMParser().parseFromString(mainPage, 'text/html');
-  const token = document.querySelector<HTMLInputElement>('input[name="__RequestVerificationToken"]')?.value || '';
-  const payload = await cachedJsonFetch<{
+  const mirrored = await cachedJsonFetch<{
     data?: { myDataSet?: { table?: TmsBulletin[] } };
-  }>('/api/tms/main?handler=BulletinProxy', {
-    cacheKey: 'official-news:tms',
-    freshMs: realtimeCacheDurations.medium,
+  }>(apiEndpoint('/official-content/tms/news'), {
+    cacheKey: 'official-news:tms:backend',
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
-    requestInit: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'X-CSRF-TOKEN': token,
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-      body: new URLSearchParams({ Kind: '0', Page: '1', method: '0', PageSize: '20' }).toString(),
-    },
   });
-  return hydrateRegionalImages(normalizeTmsBulletins(payload.data?.myDataSet?.table || []), 'tms');
+  return hydrateRegionalImages(normalizeTmsBulletins(mirrored.data?.myDataSet?.table || []), 'tms');
 };
 
 export const normalizeTmsBulletins = (rows: TmsBulletin[]) => rows.map((row) => newsItem({
@@ -1781,11 +1691,12 @@ export async function fetchOfficialArticleDocument(
     if (id) {
       const officialArticleUrl = `https://g.nexonstatic.com/maplestory/cms/v1/news/${id}`;
       const article = await cachedJsonFetch<{ body?: string }>(
-        `/api/official-content/article?url=${encodeURIComponent(officialArticleUrl)}`,
+        apiEndpoint(`/official-content/article?url=${encodeURIComponent(officialArticleUrl)}`),
         {
           cacheKey: `official-article:gms:${id}`,
-          freshMs: realtimeCacheDurations.long,
+          freshMs: realtimeCacheDurations.refresh,
           staleMs: realtimeCacheDurations.week,
+          timeoutMs: 50_000,
         },
       );
       const html = sanitizeMirroredHtml(article.body || '', 'https://g.nexonstatic.com');
@@ -1793,11 +1704,11 @@ export async function fetchOfficialArticleDocument(
     }
   }
 
-  const raw = await cachedTextFetch(`/api/official-content/article?url=${encodeURIComponent(sourceUrl)}`, {
+  const raw = await cachedTextFetch(apiEndpoint(`/official-content/article?url=${encodeURIComponent(sourceUrl)}`), {
     cacheKey: `official-article:${sourceUrl}`,
-    freshMs: realtimeCacheDurations.long,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
-    timeoutMs: 20_000,
+    timeoutMs: 50_000,
   });
 
   if (/^Title:\s/m.test(raw) && /Markdown Content:/m.test(raw)) {
@@ -1831,7 +1742,7 @@ export function normalizeEventFeed(payload: unknown, nowMs = Date.now(), version
   const items = candidates.flatMap((candidate): EventItem[] => {
     const validation = validateEventData(candidate);
     if ('issues' in validation) {
-      console.warn('[MapleHub] Rejected invalid event import.', validation.issues);
+      console.warn('[MPStorys] Rejected invalid event import.', validation.issues);
       return [];
     }
 
@@ -1870,9 +1781,9 @@ export async function fetchLiveEvents(version: GameVersion): Promise<RemotePaylo
 
 export async function fetchLiveGuides(): Promise<RemotePayload<GuideItem>> {
   const [content, classes, events] = await Promise.all([
-    textFetchWithMetadata(grandisContentUrls, { freshMs: realtimeCacheDurations.long, staleMs: realtimeCacheDurations.week }),
-    textFetchWithMetadata(grandisClassUrls, { freshMs: realtimeCacheDurations.long, staleMs: realtimeCacheDurations.week }),
-    textFetchWithMetadata(grandisEventsUrls, { freshMs: realtimeCacheDurations.long, staleMs: realtimeCacheDurations.week }),
+    textFetchWithMetadata(grandisContentUrls, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week, timeoutMs: 50_000 }),
+    textFetchWithMetadata(grandisClassUrls, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week, timeoutMs: 50_000 }),
+    textFetchWithMetadata(grandisEventsUrls, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week, timeoutMs: 50_000 }),
   ]);
 
   return {
@@ -1891,8 +1802,9 @@ export async function fetchGrandisGuideSectionPage(section: GrandisGuideSection)
     : section === 'events' ? grandisEventsUrls : grandisContentUrls;
   const sourceUrl = `https://grandislibrary.com/${section}`;
   const page = await textFetchWithMetadata(urls, {
-    freshMs: realtimeCacheDurations.long,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
+    timeoutMs: 50_000,
   });
 
   return parseGrandisSectionPage(page.text, section, sourceUrl, page.sourceSyncedAt);
@@ -1901,12 +1813,10 @@ export async function fetchGrandisGuideSectionPage(section: GrandisGuideSection)
 export async function fetchLiveGuideContent(guide: GuideItem): Promise<GuideItem> {
   if (!guide.sourceUrl) return guide;
 
-  const dbCachedGuide = await readLiveGuideDbCache(guide);
-  if (dbCachedGuide) return dbCachedGuide;
-
   const page = await textFetchWithMetadata(grandisProxyUrlsFor(guide.sourceUrl), {
-    freshMs: realtimeCacheDurations.long,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
+    timeoutMs: 50_000,
   });
   const renderedArticleHtml = await renderGrandisArticleFromChunk(page.text, guide.sourceUrl);
   const parsed = parseGrandisArticle(
@@ -1914,22 +1824,20 @@ export async function fetchLiveGuideContent(guide: GuideItem): Promise<GuideItem
     guide.sourceUrl,
   );
 
-  const nextGuide = {
+  return {
     ...guide,
     contentHtml: parsed.html,
     contentText: parsed.text,
     excerpt: guide.excerpt || firstSentence(parsed.text, `${guide.title} from Grandis Library.`),
     sourceSyncedAt: page.sourceSyncedAt,
   };
-  void writeLiveGuideDbCache(nextGuide);
-  return nextGuide;
 }
 
 const warnedInvalidToolImports = new Set<string>();
 
 export async function fetchLiveToolResources(): Promise<RemotePayload<ToolResourceItem>> {
   const gucciHtml = await textFetch(gucciToolUrls, {
-    freshMs: realtimeCacheDurations.long,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
   });
   const candidates = parseGucciTools(gucciHtml);
@@ -1947,7 +1855,7 @@ export async function fetchLiveToolResources(): Promise<RemotePayload<ToolResour
     });
     if ('issues' in validation && !warnedInvalidToolImports.has(item.id)) {
       warnedInvalidToolImports.add(item.id);
-      console.warn('[MapleHub] Rejected invalid tool import.', item.id, validation.issues);
+      console.warn('[MPStorys] Rejected invalid tool import.', item.id, validation.issues);
     }
     return validation.ok;
   });
@@ -1983,7 +1891,7 @@ export async function fetchLiveWikiEntries(): Promise<RemotePayload<WikiEntry>> 
             gapcontinue?: string;
           };
           query?: { pages?: Record<string, WikiApiPage> };
-        }>(source.urls, params, { freshMs: realtimeCacheDurations.long, staleMs: realtimeCacheDurations.week });
+        }>(source.urls, params, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week });
 
         pages.push(...Object.values(data.query?.pages || {}).filter((item) => item.pageid > 0 && item.title));
         if (!data.continue?.gapcontinue) break;
@@ -2037,7 +1945,7 @@ export async function fetchWikiSearchEntries(query: string): Promise<RemotePaylo
         srprop: 'snippet|wordcount|timestamp',
         format: 'json',
         origin: '*',
-      }, { freshMs: 30 * 1000, staleMs: realtimeCacheDurations.medium });
+      }, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week });
 
       return {
         source,
@@ -2059,7 +1967,7 @@ export async function fetchWikiSearchEntries(query: string): Promise<RemotePaylo
         cllimit: 12,
         format: 'json',
         origin: '*',
-      }, { freshMs: realtimeCacheDurations.medium, staleMs: realtimeCacheDurations.week });
+      }, { freshMs: realtimeCacheDurations.refresh, staleMs: realtimeCacheDurations.week });
 
       return {
         source,

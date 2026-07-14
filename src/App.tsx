@@ -11,12 +11,15 @@ import ThemeSwitcher from "@/pages/home/components/ThemeSwitcher";
 import { ThemeProvider } from "@/hooks/ThemeContext";
 import AccountSessionBootstrap from "@/components/base/AccountSessionBootstrap";
 import MobilePrimaryNav from "@/components/navigation/MobilePrimaryNav";
+import RouteMetadata from "@/components/base/RouteMetadata";
+import LocaleRouteSync from "@/components/base/LocaleRouteSync";
 
 function App() {
   return (
     <ThemeProvider>
       <I18nextProvider i18n={i18n}>
         <BrowserRouter basename={__BASE_PATH__}>
+          <LocaleRouteSync />
           <ErrorBoundary
             fallback={(_error, reset) => <AppErrorFallback onReset={reset} />}
           >
@@ -24,6 +27,7 @@ function App() {
               <AccountSessionBootstrap />
               <ScrollToTop />
               <PageTelemetry />
+              <RouteMetadata />
               <AppRoutes />
               <MobilePrimaryNav />
               <ThemeSwitcher />

@@ -5,7 +5,7 @@ import AutoImport from "unplugin-auto-import/vite";
 
 const base = process.env.BASE_PATH || "/";
 const isPreview = process.env.IS_PREVIEW ? true : false;
-const contentSecurityPolicy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https: http://127.0.0.1:8080 ws://127.0.0.1:*; upgrade-insecure-requests";
+const contentSecurityPolicy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://vvgbkrqqzayqslwjnbdu.supabase.co http://127.0.0.1:8080 ws://127.0.0.1:*; upgrade-insecure-requests";
 // https://vite.dev/config/
 export default defineConfig({
   define: {
@@ -85,99 +85,6 @@ export default defineConfig({
       "X-Content-Type-Options": "nosniff",
     },
     proxy: {
-      "/api/kms": {
-        target: "https://maplestory.nexon.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/kms/, ""),
-      },
-      "/api/msea": {
-        target: "https://www.maplesea.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/msea/, ""),
-      },
-      "/api/jms": {
-        target: "https://maplestory.nexon.co.jp",
-        changeOrigin: true,
-        secure: true,
-        headers: {
-          Referer: "https://maplestory.nexon.co.jp/notice/all/",
-          "User-Agent": "Mozilla/5.0 MapleHubContentMirror/1.0",
-        },
-        rewrite: (path) => path.replace(/^\/api\/jms/, ""),
-      },
-      "/api/tms-ranking": {
-        target: "https://maplestory-event.beanfun.com",
-        changeOrigin: true,
-        secure: true,
-        timeout: 30000,
-        proxyTimeout: 30000,
-        headers: {
-          Referer: "https://maplestory-event.beanfun.com/UnionWebRank/Index",
-          "User-Agent": "Mozilla/5.0 MapleHubContentMirror/1.0",
-        },
-        rewrite: (path) => path.replace(/^\/api\/tms-ranking/, "/api/UnionWebRank"),
-      },
-      "/api/tms": {
-        target: "https://maplestory.beanfun.com",
-        changeOrigin: true,
-        secure: true,
-        timeout: 30000,
-        proxyTimeout: 30000,
-        headers: {
-          Referer: "https://maplestory.beanfun.com/main",
-          "User-Agent": "Mozilla/5.0 MapleHubContentMirror/1.0",
-        },
-        rewrite: (path) => path.replace(/^\/api\/tms/, ""),
-      },
-      "/api/maplestory": {
-        target: "https://www.nexon.com",
-        changeOrigin: true,
-        secure: true,
-      },
-      "/api/reddit-maplestory": {
-        target: "https://www.reddit.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/reddit-maplestory/, "/r/Maplestory"),
-      },
-      "/api/pullpush-reddit": {
-        target: "https://api.pullpush.io",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/pullpush-reddit/, "/reddit/search/submission/"),
-      },
-      "/api/mapletodo": {
-        target: "https://mapletodo.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/mapletodo/, ""),
-      },
-      "/api/grandis-library": {
-        target: "https://grandislibrary.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/grandis-library/, ""),
-      },
-      "/api/gucci-guild": {
-        target: "https://gucciguild.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/gucci-guild/, ""),
-      },
-      "/maplestory-io-api": {
-        target: "https://maplestory.io",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/maplestory-io-api/, "/api"),
-      },
-      "/api/maplestory-fandom": {
-        target: "https://maplestory.fandom.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/maplestory-fandom/, "/api.php"),
-      },
       "/api": {
         target: process.env.MAPLE_SQL_API_ORIGIN || "http://127.0.0.1:8080",
         changeOrigin: true,

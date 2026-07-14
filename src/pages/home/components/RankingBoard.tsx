@@ -104,7 +104,7 @@ function getTrend(row: DisplayRank): { trend: RankingTrend; labelKey: string; de
 }
 
 export default function RankingBoard() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { version, versionInfo, setVersion } = useVersion();
   const [world, setWorld] = useState<RankingWorldKey>('all');
   const [board, setBoard] = useState<RankingBoardKey>('overall');
@@ -136,7 +136,7 @@ export default function RankingBoard() {
     setIsLoading(true);
     setError('');
 
-    fetchNexonRankings({ version, board, world, page, signal: controller.signal })
+    fetchNexonRankings({ version, board, world, page, signal: controller.signal, language: i18n.language })
       .then((data) => {
         setRanks(data.ranks);
         setPageCount(data.pageCount);
@@ -157,7 +157,7 @@ export default function RankingBoard() {
       });
 
     return () => controller.abort();
-  }, [board, page, rankingSupported, reloadKey, t, version, world]);
+  }, [board, i18n.language, page, rankingSupported, reloadKey, t, version, world]);
 
   const handleBoardChange = (nextBoard: RankingBoardKey) => {
     setBoard(nextBoard);

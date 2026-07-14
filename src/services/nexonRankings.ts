@@ -1,5 +1,7 @@
 import type { GameVersion } from '@/hooks/VersionContext';
+import { apiEndpoint } from './apiEndpoint';
 import { cachedJsonFetch, cachedTextFetch, realtimeCacheDurations } from './realtimeCache';
+import { normalizeStaticContentLanguage, translateStaticTexts } from './staticTranslation';
 
 export type RankingBoardKey = 'overall' | 'world' | 'legion';
 export type RankingWorldKey = 'all' | 'bera' | 'scania' | 'kronos' | 'hyperion';
@@ -39,6 +41,7 @@ type FetchNexonRankingsOptions = {
   page?: number;
   characterName?: string;
   signal?: AbortSignal;
+  language?: string;
 };
 
 type TmsRankingRow = {
@@ -82,9 +85,7 @@ const worldNamesById: Record<number, string> = {
   70: 'Hyperion',
 };
 
-const gmsApiBase = import.meta.env.DEV
-  ? '/api/maplestory/no-auth/ranking/v2'
-  : 'https://www.nexon.com/api/maplestory/no-auth/ranking/v2';
+const gmsApiBase = 'https://www.nexon.com/api/maplestory/no-auth/ranking/v2';
 
 const supportedVersions = new Set<GameVersion>(['gms', 'kms', 'jms', 'tms']);
 
@@ -284,7 +285,7 @@ async function fetchGmsRankings(options: FetchNexonRankingsOptions): Promise<Ran
   const requestUrl = `${gmsApiBase}/na?${params.toString()}`;
   const data = await cachedJsonFetch<NexonRankingResponse>(requestUrl, {
     cacheKey: `nexon-rankings:na:${params.toString()}`,
-    freshMs: 2 * 60 * 1000,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.medium,
     requestInit: { headers: { Accept: 'application/json' }, signal: options.signal },
   });
@@ -303,26 +304,20 @@ async function fetchGmsRankings(options: FetchNexonRankingsOptions): Promise<Ran
   };
 }
 
-async function fetchRegionalText(primaryUrl: string, fallbackUrl: string, cacheKey: string, signal?: AbortSignal) {
-  const options = {
+async function fetchRegionalText(url: string, cacheKey: string, signal?: AbortSignal) {
+  return cachedTextFetch(url, {
     cacheKey,
-    freshMs: 2 * 60 * 1000,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.medium,
-    timeoutMs: 20_000,
+    timeoutMs: 50_000,
     requestInit: { signal },
-  };
-  try {
-    return await cachedTextFetch(primaryUrl, options);
-  } catch {
-    return cachedTextFetch(fallbackUrl, { ...options, cacheKey: `${cacheKey}:fallback` });
-  }
+  });
 }
 
 async function fetchKmsRankings(options: FetchNexonRankingsOptions) {
   const page = normalizePage(options.page);
   const html = await fetchRegionalText(
-    `/api/official-content/kms/rankings?page=${page}`,
-    `/api/kms/N23Ranking/World/Total?page=${page}`,
+    apiEndpoint(`/official-content/kms/rankings?page=${page}`),
     `official-rankings:v2:kms:${page}`,
     options.signal,
   );
@@ -331,14 +326,8 @@ async function fetchKmsRankings(options: FetchNexonRankingsOptions) {
 
 async function fetchJmsRankings(options: FetchNexonRankingsOptions) {
   const page = normalizePage(options.page);
-  const params = new URLSearchParams({
-    p: String(page),
-    worldname: '9999',
-    jobname: '男女＋職業全体',
-  });
   const html = await fetchRegionalText(
-    `/api/official-content/jms/rankings?page=${page}`,
-    `/api/jms/community/exp/_ranklist/?${params.toString()}`,
+    apiEndpoint(`/official-content/jms/rankings?page=${page}`),
     `official-rankings:v2:jms:${page}`,
     options.signal,
   );
@@ -348,39 +337,45 @@ async function fetchJmsRankings(options: FetchNexonRankingsOptions) {
 async function fetchTmsRankings(options: FetchNexonRankingsOptions) {
   const page = normalizePage(options.page);
   const rankType = options.board === 'world' ? 2 : options.board === 'legion' ? 3 : 1;
-  const primaryUrl = `/api/official-content/tms/rankings?page=${page}&rankType=${rankType}`;
-  try {
-    const payload = await cachedJsonFetch<TmsRankingResponse>(primaryUrl, {
-      cacheKey: `official-rankings:v2:tms:${rankType}:${page}`,
-      freshMs: 2 * 60 * 1000,
-      staleMs: realtimeCacheDurations.medium,
-      timeoutMs: 20_000,
-      requestInit: { signal: options.signal },
-    });
-    return normalizeTmsRankingPage(payload, page);
-  } catch {
-    const payload = await cachedJsonFetch<TmsRankingResponse>('/api/tms-ranking/FindRank', {
-      cacheKey: `official-rankings:v2:tms:${rankType}:${page}:fallback`,
-      freshMs: 2 * 60 * 1000,
-      staleMs: realtimeCacheDurations.medium,
-      timeoutMs: 20_000,
-      requestInit: {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ rankType, gameWorldId: -1, page }),
-        signal: options.signal,
-      },
-    });
-    return normalizeTmsRankingPage(payload, page);
-  }
+  const primaryUrl = apiEndpoint(`/official-content/tms/rankings?page=${page}&rankType=${rankType}`);
+  const payload = await cachedJsonFetch<TmsRankingResponse>(primaryUrl, {
+    cacheKey: `official-rankings:v2:tms:${rankType}:${page}`,
+    freshMs: realtimeCacheDurations.refresh,
+    staleMs: realtimeCacheDurations.medium,
+    timeoutMs: 50_000,
+    requestInit: { signal: options.signal },
+  });
+  return normalizeTmsRankingPage(payload, page);
 }
 
 export async function fetchNexonRankings(options: FetchNexonRankingsOptions) {
   if (!isRankingVersionSupported(options.version)) {
     throw new Error(`Unsupported rankings version: ${options.version}`);
   }
-  if (options.version === 'gms') return fetchGmsRankings(options);
-  if (options.version === 'kms') return fetchKmsRankings(options);
-  if (options.version === 'jms') return fetchJmsRankings(options);
-  return fetchTmsRankings(options);
+  const page = options.version === 'gms'
+    ? await fetchGmsRankings(options)
+    : options.version === 'kms'
+      ? await fetchKmsRankings(options)
+      : options.version === 'jms'
+        ? await fetchJmsRankings(options)
+        : await fetchTmsRankings(options);
+  const sourceLanguage = options.version === 'kms' ? 'ko' : options.version === 'jms' ? 'ja' : options.version === 'tms' ? 'zh-Hant' : 'en';
+  const targetLanguage = normalizeStaticContentLanguage(options.language || sourceLanguage);
+  if (sourceLanguage === targetLanguage || page.ranks.length === 0) return page;
+
+  const labels = Array.from(new Set(page.ranks.flatMap((rank) => [rank.jobName, rank.worldName]).filter(Boolean)));
+  try {
+    const translations = await translateStaticTexts(labels, targetLanguage, { sourceLanguage });
+    const translatedBySource = new Map(labels.map((label, index) => [label, translations[index] || label]));
+    return {
+      ...page,
+      ranks: page.ranks.map((rank) => ({
+        ...rank,
+        jobName: translatedBySource.get(rank.jobName) || rank.jobName,
+        worldName: translatedBySource.get(rank.worldName) || rank.worldName,
+      })),
+    };
+  } catch {
+    return page;
+  }
 }

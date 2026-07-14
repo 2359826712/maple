@@ -13,7 +13,7 @@ type OfficialCharacterResult = NexonRankingRow & {
 };
 
 export default function CharacterSearch() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { version, versionInfo } = useVersion();
   const [query, setQuery] = useState('');
   const [result, setResult] = useState<OfficialCharacterResult | null>(null);
@@ -46,6 +46,7 @@ export default function CharacterSearch() {
         board: 'overall',
         world: 'all',
         characterName: trimmedQuery,
+        language: i18n.language,
       });
       const found = data.ranks.find(
         (rank) => rank.characterName.toLowerCase() === trimmedQuery.toLowerCase(),

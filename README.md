@@ -22,3 +22,5 @@ npm run dev
 ```
 
 The frontend calls the backend through Vite at `/api`, proxied to `http://127.0.0.1:8080`.
+
+Production routes and all locale dictionaries are bundled statically. Remote news, rankings, maps, wiki, guide, tool, and upcoming-update data is requested only through the backend's database-backed static snapshot endpoint. The backend stores the first successful response in PostgreSQL and refreshes stored snapshots every 12 hours; browsers never contact those upstream data APIs directly.

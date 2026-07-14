@@ -34,16 +34,16 @@ describe('universal search command palette', () => {
     renderNavbar();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
 
-    const dialog = screen.getByRole('dialog', { name: 'Search MapleHub' });
+    const dialog = screen.getByRole('dialog', { name: 'Search MPStorys' });
     expect(dialog).toBeTruthy();
-    const input = screen.getByRole('textbox', { name: 'Search MapleHub' });
+    const input = screen.getByRole('textbox', { name: 'Search MPStorys' });
     await waitFor(() => expect(document.activeElement).toBe(input));
     fireEvent.change(input, { target: { value: 'Lotus' } });
     expect(screen.getByRole('option', { name: /Lotus/ })).toBeTruthy();
 
     fireEvent.keyDown(input, { key: 'Enter' });
     await waitFor(() => expect(screen.getByLabelText('Current path').textContent).toBe('/wiki/boss/lotus'));
-    expect(screen.queryByRole('dialog', { name: 'Search MapleHub' })).toBeNull();
+    expect(screen.queryByRole('dialog', { name: 'Search MPStorys' })).toBeNull();
   });
 
   it('closes with Escape and restores focus to the previous control', async () => {
@@ -52,18 +52,18 @@ describe('universal search command palette', () => {
     previous.focus();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
 
-    const input = screen.getByRole('textbox', { name: 'Search MapleHub' });
+    const input = screen.getByRole('textbox', { name: 'Search MPStorys' });
     await waitFor(() => expect(document.activeElement).toBe(input));
     fireEvent.keyDown(input, { key: 'Escape' });
 
-    expect(screen.queryByRole('dialog', { name: 'Search MapleHub' })).toBeNull();
+    expect(screen.queryByRole('dialog', { name: 'Search MPStorys' })).toBeNull();
     expect(document.activeElement).toBe(previous);
   });
 
   it('supports arrow-key result navigation', async () => {
     renderNavbar();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
-    const input = screen.getByRole('textbox', { name: 'Search MapleHub' });
+    const input = screen.getByRole('textbox', { name: 'Search MPStorys' });
     await waitFor(() => expect(document.activeElement).toBe(input));
     fireEvent.change(input, { target: { value: 'Normal' } });
 

@@ -10,6 +10,7 @@ import {
   formatServerDateRange,
   isAvailableInVersion,
 } from '@/domain/regionModel';
+import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
 
 const rarityStyle: Record<string, string> = {
   Legendary: 'bg-primary-500 text-background-50',
@@ -26,10 +27,11 @@ export default function EventsPreview() {
     baseItems: [],
     remoteLoader: loadEvents,
   });
+  const localizedEvents = useLocalizedEvents(realtimeEvents, i18n.language);
 
   const filteredEvents = useMemo(
-    () => realtimeEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
-    [realtimeEvents, versionInfo.id],
+    () => localizedEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
+    [localizedEvents, versionInfo.id],
   );
   const eventWindow = (event: EventItem) =>
     formatServerDateRange(event.windowStart, event.windowEnd, versionInfo.id, i18n.language);
@@ -72,6 +74,8 @@ export default function EventsPreview() {
                   <img
                     src={getRegionalContentImage(e.image, versionInfo.id)}
                     alt={e.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
                     onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                   />

@@ -219,7 +219,7 @@ export default function ChecklistPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `maplehub-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    link.download = `mpstorys-backup-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -236,7 +236,7 @@ export default function ChecklistPage() {
         const reasons: Record<string, string> = {
           'too-large': t('import_error_too_large', 'File is too large (max 5 MB).'),
           'invalid-json': t('import_error_invalid_json', 'The file is not valid JSON.'),
-          'invalid-schema': t('import_error_invalid_schema', 'The file is not a valid MapleHub backup.'),
+          'invalid-schema': t('import_error_invalid_schema', 'The file is not a valid MPStorys backup.'),
         };
         setImportError(reasons[parsed.reason] || t('checklist_import_error'));
         setImportPreview(null);

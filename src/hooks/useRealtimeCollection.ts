@@ -12,8 +12,9 @@ interface RealtimeOptions<T extends { id: string }> {
 }
 
 const channelName = 'maplehub-realtime-content';
-const defaultIntervalMs = 60000;
+const defaultIntervalMs = realtimeCacheDurations.refresh;
 const syncMetadataSuffix = ':last-successful-sync';
+const inFlightCollectionSyncs = new Map<string, Promise<RemotePayload<{ id: string }> | null>>();
 
 type RemotePayload<T extends { id: string }> = {
   items: T[];
@@ -110,26 +111,38 @@ const fetchRemoteItems = async <T extends { id: string }>(
 ): Promise<RemotePayload<T> | null> => {
   if (typeof window === 'undefined') return null;
 
-  if (remoteLoader) {
+  const existingSync = inFlightCollectionSyncs.get(storageKey);
+  if (existingSync) return existingSync as Promise<RemotePayload<T> | null>;
+
+  const request = (async () => {
+    if (remoteLoader) {
+      try {
+        return normalizeRemotePayload<T>(await remoteLoader());
+      } catch {
+        return null;
+      }
+    }
+
+    if (!remoteUrl) return null;
+
     try {
-      return normalizeRemotePayload<T>(await remoteLoader());
+      const url = new URL(remoteUrl, window.location.origin);
+      const data = await cachedJsonFetch<unknown>(url.toString(), {
+        cacheKey: `realtime-collection:${storageKey}:${url.toString()}`,
+        freshMs: intervalMs,
+        staleMs: realtimeCacheDurations.week,
+      });
+      return normalizeRemotePayload<T>(data);
     } catch {
       return null;
     }
-  }
+  })();
 
-  if (!remoteUrl) return null;
-
+  inFlightCollectionSyncs.set(storageKey, request as Promise<RemotePayload<{ id: string }> | null>);
   try {
-    const url = new URL(remoteUrl, window.location.origin);
-    const data = await cachedJsonFetch<unknown>(url.toString(), {
-      cacheKey: `realtime-collection:${storageKey}:${url.toString()}`,
-      freshMs: intervalMs,
-      staleMs: realtimeCacheDurations.long,
-    });
-    return normalizeRemotePayload<T>(data);
-  } catch {
-    return null;
+    return await request;
+  } finally {
+    inFlightCollectionSyncs.delete(storageKey);
   }
 };
 
@@ -140,6 +153,7 @@ export function useRealtimeCollection<T extends { id: string }>({
   remoteUrl,
   remoteLoader,
 }: RealtimeOptions<T>) {
+  const refreshIntervalMs = Math.max(intervalMs, realtimeCacheDurations.refresh);
   const [liveItems, setLiveItems] = useState<T[]>(() => readStoredItems<T>(storageKey));
   const [replaceBaseItems, setReplaceBaseItems] = useState(false);
   const [status, setStatus] = useState<RealtimeStatus>('idle');
@@ -160,11 +174,19 @@ export function useRealtimeCollection<T extends { id: string }>({
   const syncNow = useCallback(async () => {
     if (syncingKeysRef.current.has(storageKey)) return;
 
+    const previousSync = readStoredSyncTime(storageKey);
+    const previousSyncMs = Date.parse(previousSync);
+    if (Number.isFinite(previousSyncMs) && Date.now() - previousSyncMs < refreshIntervalMs) {
+      setLastSyncedAt(previousSync);
+      setStatus('live');
+      return;
+    }
+
     syncingKeysRef.current.add(storageKey);
     setStatus('syncing');
     try {
       const storedItems = readStoredItems<T>(storageKey);
-      const remotePayload = await fetchRemoteItems<T>(storageKey, intervalMs, remoteUrl, remoteLoader);
+      const remotePayload = await fetchRemoteItems<T>(storageKey, refreshIntervalMs, remoteUrl, remoteLoader);
       const nextItems = remotePayload ? applyRemotePayload(storedItems, remotePayload) : storedItems;
       const changed = !sameCollection(storedItems, nextItems);
 
@@ -193,11 +215,11 @@ export function useRealtimeCollection<T extends { id: string }>({
     } finally {
       syncingKeysRef.current.delete(storageKey);
     }
-  }, [intervalMs, remoteLoader, remoteUrl, storageKey]);
+  }, [refreshIntervalMs, remoteLoader, remoteUrl, storageKey]);
 
   useEffect(() => {
     void syncNow();
-    const timer = window.setInterval(syncNow, intervalMs);
+    const timer = window.setInterval(syncNow, refreshIntervalMs);
     const channel = 'BroadcastChannel' in window ? new BroadcastChannel(channelName) : null;
 
     const onMessage = (event: MessageEvent<{ storageKey?: string }>) => {
@@ -231,7 +253,7 @@ export function useRealtimeCollection<T extends { id: string }>({
       channel?.removeEventListener('message', onMessage);
       channel?.close();
     };
-  }, [intervalMs, storageKey, syncNow]);
+  }, [refreshIntervalMs, storageKey, syncNow]);
 
   const partitionIsCurrent = liveItemsStorageKeyRef.current === storageKey;
   const activeLiveItems = partitionIsCurrent ? liveItems : readStoredItems<T>(storageKey);

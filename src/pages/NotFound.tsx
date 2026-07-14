@@ -22,9 +22,9 @@ export default function NotFound() {
       <main id="main-content" tabIndex={-1} className="pt-16 md:pt-20">
         <div className="relative flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
           {/* Large 404 watermark */}
-          <h1 className="absolute bottom-0 text-[10rem] md:text-[16rem] font-black text-background-200 select-none pointer-events-none z-0 leading-none">
+          <div aria-hidden="true" className="absolute bottom-0 text-[10rem] md:text-[16rem] font-black text-background-200 select-none pointer-events-none z-0 leading-none">
             404
-          </h1>
+          </div>
 
           <div className="relative z-10 max-w-md">
             <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary-50 text-primary-600">

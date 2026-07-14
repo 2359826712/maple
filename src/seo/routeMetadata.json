@@ -1,0 +1,252 @@
+{
+  "languages": {
+    "en": { "segment": "en", "htmlLang": "en", "hreflang": "en", "ogLocale": "en_US" },
+    "zh": { "segment": "zh", "htmlLang": "zh-CN", "hreflang": "zh-CN", "ogLocale": "zh_CN" },
+    "ja": { "segment": "ja", "htmlLang": "ja", "hreflang": "ja", "ogLocale": "ja_JP" },
+    "ko": { "segment": "ko", "htmlLang": "ko", "hreflang": "ko", "ogLocale": "ko_KR" },
+    "zh-Hant": { "segment": "zh-hant", "htmlLang": "zh-Hant", "hreflang": "zh-Hant", "ogLocale": "zh_TW" }
+  },
+  "notFound": {
+    "en": { "title": "Page Not Found", "description": "The requested page could not be found on MPStorys." },
+    "zh": { "title": "页面未找到", "description": "在 MPStorys 上找不到你请求的页面。" },
+    "ja": { "title": "ページが見つかりません", "description": "指定されたページは MPStorys に見つかりませんでした。" },
+    "ko": { "title": "페이지를 찾을 수 없음", "description": "요청한 페이지를 MPStorys에서 찾을 수 없습니다." },
+    "zh-Hant": { "title": "找不到頁面", "description": "在 MPStorys 上找不到你要求的頁面。" }
+  },
+  "routes": {
+    "/": {
+      "index": true,
+      "changefreq": "daily",
+      "priority": "1.0",
+      "copy": {
+        "en": { "title": "MPStorys · MapleStory Guides, Tools & Community", "description": "MapleStory news, guides, events, rankings, boss checklists, wiki resources, and character tools for every major region." },
+        "zh": { "title": "MPStorys · 冒险岛攻略、工具与社区", "description": "提供冒险岛新闻、攻略、活动日历、职业排行、Boss 清单、Wiki 和角色工具，覆盖各主要服务器地区。" },
+        "ja": { "title": "MPStorys · メイプルストーリー攻略・ツール・コミュニティ", "description": "メイプルストーリーのニュース、攻略、イベント、ランキング、ボスチェックリスト、Wiki、キャラクターツールを地域別に提供。" },
+        "ko": { "title": "MPStorys · 메이플스토리 공략, 도구 및 커뮤니티", "description": "메이플스토리 뉴스, 공략, 이벤트, 랭킹, 보스 체크리스트, 위키와 캐릭터 도구를 주요 지역별로 제공합니다." },
+        "zh-Hant": { "title": "MPStorys · 楓之谷攻略、工具與社群", "description": "提供楓之谷新聞、攻略、活動日曆、職業排行、Boss 清單、Wiki 與角色工具，涵蓋各主要伺服器地區。" }
+      }
+    },
+    "/news": {
+      "index": true,
+      "changefreq": "daily",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "MapleStory News & Patch Notes", "description": "Follow MapleStory news, patch notes, events, and official announcements for GMS, KMS, JMS, TMS, and MSEA." },
+        "zh": { "title": "冒险岛新闻与版本更新", "description": "查看 GMS、KMS、JMS、TMS 与 MSEA 的冒险岛新闻、版本更新、活动和官方公告。" },
+        "ja": { "title": "メイプルストーリー最新情報・パッチノート", "description": "GMS、KMS、JMS、TMS、MSEA のニュース、パッチノート、イベント、公式告知をまとめて確認できます。" },
+        "ko": { "title": "메이플스토리 뉴스 및 패치 노트", "description": "GMS, KMS, JMS, TMS, MSEA의 메이플스토리 뉴스, 패치 노트, 이벤트와 공식 공지를 확인하세요." },
+        "zh-Hant": { "title": "楓之谷新聞與版本更新", "description": "查看 GMS、KMS、JMS、TMS 與 MSEA 的楓之谷新聞、版本更新、活動及官方公告。" }
+      }
+    },
+    "/upcoming": {
+      "index": true,
+      "changefreq": "daily",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "Upcoming MapleStory Updates", "description": "Track upcoming MapleStory updates, test-server changes, release signals, and source-linked previews across regions." },
+        "zh": { "title": "冒险岛未来版本与更新预告", "description": "追踪冒险岛测试服改动、未来版本、上线信号和带来源链接的地区更新预告。" },
+        "ja": { "title": "メイプルストーリー今後のアップデート", "description": "テストサーバーの変更、今後のアップデート、実装予測、出典付きの地域別プレビューを確認できます。" },
+        "ko": { "title": "메이플스토리 향후 업데이트", "description": "테스트 서버 변경점, 예정 업데이트, 출시 신호와 출처가 있는 지역별 미리보기를 확인하세요." },
+        "zh-Hant": { "title": "楓之谷未來版本與更新預告", "description": "追蹤楓之谷測試服改動、未來版本、上線訊號與附來源連結的地區更新預告。" }
+      }
+    },
+    "/search": {
+      "index": false,
+      "follow": true,
+      "copy": {
+        "en": { "title": "Search MPStorys", "description": "Search MPStorys for MapleStory guides, news, events, bosses, classes, maps, and tools." },
+        "zh": { "title": "搜索 MPStorys", "description": "搜索 MPStorys 的冒险岛攻略、新闻、活动、Boss、职业、地图和工具。" },
+        "ja": { "title": "MPStorys を検索", "description": "MPStorys からメイプルストーリーの攻略、ニュース、イベント、ボス、職業、マップ、ツールを検索。" },
+        "ko": { "title": "MPStorys 검색", "description": "MPStorys에서 메이플스토리 공략, 뉴스, 이벤트, 보스, 직업, 맵과 도구를 검색하세요." },
+        "zh-Hant": { "title": "搜尋 MPStorys", "description": "搜尋 MPStorys 的楓之谷攻略、新聞、活動、Boss、職業、地圖與工具。" }
+      }
+    },
+    "/source": {
+      "index": false,
+      "follow": true,
+      "copy": {
+        "en": { "title": "Official MapleStory Source Viewer", "description": "Read a source-linked mirror of an official MapleStory announcement." },
+        "zh": { "title": "冒险岛官方来源查看器", "description": "查看带原始来源链接和地区标记的冒险岛官方公告镜像。" },
+        "ja": { "title": "メイプルストーリー公式情報ビューア", "description": "原文リンク付きでメイプルストーリー公式告知のミラーを確認できます。" },
+        "ko": { "title": "메이플스토리 공식 출처 뷰어", "description": "원문 링크가 포함된 메이플스토리 공식 공지 미러를 확인하세요." },
+        "zh-Hant": { "title": "楓之谷官方來源檢視器", "description": "查看附原始來源連結與地區標記的楓之谷官方公告鏡像。" }
+      }
+    },
+    "/guides": {
+      "index": true,
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "MapleStory Guides", "description": "Browse MapleStory progression, class, boss, event, and account guides with clear regional context and sources." },
+        "zh": { "title": "冒险岛攻略大全", "description": "浏览冒险岛升级、职业、Boss、活动和账号攻略，并查看清晰的地区适用范围与资料来源。" },
+        "ja": { "title": "メイプルストーリー攻略ガイド", "description": "育成、職業、ボス、イベント、アカウント攻略を地域別の適用情報と出典付きで確認できます。" },
+        "ko": { "title": "메이플스토리 공략 가이드", "description": "성장, 직업, 보스, 이벤트와 계정 공략을 지역별 적용 정보 및 출처와 함께 확인하세요." },
+        "zh-Hant": { "title": "楓之谷攻略大全", "description": "瀏覽楓之谷練等、職業、Boss、活動與帳號攻略，並查看清楚的地區適用範圍及資料來源。" }
+      }
+    },
+    "/guides/level": {
+      "index": true,
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "copy": {
+        "en": { "title": "MapleStory Leveling Guide", "description": "Plan a MapleStory leveling route with training spots, quests, milestones, and progression tips from early game through Grandis." },
+        "zh": { "title": "冒险岛升级路线与练级攻略", "description": "规划从前期到 Grandis 的冒险岛升级路线、练级地图、任务节点与成长建议。" },
+        "ja": { "title": "メイプルストーリー レベル上げ・育成ガイド", "description": "序盤からグランディスまでの狩場、クエスト、育成目標、レベル上げルートを確認できます。" },
+        "ko": { "title": "메이플스토리 레벨업 및 육성 가이드", "description": "초반부터 그란디스까지 사냥터, 퀘스트, 성장 목표와 레벨업 루트를 계획하세요." },
+        "zh-Hant": { "title": "楓之谷升級路線與練等攻略", "description": "規劃從前期到 Grandis 的楓之谷升級路線、練等地圖、任務節點與成長建議。" }
+      }
+    },
+    "/events": {
+      "index": true,
+      "changefreq": "daily",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "Current MapleStory Events", "description": "Track current MapleStory event dates, rewards, deadlines, regional availability, and reminder tools." },
+        "zh": { "title": "冒险岛当前活动与日历", "description": "追踪冒险岛活动日期、奖励、截止时间、地区适用范围和提醒工具。" },
+        "ja": { "title": "開催中のメイプルストーリーイベント", "description": "イベント期間、報酬、締切、地域別の開催状況、リマインダーを確認できます。" },
+        "ko": { "title": "진행 중인 메이플스토리 이벤트", "description": "메이플스토리 이벤트 기간, 보상, 마감일, 지역별 적용 여부와 알림 도구를 확인하세요." },
+        "zh-Hant": { "title": "楓之谷目前活動與日曆", "description": "追蹤楓之谷活動日期、獎勵、截止時間、地區適用範圍與提醒工具。" }
+      }
+    },
+    "/community": {
+      "index": false,
+      "follow": false,
+      "copy": {
+        "en": { "title": "MapleStory Community Redirect", "description": "Continue from MPStorys to an external MapleStory community." },
+        "zh": { "title": "冒险岛社区跳转", "description": "从 MPStorys 前往外部冒险岛社区。" },
+        "ja": { "title": "メイプルストーリーコミュニティへ移動", "description": "MPStorys から外部のメイプルストーリーコミュニティへ移動します。" },
+        "ko": { "title": "메이플스토리 커뮤니티로 이동", "description": "MPStorys에서 외부 메이플스토리 커뮤니티로 이동합니다." },
+        "zh-Hant": { "title": "楓之谷社群跳轉", "description": "從 MPStorys 前往外部楓之谷社群。" }
+      }
+    },
+    "/auth/login": {
+      "index": false,
+      "follow": false,
+      "copy": {
+        "en": { "title": "Sign In to MPStorys", "description": "Sign in to sync your MPStorys characters, checklists, and preferences." },
+        "zh": { "title": "登录 MPStorys", "description": "登录并同步你的 MPStorys 角色、清单和偏好。" },
+        "ja": { "title": "MPStorys にログイン", "description": "ログインしてキャラクター、チェックリスト、設定を同期します。" },
+        "ko": { "title": "MPStorys 로그인", "description": "로그인하여 캐릭터, 체크리스트와 환경설정을 동기화하세요." },
+        "zh-Hant": { "title": "登入 MPStorys", "description": "登入並同步你的 MPStorys 角色、清單與偏好。" }
+      }
+    },
+    "/account": {
+      "index": false,
+      "follow": false,
+      "copy": {
+        "en": { "title": "Your MPStorys Account", "description": "Manage your private MPStorys account and synced game data." },
+        "zh": { "title": "你的 MPStorys 账号", "description": "管理你的 MPStorys 私人账号和同步游戏数据。" },
+        "ja": { "title": "MPStorys アカウント", "description": "非公開の MPStorys アカウントと同期ゲームデータを管理します。" },
+        "ko": { "title": "MPStorys 계정", "description": "개인 MPStorys 계정과 동기화된 게임 데이터를 관리하세요." },
+        "zh-Hant": { "title": "你的 MPStorys 帳號", "description": "管理你的 MPStorys 私人帳號與同步遊戲資料。" }
+      }
+    },
+    "/maps": {
+      "index": true,
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "copy": {
+        "en": { "title": "MapleStory Training Maps", "description": "Find MapleStory training maps and recommended grinding spots by level, region, monsters, and progression milestone." },
+        "zh": { "title": "冒险岛练级地图推荐", "description": "按等级、地区、怪物和成长阶段查找冒险岛练级地图与推荐刷怪点。" },
+        "ja": { "title": "メイプルストーリーおすすめ狩場", "description": "レベル、地域、モンスター、育成段階からおすすめの狩場とトレーニングマップを探せます。" },
+        "ko": { "title": "메이플스토리 추천 사냥터", "description": "레벨, 지역, 몬스터와 성장 단계별 메이플스토리 사냥터와 추천 맵을 찾아보세요." },
+        "zh-Hant": { "title": "楓之谷練等地圖推薦", "description": "依等級、地區、怪物與成長階段查找楓之谷練等地圖及推薦刷怪點。" }
+      }
+    },
+    "/rankings": {
+      "index": true,
+      "changefreq": "daily",
+      "priority": "0.8",
+      "copy": {
+        "en": { "title": "MapleStory Rankings", "description": "Explore MapleStory character and class rankings across supported regions, worlds, and progression categories." },
+        "zh": { "title": "冒险岛角色与职业排行", "description": "查看不同服务器地区、世界和成长类别的冒险岛角色与职业排行。" },
+        "ja": { "title": "メイプルストーリーランキング", "description": "対応地域、ワールド、育成カテゴリー別にキャラクターと職業ランキングを確認できます。" },
+        "ko": { "title": "메이플스토리 랭킹", "description": "지원 지역, 월드와 성장 카테고리별 캐릭터 및 직업 랭킹을 확인하세요." },
+        "zh-Hant": { "title": "楓之谷角色與職業排行", "description": "查看不同伺服器地區、世界與成長類別的楓之谷角色及職業排行。" }
+      }
+    },
+    "/rankings/classes": {
+      "index": false,
+      "follow": false,
+      "canonicalRoute": "/mapler-house",
+      "copy": {
+        "en": { "title": "MapleStory Class Rankings Moved", "description": "MapleStory class ranking tools are now available in Mapler House." },
+        "zh": { "title": "冒险岛职业排行已迁移", "description": "冒险岛职业排行工具现已移至 Mapler House。" },
+        "ja": { "title": "職業ランキングは移動しました", "description": "メイプルストーリー職業ランキングは Mapler House で利用できます。" },
+        "ko": { "title": "직업 랭킹 페이지 이동", "description": "메이플스토리 직업 랭킹 도구는 Mapler House에서 이용할 수 있습니다." },
+        "zh-Hant": { "title": "楓之谷職業排行已移動", "description": "楓之谷職業排行工具現已移至 Mapler House。" }
+      }
+    },
+    "/mapler-house": {
+      "index": true,
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "Mapler House — MapleStory Tools", "description": "Use MapleStory character lookup, progression planners, simulators, build tools, map data, and class resources in one workspace." },
+        "zh": { "title": "Mapler House — 冒险岛工具箱", "description": "使用冒险岛角色查询、成长规划、模拟器、配装工具、地图数据和职业资料。" },
+        "ja": { "title": "Mapler House — メイプルストーリーツール", "description": "キャラクター検索、育成プランナー、シミュレーター、装備ツール、マップデータ、職業情報をまとめて利用できます。" },
+        "ko": { "title": "Mapler House — 메이플스토리 도구", "description": "캐릭터 검색, 성장 플래너, 시뮬레이터, 장비 도구, 맵 데이터와 직업 자료를 한곳에서 이용하세요." },
+        "zh-Hant": { "title": "Mapler House — 楓之谷工具箱", "description": "使用楓之谷角色查詢、成長規劃、模擬器、配裝工具、地圖資料與職業資訊。" }
+      }
+    },
+    "/wiki/redirect": {
+      "index": false,
+      "follow": false,
+      "copy": {
+        "en": { "title": "MapleStory Wiki Redirect", "description": "Resolving a MapleStory Wiki destination on MPStorys." },
+        "zh": { "title": "冒险岛 Wiki 跳转", "description": "正在解析 MPStorys 上的冒险岛 Wiki 目标页面。" },
+        "ja": { "title": "メイプルストーリー Wiki リダイレクト", "description": "MPStorys 上の Wiki 移動先を確認しています。" },
+        "ko": { "title": "메이플스토리 위키 이동", "description": "MPStorys에서 위키 이동 대상을 확인하고 있습니다." },
+        "zh-Hant": { "title": "楓之谷 Wiki 跳轉", "description": "正在解析 MPStorys 上的楓之谷 Wiki 目標頁面。" }
+      }
+    },
+    "/wiki": {
+      "index": true,
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "MapleStory Wiki", "description": "Search MapleStory bosses, classes, items, maps, quests, and game systems with region-aware reference information." },
+        "zh": { "title": "冒险岛 Wiki 百科", "description": "搜索冒险岛 Boss、职业、道具、地图、任务和游戏系统，并查看地区适用信息。" },
+        "ja": { "title": "メイプルストーリー Wiki", "description": "ボス、職業、アイテム、マップ、クエスト、ゲームシステムを地域情報付きで検索できます。" },
+        "ko": { "title": "메이플스토리 위키", "description": "보스, 직업, 아이템, 맵, 퀘스트와 게임 시스템을 지역별 정보와 함께 검색하세요." },
+        "zh-Hant": { "title": "楓之谷 Wiki 百科", "description": "搜尋楓之谷 Boss、職業、道具、地圖、任務與遊戲系統，並查看地區適用資訊。" }
+      }
+    },
+    "/wiki/boss": {
+      "index": true,
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "MapleStory Boss Guides", "description": "Browse MapleStory boss mechanics, requirements, difficulties, rewards, and daily or weekly checklist links." },
+        "zh": { "title": "冒险岛 Boss 攻略大全", "description": "查看冒险岛 Boss 机制、前置要求、难度、奖励以及每日或每周清单入口。" },
+        "ja": { "title": "メイプルストーリー ボス攻略", "description": "ボスのギミック、参加条件、難易度、報酬、デイリー・ウィークリーチェックリストを確認できます。" },
+        "ko": { "title": "메이플스토리 보스 공략", "description": "보스 패턴, 입장 조건, 난이도, 보상과 일간·주간 체크리스트를 확인하세요." },
+        "zh-Hant": { "title": "楓之谷 Boss 攻略大全", "description": "查看楓之谷 Boss 機制、前置要求、難度、獎勵以及每日或每週清單入口。" }
+      }
+    },
+    "/checklist": {
+      "index": true,
+      "changefreq": "daily",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "MapleStory Daily & Weekly Checklist", "description": "Track MapleStory daily quests, weekly bosses, event tasks, and reset schedules for each character." },
+        "zh": { "title": "冒险岛每日与每周任务清单", "description": "按角色追踪冒险岛每日任务、每周 Boss、活动任务和重置时间。" },
+        "ja": { "title": "メイプルストーリー デイリー・ウィークリーチェックリスト", "description": "キャラクターごとにデイリー、ウィークリーボス、イベント課題、リセット時間を管理できます。" },
+        "ko": { "title": "메이플스토리 일간 및 주간 체크리스트", "description": "캐릭터별 일일 퀘스트, 주간 보스, 이벤트 과제와 초기화 시간을 관리하세요." },
+        "zh-Hant": { "title": "楓之谷每日與每週任務清單", "description": "依角色追蹤楓之谷每日任務、每週 Boss、活動任務與重置時間。" }
+      }
+    },
+    "/tools": {
+      "index": true,
+      "changefreq": "monthly",
+      "priority": "0.9",
+      "copy": {
+        "en": { "title": "MapleStory Tools & Simulators", "description": "Discover MapleStory calculators, simulators, planners, checklists, rankings, map tools, and trusted community resources." },
+        "zh": { "title": "冒险岛工具与模拟器", "description": "使用冒险岛计算器、模拟器、规划工具、清单、排行、地图工具和可信社区资源。" },
+        "ja": { "title": "メイプルストーリー ツール・シミュレーター", "description": "計算機、シミュレーター、プランナー、チェックリスト、ランキング、マップツール、コミュニティ資料を探せます。" },
+        "ko": { "title": "메이플스토리 도구 및 시뮬레이터", "description": "계산기, 시뮬레이터, 플래너, 체크리스트, 랭킹, 맵 도구와 신뢰할 수 있는 커뮤니티 자료를 찾아보세요." },
+        "zh-Hant": { "title": "楓之谷工具與模擬器", "description": "使用楓之谷計算器、模擬器、規劃工具、清單、排行、地圖工具與可信社群資源。" }
+      }
+    }
+  }
+}

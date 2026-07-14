@@ -24,6 +24,7 @@ import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useLocalizedEvents } from './useLocalizedEvents';
 
 const EVENT_REMINDERS_KEY = 'maplehub-event-reminders';
 const EVENT_REMINDER_DELIVERY_KEY = 'maplehub-event-reminder-delivery';
@@ -72,6 +73,7 @@ export default function EventsPage() {
     baseItems: [],
     remoteLoader: loadEvents,
   });
+  const localizedEvents = useLocalizedEvents(realtimeEvents, i18n.language);
   const {
     items: realtimeNews,
     status: newsStatus,
@@ -84,8 +86,8 @@ export default function EventsPage() {
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const filteredEvents = useMemo(
-    () => realtimeEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
-    [realtimeEvents, versionInfo.id],
+    () => localizedEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
+    [localizedEvents, versionInfo.id],
   );
   const urgentEvents = useMemo(
     () => [...filteredEvents]
@@ -322,6 +324,7 @@ export default function EventsPage() {
                               src={getRegionalContentImage(item.image, versionInfo.id)}
                               alt=""
                               loading="lazy"
+                              decoding="async"
                               className="h-32 w-full object-cover"
                               onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                             />
@@ -369,6 +372,8 @@ export default function EventsPage() {
                         <img
                           src={getRegionalContentImage(e.image, versionInfo.id)}
                           alt={e.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top"
                           onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                         />
@@ -456,6 +461,7 @@ export default function EventsPage() {
               <img
                 src={getRegionalContentImage(activeEvent.image, versionInfo.id)}
                 alt={activeEvent.name}
+                decoding="async"
                 className="h-full w-full object-cover object-top"
                 onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
               />

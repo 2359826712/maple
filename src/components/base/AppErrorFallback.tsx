@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { SITE_NAME, SITE_TAGLINE } from '@/constants/site';
 
 interface AppErrorFallbackProps {
   onReset: () => void;
@@ -21,7 +22,7 @@ export default function AppErrorFallback({ onReset }: AppErrorFallbackProps) {
           type="button"
           onClick={handleBackHome}
           className="inline-flex min-h-11 items-center gap-3 rounded-lg px-2 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
-          aria-label={t('error_boundary_brand_home', 'MapleHub home')}
+          aria-label={t('error_boundary_brand_home', `${SITE_NAME} home`)}
         >
           <span
             aria-hidden="true"
@@ -30,9 +31,9 @@ export default function AppErrorFallback({ onReset }: AppErrorFallbackProps) {
             <i className="ri-leaf-fill" />
           </span>
           <span>
-            <span className="block font-heading text-lg font-bold text-foreground-950">MapleHub</span>
+            <span className="block font-heading text-lg font-bold text-foreground-950">{SITE_NAME}</span>
             <span className="block text-[10px] font-semibold uppercase tracking-wider text-primary-600">
-              GMS Community
+              {SITE_TAGLINE}
             </span>
           </span>
         </button>
@@ -47,7 +48,7 @@ export default function AppErrorFallback({ onReset }: AppErrorFallbackProps) {
           <i className="ri-error-warning-line text-3xl" aria-hidden="true" />
         </div>
         <h1 className="mt-6 font-heading text-2xl font-bold text-foreground-950 sm:text-3xl">
-          {t('error_boundary_title', 'MapleHub hit an unexpected error')}
+          {t('error_boundary_title', `${SITE_NAME} hit an unexpected error`)}
         </h1>
         <p className="mt-3 max-w-lg text-sm leading-6 text-foreground-600 sm:text-base">
           {t(

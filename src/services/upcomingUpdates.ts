@@ -119,10 +119,10 @@ export async function fetchUpcomingUpdates(options: { force?: boolean; signal?: 
 
   const payload = await cachedJsonFetch<WordPressPostFeed>(url.toString(), {
     cacheKey: ORANGE_MUSHROOM_CACHE_KEY,
-    freshMs: options.force ? 0 : realtimeCacheDurations.medium,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
-    retryMs: options.force ? 0 : 60 * 1000,
-    timeoutMs: 8000,
+    retryMs: 60 * 1000,
+    timeoutMs: 50_000,
     requestInit: { signal: options.signal },
   });
 
@@ -145,10 +145,10 @@ export async function fetchUpcomingUpdateArticle(
 
   const payload = await cachedJsonFetch<WordPressPost>(url.toString(), {
     cacheKey: `upcoming-update:orange-mushroom:${numericId}:v1`,
-    freshMs: options.force ? 0 : realtimeCacheDurations.medium,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
-    retryMs: options.force ? 0 : 60 * 1000,
-    timeoutMs: 12000,
+    retryMs: 60 * 1000,
+    timeoutMs: 50_000,
     requestInit: { signal: options.signal },
   });
   const article = normalizeOrangeMushroomArticle(payload);

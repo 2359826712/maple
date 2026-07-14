@@ -8,6 +8,8 @@ import UniversalSearchDialog from '@/components/search/UniversalSearchDialog';
 import { AUTO_LOGIN_ENABLED_KEY, clearAuthSession, useAuthSession } from '@/hooks/useAuthSession';
 import { mapleSqlApi } from '@/services/mapleSqlApi';
 import { clearAccountDataCache, saveCurrentAccountData } from '@/services/accountDataSync';
+import { SITE_NAME, SITE_TAGLINE } from '@/constants/site';
+import { localizeHref, normalizeLanguage, stripLanguageSuffix, withLanguageSuffix } from '@/i18n/languageRouting';
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
@@ -70,6 +72,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const { version, versionInfo, setVersion } = useVersion();
   const navigate = useNavigate();
   const location = useLocation();
+  const routePathname = stripLanguageSuffix(location.pathname);
   const { isSignedIn, displayName, session } = useAuthSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -106,10 +109,22 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    let frame = 0;
+    const updateScrolled = () => {
+      frame = 0;
+      const nextScrolled = window.scrollY > 30;
+      setScrolled((current) => current === nextScrolled ? current : nextScrolled);
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateScrolled);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateScrolled();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -246,10 +261,19 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   }, [i18n.language]);
 
   const switchLang = (lang: string) => {
-    window.localStorage.setItem('i18nextLng', lang);
-    window.localStorage.setItem('maplehub-language', lang);
-    document.documentElement.lang = lang;
-    i18n.changeLanguage(lang);
+    const language = normalizeLanguage(lang);
+    window.localStorage.setItem('i18nextLng', language);
+    window.localStorage.setItem('maplehub-language', language);
+    document.documentElement.lang = language;
+    void i18n.changeLanguage(language);
+    navigate(
+      {
+        pathname: withLanguageSuffix(location.pathname, language),
+        search: location.search,
+        hash: location.hash,
+      },
+      { replace: true },
+    );
     setLangMenuOpen(false);
   };
 
@@ -258,7 +282,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     setVersionMenuOpen(false);
   };
 
-  const defaultToolValue = location.pathname === '/mapler-house'
+  const defaultToolValue = routePathname === '/mapler-house'
     ? window.location.hash.replace('#', '') || 'dashboard'
     : '';
 
@@ -434,11 +458,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   const isNavActive = (href: string) => {
     if (href.startsWith('http')) return false;
-    if (href === '/') return location.pathname === '/';
+    if (href === '/') return routePathname === '/';
     if (href === '/mapler-house') {
-      return location.pathname === '/mapler-house' || location.pathname === '/maps';
+      return routePathname === '/mapler-house' || routePathname === '/maps';
     }
-    return location.pathname === href || location.pathname.startsWith(`${href}/`);
+    return routePathname === href || routePathname.startsWith(`${href}/`);
   };
 
   return (
@@ -465,10 +489,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             </div>
             <div className="flex flex-col leading-tight">
               <span className="font-heading text-lg md:text-xl font-semibold text-foreground-950 whitespace-nowrap">
-                MapleHub
+                {SITE_NAME}
               </span>
               <span className="text-[10px] md:text-[11px] text-primary-600 tracking-wider whitespace-nowrap font-semibold">
-                {versionInfo.shortLabel} COMMUNITY
+                {SITE_TAGLINE.toUpperCase()}
               </span>
             </div>
           </Link>
@@ -610,7 +634,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               return (
                 <Link
                   key={l.href}
-                  to={l.href}
+                  to={localizeHref(l.href, i18n.language)}
                   aria-current={active ? 'page' : undefined}
                   className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm transition-colors cursor-pointer whitespace-nowrap ${
                     active
@@ -626,7 +650,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
           <div className="ml-2 flex items-center gap-2 md:gap-3 xl:ml-1 xl:gap-1 2xl:ml-2 2xl:gap-3">
             <div ref={searchRef} className="relative hidden md:block">
-              {location.pathname === '/' ? (
+              {routePathname === '/' ? (
                 <button
                   type="button"
                   onClick={() => setPaletteOpen(true)}
@@ -1055,7 +1079,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 return (
                   <Link
                     key={l.href}
-                    to={l.href}
+                    to={localizeHref(l.href, i18n.language)}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active ? 'page' : undefined}
                     className={`rounded-md px-3 py-2 text-sm cursor-pointer ${

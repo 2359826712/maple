@@ -1,35 +1,24 @@
-import i18n, { type BackendModule, type ReadCallback } from 'i18next';
+import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import en from './local/en/common';
+import zh from './local/zh/common';
+import ja from './local/ja/common';
+import ko from './local/ko/common';
+import zhHant from './local/zh-Hant/common';
+import {
+  getPathLanguage,
+  normalizeLanguage,
+  supportedLanguages,
+  type SupportedLanguage,
+} from './languageRouting';
 
-const supportedLanguages = ['en', 'zh', 'ja', 'ko', 'zh-Hant'] as const;
-type SupportedLanguage = (typeof supportedLanguages)[number];
-
-const localeLoaders: Record<SupportedLanguage, () => Promise<{ default: Record<string, string> }>> = {
-  en: () => import('./local/en/common'),
-  zh: () => import('./local/zh/common'),
-  ja: () => import('./local/ja/common'),
-  ko: () => import('./local/ko/common'),
-  'zh-Hant': () => import('./local/zh-Hant/common'),
-};
-
-const normalizeLanguage = (language: string): SupportedLanguage => {
-  if (language.toLowerCase().startsWith('zh-hant')) return 'zh-Hant';
-  if (language.toLowerCase().startsWith('zh')) return 'zh';
-  if (language.toLowerCase().startsWith('ja')) return 'ja';
-  if (language.toLowerCase().startsWith('ko')) return 'ko';
-  return 'en';
-};
-
-const bundledLocaleBackend: BackendModule = {
-  type: 'backend',
-  init: () => undefined,
-  read(language: string, _namespace: string, callback: ReadCallback) {
-    const locale = normalizeLanguage(language);
-    void localeLoaders[locale]()
-      .then((module) => callback(null, module.default))
-      .catch((error: unknown) => callback(error instanceof Error ? error : new Error('Locale load failed'), false));
-  },
+const resources: Record<SupportedLanguage, { translation: Record<string, string> }> = {
+  en: { translation: en },
+  zh: { translation: zh },
+  ja: { translation: ja },
+  ko: { translation: ko },
+  'zh-Hant': { translation: zhHant },
 };
 
 const storedLanguage =
@@ -37,14 +26,16 @@ const storedLanguage =
     ? window.localStorage.getItem('i18nextLng') || window.localStorage.getItem('maplehub-language') || undefined
     : undefined;
 
+const pathLanguage = typeof window !== 'undefined' ? getPathLanguage(window.location.pathname) : null;
+
 export const i18nReady = i18n
-  .use(bundledLocaleBackend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    lng: storedLanguage || 'en',
+    lng: pathLanguage || normalizeLanguage(storedLanguage),
     fallbackLng: 'en',
     supportedLngs: [...supportedLanguages],
+    resources,
     ns: ['translation'],
     defaultNS: 'translation',
     detection: {

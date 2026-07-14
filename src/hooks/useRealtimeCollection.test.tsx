@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 import { useRealtimeCollection } from './useRealtimeCollection';
 
 const remoteLoader = vi.fn().mockResolvedValue(null);
@@ -35,5 +35,14 @@ describe('useRealtimeCollection storage partitions', () => {
     view.rerender(<Probe storageKey="news:jms" />);
     expect(screen.getByText('jms-item')).toBeTruthy();
     expect(screen.queryByText('gms-item')).toBeNull();
+  });
+
+  it('does not fetch a collection again during its 12-hour freshness window', async () => {
+    localStorage.setItem('news:gms:last-successful-sync', new Date().toISOString());
+    render(<Probe storageKey="news:gms" />);
+
+    await act(async () => Promise.resolve());
+
+    expect(remoteLoader).not.toHaveBeenCalled();
   });
 });

@@ -6,13 +6,23 @@ export default function GuideScrollTopButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    let frame = 0;
     const updateVisibility = () => {
-      setVisible(window.scrollY > 420);
+      frame = 0;
+      const nextVisible = window.scrollY > 420;
+      setVisible((current) => current === nextVisible ? current : nextVisible);
+    };
+    const scheduleVisibilityUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateVisibility);
     };
 
     updateVisibility();
-    window.addEventListener('scroll', updateVisibility, { passive: true });
-    return () => window.removeEventListener('scroll', updateVisibility);
+    window.addEventListener('scroll', scheduleVisibilityUpdate, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', scheduleVisibilityUpdate);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   if (!visible) return null;

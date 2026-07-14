@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
@@ -10,22 +10,33 @@ import {
   ORANGE_MUSHROOM_TIME_ZONE,
   type UpcomingUpdateArticle,
 } from '@/services/upcomingUpdates';
+import { useLocalizedUpcomingArticle } from '../localizedUpcoming';
+import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 
 export default function UpcomingUpdateDetailPage() {
   const { postId = '' } = useParams();
   const { t, i18n } = useTranslation();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [article, setArticle] = useState<UpcomingUpdateArticle | null>(null);
+  const [sourceArticle, setSourceArticle] = useState<UpcomingUpdateArticle | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const article = useLocalizedUpcomingArticle(sourceArticle, i18n.language);
+  const renderedArticleHtml = useMemo(
+    () => article?.contentHtml ? prepareStaticHtmlForRender(article.contentHtml) : '',
+    [article?.contentHtml],
+  );
 
-  usePageMetadata(article?.title || t('upcoming_post_page_title'), article?.excerpt || t('upcoming_meta_desc'));
+  usePageMetadata(article?.title || t('upcoming_post_page_title'), article?.excerpt || t('upcoming_meta_desc'), {
+    image: article?.image || undefined,
+    imageAlt: article?.title || t('upcoming_post_page_title'),
+    type: 'article',
+  });
 
   const loadArticle = useCallback((force = false) => {
     const controller = new AbortController();
     setStatus('loading');
     void fetchUpcomingUpdateArticle(postId, { force, signal: controller.signal })
       .then((nextArticle) => {
-        setArticle(nextArticle);
+        setSourceArticle(nextArticle);
         setStatus('ready');
       })
       .catch((error: unknown) => {
@@ -112,8 +123,8 @@ export default function UpcomingUpdateDetailPage() {
               </div>
 
               <div
-                className="mt-6 overflow-hidden rounded-3xl border border-background-200 bg-background-50 p-5 text-[15px] leading-7 text-foreground-800 shadow-sm md:p-10 [&_a]:font-medium [&_a]:text-primary-700 [&_a]:underline [&_a]:underline-offset-2 [&_blockquote]:my-6 [&_blockquote]:border-l-4 [&_blockquote]:border-primary-300 [&_blockquote]:bg-primary-50 [&_blockquote]:px-5 [&_blockquote]:py-3 [&_figure]:my-8 [&_h1]:mb-4 [&_h1]:mt-12 [&_h1]:font-heading [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:text-foreground-950 [&_h2]:mb-3 [&_h2]:mt-10 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:font-heading [&_h3]:text-xl [&_h3]:font-semibold [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_img]:rounded-xl [&_li]:my-1 [&_ol]:my-5 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:my-5 [&_table]:my-6 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto [&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6"
-                dangerouslySetInnerHTML={{ __html: article.contentHtml }}
+                className="static-article-content mt-6 overflow-hidden rounded-3xl border border-background-200 bg-background-50 p-5 text-[15px] leading-7 text-foreground-800 shadow-sm md:p-10 [&_a]:font-medium [&_a]:text-primary-700 [&_a]:underline [&_a]:underline-offset-2 [&_blockquote]:my-6 [&_blockquote]:border-l-4 [&_blockquote]:border-primary-300 [&_blockquote]:bg-primary-50 [&_blockquote]:px-5 [&_blockquote]:py-3 [&_figure]:my-8 [&_h1]:mb-4 [&_h1]:mt-12 [&_h1]:font-heading [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:text-foreground-950 [&_h2]:mb-3 [&_h2]:mt-10 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-foreground-950 [&_h3]:mb-3 [&_h3]:mt-8 [&_h3]:font-heading [&_h3]:text-xl [&_h3]:font-semibold [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_img]:rounded-xl [&_li]:my-1 [&_ol]:my-5 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:my-5 [&_table]:my-6 [&_table]:block [&_table]:max-w-full [&_table]:overflow-x-auto [&_ul]:my-5 [&_ul]:list-disc [&_ul]:pl-6"
+                dangerouslySetInnerHTML={{ __html: renderedArticleHtml }}
               />
 
               <footer className="mt-6 flex flex-col gap-3 rounded-2xl border border-background-200 bg-background-100 p-5 sm:flex-row sm:items-center sm:justify-between">

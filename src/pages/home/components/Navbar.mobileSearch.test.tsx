@@ -92,10 +92,10 @@ describe('Navbar mobile site search', () => {
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_upcoming' }).getAttribute('href')).toBe('/upcoming');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('href')).toBe('/wiki');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_upcoming' }).getAttribute('href')).toBe('/upcoming/en');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('href')).toBe('/wiki/en');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings/en');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community/en');
     expect(scopedNavigation.queryByText('nav_more')).toBeNull();
   });
 
@@ -108,6 +108,7 @@ describe('Navbar mobile site search', () => {
     expect(localStorage.getItem('i18nextLng')).toBe('ko');
     expect(localStorage.getItem('maplehub-language')).toBe('ko');
     expect(document.documentElement.lang).toBe('ko');
+    expect(screen.getByLabelText('Current path').textContent).toBe('/ko');
   });
 
   it('opens from the mobile navbar and reuses site-search result navigation', async () => {

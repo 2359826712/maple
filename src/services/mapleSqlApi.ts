@@ -1,8 +1,7 @@
 import { getAccessToken } from '@/hooks/useAuthSession';
+import { apiBaseUrl, apiEndpoint } from './apiEndpoint';
 import { telemetry } from './telemetry';
 
-const rawApiBaseUrl = (import.meta.env.VITE_MAPLE_SQL_API_BASE_URL || '/api').trim();
-const apiBaseUrl = rawApiBaseUrl.replace(/\/+$/, '');
 const defaultTenantKey = (import.meta.env.VITE_MAPLE_SQL_TENANT_KEY || 'default').trim() || 'default';
 
 export class MapleApiError extends Error {
@@ -23,11 +22,6 @@ type RequestOptions = {
   body?: unknown;
   auth?: boolean;
   [key: string]: unknown;
-};
-
-const buildUrl = (path: string) => {
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return `${apiBaseUrl}${normalizedPath}`;
 };
 
 const parseResponseBody = async (response: Response) => {
@@ -66,7 +60,7 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 
   let response: Response;
   try {
-    response = await fetch(buildUrl(path), {
+    response = await fetch(apiEndpoint(path), {
       credentials: 'include',
       ...(rest as Record<string, unknown>),
       headers: requestHeaders,

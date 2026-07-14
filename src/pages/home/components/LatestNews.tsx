@@ -95,6 +95,8 @@ export default function LatestNews() {
                   <img
                     src={getRegionalContentImage(n.image, n.versions[0] || versionInfo.id)}
                     alt={n.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     onError={(event) => applyRegionalImageFallback(event.currentTarget, n.versions[0] || versionInfo.id)}
                   />

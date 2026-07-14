@@ -1,89 +1,87 @@
 import type { RouteObject } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { lazy } from "react";
 import { communityLinks } from "@/constants/communityLinks";
-import { RouteLoader } from "@/components/base/RouteLoadingFallback";
+import NotFound from "../pages/NotFound";
+import Home from "../pages/home/page";
+import GuideDetail from "../pages/guides/detail/page";
+import RankingsPage from "../pages/rankings/page";
+import MaplerHouse from "../pages/mapler-house/page";
+import NewsPage from "../pages/news/page";
+import UpcomingUpdatesPage from "../pages/upcoming/page";
+import UpcomingUpdateDetailPage from "../pages/upcoming/detail/page";
+import GuidesPage from "../pages/guides/page";
+import EventsPage from "../pages/events/page";
+import MapsPage from "../pages/maps/page";
+import WikiPage from "../pages/wiki/page";
+import WikiArticlePage from "../pages/wiki/article";
+import LoginPage from "../pages/auth/login/page";
+import AccountPage from "../pages/account/page";
+import SearchPage from "../pages/search/page";
+import OfficialSourcePage from "../pages/source/page";
+import ChecklistPage from "../pages/checklist/page";
+import LevelGuidePage from "../pages/guides/level/page";
+import ToolsPage from "../pages/tools/page";
+import BossDetailPage from "../pages/wiki/boss";
+import ExternalRedirect from "@/components/feature/ExternalRedirect";
+import { WikiRedirectPage } from "../pages/wiki/redirect";
+import { languagePathSegments, supportedLanguages } from "@/i18n/languageRouting";
 
-const NotFound = lazy(() => import("../pages/NotFound"));
-const Home = lazy(() => import("../pages/home/page"));
-const GuideDetail = lazy(() => import("../pages/guides/detail/page"));
-const RankingsPage = lazy(() => import("../pages/rankings/page"));
-const MaplerHouse = lazy(() => import("../pages/mapler-house/page"));
-const NewsPage = lazy(() => import("../pages/news/page"));
-const UpcomingUpdatesPage = lazy(() => import("../pages/upcoming/page"));
-const UpcomingUpdateDetailPage = lazy(() => import("../pages/upcoming/detail/page"));
-const GuidesPage = lazy(() => import("../pages/guides/page"));
-const EventsPage = lazy(() => import("../pages/events/page"));
-const MapsPage = lazy(() => import("../pages/maps/page"));
-const WikiPage = lazy(() => import("../pages/wiki/page"));
-const WikiArticlePage = lazy(() => import("../pages/wiki/article"));
-const LoginPage = lazy(() => import("../pages/auth/login/page"));
-const AccountPage = lazy(() => import("../pages/account/page"));
-const SearchPage = lazy(() => import("../pages/search/page"));
-const OfficialSourcePage = lazy(() => import("../pages/source/page"));
-const ChecklistPage = lazy(() => import("../pages/checklist/page"));
-const LevelGuidePage = lazy(() => import("../pages/guides/level/page"));
-const ToolsPage = lazy(() => import("../pages/tools/page"));
-const BossDetailPage = lazy(() => import("../pages/wiki/boss"));
-const ExternalRedirect = lazy(() => import("@/components/feature/ExternalRedirect"));
-const WikiRedirectPage = lazy(() => import("../pages/wiki/redirect").then((module) => ({ default: module.WikiRedirectPage })));
-
-const routes: RouteObject[] = [
+const localizableRoutes: RouteObject[] = [
   {
     path: "/",
-    element: <RouteLoader><Home /></RouteLoader>,
+    element: <Home />,
   },
   {
     path: "/news",
-    element: <RouteLoader><NewsPage /></RouteLoader>,
+    element: <NewsPage />,
   },
   {
     path: "/upcoming",
-    element: <RouteLoader><UpcomingUpdatesPage /></RouteLoader>,
+    element: <UpcomingUpdatesPage />,
   },
   {
     path: "/upcoming/:postId",
-    element: <RouteLoader><UpcomingUpdateDetailPage /></RouteLoader>,
+    element: <UpcomingUpdateDetailPage />,
   },
   {
     path: "/search",
-    element: <RouteLoader><SearchPage /></RouteLoader>,
+    element: <SearchPage />,
   },
   {
     path: "/source",
-    element: <RouteLoader><OfficialSourcePage /></RouteLoader>,
+    element: <OfficialSourcePage />,
   },
   {
     path: "/guides",
-    element: <RouteLoader><GuidesPage /></RouteLoader>,
+    element: <GuidesPage />,
   },
   {
     path: "/guides/:id",
-    element: <RouteLoader><GuideDetail /></RouteLoader>,
+    element: <GuideDetail />,
   },
   {
     path: "/events",
-    element: <RouteLoader><EventsPage /></RouteLoader>,
+    element: <EventsPage />,
   },
   {
     path: "/community",
-    element: <RouteLoader><ExternalRedirect to={communityLinks.reddit} message="Entering MapleStory Community" targetLabel="MapleStory Community" /></RouteLoader>,
+    element: <ExternalRedirect to={communityLinks.reddit} message="Entering MapleStory Community" targetLabel="MapleStory Community" />,
   },
   {
     path: "/auth/login",
-    element: <RouteLoader><LoginPage /></RouteLoader>,
+    element: <LoginPage />,
   },
   {
     path: "/account",
-    element: <RouteLoader><AccountPage /></RouteLoader>,
+    element: <AccountPage />,
   },
   {
     path: "/maps",
-    element: <RouteLoader><MapsPage /></RouteLoader>,
+    element: <MapsPage />,
   },
   {
     path: "/rankings",
-    element: <RouteLoader><RankingsPage /></RouteLoader>,
+    element: <RankingsPage />,
   },
   {
     path: "/rankings/classes",
@@ -91,39 +89,69 @@ const routes: RouteObject[] = [
   },
   {
     path: "/mapler-house",
-    element: <RouteLoader><MaplerHouse /></RouteLoader>,
-  },
-  {
-    path: "/wiki/article/*",
-    element: <RouteLoader><WikiArticlePage /></RouteLoader>,
-  },
-  {
-    path: "/wiki/boss/*",
-    element: <RouteLoader><BossDetailPage /></RouteLoader>,
+    element: <MaplerHouse />,
   },
   {
     path: "/wiki/redirect",
-    element: <RouteLoader><WikiRedirectPage /></RouteLoader>,
+    element: <WikiRedirectPage />,
   },
   {
     path: "/wiki",
-    element: <RouteLoader><WikiPage /></RouteLoader>,
+    element: <WikiPage />,
   },
   {
     path: "/checklist",
-    element: <RouteLoader><ChecklistPage /></RouteLoader>,
+    element: <ChecklistPage />,
   },
   {
     path: "/guides/level",
-    element: <RouteLoader><LevelGuidePage /></RouteLoader>,
+    element: <LevelGuidePage />,
   },
   {
     path: "/tools",
-    element: <RouteLoader><ToolsPage /></RouteLoader>,
+    element: <ToolsPage />,
+  },
+];
+
+const appendLanguagePath = (path: string, segment: string) =>
+  path === '/' ? `/${segment}` : `${path.replace(/\/+$/, '')}/${segment}`;
+
+const localizedRoutes: RouteObject[] = supportedLanguages.flatMap((language) => {
+  const segment = languagePathSegments[language];
+  return [
+    ...localizableRoutes.map((route) => ({
+      ...route,
+      path: appendLanguagePath(route.path || '/', segment),
+    })),
+    {
+      path: `/wiki/article/:articlePath/${segment}`,
+      element: <WikiArticlePage />,
+    },
+    {
+      path: `/wiki/boss/${segment}`,
+      element: <BossDetailPage />,
+    },
+    {
+      path: `/wiki/boss/:bossName/${segment}`,
+      element: <BossDetailPage />,
+    },
+  ];
+});
+
+const routes: RouteObject[] = [
+  ...localizableRoutes,
+  {
+    path: "/wiki/article/*",
+    element: <WikiArticlePage />,
   },
   {
+    path: "/wiki/boss/*",
+    element: <BossDetailPage />,
+  },
+  ...localizedRoutes,
+  {
     path: "*",
-    element: <RouteLoader><NotFound /></RouteLoader>,
+    element: <NotFound />,
   },
 ];
 

@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { communityLinks } from '@/constants/communityLinks';
+import { SITE_NAME } from '@/constants/site';
+import { localizeHref } from '@/i18n/languageRouting';
 
 const groups = [
   {
@@ -44,7 +46,7 @@ const groups = [
 ];
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <footer className="bg-gradient-to-b from-accent-950 to-foreground-950 dark:to-[#120e0b] border-t border-accent-800/30">
@@ -57,7 +59,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-heading text-xl font-semibold text-background-50">
-                  MapleHub
+                  {SITE_NAME}
                 </div>
                 <div className="text-[11px] text-accent-300 tracking-wide">
                   {t('footer_tagline')}
@@ -102,7 +104,7 @@ export default function Footer() {
                   return (
                     <li key={l.nameKey}>
                     <a
-                      href={l.href}
+                      href={isExternal ? l.href : localizeHref(l.href, i18n.language)}
                       target={isExternal ? '_blank' : undefined}
                       rel={isExternal ? 'noreferrer' : undefined}
                       className="text-sm text-accent-200/60 hover:text-primary-400 cursor-pointer transition-colors"
