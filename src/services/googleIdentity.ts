@@ -1,3 +1,5 @@
+import { normalizeLanguage, type SupportedLanguage } from '@/i18n/languageRouting';
+
 const defaultGoogleClientId = '146017234212-3rlmu2u16hmdru86a6pjjog6sr0cr9a5.apps.googleusercontent.com';
 
 export const googleClientId = (
@@ -9,7 +11,7 @@ export type GoogleCredentialResponse = {
   select_by?: string;
 };
 
-type GoogleAccountsId = {
+export type GoogleAccountsId = {
   initialize: (options: {
     client_id: string;
     callback: (response: GoogleCredentialResponse) => void;
@@ -24,8 +26,20 @@ type GoogleAccountsId = {
     shape: 'rectangular';
     logo_alignment: 'left';
     width: number;
+    locale: string;
   }) => void;
 };
+
+const googleButtonLocales: Record<SupportedLanguage, string> = {
+  en: 'en',
+  zh: 'zh_CN',
+  'zh-Hant': 'zh_TW',
+  ja: 'ja',
+  ko: 'ko',
+};
+
+export const getGoogleButtonLocale = (language?: string | null) =>
+  googleButtonLocales[normalizeLanguage(language)];
 
 declare global {
   interface Window {
