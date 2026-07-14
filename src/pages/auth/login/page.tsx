@@ -13,6 +13,7 @@ import {
 } from '@/hooks/useAuthSession';
 import { mapleSqlApi, MapleApiError, type AuthResponse } from '@/services/mapleSqlApi';
 import { syncAccountDataAfterLogin } from '@/services/accountDataSync';
+import GoogleSignInButton from './GoogleSignInButton';
 
 type AuthMode = 'signin' | 'signup';
 
@@ -35,7 +36,7 @@ export default function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const { isSignedIn, displayName } = useAuthSession();
 
-  const saveSession = async (provider: 'Email', response: AuthResponse) => {
+  const saveSession = async (provider: 'Email' | 'Google', response: AuthResponse) => {
     const userLabel = response.user.display_name || response.user.username || response.user.email;
     saveAuthSession({
       provider,
@@ -52,7 +53,7 @@ export default function LoginPage() {
       displayName: response.user.display_name,
       avatarUrl: response.user.avatar_url,
     });
-    if (rememberAccount) localStorage.setItem(REMEMBERED_ACCOUNT_KEY, email.trim().toLowerCase());
+    if (rememberAccount) localStorage.setItem(REMEMBERED_ACCOUNT_KEY, response.user.email.trim().toLowerCase());
     else localStorage.removeItem(REMEMBERED_ACCOUNT_KEY);
     if (autoLogin) localStorage.setItem(AUTO_LOGIN_ENABLED_KEY, 'true');
     else localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
@@ -74,6 +75,21 @@ export default function LoginPage() {
       window.location.assign(next);
     }, 300);
     return true;
+  };
+
+  const signInWithGoogle = (credential: string) => {
+    setSubmitting(true);
+    setMessage('');
+    void mapleSqlApi.auth.google({ credential, auto_login: autoLogin })
+      .then((response) => saveSession('Google', response))
+      .catch((error) => {
+        setMessage(error instanceof MapleApiError ? error.message : 'Unable to sign in with Google right now.');
+      })
+      .finally(() => setSubmitting(false));
+  };
+
+  const showGoogleUnavailable = () => {
+    setMessage('Google sign-in is unavailable right now. Please use email sign-in or try again.');
   };
 
   const submitEmail = (event: FormEvent<HTMLFormElement>) => {
@@ -152,6 +168,18 @@ export default function LoginPage() {
                     </Link>
                   </div>
                 ) : (<>
+                <GoogleSignInButton
+                  disabled={submitting}
+                  onCredential={signInWithGoogle}
+                  onUnavailable={showGoogleUnavailable}
+                />
+
+                <div className="flex items-center gap-3 my-5">
+                  <div className="flex-1 h-px bg-background-200" />
+                  <span className="text-xs text-foreground-500">{t('auth_or_email')}</span>
+                  <div className="flex-1 h-px bg-background-200" />
+                </div>
+
                 <div className="grid grid-cols-2 gap-1 rounded-md bg-background-100 p-1 mb-5">
                   <button
                     type="button"

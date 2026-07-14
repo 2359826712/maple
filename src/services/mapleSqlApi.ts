@@ -256,6 +256,8 @@ export const mapleSqlApi = {
   },
 
   auth: {
+    google: (payload: { credential: string; auto_login: boolean }) =>
+      request<AuthResponse>('/auth/google', { method: 'POST', body: payload }),
     login: (payload: { email: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/login', { method: 'POST', body: payload }),
     signup: (payload: { email: string; username: string; display_name: string; password: string; auto_login: boolean }) =>
