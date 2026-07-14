@@ -286,7 +286,13 @@ export default function WikiArticlePage() {
   usePageMetadata(
     `${displayTitle || 'Article'} · MapleStory Wiki`,
     (textContent || `Read MapleStory wiki information, guides, mechanics, and reference details about ${displayTitle || 'this topic'}.`).slice(0, 180),
-    { type: 'article' },
+    {
+      authorName: 'MapleStory Wiki contributors',
+      authorType: 'Organization',
+      dateModified: entry?.lastSynced,
+      noIndex: error && !loading,
+      type: 'article',
+    },
   );
 
   return (

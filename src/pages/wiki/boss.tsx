@@ -44,7 +44,8 @@ export default function BossDetailPage() {
     {
       image: boss?.image || undefined,
       imageAlt: boss ? `${boss.name} Boss Guide` : 'MapleStory Boss Guides',
-      type: 'article',
+      noIndex: Boolean(bossName && !boss),
+      type: boss ? 'article' : 'website',
     },
   );
 

@@ -21,6 +21,7 @@ export interface AuthSession {
   username?: string;
   displayName?: string;
   avatarUrl?: string;
+  permissions?: string[];
 }
 
 export const readAuthSession = (): AuthSession | null => {
@@ -100,6 +101,8 @@ export function useAuthSession() {
     userId: session?.userId || null,
     tenantId: session?.tenantId || null,
     displayName: session?.displayName || session?.user || null,
+    permissions: session?.permissions || [],
+    isAdmin: Boolean(session?.permissions?.includes('feedback:admin') || session?.permissions?.includes('user:admin')),
     refresh,
   };
 }

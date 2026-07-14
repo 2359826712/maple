@@ -99,6 +99,36 @@ export type AuthResponse = {
   auto_login_expires_at?: string;
   user: AuthUser;
   tenant_id: string;
+  permissions: string[];
+};
+
+export type SiteFeedbackStatus = 'new' | 'in_progress' | 'resolved' | 'closed';
+
+export type SiteFeedbackRecord = {
+  id: string;
+  tenant_id: string;
+  category: 'bug' | 'suggestion' | 'content' | 'other';
+  subject: string;
+  details: string;
+  contact_email: string;
+  locale: string;
+  page_url: string;
+  status: SiteFeedbackStatus;
+  admin_note: string;
+  handled_by?: string;
+  handled_at?: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type SiteFeedbackInput = {
+  category: SiteFeedbackRecord['category'];
+  subject: string;
+  details: string;
+  contact_email?: string;
+  locale?: string;
+  page_url?: string;
+  tenant_key?: string;
 };
 
 export type NewsletterSubscribeInput = {
@@ -264,7 +294,27 @@ export const mapleSqlApi = {
       request<AuthResponse>('/auth/signup', { method: 'POST', body: payload }),
     refresh: () => request<AuthResponse>('/auth/refresh', { method: 'POST', auth: true }),
     logout: () => request<void>('/auth/logout', { method: 'POST', auth: true }),
-    me: () => request<{ user_id: string; tenant_id: string }>('/me', { auth: true }),
+    me: () => request<{ user_id: string; tenant_id: string; permissions: string[] }>('/me', { auth: true }),
+  },
+  feedback: {
+    create: (payload: SiteFeedbackInput) =>
+      request<SiteFeedbackRecord>('/feedback', {
+        method: 'POST',
+        body: { tenant_key: defaultTenantKey, ...payload },
+      }),
+    list: (params: { status?: SiteFeedbackStatus | ''; query?: string } = {}) => {
+      const query = new URLSearchParams();
+      if (params.status) query.set('status', params.status);
+      if (params.query) query.set('q', params.query);
+      const suffix = query.toString() ? `?${query}` : '';
+      return request<SiteFeedbackRecord[]>(`/admin/feedback${suffix}`, { auth: true });
+    },
+    update: (id: string, payload: { status: SiteFeedbackStatus; admin_note: string }) =>
+      request<SiteFeedbackRecord>(`/admin/feedback/${encodeURIComponent(id)}`, {
+        method: 'PATCH',
+        auth: true,
+        body: payload,
+      }),
   },
   accountData: {
     get: () => request<{ data: Record<string, string>; revision: number; updated_at?: string }>('/player-data', { auth: true }),

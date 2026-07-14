@@ -18,8 +18,9 @@
       "index": true,
       "changefreq": "daily",
       "priority": "1.0",
+      "schema": { "types": ["WebSite", "WebPage"] },
       "copy": {
-        "en": { "title": "MPStorys · MapleStory Guides, Tools & Community", "description": "MapleStory news, guides, events, rankings, boss checklists, wiki resources, and character tools for every major region." },
+        "en": { "title": "MPStorys – MapleStory Tools, Guides & Simulators", "description": "Free MapleStory tools for GMS, KMS, JMS, TMS, and MSEA: Star Force and cube simulators, character lookup, boss checklists, class guides, and event updates." },
         "zh": { "title": "MPStorys · 冒险岛攻略、工具与社区", "description": "提供冒险岛新闻、攻略、活动日历、职业排行、Boss 清单、Wiki 和角色工具，覆盖各主要服务器地区。" },
         "ja": { "title": "MPStorys · メイプルストーリー攻略・ツール・コミュニティ", "description": "メイプルストーリーのニュース、攻略、イベント、ランキング、ボスチェックリスト、Wiki、キャラクターツールを地域別に提供。" },
         "ko": { "title": "MPStorys · 메이플스토리 공략, 도구 및 커뮤니티", "description": "메이플스토리 뉴스, 공략, 이벤트, 랭킹, 보스 체크리스트, 위키와 캐릭터 도구를 주요 지역별로 제공합니다." },
@@ -30,6 +31,7 @@
       "index": true,
       "changefreq": "daily",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory News & Patch Notes", "description": "Follow MapleStory news, patch notes, events, and official announcements for GMS, KMS, JMS, TMS, and MSEA." },
         "zh": { "title": "冒险岛新闻与版本更新", "description": "查看 GMS、KMS、JMS、TMS 与 MSEA 的冒险岛新闻、版本更新、活动和官方公告。" },
@@ -42,6 +44,7 @@
       "index": true,
       "changefreq": "daily",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "Upcoming MapleStory Updates", "description": "Track upcoming MapleStory updates, test-server changes, release signals, and source-linked previews across regions." },
         "zh": { "title": "冒险岛未来版本与更新预告", "description": "追踪冒险岛测试服改动、未来版本、上线信号和带来源链接的地区更新预告。" },
@@ -72,10 +75,22 @@
         "zh-Hant": { "title": "楓之谷官方來源檢視器", "description": "查看附原始來源連結與地區標記的楓之谷官方公告鏡像。" }
       }
     },
+    "/feedback": {
+      "index": false,
+      "follow": true,
+      "copy": {
+        "en": { "title": "Share Feedback About MPStorys", "description": "Report a website problem, suggest a feature, or request a content correction for MPStorys." },
+        "zh": { "title": "提交 MPStorys 网站反馈", "description": "反馈 MPStorys 网站问题、提出功能建议，或提交内容纠错意见。" },
+        "ja": { "title": "MPStorys サイトへのフィードバック", "description": "MPStorys のサイト不具合、機能の提案、コンテンツの修正依頼を送信できます。" },
+        "ko": { "title": "MPStorys 사이트 피드백", "description": "MPStorys 웹사이트 문제를 신고하거나 기능 및 콘텐츠 수정 의견을 보내세요." },
+        "zh-Hant": { "title": "提交 MPStorys 網站意見", "description": "回報 MPStorys 網站問題、提出功能建議，或提交內容修正意見。" }
+      }
+    },
     "/guides": {
       "index": true,
       "changefreq": "weekly",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Guides", "description": "Browse MapleStory progression, class, boss, event, and account guides with clear regional context and sources." },
         "zh": { "title": "冒险岛攻略大全", "description": "浏览冒险岛升级、职业、Boss、活动和账号攻略，并查看清晰的地区适用范围与资料来源。" },
@@ -88,6 +103,7 @@
       "index": true,
       "changefreq": "monthly",
       "priority": "0.8",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Leveling Guide", "description": "Plan a MapleStory leveling route with training spots, quests, milestones, and progression tips from early game through Grandis." },
         "zh": { "title": "冒险岛升级路线与练级攻略", "description": "规划从前期到 Grandis 的冒险岛升级路线、练级地图、任务节点与成长建议。" },
@@ -100,6 +116,7 @@
       "index": true,
       "changefreq": "daily",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "Current MapleStory Events", "description": "Track current MapleStory event dates, rewards, deadlines, regional availability, and reminder tools." },
         "zh": { "title": "冒险岛当前活动与日历", "description": "追踪冒险岛活动日期、奖励、截止时间、地区适用范围和提醒工具。" },
@@ -130,6 +147,17 @@
         "zh-Hant": { "title": "登入 MPStorys", "description": "登入並同步你的 MPStorys 角色、清單與偏好。" }
       }
     },
+    "/admin/feedback": {
+      "index": false,
+      "follow": false,
+      "copy": {
+        "en": { "title": "Feedback Administration", "description": "Restricted MPStorys administration page for reviewing and processing website feedback." },
+        "zh": { "title": "网站反馈管理", "description": "供 MPStorys 管理员查看、跟踪和处理网站反馈的受限管理页面。" },
+        "ja": { "title": "フィードバック管理", "description": "MPStorys 管理者がサイトへのフィードバックを確認・対応するための制限ページです。" },
+        "ko": { "title": "사이트 피드백 관리", "description": "MPStorys 관리자가 웹사이트 피드백을 검토하고 처리하는 제한된 관리 페이지입니다." },
+        "zh-Hant": { "title": "網站意見管理", "description": "供 MPStorys 管理員查看、追蹤與處理網站意見的受限管理頁面。" }
+      }
+    },
     "/account": {
       "index": false,
       "follow": false,
@@ -145,6 +173,7 @@
       "index": true,
       "changefreq": "monthly",
       "priority": "0.8",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Training Maps", "description": "Find MapleStory training maps and recommended grinding spots by level, region, monsters, and progression milestone." },
         "zh": { "title": "冒险岛练级地图推荐", "description": "按等级、地区、怪物和成长阶段查找冒险岛练级地图与推荐刷怪点。" },
@@ -157,6 +186,7 @@
       "index": true,
       "changefreq": "daily",
       "priority": "0.8",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Rankings", "description": "Explore MapleStory character and class rankings across supported regions, worlds, and progression categories." },
         "zh": { "title": "冒险岛角色与职业排行", "description": "查看不同服务器地区、世界和成长类别的冒险岛角色与职业排行。" },
@@ -181,6 +211,7 @@
       "index": true,
       "changefreq": "monthly",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "Mapler House — MapleStory Tools", "description": "Use MapleStory character lookup, progression planners, simulators, build tools, map data, and class resources in one workspace." },
         "zh": { "title": "Mapler House — 冒险岛工具箱", "description": "使用冒险岛角色查询、成长规划、模拟器、配装工具、地图数据和职业资料。" },
@@ -204,6 +235,7 @@
       "index": true,
       "changefreq": "weekly",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Wiki", "description": "Search MapleStory bosses, classes, items, maps, quests, and game systems with region-aware reference information." },
         "zh": { "title": "冒险岛 Wiki 百科", "description": "搜索冒险岛 Boss、职业、道具、地图、任务和游戏系统，并查看地区适用信息。" },
@@ -216,6 +248,7 @@
       "index": true,
       "changefreq": "weekly",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Boss Guides", "description": "Browse MapleStory boss mechanics, requirements, difficulties, rewards, and daily or weekly checklist links." },
         "zh": { "title": "冒险岛 Boss 攻略大全", "description": "查看冒险岛 Boss 机制、前置要求、难度、奖励以及每日或每周清单入口。" },
@@ -228,6 +261,7 @@
       "index": true,
       "changefreq": "daily",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Daily & Weekly Checklist", "description": "Track MapleStory daily quests, weekly bosses, event tasks, and reset schedules for each character." },
         "zh": { "title": "冒险岛每日与每周任务清单", "description": "按角色追踪冒险岛每日任务、每周 Boss、活动任务和重置时间。" },
@@ -240,6 +274,7 @@
       "index": true,
       "changefreq": "monthly",
       "priority": "0.9",
+      "schema": { "types": ["WebPage"] },
       "copy": {
         "en": { "title": "MapleStory Tools & Simulators", "description": "Discover MapleStory calculators, simulators, planners, checklists, rankings, map tools, and trusted community resources." },
         "zh": { "title": "冒险岛工具与模拟器", "description": "使用冒险岛计算器、模拟器、规划工具、清单、排行、地图工具和可信社区资源。" },

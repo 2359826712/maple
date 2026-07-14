@@ -12,6 +12,7 @@ import { ThemeProvider } from "@/hooks/ThemeContext";
 import AccountSessionBootstrap from "@/components/base/AccountSessionBootstrap";
 import MobilePrimaryNav from "@/components/navigation/MobilePrimaryNav";
 import RouteMetadata from "@/components/base/RouteMetadata";
+import SchemaOrgRoute from "@/components/base/SchemaOrgRoute";
 import LocaleRouteSync from "@/components/base/LocaleRouteSync";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <ScrollToTop />
               <PageTelemetry />
               <RouteMetadata />
+              <SchemaOrgRoute />
               <AppRoutes />
               <MobilePrimaryNav />
               <ThemeSwitcher />

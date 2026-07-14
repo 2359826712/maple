@@ -244,6 +244,8 @@ export default function GuideDetail() {
     copy?.title || 'MapleStory Guides',
     guide?.excerpt || 'Version-aware MapleStory class, progression, and boss guides.',
     {
+      authorName: guide?.author,
+      dateModified: guide?.sourceSyncedAt,
       image: guide?.image || undefined,
       imageAlt: copy?.title || 'MapleStory guide',
       type: 'article',

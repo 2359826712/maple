@@ -21,6 +21,7 @@ const navLinkKeys = [
   { key: 'nav_wiki', href: '/wiki' },
   { key: 'nav_rankings', href: '/rankings' },
   { key: 'nav_community', href: '/community' },
+  { key: 'nav_feedback', href: '/feedback' },
 ];
 
 const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
@@ -73,7 +74,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const navigate = useNavigate();
   const location = useLocation();
   const routePathname = stripRouteSuffixes(location.pathname);
-  const { isSignedIn, displayName, session } = useAuthSession();
+  const { isSignedIn, isAdmin, displayName, session } = useAuthSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -893,6 +894,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       <i className="ri-user-settings-line" aria-hidden="true" />
                       {t('nav_account_dashboard')}
                     </Link>
+                    {isAdmin && (
+                      <Link
+                        to={localizeHref('/admin/feedback', i18n.language, versionInfo.id)}
+                        onClick={() => setAccountMenuOpen(false)}
+                        role="menuitem"
+                        className="flex items-center gap-2 border-t border-background-200 px-4 py-2.5 text-sm font-medium text-foreground-800 hover:bg-background-100"
+                      >
+                        <i className="ri-feedback-line" aria-hidden="true" />
+                        {t('nav_feedback_admin')}
+                      </Link>
+                    )}
                     <button
                       type="button"
                       onClick={handleSignOut}
@@ -1171,6 +1183,16 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       <i className="ri-logout-circle-r-line" aria-hidden="true" />
                       {t('nav_sign_out')}
                     </button>
+                    {isAdmin && (
+                      <Link
+                        to={localizeHref('/admin/feedback', i18n.language, versionInfo.id)}
+                        onClick={() => setMenuOpen(false)}
+                        className="col-span-2 flex h-10 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
+                      >
+                        <i className="ri-feedback-line" aria-hidden="true" />
+                        {t('nav_feedback_admin')}
+                      </Link>
+                    )}
                   </div>
                 ) : (
                   <Link

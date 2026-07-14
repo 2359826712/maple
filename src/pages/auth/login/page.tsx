@@ -52,6 +52,7 @@ export default function LoginPage() {
       username: response.user.username,
       displayName: response.user.display_name,
       avatarUrl: response.user.avatar_url,
+      permissions: response.permissions,
     });
     if (rememberAccount) localStorage.setItem(REMEMBERED_ACCOUNT_KEY, response.user.email.trim().toLowerCase());
     else localStorage.removeItem(REMEMBERED_ACCOUNT_KEY);

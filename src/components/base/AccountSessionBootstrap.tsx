@@ -30,6 +30,7 @@ const toSession = (response: Awaited<ReturnType<typeof mapleSqlApi.auth.refresh>
   username: response.user.username,
   displayName: response.user.display_name,
   avatarUrl: response.user.avatar_url,
+  permissions: response.permissions,
 });
 
 export default function AccountSessionBootstrap() {

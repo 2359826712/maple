@@ -1,11 +1,24 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import AutoImport from "unplugin-auto-import/vite";
+import { generateLocalizedStaticRoutes } from "./scripts/generate-localized-static-routes.mjs";
+import { verifySeoOutput } from "./scripts/verify-seo-output.mjs";
 
 const base = process.env.BASE_PATH || "/";
 const isPreview = process.env.IS_PREVIEW ? true : false;
-const contentSecurityPolicy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://accounts.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://accounts.google.com https://vvgbkrqqzayqslwjnbdu.supabase.co http://127.0.0.1:8080 ws://127.0.0.1:*; frame-src https://accounts.google.com; upgrade-insecure-requests";
+const contentSecurityPolicy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://accounts.google.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://accounts.google.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://vvgbkrqqzayqslwjnbdu.supabase.co http://127.0.0.1:8080 ws://127.0.0.1:*; frame-src https://accounts.google.com; upgrade-insecure-requests";
+
+const routeSeoOutputPlugin = (): Plugin => ({
+  name: "route-seo-output",
+  apply: "build",
+  enforce: "post",
+  async closeBundle() {
+    await generateLocalizedStaticRoutes();
+    await verifySeoOutput();
+  },
+});
+
 // https://vite.dev/config/
 export default defineConfig({
   define: {
@@ -66,6 +79,7 @@ export default defineConfig({
       ],
       dts: true,
     }),
+    routeSeoOutputPlugin(),
   ],
   base,
   build: {

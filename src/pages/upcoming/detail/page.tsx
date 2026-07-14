@@ -26,8 +26,11 @@ export default function UpcomingUpdateDetailPage() {
   );
 
   usePageMetadata(article?.title || t('upcoming_post_page_title'), article?.excerpt || t('upcoming_meta_desc'), {
+    authorName: article?.author,
+    datePublished: article?.publishedAt,
     image: article?.image || undefined,
     imageAlt: article?.title || t('upcoming_post_page_title'),
+    noIndex: status === 'error',
     type: 'article',
   });
 

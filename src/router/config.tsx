@@ -25,6 +25,8 @@ const OfficialSourcePage = lazy(() => import("../pages/source/page"));
 const ChecklistPage = lazy(() => import("../pages/checklist/page"));
 const LevelGuidePage = lazy(() => import("../pages/guides/level/page"));
 const ToolsPage = lazy(() => import("../pages/tools/page"));
+const FeedbackPage = lazy(() => import("../pages/feedback/page"));
+const AdminFeedbackPage = lazy(() => import("../pages/admin/feedback/page"));
 const BossDetailPage = lazy(() => import("../pages/wiki/boss"));
 const WikiRedirectPage = lazy(() =>
   import("../pages/wiki/redirect").then((module) => ({ default: module.WikiRedirectPage })),
@@ -114,6 +116,14 @@ const localizableRoutes: RouteObject[] = [
   {
     path: "/tools",
     element: <ToolsPage />,
+  },
+  {
+    path: "/feedback",
+    element: <FeedbackPage />,
+  },
+  {
+    path: "/admin/feedback",
+    element: <AdminFeedbackPage />,
   },
 ];
 

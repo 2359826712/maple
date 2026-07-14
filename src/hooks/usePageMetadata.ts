@@ -7,9 +7,14 @@ import {
   supportedLanguages,
   withLanguageSuffix,
 } from '@/i18n/languageRouting';
+import siteKeywords from '@/seo/siteKeywords.json';
 
 type PageMetadataOptions = {
+  authorName?: string;
+  authorType?: 'Organization' | 'Person';
   canonicalPath?: string;
+  dateModified?: string;
+  datePublished?: string;
   image?: string;
   imageAlt?: string;
   includeAlternates?: boolean;
@@ -19,11 +24,11 @@ type PageMetadataOptions = {
 };
 
 const languageMetadata = {
-  en: { hreflang: 'en', locale: 'en_US' },
-  zh: { hreflang: 'zh-CN', locale: 'zh_CN' },
-  ja: { hreflang: 'ja', locale: 'ja_JP' },
-  ko: { hreflang: 'ko', locale: 'ko_KR' },
-  'zh-Hant': { hreflang: 'zh-Hant', locale: 'zh_TW' },
+  en: { hreflang: 'en', htmlLang: 'en', locale: 'en_US' },
+  zh: { hreflang: 'zh-CN', htmlLang: 'zh-CN', locale: 'zh_CN' },
+  ja: { hreflang: 'ja', htmlLang: 'ja', locale: 'ja_JP' },
+  ko: { hreflang: 'ko', htmlLang: 'ko', locale: 'ko_KR' },
+  'zh-Hant': { hreflang: 'zh-Hant', htmlLang: 'zh-Hant', locale: 'zh_TW' },
 } as const;
 
 const MAX_TITLE_LENGTH = 60;
@@ -56,9 +61,13 @@ export function usePageMetadata(
   title: string,
   description: string,
   {
+    authorName,
+    authorType = 'Person',
     canonicalPath,
+    dateModified,
+    datePublished,
     image = SITE_SOCIAL_IMAGE,
-    imageAlt = `${SITE_NAME} — MapleStory Guides, Tools & Community`,
+    imageAlt = `${SITE_NAME} — MapleStory Tools, Guides & Simulators`,
     includeAlternates,
     noFollow = false,
     noIndex = false,
@@ -77,6 +86,7 @@ export function usePageMetadata(
     document.title = fullTitle;
 
     upsertMeta('meta[name="description"]', { name: 'description' }, description);
+    upsertMeta('meta[name="keywords"]', { name: 'keywords' }, siteKeywords[currentLanguage]);
     upsertMeta('meta[name="robots"]', { name: 'robots' }, robots);
     upsertMeta('meta[name="googlebot"]', { name: 'googlebot' }, robots);
     upsertMeta('meta[property="og:type"]', { property: 'og:type' }, type);
@@ -86,12 +96,71 @@ export function usePageMetadata(
     upsertMeta('meta[property="og:description"]', { property: 'og:description' }, description);
     upsertMeta('meta[property="og:url"]', { property: 'og:url' }, canonicalUrl);
     upsertMeta('meta[property="og:image"]', { property: 'og:image' }, imageUrl);
+    upsertMeta('meta[property="og:image:secure_url"]', { property: 'og:image:secure_url' }, imageUrl);
     upsertMeta('meta[property="og:image:alt"]', { property: 'og:image:alt' }, imageAlt);
     upsertMeta('meta[name="twitter:card"]', { name: 'twitter:card' }, 'summary_large_image');
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title' }, fullTitle);
     upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description' }, description);
     upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image' }, imageUrl);
     upsertMeta('meta[name="twitter:image:alt"]', { name: 'twitter:image:alt' }, imageAlt);
+
+    let imageSource = document.head.querySelector<HTMLLinkElement>('link[rel="image_src"]');
+    if (!imageSource) {
+      imageSource = document.createElement('link');
+      imageSource.rel = 'image_src';
+      document.head.appendChild(imageSource);
+    }
+    imageSource.href = imageUrl;
+
+    document.head.querySelectorAll('[data-seo-generated="article"]').forEach((element) => element.remove());
+    if (type === 'article' && !noIndex) {
+      if (datePublished) {
+        upsertMeta(
+          'meta[property="article:published_time"]',
+          { property: 'article:published_time', 'data-seo-generated': 'article' },
+          datePublished,
+        );
+      }
+      if (dateModified) {
+        upsertMeta(
+          'meta[property="article:modified_time"]',
+          { property: 'article:modified_time', 'data-seo-generated': 'article' },
+          dateModified,
+        );
+      }
+      const articleSchema: Record<string, unknown> = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        '@id': `${canonicalUrl}#article`,
+        headline: title,
+        description,
+        url: canonicalUrl,
+        mainEntityOfPage: canonicalUrl,
+        inLanguage: languageMetadata[currentLanguage].htmlLang,
+        image: imageUrl,
+        publisher: {
+          '@type': 'Organization',
+          '@id': `${SITE_URL}/#organization`,
+          name: SITE_NAME,
+          url: `${SITE_URL}/`,
+          logo: {
+            '@type': 'ImageObject',
+            url: `${SITE_URL}/mpstorys-icon-128.jpg`,
+            width: 128,
+            height: 128,
+          },
+        },
+      };
+      if (authorName) articleSchema.author = { '@type': authorType, name: authorName };
+      if (datePublished) articleSchema.datePublished = datePublished;
+      if (dateModified) articleSchema.dateModified = dateModified;
+
+      const schema = document.createElement('script');
+      schema.type = 'application/ld+json';
+      schema.dataset.seoGenerated = 'article';
+      schema.textContent = JSON.stringify(articleSchema).replaceAll('<', '\\u003c');
+      document.head.appendChild(schema);
+    }
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
@@ -131,5 +200,5 @@ export function usePageMetadata(
       defaultAlternate.href = new URL(withLanguageSuffix(routePathname, 'en'), `${SITE_URL}/`).href;
       document.head.appendChild(defaultAlternate);
     }
-  }, [canonicalPath, currentPathname, description, image, imageAlt, includeAlternates, noFollow, noIndex, title, type]);
+  }, [authorName, authorType, canonicalPath, currentPathname, dateModified, datePublished, description, image, imageAlt, includeAlternates, noFollow, noIndex, title, type]);
 }

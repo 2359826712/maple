@@ -1,16 +1,20 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+export async function generateLocalizedStaticRoutes() {
 const outputDirectory = new URL('../out/', import.meta.url);
 const outputPath = fileURLToPath(outputDirectory);
 const indexFile = new URL('index.html', outputDirectory);
 const catalog = JSON.parse(await readFile(new URL('../src/seo/routeMetadata.json', import.meta.url), 'utf8'));
+const siteKeywords = JSON.parse(await readFile(new URL('../src/seo/siteKeywords.json', import.meta.url), 'utf8'));
 const baseHtml = await readFile(indexFile, 'utf8');
 const languages = Object.keys(catalog.languages);
 const servers = ['GMS', 'KMS', 'JMS', 'TMS', 'MSEA'];
 const routes = Object.entries(catalog.routes);
 const siteUrl = 'https://mpstorys.com';
+const organizationId = `${siteUrl}/#organization`;
+const websiteId = `${siteUrl}/#website`;
 
 const escapeHtml = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -43,6 +47,63 @@ const setMeta = (html, attribute, key, content) => {
   return html.replace(pattern, replacement);
 };
 
+const schemaJson = (value) => JSON.stringify(value).replaceAll('<', '\\u003c');
+
+const organizationSchema = {
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: 'MPStorys',
+  alternateName: 'MapleStory Player Hub',
+  url: `${siteUrl}/`,
+  logo: {
+    '@type': 'ImageObject',
+    contentUrl: `${siteUrl}/mpstorys-icon-128.jpg`,
+    width: 128,
+    height: 128,
+  },
+};
+
+const websiteSchema = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  name: 'MPStorys',
+  alternateName: 'MapleStory Player Hub',
+  url: `${siteUrl}/`,
+  image: {
+    '@type': 'ImageObject',
+    contentUrl: `${siteUrl}/og.png`,
+    width: 1731,
+    height: 909,
+  },
+  publisher: { '@id': organizationId },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+};
+
+const breadcrumbSchema = (route, language, server) => {
+  const routeSegments = route.split('/').filter(Boolean);
+  const routeChain = [
+    '/',
+    ...routeSegments.map((_, index) => `/${routeSegments.slice(0, index + 1).join('/')}`),
+  ].filter((candidate) => catalog.routes[candidate]?.index);
+
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: routeChain.map((candidate, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: (catalog.routes[candidate].copy[language] || catalog.routes[candidate].copy.en).title,
+      item: absoluteUrl(localizedServerPath(candidate, language, server)),
+    })),
+  };
+};
+
 const renderPage = ({ entry, language, localized, route, server }) => {
   const languageConfig = catalog.languages[language];
   const copy = entry.copy[language] || entry.copy.en;
@@ -59,6 +120,7 @@ const renderPage = ({ entry, language, localized, route, server }) => {
   let html = baseHtml.replace(/<html\s+lang="[^"]*">/i, `<html lang="${languageConfig.htmlLang}">`);
   html = html.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(fullTitle)}</title>`);
   html = setMeta(html, 'name', 'description', copy.description);
+  html = setMeta(html, 'name', 'keywords', siteKeywords[language] || siteKeywords.en);
   html = setMeta(html, 'name', 'robots', robots);
   html = setMeta(html, 'name', 'googlebot', robots);
   html = setMeta(html, 'property', 'og:locale', languageConfig.ogLocale);
@@ -88,6 +150,33 @@ const renderPage = ({ entry, language, localized, route, server }) => {
     canonicalPattern,
     [`<link rel="canonical" href="${canonicalUrl}" />`, ...alternateLinks, ...localeAlternates].join('\n'),
   );
+
+  if (isIndexable) {
+    const schemaGraph = [organizationSchema, websiteSchema];
+    if (entry.schema?.types.includes('WebPage')) {
+      schemaGraph.push({
+        '@type': 'WebPage',
+        '@id': `${canonicalUrl}#webpage`,
+        name: copy.title,
+        description: copy.description,
+        url: canonicalUrl,
+        inLanguage: languageConfig.htmlLang,
+        isPartOf: { '@id': websiteId },
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          contentUrl: `${siteUrl}/og.png`,
+          width: 1731,
+          height: 909,
+        },
+      });
+    }
+    if (route !== '/') schemaGraph.push(breadcrumbSchema(route, language, server));
+
+    html = html.replace(
+      /<\/head>/i,
+      `    <script type="application/ld+json" data-seo-schema="route">${schemaJson({ '@context': 'https://schema.org', '@graph': schemaGraph })}</script>\n  </head>`,
+    );
+  }
   return html;
 };
 
@@ -123,12 +212,24 @@ for (const [route, entry] of routes) {
 
 const sitemapUrls = routes
   .filter(([, entry]) => entry.index)
-  .flatMap(([route]) => languages.flatMap((language) => servers.map((server) => `  <url>\n    <loc>${absoluteUrl(localizedServerPath(route, language, server))}</loc>\n  </url>`)));
+  .flatMap(([route]) => servers.flatMap((server) => languages.map((language) => {
+    const alternateLinks = languages.map((alternateLanguage) => {
+      const config = catalog.languages[alternateLanguage];
+      return `    <xhtml:link rel="alternate" hreflang="${config.hreflang}" href="${absoluteUrl(localizedServerPath(route, alternateLanguage, server))}" />`;
+    });
+    alternateLinks.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(localizedServerPath(route, 'en', server))}" />`);
+    return `  <url>\n    <loc>${absoluteUrl(localizedServerPath(route, language, server))}</loc>\n${alternateLinks.join('\n')}\n  </url>`;
+  })));
 
 await writeFile(
   new URL('sitemap.xml', outputDirectory),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.join('\n')}\n</urlset>\n`,
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapUrls.join('\n')}\n</urlset>\n`,
   'utf8',
 );
 
 console.log(`Generated ${routes.length * (1 + languages.length + languages.length * servers.length)} route-aware SEO entry files and ${sitemapUrls.length} sitemap URLs.`);
+}
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  await generateLocalizedStaticRoutes();
+}

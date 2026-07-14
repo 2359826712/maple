@@ -35,7 +35,7 @@ readdy-sync.mjs
 可选：
   --root <DIR>                    本地项目根目录（默认当前目录）
   --remote-prefix <PATH>          远端路径前缀（例如 frontend）；用于覆盖已有子目录中的同路径文件
-  --include <PATTERN>             上传包含规则（可多次填写）。默认：src/** + 常见配置文件
+  --include <PATTERN>             上传包含规则（可多次填写）。默认：src/** + public/** + SEO 构建脚本 + 常见配置文件
   --exclude <PATTERN>             排除规则（可多次填写）。默认：node_modules/** out/** dist/** .env* **/*.log maple.zip
   --edge-profile <DIR>            Edge profile 路径（默认：LOCALAPPDATA\\Microsoft\\Edge\\User Data\\Default）
   --max-pages <N>                 msg_list 最多扫描页数（默认：12）
@@ -447,6 +447,8 @@ async function main() {
   const defaultInclude = [
     'src/**',
     'public/**',
+    'scripts/generate-localized-static-routes.mjs',
+    'scripts/verify-seo-output.mjs',
     'index.html',
     'package.json',
     'vite.config.*',
@@ -489,6 +491,10 @@ async function main() {
       sampleTruncated: edits.length > 30,
     },
     dryRun: cfg.dryRun,
+    postUploadSteps: [
+      'Readdy 的 SEO Configuration 按版本独立；新版本上传后需要重新 Generate，再发布域名。',
+      'code_edit 只同步文本源码；新增或替换的 PNG/JPG 等二进制资源需要通过 Readdy Files 上传。',
+    ],
     note: cfg.dryRun
       ? 'dry-run 不会访问 Readdy；真实上传时将通过 msg_list 自动获取最新 parentVersionID（除非你手动指定 --parent-version）。'
       : '本脚本不会自动 Publish/Update 生产环境。',
@@ -573,6 +579,7 @@ async function main() {
     },
     messageSync,
     latestAfter,
+    postUploadSteps: summary.postUploadSteps,
   }, null, 2));
 }
 
