@@ -71,6 +71,8 @@ const common = {
   auth_auto_login: 'Keep me signed in for {{days}} days',
   auth_auto_login_desc: 'Optional. MPStorys uses a secure server session and automatically signs you in on this device for up to {{days}} days.',
   auth_connecting: 'Connecting...',
+  auth_google_failed: 'Unable to sign in with Google right now.',
+  auth_google_unavailable: 'Google sign-in is unavailable right now. Use email sign-in or try again.',
   auth_sync_failed: 'You are signed in, but your player data could not be saved to the database. Your local data was preserved; please try again.',
   auth_forgot: 'Forgot password?',
   auth_sign_in_submit: 'Sign in',

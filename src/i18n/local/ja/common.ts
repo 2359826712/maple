@@ -71,6 +71,8 @@ const common = {
   auth_auto_login: '{{days}}日間ログイン状態を維持する',
   auth_auto_login_desc: '任意。この端末で安全なサーバーセッションを使用し、最大{{days}}日間自動ログインします。',
   auth_connecting: '接続中...',
+  auth_google_failed: '現在 Google でログインできません。しばらくしてからもう一度お試しください。',
+  auth_google_unavailable: 'Google ログインは現在利用できません。メールでログインするか、後でもう一度お試しください。',
   auth_sync_failed: 'ログインしましたが、プレイヤーデータをデータベースに保存できませんでした。ローカルデータは保持されています。もう一度お試しください。',
   auth_forgot: 'パスワードをお忘れですか？',
   auth_sign_in_submit: 'ログイン',

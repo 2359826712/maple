@@ -165,6 +165,8 @@ const common = {
   auth_auto_login: '{{days}}일 동안 로그인 유지',
   auth_auto_login_desc: '선택 사항입니다. 안전한 서버 세션으로 이 기기에서 최대 {{days}}일 동안 자동 로그인합니다.',
   auth_connecting: '연결 중...',
+  auth_google_failed: '현재 Google로 로그인할 수 없습니다. 잠시 후 다시 시도해 주세요.',
+  auth_google_unavailable: 'Google 로그인을 현재 사용할 수 없습니다. 이메일로 로그인하거나 나중에 다시 시도해 주세요.',
   auth_sync_failed: '로그인했지만 플레이어 데이터를 데이터베이스에 저장하지 못했습니다. 로컬 데이터는 보존되었습니다. 다시 시도해 주세요.',
   upcoming_eyebrow: '업데이트 레이더',
   upcoming_title: '내 서버에 적용되기 전에 다음 업데이트를 확인하세요',

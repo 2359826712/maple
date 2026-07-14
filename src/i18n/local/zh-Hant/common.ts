@@ -71,6 +71,8 @@ const common = {
   auth_auto_login: '保持登入 {{days}} 天',
   auth_auto_login_desc: '可選。MPStorys 使用安全的伺服器工作階段，在此裝置上最多自動登入 {{days}} 天。',
   auth_connecting: '正在連線...',
+  auth_google_failed: '暫時無法使用 Google 登入，請稍後再試。',
+  auth_google_unavailable: 'Google 登入暫時無法使用，請改用電子郵件或稍後再試。',
   auth_sync_failed: '您已登入，但玩家資料無法儲存到資料庫。本機資料已保留，請重試。',
   auth_forgot: '忘記密碼？',
   auth_sign_in_submit: '登入',

@@ -9,13 +9,18 @@ type Props = {
 
 export default function GoogleSignInButton({ disabled = false, onCredential, onUnavailable }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const credentialHandlerRef = useRef(onCredential);
+  const unavailableHandlerRef = useRef(onUnavailable);
   const [ready, setReady] = useState(false);
+
+  credentialHandlerRef.current = onCredential;
+  unavailableHandlerRef.current = onUnavailable;
 
   useEffect(() => {
     let active = true;
     const container = containerRef.current;
     if (!container || !googleClientId) {
-      onUnavailable();
+      unavailableHandlerRef.current();
       return undefined;
     }
 
@@ -28,8 +33,8 @@ export default function GoogleSignInButton({ disabled = false, onCredential, onU
           auto_select: false,
           cancel_on_tap_outside: true,
           callback: (response) => {
-            if (response.credential) onCredential(response.credential);
-            else onUnavailable();
+            if (response.credential) credentialHandlerRef.current(response.credential);
+            else unavailableHandlerRef.current();
           },
         });
         identity.renderButton(container, {
@@ -44,14 +49,14 @@ export default function GoogleSignInButton({ disabled = false, onCredential, onU
         setReady(true);
       })
       .catch(() => {
-        if (active) onUnavailable();
+        if (active) unavailableHandlerRef.current();
       });
 
     return () => {
       active = false;
       container.replaceChildren();
     };
-  }, [onCredential, onUnavailable]);
+  }, []);
 
   return (
     <div

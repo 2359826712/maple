@@ -83,13 +83,13 @@ export default function LoginPage() {
     void mapleSqlApi.auth.google({ credential, auto_login: autoLogin })
       .then((response) => saveSession('Google', response))
       .catch((error) => {
-        setMessage(error instanceof MapleApiError ? error.message : 'Unable to sign in with Google right now.');
+        setMessage(error instanceof MapleApiError ? error.message : t('auth_google_failed'));
       })
       .finally(() => setSubmitting(false));
   };
 
   const showGoogleUnavailable = () => {
-    setMessage('Google sign-in is unavailable right now. Please use email sign-in or try again.');
+    setMessage(t('auth_google_unavailable'));
   };
 
   const submitEmail = (event: FormEvent<HTMLFormElement>) => {

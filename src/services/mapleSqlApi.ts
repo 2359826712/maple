@@ -262,8 +262,8 @@ export const mapleSqlApi = {
       request<AuthResponse>('/auth/login', { method: 'POST', body: payload }),
     signup: (payload: { email: string; username: string; display_name: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/signup', { method: 'POST', body: payload }),
-    refresh: () => request<AuthResponse>('/auth/refresh', { method: 'POST' }),
-    logout: () => request<void>('/auth/logout', { method: 'POST' }),
+    refresh: () => request<AuthResponse>('/auth/refresh', { method: 'POST', auth: true }),
+    logout: () => request<void>('/auth/logout', { method: 'POST', auth: true }),
     me: () => request<{ user_id: string; tenant_id: string }>('/me', { auth: true }),
   },
   accountData: {

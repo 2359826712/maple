@@ -71,6 +71,8 @@ const common = {
   auth_auto_login: '保持登录 {{days}} 天',
   auth_auto_login_desc: '可选。MPStorys 使用安全的服务器会话，在此设备上最多自动登录 {{days}} 天。',
   auth_connecting: '正在连接...',
+  auth_google_failed: '暂时无法使用 Google 登录，请稍后再试。',
+  auth_google_unavailable: 'Google 登录暂时不可用，请使用邮箱登录或稍后再试。',
   auth_sync_failed: '您已登录，但玩家数据无法保存到数据库。本地数据已保留，请重试。',
   auth_forgot: '忘记密码？',
   auth_sign_in_submit: '登录',
