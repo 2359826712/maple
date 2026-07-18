@@ -71,6 +71,9 @@ function candidateAudit(candidate, existing, previous) {
   const eventConfirmed = candidate.content_type !== 'event'
     || Boolean(candidate.event_start && candidate.event_end && candidate.timezone);
   const bodyExtractable = candidate.metadata.body_extractable === true;
+  const summary = typeof candidate.summary === 'string' ? candidate.summary.trim() : null;
+  const summaryIsOriginal = Boolean(summary)
+    && !/\bpublished this\b|complete first-party announcement/i.test(summary);
 
   return {
     original_title: candidate.original_title,
@@ -87,10 +90,15 @@ function candidateAudit(candidate, existing, previous) {
     duplicate: { detected: duplicateSignals.length > 0, signals: duplicateSignals },
     body_extractable: bodyExtractable,
     storage_mode: candidate.storage_mode,
+    summary,
     event_dates: eventDates,
     parser_warnings: warnings,
     unconfirmed_fields: unconfirmedFields,
-    quality_gate_passed: requiredConfirmed && bodyExtractable && eventConfirmed && warnings.length === 0,
+    quality_gate_passed: requiredConfirmed
+      && bodyExtractable
+      && eventConfirmed
+      && summaryIsOriginal
+      && warnings.length === 0,
   };
 }
 
@@ -108,6 +116,14 @@ export function preserveEditorialReview(candidate, previous) {
   };
 }
 
+export function preserveDerivedEventState(candidate, previous) {
+  if (candidate.content_type !== 'event' || previous?.content_type !== 'event') return candidate;
+  return {
+    ...candidate,
+    calendar_status: previous.calendar_status,
+  };
+}
+
 async function crawlSource(source, state, existing, options) {
   if (!source.enabled) throw new Error('source is disabled');
   if (source.requires_login) throw new Error('login-required sources cannot be crawled');
@@ -115,7 +131,11 @@ async function crawlSource(source, state, existing, options) {
     throw new Error('source requires JavaScript and has no compliant browser adapter');
   }
   const currentState = sourceState(state, source.id);
-  const client = new CrawlHttpClient(source, currentState);
+  // A dry run must inspect current candidates even when the persisted crawl
+  // state contains validators that would otherwise turn discovery into a 304.
+  const client = new CrawlHttpClient(source, currentState, {
+    conditionalRequests: options.execute,
+  });
   const now = new Date().toISOString();
   const context = {
     now,
@@ -177,6 +197,7 @@ async function crawlSource(source, state, existing, options) {
           candidate.tags = [...new Set([...previous.data.tags, ...candidate.tags])].sort();
           candidate.translation_status = previous.data.translation_status;
           candidate.notes = previous.data.notes;
+          Object.assign(candidate, preserveDerivedEventState(candidate, previous.data));
           Object.assign(candidate, preserveEditorialReview(candidate, previous.data));
           const redirected = normalizeContentUrl(previous.data.canonical_url) !== key;
           if (redirected) {

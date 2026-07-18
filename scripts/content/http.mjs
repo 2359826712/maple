@@ -54,11 +54,16 @@ export function robotsAllows(rules, url) {
 }
 
 export class CrawlHttpClient {
-  constructor(source, state, { now = () => new Date(), fetchImpl = fetch } = {}) {
+  constructor(source, state, {
+    now = () => new Date(),
+    fetchImpl = fetch,
+    conditionalRequests = true,
+  } = {}) {
     this.source = source;
     this.state = state;
     this.now = now;
     this.fetchImpl = fetchImpl;
+    this.conditionalRequests = conditionalRequests;
     this.lastRequestAt = new Map();
     this.robots = new Map();
   }
@@ -92,8 +97,9 @@ export class CrawlHttpClient {
     const url = new URL(urlValue);
     await this.checkRobots(url);
     await this.rateLimit(url);
-    const method = String(requestOptions.method || 'GET').toUpperCase();
-    const body = requestOptions.body;
+    const { conditional = this.conditionalRequests, ...transportOptions } = requestOptions;
+    const method = String(transportOptions.method || 'GET').toUpperCase();
+    const body = transportOptions.body;
     const requestFingerprint = method === 'GET'
       ? ''
       : `:${createHash('sha256').update(String(body || ''), 'utf8').digest('hex').slice(0, 16)}`;
@@ -104,10 +110,10 @@ export class CrawlHttpClient {
     const headers = {
       accept: 'text/html,application/xhtml+xml,application/xml,application/rss+xml,application/atom+xml,application/json;q=0.9,*/*;q=0.8',
       'user-agent': userAgent,
-      ...(requestOptions.headers || {}),
+      ...(transportOptions.headers || {}),
     };
-    if (method === 'GET' && previous.etag) headers['if-none-match'] = previous.etag;
-    if (method === 'GET' && previous.last_modified) headers['if-modified-since'] = previous.last_modified;
+    if (conditional && method === 'GET' && previous.etag) headers['if-none-match'] = previous.etag;
+    if (conditional && method === 'GET' && previous.last_modified) headers['if-modified-since'] = previous.last_modified;
 
     let response;
     let lastError;
@@ -116,7 +122,7 @@ export class CrawlHttpClient {
       const timeout = setTimeout(() => controller.abort(), 20_000);
       try {
         response = await this.fetchImpl(url, {
-          ...requestOptions,
+          ...transportOptions,
           body,
           headers,
           method,

@@ -10,6 +10,14 @@ const epochIso = (value) => {
   return Number.isFinite(number) && number > 0 ? new Date(number * 1000).toISOString() : null;
 };
 
+const contentTypeLabel = (contentType) => ({
+  'creator-announcement': 'creator announcement',
+  event: 'event notice',
+  maintenance: 'maintenance notice',
+  news: 'news item',
+  'patch-note': 'patch note',
+}[contentType] || contentType.replaceAll('-', ' '));
+
 const responsePayload = (body, mode) => {
   const parsed = JSON.parse(body);
   return mode === 'worlds' ? parsed.data : parsed;
@@ -74,10 +82,11 @@ const imagesFrom = (record, sourceUrl) => {
   return [...new Map(values.map((image) => [image.url, image])).values()];
 };
 
-const originalSummary = (source, title, contentType) => (
-  `${source.name} published this ${contentType.replaceAll('-', ' ')} about “${title}”. `
-  + 'MPStorys records the verified timing, classification, and canonical first-party source.'
-);
+const originalSummary = (source, title, contentType, publishedAt) => {
+  const date = publishedAt ? ` on ${publishedAt.slice(0, 10)}` : '';
+  return `“${title}” is an official ${contentTypeLabel(contentType)} from ${source.name}${date}. `
+    + 'Its canonical Nexon thread and publication metadata are retained for source-backed verification.';
+};
 
 export const nexonCommunityAdapter = {
   async discover(source, context) {
@@ -101,7 +110,10 @@ export const nexonCommunityAdapter = {
       endpoint.searchParams.set('pageSize', String(config.page_size || 25));
       endpoint.searchParams.set('blockSize', String(config.block_size || 9));
       endpoint.searchParams.set('searchKeywordType', 'THREAD_TITLE_AND_CONTENT');
-      result = await context.fetch(endpoint.href, { headers: requestHeaders(config) });
+      result = await context.fetch(endpoint.href, {
+        conditional: false,
+        headers: requestHeaders(config),
+      });
     }
     if (result.status === 304) return [];
     if (result.status >= 400) throw new Error(`Nexon community listing returned HTTP ${result.status}`);
@@ -165,7 +177,12 @@ export const nexonCommunityAdapter = {
       externalId: item.externalId,
       title: record.title || item.title,
       originalTitle: record.title || item.title,
-      summary: originalSummary(context.source, record.title || item.title, contentType),
+      summary: originalSummary(
+        context.source,
+        record.title || item.title,
+        contentType,
+        publishedAt,
+      ),
       author: record.user?.nickname || null,
       publishedAt,
       updatedAt: updatedAt && updatedAt !== publishedAt ? updatedAt : null,

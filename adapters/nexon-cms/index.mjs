@@ -12,6 +12,14 @@ const routeSlug = (value) => String(value || '')
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/^-+|-+$/g, '');
 
+const contentTypeLabel = (contentType) => ({
+  'cash-shop': 'Cash Shop notice',
+  event: 'event notice',
+  maintenance: 'maintenance notice',
+  news: 'news item',
+  'patch-note': 'patch note',
+}[contentType] || contentType.replaceAll('-', ' '));
+
 const contentTypeFor = (record) => {
   const title = String(record.name || '').toLowerCase();
   const category = String(record.category || '').toLowerCase();
@@ -22,10 +30,11 @@ const contentTypeFor = (record) => {
   return 'news';
 };
 
-const originalSummary = (source, title, contentType) => (
-  `${source.name} published this ${contentType.replaceAll('-', ' ')} about “${title}”. `
-  + 'MPStorys preserves verified publication metadata and links the complete first-party announcement.'
-);
+const originalSummary = (source, title, contentType, publishedAt) => {
+  const date = publishedAt ? ` on ${publishedAt.slice(0, 10)}` : '';
+  return `“${title}” is an official ${contentTypeLabel(contentType)} from ${source.name}${date}. `
+    + 'Its canonical Nexon article and publication metadata are retained for source-backed verification.';
+};
 
 const imagesFrom = (payload, result) => {
   const values = [];
@@ -40,7 +49,7 @@ const imagesFrom = (payload, result) => {
 
 export const nexonCmsAdapter = {
   async discover(source, context) {
-    const result = await context.fetch(source.api_url || source.discovery_urls[0]);
+    const result = await context.fetch(source.api_url || source.discovery_urls[0], { conditional: false });
     if (result.status === 304) return [];
     if (result.status >= 400) throw new Error(`Nexon CMS listing returned HTTP ${result.status}`);
     const payload = JSON.parse(result.body);
@@ -84,7 +93,12 @@ export const nexonCmsAdapter = {
       externalId: item.externalId,
       title: payload.name || item.title,
       originalTitle: payload.name || item.title,
-      summary: originalSummary(context.source, payload.name || item.title, contentType),
+      summary: originalSummary(
+        context.source,
+        payload.name || item.title,
+        contentType,
+        payload.liveDate || item.publishedAt,
+      ),
       author: 'Global MapleStory',
       publishedAt: payload.liveDate || item.publishedAt,
       updatedAt: null,

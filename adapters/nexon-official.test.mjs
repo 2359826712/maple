@@ -53,6 +53,8 @@ describe('Nexon official adapters', () => {
       subcategory: 'general',
     });
     expect(records[0].summary).not.toContain('Source summary');
+    expect(records[0].summary).not.toContain('published this');
+    expect(records[0].summary).toContain('2026-07-16');
   });
 
   it('extracts a confirmed UTC event period from the Worlds community API', async () => {
@@ -82,6 +84,8 @@ describe('Nexon official adapters', () => {
       timezone: 'UTC',
     });
     expect(record.metadata.parser_warnings).toEqual([]);
+    expect(record.summary).not.toContain('published this');
+    expect(record.summary).toContain('2026-07-02');
   });
 
   it('reads current MapleStory N notices with the configured public headers', async () => {
