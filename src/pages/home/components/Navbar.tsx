@@ -13,7 +13,12 @@ import { localizeHref, normalizeLanguage, stripRouteSuffixes, withRouteSuffixes 
 import { getLocalizedVersionPresentation } from '@/domain/versionPresentation';
 import { prefetchRouteForPath } from '@/router/config';
 import { getSeriesProduct, seriesProducts } from '@/pages/series/catalog';
-import { getSeriesModuleHref, getSeriesRouteState, scopeModuleHref } from '@/pages/series/scope';
+import {
+  getSeriesModuleHref,
+  getSeriesRouteState,
+  isSeriesModuleAvailable,
+  scopeModuleHref,
+} from '@/pages/series/scope';
 import { getSeriesVersions, getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
 
 const navLinkKeys = [
@@ -316,14 +321,19 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   }, [activeSeries?.id, availableVersions, setVersion, version]);
 
   const handleSeriesChange = (seriesId?: string) => {
+    const requestedModule = seriesRoute.module || 'news';
+    const destinationModule = isSeriesModuleAvailable(seriesId, requestedModule) ? requestedModule : 'news';
     const href = seriesId
-      ? getSeriesModuleHref(seriesId, seriesRoute.module || 'news')
+      ? getSeriesModuleHref(seriesId, destinationModule)
       : '/';
     setSeriesMenuOpen(false);
     navigate(localizeHref(href, i18n.language, versionInfo.id));
   };
 
   const getNavHref = (href: string) => scopeModuleHref(activeSeries?.id, href);
+  const visibleNavLinkKeys = navLinkKeys.filter((link) => (
+    isSeriesModuleAvailable(activeSeries?.id, getSeriesRouteState(link.href).module)
+  ));
 
   const defaultToolValue = routePathname === '/mapler-house'
     ? (typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '') || 'dashboard'
@@ -547,7 +557,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
           </Link>
 
           <nav className="hidden 2xl:flex items-center gap-1">
-            {navLinkKeys.map((l) => {
+            {visibleNavLinkKeys.map((l) => {
               const active = isNavActive(l.href);
               const destinationHref = getNavHref(l.href);
 
@@ -1122,7 +1132,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
         {menuOpen && (
           <div className="2xl:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
-              {navLinkKeys.map((l) => {
+              {visibleNavLinkKeys.map((l) => {
                 const active = isNavActive(l.href);
                 const destinationHref = getNavHref(l.href);
 

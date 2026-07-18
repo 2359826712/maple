@@ -69,4 +69,10 @@ describe('Next route data', () => {
     expect(getLocalizedRedirect('/content/news/example?series=maplestory-classic'))
       .toBe('/content/news/example/en/GMS?series=maplestory-classic');
   });
+
+  it('redirects unsupported series ranking routes to series news', () => {
+    expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-idle'))
+      .toBe('/news/en/GMS?series=maplestory-idle');
+    expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-pc')).toBeNull();
+  });
 });

@@ -20,6 +20,12 @@ export const isSharedSeriesModule = (module?: SeriesModule): module is (typeof s
   Boolean(module && sharedSeriesModules.includes(module as (typeof sharedSeriesModules)[number]))
 );
 
+const seriesWithRankings = new Set(['maplestory-pc']);
+
+export const isSeriesModuleAvailable = (seriesId?: string, module?: SeriesModule) => (
+  !module || module !== 'rankings' || !seriesId || seriesWithRankings.has(seriesId)
+);
+
 export const baseHrefBySeriesModule = Object.fromEntries(
   Object.entries(seriesModuleByBaseHref).map(([href, module]) => [module, href]),
 ) as Record<SeriesModule, string>;

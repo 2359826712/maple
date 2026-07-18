@@ -48,7 +48,7 @@ import { localizeGuideItem, localizeGuideItems } from '@/pages/guides/localizedG
 import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolResources';
 import { localizeUpcomingArticle, localizeUpcomingFeed } from '@/pages/upcoming/localizedUpcoming';
 import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
-import { isSeriesModule } from '@/pages/series/scope';
+import { isSeriesModule, isSeriesModuleAvailable } from '@/pages/series/scope';
 
 export type NextRoutePageProps = {
   initialEvents?: EventItem[];
@@ -104,6 +104,12 @@ export const getLocalizedRedirect = (pathname: string) => {
   const normalized = normalizeRequestPath(requestUrl.pathname);
   const language = getPathLanguage(normalized);
   const server = getPathServer(normalized);
+  const routePath = stripRouteSuffixes(normalized);
+  const seriesId = requestUrl.searchParams.get('series') || undefined;
+  if (routePath === '/rankings' && !isSeriesModuleAvailable(seriesId, 'rankings')) {
+    const destination = withRouteSuffixes('/news', language || 'en', server || 'gms');
+    return `${destination}${requestUrl.search}${requestUrl.hash}`;
+  }
   if (language && server) return null;
   const destination = withRouteSuffixes(stripRouteSuffixes(normalized), language || 'en', server || 'gms');
   return `${destination}${requestUrl.search}${requestUrl.hash}`;

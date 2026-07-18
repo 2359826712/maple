@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   getSeriesModuleHref,
   getSeriesRouteState,
+  isSeriesModuleAvailable,
   isSharedSeriesModule,
   scopeModuleHref,
   withSeriesScope,
@@ -43,5 +44,12 @@ describe('series module scope', () => {
       seriesId: 'maplestory-m',
       module: 'guides',
     });
+  });
+
+  it('only exposes rankings for a series with real ranking rows', () => {
+    expect(isSeriesModuleAvailable('maplestory-pc', 'rankings')).toBe(true);
+    ['maplestory-classic', 'maplestory-m', 'maplestory-n', 'maplestory-worlds', 'maplestory-idle']
+      .forEach((seriesId) => expect(isSeriesModuleAvailable(seriesId, 'rankings')).toBe(false));
+    expect(isSeriesModuleAvailable('maplestory-idle', 'news')).toBe(true);
   });
 });

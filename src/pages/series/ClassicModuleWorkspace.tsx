@@ -60,8 +60,6 @@ const workspaceText = [
   'The current announced Classic World event is the second closed online test.',
   'Classic World reference',
   'Verified product facts from the Test #2 announcement.',
-  'Rankings are not available yet',
-  'Global MapleStory has not published a verified Classic World ranking service for the closed test. MPStorys will not display placeholder standings.',
 ];
 
 export default function ClassicModuleWorkspace({ module }: { module: SeriesModule }) {
@@ -145,18 +143,6 @@ export default function ClassicModuleWorkspace({ module }: { module: SeriesModul
             </div>
           ))}
         </dl>
-      </section>
-    );
-  }
-
-  if (module === 'rankings') {
-    return (
-      <section className="border-b border-background-300 pb-10" aria-labelledby="classic-rankings-heading">
-        <i className="ri-bar-chart-box-line text-3xl text-foreground-400" aria-hidden="true" />
-        <h2 id="classic-rankings-heading" className="mt-3 font-heading text-2xl font-semibold">{copy('Rankings are not available yet')}</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-foreground-600">
-          {copy('Global MapleStory has not published a verified Classic World ranking service for the closed test. MPStorys will not display placeholder standings.')}
-        </p>
       </section>
     );
   }

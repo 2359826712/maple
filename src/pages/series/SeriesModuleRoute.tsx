@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
@@ -10,7 +10,9 @@ import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services
 import { getSeriesProduct, type SeriesProduct } from './catalog';
 import {
   getSeriesIdFromSearch,
+  getSeriesModuleHref,
   getSeriesResourceHref,
+  isSeriesModuleAvailable,
   isSharedSeriesModule,
   type SeriesModule,
 } from './scope';
@@ -177,8 +179,18 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
 
 export default function SeriesModuleRoute({ module, children }: Props) {
   const { search } = useLocation();
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
+  const { version } = useVersion();
   const product = getSeriesProduct(getSeriesIdFromSearch(search));
+  const unavailable = Boolean(product && product.id !== 'maplestory-pc' && !isSeriesModuleAvailable(product.id, module));
+
+  useEffect(() => {
+    if (!product || !unavailable) return;
+    navigate(localizeHref(getSeriesModuleHref(product.id, 'news'), i18n.language, version), { replace: true });
+  }, [i18n.language, navigate, product, unavailable, version]);
 
   if (!product || product.id === 'maplestory-pc' || isSharedSeriesModule(module)) return children;
+  if (unavailable) return <ScopedModulePage product={product} module="news" />;
   return <ScopedModulePage product={product} module={module} />;
 }

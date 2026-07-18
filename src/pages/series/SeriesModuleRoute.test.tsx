@@ -77,7 +77,7 @@ describe('series module routes', () => {
     expect(screen.getByText('Orbis and El Nath')).toBeTruthy();
   });
 
-  it('does not invent Classic World ranking rows before an official service exists', async () => {
+  it('redirects an unavailable series ranking route to that series news', async () => {
     window.history.replaceState({}, '', '/rankings/en/GMS?series=maplestory-classic');
     render(
       <NextApplication
@@ -89,7 +89,8 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Rankings are not available yet' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'News' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Rankings' })).toBeNull();
   });
 
   it('renders concrete module content for every other supported series', async () => {
@@ -97,7 +98,7 @@ describe('series module routes', () => {
       ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index'],
       ['maplestory-n', '/events/en/GMS', 'V Tracker mission reference'],
       ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference'],
-      ['maplestory-idle', '/rankings/en/GMS', 'No verified public leaderboard'],
+      ['maplestory-idle', '/wiki/en/GMS', 'Idle RPG system index'],
     ];
 
     for (const [series, pathname, heading] of cases) {

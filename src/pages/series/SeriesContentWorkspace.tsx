@@ -56,15 +56,6 @@ const workspaces: Record<string, WorkspaceMap> = {
         ['Interface', 'Basic UI, convenience features, and Rank menu'],
       ],
     },
-    rankings: {
-      title: 'In-game Rank menu',
-      description: 'MapleStory M rankings are presented in the game client rather than as a verified public web leaderboard.',
-      facts: [
-        ['Available views', 'Overall, friend, guild, and character rankings'],
-        ['Verified source', 'Official MapleStory M Basic UI guide'],
-        ['Live web rows', 'Unavailable; MPStorys does not generate placeholder standings'],
-      ],
-    },
   },
   'maplestory-n': {
     upcoming: {
@@ -100,14 +91,6 @@ const workspaces: Record<string, WorkspaceMap> = {
         ['Events', 'Current and archived event rules'],
         ['Game reference', 'Classes, jobs, systems, and launch guidance'],
         ['Support', 'MapleStory Universe account and service support'],
-      ],
-    },
-    rankings: {
-      title: 'Official web ranking status',
-      description: 'The official launch guide confirms a web ranking service, but the indexed source does not expose verified live rows.',
-      facts: [
-        ['Ranking service', 'Confirmed by the official launch guide'],
-        ['Live rows on MPStorys', 'Not published until a stable first-party data source is verified'],
       ],
     },
   },
@@ -149,15 +132,6 @@ const workspaces: Record<string, WorkspaceMap> = {
         ['Policy', 'Avatar, creator, sanction, and Open Market notices'],
       ],
     },
-    rankings: {
-      title: 'World metrics status',
-      description: 'Public world pages expose world-level activity metrics, not a universal player leaderboard.',
-      facts: [
-        ['Verified example', 'Artale (Global)'],
-        ['Published metrics', 'Total players, favorites, platform support, and last-updated date'],
-        ['Live metric policy', 'Values are not copied until a stable refresh source is verified'],
-      ],
-    },
   },
   'maplestory-idle': {
     upcoming: {
@@ -195,14 +169,6 @@ const workspaces: Record<string, WorkspaceMap> = {
         ['Progression', 'Artifacts, chapters, and Hero\'s Journey'],
         ['Group content', 'Party Quests and guild seasons'],
         ['Economy', 'Event shops and appearance-item additions'],
-      ],
-    },
-    rankings: {
-      title: 'No verified public leaderboard',
-      description: 'Nexon has not exposed a stable public Idle RPG ranking source that MPStorys can lawfully index.',
-      facts: [
-        ['Live rows on MPStorys', 'Unavailable'],
-        ['Data policy', 'No placeholder players or fabricated scores are displayed'],
       ],
     },
   },

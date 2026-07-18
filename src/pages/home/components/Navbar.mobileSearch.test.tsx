@@ -124,6 +124,16 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('href')).toBe('/guides/en/GMS?series=maplestory-m');
     expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop/en/GMS?series=maplestory-m');
     expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback/en/GMS?series=maplestory-m');
+    expect(scopedNavigation.queryByRole('link', { name: 'nav_rankings' })).toBeNull();
+  });
+
+  it('falls back to series news when rankings are unavailable after switching series', () => {
+    renderNavbar('/rankings/en/GMS');
+
+    fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory N' }));
+
+    expect(screen.getByLabelText('Current path').textContent).toBe('/news/en/GMS?series=maplestory-n');
   });
 
   it('shows the former More destinations directly in the desktop navigation', () => {

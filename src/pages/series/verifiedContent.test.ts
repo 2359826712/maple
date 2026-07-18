@@ -56,8 +56,8 @@ describe('verified series content', () => {
   });
 
   it('leaves unsupported modules empty instead of inventing content', () => {
-    expect(verifiedSeriesContent['maplestory-classic'].rankings).toBeUndefined();
+    ['maplestory-classic', 'maplestory-m', 'maplestory-n', 'maplestory-worlds', 'maplestory-idle']
+      .forEach((seriesId) => expect(verifiedSeriesContent[seriesId].rankings).toBeUndefined());
     expect(verifiedSeriesContent['maplestory-classic'].shop).toBeUndefined();
-    expect(verifiedSeriesContent['maplestory-idle'].rankings).toBeUndefined();
   });
 });
