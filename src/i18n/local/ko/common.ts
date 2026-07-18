@@ -401,6 +401,7 @@ const common = {
   series_news_desc: '요약은 MPStorys 안에서 읽고, 전체 공지를 확인할 때만 공식 원문을 열 수 있습니다.',
   series_verified_briefing: 'MPStorys 확인 요약',
   series_verified_content_note: '추적 가능한 1차 출처 또는 공식 커뮤니티 출처만 표시합니다. 출처 확인일: 2026년 7월 18일.',
+  series_verified_sources: '검증된 출처',
   series_no_verified_content: '현재 {{name}}의 검증 가능한 공식 {{module}} 콘텐츠가 없어 임시 콘텐츠를 표시하지 않습니다.',
   series_update_summary: '{{name}} 전용 업데이트이며 다른 MapleStory 게임의 뉴스와 분리됩니다.',
   series_check_source: '공식 출처 확인',

@@ -1621,6 +1621,7 @@ const common = {
   series_news_desc: '简报内容直接保留在 MPStorys，只有需要核对完整公告时才打开官方原文。',
   series_verified_briefing: 'MPStorys 核验简报',
   series_verified_content_note: '这里只列出可追溯的一手来源或官方社区来源。来源复核日期：2026 年 7 月 18 日。',
+  series_verified_sources: '已验证来源',
   series_no_verified_content: '目前没有找到 {{name}} 可核验的官方{{module}}内容，因此不使用模板内容补位。',
   series_update_summary: '这是一条独立的 {{name}} 动态，不会与其它 MapleStory 作品的新闻混在一起。',
   series_check_source: '核对官方来源',

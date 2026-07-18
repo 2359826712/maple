@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import translation from '@/i18n/local/en/common';
 import NextApplication from '@/next/NextApplication';
@@ -38,5 +38,25 @@ describe('series module routes', () => {
     await waitFor(() => {
       expect(screen.queryByText('MPStorys hit an unexpected error')).toBeNull();
     });
+  });
+
+  it('renders a functional Classic World readiness tool and persists progress', async () => {
+    window.history.replaceState({}, '', '/tools/en/GMS?series=maplestory-classic');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/tools/en/GMS"
+        requestPath="/tools/en/GMS?series=maplestory-classic"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'Closed Online Test #2 readiness' })).toBeTruthy();
+    expect(screen.getByText('Aug 12, 2026')).toBeTruthy();
+    const task = screen.getByRole('checkbox', { name: 'Submitted a new Test #2 application' });
+    fireEvent.click(task);
+    expect(screen.getByText('1/5')).toBeTruthy();
+    expect(window.localStorage.getItem('mpstorys-series-tools:maplestory-classic')).toContain('true');
   });
 });

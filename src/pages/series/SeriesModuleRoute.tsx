@@ -16,6 +16,7 @@ import {
 } from './scope';
 import { getVerifiedSeriesResources, getVerifiedSeriesResourceSlug } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
+import SeriesToolsWorkspace from './SeriesToolsWorkspace';
 
 type Props = {
   module: SeriesModule;
@@ -113,6 +114,10 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
         </header>
 
         <section className="mx-auto max-w-6xl px-4 py-8 md:px-8 md:py-10">
+          {module === 'tools' && <SeriesToolsWorkspace product={product} />}
+          {module === 'tools' && resources.length > 0 && (
+            <h2 className="mb-4 mt-10 font-heading text-xl font-semibold">{t('series_verified_sources')}</h2>
+          )}
           {resources.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">
               {localizedResources.map((resource, index) => (

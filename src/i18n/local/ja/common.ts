@@ -1622,6 +1622,7 @@ const common = {
   series_news_desc: '概要は MPStorys 内で読めます。詳細確認が必要な場合のみ公式原文を開けます。',
   series_verified_briefing: 'MPStorys 確認済み概要',
   series_verified_content_note: '追跡可能な一次情報または公式コミュニティ情報のみを掲載しています。確認日：2026年7月18日。',
+  series_verified_sources: '検証済みソース',
   series_no_verified_content: '{{name}} の検証可能な公式{{module}}コンテンツは現在ありません。プレースホルダーは表示しません。',
   series_update_summary: '{{name}} 専用の更新情報です。他の MapleStory 作品のニュースとは分離されています。',
   series_check_source: '公式情報を確認',
