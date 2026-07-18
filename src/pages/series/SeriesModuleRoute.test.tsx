@@ -59,4 +59,36 @@ describe('series module routes', () => {
     expect(screen.getByText('1/5')).toBeTruthy();
     expect(window.localStorage.getItem('mpstorys-series-tools:maplestory-classic')).toContain('true');
   });
+
+  it('renders source-backed Classic World wiki facts instead of a placeholder card only', async () => {
+    window.history.replaceState({}, '', '/wiki/en/GMS?series=maplestory-classic');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/wiki/en/GMS"
+        requestPath="/wiki/en/GMS?series=maplestory-classic"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'Classic World reference' })).toBeTruthy();
+    expect(screen.getByText('3rd Job Advancement')).toBeTruthy();
+    expect(screen.getByText('Orbis and El Nath')).toBeTruthy();
+  });
+
+  it('does not invent Classic World ranking rows before an official service exists', async () => {
+    window.history.replaceState({}, '', '/rankings/en/GMS?series=maplestory-classic');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/rankings/en/GMS"
+        requestPath="/rankings/en/GMS?series=maplestory-classic"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'Rankings are not available yet' })).toBeTruthy();
+  });
 });
