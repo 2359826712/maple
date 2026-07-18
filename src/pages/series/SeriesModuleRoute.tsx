@@ -18,6 +18,7 @@ import { getVerifiedSeriesResources, getVerifiedSeriesResourceSlug } from './ver
 import { getSeriesVersionShortLabel } from './versionConfig';
 import SeriesToolsWorkspace from './SeriesToolsWorkspace';
 import ClassicModuleWorkspace from './ClassicModuleWorkspace';
+import SeriesContentWorkspace from './SeriesContentWorkspace';
 
 type Props = {
   module: SeriesModule;
@@ -118,9 +119,13 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
           {module === 'tools' && <SeriesToolsWorkspace product={product} />}
           {module === 'checklist' && <SeriesToolsWorkspace product={product} />}
           {product.id === 'maplestory-classic' && <ClassicModuleWorkspace module={module} />}
+          {product.id !== 'maplestory-classic' && <SeriesContentWorkspace product={product} module={module} />}
           {(module === 'tools' || module === 'checklist' || (
             product.id === 'maplestory-classic' && ['upcoming', 'guides', 'events', 'wiki', 'rankings'].includes(module)
-          )) && resources.length > 0 && (
+          ) || (
+            product.id !== 'maplestory-classic' && ['upcoming', 'guides', 'events', 'wiki', 'rankings'].includes(module)
+          )
+          ) && resources.length > 0 && (
             <h2 className="mb-4 mt-10 font-heading text-xl font-semibold">{t('series_verified_sources')}</h2>
           )}
           {resources.length > 0 ? (

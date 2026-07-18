@@ -91,4 +91,28 @@ describe('series module routes', () => {
 
     expect(await screen.findByRole('heading', { name: 'Rankings are not available yet' })).toBeTruthy();
   });
+
+  it('renders concrete module content for every other supported series', async () => {
+    const cases = [
+      ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index'],
+      ['maplestory-n', '/events/en/GMS', 'V Tracker mission reference'],
+      ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference'],
+      ['maplestory-idle', '/rankings/en/GMS', 'No verified public leaderboard'],
+    ];
+
+    for (const [series, pathname, heading] of cases) {
+      window.history.replaceState({}, '', `${pathname}?series=${series}`);
+      const view = render(
+        <NextApplication
+          language="en"
+          pathname={pathname}
+          requestPath={`${pathname}?series=${series}`}
+          server="gms"
+          translation={translation}
+        />,
+      );
+      expect(await screen.findByRole('heading', { name: heading })).toBeTruthy();
+      view.unmount();
+    }
+  });
 });
