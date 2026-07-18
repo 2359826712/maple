@@ -1,0 +1,36 @@
+{
+  "id": "m-may-2026-known-issues",
+  "name": "05.20/21 Update Known Issues",
+  "website": "MapleStory M Global Forum",
+  "page": "2026.05.20/21 Update Known Issue Notice",
+  "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314",
+  "series": "m",
+  "regions": [
+    "europe",
+    "north-america",
+    "sea"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "known-issues",
+  "description": "Lists officially acknowledged issues for the May 20/21, 2026 MapleStory M update and records subsequent corrections.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "bug-fixes",
+    "known-issues",
+    "updates"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314"
+  ],
+  "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+}

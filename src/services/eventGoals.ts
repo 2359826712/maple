@@ -32,10 +32,12 @@ function normalizeGoal(id: string, value: unknown): StoredEventGoal | null {
   };
 }
 
-export function readEventGoals(storage: Storage = window.localStorage): Record<string, StoredEventGoal> {
+export function readEventGoals(storage?: Storage): Record<string, StoredEventGoal> {
+  const resolvedStorage = storage || (typeof window !== 'undefined' ? window.localStorage : null);
+  if (!resolvedStorage) return {};
   const read = (key: string) => {
     try {
-      const parsed = JSON.parse(storage.getItem(key) || '{}') as Record<string, unknown>;
+      const parsed = JSON.parse(resolvedStorage.getItem(key) || '{}') as Record<string, unknown>;
       return Object.fromEntries(Object.entries(parsed).flatMap(([id, value]) => {
         const goal = normalizeGoal(id, value);
         return goal ? [[id, goal]] : [];
@@ -46,13 +48,15 @@ export function readEventGoals(storage: Storage = window.localStorage): Record<s
   };
 
   const current = read(EVENT_GOALS_STORAGE_KEY);
-  if (Object.keys(current).length > 0 || storage.getItem(EVENT_GOALS_STORAGE_KEY) !== null) return current;
+  if (Object.keys(current).length > 0 || resolvedStorage.getItem(EVENT_GOALS_STORAGE_KEY) !== null) return current;
   return read(LEGACY_EVENT_GOALS_STORAGE_KEY);
 }
 
-export function writeEventGoal(goal: StoredEventGoal, storage: Storage = window.localStorage) {
-  const next = { ...readEventGoals(storage), [goal.id]: goal };
-  const result = writeJsonWithRecovery(storage, EVENT_GOALS_STORAGE_KEY, next);
+export function writeEventGoal(goal: StoredEventGoal, storage?: Storage) {
+  const resolvedStorage = storage || (typeof window !== 'undefined' ? window.localStorage : null);
+  if (!resolvedStorage) return { ok: false as const, error: new Error('Browser storage is unavailable.') };
+  const next = { ...readEventGoals(resolvedStorage), [goal.id]: goal };
+  const result = writeJsonWithRecovery(resolvedStorage, EVENT_GOALS_STORAGE_KEY, next);
   if (result.ok && typeof window !== 'undefined') window.dispatchEvent(new CustomEvent(EVENT_GOALS_CHANGED_EVENT));
   return result;
 }

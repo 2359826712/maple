@@ -4,11 +4,17 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
-import { fetchWikiEntryByTitleLocalFirst, fetchWikiEntryContent, type WikiEntry } from '@/services/liveContent';
+import {
+  fetchWikiEntryForLocale,
+  fetchWikiEntryContent,
+  type WikiEntry,
+} from '@/services/liveContent';
 import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { useTranslatedWikiEntry } from './useTranslatedWikiEntry';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
+import { getWikiArticleImageFallbacks } from './articleImageFallbacks';
 
 const articleTitleKeys: Record<string, string> = {
   Classes: 'wiki_art_classes',
@@ -32,13 +38,32 @@ const articleTitleKeys: Record<string, string> = {
   Locations: 'wiki_art_locations',
 };
 
+const fallbackClassPortraits = [
+  'ren', 'wildhunter', 'shade', 'nightwalker', 'hayato', 'bowmaster', 'lynn', 'hero', 'kanna',
+  'moxuan', 'sia', 'nightlord', 'buccaneer', 'dawnwarrior', 'mercedes', 'shadower', 'aran',
+  'demonslayer', 'windarcher', 'bishop', 'angelicbuster', 'zero', 'adele', 'dualblade',
+  'demonavenger', 'marksman', 'icelightning', 'paladin', 'phantom', 'darkknight', 'erellight',
+  'illium', 'xenon', 'battlemage', 'mechanic', 'khali', 'corsair', 'mihile', 'luminous',
+  'hoyoung', 'kaine', 'firepoison', 'thunderbreaker', 'pathfinder', 'kaiser', 'ark', 'cadena',
+  'lara', 'blaster', 'cannonmaster', 'evan', 'flamewizard', 'kinesis',
+] as const;
+
+const classPortraitUrl = (slug: string) =>
+  `https://www.maplerhouse.com/class-portrait/${slug}.${slug === 'erellight' ? 'png' : 'jpg'}`;
+
+const classPortraitAlt = (slug: string) => slug
+  .replace(/([a-z])([A-Z])/g, '$1 $2')
+  .replace(/[-_]/g, ' ')
+  .replace(/\b\w/g, (character) => character.toUpperCase());
+
 export default function WikiArticlePage() {
   const { t, i18n } = useTranslation();
+  const { initialWikiEntry } = useServerRouteData();
   const navigate = useNavigate();
   const { '*': legacyTitleParam, articlePath } = useParams<{ '*': string; articlePath: string }>();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [entry, setEntry] = useState<WikiEntry | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [entry, setEntry] = useState<WikiEntry | null>(initialWikiEntry);
+  const [loading, setLoading] = useState(!initialWikiEntry);
   const [error, setError] = useState(false);
   const [hydrating, setHydrating] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -57,6 +82,19 @@ export default function WikiArticlePage() {
   const renderedHtmlContent = useMemo(
     () => htmlContent ? prepareStaticHtmlForRender(htmlContent) : '',
     [htmlContent],
+  );
+  const sourceImageCount = useMemo(() => {
+    const document = new DOMParser().parseFromString(renderedHtmlContent, 'text/html');
+    return document.querySelectorAll('img[src]').length;
+  }, [renderedHtmlContent]);
+  const showClassPortraitFallback = useMemo(() => {
+    const sourceTitle = (entry?.sourcePageTitle || entry?.title || title).replace(/_/g, ' ').trim().toLowerCase();
+    if (sourceTitle !== 'classes') return false;
+    return sourceImageCount < 10;
+  }, [entry?.sourcePageTitle, entry?.title, sourceImageCount, title]);
+  const articleImageFallbacks = useMemo(
+    () => getWikiArticleImageFallbacks(entry?.sourcePageTitle || entry?.title || title, sourceImageCount),
+    [entry?.sourcePageTitle, entry?.title, sourceImageCount, title],
   );
 
   // Primary: construct CDN URL directly from the File: title
@@ -140,11 +178,18 @@ export default function WikiArticlePage() {
       return;
     }
 
+    if (initialWikiEntry && initialWikiEntry.title.replace(/_/g, ' ').toLowerCase() === title.toLowerCase()) {
+      setEntry(initialWikiEntry);
+      setLoading(false);
+      setError(false);
+      return;
+    }
+
     let cancelled = false;
     setLoading(true);
     setError(false);
 
-    void fetchWikiEntryByTitleLocalFirst(title)
+    void fetchWikiEntryForLocale(title, i18n.language)
       .then((result) => {
         if (cancelled) return;
         if (result) {
@@ -163,7 +208,7 @@ export default function WikiArticlePage() {
     return () => {
       cancelled = true;
     };
-  }, [title]);
+  }, [i18n.language, initialWikiEntry, title]);
 
   // Handle wiki redirect pages (#REDIRECT [[Target]] and rendered HTML redirects)
   useEffect(() => {
@@ -512,6 +557,32 @@ export default function WikiArticlePage() {
                     className="wiki-article-content wiki-vector-article wiki-mainpage-article static-article-content mt-5"
                     onClick={handleArticleClick}
                   >
+                    {showClassPortraitFallback && (
+                      <div className="wiki-class-portrait-fallback" aria-label={displayTitle}>
+                        {fallbackClassPortraits.map((slug) => (
+                          <img
+                            key={slug}
+                            src={classPortraitUrl(slug)}
+                            alt={classPortraitAlt(slug)}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ))}
+                      </div>
+                    )}
+                    {articleImageFallbacks.length > 0 && (
+                      <div className="wiki-article-image-fallback" aria-label={displayTitle}>
+                        {articleImageFallbacks.map((image, index) => (
+                          <img
+                            key={image.src}
+                            src={image.src}
+                            alt={image.alt ? `${displayTitle}: ${image.alt}` : displayTitle}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
+                          />
+                        ))}
+                      </div>
+                    )}
                     {htmlContent && !looksLikeWikitext(htmlContent) ? (
                       <div dangerouslySetInnerHTML={{ __html: renderedHtmlContent }} />
                     ) : hydrating ? (

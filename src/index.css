@@ -584,6 +584,43 @@ textarea:focus-visible,
   height: auto;
 }
 
+.wiki-class-portrait-fallback {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 8px;
+  margin: 0 0 20px;
+  padding: 12px;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+}
+
+.wiki-class-portrait-fallback img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid #c8ccd1;
+  background: #fff;
+}
+
+.wiki-article-image-fallback {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  padding: 12px;
+  border: 1px solid #a2a9b1;
+  background: #f8f9fa;
+}
+
+.wiki-article-image-fallback img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  border: 1px solid #c8ccd1;
+  background: #fff;
+}
+
 /* float containers: thumb, tright, tleft, floatright, floatleft */
 .wiki-vector-article.wiki-article-content .thumb,
 .wiki-vector-article.wiki-article-content .tright {
@@ -663,45 +700,45 @@ textarea:focus-visible,
   display: none;
 }
 
-.wiki-vector-article.wiki-article-content .class-button.button-Explorers::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Explorers.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-DualBlade::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Dual_Blade.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Cannoneer::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Cannoneer.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Pathfinder::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Pathfinder.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Zen::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Zen.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Jett::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Jett.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-CygnusKnights::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Cygnus_Knights.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Mihile::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Mihile.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Aran::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Aran.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Evan::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Evan.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Mercedes::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Mercedes.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Phantom::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Phantom.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Luminous::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Luminous.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Shade::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Shade.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Resistance::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Resistance.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Demon::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Demon.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Xenon::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Xenon.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Kaiser::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Kaiser.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-AngelicBuster::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Angelic_Buster.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Cadena::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Cadena.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Kain::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Kain.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Illium::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Illium.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Ark::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Ark.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Adele::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Adele.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Hayato::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Hayato.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Kanna::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Kanna.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Hoyoung::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Hoyoung.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Zero::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Zero.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-PinkBean::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Pink_Bean.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Yeti::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Yeti.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-BeastTamer::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Beast_Tamer.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Kinesis::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Kinesis.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-MoXuan::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Mo_Xuan.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Lara::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Lara.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Khali::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Khali.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Lynn::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Lynn.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-TanjiroKamado::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Tanjiro_Kamado.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-SiaAstelle::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Sia_Astelle.png"); }
-.wiki-vector-article.wiki-article-content .class-button.button-Len::before { background-image: url("https://media.maplestorywiki.net/yetidb/ClassButton_Len.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Explorers::before { background-image: url("/static/images/readdy/class-hero-001.jpg"); }
+.wiki-vector-article.wiki-article-content .class-button.button-DualBlade::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_dual_blade-3221a627dd.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Cannoneer::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_cannoneer-4c67907a01.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Pathfinder::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_pathfinder-e0e4c2f0b9.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Zen::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_zen-b509f404fc.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Jett::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_jett-5185dbc2ad.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-CygnusKnights::before { background-image: url("/static/images/readdy/class-dw-001.jpg"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Mihile::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_mihile-97964a8dc1.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Aran::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_aran-a45a53a94a.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Evan::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_evan-bc3aaf67b8.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Mercedes::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_mercedes-e331a056f5.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Phantom::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_phantom-d574734d43.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Luminous::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_luminous-5a8c8df1ce.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Shade::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_shade-9240a95bec.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Resistance::before { background-image: url("/static/images/readdy/class-bmage-001.jpg"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Demon::before { background-image: url("/static/images/readdy/class-ds-001.jpg"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Xenon::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_xenon-145d6e2536.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Kaiser::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_kaiser-fb10b3d2b1.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-AngelicBuster::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_angelic_buster-c61c479f19.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Cadena::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_cadena-024f1202e8.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Kain::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_kain-1faa67f59b.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Illium::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_illium-355c25dca4.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Ark::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_ark-7d33facca2.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Adele::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_adele-b7edc5cf16.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Hayato::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_hayato-ead91a784e.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Kanna::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_kanna-2e165a7751.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Hoyoung::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_hoyoung-cb349a7dd1.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Zero::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_zero-dac33139e5.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-PinkBean::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_pink_bean-09be3761a1.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Yeti::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_yeti-21037c9579.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-BeastTamer::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_beast_tamer-f514927c50.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Kinesis::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_kinesis-1f62d3d152.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-MoXuan::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_mo_xuan-cd3b74361c.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Lara::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_lara-2a3d038acf.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Khali::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_khali-9994201e06.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Lynn::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_lynn-cda0297041.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-TanjiroKamado::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_tanjiro_kamado-824f607683.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-SiaAstelle::before { background-image: url("/static/images/vendor/media.maplestorywiki.net/classbutton_sia_astelle-d83c7f5d58.png"); }
+.wiki-vector-article.wiki-article-content .class-button.button-Len::before { background-image: url("/static/images/readdy/class-ren-001.jpg"); }
 .wiki-vector-article.wiki-article-content .thumbinner {
   border: 1px solid #c8ccd1;
   background: #f8f9fa;

@@ -1,0 +1,35 @@
+{
+  "id": "maplestory-official-rankings",
+  "name": "Global MapleStory Rankings",
+  "website": "Global MapleStory",
+  "page": "Rankings",
+  "url": "https://www.nexon.com/maplestory/rankings",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "rankings",
+  "subcategory": "character-rankings",
+  "description": "Provides Nexon's official Global MapleStory ranking tables and character ranking lookup.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "characters",
+    "leaderboards",
+    "rankings"
+  ],
+  "source_urls": [
+    "https://www.nexon.com/maplestory/rankings"
+  ],
+  "notes": null
+}

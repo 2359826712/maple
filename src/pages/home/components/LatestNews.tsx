@@ -6,10 +6,12 @@ import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
 import { fetchLiveNews, getRegionalContentImage, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import { isRenderableNewsItem } from '@/services/contentCacheValidation';
 import ShareButton from '@/components/feature/ShareButton';
 import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -22,12 +24,14 @@ const tagStyle: Record<string, string> = {
 export default function LatestNews() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialNews } = useServerRouteData();
   const [active, setActive] = useState('All');
   const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialNews,
     remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
@@ -37,7 +41,7 @@ export default function LatestNews() {
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
-          categoryLabel: getNewsCategoryLabel(n.category, i18n.language),
+          categoryLabel: n.localizedCategory || getNewsCategoryLabel(n.category, i18n.language),
         })),
     [i18n.language, localizedNews, versionInfo.id],
   );
@@ -123,8 +127,13 @@ export default function LatestNews() {
                     {n.title}
                   </h3>
                   <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
-                  {n.usesOriginalCopy && (
-                    <NewsOriginalLanguageNotice sourceLanguage={n.sourceLanguage} className="mt-2" />
+                  {n.localizationKind !== 'source' && (
+                    <NewsOriginalLanguageNotice
+                      sourceLanguage={n.sourceLanguage}
+                      localizationKind={n.localizationKind}
+                      server={n.versions[0]}
+                      className="mt-2"
+                    />
                   )}
                   <div className="mt-4 flex items-center justify-between text-xs text-foreground-600">
                     <div className="flex items-center gap-2">
@@ -141,11 +150,11 @@ export default function LatestNews() {
                     </span>
                   </div>
                   <Link
-                    to={officialArticleHref(n.sourceUrl, n.title, versionInfo.id)}
+                    to={officialArticleHref(n.sourceUrl, n.title, versionInfo.id, n.image)}
                     className="mt-4 inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 text-xs font-semibold text-background-50 hover:bg-primary-600"
                   >
                     <i className="ri-book-open-line" aria-hidden="true" />
-                    {t('news_read_article')}
+                    {n.actionLabel || t('news_read_article')}
                   </Link>
                 </div>
               </article>

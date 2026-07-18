@@ -33,6 +33,7 @@ export type UpcomingUpdatePost = {
   author: string;
   tags: string[];
   status: 'kmst';
+  localizedLanguage?: 'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko';
 };
 
 export type UpcomingUpdateArticle = UpcomingUpdatePost & {
@@ -43,6 +44,7 @@ export type UpcomingUpdateFeed = {
   items: UpcomingUpdatePost[];
   total: number;
   sourceSyncedAt: string;
+  localizedLanguage?: 'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko';
 };
 
 const decodeText = (value = '') => {

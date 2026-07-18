@@ -11,11 +11,16 @@ import OfficialServerLinks from '@/components/feature/OfficialServerLinks';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsCategoryLabel, getNewsCopy } from './localizedNews';
 import { fetchLiveNews, getRegionalContentImage, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import { isRenderableNewsItem } from '@/services/contentCacheValidation';
 import { readJson, writeJsonWithRecovery } from '@/services/persistentStorage';
 import ShareButton from '@/components/feature/ShareButton';
 import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import NewsOriginalLanguageNotice from './NewsOriginalLanguageNotice';
 import { useLocalizedNewsItems } from './useLocalizedNewsItems';
+import { isStaticHydration } from '@/ssg/hydration';
+import { localizeHref } from '@/i18n/languageRouting';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
+import { realtimeCacheDurations } from '@/services/realtimeCache';
 
 type LocalizedNewsItem = NewsItem & ReturnType<typeof getNewsCopy> & { categoryLabel: string };
 
@@ -49,15 +54,20 @@ const loadNewsState = (): NewsState => {
 export default function NewsPage() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialNews } = useServerRouteData();
   const [searchParams] = useSearchParams();
   const [active, setActive] = useState('All');
   const [notifOpen, setNotifOpen] = useState(false);
   const [query, setQuery] = useState(searchParams.get('q') ?? '');
   const [viewMode, setViewMode] = useState<'all' | 'saved' | 'unread'>('all');
-  const [initialNewsState] = useState(loadNewsState);
+  const deferBrowserState = isStaticHydration();
+  const [initialNewsState] = useState(() => deferBrowserState
+    ? { saved: {}, read: {} }
+    : loadNewsState());
   const [saved, setSaved] = useState<Record<string, boolean>>(initialNewsState.saved);
   const [read, setRead] = useState<Record<string, boolean>>(initialNewsState.read);
   const [storageError, setStorageError] = useState(false);
+  const [browserStateReady, setBrowserStateReady] = useState(!deferBrowserState);
   const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const {
     items: realtimeNews,
@@ -67,8 +77,10 @@ export default function NewsPage() {
     syncNow,
   } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialNews,
+    intervalMs: realtimeCacheDurations.short,
     remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
@@ -78,8 +90,9 @@ export default function NewsPage() {
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
-          categoryLabel: getNewsCategoryLabel(n.category, i18n.language),
-        })),
+          categoryLabel: n.localizedCategory || getNewsCategoryLabel(n.category, i18n.language),
+        }))
+        .sort((a, b) => (Date.parse(b.publishedAt) || 0) - (Date.parse(a.publishedAt) || 0)),
     [i18n.language, localizedNews, versionInfo.id],
   );
   const counts = useMemo(
@@ -97,7 +110,8 @@ export default function NewsPage() {
 
     if (normalizedQuery) {
       items = items.filter((n) =>
-        [n.title, n.excerpt, n.author, n.category, n.categoryLabel].some((value) => value.toLowerCase().includes(normalizedQuery)),
+        [n.title, n.excerpt, n.author, n.category, n.categoryLabel, ...n.searchTerms]
+          .some((value) => value.toLowerCase().includes(normalizedQuery)),
       );
     }
 
@@ -113,9 +127,18 @@ export default function NewsPage() {
   }, [active, query, read, saved, versionList, viewMode]);
 
   useEffect(() => {
+    if (!deferBrowserState) return;
+    const stored = loadNewsState();
+    setSaved(stored.saved);
+    setRead(stored.read);
+    setBrowserStateReady(true);
+  }, [deferBrowserState]);
+
+  useEffect(() => {
+    if (!browserStateReady) return;
     const result = writeJsonWithRecovery(window.localStorage, NEWS_STATE_KEY, { saved, read });
     setStorageError(!result.ok);
-  }, [read, saved]);
+  }, [browserStateReady, read, saved]);
 
   const markArticleRead = (article: LocalizedNewsItem) => {
     setRead((current) => ({ ...current, [article.id]: true }));
@@ -153,6 +176,7 @@ export default function NewsPage() {
                   lastSyncedAt={lastSyncedAt}
                   liveCount={liveCount}
                   onRefresh={syncNow}
+                  updateFrequency="fast"
                 />
               </div>
               <div className="mb-6">
@@ -264,18 +288,27 @@ export default function NewsPage() {
                           {n.title}
                         </h3>
                         <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
-                        {n.usesOriginalCopy && (
-                          <NewsOriginalLanguageNotice sourceLanguage={n.sourceLanguage} className="mt-2" />
+                        {n.localizationKind !== 'source' && (
+                          <NewsOriginalLanguageNotice
+                            sourceLanguage={n.sourceLanguage}
+                            localizationKind={n.localizationKind}
+                            server={n.versions[0]}
+                            className="mt-2"
+                          />
                         )}
                         <div className="mt-4 flex flex-wrap gap-2">
                           <Link
                             data-testid={`read-${n.id}`}
-                            to={officialArticleHref(n.sourceUrl, n.title, versionInfo.id)}
+                            to={localizeHref(
+                              officialArticleHref(n.sourceUrl, n.title, versionInfo.id, n.image),
+                              i18n.language,
+                              versionInfo.id,
+                            )}
                             onClick={() => markArticleRead(n)}
                             className="h-9 px-4 rounded-full bg-primary-500 hover:bg-primary-600 text-background-50 text-xs font-semibold cursor-pointer whitespace-nowrap"
                           >
                             <i className="ri-book-open-line mr-1"></i>
-                            {t('news_read_article')}
+                            {n.actionLabel || t('news_read_article')}
                           </Link>
                           <button
                             type="button"

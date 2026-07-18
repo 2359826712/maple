@@ -12,13 +12,16 @@ import {
 } from '@/services/upcomingUpdates';
 import { useLocalizedUpcomingArticle } from '../localizedUpcoming';
 import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
-export default function UpcomingUpdateDetailPage() {
-  const { postId = '' } = useParams();
+export default function UpcomingUpdateDetailPage({ initialPostId = '' }: { initialPostId?: string } = {}) {
+  const params = useParams();
+  const postId = params.postId || initialPostId;
   const { t, i18n } = useTranslation();
+  const { initialUpcomingArticle } = useServerRouteData();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [sourceArticle, setSourceArticle] = useState<UpcomingUpdateArticle | null>(null);
-  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [sourceArticle, setSourceArticle] = useState<UpcomingUpdateArticle | null>(initialUpcomingArticle);
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>(initialUpcomingArticle ? 'ready' : 'loading');
   const article = useLocalizedUpcomingArticle(sourceArticle, i18n.language);
   const renderedArticleHtml = useMemo(
     () => article?.contentHtml ? prepareStaticHtmlForRender(article.contentHtml) : '',
@@ -49,7 +52,7 @@ export default function UpcomingUpdateDetailPage() {
     return () => controller.abort();
   }, [postId]);
 
-  useEffect(() => loadArticle(), [loadArticle]);
+  useEffect(() => initialUpcomingArticle ? undefined : loadArticle(), [initialUpcomingArticle, loadArticle]);
 
   const publishedDate = article
     ? new Intl.DateTimeFormat(i18n.language, {

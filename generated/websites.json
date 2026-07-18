@@ -1,0 +1,81 @@
+[
+  {
+    "name": "Global MapleStory",
+    "count": 5,
+    "resource_ids": [
+      "classic-nexon-closed-online-test-2",
+      "maplestory-miracle-summer-2026",
+      "maplestory-nexon-official-news",
+      "maplestory-official-game-reference",
+      "maplestory-official-rankings"
+    ]
+  },
+  {
+    "name": "Global MapleStory Classic World",
+    "count": 1,
+    "resource_ids": [
+      "classic-world-test-2-campaign"
+    ]
+  },
+  {
+    "name": "MapleStory Idle RPG Forum",
+    "count": 5,
+    "resource_ids": [
+      "idle-april-9-2026-patch-notes",
+      "idle-may-21-2026-patch-notes",
+      "idle-may-21-update-preview",
+      "idle-official-faq",
+      "idle-official-forum"
+    ]
+  },
+  {
+    "name": "MapleStory M Global Forum",
+    "count": 5,
+    "resource_ids": [
+      "m-global-official-forum",
+      "m-june-24-2026-patch-notice",
+      "m-may-2026-known-issues",
+      "m-may-2026-patch-notes-part-2",
+      "m-nexon-guide-for-new-maplers"
+    ]
+  },
+  {
+    "name": "MapleStory N Documentation",
+    "count": 6,
+    "resource_ids": [
+      "n-beginners-guide",
+      "n-classes-and-jobs",
+      "n-download-guide",
+      "n-official-events",
+      "n-official-launch-guide",
+      "n-official-updates"
+    ]
+  },
+  {
+    "name": "MapleStory Worlds Creator Center",
+    "count": 6,
+    "resource_ids": [
+      "worlds-creator-center-news",
+      "worlds-creator-center-welcome-to-msw",
+      "worlds-creator-documents",
+      "worlds-creator-resources",
+      "worlds-ip-use-scope",
+      "worlds-managing-resources-guide"
+    ]
+  },
+  {
+    "name": "MapleStory: Idle RPG Forum",
+    "count": 1,
+    "resource_ids": [
+      "idle-nexon-june-11-patch-notes"
+    ]
+  },
+  {
+    "name": "Nexon MapleStory Support",
+    "count": 2,
+    "resource_ids": [
+      "maplestory-support-gameplay",
+      "maplestory-support-installation-guide"
+    ]
+  }
+]

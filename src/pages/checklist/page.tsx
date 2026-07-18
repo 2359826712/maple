@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { isStaticHydration } from '@/ssg/hydration';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
@@ -47,7 +48,8 @@ export default function ChecklistPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [now, setNow] = useState(Date.now());
+  const deferBrowserState = isStaticHydration();
+  const [now, setNow] = useState(0);
   const [filter, setFilter] = useState<'all' | 'daily' | 'weekly'>(() => {
     const period = searchParams.get('period');
     return period === 'daily' || period === 'weekly' ? period : 'all';
@@ -56,6 +58,7 @@ export default function ChecklistPage() {
   const [isEditingChecklist, setIsEditingChecklist] = useState(false);
   const [showIneligible, setShowIneligible] = useState(false);
   const [compact, setCompact] = useState(() => {
+    if (deferBrowserState) return false;
     try { return localStorage.getItem('maplehub-checklist-density') === 'compact'; } catch { return false; }
   });
   const [undoAction, setUndoAction] = useState<{
@@ -122,9 +125,13 @@ export default function ChecklistPage() {
   });
 
   useEffect(() => {
+    setNow(Date.now());
+    if (deferBrowserState) {
+      try { setCompact(localStorage.getItem('maplehub-checklist-density') === 'compact'); } catch { /* use default */ }
+    }
     const timer = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [deferBrowserState]);
 
   useEffect(() => {
     if (checklistOpenTrackedRef.current) return;

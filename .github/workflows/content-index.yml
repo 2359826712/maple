@@ -1,0 +1,77 @@
+name: Content index validation and maintenance
+
+on:
+  pull_request:
+    paths:
+      - 'adapters/**'
+      - 'content/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'sources/**'
+  push:
+    paths:
+      - 'adapters/**'
+      - 'content/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'sources/**'
+  schedule:
+    - cron: '17 */3 * * *'
+    - cron: '43 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run check:duplicates
+      - run: npm test
+      - run: npm run type-check
+      - run: npm run build
+
+  crawl-official:
+    if: github.event_name == 'schedule' && github.event.schedule == '17 */3 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run crawl:official -- --execute
+      - run: npm run validate
+      - run: npm run check:duplicates
+      - run: npm run build:data
+      - uses: actions/upload-artifact@v4
+        with:
+          name: content-index-crawl
+          path: |
+            content
+            snapshots
+            generated
+
+  update-event-status:
+    if: github.event_name == 'schedule' && github.event.schedule == '43 * * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run update:event-status -- --execute
+      - run: npm run validate:content
+      - run: npm run build:data

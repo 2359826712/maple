@@ -29,11 +29,21 @@ export async function localizeUpcomingFeed(
 ): Promise<UpcomingUpdateFeed> {
   const targetLanguage = normalizeStaticContentLanguage(language);
   if (targetLanguage === 'en' || feed.items.length === 0) return feed;
+  if (feed.localizedLanguage === targetLanguage) return feed;
 
   const texts = feed.items.flatMap((post) => [post.title, post.excerpt, ...post.tags]);
   const translations = await translateStaticTexts(texts, targetLanguage, { sourceLanguage: 'en' })
     .catch(() => texts);
-  return { ...feed, items: localizePostCopies(feed.items, translations) };
+  const localizedItems = localizePostCopies(feed.items, translations);
+  const translated = translations.some((value, index) => value !== texts[index]);
+  return {
+    ...feed,
+    ...(translated ? { localizedLanguage: targetLanguage } : {}),
+    items: localizedItems.map((item) => ({
+      ...item,
+      ...(translated ? { localizedLanguage: targetLanguage } : {}),
+    })),
+  };
 }
 
 export async function localizeUpcomingArticle(
@@ -42,6 +52,7 @@ export async function localizeUpcomingArticle(
 ): Promise<UpcomingUpdateArticle> {
   const targetLanguage = normalizeStaticContentLanguage(language);
   if (targetLanguage === 'en') return article;
+  if (article.localizedLanguage === targetLanguage) return article;
 
   const headerTexts = [article.title, article.excerpt, ...article.tags];
   const translatedHeader = await translateStaticTexts(headerTexts, targetLanguage, { sourceLanguage: 'en' })
@@ -52,7 +63,14 @@ export async function localizeUpcomingArticle(
     format: 'html',
   }).catch(() => article.contentHtml);
 
-  return { ...article, ...localizedPost, contentHtml };
+  const translated = translatedHeader.some((value, index) => value !== headerTexts[index])
+    || contentHtml !== article.contentHtml;
+  return {
+    ...article,
+    ...localizedPost,
+    contentHtml,
+    ...(translated ? { localizedLanguage: targetLanguage } : {}),
+  };
 }
 
 export function useLocalizedUpcomingFeed(feed: UpcomingUpdateFeed | null, language: string) {

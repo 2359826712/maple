@@ -32,11 +32,14 @@ const listKeys = (storage: Storage) => {
   return keys;
 };
 
-export const collectAccountData = (storage: Storage = window.localStorage) =>
-  Object.fromEntries(listKeys(storage).flatMap((key) => {
-    const value = storage.getItem(key);
+export const collectAccountData = (storage?: Storage) => {
+  const resolvedStorage = storage || (typeof window !== 'undefined' ? window.localStorage : null);
+  if (!resolvedStorage) return {};
+  return Object.fromEntries(listKeys(resolvedStorage).flatMap((key) => {
+    const value = resolvedStorage.getItem(key);
     return value === null ? [] : [[key, value]];
   }));
+};
 
 const hasMeaningfulValue = (value: string) => {
   try {
@@ -69,8 +72,10 @@ const recordSuccessfulSync = (updatedAt: string | undefined, storage: Storage) =
   return syncedAt;
 };
 
-export const readLastAccountSync = (storage: Storage = window.localStorage) =>
-  storage.getItem(ACCOUNT_LAST_SYNCED_AT_KEY);
+export const readLastAccountSync = (storage?: Storage) => {
+  const resolvedStorage = storage || (typeof window !== 'undefined' ? window.localStorage : null);
+  return resolvedStorage?.getItem(ACCOUNT_LAST_SYNCED_AT_KEY) || null;
+};
 
 const hydrateAccountData = (data: Record<string, string>, userId: string, storage: Storage) => {
   clearAccountDataCache(storage);

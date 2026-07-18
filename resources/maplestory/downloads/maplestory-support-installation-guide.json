@@ -1,0 +1,37 @@
+{
+  "id": "maplestory-support-installation-guide",
+  "name": "How to Install MapleStory",
+  "website": "Nexon MapleStory Support",
+  "page": "How to install MapleStory",
+  "url": "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "downloads",
+  "subcategory": "installation",
+  "description": "Gives official Windows and macOS installation steps, launcher instructions, and recommended preparation for Global MapleStory.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "download",
+    "installation",
+    "launcher",
+    "macos",
+    "windows"
+  ],
+  "source_urls": [
+    "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory"
+  ],
+  "notes": null
+}

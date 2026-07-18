@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-idle-june-11-2026-patch-notes",
+  "source_id": "idle-nexon-official-patch-notes",
+  "canonical_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+  "source_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+  "external_id": "3474001",
+  "title": "MapleStory: Idle RPG June 11 Patch Notes",
+  "original_title": "(Updated) June 11 Patch Notes",
+  "series": "idle",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": null,
+  "official": true,
+  "author": "Grendel",
+  "published_at": "2026-06-11",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-18T00:00:00.000Z",
+  "summary": "The June 11 update added Hero's Journey, Guild Raid Horntail, chapters 39-41, Growth Dungeon stages, Hero Power Stage 8, costume search, summer events, new guild seasons, movement improvements, and a broad set of fixes.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "guild-raid",
+    "heros-journey",
+    "horntail",
+    "patch-notes",
+    "summer-events"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "90c39339758d7e85a2a100c7b2d640a70a1846acb5a6aae26c7843b331aa6bc1",
+  "status": "updated",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "idle-nexon-june-11-patch-notes",
+    "sections": [
+      {
+        "title": "Hero's Journey",
+        "items": [
+          "Unlocks after clearing the Chapter 20 Boss; Journey Tokens begin dropping from Auto Hunt in Chapter 21.",
+          "Journey Chest Keys recharge five per week up to a maximum of five, and one free Blessing reset is available each day.",
+          "Journey Trail uses Journey Tokens and Mesos to unlock cleared boss footprints, permanent Inventory Effects, and Special Options."
+        ]
+      },
+      {
+        "title": "Guild Raid: Horntail",
+        "items": [
+          "Parties support up to eight members from the same guild, and each member must have cleared Normal Horntail Boss Raid.",
+          "The raid ranks guilds across all servers in the same region and awards damage-based rewards.",
+          "Defeating Horntail awards the Horntail Expedition medal with a Final Damage +3% Inventory Effect."
+        ]
+      },
+      {
+        "title": "Summer event schedule",
+        "items": [
+          "Ruler of the Beach, Summer Treasure Hunt, Treasure Exchange, and Water Balloon Collection run from June 11 into July 2026.",
+          "Summer 10-Day Attendance ends July 1, while the main summer events end July 22 and the Summer Shop purchase period ends July 24.",
+          "Arena Boost and new Guild War and Guild Training Ground seasons were added on separate schedules."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against the official Nexon Forum patch note on 2026-07-18.",
+  "game_version": null,
+  "patch_date": "2026-06-11",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [
+    "Added Hero's Journey with Journey Chests, Journey's Blessing, and Journey Trail.",
+    "Added Guild Raid Horntail for up to eight members of the same guild.",
+    "Added chapters 39, 40, and 41 and expanded Growth Dungeon progression.",
+    "Added Hero Power Stage 8, which unlocks the seventh Ability slot.",
+    "Added an All tab and name search to Costumes.",
+    "Added Ruler of the Beach and multiple summer treasure, attendance, shop, and boost events.",
+    "Added new Guild War and Guild Training Ground seasons.",
+    "Improved responsiveness for manual movement and jumping."
+  ],
+  "known_issues": [],
+  "resolved_issues": [
+    "Fixed several Party Quest repeat, matching, result, and exploration-timer issues.",
+    "Fixed equipment preset rename and Exploration Star Force display issues.",
+    "Fixed multiple companion skill interactions for Marksman, Shadower, and Dark Knight.",
+    "Fixed several Horntail Curse, Breath, attack-delay, and battle behavior issues.",
+    "Fixed a movement joystick issue triggered by Area Chat speech bubbles.",
+    "Improved force-closing behavior on low-memory devices and during Party Quest repeats."
+  ]
+}

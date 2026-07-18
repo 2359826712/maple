@@ -1,15 +1,20 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useVersion, VERSIONS, type GameVersion } from '@/hooks/VersionContext';
+import { useVersion, type GameVersion } from '@/hooks/VersionContext';
 import { getSiteSearchResults, getPopularSearchTerms } from '@/services/siteSearch';
 import SearchResultList from '@/components/search/SearchResultList';
 import UniversalSearchDialog from '@/components/search/UniversalSearchDialog';
 import { AUTO_LOGIN_ENABLED_KEY, clearAuthSession, useAuthSession } from '@/hooks/useAuthSession';
 import { mapleSqlApi } from '@/services/mapleSqlApi';
-import { clearAccountDataCache, saveCurrentAccountData } from '@/services/accountDataSync';
+import { clearAccountDataCache, collectAccountData } from '@/services/accountDataSync';
 import { SITE_NAME, SITE_TAGLINE } from '@/constants/site';
 import { localizeHref, normalizeLanguage, stripRouteSuffixes, withRouteSuffixes } from '@/i18n/languageRouting';
+import { getLocalizedVersionPresentation } from '@/domain/versionPresentation';
+import { prefetchRouteForPath } from '@/router/config';
+import { getSeriesProduct, seriesProducts } from '@/pages/series/catalog';
+import { getSeriesModuleHref, getSeriesRouteState, scopeModuleHref } from '@/pages/series/scope';
+import { getSeriesVersions, getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
@@ -20,6 +25,7 @@ const navLinkKeys = [
   { key: 'nav_checklist', href: '/checklist' },
   { key: 'nav_wiki', href: '/wiki' },
   { key: 'nav_rankings', href: '/rankings' },
+  { key: 'nav_shop', href: '/shop' },
   { key: 'nav_community', href: '/community' },
   { key: 'nav_feedback', href: '/feedback' },
 ];
@@ -74,7 +80,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const navigate = useNavigate();
   const location = useLocation();
   const routePathname = stripRouteSuffixes(location.pathname);
-  const { isSignedIn, isAdmin, displayName, session } = useAuthSession();
+  const { isSessionResolved, isSignedIn, isAdmin, displayName, session } = useAuthSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -82,6 +88,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [versionMenuOpen, setVersionMenuOpen] = useState(false);
+  const [seriesMenuOpen, setSeriesMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [guideMenuOpen, setGuideMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
@@ -91,7 +98,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [defaultToolFavorites, setDefaultToolFavorites] = useState<string[]>(() => {
     try {
       const value = window.localStorage.getItem(TOOL_FAVORITES_KEY);
-      return value ? JSON.parse(value) as string[] : [];
+      if (!value) return [];
+      const parsed = JSON.parse(value) as unknown;
+      return Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === 'string')
+        : [];
     } catch {
       return [];
     }
@@ -101,6 +112,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const mobileSearchButtonRef = useRef<HTMLButtonElement | null>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement | null>(null);
   const versionRef = useRef<HTMLDivElement | null>(null);
+  const seriesRef = useRef<HTMLDivElement | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
   const guideMenuRef = useRef<HTMLDivElement | null>(null);
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
@@ -154,6 +166,9 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
       if (!insideMobileSearch) setMobileSearchOpen(false);
       if (versionRef.current && !versionRef.current.contains(e.target as Node)) {
         setVersionMenuOpen(false);
+      }
+      if (seriesRef.current && !seriesRef.current.contains(e.target as Node)) {
+        setSeriesMenuOpen(false);
       }
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangMenuOpen(false);
@@ -214,7 +229,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   useEffect(() => {
     if (!toolMenu) {
-      window.localStorage.setItem(TOOL_FAVORITES_KEY, JSON.stringify(defaultToolFavorites));
+      try {
+        window.localStorage.setItem(TOOL_FAVORITES_KEY, JSON.stringify(defaultToolFavorites));
+      } catch {
+        // Storage can be blocked or full; favorites still work for this session.
+      }
     }
   }, [defaultToolFavorites, toolMenu]);
 
@@ -227,23 +246,23 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     [i18n.language, versionInfo.id],
   );
 
-  const handleSignOut = async () => {
-    try {
-      await saveCurrentAccountData();
-    } catch {
-      // The server may already be unavailable; logout still clears this device.
-    }
-    try {
-      await mapleSqlApi.auth.logout();
-    } catch {
-      // Clearing the local session remains safe when the server cannot be reached.
-    }
+  const handleSignOut = () => {
+    const accessToken = session?.accessToken;
+    const accountData = collectAccountData();
+    const persistAccountData = mapleSqlApi.accountData.save(accountData).catch(() => undefined);
+
     clearAccountDataCache();
     localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
     clearAuthSession();
     setAccountMenuOpen(false);
     setMenuOpen(false);
     navigate('/');
+
+    // Finish remote cleanup after the local UI has already signed out. The
+    // captured token remains valid even though browser storage is now clear.
+    void persistAccountData.finally(() => (
+      mapleSqlApi.auth.logout(accessToken || undefined).catch(() => undefined)
+    ));
   };
 
   const openGuideMenu = () => {
@@ -283,8 +302,31 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     setVersionMenuOpen(false);
   };
 
+  const seriesRoute = getSeriesRouteState(routePathname, location.search);
+  const isSeriesChooser = routePathname === '/' || routePathname === '/series';
+  const activeSeries = getSeriesProduct(seriesRoute.seriesId)
+    || (isSeriesChooser ? undefined : getSeriesProduct('maplestory-pc'));
+  const availableVersions = useMemo(() => getSeriesVersions(activeSeries?.id), [activeSeries?.id]);
+  const activeVersionShortLabel = getSeriesVersionShortLabel(activeSeries?.id, version);
+
+  useEffect(() => {
+    if (!availableVersions.some((item) => item.id === version)) {
+      setVersion(availableVersions[0]?.id || 'gms');
+    }
+  }, [activeSeries?.id, availableVersions, setVersion, version]);
+
+  const handleSeriesChange = (seriesId?: string) => {
+    const href = seriesId
+      ? getSeriesModuleHref(seriesId, seriesRoute.module || 'news')
+      : '/';
+    setSeriesMenuOpen(false);
+    navigate(localizeHref(href, i18n.language, versionInfo.id));
+  };
+
+  const getNavHref = (href: string) => scopeModuleHref(activeSeries?.id, href);
+
   const defaultToolValue = routePathname === '/mapler-house'
-    ? window.location.hash.replace('#', '') || 'dashboard'
+    ? (typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '') || 'dashboard'
     : '';
 
   const defaultToolOptions = useMemo(
@@ -459,11 +501,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   const isNavActive = (href: string) => {
     if (href.startsWith('http')) return false;
+    const destination = getNavHref(href);
+    if (destination !== href) return routePathname === destination;
     if (href === '/') return routePathname === '/';
     if (href === '/mapler-house') {
       return routePathname === '/mapler-house' || routePathname === '/maps';
     }
     return routePathname === href || routePathname.startsWith(`${href}/`);
+  };
+
+  const prefetchNav = (href: string) => {
+    if (!href.startsWith('http')) void prefetchRouteForPath(href);
   };
 
   return (
@@ -498,9 +546,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             </div>
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
+          <nav className="hidden 2xl:flex items-center gap-1">
             {navLinkKeys.map((l) => {
               const active = isNavActive(l.href);
+              const destinationHref = getNavHref(l.href);
 
               if (l.key === 'nav_guides' && guideMenu) {
                 return (
@@ -508,7 +557,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     key={l.href}
                     ref={guideMenuRef}
                     className="relative group"
-                    onMouseEnter={openGuideMenu}
+                    onMouseEnter={() => {
+                      prefetchNav(destinationHref);
+                      openGuideMenu();
+                    }}
+                    onFocus={() => prefetchNav(destinationHref)}
                     onMouseLeave={closeGuideMenuLater}
                   >
                     <button
@@ -558,13 +611,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 );
               }
 
-              if (l.key === 'nav_tools') {
+              if (l.key === 'nav_tools' && (!activeSeries || activeSeries.id === 'maplestory-pc')) {
                 return (
                   <div
                     key={l.href}
                     ref={toolMenuRef}
                     className="relative group"
-                    onMouseEnter={openToolMenu}
+                    onMouseEnter={() => {
+                      prefetchNav(destinationHref);
+                      openToolMenu();
+                    }}
+                    onFocus={() => prefetchNav(destinationHref)}
                     onMouseLeave={closeToolMenuLater}
                   >
                     <button
@@ -635,7 +692,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               return (
                 <Link
                   key={l.href}
-                  to={localizeHref(l.href, i18n.language, versionInfo.id)}
+                  to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
+                  onMouseEnter={() => prefetchNav(destinationHref)}
+                  onFocus={() => prefetchNav(destinationHref)}
+                  onTouchStart={() => prefetchNav(destinationHref)}
                   aria-current={active ? 'page' : undefined}
                   className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm transition-colors cursor-pointer whitespace-nowrap ${
                     active
@@ -700,17 +760,90 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               {searchOpen && renderSearchMenu('absolute right-0 mt-2 w-80 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden shadow-lg')}
             </div>
 
+            {/* Series Selector */}
+            <div ref={seriesRef} className="relative hidden sm:block">
+              <button
+                type="button"
+                onClick={() => {
+                  setVersionMenuOpen(false);
+                  setLangMenuOpen(false);
+                  setSeriesMenuOpen((open) => !open);
+                }}
+                aria-haspopup="menu"
+                aria-expanded={seriesMenuOpen}
+                className="flex h-10 max-w-44 items-center gap-1.5 rounded-full border border-background-200 bg-background-100 px-2.5 text-sm font-semibold text-foreground-800 hover:border-primary-300/60"
+                title={t('home_series_title')}
+              >
+                {activeSeries ? (
+                  <img src={activeSeries.image} alt="" className="h-5 w-5 shrink-0 rounded-md object-cover" />
+                ) : (
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-primary-100 text-primary-700">
+                    <i className="ri-apps-2-line text-xs" aria-hidden="true" />
+                  </span>
+                )}
+                <span className="hidden max-w-32 truncate lg:inline">{activeSeries?.name || t('nav_series')}</span>
+                <i className="ri-arrow-down-s-line shrink-0 text-xs text-foreground-500" aria-hidden="true" />
+              </button>
+              {seriesMenuOpen && (
+                <div className="absolute right-0 z-50 mt-2 w-72 overflow-hidden rounded-lg border border-primary-200/40 bg-background-50 shadow-lg" role="menu">
+                  <div className="flex items-center gap-2 bg-background-100 px-4 py-2 text-xs font-semibold uppercase text-foreground-500">
+                    <i className="ri-apps-2-line text-primary-600" aria-hidden="true" />
+                    {t('home_series_title')}
+                  </div>
+                  <ul className="max-h-[70vh] overflow-y-auto py-1">
+                    <li>
+                      <button
+                        type="button"
+                        role="menuitem"
+                        onClick={() => handleSeriesChange()}
+                        className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm ${
+                          !activeSeries ? 'bg-primary-50 font-semibold text-primary-700' : 'text-foreground-800 hover:bg-background-100'
+                        }`}
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-background-200 text-foreground-700">
+                          <i className="ri-layout-grid-line" aria-hidden="true" />
+                        </span>
+                        <span className="min-w-0 flex-1">{t('home_series_all')}</span>
+                        {!activeSeries && <i className="ri-check-line text-primary-600" aria-hidden="true" />}
+                      </button>
+                    </li>
+                    {seriesProducts.map((product) => (
+                      <li key={product.id}>
+                        <button
+                          type="button"
+                          role="menuitem"
+                          onClick={() => handleSeriesChange(product.id)}
+                          className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm ${
+                            activeSeries?.id === product.id
+                              ? 'bg-primary-50 font-semibold text-primary-700'
+                              : 'text-foreground-800 hover:bg-background-100'
+                          }`}
+                        >
+                          <img src={product.image} alt="" className="h-8 w-8 shrink-0 rounded-md object-cover" loading="lazy" />
+                          <span className="min-w-0 flex-1 truncate">{product.name}</span>
+                          {activeSeries?.id === product.id && <i className="ri-check-line text-primary-600" aria-hidden="true" />}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
             {/* Version Selector */}
             <div ref={versionRef} className="relative hidden sm:block">
               <button
-                onClick={() => setVersionMenuOpen((v) => !v)}
+                onClick={() => {
+                  setSeriesMenuOpen(false);
+                  setVersionMenuOpen((v) => !v);
+                }}
                 className="h-10 flex items-center gap-1.5 rounded-full px-3 bg-background-100 border border-background-200 hover:border-primary-300/60 text-sm font-semibold text-foreground-800 cursor-pointer whitespace-nowrap"
                 title={t('nav_version_label')}
               >
                 <span className="w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-accent-600 text-background-50 text-[10px] font-bold flex items-center justify-center">
-                  {versionInfo.shortLabel[0]}
+                  {activeVersionShortLabel[0]}
                 </span>
-                <span className="hidden lg:inline">{versionInfo.shortLabel}</span>
+                <span className="hidden lg:inline">{activeVersionShortLabel}</span>
                 <i className="ri-arrow-down-s-line text-foreground-500 text-xs"></i>
               </button>
               {versionMenuOpen && (
@@ -720,7 +853,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     {t('nav_version_label')}
                   </div>
                   <ul className="py-1">
-                    {VERSIONS.map((ver) => (
+                    {availableVersions.map((ver) => (
                       <li key={ver.id}>
                         <button
                           onClick={() => handleVersionChange(ver.id)}
@@ -735,12 +868,12 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                               ? 'bg-gradient-to-br from-primary-500 to-accent-600 text-background-50'
                               : 'bg-background-100 text-foreground-700'
                           }`}>
-                            {ver.shortLabel[0]}
+                            {getSeriesVersionShortLabel(activeSeries?.id, ver.id)[0]}
                           </span>
                           <div className="flex min-w-0 flex-col">
-                            <span className="truncate text-sm leading-tight">{ver.fullName}</span>
+                            <span className="truncate text-sm leading-tight">{activeSeries && activeSeries.id !== 'maplestory-pc' ? activeSeries.name : getLocalizedVersionPresentation(ver, t).name}</span>
                             <span className="flex items-center gap-1.5 text-[10px] leading-tight text-foreground-500">
-                              {ver.shortLabel} · {ver.region}
+                              {getSeriesVersionShortLabel(activeSeries?.id, ver.id)} · {getLocalizedVersionPresentation(ver, t).region}
                             </span>
                           </div>
                           {version === ver.id && (
@@ -863,7 +996,9 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             </button>
 
             {/* Account state */}
-            {isSignedIn ? (
+            {!isSessionResolved ? (
+              <div className="hidden h-10 w-28 sm:block 2xl:w-36" aria-hidden="true" />
+            ) : isSignedIn ? (
               <div ref={accountMenuRef} className="relative hidden sm:block">
                 <button
                   type="button"
@@ -934,7 +1069,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 setMobileSearchOpen(false);
                 setMenuOpen((v) => !v);
               }}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 xl:hidden cursor-pointer"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 2xl:hidden cursor-pointer"
               aria-label={menuOpen ? t('nav_menu_close') : t('nav_menu_open')}
             >
               <i className={`${menuOpen ? 'ri-close-line' : 'ri-menu-line'} text-foreground-800 text-xl`}></i>
@@ -985,10 +1120,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
         )}
 
         {menuOpen && (
-          <div className="xl:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
+          <div className="2xl:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
               {navLinkKeys.map((l) => {
                 const active = isNavActive(l.href);
+                const destinationHref = getNavHref(l.href);
 
                 if (l.key === 'nav_guides' && guideMenu) {
                   return (
@@ -1028,7 +1164,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   );
                 }
 
-                if (l.key === 'nav_tools') {
+                if (l.key === 'nav_tools' && (!activeSeries || activeSeries.id === 'maplestory-pc')) {
                   return (
                     <div key={l.href} ref={mobileToolMenuRef} className="py-1">
                       <button
@@ -1091,7 +1227,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 return (
                   <Link
                     key={l.href}
-                    to={localizeHref(l.href, i18n.language, versionInfo.id)}
+                    to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
+                    onMouseEnter={() => prefetchNav(destinationHref)}
+                    onFocus={() => prefetchNav(destinationHref)}
+                    onTouchStart={() => prefetchNav(destinationHref)}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active ? 'page' : undefined}
                     className={`rounded-md px-3 py-2 text-sm cursor-pointer ${
@@ -1110,7 +1249,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   {t('nav_version_label')}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {VERSIONS.map((ver) => (
+                  {availableVersions.map((ver) => (
                     <button
                       key={ver.id}
                       onClick={() => { setVersion(ver.id); setMenuOpen(false); }}
@@ -1165,7 +1304,9 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     繁體
                   </button>
                 </div>
-                {isSignedIn ? (
+                {!isSessionResolved ? (
+                  <div className="mt-2 h-10" aria-hidden="true" />
+                ) : isSignedIn ? (
                   <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-2">
                     <Link
                       to="/account"

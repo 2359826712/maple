@@ -1,0 +1,104 @@
+{
+  "id": "worlds-global-creator-center-news-2026-07-02-3490500",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500",
+  "external_id": "3490500",
+  "title": "Global Creator Challenge Discord Linking Event",
+  "original_title": "Global Creator Challenge Discord Linking Event",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-07-02T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:12.015Z",
+  "last_checked": "2026-07-18T09:45:10.043Z",
+  "summary": "Global Creator Challenge participants in the United States and Canada, excluding Quebec, can enter a Discord account-linking raffle through October 7, 2026. Six winners receive a one-month Claude Pro subscription by direct message from an official MapleStory Worlds administrator.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260702/3eb7a5dd-0bb6-4a1c-83f6-33422a20f4ae/MSWGenericPostBanners740x120notice.png",
+      "alt": "Global Creator Challenge Discord Linking Event"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/e03dbe69-2df3-4b00-b451-18b283629052/image202607011458013.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "49e2bd1c7390412d494f5d81e3f6304801e7e2ba86b7b89c99819563b28568e3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:19.250Z",
+    "headline_id": "5287",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Event period and prize",
+        "items": [
+          "Runs from July 2 at 05:00 UTC through October 7 at 14:59 UTC.",
+          "Six raffle winners receive a one-month Claude Pro subscription through Discord direct message."
+        ]
+      },
+      {
+        "title": "How to enter",
+        "items": [
+          "Join the Global Creator Challenge Discord server and link a Nexon Account to the Discord profile.",
+          "Entry is complete when the account receives the CREATOR role.",
+          "The linked account must remain registered through prize distribution."
+        ]
+      },
+      {
+        "title": "Eligibility",
+        "items": [
+          "Participation is limited to the United States and Canada, excluding Quebec.",
+          "Only one gift can be awarded per Discord account linked to a Nexon Account, and policy violations or abnormal participation invalidate the entry."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null,
+  "event_name": "Global Creator Challenge Discord Linking Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-07-02T05:00:00.000Z",
+  "event_end": "2026-10-07T14:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "active"
+}

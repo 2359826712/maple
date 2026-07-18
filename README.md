@@ -1,4 +1,46 @@
-# Maple frontend
+# MPStorys Resource and Content Index
+
+MPStorys is a Next.js MapleStory series hub. The repository contains a resource index plus infrastructure for lawful discovery, structured storage, revision history, and presentation of news, events, guides, patch notes, maintenance notices, Cash Shop updates, developer notes, and roadmaps.
+
+## Resource Index
+
+Each source record lives at:
+
+```text
+resources/{series}/{category}/{id}.json
+```
+
+Supported series are `maplestory`, `classic`, `m`, `worlds`, `n`, and `idle`. See [AGENTS.md](AGENTS.md), [SCHEMA.md](SCHEMA.md), and [CONTRIBUTING.md](CONTRIBUTING.md) before changing data.
+
+The machine-readable schema is `schemas/resource.schema.json`. Generated files under `generated/` are deterministic build artifacts and must not be edited manually.
+
+## Sources and Content
+
+Monitored sources live in `sources/{series}/{id}.json`. Individual articles and events live in `content/{type}/{series}/{year}/{id}.json`. Source responses, structured revision snapshots, and local crawl progress are kept separately in `raw/`, `snapshots/`, and `crawl-state/`.
+
+The source registry defaults to summary and metadata storage. Full source text is neither retained nor displayed without explicit permission. See [Content Source Development](docs/content-source-development.md) for adapters, crawl safety, parser development, and historical backfill procedures.
+
+```bash
+npm run validate
+npm run validate:sources
+npm run validate:content
+npm run check:duplicates
+npm run check:links
+npm run crawl
+npm run crawl:source -- --source=maplestory-gms-official-news
+npm run update:event-status
+npm run build:search
+npm run build:data
+npm test
+npm run type-check
+npm run build
+```
+
+Crawler commands are dry-run by default. Add `-- --execute` (or append `--execute` after existing arguments) only after reviewing discovery output. `npm run build:data` creates resource, source, content, statistics, and unified search indexes. `npm test` covers schemas, stable IDs, hashing, snapshots, adapters, event status, duplicate signals, six-series coverage, and reproducible generation in addition to the application suite.
+
+`npm run check:links` uses dated records in `verification/browser-checks.json` and `verification/indexed-checks.json` for official sites that block automated requests. Fresh evidence can satisfy a 401/403/429 result for 30 days; its method remains visible in the output, and it never hides 404 or 410 failures.
+
+## Application Development
 
 This frontend is wired to the Go backend in `D:/Desktop/maple_sql/backend`.
 
@@ -21,6 +63,16 @@ cd D:/Desktop/maple
 npm run dev
 ```
 
-The frontend calls the backend through Vite at `/api`, proxied to `http://127.0.0.1:8080`.
+The frontend runs on Next.js. Set `MAPLE_SQL_API_ORIGIN=http://127.0.0.1:8080` to proxy `/api` requests to the local backend.
 
-Production routes and all locale dictionaries are bundled statically. Remote news, rankings, maps, wiki, guide, tool, and upcoming-update data is requested only through the backend's database-backed static snapshot endpoint. The backend stores the first successful response in PostgreSQL and refreshes stored snapshots every 12 hours; browsers never contact those upstream data APIs directly.
+Local free translation uses the backend's `/api/translations` endpoint. For a fully local setup, set the backend `.env` in `D:/Desktop/maple_sql/backend` to:
+
+```env
+TRANSLATION_PROVIDER=ollama
+OLLAMA_API_URL=http://127.0.0.1:11434
+OLLAMA_MODEL=gemma3:1b
+```
+
+Then run `ollama serve`, `ollama pull gemma3:1b`, start the Go backend, and start this frontend with `npm run dev`.
+
+Production uses hybrid rendering: stable localized routes are generated with SSG and refreshed with ISR, while news, events, guides, wiki, source, and upcoming-update routes render on request. Client-side navigation and route prefetching remain enabled after hydration. Remote news, rankings, maps, wiki, guide, tool, and upcoming-update data is requested only through the backend's database-backed static snapshot endpoint. The backend stores the first successful response in PostgreSQL and refreshes stored snapshots every 12 hours; browsers never contact those upstream data APIs directly.

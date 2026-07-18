@@ -2,7 +2,7 @@ import { getAccessToken } from '@/hooks/useAuthSession';
 import { apiBaseUrl, apiEndpoint } from './apiEndpoint';
 import { telemetry } from './telemetry';
 
-const defaultTenantKey = (import.meta.env.VITE_MAPLE_SQL_TENANT_KEY || 'default').trim() || 'default';
+const defaultTenantKey = (process.env.NEXT_PUBLIC_MAPLE_SQL_TENANT_KEY || 'default').trim() || 'default';
 
 export class MapleApiError extends Error {
   status: number;
@@ -21,6 +21,7 @@ type RequestOptions = {
   headers?: Headers | Record<string, string>;
   body?: unknown;
   auth?: boolean;
+  accessToken?: string;
   [key: string]: unknown;
 };
 
@@ -47,8 +48,8 @@ const normalizeErrorMessage = (payload: unknown, fallback: string) => {
 };
 
 async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { body, headers, auth = false, ...rest } = options;
-  const token = auth ? getAccessToken() : null;
+  const { body, headers, auth = false, accessToken, ...rest } = options;
+  const token = auth ? accessToken || getAccessToken() : null;
   const requestHeaders = new Headers(headers);
 
   if (body !== undefined && !requestHeaders.has('Content-Type')) {
@@ -293,7 +294,7 @@ export const mapleSqlApi = {
     signup: (payload: { email: string; username: string; display_name: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/signup', { method: 'POST', body: payload }),
     refresh: () => request<AuthResponse>('/auth/refresh', { method: 'POST', auth: true }),
-    logout: () => request<void>('/auth/logout', { method: 'POST', auth: true }),
+    logout: (accessToken?: string) => request<void>('/auth/logout', { method: 'POST', auth: true, accessToken }),
     me: () => request<{ user_id: string; tenant_id: string; permissions: string[] }>('/me', { auth: true }),
   },
   feedback: {

@@ -1,0 +1,1100 @@
+[
+  {
+    "id": "classic-nexon-closed-online-test-2",
+    "name": "Classic World Closed Online Test #2 Registration",
+    "website": "Global MapleStory",
+    "page": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+    "url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2",
+    "series": "classic",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "announcements",
+    "description": "Provides Nexon's registration announcement and participation details for the second Global MapleStory Classic World closed online test.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "closed-test",
+      "registration",
+      "test-schedule"
+    ],
+    "source_urls": [
+      "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2"
+    ],
+    "notes": null
+  },
+  {
+    "id": "classic-world-test-2-campaign",
+    "name": "Classic World Closed Online Test #2",
+    "website": "Global MapleStory Classic World",
+    "page": "Closed Online Test #2",
+    "url": "https://www.nexon.com/mscw/classic-world-closed-online-test-2",
+    "series": "classic",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "official",
+    "subcategory": "closed-test",
+    "description": "Provides Nexon's official campaign page for registration and access information for Classic World Closed Online Test #2.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "closed-test",
+      "registration",
+      "test-schedule"
+    ],
+    "source_urls": [
+      "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
+    ],
+    "notes": null
+  },
+  {
+    "id": "idle-april-9-2026-patch-notes",
+    "name": "April 9 Patch Notes",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "April 9 Patch Notes",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "patch-notes",
+    "subcategory": "game-update",
+    "description": "Documents the official April 9, 2026 collaboration, new weapons, chapters, events, and progression changes.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "collaboration",
+      "game-update",
+      "patch-notes",
+      "progression"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "idle-may-21-2026-patch-notes",
+    "name": "May 21 Patch Notes",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "05.21 Patch Notes",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "patch-notes",
+    "subcategory": "game-update",
+    "description": "Documents the official May 21, 2026 Party Quest changes, combat improvements, content updates, events, and system fixes.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "combat",
+      "events",
+      "party-quest",
+      "patch-notes"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "idle-may-21-update-preview",
+    "name": "May 21 Major Update Preview",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "May 21 Major Update Preview",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "update-preview",
+    "description": "Previews the official May 21, 2026 Party Quest Exploration system, events, and planned convenience improvements.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "party-quest",
+      "preview",
+      "updates"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "idle-nexon-june-11-patch-notes",
+    "name": "MapleStory: Idle RPG June 11 Patch Notes",
+    "website": "MapleStory: Idle RPG Forum",
+    "page": "June 11 Patch Notes",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "patch-notes",
+    "subcategory": null,
+    "description": "Documents the Hero's Journey system, new chapters, growth content, summer events, guild seasons, controls, and fixes added on June 11, 2026.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "events",
+      "guild",
+      "heros-journey",
+      "progression",
+      "summer"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
+    ],
+    "notes": null
+  },
+  {
+    "id": "idle-official-faq",
+    "name": "MapleStory Idle RPG FAQ",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "FAQ",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "wiki",
+    "subcategory": "faq",
+    "description": "Provides the maintained official FAQ for resets, regions, jobs, account access, device requirements, currencies, and gameplay systems.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "account",
+      "faq",
+      "gameplay",
+      "resets"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "idle-official-forum",
+    "name": "MapleStory Idle RPG Official Forum",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "Latest",
+    "url": "https://forum.nexon.com/maplestoryidle/main",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "official-forum",
+    "description": "Publishes official MapleStory Idle RPG notices, patch notes, previews, events, known issues, FAQ entries, and community information.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "announcements",
+      "forum",
+      "patch-notes",
+      "updates"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestoryidle/main"
+    ],
+    "notes": "The official forum may return HTTP 403 to automated requests while remaining available in a normal browser."
+  },
+  {
+    "id": "m-global-official-forum",
+    "name": "MapleStory M Global Forum",
+    "website": "MapleStory M Global Forum",
+    "page": "Latest",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal",
+    "series": "m",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "official-forum",
+    "description": "Publishes official MapleStory M announcements, update previews, patch notes, known issues, market notices, guides, and support links.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "announcements",
+      "forum",
+      "patch-notes",
+      "updates"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/MapleStoryMGlobal"
+    ],
+    "notes": "The official forum may return HTTP 403 to automated requests while remaining available in a normal browser."
+  },
+  {
+    "id": "m-june-24-2026-patch-notice",
+    "name": "06.24 Patch Notice",
+    "website": "MapleStory M Global Forum",
+    "page": "06.24 Patch Notice (Completed)",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431",
+    "series": "m",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "patch-notes",
+    "subcategory": "maintenance",
+    "description": "Records the official June 24, 2026 MapleStory M quick-patch schedule, language corrections, bug fixes, and server stabilization.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "bug-fixes",
+      "maintenance",
+      "patch-notes"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "m-may-2026-known-issues",
+    "name": "05.20/21 Update Known Issues",
+    "website": "MapleStory M Global Forum",
+    "page": "2026.05.20/21 Update Known Issue Notice",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314",
+    "series": "m",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "known-issues",
+    "description": "Lists officially acknowledged issues for the May 20/21, 2026 MapleStory M update and records subsequent corrections.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "bug-fixes",
+      "known-issues",
+      "updates"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "m-may-2026-patch-notes-part-2",
+    "name": "05.20/21 Patch Notes Part 2",
+    "website": "MapleStory M Global Forum",
+    "page": "05.20/21 Patch Notes Pt.2",
+    "url": "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2690&thread=3448834",
+    "series": "m",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "patch-notes",
+    "subcategory": "game-update",
+    "description": "Documents the official May 2026 MapleStory M events, growth support, Boss Invitation content, event shops, and package changes.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "events",
+      "game-update",
+      "patch-notes",
+      "shops"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2690&thread=3448834"
+    ],
+    "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "m-nexon-guide-for-new-maplers",
+    "name": "MapleStory M Guide for New Maplers",
+    "website": "MapleStory M Global Forum",
+    "page": "04 Guide for New Maplers",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "guide",
+    "subcategory": "beginner",
+    "description": "Explains MapleStory M settings, auto-battle, early growth, equipment, the Trade Station, and convenience features for new players.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "auto-battle",
+      "beginner",
+      "equipment",
+      "progression"
+    ],
+    "source_urls": [
+      "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388"
+    ],
+    "notes": null
+  },
+  {
+    "id": "maplestory-miracle-summer-2026",
+    "name": "Miracle Summer 2026",
+    "website": "Global MapleStory",
+    "page": "Miracle Summer 2026",
+    "url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "events",
+    "subcategory": "seasonal-event",
+    "description": "Publishes the official Global MapleStory Miracle Summer 2026 event announcement and participation details.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "events",
+      "miracle-summer",
+      "summer"
+    ],
+    "source_urls": [
+      "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026"
+    ],
+    "notes": null
+  },
+  {
+    "id": "maplestory-nexon-official-news",
+    "name": "Global MapleStory Official News",
+    "website": "Global MapleStory",
+    "page": "News",
+    "url": "https://www.nexon.com/maplestory/news",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "announcements",
+    "description": "Publishes official Global MapleStory announcements, updates, events, maintenance notices, and Cash Shop news.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "announcements",
+      "cash-shop",
+      "events",
+      "patch-notes"
+    ],
+    "source_urls": [
+      "https://www.nexon.com/maplestory/news"
+    ],
+    "notes": null
+  },
+  {
+    "id": "maplestory-official-game-reference",
+    "name": "Global MapleStory Game Reference",
+    "website": "Global MapleStory",
+    "page": "Game",
+    "url": "https://www.nexon.com/maplestory/game",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "wiki",
+    "subcategory": "game-reference",
+    "description": "Provides Nexon's official overview of Global MapleStory classes, worlds, systems, and ways to play.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "classes",
+      "game-systems",
+      "worlds"
+    ],
+    "source_urls": [
+      "https://www.nexon.com/maplestory/game"
+    ],
+    "notes": null
+  },
+  {
+    "id": "maplestory-official-rankings",
+    "name": "Global MapleStory Rankings",
+    "website": "Global MapleStory",
+    "page": "Rankings",
+    "url": "https://www.nexon.com/maplestory/rankings",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "rankings",
+    "subcategory": "character-rankings",
+    "description": "Provides Nexon's official Global MapleStory ranking tables and character ranking lookup.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "characters",
+      "leaderboards",
+      "rankings"
+    ],
+    "source_urls": [
+      "https://www.nexon.com/maplestory/rankings"
+    ],
+    "notes": null
+  },
+  {
+    "id": "maplestory-support-gameplay",
+    "name": "Global MapleStory Gameplay Help",
+    "website": "Nexon MapleStory Support",
+    "page": "Gameplay",
+    "url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "guide",
+    "subcategory": "gameplay-help",
+    "description": "Organizes official gameplay help for worlds, classes, Star Force, items, skills, guilds, events, and common account questions.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "gameplay",
+      "help",
+      "star-force",
+      "worlds"
+    ],
+    "source_urls": [
+      "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay"
+    ],
+    "notes": null
+  },
+  {
+    "id": "maplestory-support-installation-guide",
+    "name": "How to Install MapleStory",
+    "website": "Nexon MapleStory Support",
+    "page": "How to install MapleStory",
+    "url": "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "downloads",
+    "subcategory": "installation",
+    "description": "Gives official Windows and macOS installation steps, launcher instructions, and recommended preparation for Global MapleStory.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "download",
+      "installation",
+      "launcher",
+      "macos",
+      "windows"
+    ],
+    "source_urls": [
+      "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-beginners-guide",
+    "name": "MapleStory N Beginner's Guide",
+    "website": "MapleStory N Documentation",
+    "page": "Beginner's Guide",
+    "url": "https://docs.maplestoryn.io/msn-101/beginners-guide",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "guide",
+    "subcategory": "beginner-guide",
+    "description": "Organizes official getting-started, character progression, item, equipment, content, and gameplay guidance for MapleStory N.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "beginner-guide",
+      "gameplay",
+      "progression"
+    ],
+    "source_urls": [
+      "https://docs.maplestoryn.io/msn-101/beginners-guide"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-classes-and-jobs",
+    "name": "MapleStory N Classes and Jobs",
+    "website": "MapleStory N Documentation",
+    "page": "Classes & Jobs",
+    "url": "https://docs.maplestoryn.io/msn-101/classes-and-jobs",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "wiki",
+    "subcategory": "classes",
+    "description": "Provides the official MapleStory N class and job reference for Warrior, Magician, Bowman, Thief, and Pirate branches.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "classes",
+      "jobs",
+      "reference"
+    ],
+    "source_urls": [
+      "https://docs.maplestoryn.io/msn-101/classes-and-jobs"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-download-guide",
+    "name": "MapleStory N Download Guide",
+    "website": "MapleStory N Documentation",
+    "page": "Download Guide",
+    "url": "https://docs.maplestoryn.io/msn-101/download-guide",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "downloads",
+    "subcategory": "installation",
+    "description": "Explains official account, wallet, launcher, installation, and recommended PC specification steps for MapleStory N.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "account",
+      "download",
+      "installation",
+      "wallet"
+    ],
+    "source_urls": [
+      "https://docs.maplestoryn.io/msn-101/download-guide"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-official-events",
+    "name": "MapleStory N Events",
+    "website": "MapleStory N Documentation",
+    "page": "Events",
+    "url": "https://docs.maplestoryn.io/archives/events",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "events",
+    "subcategory": "event-directory",
+    "description": "Lists current official MapleStory N events and provides access to the official past-event archive.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "event-directory",
+      "events",
+      "rewards"
+    ],
+    "source_urls": [
+      "https://docs.maplestoryn.io/archives/events"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-official-launch-guide",
+    "name": "MapleStory N Official Launch Guide",
+    "website": "MapleStory N Documentation",
+    "page": "MapleStory N Official Launch",
+    "url": "https://docs.maplestoryn.io/welcome-to-maplestory-n/maplestory-n-official-launch",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "guide",
+    "subcategory": "beginner",
+    "description": "Documents MapleStory N launch access, web guides, rankings, dynamic pricing, probability information, marketplace access, languages, and support.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "beginner",
+      "dynamic-pricing",
+      "launch",
+      "marketplace",
+      "rankings"
+    ],
+    "source_urls": [
+      "https://docs.maplestoryn.io/welcome-to-maplestory-n/maplestory-n-official-launch",
+      "https://docs.maplestoryn.io/announcement/maplestory-n-official-launch"
+    ],
+    "notes": "The official document moved from its former /announcement/ path and notes that access may be restricted in some regions."
+  },
+  {
+    "id": "n-official-updates",
+    "name": "MapleStory N Updates",
+    "website": "MapleStory N Documentation",
+    "page": "Updates",
+    "url": "https://docs.maplestoryn.io/archives/updates",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "updates",
+    "description": "Indexes official MapleStory N notices, game patches, service changes, and update announcements.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "announcements",
+      "patch-notes",
+      "updates"
+    ],
+    "source_urls": [
+      "https://docs.maplestoryn.io/archives/updates"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-creator-center-news",
+    "name": "MapleStory Worlds Creator Center",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Creators News",
+    "url": "https://maplestoryworlds-creators.nexon.com/en",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "news",
+    "subcategory": "creator-news",
+    "description": "Publishes official MapleStory Worlds maintenance, platform, campaign, policy, and creator announcements.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "creators",
+      "maintenance",
+      "platform-news"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-creator-center-welcome-to-msw",
+    "name": "Welcome to MapleStory Worlds",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Welcome to MSW (ENG)",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "guide",
+    "subcategory": "creator",
+    "description": "Introduces the MapleStory Worlds editor, LuaScript concepts, networking, world creation, publishing, and monetization for creators.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "creator",
+      "lua-script",
+      "publishing",
+      "world-editor"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-creator-documents",
+    "name": "MapleStory Worlds Utilizing Creation Guide",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Utilizing Creation Guide",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=472",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "wiki",
+    "subcategory": "creator-documentation",
+    "description": "Provides Nexon's official documentation for Maker basics, scripting, data, resources, optimization, security, and game services.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "creator-guide",
+      "documentation",
+      "maker",
+      "scripting"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/docs?postId=472"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-creator-resources",
+    "name": "MapleStory Worlds Creator Resources",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Resources",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/resource",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "learning-resources",
+    "description": "Indexes official basic classes, guide videos, external lectures, event videos, and Design Mode and Pro Mode learning material.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "classes",
+      "creator-resources",
+      "design-mode",
+      "videos"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/resource"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-ip-use-scope",
+    "name": "Specific Scope of IP Use",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Specific Scope of IP Use",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1161",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "guide",
+    "subcategory": "policy",
+    "description": "Defines the official permitted scope for using MapleStory and other supplied intellectual property in creator-generated Worlds.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "creator-policy",
+      "intellectual-property",
+      "policy"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1161"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-managing-resources-guide",
+    "name": "Managing Resources",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Managing Resources",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "guide",
+    "subcategory": "resource-management",
+    "description": "Explains official resource classifications, permissions, storage, sharing, migration, and version behavior in MapleStory Worlds Maker.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-18",
+    "tags": [
+      "maker",
+      "permissions",
+      "resource-management",
+      "storage"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
+    ],
+    "notes": null
+  }
+]

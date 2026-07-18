@@ -165,15 +165,15 @@ export function createTelemetryClient(options: TelemetryClientOptions) {
   };
 }
 
-const telemetryEndpoint = (import.meta.env.VITE_ANALYTICS_ENDPOINT || '/api/telemetry/events').trim();
+const telemetryEndpoint = (process.env.NEXT_PUBLIC_ANALYTICS_ENDPOINT || '/api/telemetry/events').trim();
 const endpointIsSameOrigin = () => {
   if (typeof window === 'undefined') return telemetryEndpoint.startsWith('/');
   try { return new URL(telemetryEndpoint, window.location.origin).origin === window.location.origin; } catch { return false; }
 };
-const telemetryEnabled = import.meta.env.VITE_ENABLE_ANALYTICS === 'true'
+const telemetryEnabled = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true'
   && endpointIsSameOrigin()
   && (typeof navigator === 'undefined' || navigator.doNotTrack !== '1');
-const internalSession = import.meta.env.DEV || import.meta.env.VITE_INTERNAL_SESSION === 'true';
+const internalSession = process.env.NODE_ENV !== 'production' || process.env.NEXT_PUBLIC_INTERNAL_SESSION === 'true';
 
 export const telemetry = createTelemetryClient({
   enabled: telemetryEnabled,

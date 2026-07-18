@@ -72,12 +72,12 @@ afterEach(() => {
 
 function CurrentPath() {
   const location = useLocation();
-  return <output aria-label="Current path">{location.pathname}</output>;
+  return <output aria-label="Current path">{location.pathname}{location.search}</output>;
 }
 
-function renderNavbar() {
+function renderNavbar(pathname = '/') {
   render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={[pathname]}>
       <CurrentPath />
       <Navbar onOpenNotifications={vi.fn()} unread={0} />
     </MemoryRouter>,
@@ -85,13 +85,56 @@ function renderNavbar() {
 }
 
 describe('Navbar mobile site search', () => {
-  it('shows the former More destinations directly in the desktop navigation', () => {
+  it('switches to a dedicated on-site series hub before the server selector', () => {
     renderNavbar();
 
-    const desktopNavigation = document.querySelector('header nav.hidden.xl\\:flex');
+    const seriesButton = screen.getByRole('button', { name: 'nav_series' });
+    fireEvent.click(seriesButton);
+    fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory M' }));
+
+    expect(screen.getByLabelText('Current path').textContent).toBe('/news/en/GMS?series=maplestory-m');
+  });
+
+  it('keeps the current module when the selected series changes', () => {
+    renderNavbar('/guides/en/GMS');
+
+    fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory M' }));
+
+    expect(screen.getByLabelText('Current path').textContent).toBe('/guides/en/GMS?series=maplestory-m');
+  });
+
+  it('keeps shared feedback content open when the selected series changes', () => {
+    renderNavbar('/feedback/en/GMS');
+
+    fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
+    fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory M' }));
+
+    expect(screen.getByLabelText('Current path').textContent).toBe('/feedback/en/GMS?series=maplestory-m');
+  });
+
+  it('scopes every desktop module link to the selected series', () => {
+    renderNavbar('/news/en/GMS?series=maplestory-m');
+
+    const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
+    expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('href')).toBe('/news/en/GMS?series=maplestory-m');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('href')).toBe('/guides/en/GMS?series=maplestory-m');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop/en/GMS?series=maplestory-m');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback/en/GMS?series=maplestory-m');
+  });
+
+  it('shows the former More destinations directly in the desktop navigation', () => {
+    renderNavbar();
+
+    const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
+    expect(desktopNavigation).toBeTruthy();
+    const scopedNavigation = within(desktopNavigation as HTMLElement);
+
+    expect(scopedNavigation.queryByRole('link', { name: 'nav_series' })).toBeNull();
+    expect(screen.getByRole('button', { name: 'nav_series' })).toBeTruthy();
     expect(scopedNavigation.getByRole('link', { name: 'nav_upcoming' }).getAttribute('href')).toBe('/upcoming/en/GMS');
     expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('href')).toBe('/wiki/en/GMS');
     expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings/en/GMS');
@@ -147,7 +190,7 @@ describe('Navbar mobile site search', () => {
 });
 
 describe('Navbar account menu', () => {
-  it('clears the browser auth session when signing out', async () => {
+  it('clears the browser auth session immediately when signing out', () => {
     sessionStorage.setItem('maplehub-auth-session', JSON.stringify({
       provider: 'local',
       user: 'Test Mapler',
@@ -164,7 +207,7 @@ describe('Navbar account menu', () => {
     fireEvent.click(accountButton as HTMLButtonElement);
     fireEvent.click(screen.getByRole('menuitem', { name: 'Sign out' }));
 
-    await waitFor(() => expect(sessionStorage.getItem('maplehub-auth-session')).toBeNull());
+    expect(sessionStorage.getItem('maplehub-auth-session')).toBeNull();
     expect(screen.getByText('Sign in')).toBeTruthy();
   });
 });

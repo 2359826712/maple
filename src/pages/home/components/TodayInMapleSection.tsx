@@ -11,6 +11,7 @@ import {
   type NewsItem,
   type EventItem,
 } from '@/services/liveContent';
+import { isRenderableEventItem, isRenderableNewsItem } from '@/services/contentCacheValidation';
 import { bosses } from '@/mocks/bosses';
 import { eligibleTasksForLevel } from '@/domain/checklistEligibility';
 import {
@@ -30,9 +31,10 @@ import {
   selectNextBestAction,
   type NextBestActionCandidate,
 } from '@/domain/nextBestAction';
-import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
+import { getNewsCategoryLabel, getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -45,6 +47,7 @@ function formatCountdown(ms: number): string {
 export default function TodayInMapleSection() {
   const { t, i18n } = useTranslation();
   const { version } = useVersion();
+  const { initialEvents, initialNews } = useServerRouteData();
   const {
     activeCharacter,
     activeCharId,
@@ -53,7 +56,7 @@ export default function TodayInMapleSection() {
     tasks,
     checklistConfig,
   } = useCharacters();
-  const [now, setNow] = useState(Date.now());
+  const [now, setNow] = useState(0);
   const routines = useRoutineTasks(
     version,
     activeCharacter?.id ?? null,
@@ -66,6 +69,7 @@ export default function TodayInMapleSection() {
 
   // Tick every second for countdown
   useEffect(() => {
+    setNow(Date.now());
     const timer = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -73,16 +77,22 @@ export default function TodayInMapleSection() {
   // Realtime data
   const { items: newsItems, lastSyncedAt: newsSyncedAt, status: newsStatus } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${version}`,
-    baseItems: [],
+    baseItems: initialNews,
     remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
   const { items: localizedNewsItems } = useLocalizedNewsItems(newsItems, i18n.language);
   const { items: rawEventItems, lastSyncedAt: eventsSyncedAt, status: eventsStatus } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${version}`,
-    baseItems: [],
+    baseItems: initialEvents,
     remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
-  const eventItems = useLocalizedEvents(rawEventItems, i18n.language);
+  const eventItems = useLocalizedEvents(
+    rawEventItems,
+    i18n.language,
+    getNewsSourceLanguageForVersion(version),
+  );
 
   // Checklist progress computation
   const checklistProgress = useMemo(() => {
@@ -461,7 +471,7 @@ export default function TodayInMapleSection() {
                   {latestNews[0].title}
                 </p>
                 <span className="inline-block rounded px-1.5 py-0.5 text-[10px] font-medium bg-background-100 text-foreground-600">
-                  {getNewsCategoryLabel(latestNews[0].category, i18n.language)}
+                  {latestNews[0].localizedCategory || getNewsCategoryLabel(latestNews[0].category, i18n.language)}
                 </span>
               </div>
             ) : (

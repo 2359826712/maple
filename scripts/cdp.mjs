@@ -702,7 +702,14 @@ async function cmdReaddyPublishSelected(needle, projectId, expectedShowID, expec
   });
 }
 
-async function cmdReaddyEdit(needle, projectId, parentVersionID, pairs, endpoint = '/gapi/project/spec_code_edit') {
+async function cmdReaddyEdit(
+  needle,
+  projectId,
+  parentVersionID,
+  pairs,
+  endpoint = '/gapi/project/spec_code_edit',
+  deleteListFile = '',
+) {
   if (pairs.length === 0 || pairs.length % 2 !== 0) {
     throw new Error('readdyEdit expects remote/local file pairs');
   }
@@ -713,6 +720,19 @@ async function cmdReaddyEdit(needle, projectId, parentVersionID, pairs, endpoint
     const localFile = pairs[i + 1];
     const content = await fs.readFile(localFile, 'utf8');
     edits.push({ action: 'edit', file: remoteFile, content });
+  }
+
+  if (deleteListFile) {
+    const editedFiles = new Set(edits.map(edit => edit.file));
+    const deleteList = await fs.readFile(deleteListFile, 'utf8');
+    for (const line of deleteList.split(/\r?\n/)) {
+      const file = line.trim().replace(/\\/g, '/').replace(/^\/+/, '');
+      if (!file || file.startsWith('#') || editedFiles.has(file)) continue;
+      if (file.split('/').some(segment => !segment || segment === '.' || segment === '..')) {
+        throw new Error(`Unsafe Readdy delete path: ${line}`);
+      }
+      edits.push({ action: 'delete', file });
+    }
   }
 
   await withReaddyProjectPage(needle, projectId, async cdp => {
@@ -848,7 +868,9 @@ async function cmdReaddyEdit(needle, projectId, parentVersionID, pairs, endpoint
         data: json?.data || null,
         message: json?.meta?.message || null,
         messageSync,
-        files: payload.edits.map(edit => ({ file: edit.file, chars: edit.content.length, lines: edit.content.split(/\\r?\\n/).length })),
+        files: payload.edits.map(edit => edit.action === 'delete'
+          ? { action: 'delete', file: edit.file }
+          : { action: 'edit', file: edit.file, chars: edit.content.length, lines: edit.content.split(/\\r?\\n/).length }),
         rawStart: json ? '' : text.slice(0, 500),
       };
     })()`);
@@ -1088,6 +1110,7 @@ try {
   else if (cmd === 'readdyCaptureApi') await cmdReaddyCaptureApi(args[0] || usage(), args[1] || usage(), args[2] || 60, args[3] || '', args[4] || '');
   else if (cmd === 'readdyEdit') await cmdReaddyEdit(args[0] || usage(), args[1] || usage(), args[2] || usage(), args.slice(3));
   else if (cmd === 'readdyCodeEdit') await cmdReaddyEdit(args[0] || usage(), args[1] || usage(), args[2] || usage(), args.slice(3), '/gapi/project/code_edit');
+  else if (cmd === 'readdyCodeEditDeleteList') await cmdReaddyEdit(args[0] || usage(), args[1] || usage(), args[2] || usage(), args.slice(4), '/gapi/project/code_edit', args[3] || usage());
   else if (cmd === 'readdyDeployFunction') await cmdReaddyDeployFunction(args[0] || usage(), args[1] || usage(), args[2] || usage(), args[3] || usage(), args[4] || usage(), args[5] === 'false' ? false : true);
   else if (cmd === 'readdySetSecretsFromEnv') await cmdReaddySetSecretsFromEnv(args[0] || usage(), args[1] || usage(), args[2] || usage(), args.slice(3));
   else usage();

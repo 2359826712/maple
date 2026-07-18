@@ -10,7 +10,11 @@ import i18n from '@/i18n';
 vi.mock('@/pages/home/components/Navbar', () => ({ default: () => null }));
 vi.mock('@/pages/home/components/Footer', () => ({ default: () => null }));
 vi.mock('@/pages/home/components/NotificationDrawer', () => ({ default: () => null }));
-vi.mock('@/components/feature/RealtimeStatus', () => ({ default: () => null }));
+vi.mock('@/components/feature/RealtimeStatus', () => ({
+  default: ({ status, liveCount }: { status: string; liveCount: number }) => (
+    <output data-testid="realtime-status">{`${status}:${liveCount}`}</output>
+  ),
+}));
 
 const collectionState = vi.hoisted(() => ({
   eventOverride: null as null | Record<string, unknown>,
@@ -79,6 +83,22 @@ describe('event reminders', () => {
     expect(window.localStorage.getItem('maplehub-event-reminders')).toBe('[]');
   });
 
+  it('ignores legacy reminder objects instead of crashing the page', () => {
+    window.localStorage.setItem('maplehub-event-reminders', JSON.stringify({ legacy: [] }));
+    window.localStorage.setItem('maplehub-event-reminder-notified', JSON.stringify({ legacy: true }));
+
+    render(
+      <MemoryRouter>
+        <VersionProvider>
+          <EventsPage />
+        </VersionProvider>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('heading', { name: 'Golden Week' })).toBeTruthy();
+    expect(screen.getByLabelText('Remind me')).toBeTruthy();
+  });
+
   it('keeps in-app delivery as the default and explains unsupported browser alerts', async () => {
     Reflect.deleteProperty(window, 'Notification');
     const user = userEvent.setup();
@@ -90,6 +110,8 @@ describe('event reminders', () => {
       </MemoryRouter>,
     );
 
+    expect(screen.getByRole('heading', { name: 'Reminder delivery' })).toBeTruthy();
+    expect(screen.queryByText('This browser does not support notifications. In-app reminders remain active.')).toBeNull();
     expect(screen.getByRole('button', { name: 'In-app only' }).getAttribute('aria-pressed')).toBe('true');
     await user.click(screen.getByRole('button', { name: 'Browser alerts' }));
     expect(screen.getByText('This browser does not support notifications. In-app reminders remain active.')).toBeTruthy();
@@ -127,9 +149,11 @@ describe('event reminders', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: 'Verified event schedule unavailable' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Verified event schedule unavailable' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Retry event sources' })).toBeNull();
     expect(screen.getByRole('heading', { name: 'Official event news is still available' })).toBeTruthy();
     expect(screen.getByRole('heading', { name: 'Momentum Pass' })).toBeTruthy();
+    expect(screen.getByTestId('realtime-status').textContent).toBe('live:1');
     const href = screen.getByRole('link', { name: 'Open official article' }).getAttribute('href') || '';
     expect(href).toContain('/source?');
     expect(new URL(href, 'https://maplehub.test').searchParams.get('url')).toBe('https://example.com/momentum-pass');

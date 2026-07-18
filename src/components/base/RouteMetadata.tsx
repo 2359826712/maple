@@ -28,6 +28,7 @@ const pageManagedRoutes = [
   /^\/events$/,
   /^\/guides\/(?!level$)[^/]+$/,
   /^\/source$/,
+  /^\/content\//,
   /^\/upcoming(?:\/[^/]+)?$/,
   /^\/wiki\/article\//,
   /^\/wiki\/boss(?:\/.*)?$/,

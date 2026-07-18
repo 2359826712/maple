@@ -19,11 +19,12 @@ function renderNav(pathname = '/') {
 }
 
 describe('MobilePrimaryNav', () => {
-  it('keeps the four highest-value player destinations one tap away', () => {
+  it('keeps the five highest-value player destinations one tap away', () => {
     renderNav('/');
 
-    expect(screen.getAllByRole('link')).toHaveLength(4);
+    expect(screen.getAllByRole('link')).toHaveLength(5);
     expect(screen.getByRole('link', { name: 'dashboard_title' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/en/GMS');
     expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS');
     expect(screen.getByRole('link', { name: 'nav_search_button' }).getAttribute('href')).toBe('/search/en/GMS');
     expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS');
@@ -34,6 +35,14 @@ describe('MobilePrimaryNav', () => {
 
     expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('aria-current')).toBe('page');
     expect(screen.getByRole('link', { name: 'dashboard_title' }).hasAttribute('aria-current')).toBe(false);
+  });
+
+  it('keeps mobile destinations inside the active series', () => {
+    renderNav('/news/en/GMS?series=maplestory-m');
+
+    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS?series=maplestory-m');
+    expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS?series=maplestory-m');
   });
 
   it('stays out of authentication flows', () => {

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { fetchLiveEvents, getRegionalContentImage, liveStorageKeys, officialArticleHref, type EventItem } from '@/services/liveContent';
+import { isRenderableEventItem } from '@/services/contentCacheValidation';
 import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import {
   daysUntilEventBoundary,
@@ -11,6 +12,8 @@ import {
   isAvailableInVersion,
 } from '@/domain/regionModel';
 import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
+import { getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const rarityStyle: Record<string, string> = {
   Legendary: 'bg-primary-500 text-background-50',
@@ -21,13 +24,19 @@ const rarityStyle: Record<string, string> = {
 export default function EventsPreview() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialEvents } = useServerRouteData();
   const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
   const { items: realtimeEvents, status, lastSyncedAt } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialEvents,
     remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
-  const localizedEvents = useLocalizedEvents(realtimeEvents, i18n.language);
+  const localizedEvents = useLocalizedEvents(
+    realtimeEvents,
+    i18n.language,
+    getNewsSourceLanguageForVersion(versionInfo.id),
+  );
 
   const filteredEvents = useMemo(
     () => localizedEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
@@ -103,7 +112,7 @@ export default function EventsPreview() {
                     <span>{t('events_reward')} · <span className="font-semibold text-foreground-900">{e.rewards.join(' · ') || t('events_reward_unlisted')}</span></span>
                   </div>
                   <Link
-                    to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id)}
+                    to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id, e.image)}
                     className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
                   >
                     {t('events_open_source')}

@@ -15,6 +15,16 @@ export function useTranslatedWikiEntry(entry: WikiEntry | null, language: string
       return { title: '', htmlContent: undefined, textContent: '', status: 'original' as TranslationStatus };
     }
 
+    const entryLanguage = normalizeNewsLanguage(entry.contentLanguage || 'en');
+    if (entryLanguage === targetLanguage) {
+      return {
+        title: preferredTitle || entry.title,
+        htmlContent: entry.htmlContent,
+        textContent: entry.content,
+        status: targetLanguage === 'en' ? 'original' as TranslationStatus : 'translated' as TranslationStatus,
+      };
+    }
+
     const providedChinese = targetLanguage === 'zh' || targetLanguage === 'zh-Hant';
     const providedTitle = providedChinese && distinct(entry.titleZh, entry.title) ? entry.titleZh : undefined;
     const providedHtml = providedChinese && distinct(entry.htmlContentZh, entry.htmlContent) ? entry.htmlContentZh : undefined;

@@ -1,0 +1,35 @@
+{
+  "id": "idle-official-forum",
+  "name": "MapleStory Idle RPG Official Forum",
+  "website": "MapleStory Idle RPG Forum",
+  "page": "Latest",
+  "url": "https://forum.nexon.com/maplestoryidle/main",
+  "series": "idle",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "official-forum",
+  "description": "Publishes official MapleStory Idle RPG notices, patch notes, previews, events, known issues, FAQ entries, and community information.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "announcements",
+    "forum",
+    "patch-notes",
+    "updates"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/maplestoryidle/main"
+  ],
+  "notes": "The official forum may return HTTP 403 to automated requests while remaining available in a normal browser."
+}

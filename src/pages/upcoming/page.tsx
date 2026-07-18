@@ -11,6 +11,7 @@ import {
   type UpcomingUpdateFeed,
 } from '@/services/upcomingUpdates';
 import { useLocalizedUpcomingFeed } from './localizedUpcoming';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const ORANGE_MUSHROOM_KMST_URL = 'https://orangemushroom.net/category/kmst/';
 
@@ -53,9 +54,12 @@ const readingRules = [
 
 export default function UpcomingUpdatesPage() {
   const { t, i18n } = useTranslation();
+  const { initialUpcomingFeed } = useServerRouteData();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [feed, setFeed] = useState<UpcomingUpdateFeed | null>(null);
-  const [feedStatus, setFeedStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [feed, setFeed] = useState<UpcomingUpdateFeed | null>(initialUpcomingFeed);
+  const [feedStatus, setFeedStatus] = useState<'loading' | 'ready' | 'error'>(
+    initialUpcomingFeed?.items.length ? 'ready' : 'loading',
+  );
   const localizedFeed = useLocalizedUpcomingFeed(feed, i18n.language);
 
   usePageMetadata(t('upcoming_title'), t('upcoming_meta_desc'));
@@ -75,7 +79,7 @@ export default function UpcomingUpdatesPage() {
     return () => controller.abort();
   }, []);
 
-  useEffect(() => loadFeed(), [loadFeed]);
+  useEffect(() => initialUpcomingFeed ? undefined : loadFeed(), [initialUpcomingFeed, loadFeed]);
 
   const formatDate = (value: string) => {
     try {

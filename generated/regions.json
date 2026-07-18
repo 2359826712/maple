@@ -1,0 +1,79 @@
+[
+  {
+    "id": "europe",
+    "count": 12,
+    "resource_ids": [
+      "classic-nexon-closed-online-test-2",
+      "classic-world-test-2-campaign",
+      "m-global-official-forum",
+      "m-june-24-2026-patch-notice",
+      "m-may-2026-known-issues",
+      "m-may-2026-patch-notes-part-2",
+      "maplestory-miracle-summer-2026",
+      "maplestory-nexon-official-news",
+      "maplestory-official-game-reference",
+      "maplestory-official-rankings",
+      "maplestory-support-gameplay",
+      "maplestory-support-installation-guide"
+    ]
+  },
+  {
+    "id": "global",
+    "count": 18,
+    "resource_ids": [
+      "idle-april-9-2026-patch-notes",
+      "idle-may-21-2026-patch-notes",
+      "idle-may-21-update-preview",
+      "idle-nexon-june-11-patch-notes",
+      "idle-official-faq",
+      "idle-official-forum",
+      "m-nexon-guide-for-new-maplers",
+      "n-beginners-guide",
+      "n-classes-and-jobs",
+      "n-download-guide",
+      "n-official-events",
+      "n-official-updates",
+      "worlds-creator-center-news",
+      "worlds-creator-center-welcome-to-msw",
+      "worlds-creator-documents",
+      "worlds-creator-resources",
+      "worlds-ip-use-scope",
+      "worlds-managing-resources-guide"
+    ]
+  },
+  {
+    "id": "multi-region",
+    "count": 1,
+    "resource_ids": [
+      "n-official-launch-guide"
+    ]
+  },
+  {
+    "id": "north-america",
+    "count": 12,
+    "resource_ids": [
+      "classic-nexon-closed-online-test-2",
+      "classic-world-test-2-campaign",
+      "m-global-official-forum",
+      "m-june-24-2026-patch-notice",
+      "m-may-2026-known-issues",
+      "m-may-2026-patch-notes-part-2",
+      "maplestory-miracle-summer-2026",
+      "maplestory-nexon-official-news",
+      "maplestory-official-game-reference",
+      "maplestory-official-rankings",
+      "maplestory-support-gameplay",
+      "maplestory-support-installation-guide"
+    ]
+  },
+  {
+    "id": "sea",
+    "count": 4,
+    "resource_ids": [
+      "m-global-official-forum",
+      "m-june-24-2026-patch-notice",
+      "m-may-2026-known-issues",
+      "m-may-2026-patch-notes-part-2"
+    ]
+  }
+]

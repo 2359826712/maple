@@ -1,0 +1,1972 @@
+[
+  {
+    "id": "classic-world-closed-online-test-2-registration",
+    "source_id": "classic-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2",
+    "source_url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2",
+    "external_id": "42364",
+    "title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+    "original_title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+    "series": "classic",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": "announcements",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-07-16",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T00:00:00.000Z",
+    "last_checked": "2026-07-18T00:00:00.000Z",
+    "summary": "Registration for the second Global MapleStory Classic World closed online test is open through July 29, 2026. The test is scheduled for August 4-12 and all interested players, including previous testers, must apply again.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "closed-test",
+      "macos",
+      "registration",
+      "third-job"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [
+      "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
+    ],
+    "content_hash": "fbfa24185def5f0a7584692288cc324dda39de01aa0e4b9b973a4920c73c5655",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "resource_id": "classic-nexon-closed-online-test-2",
+      "sections": [
+        {
+          "title": "Key dates",
+          "items": [
+            "Applications close Wednesday, July 29, 2026.",
+            "Closed Online Test #2 is scheduled for August 4-12, 2026.",
+            "Selected players receive access instructions through the email registered to their Nexon account."
+          ]
+        },
+        {
+          "title": "What's new in test #2",
+          "items": [
+            "The preview adds 3rd Job Advancement and the Ossyria areas Orbis and El Nath.",
+            "macOS support and controller support with customizable layouts are included.",
+            "The test build adds more language options and incorporates feedback from the first test."
+          ]
+        },
+        {
+          "title": "Participation rules",
+          "items": [
+            "Everyone must submit a new application, including players who participated in the first closed test.",
+            "Test content, balance, Cash Shop features, and other systems are not final.",
+            "Characters and progress will be wiped after the test ends."
+          ]
+        }
+      ]
+    },
+    "notes": "Original MPStorys summary and structured facts verified against Nexon's official news and campaign pages on 2026-07-18."
+  },
+  {
+    "id": "maplestory-europe-gms-official-news-2026-07-07-42501",
+    "source_id": "maplestory-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/42501/completed-scheduled-minor-patch-maintenance-july-9-2026",
+    "source_url": "https://www.nexon.com/maplestory/news/maintenance/42501/completed-scheduled-minor-patch-maintenance-july-9-2026",
+    "external_id": "42501",
+    "title": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026",
+    "original_title": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-07-07T18:00:00Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:43:52.847Z",
+    "last_checked": "2026-07-18T09:43:52.847Z",
+    "summary": "The July 9 minor patch maintenance completed at 11:55 AM PDT after updating MapleStory to v.269.3.0. All game servers were unavailable during the five-hour window, and eligible Cash Shop item durations were extended by five hours.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [
+      {
+        "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+        "alt": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026"
+      },
+      {
+        "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+        "alt": "MapleStory Maintenance Notice"
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "bbbb4c50093478b3f81feac163de5a32f2d43fe2babaf84de7a439de1d464900",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "gms-official-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:10.127Z",
+      "parser_warnings": [],
+      "source_category": "maintenance",
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Maintenance window",
+          "items": [
+            "Scheduled for July 9 from 7:00 AM to 12:00 PM PDT, with all MapleStory servers unavailable.",
+            "Completion was confirmed at 11:55 AM PDT, and players were asked to restart Nexon Launcher or Steam.",
+            "Cash Shop items in player inventories were extended by five hours."
+          ]
+        },
+        {
+          "title": "v.269.3.0 fixes",
+          "items": [
+            "The patch addressed crashes or freezes involving Receipt Damage Skin and Lynn's Whirlwind.",
+            "It corrected Beyond Burning access and reward indicators, several Erel Light and Sia Astelle event or quest issues, and item enhancement problems.",
+            "The official notice contains the complete fix list for the minor patch."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "maplestory-europe-gms-official-news-2026-07-14-42197",
+    "source_id": "maplestory-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/42197/v-269-known-issues",
+    "source_url": "https://www.nexon.com/maplestory/news/maintenance/42197/v-269-known-issues",
+    "external_id": "42197",
+    "title": "v.269 Known Issues",
+    "original_title": "v.269 Known Issues",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-07-14T10:30:00Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:43:52.847Z",
+    "last_checked": "2026-07-18T09:43:52.847Z",
+    "summary": "The v.269 known-issues notice tracks current and resolved problems from Ride the Lightning. Current entries include an Edelstein Temporary Airport disconnect, Erel Light equipment and quest issues, unintended Vestige of Erion Coupon drops, and the early end of the Maple University event buff.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [
+      {
+        "url": "https://g.nexonstatic.com/media/kxpbsnls/240826_knownissue_wgc-1339_540x304.jpg",
+        "alt": "v.269 Known Issues"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/bx3bprjv/240826_knownissue_wgc-1339_1100x225.jpg",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "0958ac9dc1d710f441d1adcd98587aa753881c3acb495c511d51d286c53e9b36",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "gms-official-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:07.125Z",
+      "parser_warnings": [],
+      "source_category": "maintenance",
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Current tracked issues",
+          "items": [
+            "Entering the Edelstein Temporary Airport can disconnect the client.",
+            "Erel Light weapons may become unlocked when switching equipment presets, and some Erel Light characters cannot complete the Echo of Hero quest after 6th Job Advancement.",
+            "Vestige of Erion Coupons are dropping unintentionally from weekly bosses; obtained coupons are scheduled to become usable after v.270."
+          ]
+        },
+        {
+          "title": "Maple University compensation",
+          "items": [
+            "The 21st Anniversary Maple University event buff ended earlier than scheduled.",
+            "Nexon announced Gift Drop compensation including VIP Boosters, 4x EXP Coupons, Nodestones, Experience Nodestones, and VIP Sauna Passes."
+          ]
+        },
+        {
+          "title": "Resolved history",
+          "items": [
+            "The official notice retains a dated resolution log for v.269 issues and is updated as fixes are confirmed.",
+            "Players should use the canonical Nexon page for changes made after MPStorys' last verification."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "maplestory-europe-gms-official-news-2026-07-14-42333",
+    "source_id": "maplestory-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/sale/42333/cash-shop-update-for-july-15",
+    "source_url": "https://www.nexon.com/maplestory/news/sale/42333/cash-shop-update-for-july-15",
+    "external_id": "42333",
+    "title": "Cash Shop Update for July 15",
+    "original_title": "Cash Shop Update for July 15",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "cash-shop",
+    "subcategory": "sale",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-07-14T16:30:00Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:43:52.847Z",
+    "last_checked": "2026-07-18T09:43:52.847Z",
+    "summary": "The July 15 Cash Shop update introduced the Lightning Surprise Style Box for all worlds through the July 22 maintenance. A single box costs 3,400 NX, an 11-box bundle costs 34,000 NX, and listed box items have a 90-day duration.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "cash-shop",
+      "sale"
+    ],
+    "images": [
+      {
+        "url": "https://g.nexonstatic.com/media/zt5nmucg/news-post-540x304-july-15-cash-shop-update-maplestory.jpg",
+        "alt": "Cash Shop Update for July 15"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/iejgznhc/in-post-banner-1100x225-july-15-cash-shop-update-maplestory.jpg",
+        "alt": "July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/kv0bxpvb/lightning-ssb-1-male-july-15-cash-shop-update-maplestory.png",
+        "alt": "Zodiac Magician Set Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/fovjcovd/lightning-ssb-1-female-july-15-cash-shop-update-maplestory.png",
+        "alt": "Zodiac Magician Set Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/jtsfg0y4/lightning-ssb-2-male-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/b0zhw5je/lightning-ssb-2-female-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/v5weqeai/lightning-ssb-3-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/4jyimyzf/lightning-ssb-4-male-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/kbaolo2s/lightning-ssb-4-female-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/atacpqej/lightning-ssb-5-male-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/w22pq5bw/lightning-ssb-5-female-july-15-cash-shop-update-maplestory.png",
+        "alt": "Lightning Surprise Style Box July 15 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/bg3ok0ma/in-post-banner-1100x225-july-8-cash-shop-update-maplestory.jpg",
+        "alt": "July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/jw5f01ms/pssb-1-male-july-8-cash-shop-update-maplestory.png",
+        "alt": "Dreamcore Crasher Set July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/pw2al0xg/pssb-1-female-july-8-cash-shop-update-maplestory.png",
+        "alt": "Dreamcore Crasher Set July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/epgbgmeg/pssb-2-male-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/srbjxuqr/pssb-2-female-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/kwbdftjt/pssb-3-male-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/f3emfday/pssb-3-female-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/itslqtde/pssb-4-male-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/wowbrpvm/pssb-4-female-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/nljbrzao/pssb-5-male-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/hjadws0j/pssb-5-female-july-8-cash-shop-update-maplestory.png",
+        "alt": "PSSB July 8 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/izudfjav/male-royal-hairs-july-8-cash-shop-update-maplestory.png",
+        "alt": "MapleStory July 8 cash shop update male royal hairstyles"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/vsxf5xyc/female-royal-hairs-july-8-cash-shop-update-maplestory.png",
+        "alt": "MapleStory July 8 cash shop update female royal hairstyles"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/ho2nybkc/male-royal-faces-july-8-cash-shop-update-maplestory.png",
+        "alt": "MapleStory July 8 cash shop update male royal faces"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/bdjb3ntp/female-royal-faces-july-8-cash-shop-update-maplestory.png",
+        "alt": "MapleStory July 8 cash shop update female royal faces"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/voahlaud/holiday-masterpiece-chair-gachapon-july-1-cash-shop-update-maplestory.gif",
+        "alt": "<Holiday Masterpiece> July 1 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/0lbf2wxr/maple-terrarium-chair-gachapon-july-1-cash-shop-update-maplestory.gif",
+        "alt": "Maple Terrarium Chair July 1 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/2ovgpocq/digi-rock-spirit-chair-gachapon-july-1-cash-shop-update-maplestory.gif",
+        "alt": "Digi-Rock Spirit Chair July 1 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/xeuil5ys/songless-bird-mount-gachapon-july-1-cash-shop-update-maplestory.gif",
+        "alt": "Songless Bird Mount July 1 Cash Shop Update Maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/0m0hct1k/star-fragment-damage-skin-symbol-gachapon-july-1-cash-shop-update-maplestory.png",
+        "alt": "Star Fragment Damage Skin (Symbol) July 1 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/x4alukit/star-stamps-maplestory.png",
+        "alt": "MapleStory stamp exchange coupons"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/uz3d5xyo/star-stamp-shop-items-maplestory.png",
+        "alt": "Star stamp shop items maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/i3vafxsk/mythic-star-style-box-1-male-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/2ywdvcde/mythic-star-style-box-1-female-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/tyakq1kb/mythic-star-style-box-2-male-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/ghcgpo3s/mythic-star-style-box-2-female-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/y0feofyi/mythic-star-style-box-3-male-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/hafkzu4k/mythic-star-style-box-3-female-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/lndncvow/mythic-star-style-box-4-male-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/yclffmuo/mythic-star-style-box-4-female-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/knzdqupt/mythic-star-style-box-5-male-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/mqel1k1y/mythic-star-style-box-5-female-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/txbkg23v/mythic-star-style-box-6-male-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/yhabjnqm/mythic-star-style-box-6-female-june-17-cash-shop-update-maplestory.png",
+        "alt": "Mythic Star Style Box Season 3 June 17 Cash Shop Update MapleStory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/s0tcdz0k/challenger-exp-duo-ui-june-17-cash-shop-update-maplestory.png",
+        "alt": "MapleStory Challenger EXP Duo UI"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/5gpfen3j/genesis-pass-november-12-cash-shop-update-maplestory.png",
+        "alt": "MapleStory Genesis Pass"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/pobllucj/baby-teddy-pets-february-4-cash-shop-update-maplestory.png",
+        "alt": "MapleStory February 4 Cash Shop Update Baby Teddy Pets"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/5lmdsuxx/other-wonderberry-pets-february-4-cash-shop-update-maplestory.png",
+        "alt": "MapleStory February 4 Cash Shop Update Interactive Worlds Wonderberry Pets"
+      },
+      {
+        "url": "https://nxcache.nexon.net/cms/2020/q1/1695/wondercookies-and-premium-water-of-life-maplestory-wonderberry-rewards.png",
+        "alt": null
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/mcip2kkl/frosty-friends-pets-july-16-cash-shop-update-maplestory.png",
+        "alt": "MapleStory Frosty Friends Pets November 12 Cash Shop Update"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/s2iptik2/other-luna-crystal-pets-february-4-cash-shop-update-maplestory.png",
+        "alt": "MapleStory Other Luna Crystal Pets February 4 Cash Shop Update"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/gibjubum/lil-flora-pets-1-july-17-cash-shop-update-maplestory.png",
+        "alt": "MapleStory lil flora pets july 16 cash shop update"
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "8b24e2ffa1e286dada00b44fdf56d38761b8bd23b4aa04fc1f19042b6520b147",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "gms-official-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:04.112Z",
+      "parser_warnings": [],
+      "source_category": "sale",
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Lightning Surprise Style Box",
+          "items": [
+            "Sale period: July 15 at 1:00 AM PDT through the start of maintenance on July 22.",
+            "Price: 3,400 NX for one box or 34,000 NX for eleven; available in all worlds.",
+            "Featured new sets include Starshine and Observer, Emergency Coast Guard, and Mad Mage items."
+          ]
+        },
+        {
+          "title": "Important purchase notes",
+          "items": [
+            "The official article links the complete reward-rate table and the list of items compatible with Coloring Prisms.",
+            "Unequipped style-box items can be traded through Cash Item Trade in Interactive worlds, subject to regional account restrictions.",
+            "The update also lists ongoing Premium Surprise Style Box, Royal Style Coupon, and Gachapon rotations."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "maplestory-europe-gms-official-news-2026-07-15-42359",
+    "source_id": "maplestory-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/general/42359/try-the-kinesis-demo",
+    "source_url": "https://www.nexon.com/maplestory/news/general/42359/try-the-kinesis-demo",
+    "external_id": "42359",
+    "title": "Try the Kinesis Demo!",
+    "original_title": "Try the Kinesis Demo!",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": "general",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-07-15T16:00:00Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:43:52.847Z",
+    "last_checked": "2026-07-18T09:43:52.847Z",
+    "summary": "Global MapleStory released a browser-based Kinesis demo ahead of the character's upcoming revamp. It previews new skills and abilities, while warning that the demo's cooldown timing does not represent the final game balance.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "general",
+      "news"
+    ],
+    "images": [
+      {
+        "url": "https://g.nexonstatic.com/media/ri2bksex/540x304-kinesis-revamp-demo-maplestory.png",
+        "alt": "Try the Kinesis Demo!"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/ufbfc50h/1100x225-kinesis-revamp-demo-maplestory.png",
+        "alt": "July 1 cash shop update maplestory"
+      },
+      {
+        "url": "https://g.nexonstatic.com/media/r0bnjorx/kinesis-demo-banner-maplestory.png",
+        "alt": "July 1 cash shop update maplestory"
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "dd3567b9cd21f54a8ac621c1fb17483518c31b9d1fb04c0d7c0d7f4d723a301a",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "gms-official-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:01.103Z",
+      "parser_warnings": [],
+      "source_category": "general",
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Demo scope",
+          "items": [
+            "The web demo provides an early look at Kinesis skills and abilities associated with the announced revamp.",
+            "It is intended both for existing Kinesis players and players considering the class.",
+            "Skill cooldowns shown in the demo are not final gameplay values."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "maplestory-europe-gms-official-news-2026-07-16-42797",
+    "source_id": "maplestory-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/general/42797/maple-memo-addressing-the-unique-tier-familiar-boss-damage-potential",
+    "source_url": "https://www.nexon.com/maplestory/news/general/42797/maple-memo-addressing-the-unique-tier-familiar-boss-damage-potential",
+    "external_id": "42797",
+    "title": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential",
+    "original_title": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": "general",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-07-16T15:00:00Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:43:52.847Z",
+    "last_checked": "2026-07-18T09:43:52.847Z",
+    "summary": "Global MapleStory confirmed that Unique-tier Familiar Potential will keep only the 40% Boss Damage result at its current appearance rate. The team found that both the former 30% and 35% results had been removed, rather than only the intended 30% result.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "general",
+      "news"
+    ],
+    "images": [
+      {
+        "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+        "alt": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential"
+      },
+      {
+        "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+        "alt": "MapleStory Maple Memo"
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "f3d0496d0776014a4bab542f2a4fc892f9f4bbf2fd7fb1a065a99dcca1105501",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "gms-official-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:43:58.096Z",
+      "parser_warnings": [],
+      "source_category": "general",
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Decision",
+          "items": [
+            "Only the 40% Boss Damage option will remain at Unique tier in Familiar Potential.",
+            "Its appearance rate will remain unchanged from the rate in effect when the notice was published."
+          ]
+        },
+        {
+          "title": "What Nexon found",
+          "items": [
+            "Before v.264, Unique-tier Boss Damage could roll 30%, 35%, or 40%.",
+            "The intended quality-of-life change was to remove 30%, but the review found that 35% had also been removed.",
+            "Nexon said other Familiar Potential options, tiers, and rank-up values were working as intended."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "maplestory-idle-june-11-2026-patch-notes",
+    "source_id": "idle-nexon-official-patch-notes",
+    "canonical_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+    "source_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+    "external_id": "3474001",
+    "title": "MapleStory: Idle RPG June 11 Patch Notes",
+    "original_title": "(Updated) June 11 Patch Notes",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "patch-note",
+    "subcategory": null,
+    "official": true,
+    "author": "Grendel",
+    "published_at": "2026-06-11",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T00:00:00.000Z",
+    "last_checked": "2026-07-18T00:00:00.000Z",
+    "summary": "The June 11 update added Hero's Journey, Guild Raid Horntail, chapters 39-41, Growth Dungeon stages, Hero Power Stage 8, costume search, summer events, new guild seasons, movement improvements, and a broad set of fixes.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "guild-raid",
+      "heros-journey",
+      "horntail",
+      "patch-notes",
+      "summer-events"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "90c39339758d7e85a2a100c7b2d640a70a1846acb5a6aae26c7843b331aa6bc1",
+    "status": "updated",
+    "translation_status": "not-requested",
+    "metadata": {
+      "resource_id": "idle-nexon-june-11-patch-notes",
+      "sections": [
+        {
+          "title": "Hero's Journey",
+          "items": [
+            "Unlocks after clearing the Chapter 20 Boss; Journey Tokens begin dropping from Auto Hunt in Chapter 21.",
+            "Journey Chest Keys recharge five per week up to a maximum of five, and one free Blessing reset is available each day.",
+            "Journey Trail uses Journey Tokens and Mesos to unlock cleared boss footprints, permanent Inventory Effects, and Special Options."
+          ]
+        },
+        {
+          "title": "Guild Raid: Horntail",
+          "items": [
+            "Parties support up to eight members from the same guild, and each member must have cleared Normal Horntail Boss Raid.",
+            "The raid ranks guilds across all servers in the same region and awards damage-based rewards.",
+            "Defeating Horntail awards the Horntail Expedition medal with a Final Damage +3% Inventory Effect."
+          ]
+        },
+        {
+          "title": "Summer event schedule",
+          "items": [
+            "Ruler of the Beach, Summer Treasure Hunt, Treasure Exchange, and Water Balloon Collection run from June 11 into July 2026.",
+            "Summer 10-Day Attendance ends July 1, while the main summer events end July 22 and the Summer Shop purchase period ends July 24.",
+            "Arena Boost and new Guild War and Guild Training Ground seasons were added on separate schedules."
+          ]
+        }
+      ]
+    },
+    "notes": "Original MPStorys summary and structured facts verified against the official Nexon Forum patch note on 2026-07-18.",
+    "game_version": null,
+    "patch_date": "2026-06-11",
+    "maintenance_start": null,
+    "maintenance_end": null,
+    "changes": [
+      "Added Hero's Journey with Journey Chests, Journey's Blessing, and Journey Trail.",
+      "Added Guild Raid Horntail for up to eight members of the same guild.",
+      "Added chapters 39, 40, and 41 and expanded Growth Dungeon progression.",
+      "Added Hero Power Stage 8, which unlocks the seventh Ability slot.",
+      "Added an All tab and name search to Costumes.",
+      "Added Ruler of the Beach and multiple summer treasure, attendance, shop, and boost events.",
+      "Added new Guild War and Guild Training Ground seasons.",
+      "Improved responsiveness for manual movement and jumping."
+    ],
+    "known_issues": [],
+    "resolved_issues": [
+      "Fixed several Party Quest repeat, matching, result, and exploration-timer issues.",
+      "Fixed equipment preset rename and Exploration Star Force display issues.",
+      "Fixed multiple companion skill interactions for Marksman, Shadower, and Dark Knight.",
+      "Fixed several Horntail Curse, Breath, attack-delay, and battle behavior issues.",
+      "Fixed a movement joystick issue triggered by Area Chat speech bubbles.",
+      "Improved force-closing behavior on low-memory devices and during Party Quest repeats."
+    ]
+  },
+  {
+    "id": "maplestory-m-guide-for-new-maplers",
+    "source_id": "m-nexon-official-news",
+    "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+    "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+    "external_id": "2715388",
+    "title": "MapleStory M Guide for New Maplers",
+    "original_title": "04 Guide for New Maplers",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "guide",
+    "subcategory": "beginner",
+    "official": true,
+    "author": "MapleStory M GM",
+    "published_at": "2025-01-15",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T00:00:00.000Z",
+    "last_checked": "2026-07-18T00:00:00.000Z",
+    "summary": "An official beginner reference for configuring the interface, using Auto-Battle, growing a character, handling equipment, trading through the Trade Station, and using convenience features.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "auto-battle",
+      "beginner",
+      "equipment",
+      "trade-station"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "11a4d14f9d1c8b4a76acb6f41f063a6a208fcc51ae0065b16a1cf46ceb88ba65",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "resource_id": "m-nexon-guide-for-new-maplers",
+      "sections": [
+        {
+          "title": "Interface and skill setup",
+          "items": [
+            "The Quick Menu can hold up to eight frequently used menu items and can be rearranged through Menu Edit.",
+            "Skill Layout Type A supports up to five skills and Type B supports up to eight skills.",
+            "You can save up to three skill presets; switching presets has a five-second cooldown."
+          ]
+        },
+        {
+          "title": "Auto-Battle essentials",
+          "items": [
+            "Auto-Battle continues while the app is closed and grants a 10% EXP bonus while active.",
+            "Potion use thresholds can be adjusted between 70% and 90% to match survivability needs.",
+            "Pets can maintain registered buffs, and Fever buffs can be configured for automatic use."
+          ]
+        },
+        {
+          "title": "Growth and equipment",
+          "items": [
+            "Use daily quests, hunting, and Star Force Fields as the main early progression loop.",
+            "Hyper Stats become available from level 141.",
+            "Storage, sell filters, and extraction filters help prevent unnecessary inventory handling."
+          ]
+        },
+        {
+          "title": "Trade Station and convenience features",
+          "items": [
+            "The Trade Station supports item search, filters, buying, and listing items for sale.",
+            "A first Trade Permit is obtained through Maple Adventure before using the market.",
+            "Maple Guide filters, party search, bundled matching, and quest auto-progress reduce repeated menu work."
+          ]
+        }
+      ]
+    },
+    "notes": "Original MPStorys summary and structured facts verified from Nexon's official indexed forum guide on 2026-07-18.",
+    "guide_type": "beginner",
+    "class_name": null,
+    "boss_name": null,
+    "system_name": "Beginner progression",
+    "level_range": "1+",
+    "difficulty": "beginner",
+    "game_version": null,
+    "applicable_regions": [
+      "global"
+    ],
+    "prerequisites": [
+      "A MapleStory M character",
+      "Access to Maple Adventure for the initial Trade Permit"
+    ],
+    "steps": [
+      "Arrange the Quick Menu and select a skill layout that fits the number of active skills you use.",
+      "Configure potion thresholds, pet buffs, and Fever settings before starting Auto-Battle.",
+      "Complete daily quests and move into level-appropriate Star Force Fields for growth.",
+      "Review equipment before selling or extracting and set filters to protect useful items.",
+      "Unlock the Trade Station permit through Maple Adventure, then use filters before buying or listing items.",
+      "Use Maple Guide and party matching to find recommended content and group activities."
+    ],
+    "recommended_items": [],
+    "recommended_stats": [],
+    "outdated_warning": false
+  },
+  {
+    "id": "maplestory-miracle-summer-2026-event",
+    "source_id": "maplestory-gms-official-news",
+    "canonical_url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026",
+    "source_url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026",
+    "external_id": "41369",
+    "title": "Miracle Summer 2026",
+    "original_title": "Miracle Summer 2026",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "event",
+    "subcategory": "seasonal-event",
+    "official": true,
+    "author": "Global MapleStory",
+    "published_at": "2026-06-18",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T00:00:00.000Z",
+    "last_checked": "2026-07-18T00:00:00.000Z",
+    "summary": "Miracle Summer ran from June 26 through July 1, 2026 UTC. Each event day applied double Rank-Up chances to a different group of equipment slots.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "equipment",
+      "miracle-summer",
+      "rank-up",
+      "summer"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "60781b66c39d3c8f6a349bd886bff4c8fe1de4e4c3ae8f1a56ebdd267c2e6d68",
+    "status": "expired",
+    "translation_status": "not-requested",
+    "metadata": {
+      "resource_id": "maplestory-miracle-summer-2026",
+      "sections": [
+        {
+          "title": "Event format",
+          "items": [
+            "The event used a six-day rotating schedule instead of applying the bonus to every equipment slot at once.",
+            "Each day granted double Rank-Up chances for the equipment slots assigned to that day's window.",
+            "The official notice is the source of record for the slot-by-slot UTC schedule."
+          ]
+        },
+        {
+          "title": "Before using cubes",
+          "items": [
+            "Confirm the current UTC event window and the eligible equipment slots in the official schedule.",
+            "Check that the cube and target equipment support the intended potential tier and rank-up operation.",
+            "Do not assume a bonus window applies to an equipment slot listed for a different day."
+          ]
+        }
+      ]
+    },
+    "notes": "Original MPStorys summary and structured facts verified against the official announcement and Nexon's Steam announcement mirror on 2026-07-18.",
+    "event_name": "Miracle Summer 2026",
+    "registration_start": null,
+    "registration_end": null,
+    "event_start": "2026-06-26",
+    "event_end": "2026-07-01",
+    "claim_start": null,
+    "claim_end": null,
+    "shop_start": null,
+    "shop_end": null,
+    "timezone": "UTC",
+    "eligibility": [
+      "Global MapleStory players in the North America and Europe service regions"
+    ],
+    "requirements": [
+      "Use an eligible cube on an equipment slot assigned to the active daily window"
+    ],
+    "rewards": [
+      "Double Rank-Up chance for the designated equipment slots during each daily window"
+    ],
+    "event_currency": [],
+    "event_shop": null,
+    "participation_steps": [
+      "Open the official event schedule and identify the current UTC window.",
+      "Verify that the target equipment slot is included in that window.",
+      "Use a compatible cube during the active window."
+    ],
+    "related_announcement_id": null,
+    "related_patch_ids": [],
+    "calendar_status": "ended"
+  },
+  {
+    "id": "maplestory-n-beginners-guide",
+    "source_id": "n-official-documentation-announcements",
+    "canonical_url": "https://docs.maplestoryn.io/msn-101/beginners-guide",
+    "source_url": "https://docs.maplestoryn.io/msn-101/beginners-guide",
+    "external_id": "beginners-guide",
+    "title": "MapleStory N Beginner's Guide",
+    "original_title": "Beginner's Guide",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "guide",
+    "subcategory": "beginner-guide",
+    "official": true,
+    "author": "MapleStory N",
+    "published_at": null,
+    "updated_at": null,
+    "discovered_at": "2026-07-18T00:00:00.000Z",
+    "last_checked": "2026-07-18T00:00:00.000Z",
+    "summary": "The official gameplay curriculum for getting started, character progression, items and equipment, monsters and dungeons, social systems, and account or service features in MapleStory N.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "beginner",
+      "bosses",
+      "link-skills",
+      "maple-guide",
+      "progression"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [
+      "https://docs.maplestoryn.io/msn-101/beginners-guide/character-progression/link-skills",
+      "https://docs.maplestoryn.io/msn-101/beginners-guide/get-started/maple-guide",
+      "https://docs.maplestoryn.io/msn-101/beginners-guide/monster-and-dungeon/boss-content-and-pure-boss-essence"
+    ],
+    "content_hash": "de99bdee121f0200a8f7e151af2ce0c818d7b4143f03b78a3c7d1ce7a85fcc3b",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "resource_id": "n-beginners-guide",
+      "sections": [
+        {
+          "title": "Getting started",
+          "items": [
+            "Choose a Basic or Secondary key layout, then customize key bindings, quickslots, macros, NPC interaction, and item pickup.",
+            "Open Maple Guide with F1 to see level-appropriate quests, theme dungeons, hunting grounds, bosses, and special content.",
+            "Quick Move is available when you are within 10 levels of relevant content and has a 30-second cooldown."
+          ]
+        },
+        {
+          "title": "Character progression",
+          "items": [
+            "Learn skill basics, job advancement, 5th Job skills, and the systems used to strengthen a character.",
+            "Link Skills can be transferred from level 70 and reach level 2 at level 120.",
+            "Up to 12 Link Skills can be transferred; transfers can be changed up to five times per day and reset at 00:00 UTC."
+          ]
+        },
+        {
+          "title": "Combat and content",
+          "items": [
+            "Use hunting fields, Runes, monsters, dungeons, and boss content as the main combat progression path.",
+            "Review boss requirements and Pure Boss Essence information before committing resources.",
+            "Party and Guild systems support group content and social progression."
+          ]
+        },
+        {
+          "title": "Items and service systems",
+          "items": [
+            "The guide covers equipment, enhancement, inventory, currencies, and item-related systems.",
+            "Account, wallet, launcher, and marketplace topics are separated into official service documentation.",
+            "Use the linked official pages when a value or limit may have changed after a game update."
+          ]
+        }
+      ]
+    },
+    "notes": "Original MPStorys structured overview verified against the official MapleStory N documentation tree on 2026-07-18.",
+    "guide_type": "beginner",
+    "class_name": null,
+    "boss_name": null,
+    "system_name": "Core gameplay",
+    "level_range": "1+",
+    "difficulty": "beginner",
+    "game_version": null,
+    "applicable_regions": [
+      "multi-region"
+    ],
+    "prerequisites": [
+      "A MapleStory N character"
+    ],
+    "steps": [
+      "Configure controls and quickslots, then open Maple Guide with F1.",
+      "Follow level-appropriate quests, theme dungeons, and hunting grounds.",
+      "Advance jobs and review Skill, Link Skill, and 5th Job progression systems.",
+      "Use Runes, dungeons, bosses, parties, and guilds as they become available.",
+      "Check the official item, equipment, and service documentation before spending limited resources."
+    ],
+    "recommended_items": [],
+    "recommended_stats": [],
+    "outdated_warning": false
+  },
+  {
+    "id": "n-multi-region-official-documentation-announcements-2026-06-24-3481429",
+    "source_id": "n-official-documentation-announcements",
+    "canonical_url": "https://msu.io/maplestoryn/news/notices/3481429",
+    "source_url": "https://msu.io/maplestoryn/news/notices/3481429",
+    "external_id": "3481429",
+    "title": "June 25 - Temporary Maintenance",
+    "original_title": "June 25 - Temporary Maintenance",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "msnadmin",
+    "published_at": "2026-06-24T03:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:30.531Z",
+    "last_checked": "2026-07-18T09:44:30.531Z",
+    "summary": "MapleStory N published a June 25 temporary-maintenance notice on June 24 at 03:00 UTC. The current official page exposes only the label “msu direct” and contains no maintenance window, affected services, or change list that can be verified.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "d2006d6577240db864b87c71d98c5af814419ab6c1d4c53c656a33f6503321f3",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "maplestory-n-official-notices",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:46.186Z",
+      "headline_id": "5040",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Verified notice state",
+          "items": [
+            "Published on June 24, 2026 at 03:00 UTC and classified by the official site as Maintenance.",
+            "The canonical article body currently contains only the placeholder text msu direct.",
+            "No start time, completion status, affected service, or maintenance result is available from the source."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "n-multi-region-official-documentation-announcements-2026-07-01-3489822",
+    "source_id": "n-official-documentation-announcements",
+    "canonical_url": "https://msu.io/maplestoryn/news/notices/3489822",
+    "source_url": "https://msu.io/maplestoryn/news/notices/3489822",
+    "external_id": "3489822",
+    "title": "[COMPLETED] July 1 - Scheduled Maintenance",
+    "original_title": "[COMPLETED] July 1 - Scheduled Maintenance",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "msnadmin",
+    "published_at": "2026-07-01T04:30:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:30.531Z",
+    "last_checked": "2026-07-18T09:44:30.531Z",
+    "summary": "MapleStory N marks its July 1 scheduled maintenance as completed. The current official page exposes only the label “MSU DIRECT”, so MPStorys cannot verify the maintenance window, affected systems, or completed changes beyond the title and publication record.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "950a80e1567f27f93644f5cafdf6ccd4cadf690b7298d93eb7b8a98d16f65aed",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "maplestory-n-official-notices",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:43.157Z",
+      "headline_id": "5040",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Verified notice state",
+          "items": [
+            "Published on July 1, 2026 at 04:30 UTC and marked COMPLETED in the official title.",
+            "The canonical article body currently contains only the placeholder text MSU DIRECT.",
+            "No additional schedule or patch details are available from the official source."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "n-multi-region-official-documentation-announcements-2026-07-02-3491333",
+    "source_id": "n-official-documentation-announcements",
+    "canonical_url": "https://msu.io/maplestoryn/news/notices/3491333",
+    "source_url": "https://msu.io/maplestoryn/news/notices/3491333",
+    "external_id": "3491333",
+    "title": "[Updated on July 6, 05:00(UTC)] Known Issues Following the July 1 Patch",
+    "original_title": "[Updated on July 6, 05:00(UTC)] Known Issues Following the July 1 Patch",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "patch-note",
+    "subcategory": "known-issues",
+    "official": true,
+    "author": "msnadmin",
+    "published_at": "2026-07-02T09:10:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:30.531Z",
+    "last_checked": "2026-07-18T09:44:30.531Z",
+    "summary": "The MapleStory N July 1 known-issues notice records follow-up fixes through July 6. Tropical Adventure clear rewards increased from 50 to 100 coins, the level-160 Monster Park Express Pass issue was fixed, and Morass story-skip access was restored with an extra login-and-map step for earlier completions.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "known-issues",
+      "patch-note"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260514/a01713c6-aee5-4264-8d6c-97e53832e030/%EA%B3%B5%EC%A7%80%EB%B0%B0%EB%84%88knownissue.png",
+        "alt": null
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260611/599f1450-8572-4f45-9ded-f428c57f333e/knownissueresolved.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "0c2893f92104dd175324caf53ef253b844d903b8da8d323402f2e4d6f997597a",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "maplestory-n-official-notices",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:40.161Z",
+      "headline_id": "5041",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Resolved and adjusted",
+          "items": [
+            "Tropical Adventure now awards 100 coins per clear instead of 50, effective after July 3 at 06:50 UTC.",
+            "Characters at level 160 can use the Monster Park Express Pass after the fix.",
+            "Other characters on an account can skip completed Morass story quests again."
+          ]
+        },
+        {
+          "title": "Morass follow-up",
+          "items": [
+            "For accounts that completed the Morass story before July 3 at 07:00 UTC, the completing character must log in and revisit Morass - Trueffet Square before the skip becomes available to other characters.",
+            "The official notice retains resolution timestamps and should be checked for changes after MPStorys' verification date."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null,
+    "game_version": null,
+    "patch_date": "2026-07-02T09:10:00.000Z",
+    "maintenance_start": null,
+    "maintenance_end": null,
+    "changes": [],
+    "known_issues": [],
+    "resolved_issues": []
+  },
+  {
+    "id": "n-multi-region-official-documentation-announcements-2026-07-15-3498012",
+    "source_id": "n-official-documentation-announcements",
+    "canonical_url": "https://msu.io/maplestoryn/news/notices/3498012",
+    "source_url": "https://msu.io/maplestoryn/news/notices/3498012",
+    "external_id": "3498012",
+    "title": "July 15 - Temporary Maintenance",
+    "original_title": "July 15 - Temporary Maintenance",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "msnadmin",
+    "published_at": "2026-07-15T23:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:30.531Z",
+    "last_checked": "2026-07-18T09:44:30.531Z",
+    "summary": "MapleStory N published a temporary-maintenance notice on July 15 at 23:00 UTC. The current official page exposes only the label “MSU Direct” and does not provide a maintenance window, affected services, or change list that MPStorys can verify.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "51e525b725d15db56f0e6cde2664053ed9e2dda23b895d8a6097edf00c20acb6",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "maplestory-n-official-notices",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:37.136Z",
+      "headline_id": "5040",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Verified notice state",
+          "items": [
+            "Published on July 15, 2026 at 23:00 UTC and classified by the official site as Maintenance.",
+            "The official article body currently contains only the placeholder text MSU Direct.",
+            "No start time, end time, affected service, or maintenance result is available from the canonical source."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "n-multi-region-official-documentation-announcements-2026-07-16-3500515",
+    "source_id": "n-official-documentation-announcements",
+    "canonical_url": "https://msu.io/maplestoryn/news/notices/3500515",
+    "source_url": "https://msu.io/maplestoryn/news/notices/3500515",
+    "external_id": "3500515",
+    "title": "Notice on Measures Regarding Arcane Catalyst",
+    "original_title": "Notice on Measures Regarding Arcane Catalyst",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": "notice",
+    "official": true,
+    "author": "msnadmin",
+    "published_at": "2026-07-16T03:30:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:30.531Z",
+    "last_checked": "2026-07-18T09:44:30.531Z",
+    "summary": "MapleStory N blocked an Arcane Catalyst interaction that allowed symbols to be merged rather than transferred. Affected characters are being adjusted to retain the larger valid symbol amount, with eligible NESO refunds and a 50 Arcane Symbol Selector compensation package available through July 30.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "news",
+      "notice"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260714/4b8ee1da-5178-4a1a-9f00-538b9e18eabb/%EA%B3%B5%EC%A7%80%EB%B0%B0%EB%84%88announcement.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "3b2995b5c3e40c9f51c3fc14a24af23c1e89d247886875b50b7248654a2af8e0",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "maplestory-n-official-notices",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:34.157Z",
+      "headline_id": "5132",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Usage restriction",
+          "items": [
+            "Characters holding Lachelein Coins or Arcana Coins can no longer use Unstable Arcane Symbols.",
+            "The restriction closes a path that could combine symbols from different characters instead of performing the intended transfer."
+          ]
+        },
+        {
+          "title": "Affected-character processing",
+          "items": [
+            "The larger of the existing symbol amount and transferred unstable-symbol amount is retained; the other amount is deducted or returned according to its source.",
+            "Eligible Express Pass and Arcane Catalyst NESO spending is refunded based on the adjustment applied.",
+            "Processed symbols are distributed through Maple Storage for the specific character, their levels reset, and prior symbol level-up NESO is refunded."
+          ]
+        },
+        {
+          "title": "Compensation",
+          "items": [
+            "Accounts created before the maintenance can claim up to 50 Arcane Symbol Selectors once per account through the Maple Administrator.",
+            "Claims require a level 200 or higher character and remain available through July 30 at 23:59 UTC.",
+            "Arcane Symbol: Esfera is excluded from the selector."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "welcome-to-maplestory-worlds-creator-guide",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987",
+    "external_id": "987",
+    "title": "Welcome to MapleStory Worlds",
+    "original_title": "Welcome to MSW (ENG)",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "guide",
+    "subcategory": "creator",
+    "official": true,
+    "author": "MapleStory Worlds Creator Center",
+    "published_at": "2023-03-03",
+    "updated_at": "2023-03-03",
+    "discovered_at": "2026-07-18T00:00:00.000Z",
+    "last_checked": "2026-07-18T00:00:00.000Z",
+    "summary": "A creator curriculum covering the MapleStory Worlds platform and editor, LuaScript fundamentals, client-server networking, building a sample world, publishing, and monetization.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "creator",
+      "lua-script",
+      "networking",
+      "publishing",
+      "world-editor"
+    ],
+    "images": [],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "9903bea8a2ec7bd2a23b9e966515746e175f1cf4f1f811a61bd11cfb8dd0a71d",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "resource_id": "worlds-creator-center-welcome-to-msw",
+      "sections": [
+        {
+          "title": "1. Platform and editor orientation",
+          "items": [
+            "Understand the MapleStory Worlds platform and the role of Maker.",
+            "Learn the client overview, navigation menu, Scene panel, Model List, Hierarchy, and Workspace.",
+            "Identify Layers, Scripts, and Resources in a creator project."
+          ]
+        },
+        {
+          "title": "2. Basic concepts and LuaScript",
+          "items": [
+            "Work with entities, components, properties, models, services, and logic.",
+            "Understand script types, script logic, script components, tables, variables, and functions.",
+            "Use the component model to attach behavior and data to objects in a world."
+          ]
+        },
+        {
+          "title": "3. Networking in MapleStory Worlds",
+          "items": [
+            "Learn property synchronization and function execution control across client and server contexts.",
+            "Separate local UI and input logic from shared or server-authoritative game logic.",
+            "Use the networking model to keep multiplayer state consistent."
+          ]
+        },
+        {
+          "title": "4. Build the My Adventure sample",
+          "items": [
+            "Design a map and establish the sample world's basic flow.",
+            "Add collectible coins, a monster encounter, and a finish flag.",
+            "Connect the objects and scripts into a playable beginning-to-end experience."
+          ]
+        },
+        {
+          "title": "5. Publish and monetize",
+          "items": [
+            "Create paid items and connect purchase logic and purchase components.",
+            "Implement item-use and item-end behavior.",
+            "Review the finished world before publishing it to players."
+          ]
+        }
+      ]
+    },
+    "notes": "Original MPStorys curriculum outline based on the official Creator Center resource, verified on 2026-07-18. The source is a video curriculum, so MPStorys stores a structured outline rather than a transcript.",
+    "guide_type": "creator",
+    "class_name": null,
+    "boss_name": null,
+    "system_name": "MapleStory Worlds Maker",
+    "level_range": null,
+    "difficulty": "beginner",
+    "game_version": null,
+    "applicable_regions": [
+      "global"
+    ],
+    "prerequisites": [
+      "MapleStory Worlds Maker access",
+      "A creator project for following the sample exercises"
+    ],
+    "steps": [
+      "Learn the Maker interface and project hierarchy.",
+      "Practice entities, components, properties, and LuaScript fundamentals.",
+      "Separate client, server, UI, input, and synchronized logic.",
+      "Build the My Adventure sample with a map, coins, a monster, and a finish flag.",
+      "Add paid-item purchase and use logic, then prepare the world for publishing."
+    ],
+    "recommended_items": [],
+    "recommended_stats": [],
+    "outdated_warning": false
+  },
+  {
+    "id": "worlds-global-creator-center-news-2026-07-01-3489476",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3489476",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3489476",
+    "external_id": "3489476",
+    "title": "[Complete] Maintenance - 2026 July 1",
+    "original_title": "[Complete] Maintenance - 2026 July 1",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "MSW_Creators",
+    "published_at": "2026-07-01T02:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:12.015Z",
+    "last_checked": "2026-07-18T09:44:12.015Z",
+    "summary": "MapleStory Worlds completed July 1 maintenance at 18:00 PDT after a three-hour platform outage. Version 26.5.5 added a Player Ban capability to World Insight, stabilized servers, and delivered editor, text rendering, state synchronization, and TeleportService fixes.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260630/c0745078-c4db-476e-9cf4-10d2a08ea09c/MSWGenericPostBanners740x120maintenance.png",
+        "alt": "[Complete] Maintenance - 2026 July 1"
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260630/4b8c694e-f73b-4dda-9b47-a26cc4cb5e26/image202606301434372.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "b4cc98a948a1adbb09e0112af50829525cbca96e852c4ab987733e059fca7880",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "worlds-creator-center-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:28.466Z",
+      "headline_id": "3477",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Completed maintenance",
+          "items": [
+            "The outage ran July 1 from 15:00 to 18:00 PDT; the website and PC and mobile apps were unavailable.",
+            "Published distributions: Windows 26.5.5.717, Mac 26.5.5.78, Android 26.5.5.611, and iOS 26.5.5.545."
+          ]
+        },
+        {
+          "title": "Creator platform changes",
+          "items": [
+            "World Insight gained a Player Ban feature that lets creators implement account-based sanctions inside a World.",
+            "Sanction history can transfer when a sanctioned player deletes and later recreates a MapleStory Worlds account.",
+            "The update also fixed custom-font, TextSpriteSet, StateComponent, Model Editor, Background editor, and TeleportService issues."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "worlds-global-creator-center-news-2026-07-02-3490485",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490485",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490485",
+    "external_id": "3490485",
+    "title": "Open Market Store Process Abuse Sanction Post - June 2026",
+    "original_title": "Open Market Store Process Abuse Sanction Post - June 2026",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "creator-announcement",
+    "subcategory": "creator-notice",
+    "official": true,
+    "author": "MSW_Creators",
+    "published_at": "2026-07-02T02:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:12.015Z",
+    "last_checked": "2026-07-18T09:44:12.015Z",
+    "summary": "MapleStory Worlds reported permanent account bans and currency retrieval for 509 accounts found to have abused open-market-store or payment processes during June 2026. The notice also explains where World Coin and in-World purchase refund requests must be submitted.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "creator-announcement",
+      "creator-notice"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/bbe6b528-4de4-4f81-8b81-da2098170acd/MSWGenericPostBanners740x120notice.png",
+        "alt": "Open Market Store Process Abuse Sanction Post - June 2026"
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/fc63a8a5-5ac6-41d4-aa22-6fe22cb5b930/image202607011354491.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "565718f1ddef3ea8dd7082644aae8d5f14426b63277c34b8a0e00314b8a9ce39",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "worlds-creator-center-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:25.277Z",
+      "headline_id": "3476",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Enforcement result",
+          "items": [
+            "The June 2026 notice lists 509 sanctioned accounts.",
+            "The stated reason is inappropriate transaction or payment activity involving company and open-market-store processes.",
+            "The stated penalty is a permanent account ban and currency retrieval under the operating policy."
+          ]
+        },
+        {
+          "title": "Refund route",
+          "items": [
+            "World Coin purchase refunds must be requested from MapleStory Worlds Support before the currency is used.",
+            "Refunds for items purchased inside a World must be sent to that World's creator through the Inquire with a Creator option."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "worlds-global-creator-center-news-2026-07-02-3490487",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490487",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490487",
+    "external_id": "3490487",
+    "title": "Avatar Product and Creator Sanction List - June 2026",
+    "original_title": "Avatar Product and Creator Sanction List - June 2026",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "creator-announcement",
+    "subcategory": "creator-notice",
+    "official": true,
+    "author": "MSW_Creators",
+    "published_at": "2026-07-02T02:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:12.015Z",
+    "last_checked": "2026-07-18T09:44:12.015Z",
+    "summary": "MapleStory Worlds published its June 2026 enforcement results for avatar products and creators that violated intellectual-property or platform policies. Confirmed products were permanently restricted, while creators received release, play, or cashout restrictions according to severity.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "creator-announcement",
+      "creator-notice"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/1b60698e-8345-4735-9b9f-fee1cef967a5/MSWGenericPostBanners740x120notice.png",
+        "alt": "Avatar Product and Creator Sanction List - June 2026"
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/fa29b87b-1add-4f37-8fcd-e56f1255b111/image202607011406082.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "263c2be08d9afb7ff091f9525d3bbab1c2e5bc11d3d34823ecee78d80ab9dcfd",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "worlds-creator-center-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:22.302Z",
+      "headline_id": "3476",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Policy action",
+          "items": [
+            "Avatar products confirmed to infringe intellectual property or violate operating policy were permanently restricted.",
+            "The notice includes 527 accounts receiving a 30-day new-product release restriction and lists additional creator sanctions by severity.",
+            "Available penalties include permanent new-product release restrictions and three- or six-month cashout restrictions."
+          ]
+        },
+        {
+          "title": "Scope",
+          "items": [
+            "The enforcement covers Worlds or products that violate the Creator Terms of Use or operating policy.",
+            "Nexon states that reported products will continue to be reviewed after publication of the monthly list."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  },
+  {
+    "id": "worlds-global-creator-center-news-2026-07-02-3490500",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500",
+    "external_id": "3490500",
+    "title": "Global Creator Challenge Discord Linking Event",
+    "original_title": "Global Creator Challenge Discord Linking Event",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "event",
+    "subcategory": "event",
+    "official": true,
+    "author": "MSW_Creators",
+    "published_at": "2026-07-02T05:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:12.015Z",
+    "last_checked": "2026-07-18T09:45:10.043Z",
+    "summary": "Global Creator Challenge participants in the United States and Canada, excluding Quebec, can enter a Discord account-linking raffle through October 7, 2026. Six winners receive a one-month Claude Pro subscription by direct message from an official MapleStory Worlds administrator.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "event"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260702/3eb7a5dd-0bb6-4a1c-83f6-33422a20f4ae/MSWGenericPostBanners740x120notice.png",
+        "alt": "Global Creator Challenge Discord Linking Event"
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/e03dbe69-2df3-4b00-b451-18b283629052/image202607011458013.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "49e2bd1c7390412d494f5d81e3f6304801e7e2ba86b7b89c99819563b28568e3",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "worlds-creator-center-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:19.250Z",
+      "headline_id": "5287",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Event period and prize",
+          "items": [
+            "Runs from July 2 at 05:00 UTC through October 7 at 14:59 UTC.",
+            "Six raffle winners receive a one-month Claude Pro subscription through Discord direct message."
+          ]
+        },
+        {
+          "title": "How to enter",
+          "items": [
+            "Join the Global Creator Challenge Discord server and link a Nexon Account to the Discord profile.",
+            "Entry is complete when the account receives the CREATOR role.",
+            "The linked account must remain registered through prize distribution."
+          ]
+        },
+        {
+          "title": "Eligibility",
+          "items": [
+            "Participation is limited to the United States and Canada, excluding Quebec.",
+            "Only one gift can be awarded per Discord account linked to a Nexon Account, and policy violations or abnormal participation invalidate the entry."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null,
+    "event_name": "Global Creator Challenge Discord Linking Event",
+    "registration_start": null,
+    "registration_end": null,
+    "event_start": "2026-07-02T05:00:00.000Z",
+    "event_end": "2026-10-07T14:59:00.000Z",
+    "claim_start": null,
+    "claim_end": null,
+    "shop_start": null,
+    "shop_end": null,
+    "timezone": "UTC",
+    "eligibility": [],
+    "requirements": [],
+    "rewards": [],
+    "event_currency": [],
+    "event_shop": null,
+    "participation_steps": [],
+    "related_announcement_id": null,
+    "related_patch_ids": [],
+    "calendar_status": "active"
+  },
+  {
+    "id": "worlds-global-creator-center-news-2026-07-02-3491322",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3491322",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3491322",
+    "external_id": "3491322",
+    "title": "Hotfix Maintenance – 2026 July 2",
+    "original_title": "Hotfix Maintenance – 2026 July 2",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "maintenance",
+    "subcategory": "maintenance",
+    "official": true,
+    "author": "MSW_Creators",
+    "published_at": "2026-07-02T09:10:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:12.015Z",
+    "last_checked": "2026-07-18T09:44:12.015Z",
+    "summary": "MapleStory Worlds scheduled a July 2 hotfix for the PC app while keeping the platform and apps available. Temporary disconnects could occur, and the update corrected custom-font rendering when RASTER or SMOOTH render modes were used.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "maintenance"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260702/5ef41b02-ac8f-4bc2-bfa6-9b79055b5dac/hotfixwest111.png",
+        "alt": "Hotfix Maintenance – 2026 July 2"
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260421/16b099bc-a737-437b-b950-eaa8115d8866/WGC1404240930GenericPostBanners740x120HotFix1.png",
+        "alt": null
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260608/4a017aca-3110-4476-a228-065837683cfe/image202606081723091.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "a50bbe72260e16564aa1b7f1c96282df25aca19b24c077d1b30bee541dd2f3f7",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "worlds-creator-center-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:16.142Z",
+      "headline_id": "3477",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Hotfix schedule",
+          "items": [
+            "Scheduled for July 2 at 09:30 UTC / 02:30 PDT / 18:30 KST.",
+            "The platform remained available, but Worlds could temporarily disconnect and display reconnection messages.",
+            "Creators were instructed to relaunch through the official site after the hotfix."
+          ]
+        },
+        {
+          "title": "PC update",
+          "items": [
+            "PC app version: 26.5.6; Windows distribution 26.5.6.718 and Mac distribution 26.5.6.79.",
+            "The hotfix corrected custom fonts not rendering correctly in RASTER or SMOOTH mode."
+          ]
+        }
+      ],
+      "editorial_reviewed": true,
+      "editorial_reviewed_at": "2026-07-18"
+    },
+    "notes": null
+  }
+]

@@ -15,6 +15,7 @@ import GuideFreshnessBar from '../components/GuideFreshnessBar';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { writeGuideReadingProgress } from '@/services/guideReadingProgress';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const sectionId = (value: string) =>
   value
@@ -152,7 +153,7 @@ const grandisGuideFromId = (guideId?: string): GuideItem | null => {
     upvotes: 0,
     author: 'Grandis Library',
     versions: ['gms'],
-    image: 'https://grandislibrary.com/headers/verdel.png',
+  image: '/static/images/vendor/grandislibrary.com/verdel-801df7a4ba.webp',
     excerpt: `${title} from Grandis Library.`,
     sourceLabel: 'Grandis Library',
     sourceUrl: `https://grandislibrary.com/${sourcePath}`,
@@ -185,15 +186,17 @@ const localGrandisGuidePath = (href: string, sourceUrl: string) => {
   }
 };
 
-export default function GuideDetail() {
+export default function GuideDetail({ initialId }: { initialId?: string }) {
   const { t, i18n } = useTranslation();
-  const { id } = useParams<{ id: string }>();
+  const { id: routeId } = useParams<{ id: string }>();
+  const id = routeId || initialId;
   const navigate = useNavigate();
   const location = useLocation();
   const { version } = useVersion();
+  const { initialGuide, initialGuides } = useServerRouteData();
   const deferredContentLanguage = useDeferredValue(i18n.language);
   const [notifOpen, setNotifOpen] = useState(false);
-  const [hydratedGuide, setHydratedGuide] = useState<GuideItem | null>(null);
+  const [hydratedGuide, setHydratedGuide] = useState<GuideItem | null>(initialGuide);
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState('');
   const [detailRetryKey, setDetailRetryKey] = useState(0);
@@ -208,7 +211,7 @@ export default function GuideDetail() {
     syncNow,
   } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
-    baseItems: [],
+    baseItems: initialGuides,
     remoteLoader: fetchLiveGuides,
   });
   const detailGuideCandidates = useMemo(() => {
@@ -524,7 +527,7 @@ export default function GuideDetail() {
       <main id="main-content" tabIndex={-1} className="pt-16 md:pt-20">
         <section className="relative mb-14 h-80 overflow-hidden">
           <img
-            src={guide?.image || 'https://grandislibrary.com/headers/verdel.png'}
+            src={guide?.image || '/static/images/vendor/grandislibrary.com/verdel-801df7a4ba.webp'}
             alt={copy?.title || 'Grandis Library'}
             decoding="async"
             className="h-full w-full object-cover object-center"

@@ -1,0 +1,22 @@
+[
+  {
+    "imageThumbnail": "/media/news.png",
+    "summary": "Source summary is intentionally not stored.",
+    "featured": true,
+    "isMSCW": false,
+    "liveDate": "2026-07-16T15:00:00Z",
+    "name": "Maple Memo: Fixture Notice",
+    "id": 42797,
+    "category": "general"
+  },
+  {
+    "imageThumbnail": "/media/classic.png",
+    "summary": "Classic fixture.",
+    "featured": true,
+    "isMSCW": false,
+    "liveDate": "2026-07-16T16:00:00Z",
+    "name": "Global MapleStory Classic World Test",
+    "id": 42364,
+    "category": "general"
+  }
+]

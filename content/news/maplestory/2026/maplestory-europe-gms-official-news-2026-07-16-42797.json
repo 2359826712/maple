@@ -1,0 +1,80 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-07-16-42797",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/42797/maple-memo-addressing-the-unique-tier-familiar-boss-damage-potential",
+  "source_url": "https://www.nexon.com/maplestory/news/general/42797/maple-memo-addressing-the-unique-tier-familiar-boss-damage-potential",
+  "external_id": "42797",
+  "title": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential",
+  "original_title": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-07-16T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:43:52.847Z",
+  "last_checked": "2026-07-18T09:43:52.847Z",
+  "summary": "Global MapleStory confirmed that Unique-tier Familiar Potential will keep only the 40% Boss Damage result at its current appearance rate. The team found that both the former 30% and 35% results had been removed, rather than only the intended 30% result.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f3d0496d0776014a4bab542f2a4fc892f9f4bbf2fd7fb1a065a99dcca1105501",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:43:58.096Z",
+    "parser_warnings": [],
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Decision",
+        "items": [
+          "Only the 40% Boss Damage option will remain at Unique tier in Familiar Potential.",
+          "Its appearance rate will remain unchanged from the rate in effect when the notice was published."
+        ]
+      },
+      {
+        "title": "What Nexon found",
+        "items": [
+          "Before v.264, Unique-tier Boss Damage could roll 30%, 35%, or 40%.",
+          "The intended quality-of-life change was to remove 30%, but the review found that 35% had also been removed.",
+          "Nexon said other Familiar Potential options, tiers, and rank-up values were working as intended."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

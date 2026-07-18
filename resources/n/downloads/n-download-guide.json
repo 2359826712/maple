@@ -1,0 +1,35 @@
+{
+  "id": "n-download-guide",
+  "name": "MapleStory N Download Guide",
+  "website": "MapleStory N Documentation",
+  "page": "Download Guide",
+  "url": "https://docs.maplestoryn.io/msn-101/download-guide",
+  "series": "n",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "downloads",
+  "subcategory": "installation",
+  "description": "Explains official account, wallet, launcher, installation, and recommended PC specification steps for MapleStory N.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "account",
+    "download",
+    "installation",
+    "wallet"
+  ],
+  "source_urls": [
+    "https://docs.maplestoryn.io/msn-101/download-guide"
+  ],
+  "notes": null
+}

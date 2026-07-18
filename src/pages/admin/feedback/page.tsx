@@ -16,7 +16,7 @@ const statuses: SiteFeedbackStatus[] = ['new', 'in_progress', 'resolved', 'close
 
 export default function AdminFeedbackPage() {
   const { t, i18n } = useTranslation();
-  const { isSignedIn, isAdmin } = useAuthSession();
+  const { isSessionResolved, isSignedIn, isAdmin } = useAuthSession();
   const [notifOpen, setNotifOpen] = useState(false);
   const [items, setItems] = useState<SiteFeedbackRecord[]>([]);
   const [statusFilter, setStatusFilter] = useState<SiteFeedbackStatus | ''>('');
@@ -96,7 +96,12 @@ export default function AdminFeedbackPage() {
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />
 
       <main id="main-content" tabIndex={-1} className="pb-16 pt-24 md:pt-28">
-        {!isSignedIn ? (
+        {!isSessionResolved ? (
+          <section className="mx-auto min-h-[30rem] max-w-7xl px-4 py-16 md:px-8" aria-busy="true">
+            <div className="h-28 rounded-xl bg-background-100" />
+            <div className="mt-6 h-72 rounded-xl bg-background-100" />
+          </section>
+        ) : !isSignedIn ? (
           <section className="mx-auto max-w-xl px-4 py-16 text-center">
             <i className="ri-lock-2-line text-4xl text-primary-600" aria-hidden="true" />
             <h1 className="mt-4 font-heading text-2xl font-semibold text-foreground-950">{t('admin_feedback_signin_title')}</h1>

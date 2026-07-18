@@ -17,7 +17,7 @@ type SyncState = 'idle' | 'syncing' | 'success' | 'error';
 
 export default function AccountPage() {
   const { t, i18n } = useTranslation();
-  const { isSignedIn, displayName, session } = useAuthSession();
+  const { isSessionResolved, isSignedIn, displayName, session } = useAuthSession();
   const { characters } = useCharacters();
   const [notifOpen, setNotifOpen] = useState(false);
   const [syncState, setSyncState] = useState<SyncState>('idle');
@@ -52,7 +52,16 @@ export default function AccountPage() {
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />
 
       <main id="main-content" tabIndex={-1} className="pb-16 pt-24 md:pt-28">
-        {!isSignedIn ? (
+        {!isSessionResolved ? (
+          <section className="mx-auto min-h-[30rem] max-w-5xl px-4 py-14 md:px-8" aria-busy="true">
+            <div className="h-40 rounded-2xl border border-background-200 bg-background-100" />
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div className="h-32 rounded-xl bg-background-100" />
+              <div className="h-32 rounded-xl bg-background-100" />
+              <div className="h-32 rounded-xl bg-background-100" />
+            </div>
+          </section>
+        ) : !isSignedIn ? (
           <section className="mx-auto max-w-xl px-4 py-14 text-center md:px-8">
             <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-100 text-3xl text-primary-700">
               <i className="ri-lock-2-line" aria-hidden="true" />

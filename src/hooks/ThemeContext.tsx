@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { isStaticHydration, scheduleAfterStaticHydration } from '@/ssg/hydration';
 
 export type ColorMode = 'light' | 'dark' | 'system';
 export type ThemePalette = 'cream' | 'mint' | 'sunset' | 'sand';
@@ -63,10 +64,28 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const initial = useMemo(readStoredTheme, []);
+  const deferBrowserState = isStaticHydration();
+  const initial = useMemo(
+    () => deferBrowserState
+      ? { mode: 'system' as ColorMode, palette: 'cream' as ThemePalette }
+      : readStoredTheme(),
+    [deferBrowserState],
+  );
   const [mode, setModeState] = useState<ColorMode>(initial.mode);
   const [palette, setPaletteState] = useState<ThemePalette>(initial.palette);
-  const [systemDark, setSystemDark] = useState(prefersDark);
+  const [systemDark, setSystemDark] = useState(() => deferBrowserState ? false : prefersDark());
+  const [browserStateReady, setBrowserStateReady] = useState(!deferBrowserState);
+
+  useEffect(() => {
+    if (!deferBrowserState) return;
+    return scheduleAfterStaticHydration(() => {
+      const stored = readStoredTheme();
+      setModeState(stored.mode);
+      setPaletteState(stored.palette);
+      setSystemDark(prefersDark());
+      setBrowserStateReady(true);
+    });
+  }, [deferBrowserState]);
 
   useEffect(() => {
     const media = window.matchMedia?.('(prefers-color-scheme: dark)');
@@ -79,6 +98,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const resolvedMode = mode === 'system' ? (systemDark ? 'dark' : 'light') : mode;
 
   useEffect(() => {
+    if (!browserStateReady) return;
     applyThemeToDocument(mode, palette);
     try {
       window.localStorage.setItem(COLOR_MODE_STORAGE_KEY, mode);
@@ -86,7 +106,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     } catch {
       // A blocked or full storage area should not prevent theme changes in-session.
     }
-  }, [mode, palette, systemDark]);
+  }, [browserStateReady, mode, palette, systemDark]);
 
   const value = useMemo<ThemeContextValue>(() => ({
     mode,
@@ -104,4 +124,3 @@ export function useTheme() {
   if (!context) throw new Error('useTheme must be used inside ThemeProvider');
   return context;
 }
-

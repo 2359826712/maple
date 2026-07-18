@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { dailyHubs } from '@/mocks/home';
 import { useVersion } from '@/hooks/VersionContext';
 import { millisecondsUntilReset } from '@/domain/regionModel';
+import { scheduleAfterStaticHydration } from '@/ssg/hydration';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -40,11 +41,20 @@ const tintStyles: Record<string, { iconBg: string; iconText: string; border: str
 export default function DailyHubSection() {
   const { t } = useTranslation();
   const { version, versionInfo } = useVersion();
-  const [now, setNow] = useState(Date.now());
+  // Keep the first browser render identical to the generated HTML. The live
+  // clock starts after hydration so React can reuse the server-rendered nodes.
+  const [now, setNow] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => setNow(Date.now()), 1000);
-    return () => window.clearInterval(timer);
+    let timer = 0;
+    const cancelStart = scheduleAfterStaticHydration(() => {
+      setNow(Date.now());
+      timer = window.setInterval(() => setNow(Date.now()), 1000);
+    });
+    return () => {
+      cancelStart();
+      window.clearInterval(timer);
+    };
   }, []);
 
   const resetCountdown = formatCountdown(millisecondsUntilReset('daily', version, now));

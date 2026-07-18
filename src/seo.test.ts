@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { getSitemapEntries } from '@/next/routeData';
 
 const read = (path: string) => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
@@ -14,18 +15,19 @@ describe('search and social metadata', () => {
   };
 
   it('uses the production domain consistently', () => {
-    const index = read('index.html');
-    const robots = read('public/robots.txt');
-    const sitemap = read('public/sitemap.xml');
+    const routeHead = read('src/next/RouteHead.tsx');
+    const robots = read('src/pages/robots.txt.next.tsx');
+    const sitemap = read('src/pages/sitemap.xml.next.tsx');
 
-    expect(`${index}${robots}${sitemap}`).not.toContain('example.com');
-    expect(index).toContain('<link rel="canonical" href="https://mpstorys.com/"');
+    expect(`${routeHead}${robots}${sitemap}`).not.toContain('example.com');
+    expect(routeHead).toContain('canonicalUrl');
+    expect(routeHead).toContain('<link rel="canonical" href={canonicalUrl}');
     expect(robots).toContain('Sitemap: https://mpstorys.com/sitemap.xml');
-    expect(sitemap).toContain('<loc>https://mpstorys.com/en/GMS</loc>');
+    expect(sitemap).toContain('`${SITE_URL}${pathname}`');
   });
 
   it('blocks private routes while leaving public utility pages crawlable', () => {
-    const robots = read('public/robots.txt');
+    const robots = read('src/pages/robots.txt.next.tsx');
 
     expect(robots).toContain('Allow: /');
     expect(robots).toContain('Disallow: /account');
@@ -37,30 +39,43 @@ describe('search and social metadata', () => {
   });
 
   it('adds defense-in-depth noindex headers for private routes', () => {
-    const headers = read('public/_headers');
+    const routeHead = read('src/next/RouteHead.tsx');
 
-    expect(headers).toMatch(/\/account\*\r?\n\s+X-Robots-Tag: noindex, nofollow/);
-    expect(headers).toMatch(/\/admin\/\*\r?\n\s+X-Robots-Tag: noindex, nofollow/);
-    expect(headers).toMatch(/\/auth\/login\*\r?\n\s+X-Robots-Tag: noindex, nofollow/);
+    expect(routeHead).toContain("const index = Boolean(entry?.index)");
+    expect(routeHead).toContain("entry?.follow !== false");
+    expect(routeHead).toContain('<meta name="robots" content={robots} />');
+    expect(routeHead).toContain('<meta name="googlebot" content={robots} />');
   });
 
-  it('keeps ignored sitemap hints out while exposing Readdy website fields', () => {
-    const index = read('index.html');
-    const sitemap = read('public/sitemap.xml');
+  it('exposes complete Next.js metadata and sitemap hints', () => {
+    const routeHead = read('src/next/RouteHead.tsx');
+    const document = read('src/pages/_document.next.tsx');
+    const sitemap = read('src/pages/sitemap.xml.next.tsx');
 
-    expect(index).toContain('meta name="keywords"');
-    expect(index).toContain('<link rel="icon" type="image/svg+xml" href="/favicon.svg"');
-    expect(index).toContain('<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg"');
-    expect(index).toContain('meta property="og:image:secure_url"');
-    expect(index).toContain('link rel="image_src"');
-    expect(sitemap).not.toContain('<changefreq>');
-    expect(sitemap).not.toContain('<priority>');
+    expect(routeHead).toContain('meta name="keywords"');
+    expect(document).toContain('rel="icon" type="image/jpeg" sizes="128x128" href="/mpstorys-icon-128.jpg"');
+    expect(document).toContain('href="/mpstorys-icon-128.jpg"');
+    expect(routeHead).toContain('meta property="og:image"');
+    expect(routeHead).toContain('application/ld+json');
+    expect(routeHead).toContain('keywords: siteKeywords[language]');
+    expect(sitemap).toContain('<changefreq>');
+    expect(sitemap).toContain('<priority>');
+  });
+
+  it('includes MapleStory Classic and MapleStory Idle in localized search metadata', () => {
+    const keywords = JSON.parse(read('src/seo/siteKeywords.json')) as Record<string, string>;
+    Object.values(keywords).forEach((value) => {
+      expect(value).toContain('MapleStory Classic');
+      expect(value).toContain('MapleStory Idle');
+    });
+    expect(metadataCatalog.routes['/'].copy.en.description).toContain('MapleStory Classic');
+    expect(metadataCatalog.routes['/news'].copy.en.description).toContain('MapleStory Idle');
   });
 
   it('keeps private and duplicate-prone utility pages out of the sitemap', () => {
-    const sitemap = read('public/sitemap.xml');
+    const paths = getSitemapEntries().map(({ pathname }) => pathname);
 
-    expect(sitemap).not.toMatch(/<loc>[^<]+\/(?:account|auth\/login|search|source|wiki\/redirect)<\/loc>/);
+    expect(paths.some((path) => /\/(?:account|auth\/login|search|source|wiki\/redirect)\//.test(path))).toBe(false);
   });
 
   it('ships a large social preview card with accessible metadata', () => {
@@ -72,11 +87,42 @@ describe('search and social metadata', () => {
     expect(existsSync(new URL('../public/og.png', import.meta.url))).toBe(true);
   });
 
+  it('server-renders the React application before hydration', () => {
+    const application = read('src/next/NextApplication.tsx');
+    const hydrationRouter = read('src/next/HydrationSafeRouter.tsx');
+    const routePage = read('src/next/NextRoutePage.tsx');
+
+    expect(application).toContain('data-server-rendered-route={page.pathname}');
+    expect(application).toContain('<HydrationSafeRouter initialLocation={page.requestPath || page.pathname}>');
+    expect(hydrationRouter).toContain('<Router');
+    expect(hydrationRouter).toContain("static={typeof window === 'undefined'}");
+    expect(routePage).toContain('<NextApplication {...props} initialRouteElement={initialRouteElement} />');
+  });
+
+  it('redirects the bare root to the canonical localized homepage', () => {
+    const routeData = read('src/next/routeData.ts');
+    const serverRoute = read('src/next/serverRoute.ts');
+
+    expect(routeData).toContain("withRouteSuffixes(stripRouteSuffixes(normalized), language || 'en', server || 'gms')");
+    expect(serverRoute).toContain('permanent: true');
+  });
+
+  it('gives homepage content images meaningful alternative text', () => {
+    const highlights = read('src/pages/home/components/CurrentVersionHighlights.tsx');
+    const rankings = read('src/pages/home/components/RankingBoard.tsx');
+
+    expect(highlights).toContain('alt={card.title}');
+    expect(rankings).toContain('alt={`${rank.characterName} MapleStory character`}');
+    expect(highlights).not.toMatch(/<img[\s\S]*?alt=""[\s\S]*?\/>/);
+    expect(rankings).not.toMatch(/<img[\s\S]*?alt=""[\s\S]*?\/>/);
+  });
+
   it('defines unique localized metadata for every static route', () => {
     const expectedRoutes = [
       '/', '/account', '/admin/feedback', '/auth/login', '/checklist', '/community', '/events', '/feedback', '/guides',
       '/guides/level', '/mapler-house', '/maps', '/news', '/rankings', '/rankings/classes',
-      '/search', '/source', '/tools', '/upcoming', '/wiki', '/wiki/boss', '/wiki/redirect',
+      '/search', '/series', '/source', '/tools', '/upcoming', '/wiki', '/wiki/boss', '/wiki/redirect',
+      '/shop',
     ];
     const languages = Object.keys(metadataCatalog.languages);
 
@@ -92,10 +138,10 @@ describe('search and social metadata', () => {
   });
 
   it('keeps every noindex catalog route out of the source sitemap', () => {
-    const sitemap = read('public/sitemap.xml');
+    const sitemapPaths = getSitemapEntries().map(({ pathname }) => pathname);
     Object.entries(metadataCatalog.routes)
       .filter(([, route]) => !route.index)
-      .forEach(([route]) => expect(sitemap).not.toContain(`<loc>https://mpstorys.com${route}`));
+      .forEach(([route]) => expect(sitemapPaths.some((pathname) => pathname.startsWith(`${route}/`))).toBe(false));
   });
 
   it('defines structured data for every indexable static route', () => {
@@ -110,16 +156,21 @@ describe('search and social metadata', () => {
     expect(metadataCatalog.routes['/'].schema?.types).toContain('WebSite');
   });
 
-  it('runs route-aware SEO generation in every Vite production build', () => {
+  it('builds every application route with request-time SSR', () => {
     const packageJson = JSON.parse(read('package.json')) as { scripts: { build: string } };
-    const viteConfig = read('vite.config.ts');
-    const readdySync = read('readdy-sync.mjs');
+    const nextConfig = read('next.config.mjs');
+    const catchAll = read('src/pages/[[...route]].next.tsx');
+    const serverRoute = read('src/next/serverRoute.ts');
+    const dockerfile = read('Dockerfile');
 
-    expect(packageJson.scripts.build).toBe('vite build');
-    expect(viteConfig).toContain('name: "route-seo-output"');
-    expect(viteConfig).toContain('await generateLocalizedStaticRoutes()');
-    expect(viteConfig).toContain('await verifySeoOutput()');
-    expect(readdySync).toContain("'scripts/generate-localized-static-routes.mjs'");
-    expect(readdySync).toContain("'scripts/verify-seo-output.mjs'");
+    expect(packageJson.scripts.build).toBe('next build --webpack');
+    expect(nextConfig).toContain("output: 'standalone'");
+    expect(catchAll).toContain('getServerSideProps = getServerSideRouteProps');
+    expect(catchAll).not.toContain('getStaticProps');
+    expect(catchAll).not.toContain('getStaticPaths');
+    expect(serverRoute).toContain('GetServerSideProps');
+    expect(serverRoute).toContain("s-maxage=43200");
+    expect(dockerfile).toContain('/app/.next/standalone');
+    expect(dockerfile).toContain('CMD ["node", "server.js"]');
   });
 });

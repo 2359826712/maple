@@ -1,0 +1,62 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-07-01-3489822",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3489822",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3489822",
+  "external_id": "3489822",
+  "title": "[COMPLETED] July 1 - Scheduled Maintenance",
+  "original_title": "[COMPLETED] July 1 - Scheduled Maintenance",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-01T04:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:30.531Z",
+  "last_checked": "2026-07-18T09:44:30.531Z",
+  "summary": "MapleStory N marks its July 1 scheduled maintenance as completed. The current official page exposes only the label “MSU DIRECT”, so MPStorys cannot verify the maintenance window, affected systems, or completed changes beyond the title and publication record.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "950a80e1567f27f93644f5cafdf6ccd4cadf690b7298d93eb7b8a98d16f65aed",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:43.157Z",
+    "headline_id": "5040",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Verified notice state",
+        "items": [
+          "Published on July 1, 2026 at 04:30 UTC and marked COMPLETED in the official title.",
+          "The canonical article body currently contains only the placeholder text MSU DIRECT.",
+          "No additional schedule or patch details are available from the official source."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

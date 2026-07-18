@@ -4,13 +4,12 @@ import { fileURLToPath } from 'node:url';
 
 export async function verifySeoOutput() {
 const output = new URL('../out/', import.meta.url);
-const [robots, sitemap, index, localizedGuide, privateAccount, faviconSvg, iconStats, socialImageStats, assetNames] = await Promise.all([
+const [robots, sitemap, index, localizedGuide, privateAccount, iconStats, socialImageStats, assetNames] = await Promise.all([
   readFile(new URL('robots.txt', output), 'utf8'),
   readFile(new URL('sitemap.xml', output), 'utf8'),
   readFile(new URL('index.html', output), 'utf8'),
   readFile(new URL('guides/zh/KMS/index.html', output), 'utf8'),
   readFile(new URL('account/en/GMS/index.html', output), 'utf8'),
-  readFile(new URL('favicon.svg', output), 'utf8'),
   stat(new URL('mpstorys-icon-128.jpg', output)),
   stat(new URL('og.png', output)),
   readdir(new URL('assets/', output)),
@@ -34,17 +33,19 @@ const assertions = [
   [index.includes('meta name="description"'), 'index.html is missing a meta description'],
   [index.includes('link rel="canonical"'), 'index.html is missing a canonical link'],
   [index.includes('meta name="keywords"'), 'index.html is missing website keywords required by the Readdy SEO configuration'],
-  [index.includes('link rel="icon" type="image/svg+xml" href="/favicon.svg"'), 'index.html is missing the crawler-compatible SVG favicon'],
-  [faviconSvg.includes('<svg') && faviconSvg.includes('viewBox='), 'favicon.svg is missing or invalid'],
+  [index.includes('link rel="icon" type="image/jpeg" sizes="128x128" href="https://mpstorys.com/mpstorys-icon-128.jpg"'), 'index.html is missing the stable domain-level JPG favicon'],
+  [index.includes('link rel="apple-touch-icon" sizes="128x128" href="/mpstorys-icon-128.jpg"'), 'index.html is missing the Apple touch icon'],
   [index.includes('meta property="og:image:secure_url"') && index.includes('link rel="image_src"'), 'index.html is missing complete website image metadata'],
   [socialImageStats.size > 0, 'og.png is missing or empty'],
   [localizedGuide.includes('type="application/ld+json" data-seo-schema="route"'), 'localized route HTML is missing static JSON-LD'],
+  [localizedGuide.includes('data-ssg-route="/guides/zh/KMS"'), 'localized route HTML is missing its React SSG marker'],
+  [localizedGuide.includes('id="main-content"') && !localizedGuide.includes('data-static-seo-fallback'), 'localized route HTML does not contain the rendered React page body'],
+  [localizedGuide.includes('冒险岛攻略大全'), 'localized route HTML is missing route-specific visible content'],
   [localizedGuide.includes('"@type":"Organization"') && localizedGuide.includes('"@type":"WebSite"'), 'localized route schema is missing site identity entities'],
   [localizedGuide.includes('"@type":"BreadcrumbList"'), 'localized nested route is missing breadcrumb structured data'],
   [localizedGuide.includes('https://mpstorys.com/guides/zh/KMS#webpage'), 'structured data URL does not match the canonical localized URL'],
   [privateAccount.includes('noindex, nofollow') && !privateAccount.includes('type="application/ld+json"'), 'private route SEO directives are incorrect'],
-  [index.includes('/mpstorys-icon-128.jpg'), 'index.html does not reference the raster fallback site icon'],
-  [iconStats.size < 20 * 1024, `mpstorys-icon-128.jpg is ${iconStats.size} bytes; it must be under 20 KB`],
+  [iconStats.size > 0 && iconStats.size < 20 * 1024, `mpstorys-icon-128.jpg is ${iconStats.size} bytes; it must be non-empty and under 20 KB`],
   [oversizedScripts.length === 0, `JavaScript chunks exceed 500 KB: ${oversizedScripts.map(({ name, size }) => `${name} (${size} bytes)`).join(', ')}`],
 ];
 

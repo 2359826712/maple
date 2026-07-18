@@ -15,6 +15,7 @@ import {
   saveCurrentAccountData,
   syncAccountDataAfterLogin,
 } from '@/services/accountDataSync';
+import { readLocalStorage, removeLocalStorage } from '@/services/browserStorage';
 
 const toSession = (response: Awaited<ReturnType<typeof mapleSqlApi.auth.refresh>>) => ({
   provider: 'Email',
@@ -38,12 +39,12 @@ export default function AccountSessionBootstrap() {
   const lastSnapshot = useRef('');
 
   useEffect(() => {
-    if (session?.userId || localStorage.getItem(AUTO_LOGIN_ENABLED_KEY) === 'true') return;
-    if (localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY)) clearAccountDataCache();
+    if (session?.userId || readAuthSession()?.userId || readLocalStorage(AUTO_LOGIN_ENABLED_KEY) === 'true') return;
+    if (readLocalStorage(ACCOUNT_CACHE_OWNER_KEY)) clearAccountDataCache();
   }, [session?.userId]);
 
   useEffect(() => {
-    if (readAuthSession() || localStorage.getItem(AUTO_LOGIN_ENABLED_KEY) !== 'true') return;
+    if (readAuthSession() || readLocalStorage(AUTO_LOGIN_ENABLED_KEY) !== 'true') return;
     let active = true;
     void mapleSqlApi.auth.refresh()
       .then(async (response) => {
@@ -53,7 +54,7 @@ export default function AccountSessionBootstrap() {
         window.location.reload();
       })
       .catch(() => {
-        localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+        removeLocalStorage(AUTO_LOGIN_ENABLED_KEY);
         clearAccountDataCache();
         clearAuthSession();
       });
@@ -61,13 +62,13 @@ export default function AccountSessionBootstrap() {
   }, []);
 
   useEffect(() => {
-    if (!session?.expiresAt || localStorage.getItem(AUTO_LOGIN_ENABLED_KEY) !== 'true') return;
+    if (!session?.expiresAt || readLocalStorage(AUTO_LOGIN_ENABLED_KEY) !== 'true') return;
     const refreshIn = Math.max(1_000, Date.parse(session.expiresAt) - Date.now() - 60_000);
     const timer = window.setTimeout(() => {
       void mapleSqlApi.auth.refresh()
         .then((response) => saveAuthSession(toSession(response)))
         .catch(() => {
-          localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+          removeLocalStorage(AUTO_LOGIN_ENABLED_KEY);
           clearAccountDataCache();
           clearAuthSession();
         });
@@ -80,7 +81,7 @@ export default function AccountSessionBootstrap() {
     let timer: number | undefined;
     let disposed = false;
     const persist = () => {
-      if (localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY) !== session.userId) return;
+      if (readLocalStorage(ACCOUNT_CACHE_OWNER_KEY) !== session.userId) return;
       window.clearTimeout(timer);
       timer = window.setTimeout(() => {
         if (disposed) return;

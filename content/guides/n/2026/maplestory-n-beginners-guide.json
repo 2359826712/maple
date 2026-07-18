@@ -1,0 +1,107 @@
+{
+  "id": "maplestory-n-beginners-guide",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://docs.maplestoryn.io/msn-101/beginners-guide",
+  "source_url": "https://docs.maplestoryn.io/msn-101/beginners-guide",
+  "external_id": "beginners-guide",
+  "title": "MapleStory N Beginner's Guide",
+  "original_title": "Beginner's Guide",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "beginner-guide",
+  "official": true,
+  "author": "MapleStory N",
+  "published_at": null,
+  "updated_at": null,
+  "discovered_at": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-18T00:00:00.000Z",
+  "summary": "The official gameplay curriculum for getting started, character progression, items and equipment, monsters and dungeons, social systems, and account or service features in MapleStory N.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "beginner",
+    "bosses",
+    "link-skills",
+    "maple-guide",
+    "progression"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [
+    "https://docs.maplestoryn.io/msn-101/beginners-guide/character-progression/link-skills",
+    "https://docs.maplestoryn.io/msn-101/beginners-guide/get-started/maple-guide",
+    "https://docs.maplestoryn.io/msn-101/beginners-guide/monster-and-dungeon/boss-content-and-pure-boss-essence"
+  ],
+  "content_hash": "de99bdee121f0200a8f7e151af2ce0c818d7b4143f03b78a3c7d1ce7a85fcc3b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "n-beginners-guide",
+    "sections": [
+      {
+        "title": "Getting started",
+        "items": [
+          "Choose a Basic or Secondary key layout, then customize key bindings, quickslots, macros, NPC interaction, and item pickup.",
+          "Open Maple Guide with F1 to see level-appropriate quests, theme dungeons, hunting grounds, bosses, and special content.",
+          "Quick Move is available when you are within 10 levels of relevant content and has a 30-second cooldown."
+        ]
+      },
+      {
+        "title": "Character progression",
+        "items": [
+          "Learn skill basics, job advancement, 5th Job skills, and the systems used to strengthen a character.",
+          "Link Skills can be transferred from level 70 and reach level 2 at level 120.",
+          "Up to 12 Link Skills can be transferred; transfers can be changed up to five times per day and reset at 00:00 UTC."
+        ]
+      },
+      {
+        "title": "Combat and content",
+        "items": [
+          "Use hunting fields, Runes, monsters, dungeons, and boss content as the main combat progression path.",
+          "Review boss requirements and Pure Boss Essence information before committing resources.",
+          "Party and Guild systems support group content and social progression."
+        ]
+      },
+      {
+        "title": "Items and service systems",
+        "items": [
+          "The guide covers equipment, enhancement, inventory, currencies, and item-related systems.",
+          "Account, wallet, launcher, and marketplace topics are separated into official service documentation.",
+          "Use the linked official pages when a value or limit may have changed after a game update."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys structured overview verified against the official MapleStory N documentation tree on 2026-07-18.",
+  "guide_type": "beginner",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Core gameplay",
+  "level_range": "1+",
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [
+    "A MapleStory N character"
+  ],
+  "steps": [
+    "Configure controls and quickslots, then open Maple Guide with F1.",
+    "Follow level-appropriate quests, theme dungeons, and hunting grounds.",
+    "Advance jobs and review Skill, Link Skill, and 5th Job progression systems.",
+    "Use Runes, dungeons, bosses, parties, and guilds as they become available.",
+    "Check the official item, equipment, and service documentation before spending limited resources."
+  ],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

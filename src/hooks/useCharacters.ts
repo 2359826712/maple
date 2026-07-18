@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getAccessToken } from '@/hooks/useAuthSession';
 import { ACCOUNT_CACHE_CHANGED_EVENT, ACCOUNT_CACHE_OWNER_KEY } from '@/services/accountDataSync';
+import { isStaticHydration, scheduleAfterStaticHydration } from '@/ssg/hydration';
 import {
   applyStorageTransaction,
   deleteAllPlayerData,
@@ -368,14 +369,19 @@ function migrateLegacyData(characters: CharacterProfile[]): CharacterProfile[] {
 }
 
 function loadCharactersForCurrentSession() {
+  if (typeof window === 'undefined') return [];
   const belongsToAccount = Boolean(localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY));
   if (belongsToAccount && !getAccessToken()) return [];
   return migrateLegacyData(loadLocalCharacters());
 }
 
 export function useCharacters() {
-  const isLoggedIn = Boolean(getAccessToken());
-  const [characters, setCharacters] = useState<CharacterProfile[]>(loadCharactersForCurrentSession);
+  const deferBrowserState = isStaticHydration();
+  const [browserStateReady, setBrowserStateReady] = useState(!deferBrowserState);
+  const isLoggedIn = browserStateReady && Boolean(getAccessToken());
+  const [characters, setCharacters] = useState<CharacterProfile[]>(() => (
+    deferBrowserState ? [] : loadCharactersForCurrentSession()
+  ));
   const [activeCharId, setActiveCharId] = useState<string | null>(
     () => characters[0]?.id ?? null,
   );
@@ -404,9 +410,18 @@ export function useCharacters() {
       setChecklistConfig(nextActive ? loadChecklistConfig(nextActive.id) : null);
     };
 
+    const cancelReload = deferBrowserState
+      ? scheduleAfterStaticHydration(() => {
+          reloadAccountData();
+          setBrowserStateReady(true);
+        }, { autoDelayMs: 0 })
+      : () => {};
     window.addEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
-    return () => window.removeEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
-  }, []);
+    return () => {
+      cancelReload();
+      window.removeEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
+    };
+  }, [deferBrowserState]);
 
   const safeSave = useCallback((key: string, data: unknown) => {
     const result = writeJsonWithRecovery(localStorage, key, data);
@@ -424,8 +439,9 @@ export function useCharacters() {
 
   // Persist characters
   useEffect(() => {
+    if (!browserStateReady) return;
     safeSave(CHARACTERS_KEY, characters);
-  }, [characters, safeSave]);
+  }, [browserStateReady, characters, safeSave]);
 
   // Switch checklist when active character changes
   useEffect(() => {

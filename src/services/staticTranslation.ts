@@ -1,5 +1,4 @@
 import { cachedValueLoad, realtimeCacheDurations } from './realtimeCache';
-import { apiEndpoint } from './apiEndpoint';
 
 export type StaticContentLanguage = 'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko';
 export type StaticTranslationFormat = 'text' | 'html';
@@ -7,13 +6,19 @@ export type StaticTranslationFormat = 'text' | 'html';
 type TranslationResponse = {
   translations: string[];
   cached: boolean;
+  partial?: boolean;
+  unavailable_indexes?: number[];
 };
 
-export const staticTranslationRevision = 3;
+export type StaticTranslationResult = {
+  translations: string[];
+  unavailableIndexes: number[];
+};
+
+export const staticTranslationRevision = 6;
 
 const maxTranslationBatchBytes = 95 * 1024;
 const maxTranslationPartBytes = 24 * 1024;
-const maxHtmlFragmentBytes = 30 * 1024;
 const maxPersistedResultBytes = 1024 * 1024;
 const completedTranslationCache = new Map<string, string>();
 
@@ -173,37 +178,9 @@ const translateHtmlTextNodes = async (
   }
   if (textParts.length === 0) return html;
 
-  const encoder = new TextEncoder();
-  const fragments: string[] = [];
-  let fragment = '';
-  textParts.forEach((text, index) => {
-    const marker = document.createElement('span');
-    marker.dataset.mhTranslation = String(index);
-    marker.textContent = text;
-    const serialized = marker.outerHTML;
-    if (fragment && encoder.encode(fragment + serialized).byteLength > maxHtmlFragmentBytes) {
-      fragments.push(fragment);
-      fragment = '';
-    }
-    fragment += serialized;
-  });
-  if (fragment) fragments.push(fragment);
-
-  const translatedFragments = await translateStaticTexts(fragments, targetLanguage, {
+  const translations = await translateStaticTexts(textParts, targetLanguage, {
     sourceLanguage,
-    format: 'html',
-  });
-  const translations = [...textParts];
-  translatedFragments.forEach((translatedFragment) => {
-    const translatedDocument = new DOMParser().parseFromString('', 'text/html');
-    const translatedRoot = translatedDocument.createElement('div');
-    translatedRoot.innerHTML = translatedFragment;
-    translatedRoot.querySelectorAll<HTMLElement>('[data-mh-translation]').forEach((marker) => {
-      const index = Number(marker.dataset.mhTranslation);
-      if (Number.isInteger(index) && index >= 0 && index < translations.length && marker.textContent) {
-        translations[index] = marker.textContent;
-      }
-    });
+    format: 'text',
   });
   targets.forEach((target) => {
     const translated = target.parts.map((part, index) => translations[target.startIndex + index] || part).join(' ');
@@ -212,25 +189,30 @@ const translateHtmlTextNodes = async (
   return root.innerHTML;
 };
 
-export async function translateStaticTexts(
+export async function translateStaticTextsWithStatus(
   texts: string[],
   targetLanguage: string,
   options: { sourceLanguage?: string; format?: StaticTranslationFormat } = {},
-) {
-  if (texts.length === 0) return [];
+): Promise<StaticTranslationResult> {
+  if (texts.length === 0) return { translations: [], unavailableIndexes: [] };
   const target = normalizeStaticContentLanguage(targetLanguage);
   const source = options.sourceLanguage ? normalizeStaticContentLanguage(options.sourceLanguage) : undefined;
-  if (source && source === target) return [...texts];
+  if (source && source === target) return { translations: [...texts], unavailableIndexes: [] };
   const format = options.format || 'text';
   const output = [...texts];
+  const unavailableIndexes = new Set<number>();
 
   const translatedBatches = await Promise.all(makeBatches(texts).map(async (batch) => {
     const cacheKey = `static-translation:v${staticTranslationRevision}:${source || 'auto'}:${target}:${format}:${JSON.stringify(batch.texts)}`;
     const result = await cachedValueLoad(cacheKey, async () => {
-      const response = await fetch(apiEndpoint('/translations'), {
+      if (typeof window === 'undefined') {
+        const { translatePersistedTexts } = await import('./persistedTranslation');
+        const translations = await translatePersistedTexts(batch.texts, target, source, format);
+        return { translations, cached: false } as TranslationResponse;
+      }
+      const response = await fetch('/api/translations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        cache: 'no-store',
         body: JSON.stringify({
           texts: batch.texts,
           target_language: target,
@@ -243,22 +225,35 @@ export async function translateStaticTexts(
       if (!Array.isArray(payload.translations) || payload.translations.length !== batch.texts.length) {
         throw new Error('Static translation returned an invalid response');
       }
-      return payload.translations;
+      return payload;
     }, {
       freshMs: realtimeCacheDurations.week,
       staleMs: realtimeCacheDurations.week,
       retryMs: 10 * 1000,
+      shouldCache: (payload) => !payload.partial,
     });
     return { batch, result };
   }));
 
   translatedBatches.forEach(({ batch, result }) => {
     batch.indexes.forEach((originalIndex, resultIndex) => {
-      output[originalIndex] = result[resultIndex] || batch.texts[resultIndex];
+      output[originalIndex] = result.translations[resultIndex] || batch.texts[resultIndex];
+    });
+    result.unavailable_indexes?.forEach((resultIndex) => {
+      const originalIndex = batch.indexes[resultIndex];
+      if (originalIndex !== undefined) unavailableIndexes.add(originalIndex);
     });
   });
 
-  return output;
+  return { translations: output, unavailableIndexes: [...unavailableIndexes] };
+}
+
+export async function translateStaticTexts(
+  texts: string[],
+  targetLanguage: string,
+  options: { sourceLanguage?: string; format?: StaticTranslationFormat } = {},
+) {
+  return (await translateStaticTextsWithStatus(texts, targetLanguage, options)).translations;
 }
 
 export async function translateStaticText(

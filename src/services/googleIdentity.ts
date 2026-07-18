@@ -3,7 +3,7 @@ import { normalizeLanguage, type SupportedLanguage } from '@/i18n/languageRoutin
 const defaultGoogleClientId = '146017234212-3rlmu2u16hmdru86a6pjjog6sr0cr9a5.apps.googleusercontent.com';
 
 export const googleClientId = (
-  import.meta.env.VITE_GOOGLE_CLIENT_ID || defaultGoogleClientId
+  process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || defaultGoogleClientId
 ).trim();
 
 export type GoogleCredentialResponse = {

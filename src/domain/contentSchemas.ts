@@ -52,6 +52,14 @@ export interface NewsDataRecord {
     title: string;
     excerpt: string;
   }>>;
+  localizedEditions?: Partial<Record<'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko', {
+    title: string;
+    summary: string;
+    categoryLabel: string;
+    actionLabel: string;
+    searchTerms?: string[];
+    editorialStatus: 'reviewed' | 'draft';
+  }>>;
 }
 
 export interface WikiDataRecord {
@@ -177,6 +185,29 @@ export function validateNewsData(value: unknown): ValidationResult<NewsDataRecor
         }
         if (!isNonEmptyString(translation.excerpt)) {
           issues.push({ path: `translations.${language}.excerpt`, message: 'Translated excerpt is required.' });
+        }
+      });
+    }
+  }
+  if (value.localizedEditions !== undefined) {
+    if (!isRecord(value.localizedEditions)) {
+      issues.push({ path: 'localizedEditions', message: 'Expected a locale-keyed editorial edition object.' });
+    } else {
+      Object.entries(value.localizedEditions).forEach(([language, edition]) => {
+        if (!contentLanguages.includes(language) || !isRecord(edition)) {
+          issues.push({ path: `localizedEditions.${language}`, message: 'Expected a supported locale and editorial edition.' });
+          return;
+        }
+        for (const field of ['title', 'summary', 'categoryLabel', 'actionLabel'] as const) {
+          if (!isNonEmptyString(edition[field])) {
+            issues.push({ path: `localizedEditions.${language}.${field}`, message: `${field} is required.` });
+          }
+        }
+        if (edition.editorialStatus !== 'reviewed' && edition.editorialStatus !== 'draft') {
+          issues.push({ path: `localizedEditions.${language}.editorialStatus`, message: 'Expected reviewed or draft.' });
+        }
+        if (edition.searchTerms !== undefined && (!Array.isArray(edition.searchTerms) || edition.searchTerms.some((term) => !isNonEmptyString(term)))) {
+          issues.push({ path: `localizedEditions.${language}.searchTerms`, message: 'Expected non-empty search terms.' });
         }
       });
     }

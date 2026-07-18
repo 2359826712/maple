@@ -74,7 +74,15 @@ export default [
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
-        { allowConstantExport: true },
+        {
+          allowConstantExport: true,
+          allowExportNames: [
+            'getServerSideProps',
+            'getStaticPaths',
+            'getStaticProps',
+            'useServerRouteData',
+          ],
+        },
       ],
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
@@ -89,7 +97,19 @@ export default [
       '@typescript-eslint/no-unused-expressions': 'off',
       'no-useless-catch': 'off',
       'no-irregular-whitespace': 'off',
-      'no-undef': 'error',
+      // TypeScript resolves value and type globals more accurately than ESLint's
+      // JavaScript-only no-undef rule (for example process, Buffer, and DOM types).
+      'no-undef': 'off',
+    },
+  },
+  {
+    files: [
+      'src/router/config.tsx',
+      'src/router/config.server.tsx',
+      'src/ssg-entry.tsx',
+    ],
+    rules: {
+      'react-refresh/only-export-components': 'off',
     },
   },
   // Only enforce this rule for the router config file to avoid false positives elsewhere.
@@ -103,4 +123,3 @@ export default [
     },
   },
 ]
-

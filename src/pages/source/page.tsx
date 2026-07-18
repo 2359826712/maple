@@ -5,24 +5,49 @@ import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { isGameVersion } from '@/domain/regionModel';
-import { fetchOfficialArticleDocument, type OfficialArticleDocument } from '@/services/liveContent';
+import {
+  fetchOfficialArticleDocument,
+  getPrefetchedOfficialArticleDocument,
+  type OfficialArticleDocument,
+} from '@/services/liveContent';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { getNewsSourceLanguageForVersion, normalizeNewsLanguage } from '@/pages/news/localizedNews';
 import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
 import { useTranslatedOfficialDocument } from './useTranslatedOfficialDocument';
 import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 
 export default function OfficialSourcePage() {
   const { t, i18n } = useTranslation();
+  const { initialOfficialArticle, requestTitle } = useServerRouteData();
   const [params] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [article, setArticle] = useState<OfficialArticleDocument | null>(null);
-  const [status, setStatus] = useState<'loading' | 'ready' | 'unavailable'>('loading');
   const [retryKey, setRetryKey] = useState(0);
-  const title = params.get('title')?.trim() || t('source_mirror_label');
+  const title = requestTitle || params.get('title')?.trim() || t('source_mirror_label');
   const sourceUrl = params.get('url') || '';
+  const safeSourceUrl = useMemo(() => {
+    try {
+      const url = new URL(sourceUrl);
+      return ['http:', 'https:'].includes(url.protocol) ? url.toString() : '';
+    } catch {
+      return '';
+    }
+  }, [sourceUrl]);
   const rawServer = params.get('server');
   const server = isGameVersion(rawServer) ? rawServer : 'gms';
+  const initialArticle = initialOfficialArticle?.sourceUrl === sourceUrl
+    ? initialOfficialArticle
+    : getPrefetchedOfficialArticleDocument(sourceUrl, server);
+  const [article, setArticle] = useState<OfficialArticleDocument | null>(initialArticle);
+  const [status, setStatus] = useState<'loading' | 'ready' | 'unavailable'>(
+    initialArticle?.html || initialArticle?.text ? 'ready' : 'loading',
+  );
+  const fallbackImage = useMemo(() => {
+    const value = params.get('image')?.trim() || '';
+    if (value.startsWith('/') && !value.startsWith('//')) return value;
+    try { return new URL(value).protocol === 'https:' ? value : ''; } catch { return ''; }
+  }, [params]);
   const sourceLanguage = getNewsSourceLanguageForVersion(server);
   const articleUsesOriginalLanguage = normalizeNewsLanguage(i18n.language) !== sourceLanguage;
   const translatedDocument = useTranslatedOfficialDocument(article, sourceLanguage, i18n.language);
@@ -37,6 +62,17 @@ export default function OfficialSourcePage() {
   useEffect(() => {
     let active = true;
     let retryTimer: number | undefined;
+    if (initialOfficialArticle?.sourceUrl === sourceUrl && (initialOfficialArticle.html || initialOfficialArticle.text)) {
+      setArticle(initialOfficialArticle);
+      setStatus('ready');
+      return () => { active = false; };
+    }
+    const prefetchedArticle = getPrefetchedOfficialArticleDocument(sourceUrl, server);
+    if (prefetchedArticle?.html || prefetchedArticle?.text) {
+      setArticle(prefetchedArticle);
+      setStatus('ready');
+      return () => { active = false; };
+    }
     setStatus('loading');
     setArticle(null);
     if (!sourceUrl) {
@@ -48,7 +84,12 @@ export default function OfficialSourcePage() {
       .then((result) => {
         if (!active) return;
         setArticle(result);
-        setStatus(result.html || result.text ? 'ready' : 'unavailable');
+        if (result.html || result.text) {
+          setStatus('ready');
+        } else {
+          setStatus('unavailable');
+          retryTimer = window.setTimeout(() => setRetryKey((value) => value + 1), 12_000);
+        }
       })
       .catch(() => {
         if (active) {
@@ -60,7 +101,7 @@ export default function OfficialSourcePage() {
       active = false;
       if (retryTimer !== undefined) window.clearTimeout(retryTimer);
     };
-  }, [retryKey, server, sourceUrl]);
+  }, [initialOfficialArticle, retryKey, server, sourceUrl]);
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-900">
@@ -99,11 +140,32 @@ export default function OfficialSourcePage() {
                   <i className="ri-refresh-line" aria-hidden="true" />
                   {t('rankings_retry')}
                 </button>
+                {safeSourceUrl && (
+                  <a
+                    href={safeSourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 mt-4 inline-flex min-h-10 items-center gap-1 rounded-full border border-amber-300 bg-white px-4 font-semibold text-amber-900 hover:bg-amber-100"
+                  >
+                    <i className="ri-external-link-line" aria-hidden="true" />
+                    {t('source_open_official')}
+                  </a>
+                )}
               </div>
             )}
             {status === 'ready' && displayedArticle?.html && (
               <div
                 className="static-article-content mt-8 space-y-4 text-sm leading-7 text-foreground-800 [&_a]:text-primary-700 [&_a]:underline [&_h1]:mt-8 [&_h1]:text-2xl [&_h2]:mt-8 [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:text-lg [&_img]:mx-auto [&_img]:h-auto [&_img]:max-w-full [&_li]:ml-5 [&_li]:list-disc [&_p]:my-4 [&_table]:w-full [&_table]:overflow-x-auto"
+                onErrorCapture={(event) => {
+                  const image = event.target;
+                  if (!(image instanceof HTMLImageElement)) return;
+                  if (fallbackImage && image.dataset.articleFallbackApplied !== 'true') {
+                    image.dataset.articleFallbackApplied = 'true';
+                    image.src = fallbackImage;
+                    return;
+                  }
+                  applyRegionalImageFallback(image, server);
+                }}
                 dangerouslySetInnerHTML={{ __html: renderedArticleHtml }}
               />
             )}

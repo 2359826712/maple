@@ -1,0 +1,112 @@
+{
+  "id": "welcome-to-maplestory-worlds-creator-guide",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987",
+  "external_id": "987",
+  "title": "Welcome to MapleStory Worlds",
+  "original_title": "Welcome to MSW (ENG)",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "creator",
+  "official": true,
+  "author": "MapleStory Worlds Creator Center",
+  "published_at": "2023-03-03",
+  "updated_at": "2023-03-03",
+  "discovered_at": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-18T00:00:00.000Z",
+  "summary": "A creator curriculum covering the MapleStory Worlds platform and editor, LuaScript fundamentals, client-server networking, building a sample world, publishing, and monetization.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator",
+    "lua-script",
+    "networking",
+    "publishing",
+    "world-editor"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9903bea8a2ec7bd2a23b9e966515746e175f1cf4f1f811a61bd11cfb8dd0a71d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "worlds-creator-center-welcome-to-msw",
+    "sections": [
+      {
+        "title": "1. Platform and editor orientation",
+        "items": [
+          "Understand the MapleStory Worlds platform and the role of Maker.",
+          "Learn the client overview, navigation menu, Scene panel, Model List, Hierarchy, and Workspace.",
+          "Identify Layers, Scripts, and Resources in a creator project."
+        ]
+      },
+      {
+        "title": "2. Basic concepts and LuaScript",
+        "items": [
+          "Work with entities, components, properties, models, services, and logic.",
+          "Understand script types, script logic, script components, tables, variables, and functions.",
+          "Use the component model to attach behavior and data to objects in a world."
+        ]
+      },
+      {
+        "title": "3. Networking in MapleStory Worlds",
+        "items": [
+          "Learn property synchronization and function execution control across client and server contexts.",
+          "Separate local UI and input logic from shared or server-authoritative game logic.",
+          "Use the networking model to keep multiplayer state consistent."
+        ]
+      },
+      {
+        "title": "4. Build the My Adventure sample",
+        "items": [
+          "Design a map and establish the sample world's basic flow.",
+          "Add collectible coins, a monster encounter, and a finish flag.",
+          "Connect the objects and scripts into a playable beginning-to-end experience."
+        ]
+      },
+      {
+        "title": "5. Publish and monetize",
+        "items": [
+          "Create paid items and connect purchase logic and purchase components.",
+          "Implement item-use and item-end behavior.",
+          "Review the finished world before publishing it to players."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys curriculum outline based on the official Creator Center resource, verified on 2026-07-18. The source is a video curriculum, so MPStorys stores a structured outline rather than a transcript.",
+  "guide_type": "creator",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "MapleStory Worlds Maker",
+  "level_range": null,
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": [
+    "global"
+  ],
+  "prerequisites": [
+    "MapleStory Worlds Maker access",
+    "A creator project for following the sample exercises"
+  ],
+  "steps": [
+    "Learn the Maker interface and project hierarchy.",
+    "Practice entities, components, properties, and LuaScript fundamentals.",
+    "Separate client, server, UI, input, and synchronized logic.",
+    "Build the My Adventure sample with a map, coins, a monster, and a finish flag.",
+    "Add paid-item purchase and use logic, then prepare the world for publishing."
+  ],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

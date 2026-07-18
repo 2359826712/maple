@@ -1,0 +1,33 @@
+{
+  "id": "m-nexon-official-news",
+  "name": "MapleStory M Official News",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "source_type": "forum",
+  "content_types": ["cash-shop", "event", "maintenance", "news", "patch-note"],
+  "base_url": "https://forum.nexon.com/MapleStoryMGlobal/main",
+  "discovery_urls": ["https://forum.nexon.com/MapleStoryMGlobal/board_list?board=2680&pageNo=1"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "browser",
+  "parser": "maplestory-m-nexon-forum",
+  "adapter_config": {
+    "default_content_type": "news",
+    "include_patterns": ["/MapleStoryMGlobal/board_view"],
+    "render_delay_ms": 3000
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "3h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": true,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-18 as the public official MapleStory M News board. Uses the browser adapter (Chrome CDP) to render the JS-protected Nexon Forum. Requires Chrome running with --remote-debugging-port=9222 and an active WAF session (manually navigate to forum.nexon.com once before crawling)."
+}

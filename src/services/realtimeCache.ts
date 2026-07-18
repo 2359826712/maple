@@ -18,20 +18,23 @@ type CachedJsonFetchOptions = {
   retryMs?: number;
   timeoutMs?: number;
   requestInit?: globalThis.RequestInit;
+  suppressFailureCooldown?: boolean;
 };
 
 type CachedTextFetchOptions = CachedJsonFetchOptions & {
   transform?: (value: string) => string;
 };
 
-type CachedValueLoadOptions = Pick<CachedJsonFetchOptions, 'freshMs' | 'staleMs' | 'retryMs'>;
+type CachedValueLoadOptions<T> = Pick<CachedJsonFetchOptions, 'freshMs' | 'staleMs' | 'retryMs'> & {
+  shouldCache?: (data: T) => boolean;
+};
 
 const realtimeCachePrefix = 'maplehub-realtime-cache:';
 const realtimeFailurePrefix = 'maplehub-realtime-failure:';
 const inFlightValueLoads = new Map<string, Promise<unknown>>();
 
 export const realtimeCacheDurations = {
-  refresh: 12 * 60 * 60 * 1000,
+  refresh: 5 * 60 * 1000,
   short: 5 * 60 * 1000,
   medium: 30 * 60 * 1000,
   long: 24 * 60 * 60 * 1000,
@@ -116,11 +119,11 @@ const base64Body = (value: globalThis.RequestInit['body']) => {
 const staticContentTransport = (url: string, requestInit: globalThis.RequestInit) => {
   const parsed = new URL(url, window.location.origin);
   const apiRoot = new URL(apiBaseUrl, window.location.origin);
+  const method = (requestInit.method || 'GET').toUpperCase();
   const isApiRequest = parsed.origin === apiRoot.origin
     && (parsed.pathname === apiRoot.pathname || parsed.pathname.startsWith(`${apiRoot.pathname}/`));
   if (parsed.origin === window.location.origin || isApiRequest) return { url, requestInit };
 
-  const method = (requestInit.method || 'GET').toUpperCase();
   if (method === 'GET') {
     return {
       url: apiEndpoint(`/static-content?url=${encodeURIComponent(parsed.toString())}`),
@@ -150,15 +153,22 @@ const staticContentTransport = (url: string, requestInit: globalThis.RequestInit
   };
 };
 
+const resolveContentTransport = (url: string, requestInit: globalThis.RequestInit) => (
+  typeof window === 'undefined'
+    ? { url, requestInit }
+    : staticContentTransport(url, requestInit)
+);
+
 export async function cachedValueLoad<T>(
   cacheKey: string,
   loader: () => Promise<T>,
-  options: CachedValueLoadOptions = {},
+  options: CachedValueLoadOptions<T> = {},
 ) {
   const {
     freshMs = realtimeCacheDurations.refresh,
     staleMs = realtimeCacheDurations.long,
     retryMs = 60 * 1000,
+    shouldCache = () => true,
   } = options;
   const freshCache = readRealtimeCache<T>(cacheKey, freshMs);
   if (freshCache.hit) return freshCache.data as T;
@@ -174,7 +184,7 @@ export async function cachedValueLoad<T>(
 
   const request = loader()
     .then((data) => {
-      writeRealtimeCache(cacheKey, data);
+      if (shouldCache(data)) writeRealtimeCache(cacheKey, data);
       return data;
     })
     .catch((error: unknown) => {
@@ -211,7 +221,7 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
 
   const controller = new AbortController();
   const externalSignal = requestInit.signal;
-  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  const timeout = globalThis.setTimeout(() => controller.abort(), timeoutMs);
 
   const onExternalAbort = () => {
     controller.abort(externalSignal?.reason);
@@ -224,7 +234,7 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
   }
 
   const { signal: _signal, ...fetchInit } = requestInit;
-  const transport = staticContentTransport(url, { ...fetchInit, signal: controller.signal });
+  const transport = resolveContentTransport(url, { ...fetchInit, signal: controller.signal });
 
   try {
     const response = await fetch(transport.url, { ...transport.requestInit, cache: 'no-store', signal: controller.signal });
@@ -239,7 +249,7 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
     if (staleCache.hit) return staleCache.data as T;
     throw error instanceof Error ? error : new Error('Realtime request failed');
   } finally {
-    window.clearTimeout(timeout);
+    globalThis.clearTimeout(timeout);
     externalSignal?.removeEventListener('abort', onExternalAbort);
   }
 }
@@ -253,20 +263,21 @@ export async function cachedTextFetch(url: string, options: CachedTextFetchOptio
     timeoutMs = 50_000,
     requestInit = {},
     transform = (value) => value,
+    suppressFailureCooldown = false,
   } = options;
 
   const freshCache = readRealtimeCache<string>(cacheKey, freshMs);
   if (freshCache.hit) return transform(freshCache.data as string);
 
   const staleCache = readRealtimeCache<string>(cacheKey, staleMs);
-  if (readRecentFailure(cacheKey, retryMs)) {
+  if (!suppressFailureCooldown && readRecentFailure(cacheKey, retryMs)) {
     if (staleCache.hit) return transform(staleCache.data as string);
     throw new Error('Realtime request is cooling down after a recent failure');
   }
 
   const controller = new AbortController();
   const externalSignal = requestInit.signal;
-  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  const timeout = globalThis.setTimeout(() => controller.abort(), timeoutMs);
 
   const onExternalAbort = () => {
     controller.abort(externalSignal?.reason);
@@ -279,7 +290,7 @@ export async function cachedTextFetch(url: string, options: CachedTextFetchOptio
   }
 
   const { signal: _signal, ...fetchInit } = requestInit;
-  const transport = staticContentTransport(url, { ...fetchInit, signal: controller.signal });
+  const transport = resolveContentTransport(url, { ...fetchInit, signal: controller.signal });
 
   try {
     const response = await fetch(transport.url, { ...transport.requestInit, cache: 'no-store', signal: controller.signal });
@@ -290,11 +301,11 @@ export async function cachedTextFetch(url: string, options: CachedTextFetchOptio
     return data;
   } catch (error) {
     if (externalSignal?.aborted) throw error;
-    writeRecentFailure(cacheKey);
+    if (!suppressFailureCooldown) writeRecentFailure(cacheKey);
     if (staleCache.hit) return transform(staleCache.data as string);
     throw error instanceof Error ? error : new Error('Realtime request failed');
   } finally {
-    window.clearTimeout(timeout);
+    globalThis.clearTimeout(timeout);
     externalSignal?.removeEventListener('abort', onExternalAbort);
   }
 }

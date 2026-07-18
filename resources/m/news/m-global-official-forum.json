@@ -1,0 +1,37 @@
+{
+  "id": "m-global-official-forum",
+  "name": "MapleStory M Global Forum",
+  "website": "MapleStory M Global Forum",
+  "page": "Latest",
+  "url": "https://forum.nexon.com/MapleStoryMGlobal",
+  "series": "m",
+  "regions": [
+    "europe",
+    "north-america",
+    "sea"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "official-forum",
+  "description": "Publishes official MapleStory M announcements, update previews, patch notes, known issues, market notices, guides, and support links.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "announcements",
+    "forum",
+    "patch-notes",
+    "updates"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/MapleStoryMGlobal"
+  ],
+  "notes": "The official forum may return HTTP 403 to automated requests while remaining available in a normal browser."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "m-nexon-guide-for-new-maplers",
+  "name": "MapleStory M Guide for New Maplers",
+  "website": "MapleStory M Global Forum",
+  "page": "04 Guide for New Maplers",
+  "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+  "series": "m",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "guide",
+  "subcategory": "beginner",
+  "description": "Explains MapleStory M settings, auto-battle, early growth, equipment, the Trade Station, and convenience features for new players.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "auto-battle",
+    "beginner",
+    "equipment",
+    "progression"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388"
+  ],
+  "notes": null
+}

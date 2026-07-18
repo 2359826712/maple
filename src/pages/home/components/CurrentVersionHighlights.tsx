@@ -5,33 +5,42 @@ import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { fetchLiveNews, fetchLiveEvents, fetchLiveGuides, getRegionalContentImage, liveStorageKeys, type NewsItem, type EventItem, type GuideItem } from '@/services/liveContent';
-import { getNewsCategoryLabel, newsSourceLanguageTranslationKey } from '@/pages/news/localizedNews';
+import { isRenderableEventItem, isRenderableNewsItem } from '@/services/contentCacheValidation';
+import { getNewsCategoryLabel, getNewsSourceLanguageForVersion, newsSourceLanguageTranslationKey } from '@/pages/news/localizedNews';
 import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
 import { getGuideCardCopy, useLocalizedGuideItems } from '@/pages/guides/localizedGuides';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 export default function CurrentVersionHighlights() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialEvents, initialGuides, initialNews } = useServerRouteData();
   const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
 
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialNews,
     remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
   const { items: realtimeEvents } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialEvents,
     remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
-  const localizedEvents = useLocalizedEvents(realtimeEvents, i18n.language);
+  const localizedEvents = useLocalizedEvents(
+    realtimeEvents,
+    i18n.language,
+    getNewsSourceLanguageForVersion(versionInfo.id),
+  );
   const { items: realtimeGuides } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
-    baseItems: [],
+    baseItems: initialGuides,
     remoteLoader: fetchLiveGuides,
   });
   const localizedGuides = useLocalizedGuideItems(realtimeGuides, i18n.language);
@@ -48,13 +57,23 @@ export default function CurrentVersionHighlights() {
     icon: 'ri-newspaper-line',
     label: t('home_cv_latest_news'),
     title: topNews.title,
-    sub: `${getNewsCategoryLabel(topNews.category, i18n.language)} · ${topNews.date}`,
+    sub: `${topNews.localizedCategory || getNewsCategoryLabel(topNews.category, i18n.language)} · ${topNews.date}`,
     href: '/news',
     hrefLabel: t('home_cv_all_news'),
     image: topNews.image,
-    sourceCue: topNews.usesOriginalCopy
-      ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]) })
-      : undefined,
+    sourceCue: topNews.localizationKind === 'editorial'
+      ? t('news_localized_edition', {
+          server: topNews.versions[0]?.toUpperCase() || '',
+          language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]),
+        })
+      : topNews.usesOriginalCopy
+        ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]) })
+        : topNews.localizationKind === 'translated'
+          ? t('news_translated_edition', {
+              server: topNews.versions[0]?.toUpperCase() || '',
+              language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]),
+            })
+          : undefined,
   } : {
     kind: 'fallback' as const,
     icon: 'ri-newspaper-line',
@@ -81,9 +100,19 @@ export default function CurrentVersionHighlights() {
     href: '/events',
     hrefLabel: t('home_cv_all_events'),
     image: topEventNews.image,
-    sourceCue: topEventNews.usesOriginalCopy
-      ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]) })
-      : undefined,
+    sourceCue: topEventNews.localizationKind === 'editorial'
+      ? t('news_localized_edition', {
+          server: topEventNews.versions[0]?.toUpperCase() || '',
+          language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]),
+        })
+      : topEventNews.usesOriginalCopy
+        ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]) })
+        : topEventNews.localizationKind === 'translated'
+          ? t('news_translated_edition', {
+              server: topEventNews.versions[0]?.toUpperCase() || '',
+              language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]),
+            })
+          : undefined,
   } : {
     kind: 'fallback' as const,
     icon: 'ri-calendar-event-line',
@@ -161,7 +190,7 @@ export default function CurrentVersionHighlights() {
                 <div className="h-36 overflow-hidden">
                   <img
                     src={getRegionalContentImage(card.image, versionInfo.id)}
-                    alt=""
+                    alt={card.title}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}

@@ -14,7 +14,9 @@ import {
   readGuideReadingProgress,
   type GuideReadingProgress,
 } from '@/services/guideReadingProgress';
-import { translateStaticText } from '@/services/staticTranslation';
+import { normalizeStaticContentLanguage, translateStaticText } from '@/services/staticTranslation';
+import { isStaticHydration } from '@/ssg/hydration';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 type GuideSectionKey = GrandisGuideSection;
 
@@ -31,16 +33,20 @@ const guideNavSections: Array<{
 export default function GuidesPage() {
   const { t, i18n } = useTranslation();
   const { version, versionInfo } = useVersion();
+  const { initialGuideSection } = useServerRouteData();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [sourceSectionHtml, setSourceSectionHtml] = useState('');
-  const [sectionHtml, setSectionHtml] = useState('');
+  const [sourceSectionHtml, setSourceSectionHtml] = useState(initialGuideSection?.html || '');
+  const [sectionHtml, setSectionHtml] = useState(initialGuideSection?.html || '');
   const [sectionError, setSectionError] = useState(false);
-  const [sectionLoading, setSectionLoading] = useState(true);
-  const [sourceSyncedAt, setSourceSyncedAt] = useState<string>();
+  const [sectionLoading, setSectionLoading] = useState(!initialGuideSection);
+  const [sourceSyncedAt, setSourceSyncedAt] = useState<string | undefined>(initialGuideSection?.sourceSyncedAt);
   const [applicableOnly, setApplicableOnly] = useState(true);
-  const [continueReading, setContinueReading] = useState<GuideReadingProgress | null>(readGuideReadingProgress);
+  const deferBrowserState = isStaticHydration();
+  const [continueReading, setContinueReading] = useState<GuideReadingProgress | null>(() => (
+    deferBrowserState ? null : readGuideReadingProgress()
+  ));
   const deferredContentLanguage = useDeferredValue(i18n.language);
   const activeSection = guideNavSections.find((section) => section.key === searchParams.get('section')) || guideNavSections[0];
 
@@ -49,6 +55,7 @@ export default function GuidesPage() {
   };
 
   useEffect(() => {
+    if (initialGuideSection?.section === activeSection.key) return;
     let cancelled = false;
     setSectionLoading(true);
     setSectionError(false);
@@ -78,11 +85,19 @@ export default function GuidesPage() {
     return () => {
       cancelled = true;
     };
-  }, [activeSection.key]);
+  }, [activeSection.key, initialGuideSection]);
 
   useEffect(() => {
     if (!sourceSectionHtml) return;
     let cancelled = false;
+    if (
+      initialGuideSection?.section === activeSection.key
+      && initialGuideSection.html === sourceSectionHtml
+      && initialGuideSection.localizedLanguage === normalizeStaticContentLanguage(deferredContentLanguage)
+    ) {
+      setSectionHtml(sourceSectionHtml);
+      return () => { cancelled = true; };
+    }
     void translateStaticText(sourceSectionHtml, deferredContentLanguage, {
       sourceLanguage: 'en',
       format: 'html',
@@ -92,17 +107,18 @@ export default function GuidesPage() {
       if (!cancelled) setSectionHtml(sourceSectionHtml);
     });
     return () => { cancelled = true; };
-  }, [deferredContentLanguage, sourceSectionHtml]);
+  }, [activeSection.key, deferredContentLanguage, initialGuideSection, sourceSectionHtml]);
 
   useEffect(() => {
     const refreshProgress = () => setContinueReading(readGuideReadingProgress());
+    if (deferBrowserState) refreshProgress();
     window.addEventListener('focus', refreshProgress);
     window.addEventListener('storage', refreshProgress);
     return () => {
       window.removeEventListener('focus', refreshProgress);
       window.removeEventListener('storage', refreshProgress);
     };
-  }, []);
+  }, [deferBrowserState]);
 
   const sourceAppliesToCurrentVersion = version === 'gms';
   const showSourceContent = Boolean(sectionHtml) && (!applicableOnly || sourceAppliesToCurrentVersion);

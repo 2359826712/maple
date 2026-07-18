@@ -46,6 +46,24 @@ describe('sanitizeMirroredHtml', () => {
     expect(output).toContain('decoding="async"');
   });
 
+  it('promotes a remote lazy-load source before data attributes are removed', () => {
+    const output = sanitizeMirroredHtml([
+      '<img alt="Adventurers"',
+      ' src="data:image/gif;base64,placeholder"',
+      ' data-src="https://static.wikia.nocookie.net/maplestory/adventurers.png"',
+      ' class="mw-file-element lazyload">',
+    ].join(''));
+
+    expect(output).toContain('src="https://static.wikia.nocookie.net/maplestory/adventurers.png"');
+    expect(output).not.toContain('data-src');
+    expect(output).not.toContain('data:image');
+  });
+
+  it('upgrades legacy HTTP article images to HTTPS', () => {
+    const output = sanitizeMirroredHtml('<img src="http://nxcache.nexon.net/cms/maple-memo.jpg" alt="Maple Memo">');
+    expect(output).toContain('src="https://nxcache.nexon.net/cms/maple-memo.jpg"');
+  });
+
   it('neutralizes the OWASP XSS filter-evasion payload classes', () => {
     // Representative classes from OWASP's XSS Filter Evasion Cheat Sheet:
     // malformed tags, encoded protocols, event handlers, active media, foreign content, and refresh vectors.
@@ -95,7 +113,10 @@ describe('prepareStaticHtmlForRender', () => {
 
     expect(sections[0].hasAttribute('data-static-content-block')).toBe(true);
     expect(sections[1].hasAttribute('data-static-content-block')).toBe(false);
-    for (const image of documentFragment.querySelectorAll('img')) {
+    const images = documentFragment.querySelectorAll('img');
+    expect(images[0].getAttribute('loading')).toBe('eager');
+    expect(images[0].getAttribute('fetchpriority')).toBe('high');
+    for (const image of Array.from(images).slice(1)) {
       expect(image.getAttribute('loading')).toBe('lazy');
       expect(image.getAttribute('decoding')).toBe('async');
     }

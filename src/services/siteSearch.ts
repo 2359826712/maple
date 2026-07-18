@@ -12,6 +12,14 @@ import { bosses } from '@/mocks/bosses';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { getBossChecklistRules } from '@/domain/bossChecklistRules';
 import type { GameVersion } from '@/domain/regionModel';
+import {
+  getIndexedResourceModule,
+  getIndexedResourceSeriesId,
+  indexedResources,
+} from '@/domain/resourceIndex';
+import { indexedContent } from '@/domain/contentIndex';
+import { getSeriesResourceHref } from '@/pages/series/scope';
+import { getVerifiedSeriesResourceSlug } from '@/pages/series/verifiedContent';
 
 export type SearchSection = 'news' | 'guides' | 'events' | 'tools' | 'wiki' | 'maps' | 'bosses';
 
@@ -30,6 +38,7 @@ type SearchableResult = SiteSearchResult & {
 };
 
 const staticRoutes = [
+  { id: 'route-series', href: '/series', section: 'guides' as const, icon: 'ri-apps-2-line', titles: ['MapleStory Series', '冒险岛系列', 'メイプルストーリーシリーズ', '楓之谷系列', '메이플스토리 시리즈'] },
   { id: 'route-news', href: '/news', section: 'news' as const, icon: 'ri-newspaper-line', titles: ['News', '资讯', 'ニュース', '資訊', '뉴스'] },
   { id: 'route-upcoming', href: '/upcoming', section: 'news' as const, icon: 'ri-radar-line', titles: ['Upcoming Updates', '未来版本', '今後のアップデート', '未來版本', '향후 업데이트'] },
   { id: 'route-guides', href: '/guides', section: 'guides' as const, icon: 'ri-book-open-line', titles: ['Guides', '攻略', 'ガイド', '攻略', '가이드'] },
@@ -50,6 +59,41 @@ const languageIndex = (language: string) => {
 };
 
 const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, ' ').trim();
+
+const collectIndexedText = (value: unknown): string[] => {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap(collectIndexedText);
+  if (value && typeof value === 'object') return Object.values(value).flatMap(collectIndexedText);
+  return [];
+};
+
+const indexedContentByResourceId = new Map(
+  indexedContent.flatMap((record) => (
+    typeof record.metadata.resource_id === 'string' ? [[record.metadata.resource_id, record] as const] : []
+  )),
+);
+
+const resourceSection = (module: ReturnType<typeof getIndexedResourceModule>): SearchSection => {
+  if (module === 'news' || module === 'upcoming') return 'news';
+  if (module === 'guides') return 'guides';
+  if (module === 'events') return 'events';
+  if (module === 'wiki') return 'wiki';
+  return 'tools';
+};
+
+const resourceIcon = (module: ReturnType<typeof getIndexedResourceModule>) => ({
+  news: 'ri-newspaper-line',
+  upcoming: 'ri-radar-line',
+  guides: 'ri-book-open-line',
+  events: 'ri-calendar-event-line',
+  tools: 'ri-tools-line',
+  checklist: 'ri-checkbox-circle-line',
+  wiki: 'ri-book-2-line',
+  rankings: 'ri-bar-chart-grouped-line',
+  shop: 'ri-shopping-bag-3-line',
+  community: 'ri-group-line',
+  feedback: 'ri-feedback-line',
+}[module]);
 
 const readLiveItems = <T,>(key: string): T[] => {
   if (typeof window === 'undefined') return [];
@@ -109,11 +153,44 @@ export function getSiteSearchResults(query: string, language: string, version: s
       score: 0,
       haystack: [...route.titles, route.href, route.section].join(' '),
     })),
+    ...indexedResources.map((resource) => {
+      const module = getIndexedResourceModule(resource);
+      const seriesId = getIndexedResourceSeriesId(resource);
+      const content = indexedContentByResourceId.get(resource.id);
+      const slug = getVerifiedSeriesResourceSlug({
+        title: resource.name,
+        description: resource.description,
+        sourceLabel: resource.website,
+        sourceUrl: resource.url,
+      });
+      return {
+        id: `resource-${resource.id}`,
+        title: resource.name,
+        excerpt: `${resource.website} · ${content?.summary || resource.description}`,
+        href: getSeriesResourceHref(seriesId, module, slug),
+        section: resourceSection(module),
+        icon: resourceIcon(module),
+        score: 0,
+        haystack: [
+          resource.name,
+          resource.website,
+          resource.page,
+          resource.description,
+          resource.series,
+          resource.category,
+          resource.subcategory || '',
+          ...resource.regions,
+          ...resource.languages,
+          ...resource.tags,
+          ...(content ? collectIndexedText(content) : []),
+        ].join(' '),
+      };
+    }),
     ...liveNews
       .filter((item) => isAvailableInVersion(item.versions, version))
       .map((item) => {
         const copy = getNewsCopy(item, language);
-        const category = getNewsCategoryLabel(item.category, language);
+        const category = copy.localizedCategory || getNewsCategoryLabel(item.category, language);
         return {
           id: item.id,
           title: copy.title,
@@ -122,7 +199,7 @@ export function getSiteSearchResults(query: string, language: string, version: s
           section: 'news' as const,
           icon: 'ri-newspaper-line',
           score: 0,
-          haystack: [copy.title, copy.excerpt, category, item.author, item.sourceUrl].join(' '),
+          haystack: [copy.title, copy.excerpt, category, ...copy.searchTerms, item.author, item.sourceUrl].join(' '),
         };
       }),
     ...liveGuides

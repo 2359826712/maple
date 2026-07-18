@@ -1,0 +1,35 @@
+{
+  "id": "classic-nexon-closed-online-test-2",
+  "name": "Classic World Closed Online Test #2 Registration",
+  "website": "Global MapleStory",
+  "page": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+  "url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2",
+  "series": "classic",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "announcements",
+  "description": "Provides Nexon's registration announcement and participation details for the second Global MapleStory Classic World closed online test.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "closed-test",
+    "registration",
+    "test-schedule"
+  ],
+  "source_urls": [
+    "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2"
+  ],
+  "notes": null
+}

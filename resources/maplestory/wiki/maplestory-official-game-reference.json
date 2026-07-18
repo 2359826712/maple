@@ -1,0 +1,35 @@
+{
+  "id": "maplestory-official-game-reference",
+  "name": "Global MapleStory Game Reference",
+  "website": "Global MapleStory",
+  "page": "Game",
+  "url": "https://www.nexon.com/maplestory/game",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "wiki",
+  "subcategory": "game-reference",
+  "description": "Provides Nexon's official overview of Global MapleStory classes, worlds, systems, and ways to play.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "classes",
+    "game-systems",
+    "worlds"
+  ],
+  "source_urls": [
+    "https://www.nexon.com/maplestory/game"
+  ],
+  "notes": null
+}

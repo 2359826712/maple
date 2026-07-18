@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Fixture News</title>
+    <item>
+      <guid>news-42</guid>
+      <title>Fixture Patch Notes</title>
+      <link>https://example.com/news/42?utm_source=feed</link>
+      <pubDate>Sat, 18 Jul 2026 10:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -17,6 +17,7 @@ import BossReadinessPlanner from './components/BossReadinessPlanner';
 import TierOverview from '@/pages/rankings/classes/components/TierOverview';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
 import { fetchLiveToolResources, liveStorageKeys, type ToolResourceItem } from '@/services/liveContent';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 import { useLocalizedToolResources } from './useLocalizedToolResources';
 
 type SectionKey =
@@ -152,7 +153,11 @@ const readStoredArray = (key: string) => {
   if (typeof window === 'undefined') return [] as SectionKey[];
   try {
     const value = window.localStorage.getItem(key);
-    return value ? (JSON.parse(value) as SectionKey[]) : [];
+    if (!value) return [];
+    const parsed = JSON.parse(value) as unknown;
+    return Array.isArray(parsed)
+      ? parsed.filter((item): item is SectionKey => sections.some((section) => section.key === item))
+      : [];
   } catch {
     return [];
   }
@@ -160,10 +165,15 @@ const readStoredArray = (key: string) => {
 
 const writeStoredArray = (key: string, value: SectionKey[]) => {
   if (typeof window === 'undefined') return;
-  window.localStorage.setItem(key, JSON.stringify(value));
+  try {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Keep the current in-memory selection when storage is unavailable.
+  }
 };
 
 function getInitialSection(): SectionKey {
+  if (typeof window === 'undefined') return 'dashboard';
   const hash = window.location.hash.replace('#', '') as SectionKey;
   return sections.some((section) => section.key === hash) ? hash : 'dashboard';
 }
@@ -171,6 +181,7 @@ function getInitialSection(): SectionKey {
 export default function MaplerHousePage() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialTools } = useServerRouteData();
   const [activeSection, setActiveSection] = useState<SectionKey>(getInitialSection);
   const [showNotifications, setShowNotifications] = useState(false);
   const [favorites, setFavorites] = useState<SectionKey[]>(() => readStoredArray(FAVORITES_KEY));
@@ -183,7 +194,7 @@ export default function MaplerHousePage() {
     syncNow: syncToolResources,
   } = useRealtimeCollection<ToolResourceItem>({
     storageKey: liveStorageKeys.tools,
-    baseItems: [],
+    baseItems: initialTools,
     remoteLoader: fetchLiveToolResources,
   });
   const localizedToolResources = useLocalizedToolResources(liveToolResources, i18n.language);
@@ -548,14 +559,16 @@ function ExternalTools({
       <div className="rounded-lg border border-background-300 bg-background-50 p-4">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-semibold text-foreground-700">{t('mh_external_tools_title')}</h3>
-          <div className="md:max-w-xs">
-            <RealtimeStatus
-              status={status}
-              lastSyncedAt={lastSyncedAt}
-              liveCount={liveCount}
-              onRefresh={onRefresh}
-            />
-          </div>
+          {liveTools.length > 0 && (
+            <div className="md:max-w-xs">
+              <RealtimeStatus
+                status={status}
+                lastSyncedAt={lastSyncedAt}
+                liveCount={liveCount}
+                onRefresh={onRefresh}
+              />
+            </div>
+          )}
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
           {tools.map((link) => (

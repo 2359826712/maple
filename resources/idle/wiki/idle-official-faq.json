@@ -1,0 +1,35 @@
+{
+  "id": "idle-official-faq",
+  "name": "MapleStory Idle RPG FAQ",
+  "website": "MapleStory Idle RPG Forum",
+  "page": "FAQ",
+  "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008",
+  "series": "idle",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "wiki",
+  "subcategory": "faq",
+  "description": "Provides the maintained official FAQ for resets, regions, jobs, account access, device requirements, currencies, and gameplay systems.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "account",
+    "faq",
+    "gameplay",
+    "resets"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008"
+  ],
+  "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+}

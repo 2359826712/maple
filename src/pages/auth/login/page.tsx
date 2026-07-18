@@ -34,7 +34,7 @@ export default function LoginPage() {
   const [autoLogin, setAutoLogin] = useState(false);
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const { isSignedIn, displayName } = useAuthSession();
+  const { isSessionResolved, isSignedIn, displayName } = useAuthSession();
 
   const saveSession = async (provider: 'Email' | 'Google', response: AuthResponse) => {
     const userLabel = response.user.display_name || response.user.username || response.user.email;
@@ -151,7 +151,9 @@ export default function LoginPage() {
               </div>
 
               <div className="p-6">
-                {isSignedIn ? (
+                {!isSessionResolved ? (
+                  <div className="h-64 rounded-lg bg-background-100" aria-busy="true" />
+                ) : isSignedIn ? (
                   <div className="rounded-lg border border-primary-200 bg-primary-50 p-5 text-center">
                     <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl text-white">
                       <i className="ri-check-line" aria-hidden="true" />
@@ -269,7 +271,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {!isSignedIn && (
+            {isSessionResolved && !isSignedIn && (
               <div className="mt-5 grid gap-3 sm:grid-cols-3">
                 {[
                   ['ri-cloud-line', 'auth_benefit_sync'],

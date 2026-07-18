@@ -1,0 +1,35 @@
+{
+  "id": "worlds-creator-resources",
+  "name": "MapleStory Worlds Creator Resources",
+  "website": "MapleStory Worlds Creator Center",
+  "page": "Resources",
+  "url": "https://maplestoryworlds-creators.nexon.com/en/resource",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "database",
+  "subcategory": "learning-resources",
+  "description": "Indexes official basic classes, guide videos, external lectures, event videos, and Design Mode and Pro Mode learning material.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "classes",
+    "creator-resources",
+    "design-mode",
+    "videos"
+  ],
+  "source_urls": [
+    "https://maplestoryworlds-creators.nexon.com/en/resource"
+  ],
+  "notes": null
+}

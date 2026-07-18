@@ -84,6 +84,27 @@ export async function localizeGuideItem(guide: GuideItem, language: string, incl
   };
 }
 
+export async function localizeGuideItems(items: GuideItem[], language: string) {
+  const targetLanguage = normalizeStaticContentLanguage(language);
+  if (targetLanguage === 'en' || items.length === 0) return items;
+  if (items.every((item) => item.localizedLanguage === targetLanguage)) return items;
+  const texts = items.flatMap((guide) => [guide.title, guide.class, guide.difficulty, guide.length, guide.excerpt || '']);
+  const translations = await translateStaticTexts(texts, targetLanguage, { sourceLanguage: 'en' })
+    .catch(() => texts);
+  return items.map((guide, index) => ({
+    ...guide,
+    localizedLanguage: targetLanguage,
+    localizedCopy: {
+      title: translations[index * 5] || guide.title,
+      classLabel: translations[index * 5 + 1] || guide.class,
+      difficulty: translations[index * 5 + 2] || guide.difficulty,
+      length: translations[index * 5 + 3] || guide.length,
+      excerpt: translations[index * 5 + 4] || guide.excerpt,
+    },
+    excerpt: translations[index * 5 + 4] || guide.excerpt,
+  }));
+}
+
 export function useLocalizedGuideItems(items: GuideItem[], language: string) {
   const stableItems = useDeepStableValue(items);
   const targetLanguage = normalizeStaticContentLanguage(useDeferredValue(language));
@@ -96,21 +117,8 @@ export function useLocalizedGuideItems(items: GuideItem[], language: string) {
       && current.every((item, index) => item.id === stableItems[index]?.id)
       ? current
       : stableItems);
-    const texts = stableItems.flatMap((guide) => [guide.title, guide.class, guide.difficulty, guide.length, guide.excerpt || '']);
-    void translateStaticTexts(texts, targetLanguage, { sourceLanguage: 'en' }).then((translations) => {
-      if (cancelled) return;
-      setLocalizedItems(stableItems.map((guide, index) => ({
-        ...guide,
-        localizedLanguage: targetLanguage,
-        localizedCopy: {
-          title: translations[index * 5] || guide.title,
-          classLabel: translations[index * 5 + 1] || guide.class,
-          difficulty: translations[index * 5 + 2] || guide.difficulty,
-          length: translations[index * 5 + 3] || guide.length,
-          excerpt: translations[index * 5 + 4] || guide.excerpt,
-        },
-        excerpt: translations[index * 5 + 4] || guide.excerpt,
-      })));
+    void localizeGuideItems(stableItems, targetLanguage).then((items) => {
+      if (!cancelled) setLocalizedItems(items);
     }).catch(() => {
       if (!cancelled) setLocalizedItems(stableItems);
     });

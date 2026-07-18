@@ -1,0 +1,100 @@
+{
+  "content_id": "worlds-global-creator-center-news-2026-07-02-3490500",
+  "detected_at": "2026-07-18T09:45:10.043Z",
+  "old_hash": "c2592b8dacfdd6822d98acba2f917c8b5f563697bb0e2ccb87e133f2b00cb7dc",
+  "new_hash": "1c81285d07452d37a38d54a1ebe2193109a4c341667a6df8420554b05b7a2745",
+  "changed_fields": [
+    "calendar_status",
+    "content_hash",
+    "last_checked"
+  ],
+  "record": {
+    "id": "worlds-global-creator-center-news-2026-07-02-3490500",
+    "source_id": "worlds-creator-center-news",
+    "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500",
+    "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500",
+    "external_id": "3490500",
+    "title": "Global Creator Challenge Discord Linking Event",
+    "original_title": "Global Creator Challenge Discord Linking Event",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "event",
+    "subcategory": "event",
+    "official": true,
+    "author": "MSW_Creators",
+    "published_at": "2026-07-02T05:00:00.000Z",
+    "updated_at": null,
+    "discovered_at": "2026-07-18T09:44:12.015Z",
+    "last_checked": "2026-07-18T09:44:12.015Z",
+    "summary": "MapleStory Worlds Creator Center News published this event about “Global Creator Challenge Discord Linking Event”. MPStorys records the verified timing, classification, and canonical first-party source.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [
+      "event"
+    ],
+    "images": [
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260702/3eb7a5dd-0bb6-4a1c-83f6-33422a20f4ae/MSWGenericPostBanners740x120notice.png",
+        "alt": "Global Creator Challenge Discord Linking Event"
+      },
+      {
+        "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/e03dbe69-2df3-4b00-b451-18b283629052/image202607011458013.png",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "c2592b8dacfdd6822d98acba2f917c8b5f563697bb0e2ccb87e133f2b00cb7dc",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "worlds-creator-center-news",
+      "api_record": true,
+      "body_extractable": true,
+      "fetched_at": "2026-07-18T09:44:19.250Z",
+      "headline_id": "5287",
+      "parser_warnings": [],
+      "unconfirmed_fields": [
+        "updated_at"
+      ],
+      "sections": [
+        {
+          "title": "Official publication record",
+          "items": [
+            "Published by MSW_Creators on 2026-07-02.",
+            "Official classification: event.",
+            "Nexon thread ID: 3490500.",
+            "Confirmed event period: 2026-07-02T05:00:00.000Z through 2026-10-07T14:59:00.000Z (UTC)."
+          ]
+        }
+      ]
+    },
+    "notes": null,
+    "event_name": "Global Creator Challenge Discord Linking Event",
+    "registration_start": null,
+    "registration_end": null,
+    "event_start": "2026-07-02T05:00:00.000Z",
+    "event_end": "2026-10-07T14:59:00.000Z",
+    "claim_start": null,
+    "claim_end": null,
+    "shop_start": null,
+    "shop_end": null,
+    "timezone": "UTC",
+    "eligibility": [],
+    "requirements": [],
+    "rewards": [],
+    "event_currency": [],
+    "event_shop": null,
+    "participation_steps": [],
+    "related_announcement_id": null,
+    "related_patch_ids": [],
+    "calendar_status": "unknown"
+  }
+}

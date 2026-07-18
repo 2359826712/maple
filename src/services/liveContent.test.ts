@@ -3,11 +3,15 @@
 import { describe, expect, it, vi } from 'vitest';
 import {
   extractOfficialArticleImage,
+  getPrefetchedOfficialArticleDocument,
   getNewsFallbackImage,
   getRegionalContentImage,
   normalizeEventFeed,
+  normalizeOrangeMushroomKmsCoverage,
   normalizeTmsBulletins,
   officialArticleHref,
+  fetchOfficialArticleDocument,
+  fetchLiveGuideContent,
   parseJmsListing,
   parseKmsListing,
   parseMseaListing,
@@ -55,12 +59,65 @@ describe('official regional news adapters', () => {
     });
   });
 
+  it('keeps KMS news and event coverage available when the Nexon listing proxy fails', () => {
+    const items = normalizeOrangeMushroomKmsCoverage([{ posts: [
+      {
+        ID: 82441,
+        title: 'KMS ver. 1.2.416 &#8211; Ruler of Covenants',
+        URL: 'http://orangemushroom.net/2026/07/05/kms-ver-1-2-416/',
+        date: '2026-07-05T09:48:29-04:00',
+        excerpt: '<p>The newest Korean MapleStory update.</p>',
+        featured_image: 'https://orangemushroom.wordpress.com/update.png',
+        author: { name: 'Max' },
+        categories: { KMS: {} },
+      },
+      {
+        ID: 82117,
+        title: 'KMS ver. 1.2.415 &#8211; Maple Attack: Event Boss',
+        URL: 'https://orangemushroom.net/2026/05/20/kms-ver-1-2-415/',
+        date: '2026-05-20T11:47:51-04:00',
+        excerpt: '<p>Event coverage.</p>',
+        categories: { KMS: {} },
+      },
+    ] }]);
+
+    expect(items).toHaveLength(2);
+    expect(items[0]).toMatchObject({
+      title: 'KMS ver. 1.2.416 – Ruler of Covenants',
+      category: 'Patch Notes',
+      sourceLanguage: 'en',
+      versions: ['kms'],
+    });
+    expect(items[1]).toMatchObject({ category: 'Event', versions: ['kms'] });
+  });
+
   it('builds an internal route for official articles', () => {
-    const href = officialArticleHref('https://www.maplesea.com/news/view/example/', 'Example', 'msea');
+    const href = officialArticleHref('https://www.maplesea.com/news/view/example/', 'Example', 'msea', '/static/example.webp');
     const url = new URL(href, 'https://maplehub.test');
     expect(url.pathname).toBe('/source');
     expect(url.searchParams.get('url')).toBe('https://www.maplesea.com/news/view/example/');
     expect(url.searchParams.get('server')).toBe('msea');
+    expect(url.searchParams.get('image')).toBe('/static/example.webp');
+  });
+
+  it('loads Orange Mushroom fallback articles through the WordPress content API', async () => {
+    window.localStorage.clear();
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify([{
+      content: { rendered: '<article><h2>KMS update</h2><p>Verified article body.</p></article>' },
+    }]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+
+    try {
+      const article = await fetchOfficialArticleDocument(
+        'https://orangemushroom.net/2026/07/04/kms-ver-1-2-416-maplestory-overdrive/',
+        'kms',
+      );
+
+      expect(article.html).toContain('Verified article body.');
+      expect(getPrefetchedOfficialArticleDocument(article.sourceUrl, 'kms')).toEqual(article);
+      expect(String(fetchMock.mock.calls[0]?.[0])).toContain('/static-content?url=');
+    } finally {
+      fetchMock.mockRestore();
+    }
   });
 
   it('imports MapleStorySEA listing rows as in-site news cards', () => {
@@ -98,6 +155,22 @@ describe('official regional news adapters', () => {
     });
   });
 
+  it('attaches reviewed locale copies to current JMS notices', () => {
+    const items = parseJmsListing(`
+      <table class="notice-list"><tr>
+        <td class="category"><p class="event">イベント</p></td>
+        <td class="ttl"><p><a href="/notice/view/?alias=23be945847fd412cb1bc778856c2478a&amp;id=all">スペシャルサンデーメイプル</a></p></td>
+        <td class="date">2026.07.08</td><td class="view">20662</td>
+      </tr></table>
+    `);
+
+    expect(items[0].translations?.zh).toEqual({
+      title: '特别周日冒险岛',
+      excerpt: '特别周日冒险岛',
+    });
+    expect(items[0].translations?.ko?.title).toBe('스페셜 선데이 메이플');
+  });
+
   it('imports the safe JMS markdown mirror when the official site blocks the backend client', () => {
     const items = parseJmsListing(`
       | カテゴリ | 件名 | 日付 | 表示回数 |
@@ -133,6 +206,40 @@ describe('official regional news adapters', () => {
 });
 
 describe('Grandis class landing import', () => {
+  it.each([
+    ['boss-pre-quests', 'boss-matchmaking-pre-quests'],
+    ['upgrading-and-enhancing-equipment', 'upgrading-enhancing-equipment'],
+  ])('loads a cached legacy %s URL from its current source path', async (legacySlug, currentSlug) => {
+    window.localStorage.clear();
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(`
+      <main id="main-content"><h1>Updated guide</h1><p>Current article body.</p></main>
+    `, { status: 200 }));
+
+    try {
+      const guide = await fetchLiveGuideContent({
+        id: `grandis-content-${legacySlug}`,
+        title: 'Updated guide',
+        class: 'Content',
+        guideSection: 'Content',
+        difficulty: 'Intermediate',
+        length: 'Live',
+        upvotes: 0,
+        author: 'Grandis Library',
+        versions: ['gms'],
+        image: '/grandis.png',
+        excerpt: 'Updated guide.',
+        sourceLabel: 'Grandis Library',
+        sourceUrl: `https://grandislibrary.com/content/${legacySlug}`,
+      });
+
+      expect(guide.sourceUrl).toBe(`https://grandislibrary.com/content/${currentSlug}`);
+      expect(guide.contentText).toContain('Current article body.');
+      expect(decodeURIComponent(String(fetchMock.mock.calls[0]?.[0]))).toContain(`/content/${currentSlug}`);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('replaces upstream swiper markup with grouped h2 + container sections (GL layout)', () => {
     const page = parseGrandisSectionPage(`
       <main id="main-content">

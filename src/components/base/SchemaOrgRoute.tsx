@@ -10,6 +10,7 @@ import {
 import { SITE_NAME, SITE_URL } from '@/constants/site';
 import type { SchemaOrgType } from '@/components/base/SchemaOrg';
 import metadataCatalog from '@/seo/routeMetadata.json';
+import siteKeywords from '@/seo/siteKeywords.json';
 
 type SchemaEntry = {
   types: Extract<SchemaOrgType, 'WebSite' | 'WebPage'>[];
@@ -58,6 +59,7 @@ const websiteSchemaData = {
     width: 1731,
     height: 909,
   },
+  keywords: siteKeywords.en,
   publisher: { '@id': organizationId },
   potentialAction: {
     '@type': 'SearchAction',
@@ -115,6 +117,7 @@ export default function SchemaOrgRoute() {
         '@id': `${canonicalUrl}#webpage`,
         name: copy?.title || SITE_NAME,
         description: copy?.description || '',
+        keywords: siteKeywords[language],
         url: canonicalUrl,
         inLanguage: metadataCatalog.languages[language].htmlLang,
         isPartOf: { '@id': websiteId },
@@ -138,6 +141,10 @@ export default function SchemaOrgRoute() {
     : '';
 
   useEffect(() => {
+    const serverRoute = document.querySelector('[data-server-rendered-route]')?.getAttribute('data-server-rendered-route');
+    const existingSchema = document.head.querySelector('script[data-seo-schema="route"]');
+    if (serverRoute === pathname && existingSchema) return;
+
     document.head.querySelectorAll('script[data-seo-schema="route"]').forEach((element) => element.remove());
     if (!schemaJson) return;
 
@@ -146,7 +153,7 @@ export default function SchemaOrgRoute() {
     schema.dataset.seoSchema = 'route';
     schema.textContent = schemaJson;
     document.head.appendChild(schema);
-  }, [schemaJson]);
+  }, [pathname, schemaJson]);
 
   return null;
 }

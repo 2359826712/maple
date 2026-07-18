@@ -14,13 +14,15 @@ export function useTranslatedOfficialDocument(
 
   const initial = useMemo(() => ({
     article,
-    status: (article && sourceLanguage !== targetLanguage ? 'unavailable' : 'original') as TranslationStatus,
+    status: (article?.contentLanguage === targetLanguage
+      ? 'translated'
+      : article && sourceLanguage !== targetLanguage ? 'unavailable' : 'original') as TranslationStatus,
   }), [article, sourceLanguage, targetLanguage]);
   const [result, setResult] = useState(initial);
 
   useEffect(() => {
     let cancelled = false;
-    if (!article || sourceLanguage === targetLanguage) {
+    if (!article || sourceLanguage === targetLanguage || article.contentLanguage === targetLanguage) {
       setResult(initial);
       return () => { cancelled = true; };
     }

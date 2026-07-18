@@ -23,7 +23,11 @@ export default function CharacterSearch() {
   const [recentSearches, setRecentSearches] = useState<string[]>(() => {
     try {
       const saved = typeof window !== 'undefined' ? localStorage.getItem('mh_recent_chars') : null;
-      return saved ? JSON.parse(saved) : [];
+      if (!saved) return [];
+      const parsed = JSON.parse(saved) as unknown;
+      return Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === 'string').slice(0, 10)
+        : [];
     } catch { return []; }
   });
 

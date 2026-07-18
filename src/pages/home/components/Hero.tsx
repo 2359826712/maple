@@ -1,31 +1,45 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
+import { getLocalizedVersionPresentation } from '@/domain/versionPresentation';
 import { useTranslation } from 'react-i18next';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
+import { isRenderableNewsItem } from '@/services/contentCacheValidation';
 import { getPopularSearchTerms } from '@/services/siteSearch';
 import FloatingLeaves from '@/components/feature/FloatingLeaves';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { isStaticHydration, scheduleAfterStaticHydration } from '@/ssg/hydration';
 
 export default function Hero() {
   const { versionInfo } = useVersion();
+  const { initialNews } = useServerRouteData();
   const { t, i18n } = useTranslation();
+  const versionPresentation = getLocalizedVersionPresentation(versionInfo, t);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const deferBrowserState = isStaticHydration();
+  const [browserStateReady, setBrowserStateReady] = useState(!deferBrowserState);
   const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialNews,
     remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const searchChips = useMemo(
-    () => getPopularSearchTerms(i18n.language, versionInfo.id, 4),
-    [i18n.language, versionInfo.id],
+    () => browserStateReady ? getPopularSearchTerms(i18n.language, versionInfo.id, 4) : [],
+    [browserStateReady, i18n.language, versionInfo.id],
   );
+
+  useEffect(() => {
+    if (!deferBrowserState) return;
+    return scheduleAfterStaticHydration(() => setBrowserStateReady(true));
+  }, [deferBrowserState]);
 
   const filteredTicker = useMemo(
     () =>
@@ -65,7 +79,7 @@ export default function Hero() {
           <i className="ri-leaf-fill text-primary-500 text-sm leaf-sway"></i>
           <span className="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse"></span>
           <span className="text-xs font-semibold text-foreground-800 uppercase tracking-wider">
-            {versionInfo.shortLabel} · {versionInfo.fullName} · {t('hero_badge')}
+            {versionInfo.shortLabel} · {versionPresentation.name} · {t('hero_badge')}
           </span>
           <i className="ri-leaf-fill text-primary-500 text-sm leaf-sway" style={{ animationDelay: '1.5s' }}></i>
         </div>

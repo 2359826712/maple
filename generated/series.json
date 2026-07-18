@@ -1,0 +1,69 @@
+[
+  {
+    "id": "classic",
+    "count": 2,
+    "resource_ids": [
+      "classic-nexon-closed-online-test-2",
+      "classic-world-test-2-campaign"
+    ]
+  },
+  {
+    "id": "idle",
+    "count": 6,
+    "resource_ids": [
+      "idle-april-9-2026-patch-notes",
+      "idle-may-21-2026-patch-notes",
+      "idle-may-21-update-preview",
+      "idle-nexon-june-11-patch-notes",
+      "idle-official-faq",
+      "idle-official-forum"
+    ]
+  },
+  {
+    "id": "m",
+    "count": 5,
+    "resource_ids": [
+      "m-global-official-forum",
+      "m-june-24-2026-patch-notice",
+      "m-may-2026-known-issues",
+      "m-may-2026-patch-notes-part-2",
+      "m-nexon-guide-for-new-maplers"
+    ]
+  },
+  {
+    "id": "maplestory",
+    "count": 6,
+    "resource_ids": [
+      "maplestory-miracle-summer-2026",
+      "maplestory-nexon-official-news",
+      "maplestory-official-game-reference",
+      "maplestory-official-rankings",
+      "maplestory-support-gameplay",
+      "maplestory-support-installation-guide"
+    ]
+  },
+  {
+    "id": "n",
+    "count": 6,
+    "resource_ids": [
+      "n-beginners-guide",
+      "n-classes-and-jobs",
+      "n-download-guide",
+      "n-official-events",
+      "n-official-launch-guide",
+      "n-official-updates"
+    ]
+  },
+  {
+    "id": "worlds",
+    "count": 6,
+    "resource_ids": [
+      "worlds-creator-center-news",
+      "worlds-creator-center-welcome-to-msw",
+      "worlds-creator-documents",
+      "worlds-creator-resources",
+      "worlds-ip-use-scope",
+      "worlds-managing-resources-guide"
+    ]
+  }
+]

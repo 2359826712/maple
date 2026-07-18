@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { getVersionDefinition, type OfficialContentKind } from '@/domain/regionModel';
+import { getLocalizedVersionPresentation } from '@/domain/versionPresentation';
 
 const linkMeta: Array<{ kind: OfficialContentKind; labelKey: string; icon: string; to?: string }> = [
   { kind: 'website', labelKey: 'server_source_website', icon: 'ri-global-line' },
@@ -14,6 +15,7 @@ export default function OfficialServerLinks({ preferred }: { preferred?: Officia
   const { t } = useTranslation();
   const { version } = useVersion();
   const versionInfo = getVersionDefinition(version);
+  const versionPresentation = getLocalizedVersionPresentation(versionInfo, t);
   const links = [...linkMeta]
     .sort((a, b) => Number(b.kind === preferred) - Number(a.kind === preferred))
     .filter(({ kind, to }) => Boolean(to || versionInfo.officialLinks[kind]));
@@ -23,9 +25,9 @@ export default function OfficialServerLinks({ preferred }: { preferred?: Officia
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-semibold text-foreground-900">{versionInfo.fullName}</span>
+            <span className="text-sm font-semibold text-foreground-900">{versionPresentation.name}</span>
             <span className="rounded-full bg-background-200 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-foreground-600">
-              {versionInfo.region}
+              {versionPresentation.region}
             </span>
           </div>
           <p className="mt-1 text-xs text-foreground-600">

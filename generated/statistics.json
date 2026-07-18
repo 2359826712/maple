@@ -1,0 +1,27 @@
+{
+  "total_resources": 31,
+  "total_websites": 8,
+  "series": {
+    "classic": 2,
+    "idle": 6,
+    "m": 5,
+    "maplestory": 6,
+    "n": 6,
+    "worlds": 6
+  },
+  "categories": {
+    "database": 1,
+    "downloads": 2,
+    "events": 2,
+    "guide": 7,
+    "news": 8,
+    "official": 1,
+    "patch-notes": 5,
+    "rankings": 1,
+    "wiki": 4
+  },
+  "statuses": {
+    "active": 31
+  },
+  "latest_verification_date": "2026-07-18"
+}

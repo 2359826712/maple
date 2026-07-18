@@ -13,6 +13,8 @@ export interface WikiEntry {
   contentZh: string;
   htmlContent?: string;
   htmlContentZh?: string;
+  /** Language of the article body currently attached to this entry. */
+  contentLanguage?: 'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko';
   sourceKey?: 'mswiki';
   sourcePageTitle?: string;
   sources?: Array<{

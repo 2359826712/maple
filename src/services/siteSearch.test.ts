@@ -20,6 +20,27 @@ describe('universal site search index', () => {
     ]));
   });
 
+  it('finds generated series resources and keeps navigation on this site', () => {
+    const results = getSiteSearchResults('Guide for New Maplers', 'en', 'gms');
+    expect(results).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        id: 'resource-m-nexon-guide-for-new-maplers',
+        href: expect.stringMatching(/^\/content\/guides\/.+\?series=maplestory-m$/),
+      }),
+    ]));
+  });
+
+  it.each([
+    ['Miracle Summer 2026', /^\/content\/events\/.+\?series=maplestory-pc$/],
+    ['MapleStory N Beginner', /^\/content\/guides\/.+\?series=maplestory-n$/],
+    ['Managing Resources', /^\/content\/guides\/.+\?series=maplestory-worlds$/],
+    ['MapleStory Idle RPG FAQ', /^\/content\/wiki\/.+\?series=maplestory-idle$/],
+  ])('routes generated resource search for %s through an internal detail page', (query, href) => {
+    const result = getSiteSearchResults(query, 'en', 'gms')
+      .find((entry) => entry.id.startsWith('resource-'));
+    expect(result?.href).toMatch(href);
+  });
+
   it.each([
     ['zh', '每日 Boss 清单'],
     ['ja', 'デイリーボスチェックリスト'],

@@ -1,0 +1,299 @@
+[
+  {
+    "id": "classic-gms-official-news",
+    "name": "Global MapleStory Classic World News",
+    "series": "classic",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "cash-shop",
+      "event",
+      "maintenance",
+      "news",
+      "patch-note"
+    ],
+    "base_url": "https://www.nexon.com/maplestory/news",
+    "discovery_urls": [
+      "https://www.nexon.com/maplestory/news"
+    ],
+    "feed_url": null,
+    "api_url": "https://g.nexonstatic.com/maplestory/cms/v1/news",
+    "sitemap_urls": [],
+    "adapter": "nexon-cms",
+    "parser": "gms-classic-news",
+    "adapter_config": {
+      "default_content_type": "news"
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-18. Classic World announcements share Nexon's public Global MapleStory CMS and are separated by CMS flags plus title classification."
+  },
+  {
+    "id": "idle-nexon-official-patch-notes",
+    "name": "MapleStory: Idle RPG Official Patch Notes",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "forum",
+    "content_types": [
+      "patch-note"
+    ],
+    "base_url": "https://forum.nexon.com/maplestoryidle/main",
+    "discovery_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_list?board=6675&pageNo=1"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "browser",
+    "parser": "maplestory-idle-nexon-forum",
+    "adapter_config": {
+      "default_content_type": "patch-note",
+      "include_patterns": [
+        "/maplestoryidle/board_view"
+      ],
+      "render_delay_ms": 3000
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": true,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-18 as the public official MapleStory: Idle RPG Patch Note board. Uses the browser adapter (Chrome CDP) to render the JS-protected Nexon Forum. Requires Chrome running with --remote-debugging-port=9222 and an active WAF session (manually navigate to forum.nexon.com once before crawling)."
+  },
+  {
+    "id": "m-nexon-official-news",
+    "name": "MapleStory M Official News",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "forum",
+    "content_types": [
+      "cash-shop",
+      "event",
+      "maintenance",
+      "news",
+      "patch-note"
+    ],
+    "base_url": "https://forum.nexon.com/MapleStoryMGlobal/main",
+    "discovery_urls": [
+      "https://forum.nexon.com/MapleStoryMGlobal/board_list?board=2680&pageNo=1"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "browser",
+    "parser": "maplestory-m-nexon-forum",
+    "adapter_config": {
+      "default_content_type": "news",
+      "include_patterns": [
+        "/MapleStoryMGlobal/board_view"
+      ],
+      "render_delay_ms": 3000
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": true,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-18 as the public official MapleStory M News board. Uses the browser adapter (Chrome CDP) to render the JS-protected Nexon Forum. Requires Chrome running with --remote-debugging-port=9222 and an active WAF session (manually navigate to forum.nexon.com once before crawling)."
+  },
+  {
+    "id": "maplestory-gms-official-news",
+    "name": "Global MapleStory Official News",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "cash-shop",
+      "event",
+      "maintenance",
+      "news",
+      "patch-note"
+    ],
+    "base_url": "https://www.nexon.com/maplestory/news",
+    "discovery_urls": [
+      "https://www.nexon.com/maplestory/news"
+    ],
+    "feed_url": null,
+    "api_url": "https://g.nexonstatic.com/maplestory/cms/v1/news",
+    "sitemap_urls": [],
+    "adapter": "nexon-cms",
+    "parser": "gms-official-news",
+    "adapter_config": {
+      "default_content_type": "news"
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-18 against Nexon's public Global MapleStory CMS. Classic World titles are excluded and indexed by the separate Classic source."
+  },
+  {
+    "id": "n-official-documentation-announcements",
+    "name": "MapleStory N Official Notices",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "developer-note",
+      "event",
+      "maintenance",
+      "news",
+      "patch-note"
+    ],
+    "base_url": "https://msu.io/maplestoryn/news/notices",
+    "discovery_urls": [
+      "https://msu.io/maplestoryn/news/notices"
+    ],
+    "feed_url": null,
+    "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+    "sitemap_urls": [],
+    "adapter": "nexon-community",
+    "parser": "maplestory-n-official-notices",
+    "adapter_config": {
+      "block_size": 9,
+      "board_id": "5288",
+      "canonical_template": "https://msu.io/maplestoryn/news/notices/{threadId}",
+      "default_content_type": "news",
+      "headers": {
+        "community-id": "500",
+        "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+      },
+      "mode": "n",
+      "page_size": 25
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-18 against the current public MapleStory Universe notices page and its official public read API. The former documentation announcement path is no longer the live notice index."
+  },
+  {
+    "id": "worlds-creator-center-news",
+    "name": "MapleStory Worlds Creator Center News",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "creator-announcement",
+      "developer-note",
+      "event",
+      "maintenance",
+      "news",
+      "patch-note"
+    ],
+    "base_url": "https://maplestoryworlds-creators.nexon.com/en",
+    "discovery_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485"
+    ],
+    "feed_url": null,
+    "api_url": "https://mverse-api.nexon.com/external/v1/community",
+    "sitemap_urls": [],
+    "adapter": "nexon-community",
+    "parser": "worlds-creator-center-news",
+    "adapter_config": {
+      "board_id": "5485",
+      "canonical_template": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/{threadId}",
+      "community_type": 5,
+      "default_content_type": "creator-announcement",
+      "mode": "worlds",
+      "page_size": 25
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-18 against the public English Creator Center listing and the same public read API used by the official page."
+  }
+]

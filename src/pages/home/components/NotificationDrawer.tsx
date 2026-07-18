@@ -47,7 +47,7 @@ const announceNotificationChange = () => {
 
 export default function NotificationDrawer({ open, onClose }: Props) {
   const { t, i18n } = useTranslation();
-  const { isSignedIn } = useAuthSession();
+  const { isSessionResolved, isSignedIn } = useAuthSession();
   const [items, setItems] = useState<MapleNotification[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -138,7 +138,10 @@ export default function NotificationDrawer({ open, onClose }: Props) {
           </button>
         </div>
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
-          {!isSignedIn && (
+          {!isSessionResolved && (
+            <div className="h-20 rounded-lg bg-background-100" aria-busy="true" />
+          )}
+          {isSessionResolved && !isSignedIn && (
             <div className="p-4 rounded-lg border border-background-200 bg-background-100 text-sm text-foreground-700">
               {t('notifications_sign_in')}
             </div>

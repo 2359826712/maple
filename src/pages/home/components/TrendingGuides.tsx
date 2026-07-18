@@ -9,6 +9,7 @@ import { getGuideCardCopy, useLocalizedGuideItems } from '@/pages/guides/localiz
 import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
 import ShareButton from '@/components/feature/ShareButton';
 import { fetchLiveGuides, liveStorageKeys, type GuideItem } from '@/services/liveContent';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const difficultyColor: Record<string, string> = {
   Beginner: 'bg-accent-100 text-accent-800',
@@ -19,12 +20,13 @@ const difficultyColor: Record<string, string> = {
 export default function TrendingGuides() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialGuides } = useServerRouteData();
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [authPrompt, setAuthPrompt] = useState(false);
   const { isSignedIn } = useAuthSession();
   const { items: realtimeGuides, status: realtimeStatus } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
-    baseItems: [],
+    baseItems: initialGuides,
     remoteLoader: fetchLiveGuides,
   });
   const localizedGuides = useLocalizedGuideItems(realtimeGuides, i18n.language);

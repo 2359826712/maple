@@ -17,6 +17,7 @@ import {
   type EventItem,
   type NewsItem,
 } from '@/services/liveContent';
+import { isRenderableEventItem, isRenderableNewsItem } from '@/services/contentCacheValidation';
 import { daysUntilEventBoundary, formatServerDateRange, isAvailableInVersion } from '@/domain/regionModel';
 import EventGoalProjection from './EventGoalProjection';
 import ShareButton from '@/components/feature/ShareButton';
@@ -25,6 +26,9 @@ import { applyRegionalImageFallback } from '@/components/feature/regionalImageFa
 import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 import { useLocalizedEvents } from './useLocalizedEvents';
+import { getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
+import { isStaticHydration } from '@/ssg/hydration';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const EVENT_REMINDERS_KEY = 'maplehub-event-reminders';
 const EVENT_REMINDER_DELIVERY_KEY = 'maplehub-event-reminder-delivery';
@@ -34,7 +38,11 @@ type ReminderDelivery = 'in-app' | 'browser';
 const readEventReminders = () => {
   try {
     const value = window.localStorage.getItem(EVENT_REMINDERS_KEY);
-    return value ? (JSON.parse(value) as string[]) : [];
+    if (!value) return [];
+    const parsed = JSON.parse(value) as unknown;
+    return Array.isArray(parsed)
+      ? [...new Set(parsed.filter((item): item is string => typeof item === 'string'))]
+      : [];
   } catch {
     return [];
   }
@@ -54,12 +62,22 @@ const rarityStyle: Record<string, string> = {
 export default function EventsPage() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialEvents, initialNews } = useServerRouteData();
   const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
   const [activeEvent, setActiveEvent] = useState<EventItem | null>(null);
-  const [reminders, setReminders] = useState<string[]>(readEventReminders);
-  const [reminderDelivery, setReminderDelivery] = useState<ReminderDelivery>(readReminderDelivery);
+  const deferBrowserState = isStaticHydration();
+  const [reminders, setReminders] = useState<string[]>(() => deferBrowserState ? [] : readEventReminders());
+  const [reminderDelivery, setReminderDelivery] = useState<ReminderDelivery>(() => (
+    deferBrowserState ? 'in-app' : readReminderDelivery()
+  ));
   const [deliveryMessage, setDeliveryMessage] = useState('');
+
+  useEffect(() => {
+    if (!deferBrowserState) return;
+    setReminders(readEventReminders());
+    setReminderDelivery(readReminderDelivery());
+  }, [deferBrowserState]);
   const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
   const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const {
@@ -70,18 +88,26 @@ export default function EventsPage() {
     syncNow,
   } = useRealtimeCollection<EventItem>({
     storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialEvents,
     remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
-  const localizedEvents = useLocalizedEvents(realtimeEvents, i18n.language);
+  const localizedEvents = useLocalizedEvents(
+    realtimeEvents,
+    i18n.language,
+    getNewsSourceLanguageForVersion(versionInfo.id),
+  );
   const {
     items: realtimeNews,
+    liveCount: newsLiveCount,
+    lastSyncedAt: newsLastSyncedAt,
     status: newsStatus,
     syncNow: syncNews,
   } = useRealtimeCollection<NewsItem>({
     storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
-    baseItems: [],
+    baseItems: initialNews,
     remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
@@ -104,6 +130,12 @@ export default function EventsPage() {
       .slice(0, 6),
     [localizedNews, versionInfo.id],
   );
+  const hasOfficialEventNews = officialEventNews.length > 0;
+  const contentStatus = realtimeStatus === 'unavailable' && hasOfficialEventNews
+    ? newsStatus
+    : realtimeStatus;
+  const contentLastSyncedAt = lastSyncedAt || (hasOfficialEventNews ? newsLastSyncedAt : '');
+  const contentLiveCount = liveCount + (hasOfficialEventNews ? Math.min(newsLiveCount, officialEventNews.length) : 0);
   const eventWindow = (event: EventItem) =>
     formatServerDateRange(event.windowStart, event.windowEnd, versionInfo.id, i18n.language);
   const reminderId = useCallback((event: EventItem) => `${versionInfo.id}:${event.id}`, [versionInfo.id]);
@@ -165,7 +197,10 @@ export default function EventsPage() {
     ));
     if (endingSoon.length === 0) return;
     let notified: string[] = [];
-    try { notified = JSON.parse(localStorage.getItem(EVENT_REMINDER_NOTIFIED_KEY) || '[]') as string[]; } catch { notified = []; }
+    try {
+      const parsed = JSON.parse(localStorage.getItem(EVENT_REMINDER_NOTIFIED_KEY) || '[]') as unknown;
+      notified = Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === 'string') : [];
+    } catch { notified = []; }
     const notifiedSet = new Set(notified);
     for (const event of endingSoon) {
       const notificationId = `${reminderId(event)}:${event.windowEnd}`;
@@ -187,7 +222,7 @@ export default function EventsPage() {
         <section className="py-14 md:py-20 bg-background-50">
           <div className="w-full px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+              <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider flex items-center gap-1.5">
                     <i className="ri-leaf-fill text-primary-500 text-[10px]"></i>
@@ -201,10 +236,10 @@ export default function EventsPage() {
 
               <div className="mb-6">
                 <RealtimeStatus
-                  status={realtimeStatus}
-                  lastSyncedAt={lastSyncedAt}
-                  liveCount={liveCount}
-                  onRefresh={syncNow}
+                  status={contentStatus}
+                  lastSyncedAt={contentLastSyncedAt}
+                  liveCount={contentLiveCount}
+                  onRefresh={() => { void Promise.all([syncNow(), syncNews()]); }}
                 />
               </div>
               <div className="mb-6">
@@ -282,28 +317,6 @@ export default function EventsPage() {
 
               {filteredEvents.length === 0 ? (
                 <div className="space-y-6">
-                  <div className="rounded-xl border border-accent-200 bg-accent-50/60 px-5 py-8 text-center text-foreground-700">
-                    <i className={`${realtimeStatus === 'unavailable' && !lastSyncedAt ? 'ri-cloud-off-line' : 'ri-calendar-event-line'} mb-4 block text-5xl text-accent-700`}></i>
-                    <h2 className="text-lg font-semibold text-foreground-950">
-                      {realtimeStatus === 'unavailable' && !lastSyncedAt
-                        ? t('events_schedule_unavailable')
-                        : t('events_no_items', { version: versionInfo.shortLabel })}
-                    </h2>
-                    <p className="mx-auto mt-1 max-w-2xl text-sm">
-                      {realtimeStatus === 'unavailable' && !lastSyncedAt
-                        ? t('events_schedule_unavailable_tip')
-                        : t('events_no_items_tip')}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => void Promise.all([syncNow(), syncNews()])}
-                      className="mt-4 inline-flex h-10 items-center justify-center gap-2 rounded-full border border-accent-300 bg-background-50 px-4 text-sm font-semibold text-accent-800 hover:bg-accent-100"
-                    >
-                      <i className="ri-refresh-line" />
-                      {t('events_retry_sources')}
-                    </button>
-                  </div>
-
                   {officialEventNews.length > 0 && (
                     <section aria-labelledby="event-news-fallback-title">
                       <div className="mb-4">
@@ -338,14 +351,19 @@ export default function EventsPage() {
                               <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-foreground-600">
                                 {item.excerpt}
                               </p>
-                              {item.usesOriginalCopy && (
-                                <NewsOriginalLanguageNotice sourceLanguage={item.sourceLanguage} className="mt-2" />
+                              {item.localizationKind !== 'source' && (
+                                <NewsOriginalLanguageNotice
+                                  sourceLanguage={item.sourceLanguage}
+                                  localizationKind={item.localizationKind}
+                                  server={item.versions[0]}
+                                  className="mt-2"
+                                />
                               )}
                               <Link
-                                to={officialArticleHref(item.sourceUrl, item.title, versionInfo.id)}
+                                to={officialArticleHref(item.sourceUrl, item.title, versionInfo.id, item.image)}
                                 className="mt-4 inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
                               >
-                                {t('events_open_source')}
+                                {item.actionLabel || t('events_open_source')}
                                 <i className="ri-book-open-line" />
                               </Link>
                             </div>
@@ -429,7 +447,7 @@ export default function EventsPage() {
                             className="rounded-md"
                           />
                           <Link
-                              to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id)}
+                              to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id, e.image)}
                               className="h-10 w-10 rounded-md bg-background-100 hover:bg-accent-100 hover:text-accent-700 text-foreground-800 flex items-center justify-center cursor-pointer"
                               aria-label={t('events_open_source')}
                             >
@@ -525,13 +543,15 @@ export default function EventsPage() {
                   {t(hasReminder(activeEvent) ? 'events_reminder_saved' : 'events_remind')}
                 </button>
                 <Link
-                    to={officialArticleHref(activeEvent.sourceUrl, activeEvent.name, versionInfo.id)}
+                    to={officialArticleHref(activeEvent.sourceUrl, activeEvent.name, versionInfo.id, activeEvent.image)}
                     className="inline-flex h-10 items-center justify-center rounded-full bg-primary-500 px-5 text-sm font-semibold text-background-50 hover:bg-primary-600"
                   >
                     {t('events_open_source')}
                     <i className="ri-book-open-line ml-1.5"></i>
                   </Link>
-                <span className="w-full text-xs text-foreground-500">{t('events_reminder_local')}</span>
+                {hasReminder(activeEvent) && (
+                  <span className="w-full text-xs text-foreground-500">{t('events_reminder_local')}</span>
+                )}
               </div>
             </div>
           </article>

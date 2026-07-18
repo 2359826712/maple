@@ -1,5 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { telemetry } from '@/services/telemetry';
+import { isStaticHydration } from '@/ssg/hydration';
+import {
+  readLocalStorage,
+  readSessionStorage,
+  removeLocalStorage,
+  removeSessionStorage,
+  writeSessionStorage,
+} from '@/services/browserStorage';
 
 export const AUTH_SESSION_KEY = 'maplehub-auth-session';
 export const AUTH_SESSION_CHANGED_EVENT = 'maplehub-auth-session-changed';
@@ -28,12 +36,12 @@ export const readAuthSession = (): AuthSession | null => {
   if (typeof window === 'undefined') return null;
 
   try {
-    const raw = window.sessionStorage.getItem(AUTH_SESSION_KEY);
+    const raw = readSessionStorage(AUTH_SESSION_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed.user !== 'string' || !Number.isFinite(Date.parse(parsed.expiresAt))) return null;
     if (Date.parse(parsed.expiresAt) <= Date.now()) {
-      window.sessionStorage.removeItem(AUTH_SESSION_KEY);
+      removeSessionStorage(AUTH_SESSION_KEY);
       return null;
     }
     return parsed as AuthSession;
@@ -44,15 +52,15 @@ export const readAuthSession = (): AuthSession | null => {
 
 export function saveAuthSession(session: AuthSession) {
   if (typeof window === 'undefined') return;
-  window.localStorage.removeItem(AUTH_SESSION_KEY);
-  window.sessionStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(session));
+  removeLocalStorage(AUTH_SESSION_KEY);
+  writeSessionStorage(AUTH_SESSION_KEY, JSON.stringify(session));
   window.dispatchEvent(new CustomEvent(AUTH_SESSION_CHANGED_EVENT));
 }
 
 export function clearAuthSession() {
   if (typeof window === 'undefined') return;
-  window.localStorage.removeItem(AUTH_SESSION_KEY);
-  window.sessionStorage.removeItem(AUTH_SESSION_KEY);
+  removeLocalStorage(AUTH_SESSION_KEY);
+  removeSessionStorage(AUTH_SESSION_KEY);
   window.dispatchEvent(new CustomEvent(AUTH_SESSION_CHANGED_EVENT));
 }
 
@@ -60,16 +68,38 @@ export function getAccessToken() {
   return readAuthSession()?.accessToken || null;
 }
 
+const isAutoLoginPending = () => {
+  if (typeof window === 'undefined') return false;
+  try {
+    return readLocalStorage(AUTO_LOGIN_ENABLED_KEY) === 'true';
+  } catch {
+    return false;
+  }
+};
+
 export function useAuthSession() {
-  const [session, setSession] = useState<AuthSession | null>(() => readAuthSession());
+  const deferBrowserState = isStaticHydration();
+  const [authState, setAuthState] = useState(() => {
+    const session = deferBrowserState ? null : readAuthSession();
+    return {
+      session,
+      isSessionResolved: !deferBrowserState && (Boolean(session) || !isAutoLoginPending()),
+    };
+  });
+  const { session, isSessionResolved } = authState;
 
   const refresh = useCallback(() => {
-    setSession(readAuthSession());
+    const nextSession = readAuthSession();
+    setAuthState({
+      session: nextSession,
+      isSessionResolved: Boolean(nextSession) || !isAutoLoginPending(),
+    });
   }, []);
 
   useEffect(() => {
+    if (!isSessionResolved) return;
     telemetry.setAuthMode(session ? 'signed-in' : 'guest');
-  }, [session]);
+  }, [isSessionResolved, session]);
 
   useEffect(() => {
     if (!session?.expiresAt) return undefined;
@@ -79,6 +109,10 @@ export function useAuthSession() {
   }, [refresh, session?.expiresAt]);
 
   useEffect(() => {
+    // Keep SSR and hydration on the same unresolved state, then commit the
+    // browser session in one update so signed-out UI never flashes first.
+    if (deferBrowserState) refresh();
+
     const onStorage = (event: StorageEvent) => {
       if (event.key === AUTH_SESSION_KEY) refresh();
     };
@@ -92,10 +126,11 @@ export function useAuthSession() {
       window.removeEventListener(AUTH_SESSION_CHANGED_EVENT, refresh);
       window.removeEventListener('focus', refresh);
     };
-  }, [refresh]);
+  }, [deferBrowserState, refresh]);
 
   return {
     session,
+    isSessionResolved,
     isSignedIn: !!session,
     accessToken: session?.accessToken || null,
     userId: session?.userId || null,

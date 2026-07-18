@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2026-07-01-3489476",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3489476",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3489476",
+  "external_id": "3489476",
+  "title": "[Complete] Maintenance - 2026 July 1",
+  "original_title": "[Complete] Maintenance - 2026 July 1",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-07-01T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:12.015Z",
+  "last_checked": "2026-07-18T09:44:12.015Z",
+  "summary": "MapleStory Worlds completed July 1 maintenance at 18:00 PDT after a three-hour platform outage. Version 26.5.5 added a Player Ban capability to World Insight, stabilized servers, and delivered editor, text rendering, state synchronization, and TeleportService fixes.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260630/c0745078-c4db-476e-9cf4-10d2a08ea09c/MSWGenericPostBanners740x120maintenance.png",
+      "alt": "[Complete] Maintenance - 2026 July 1"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260630/4b8c694e-f73b-4dda-9b47-a26cc4cb5e26/image202606301434372.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b4cc98a948a1adbb09e0112af50829525cbca96e852c4ab987733e059fca7880",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:28.466Z",
+    "headline_id": "3477",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Completed maintenance",
+        "items": [
+          "The outage ran July 1 from 15:00 to 18:00 PDT; the website and PC and mobile apps were unavailable.",
+          "Published distributions: Windows 26.5.5.717, Mac 26.5.5.78, Android 26.5.5.611, and iOS 26.5.5.545."
+        ]
+      },
+      {
+        "title": "Creator platform changes",
+        "items": [
+          "World Insight gained a Player Ban feature that lets creators implement account-based sanctions inside a World.",
+          "Sanction history can transfer when a sanctioned player deletes and later recreates a MapleStory Worlds account.",
+          "The update also fixed custom-font, TextSpriteSet, StateComponent, Model Editor, Background editor, and TeleportService issues."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

@@ -1,0 +1,103 @@
+{
+  "checks": [
+    {
+      "resource_id": "idle-may-21-update-preview",
+      "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "May 21 Major Update Preview",
+      "evidence": "The indexed official forum page identifies the May 21 update preview and its Party Quest Exploration and convenience-system content."
+    },
+    {
+      "resource_id": "idle-official-forum",
+      "url": "https://forum.nexon.com/maplestoryidle/main",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "MapleStory: Idle RPG Official Forum",
+      "evidence": "The official Nexon forum index exposes MapleStory: Idle RPG notices, patch notes, previews, known issues, FAQ, and community navigation."
+    },
+    {
+      "resource_id": "idle-april-9-2026-patch-notes",
+      "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "April 9 Patch Notes",
+      "evidence": "The indexed official patch note identifies the April 9 update, collaboration, new weapons, chapters, events, and progression changes."
+    },
+    {
+      "resource_id": "idle-may-21-2026-patch-notes",
+      "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "05.21 Patch Notes",
+      "evidence": "The indexed official patch note identifies the May 21 update and its Party Quest, combat, event, and system changes."
+    },
+    {
+      "resource_id": "idle-official-faq",
+      "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "MapleStory: Idle RPG FAQ",
+      "evidence": "The indexed official FAQ contains maintained answers for reset times, regions, jobs, accounts, devices, currencies, and gameplay."
+    },
+    {
+      "resource_id": "m-global-official-forum",
+      "url": "https://forum.nexon.com/MapleStoryMGlobal",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "MapleStory M Global Forum",
+      "evidence": "The official Nexon forum index lists current announcements, update previews, patch notices, market posts, guides, and support links."
+    },
+    {
+      "resource_id": "m-may-2026-known-issues",
+      "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "2026.05.20/21 Update Known Issue Notice",
+      "evidence": "The indexed official notice lists acknowledged issues for the May 20/21 MapleStory M update and later corrections."
+    },
+    {
+      "resource_id": "m-june-24-2026-patch-notice",
+      "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "06.24 Patch Notice (Completed)",
+      "evidence": "The indexed official notice records the June 24 patch schedule, bug fixes, language corrections, and server stabilization."
+    },
+    {
+      "resource_id": "m-may-2026-patch-notes-part-2",
+      "url": "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2690&thread=3448834",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "05.20/21 Patch Notes Pt.2",
+      "evidence": "The indexed official patch note contains May 2026 growth support, Boss Invitation events, shops, rewards, and package changes."
+    },
+    {
+      "resource_id": "maplestory-support-installation-guide",
+      "url": "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "How to install MapleStory",
+      "evidence": "The indexed official Nexon support article contains Windows and macOS launcher installation steps for MapleStory."
+    },
+    {
+      "resource_id": "maplestory-support-gameplay",
+      "url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay",
+      "checked_at": "2026-07-18",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "Gameplay - MapleStory",
+      "evidence": "The indexed official Nexon support category lists gameplay help for worlds, classes, Star Force, items, guilds, skills, and events."
+    }
+  ]
+}

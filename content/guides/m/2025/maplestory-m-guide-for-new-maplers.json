@@ -1,0 +1,104 @@
+{
+  "id": "maplestory-m-guide-for-new-maplers",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+  "external_id": "2715388",
+  "title": "MapleStory M Guide for New Maplers",
+  "original_title": "04 Guide for New Maplers",
+  "series": "m",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "beginner",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2025-01-15",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-18T00:00:00.000Z",
+  "summary": "An official beginner reference for configuring the interface, using Auto-Battle, growing a character, handling equipment, trading through the Trade Station, and using convenience features.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "auto-battle",
+    "beginner",
+    "equipment",
+    "trade-station"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "11a4d14f9d1c8b4a76acb6f41f063a6a208fcc51ae0065b16a1cf46ceb88ba65",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "m-nexon-guide-for-new-maplers",
+    "sections": [
+      {
+        "title": "Interface and skill setup",
+        "items": [
+          "The Quick Menu can hold up to eight frequently used menu items and can be rearranged through Menu Edit.",
+          "Skill Layout Type A supports up to five skills and Type B supports up to eight skills.",
+          "You can save up to three skill presets; switching presets has a five-second cooldown."
+        ]
+      },
+      {
+        "title": "Auto-Battle essentials",
+        "items": [
+          "Auto-Battle continues while the app is closed and grants a 10% EXP bonus while active.",
+          "Potion use thresholds can be adjusted between 70% and 90% to match survivability needs.",
+          "Pets can maintain registered buffs, and Fever buffs can be configured for automatic use."
+        ]
+      },
+      {
+        "title": "Growth and equipment",
+        "items": [
+          "Use daily quests, hunting, and Star Force Fields as the main early progression loop.",
+          "Hyper Stats become available from level 141.",
+          "Storage, sell filters, and extraction filters help prevent unnecessary inventory handling."
+        ]
+      },
+      {
+        "title": "Trade Station and convenience features",
+        "items": [
+          "The Trade Station supports item search, filters, buying, and listing items for sale.",
+          "A first Trade Permit is obtained through Maple Adventure before using the market.",
+          "Maple Guide filters, party search, bundled matching, and quest auto-progress reduce repeated menu work."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified from Nexon's official indexed forum guide on 2026-07-18.",
+  "guide_type": "beginner",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Beginner progression",
+  "level_range": "1+",
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": [
+    "global"
+  ],
+  "prerequisites": [
+    "A MapleStory M character",
+    "Access to Maple Adventure for the initial Trade Permit"
+  ],
+  "steps": [
+    "Arrange the Quick Menu and select a skill layout that fits the number of active skills you use.",
+    "Configure potion thresholds, pet buffs, and Fever settings before starting Auto-Battle.",
+    "Complete daily quests and move into level-appropriate Star Force Fields for growth.",
+    "Review equipment before selling or extracting and set filters to protect useful items.",
+    "Unlock the Trade Station permit through Maple Adventure, then use filters before buying or listing items.",
+    "Use Maple Guide and party matching to find recommended content and group activities."
+  ],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

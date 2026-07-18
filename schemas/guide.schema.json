@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mpstorys.com/schemas/guide.schema.json",
+  "title": "MapleStory guide article",
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/contentRecord" },
+    {
+      "type": "object",
+      "required": ["guide_type", "class_name", "boss_name", "system_name", "level_range", "difficulty", "game_version", "applicable_regions", "prerequisites", "steps", "recommended_items", "recommended_stats", "outdated_warning"],
+      "properties": {
+        "content_type": { "const": "guide" },
+        "guide_type": { "enum": ["beginner", "class", "boss", "system", "progression", "event", "creator", "other"] },
+        "class_name": { "type": ["string", "null"] },
+        "boss_name": { "type": ["string", "null"] },
+        "system_name": { "type": ["string", "null"] },
+        "level_range": { "type": ["string", "null"] },
+        "difficulty": { "enum": ["beginner", "intermediate", "advanced", "expert", "unknown"] },
+        "game_version": { "type": ["string", "null"] },
+        "applicable_regions": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/regions" },
+        "prerequisites": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "steps": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "recommended_items": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "recommended_stats": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "outdated_warning": { "type": "boolean" }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

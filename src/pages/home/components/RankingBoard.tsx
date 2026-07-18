@@ -324,7 +324,7 @@ export default function RankingBoard({ headingLevel = 'h2' }: RankingBoardProps)
                           {rank.characterImgURL ? (
                             <img
                               src={rank.characterImgURL}
-                              alt=""
+                              alt={`${rank.characterName} MapleStory character`}
                               className="w-full h-full object-cover"
                               loading="lazy"
                             />

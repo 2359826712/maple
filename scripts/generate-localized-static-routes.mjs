@@ -9,6 +9,7 @@ const indexFile = new URL('index.html', outputDirectory);
 const catalog = JSON.parse(await readFile(new URL('../src/seo/routeMetadata.json', import.meta.url), 'utf8'));
 const siteKeywords = JSON.parse(await readFile(new URL('../src/seo/siteKeywords.json', import.meta.url), 'utf8'));
 const baseHtml = await readFile(indexFile, 'utf8');
+const { renderRoute } = await import(new URL('../.ssg/ssg-entry.js', import.meta.url));
 const languages = Object.keys(catalog.languages);
 const servers = ['GMS', 'KMS', 'JMS', 'TMS', 'MSEA'];
 const routes = Object.entries(catalog.routes);
@@ -104,7 +105,7 @@ const breadcrumbSchema = (route, language, server) => {
   };
 };
 
-const renderPage = ({ entry, language, localized, route, server }) => {
+const renderPage = async ({ entry, language, localized, route, server }) => {
   const languageConfig = catalog.languages[language];
   const copy = entry.copy[language] || entry.copy.en;
   const fullTitle = buildPageTitle(copy.title);
@@ -116,6 +117,14 @@ const renderPage = ({ entry, language, localized, route, server }) => {
   const isIndexable = localized && Boolean(server) && entry.index;
   const shouldFollow = localized ? entry.follow !== false : true;
   const robots = `${isIndexable ? 'index' : 'noindex'}, ${shouldFollow ? 'follow' : 'nofollow'}, max-image-preview:large`;
+  const renderPath = localized
+    ? (server ? localizedServerPath(route, language, server) : localizedPath(route, language))
+    : route;
+  const renderedRoot = await renderRoute({
+    language,
+    pathname: renderPath,
+    version: String(server || 'GMS').toLowerCase(),
+  });
 
   let html = baseHtml.replace(/<html\s+lang="[^"]*">/i, `<html lang="${languageConfig.htmlLang}">`);
   html = html.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(fullTitle)}</title>`);
@@ -129,6 +138,14 @@ const renderPage = ({ entry, language, localized, route, server }) => {
   html = setMeta(html, 'property', 'og:url', canonicalUrl);
   html = setMeta(html, 'name', 'twitter:title', fullTitle);
   html = setMeta(html, 'name', 'twitter:description', copy.description);
+  html = html.replace(
+    /(<h1\b[^>]*data-seo-fallback-title[^>]*>)[\s\S]*?(<\/h1>)/i,
+    `$1${escapeHtml(copy.title)}$2`,
+  );
+  html = html.replace(
+    /(<p\b[^>]*data-seo-fallback-description[^>]*>)[\s\S]*?(<\/p>)/i,
+    `$1\n          ${escapeHtml(copy.description)}\n        $2`,
+  );
 
   const canonicalPattern = /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i;
   if (!canonicalPattern.test(html)) throw new Error('Missing canonical link');
@@ -177,6 +194,13 @@ const renderPage = ({ entry, language, localized, route, server }) => {
       `    <script type="application/ld+json" data-seo-schema="route">${schemaJson({ '@context': 'https://schema.org', '@graph': schemaGraph })}</script>\n  </head>`,
     );
   }
+
+  const staticRootPattern = /(<div\s+id="root"[^>]*>)\s*<!--\s*static-seo-root-start\s*-->[\s\S]*?<!--\s*static-seo-root-end\s*-->\s*(<\/div>)/i;
+  if (!staticRootPattern.test(html)) throw new Error('Missing static SEO root markers');
+  html = html.replace(
+    staticRootPattern,
+    `<div id="root" data-ssg-route="${escapeHtml(renderPath)}">${renderedRoot}</div>`,
+  );
   return html;
 };
 
@@ -185,7 +209,7 @@ for (const [route, entry] of routes) {
   await mkdir(routeDirectory, { recursive: true });
   await writeFile(
     join(routeDirectory, 'index.html'),
-    renderPage({ entry, language: 'en', localized: false, route }),
+    await renderPage({ entry, language: 'en', localized: false, route }),
     'utf8',
   );
 
@@ -194,7 +218,7 @@ for (const [route, entry] of routes) {
     await mkdir(localizedDirectory, { recursive: true });
     await writeFile(
       join(localizedDirectory, 'index.html'),
-      renderPage({ entry, language, localized: true, route }),
+      await renderPage({ entry, language, localized: true, route }),
       'utf8',
     );
 
@@ -203,7 +227,7 @@ for (const [route, entry] of routes) {
       await mkdir(serverDirectory, { recursive: true });
       await writeFile(
         join(serverDirectory, 'index.html'),
-        renderPage({ entry, language, localized: true, route, server }),
+        await renderPage({ entry, language, localized: true, route, server }),
         'utf8',
       );
     }
@@ -224,6 +248,21 @@ const sitemapUrls = routes
 await writeFile(
   new URL('sitemap.xml', outputDirectory),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapUrls.join('\n')}\n</urlset>\n`,
+  'utf8',
+);
+
+await writeFile(
+  new URL('robots.txt', outputDirectory),
+  [
+    'User-agent: *',
+    'Allow: /',
+    'Disallow: /account',
+    'Disallow: /admin/',
+    'Disallow: /auth/login',
+    'Disallow: /api/',
+    'Sitemap: https://mpstorys.com/sitemap.xml',
+    '',
+  ].join('\n'),
   'utf8',
 );
 

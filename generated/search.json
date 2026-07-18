@@ -1,0 +1,1670 @@
+[
+  {
+    "record_type": "resource",
+    "id": "classic-nexon-closed-online-test-2",
+    "title": "Classic World Closed Online Test #2 Registration",
+    "summary": "Provides Nexon's registration announcement and participation details for the second Global MapleStory Classic World closed online test.",
+    "name": "Classic World Closed Online Test #2 Registration",
+    "website": "Global MapleStory",
+    "page": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+    "description": "Provides Nexon's registration announcement and participation details for the second Global MapleStory Classic World closed online test.",
+    "series": "classic",
+    "category": "news",
+    "subcategory": "announcements",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "closed-test",
+      "registration",
+      "test-schedule"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-world-closed-online-test-2-registration",
+    "title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+    "summary": "Registration for the second Global MapleStory Classic World closed online test is open through July 29, 2026. The test is scheduled for August 4-12 and all interested players, including previous testers, must apply again.",
+    "tags": [
+      "closed-test",
+      "macos",
+      "registration",
+      "third-job"
+    ],
+    "series": "classic",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-gms-official-news",
+    "content_type": "news",
+    "published_at": "2026-07-16",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-world-test-2-campaign",
+    "title": "Classic World Closed Online Test #2",
+    "summary": "Provides Nexon's official campaign page for registration and access information for Classic World Closed Online Test #2.",
+    "name": "Classic World Closed Online Test #2",
+    "website": "Global MapleStory Classic World",
+    "page": "Closed Online Test #2",
+    "description": "Provides Nexon's official campaign page for registration and access information for Classic World Closed Online Test #2.",
+    "series": "classic",
+    "category": "official",
+    "subcategory": "closed-test",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "closed-test",
+      "registration",
+      "test-schedule"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-april-9-2026-patch-notes",
+    "title": "April 9 Patch Notes",
+    "summary": "Documents the official April 9, 2026 collaboration, new weapons, chapters, events, and progression changes.",
+    "name": "April 9 Patch Notes",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "April 9 Patch Notes",
+    "description": "Documents the official April 9, 2026 collaboration, new weapons, chapters, events, and progression changes.",
+    "series": "idle",
+    "category": "patch-notes",
+    "subcategory": "game-update",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "collaboration",
+      "game-update",
+      "patch-notes",
+      "progression"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-may-21-2026-patch-notes",
+    "title": "May 21 Patch Notes",
+    "summary": "Documents the official May 21, 2026 Party Quest changes, combat improvements, content updates, events, and system fixes.",
+    "name": "May 21 Patch Notes",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "05.21 Patch Notes",
+    "description": "Documents the official May 21, 2026 Party Quest changes, combat improvements, content updates, events, and system fixes.",
+    "series": "idle",
+    "category": "patch-notes",
+    "subcategory": "game-update",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "combat",
+      "events",
+      "party-quest",
+      "patch-notes"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-may-21-update-preview",
+    "title": "May 21 Major Update Preview",
+    "summary": "Previews the official May 21, 2026 Party Quest Exploration system, events, and planned convenience improvements.",
+    "name": "May 21 Major Update Preview",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "May 21 Major Update Preview",
+    "description": "Previews the official May 21, 2026 Party Quest Exploration system, events, and planned convenience improvements.",
+    "series": "idle",
+    "category": "news",
+    "subcategory": "update-preview",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "party-quest",
+      "preview",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-nexon-june-11-patch-notes",
+    "title": "MapleStory: Idle RPG June 11 Patch Notes",
+    "summary": "Documents the Hero's Journey system, new chapters, growth content, summer events, guild seasons, controls, and fixes added on June 11, 2026.",
+    "name": "MapleStory: Idle RPG June 11 Patch Notes",
+    "website": "MapleStory: Idle RPG Forum",
+    "page": "June 11 Patch Notes",
+    "description": "Documents the Hero's Journey system, new chapters, growth content, summer events, guild seasons, controls, and fixes added on June 11, 2026.",
+    "series": "idle",
+    "category": "patch-notes",
+    "subcategory": null,
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "events",
+      "guild",
+      "heros-journey",
+      "progression",
+      "summer"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-official-faq",
+    "title": "MapleStory Idle RPG FAQ",
+    "summary": "Provides the maintained official FAQ for resets, regions, jobs, account access, device requirements, currencies, and gameplay systems.",
+    "name": "MapleStory Idle RPG FAQ",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "FAQ",
+    "description": "Provides the maintained official FAQ for resets, regions, jobs, account access, device requirements, currencies, and gameplay systems.",
+    "series": "idle",
+    "category": "wiki",
+    "subcategory": "faq",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "account",
+      "faq",
+      "gameplay",
+      "resets"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-official-forum",
+    "title": "MapleStory Idle RPG Official Forum",
+    "summary": "Publishes official MapleStory Idle RPG notices, patch notes, previews, events, known issues, FAQ entries, and community information.",
+    "name": "MapleStory Idle RPG Official Forum",
+    "website": "MapleStory Idle RPG Forum",
+    "page": "Latest",
+    "description": "Publishes official MapleStory Idle RPG notices, patch notes, previews, events, known issues, FAQ entries, and community information.",
+    "series": "idle",
+    "category": "news",
+    "subcategory": "official-forum",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "announcements",
+      "forum",
+      "patch-notes",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestoryidle/main"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-global-official-forum",
+    "title": "MapleStory M Global Forum",
+    "summary": "Publishes official MapleStory M announcements, update previews, patch notes, known issues, market notices, guides, and support links.",
+    "name": "MapleStory M Global Forum",
+    "website": "MapleStory M Global Forum",
+    "page": "Latest",
+    "description": "Publishes official MapleStory M announcements, update previews, patch notes, known issues, market notices, guides, and support links.",
+    "series": "m",
+    "category": "news",
+    "subcategory": "official-forum",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "announcements",
+      "forum",
+      "patch-notes",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/MapleStoryMGlobal"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-june-24-2026-patch-notice",
+    "title": "06.24 Patch Notice",
+    "summary": "Records the official June 24, 2026 MapleStory M quick-patch schedule, language corrections, bug fixes, and server stabilization.",
+    "name": "06.24 Patch Notice",
+    "website": "MapleStory M Global Forum",
+    "page": "06.24 Patch Notice (Completed)",
+    "description": "Records the official June 24, 2026 MapleStory M quick-patch schedule, language corrections, bug fixes, and server stabilization.",
+    "series": "m",
+    "category": "patch-notes",
+    "subcategory": "maintenance",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "bug-fixes",
+      "maintenance",
+      "patch-notes"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-may-2026-known-issues",
+    "title": "05.20/21 Update Known Issues",
+    "summary": "Lists officially acknowledged issues for the May 20/21, 2026 MapleStory M update and records subsequent corrections.",
+    "name": "05.20/21 Update Known Issues",
+    "website": "MapleStory M Global Forum",
+    "page": "2026.05.20/21 Update Known Issue Notice",
+    "description": "Lists officially acknowledged issues for the May 20/21, 2026 MapleStory M update and records subsequent corrections.",
+    "series": "m",
+    "category": "news",
+    "subcategory": "known-issues",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "bug-fixes",
+      "known-issues",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-may-2026-patch-notes-part-2",
+    "title": "05.20/21 Patch Notes Part 2",
+    "summary": "Documents the official May 2026 MapleStory M events, growth support, Boss Invitation content, event shops, and package changes.",
+    "name": "05.20/21 Patch Notes Part 2",
+    "website": "MapleStory M Global Forum",
+    "page": "05.20/21 Patch Notes Pt.2",
+    "description": "Documents the official May 2026 MapleStory M events, growth support, Boss Invitation content, event shops, and package changes.",
+    "series": "m",
+    "category": "patch-notes",
+    "subcategory": "game-update",
+    "regions": [
+      "europe",
+      "north-america",
+      "sea"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "events",
+      "game-update",
+      "patch-notes",
+      "shops"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2690&thread=3448834"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-nexon-guide-for-new-maplers",
+    "title": "MapleStory M Guide for New Maplers",
+    "summary": "Explains MapleStory M settings, auto-battle, early growth, equipment, the Trade Station, and convenience features for new players.",
+    "name": "MapleStory M Guide for New Maplers",
+    "website": "MapleStory M Global Forum",
+    "page": "04 Guide for New Maplers",
+    "description": "Explains MapleStory M settings, auto-battle, early growth, equipment, the Trade Station, and convenience features for new players.",
+    "series": "m",
+    "category": "guide",
+    "subcategory": "beginner",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "auto-battle",
+      "beginner",
+      "equipment",
+      "progression"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-europe-gms-official-news-2026-07-07-42501",
+    "title": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026",
+    "summary": "The July 9 minor patch maintenance completed at 11:55 AM PDT after updating MapleStory to v.269.3.0. All game servers were unavailable during the five-hour window, and eligible Cash Shop item durations were extended by five hours.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-gms-official-news",
+    "content_type": "maintenance",
+    "published_at": "2026-07-07T18:00:00Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://www.nexon.com/maplestory/news/maintenance/42501/completed-scheduled-minor-patch-maintenance-july-9-2026"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-europe-gms-official-news-2026-07-14-42197",
+    "title": "v.269 Known Issues",
+    "summary": "The v.269 known-issues notice tracks current and resolved problems from Ride the Lightning. Current entries include an Edelstein Temporary Airport disconnect, Erel Light equipment and quest issues, unintended Vestige of Erion Coupon drops, and the early end of the Maple University event buff.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-gms-official-news",
+    "content_type": "maintenance",
+    "published_at": "2026-07-14T10:30:00Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://www.nexon.com/maplestory/news/maintenance/42197/v-269-known-issues"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-europe-gms-official-news-2026-07-14-42333",
+    "title": "Cash Shop Update for July 15",
+    "summary": "The July 15 Cash Shop update introduced the Lightning Surprise Style Box for all worlds through the July 22 maintenance. A single box costs 3,400 NX, an 11-box bundle costs 34,000 NX, and listed box items have a 90-day duration.",
+    "tags": [
+      "cash-shop",
+      "sale"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-gms-official-news",
+    "content_type": "cash-shop",
+    "published_at": "2026-07-14T16:30:00Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://www.nexon.com/maplestory/news/sale/42333/cash-shop-update-for-july-15"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-europe-gms-official-news-2026-07-15-42359",
+    "title": "Try the Kinesis Demo!",
+    "summary": "Global MapleStory released a browser-based Kinesis demo ahead of the character's upcoming revamp. It previews new skills and abilities, while warning that the demo's cooldown timing does not represent the final game balance.",
+    "tags": [
+      "general",
+      "news"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-gms-official-news",
+    "content_type": "news",
+    "published_at": "2026-07-15T16:00:00Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://www.nexon.com/maplestory/news/general/42359/try-the-kinesis-demo"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-europe-gms-official-news-2026-07-16-42797",
+    "title": "Maple Memo: Addressing the Unique tier Familiar Boss Damage Potential",
+    "summary": "Global MapleStory confirmed that Unique-tier Familiar Potential will keep only the 40% Boss Damage result at its current appearance rate. The team found that both the former 30% and 35% results had been removed, rather than only the intended 30% result.",
+    "tags": [
+      "general",
+      "news"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-gms-official-news",
+    "content_type": "news",
+    "published_at": "2026-07-16T15:00:00Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://www.nexon.com/maplestory/news/general/42797/maple-memo-addressing-the-unique-tier-familiar-boss-damage-potential"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-june-11-2026-patch-notes",
+    "title": "MapleStory: Idle RPG June 11 Patch Notes",
+    "summary": "The June 11 update added Hero's Journey, Guild Raid Horntail, chapters 39-41, Growth Dungeon stages, Hero Power Stage 8, costume search, summer events, new guild seasons, movement improvements, and a broad set of fixes.",
+    "tags": [
+      "guild-raid",
+      "heros-journey",
+      "horntail",
+      "patch-notes",
+      "summer-events"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-patch-notes",
+    "content_type": "patch-note",
+    "published_at": "2026-06-11",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "updated",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-guide-for-new-maplers",
+    "title": "MapleStory M Guide for New Maplers",
+    "summary": "An official beginner reference for configuring the interface, using Auto-Battle, growing a character, handling equipment, trading through the Trade Station, and using convenience features.",
+    "tags": [
+      "auto-battle",
+      "beginner",
+      "equipment",
+      "trade-station"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2025-01-15",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388"
+  },
+  {
+    "record_type": "resource",
+    "id": "maplestory-miracle-summer-2026",
+    "title": "Miracle Summer 2026",
+    "summary": "Publishes the official Global MapleStory Miracle Summer 2026 event announcement and participation details.",
+    "name": "Miracle Summer 2026",
+    "website": "Global MapleStory",
+    "page": "Miracle Summer 2026",
+    "description": "Publishes the official Global MapleStory Miracle Summer 2026 event announcement and participation details.",
+    "series": "maplestory",
+    "category": "events",
+    "subcategory": "seasonal-event",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "events",
+      "miracle-summer",
+      "summer"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-miracle-summer-2026-event",
+    "title": "Miracle Summer 2026",
+    "summary": "Miracle Summer ran from June 26 through July 1, 2026 UTC. Each event day applied double Rank-Up chances to a different group of equipment slots.",
+    "tags": [
+      "equipment",
+      "miracle-summer",
+      "rank-up",
+      "summer"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-gms-official-news",
+    "content_type": "event",
+    "published_at": "2026-06-18",
+    "event_start": "2026-06-26",
+    "event_end": "2026-07-01",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-n-beginners-guide",
+    "title": "MapleStory N Beginner's Guide",
+    "summary": "The official gameplay curriculum for getting started, character progression, items and equipment, monsters and dungeons, social systems, and account or service features in MapleStory N.",
+    "tags": [
+      "beginner",
+      "bosses",
+      "link-skills",
+      "maple-guide",
+      "progression"
+    ],
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "n-official-documentation-announcements",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://docs.maplestoryn.io/msn-101/beginners-guide"
+  },
+  {
+    "record_type": "resource",
+    "id": "maplestory-nexon-official-news",
+    "title": "Global MapleStory Official News",
+    "summary": "Publishes official Global MapleStory announcements, updates, events, maintenance notices, and Cash Shop news.",
+    "name": "Global MapleStory Official News",
+    "website": "Global MapleStory",
+    "page": "News",
+    "description": "Publishes official Global MapleStory announcements, updates, events, maintenance notices, and Cash Shop news.",
+    "series": "maplestory",
+    "category": "news",
+    "subcategory": "announcements",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "announcements",
+      "cash-shop",
+      "events",
+      "patch-notes"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.nexon.com/maplestory/news"
+  },
+  {
+    "record_type": "resource",
+    "id": "maplestory-official-game-reference",
+    "title": "Global MapleStory Game Reference",
+    "summary": "Provides Nexon's official overview of Global MapleStory classes, worlds, systems, and ways to play.",
+    "name": "Global MapleStory Game Reference",
+    "website": "Global MapleStory",
+    "page": "Game",
+    "description": "Provides Nexon's official overview of Global MapleStory classes, worlds, systems, and ways to play.",
+    "series": "maplestory",
+    "category": "wiki",
+    "subcategory": "game-reference",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "classes",
+      "game-systems",
+      "worlds"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.nexon.com/maplestory/game"
+  },
+  {
+    "record_type": "resource",
+    "id": "maplestory-official-rankings",
+    "title": "Global MapleStory Rankings",
+    "summary": "Provides Nexon's official Global MapleStory ranking tables and character ranking lookup.",
+    "name": "Global MapleStory Rankings",
+    "website": "Global MapleStory",
+    "page": "Rankings",
+    "description": "Provides Nexon's official Global MapleStory ranking tables and character ranking lookup.",
+    "series": "maplestory",
+    "category": "rankings",
+    "subcategory": "character-rankings",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "characters",
+      "leaderboards",
+      "rankings"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.nexon.com/maplestory/rankings"
+  },
+  {
+    "record_type": "resource",
+    "id": "maplestory-support-gameplay",
+    "title": "Global MapleStory Gameplay Help",
+    "summary": "Organizes official gameplay help for worlds, classes, Star Force, items, skills, guilds, events, and common account questions.",
+    "name": "Global MapleStory Gameplay Help",
+    "website": "Nexon MapleStory Support",
+    "page": "Gameplay",
+    "description": "Organizes official gameplay help for worlds, classes, Star Force, items, skills, guilds, events, and common account questions.",
+    "series": "maplestory",
+    "category": "guide",
+    "subcategory": "gameplay-help",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "gameplay",
+      "help",
+      "star-force",
+      "worlds"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay"
+  },
+  {
+    "record_type": "resource",
+    "id": "maplestory-support-installation-guide",
+    "title": "How to Install MapleStory",
+    "summary": "Gives official Windows and macOS installation steps, launcher instructions, and recommended preparation for Global MapleStory.",
+    "name": "How to Install MapleStory",
+    "website": "Nexon MapleStory Support",
+    "page": "How to install MapleStory",
+    "description": "Gives official Windows and macOS installation steps, launcher instructions, and recommended preparation for Global MapleStory.",
+    "series": "maplestory",
+    "category": "downloads",
+    "subcategory": "installation",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "download",
+      "installation",
+      "launcher",
+      "macos",
+      "windows"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-beginners-guide",
+    "title": "MapleStory N Beginner's Guide",
+    "summary": "Organizes official getting-started, character progression, item, equipment, content, and gameplay guidance for MapleStory N.",
+    "name": "MapleStory N Beginner's Guide",
+    "website": "MapleStory N Documentation",
+    "page": "Beginner's Guide",
+    "description": "Organizes official getting-started, character progression, item, equipment, content, and gameplay guidance for MapleStory N.",
+    "series": "n",
+    "category": "guide",
+    "subcategory": "beginner-guide",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "beginner-guide",
+      "gameplay",
+      "progression"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://docs.maplestoryn.io/msn-101/beginners-guide"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-classes-and-jobs",
+    "title": "MapleStory N Classes and Jobs",
+    "summary": "Provides the official MapleStory N class and job reference for Warrior, Magician, Bowman, Thief, and Pirate branches.",
+    "name": "MapleStory N Classes and Jobs",
+    "website": "MapleStory N Documentation",
+    "page": "Classes & Jobs",
+    "description": "Provides the official MapleStory N class and job reference for Warrior, Magician, Bowman, Thief, and Pirate branches.",
+    "series": "n",
+    "category": "wiki",
+    "subcategory": "classes",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "classes",
+      "jobs",
+      "reference"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://docs.maplestoryn.io/msn-101/classes-and-jobs"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-download-guide",
+    "title": "MapleStory N Download Guide",
+    "summary": "Explains official account, wallet, launcher, installation, and recommended PC specification steps for MapleStory N.",
+    "name": "MapleStory N Download Guide",
+    "website": "MapleStory N Documentation",
+    "page": "Download Guide",
+    "description": "Explains official account, wallet, launcher, installation, and recommended PC specification steps for MapleStory N.",
+    "series": "n",
+    "category": "downloads",
+    "subcategory": "installation",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "account",
+      "download",
+      "installation",
+      "wallet"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://docs.maplestoryn.io/msn-101/download-guide"
+  },
+  {
+    "record_type": "content",
+    "id": "n-multi-region-official-documentation-announcements-2026-06-24-3481429",
+    "title": "June 25 - Temporary Maintenance",
+    "summary": "MapleStory N published a June 25 temporary-maintenance notice on June 24 at 03:00 UTC. The current official page exposes only the label “msu direct” and contains no maintenance window, affected services, or change list that can be verified.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "n-official-documentation-announcements",
+    "content_type": "maintenance",
+    "published_at": "2026-06-24T03:00:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://msu.io/maplestoryn/news/notices/3481429"
+  },
+  {
+    "record_type": "content",
+    "id": "n-multi-region-official-documentation-announcements-2026-07-01-3489822",
+    "title": "[COMPLETED] July 1 - Scheduled Maintenance",
+    "summary": "MapleStory N marks its July 1 scheduled maintenance as completed. The current official page exposes only the label “MSU DIRECT”, so MPStorys cannot verify the maintenance window, affected systems, or completed changes beyond the title and publication record.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "n-official-documentation-announcements",
+    "content_type": "maintenance",
+    "published_at": "2026-07-01T04:30:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://msu.io/maplestoryn/news/notices/3489822"
+  },
+  {
+    "record_type": "content",
+    "id": "n-multi-region-official-documentation-announcements-2026-07-02-3491333",
+    "title": "[Updated on July 6, 05:00(UTC)] Known Issues Following the July 1 Patch",
+    "summary": "The MapleStory N July 1 known-issues notice records follow-up fixes through July 6. Tropical Adventure clear rewards increased from 50 to 100 coins, the level-160 Monster Park Express Pass issue was fixed, and Morass story-skip access was restored with an extra login-and-map step for earlier completions.",
+    "tags": [
+      "known-issues",
+      "patch-note"
+    ],
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "n-official-documentation-announcements",
+    "content_type": "patch-note",
+    "published_at": "2026-07-02T09:10:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://msu.io/maplestoryn/news/notices/3491333"
+  },
+  {
+    "record_type": "content",
+    "id": "n-multi-region-official-documentation-announcements-2026-07-15-3498012",
+    "title": "July 15 - Temporary Maintenance",
+    "summary": "MapleStory N published a temporary-maintenance notice on July 15 at 23:00 UTC. The current official page exposes only the label “MSU Direct” and does not provide a maintenance window, affected services, or change list that MPStorys can verify.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "n-official-documentation-announcements",
+    "content_type": "maintenance",
+    "published_at": "2026-07-15T23:00:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://msu.io/maplestoryn/news/notices/3498012"
+  },
+  {
+    "record_type": "content",
+    "id": "n-multi-region-official-documentation-announcements-2026-07-16-3500515",
+    "title": "Notice on Measures Regarding Arcane Catalyst",
+    "summary": "MapleStory N blocked an Arcane Catalyst interaction that allowed symbols to be merged rather than transferred. Affected characters are being adjusted to retain the larger valid symbol amount, with eligible NESO refunds and a 50 Arcane Symbol Selector compensation package available through July 30.",
+    "tags": [
+      "news",
+      "notice"
+    ],
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "n-official-documentation-announcements",
+    "content_type": "news",
+    "published_at": "2026-07-16T03:30:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://msu.io/maplestoryn/news/notices/3500515"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-official-events",
+    "title": "MapleStory N Events",
+    "summary": "Lists current official MapleStory N events and provides access to the official past-event archive.",
+    "name": "MapleStory N Events",
+    "website": "MapleStory N Documentation",
+    "page": "Events",
+    "description": "Lists current official MapleStory N events and provides access to the official past-event archive.",
+    "series": "n",
+    "category": "events",
+    "subcategory": "event-directory",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "event-directory",
+      "events",
+      "rewards"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://docs.maplestoryn.io/archives/events"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-official-launch-guide",
+    "title": "MapleStory N Official Launch Guide",
+    "summary": "Documents MapleStory N launch access, web guides, rankings, dynamic pricing, probability information, marketplace access, languages, and support.",
+    "name": "MapleStory N Official Launch Guide",
+    "website": "MapleStory N Documentation",
+    "page": "MapleStory N Official Launch",
+    "description": "Documents MapleStory N launch access, web guides, rankings, dynamic pricing, probability information, marketplace access, languages, and support.",
+    "series": "n",
+    "category": "guide",
+    "subcategory": "beginner",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "beginner",
+      "dynamic-pricing",
+      "launch",
+      "marketplace",
+      "rankings"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://docs.maplestoryn.io/welcome-to-maplestory-n/maplestory-n-official-launch"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-official-updates",
+    "title": "MapleStory N Updates",
+    "summary": "Indexes official MapleStory N notices, game patches, service changes, and update announcements.",
+    "name": "MapleStory N Updates",
+    "website": "MapleStory N Documentation",
+    "page": "Updates",
+    "description": "Indexes official MapleStory N notices, game patches, service changes, and update announcements.",
+    "series": "n",
+    "category": "news",
+    "subcategory": "updates",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "announcements",
+      "patch-notes",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://docs.maplestoryn.io/archives/updates"
+  },
+  {
+    "record_type": "content",
+    "id": "welcome-to-maplestory-worlds-creator-guide",
+    "title": "Welcome to MapleStory Worlds",
+    "summary": "A creator curriculum covering the MapleStory Worlds platform and editor, LuaScript fundamentals, client-server networking, building a sample world, publishing, and monetization.",
+    "tags": [
+      "creator",
+      "lua-script",
+      "networking",
+      "publishing",
+      "world-editor"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-news",
+    "content_type": "guide",
+    "published_at": "2023-03-03",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-creator-center-news",
+    "title": "MapleStory Worlds Creator Center",
+    "summary": "Publishes official MapleStory Worlds maintenance, platform, campaign, policy, and creator announcements.",
+    "name": "MapleStory Worlds Creator Center",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Creators News",
+    "description": "Publishes official MapleStory Worlds maintenance, platform, campaign, policy, and creator announcements.",
+    "series": "worlds",
+    "category": "news",
+    "subcategory": "creator-news",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "creators",
+      "maintenance",
+      "platform-news"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-creator-center-welcome-to-msw",
+    "title": "Welcome to MapleStory Worlds",
+    "summary": "Introduces the MapleStory Worlds editor, LuaScript concepts, networking, world creation, publishing, and monetization for creators.",
+    "name": "Welcome to MapleStory Worlds",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Welcome to MSW (ENG)",
+    "description": "Introduces the MapleStory Worlds editor, LuaScript concepts, networking, world creation, publishing, and monetization for creators.",
+    "series": "worlds",
+    "category": "guide",
+    "subcategory": "creator",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "creator",
+      "lua-script",
+      "publishing",
+      "world-editor"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-creator-documents",
+    "title": "MapleStory Worlds Utilizing Creation Guide",
+    "summary": "Provides Nexon's official documentation for Maker basics, scripting, data, resources, optimization, security, and game services.",
+    "name": "MapleStory Worlds Utilizing Creation Guide",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Utilizing Creation Guide",
+    "description": "Provides Nexon's official documentation for Maker basics, scripting, data, resources, optimization, security, and game services.",
+    "series": "worlds",
+    "category": "wiki",
+    "subcategory": "creator-documentation",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "creator-guide",
+      "documentation",
+      "maker",
+      "scripting"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=472"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-creator-resources",
+    "title": "MapleStory Worlds Creator Resources",
+    "summary": "Indexes official basic classes, guide videos, external lectures, event videos, and Design Mode and Pro Mode learning material.",
+    "name": "MapleStory Worlds Creator Resources",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Resources",
+    "description": "Indexes official basic classes, guide videos, external lectures, event videos, and Design Mode and Pro Mode learning material.",
+    "series": "worlds",
+    "category": "database",
+    "subcategory": "learning-resources",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "classes",
+      "creator-resources",
+      "design-mode",
+      "videos"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/resource"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-global-creator-center-news-2026-07-01-3489476",
+    "title": "[Complete] Maintenance - 2026 July 1",
+    "summary": "MapleStory Worlds completed July 1 maintenance at 18:00 PDT after a three-hour platform outage. Version 26.5.5 added a Player Ban capability to World Insight, stabilized servers, and delivered editor, text rendering, state synchronization, and TeleportService fixes.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-news",
+    "content_type": "maintenance",
+    "published_at": "2026-07-01T02:00:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3489476"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-global-creator-center-news-2026-07-02-3490485",
+    "title": "Open Market Store Process Abuse Sanction Post - June 2026",
+    "summary": "MapleStory Worlds reported permanent account bans and currency retrieval for 509 accounts found to have abused open-market-store or payment processes during June 2026. The notice also explains where World Coin and in-World purchase refund requests must be submitted.",
+    "tags": [
+      "creator-announcement",
+      "creator-notice"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-news",
+    "content_type": "creator-announcement",
+    "published_at": "2026-07-02T02:00:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490485"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-global-creator-center-news-2026-07-02-3490487",
+    "title": "Avatar Product and Creator Sanction List - June 2026",
+    "summary": "MapleStory Worlds published its June 2026 enforcement results for avatar products and creators that violated intellectual-property or platform policies. Confirmed products were permanently restricted, while creators received release, play, or cashout restrictions according to severity.",
+    "tags": [
+      "creator-announcement",
+      "creator-notice"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-news",
+    "content_type": "creator-announcement",
+    "published_at": "2026-07-02T02:00:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490487"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-global-creator-center-news-2026-07-02-3490500",
+    "title": "Global Creator Challenge Discord Linking Event",
+    "summary": "Global Creator Challenge participants in the United States and Canada, excluding Quebec, can enter a Discord account-linking raffle through October 7, 2026. Six winners receive a one-month Claude Pro subscription by direct message from an official MapleStory Worlds administrator.",
+    "tags": [
+      "event"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-news",
+    "content_type": "event",
+    "published_at": "2026-07-02T05:00:00.000Z",
+    "event_start": "2026-07-02T05:00:00.000Z",
+    "event_end": "2026-10-07T14:59:00.000Z",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490500"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-global-creator-center-news-2026-07-02-3491322",
+    "title": "Hotfix Maintenance – 2026 July 2",
+    "summary": "MapleStory Worlds scheduled a July 2 hotfix for the PC app while keeping the platform and apps available. Temporary disconnects could occur, and the update corrected custom-font rendering when RASTER or SMOOTH render modes were used.",
+    "tags": [
+      "maintenance"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-news",
+    "content_type": "maintenance",
+    "published_at": "2026-07-02T09:10:00.000Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3491322"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-ip-use-scope",
+    "title": "Specific Scope of IP Use",
+    "summary": "Defines the official permitted scope for using MapleStory and other supplied intellectual property in creator-generated Worlds.",
+    "name": "Specific Scope of IP Use",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Specific Scope of IP Use",
+    "description": "Defines the official permitted scope for using MapleStory and other supplied intellectual property in creator-generated Worlds.",
+    "series": "worlds",
+    "category": "guide",
+    "subcategory": "policy",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "creator-policy",
+      "intellectual-property",
+      "policy"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1161"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-managing-resources-guide",
+    "title": "Managing Resources",
+    "summary": "Explains official resource classifications, permissions, storage, sharing, migration, and version behavior in MapleStory Worlds Maker.",
+    "name": "Managing Resources",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "Managing Resources",
+    "description": "Explains official resource classifications, permissions, storage, sharing, migration, and version behavior in MapleStory Worlds Maker.",
+    "series": "worlds",
+    "category": "guide",
+    "subcategory": "resource-management",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "maker",
+      "permissions",
+      "resource-management",
+      "storage"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
+  }
+]

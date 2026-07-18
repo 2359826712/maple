@@ -234,10 +234,6 @@ export default function WikiPage() {
     return popularItem ? t(`wiki_art_${popularItem.i18nKey}`) : t(extraArticleTitleKeys[title] || title);
   };
 
-  const openArticle = (title: string) => {
-    navigate(localArticlePath(title));
-  };
-
   const submitSearch = () => {
     const trimmed = query.trim();
     if (!trimmed) return;
@@ -286,10 +282,9 @@ export default function WikiPage() {
 
               <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                 {popularWikiItems.map((item) => (
-                  <button
+                  <Link
                     key={item.title}
-                    type="button"
-                    onClick={() => openArticle(item.title)}
+                    to={localArticlePath(item.title)}
                     className="group min-h-40 border border-background-300 bg-background-50 p-4 text-left transition hover:-translate-y-0.5 hover:border-primary-600 hover:bg-primary-50 hover:shadow-sm"
                   >
                     <div className="flex items-start gap-3">
@@ -308,7 +303,7 @@ export default function WikiPage() {
                     <p className="mt-4 text-sm leading-6 text-foreground-950">
                       {t('wiki_art_' + item.i18nKey + '_desc')}
                     </p>
-                  </button>
+                  </Link>
                 ))}
               </div>
 
@@ -326,14 +321,13 @@ export default function WikiPage() {
                     </p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {section.links.map((link) => (
-                        <button
+                        <Link
                           key={link}
-                          type="button"
-                          onClick={() => openArticle(link)}
+                          to={localArticlePath(link)}
                           className="border border-background-300 bg-background-50 px-2.5 py-1 text-xs font-semibold text-primary-600 hover:bg-primary-50 hover:underline"
                         >
                           {localizedArticleTitle(link)}
-                        </button>
+                        </Link>
                       ))}
                     </div>
                   </section>

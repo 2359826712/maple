@@ -1,4 +1,7 @@
-import type { NewsContentLanguage, NewsItem, NewsTranslation } from '@/services/liveContent';
+import type { NewsContentLanguage, NewsItem, NewsLocalizedEdition, NewsTranslation } from '@/services/liveContent';
+import { getCuratedNewsEdition } from './editorialNewsEditions';
+
+export type NewsLocalizationKind = 'source' | 'editorial' | 'translated' | 'original-fallback';
 
 type NewsCopy = {
   title: string;
@@ -6,6 +9,10 @@ type NewsCopy = {
   date: string;
   sourceLanguage: NewsContentLanguage;
   usesOriginalCopy: boolean;
+  localizationKind: NewsLocalizationKind;
+  localizedCategory?: string;
+  actionLabel?: string;
+  searchTerms: string[];
 };
 
 type ArticleCopy = {
@@ -50,8 +57,26 @@ export const normalizeNewsLanguage = (language: string): NewsContentLanguage => 
   return 'en';
 };
 
-const validTranslation = (value: NewsTranslation | undefined): value is NewsTranslation =>
-  Boolean(value?.title?.trim() && value?.excerpt?.trim());
+const validTranslation = (
+  value: NewsTranslation | undefined,
+  source: Pick<NewsItem, 'title' | 'excerpt'>,
+): value is NewsTranslation => Boolean(
+  value?.title?.trim()
+  && value?.excerpt?.trim()
+  && (
+    value.title.trim() !== source.title.trim()
+    || value.excerpt.trim() !== source.excerpt.trim()
+  ),
+);
+
+const publishableEdition = (value: NewsLocalizedEdition | undefined): value is NewsLocalizedEdition =>
+  Boolean(
+    value?.editorialStatus === 'reviewed'
+    && value.title.trim()
+    && value.summary.trim()
+    && value.categoryLabel.trim()
+    && value.actionLabel.trim(),
+  );
 
 const sourceLanguagesByVersion: Record<string, NewsContentLanguage> = {
   gms: 'en',
@@ -90,15 +115,32 @@ export const formatNewsDate = (publishedAt: string, language: string, fallback =
 export function getNewsCopy(news: NewsItem, language: string): NewsCopy {
   const requestedLanguage = normalizeNewsLanguage(language);
   const sourceLanguage = getNewsSourceLanguage(news);
+  const backendEdition = news.localizedEditions?.[requestedLanguage];
+  const editorialEdition = requestedLanguage !== sourceLanguage && publishableEdition(backendEdition)
+    ? backendEdition
+    : requestedLanguage !== sourceLanguage
+      ? getCuratedNewsEdition(news, requestedLanguage)
+      : undefined;
   const translation = news.translations?.[requestedLanguage];
-  const localized = requestedLanguage !== sourceLanguage && validTranslation(translation);
+  const translated = requestedLanguage !== sourceLanguage && validTranslation(translation, news);
+  const usesOriginalCopy = requestedLanguage !== sourceLanguage && !editorialEdition && !translated;
 
   return {
-    title: localized ? translation.title.trim() : news.title,
-    excerpt: localized ? translation.excerpt.trim() : news.excerpt,
+    title: editorialEdition?.title.trim() || (translated ? translation.title.trim() : news.title),
+    excerpt: editorialEdition?.summary.trim() || (translated ? translation.excerpt.trim() : news.excerpt),
     date: formatNewsDate(news.publishedAt, requestedLanguage, news.date),
     sourceLanguage,
-    usesOriginalCopy: requestedLanguage !== sourceLanguage && !localized,
+    usesOriginalCopy,
+    localizationKind: editorialEdition
+      ? 'editorial'
+      : translated
+        ? 'translated'
+        : usesOriginalCopy
+          ? 'original-fallback'
+          : 'source',
+    localizedCategory: editorialEdition?.categoryLabel,
+    actionLabel: editorialEdition?.actionLabel,
+    searchTerms: editorialEdition?.searchTerms || [],
   };
 }
 

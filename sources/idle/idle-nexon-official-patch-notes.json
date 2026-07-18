@@ -1,0 +1,33 @@
+{
+  "id": "idle-nexon-official-patch-notes",
+  "name": "MapleStory: Idle RPG Official Patch Notes",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "source_type": "forum",
+  "content_types": ["patch-note"],
+  "base_url": "https://forum.nexon.com/maplestoryidle/main",
+  "discovery_urls": ["https://forum.nexon.com/maplestoryidle/board_list?board=6675&pageNo=1"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "browser",
+  "parser": "maplestory-idle-nexon-forum",
+  "adapter_config": {
+    "default_content_type": "patch-note",
+    "include_patterns": ["/maplestoryidle/board_view"],
+    "render_delay_ms": 3000
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "3h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": true,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-18 as the public official MapleStory: Idle RPG Patch Note board. Uses the browser adapter (Chrome CDP) to render the JS-protected Nexon Forum. Requires Chrome running with --remote-debugging-port=9222 and an active WAF session (manually navigate to forum.nexon.com once before crawling)."
+}

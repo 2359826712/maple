@@ -1,0 +1,36 @@
+{
+  "id": "m-june-24-2026-patch-notice",
+  "name": "06.24 Patch Notice",
+  "website": "MapleStory M Global Forum",
+  "page": "06.24 Patch Notice (Completed)",
+  "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431",
+  "series": "m",
+  "regions": [
+    "europe",
+    "north-america",
+    "sea"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "patch-notes",
+  "subcategory": "maintenance",
+  "description": "Records the official June 24, 2026 MapleStory M quick-patch schedule, language corrections, bug fixes, and server stabilization.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "bug-fixes",
+    "maintenance",
+    "patch-notes"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431"
+  ],
+  "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+}
