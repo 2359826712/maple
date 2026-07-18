@@ -1,0 +1,79 @@
+{
+  "id": "worlds-global-creator-center-news-2026-07-02-3490487",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490487",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490487",
+  "external_id": "3490487",
+  "title": "Avatar Product and Creator Sanction List - June 2026",
+  "original_title": "Avatar Product and Creator Sanction List - June 2026",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-07-02T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:12.015Z",
+  "last_checked": "2026-07-18T09:44:12.015Z",
+  "summary": "MapleStory Worlds published its June 2026 enforcement results for avatar products and creators that violated intellectual-property or platform policies. Confirmed products were permanently restricted, while creators received release, play, or cashout restrictions according to severity.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/1b60698e-8345-4735-9b9f-fee1cef967a5/MSWGenericPostBanners740x120notice.png",
+      "alt": "Avatar Product and Creator Sanction List - June 2026"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/fa29b87b-1add-4f37-8fcd-e56f1255b111/image202607011406082.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "263c2be08d9afb7ff091f9525d3bbab1c2e5bc11d3d34823ecee78d80ab9dcfd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:22.302Z",
+    "headline_id": "3476",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Policy action",
+        "items": [
+          "Avatar products confirmed to infringe intellectual property or violate operating policy were permanently restricted.",
+          "The notice includes 527 accounts receiving a 30-day new-product release restriction and lists additional creator sanctions by severity.",
+          "Available penalties include permanent new-product release restrictions and three- or six-month cashout restrictions."
+        ]
+      },
+      {
+        "title": "Scope",
+        "items": [
+          "The enforcement covers Worlds or products that violate the Creator Terms of Use or operating policy.",
+          "Nexon states that reported products will continue to be reviewed after publication of the monthly list."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

@@ -1,0 +1,36 @@
+{
+  "id": "maplestory-nexon-official-news",
+  "name": "Global MapleStory Official News",
+  "website": "Global MapleStory",
+  "page": "News",
+  "url": "https://www.nexon.com/maplestory/news",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "announcements",
+  "description": "Publishes official Global MapleStory announcements, updates, events, maintenance notices, and Cash Shop news.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "announcements",
+    "cash-shop",
+    "events",
+    "patch-notes"
+  ],
+  "source_urls": [
+    "https://www.nexon.com/maplestory/news"
+  ],
+  "notes": null
+}

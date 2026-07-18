@@ -1,11 +1,42 @@
-import { defineConfig } from "vite";
+import { build as viteBuild, defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "node:path";
 import AutoImport from "unplugin-auto-import/vite";
+import { generateLocalizedStaticRoutes } from "./scripts/generate-localized-static-routes.mjs";
+import { verifySeoOutput } from "./scripts/verify-seo-output.mjs";
 
 const base = process.env.BASE_PATH || "/";
 const isPreview = process.env.IS_PREVIEW ? true : false;
-const contentSecurityPolicy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https: http://127.0.0.1:8080 ws://127.0.0.1:*; upgrade-insecure-requests";
+const contentSecurityPolicy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://accounts.google.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://accounts.google.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://public-api.wordpress.com https://vvgbkrqqzayqslwjnbdu.supabase.co https://grandislibrary.com https://maplestorywiki.net https://maplestory.fandom.com https://maplestory.io https://r.jina.ai http://127.0.0.1:8080 ws://127.0.0.1:*; frame-src https://accounts.google.com; upgrade-insecure-requests";
+
+const routeSsgOutputPlugin = (): Plugin => {
+  let isSsrBuild = false;
+
+  return {
+    name: "route-ssg-output",
+    apply: "build",
+    enforce: "post",
+    configResolved(config) {
+      isSsrBuild = Boolean(config.build.ssr);
+    },
+    async closeBundle() {
+      if (isSsrBuild) return;
+
+      await viteBuild({
+        root: __dirname,
+        build: {
+          ssr: resolve(__dirname, "src/ssg-entry.tsx"),
+          outDir: resolve(__dirname, ".ssg"),
+          emptyOutDir: true,
+        },
+      });
+
+      await generateLocalizedStaticRoutes();
+      await verifySeoOutput();
+    },
+  };
+};
+
 // https://vite.dev/config/
 export default defineConfig({
   define: {
@@ -66,14 +97,34 @@ export default defineConfig({
       ],
       dts: true,
     }),
+    routeSsgOutputPlugin(),
   ],
   base,
   build: {
     sourcemap: true,
     outDir: 'out',
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: 'react-vendor',
+              test: /node_modules[\\/](?:react|react-dom|react-router|scheduler)[\\/]/,
+              priority: 20,
+            },
+            {
+              name: 'i18n-vendor',
+              test: /node_modules[\\/](?:i18next|react-i18next|i18next-browser-languagedetector)[\\/]/,
+              priority: 15,
+            },
+          ],
+        },
+      },
+    },
   },
   resolve: {
     alias: {
+      "runtime-router-config": resolve(__dirname, "./src/router/config.tsx"),
       "@": resolve(__dirname, "./src"),
     },
   },
@@ -85,59 +136,6 @@ export default defineConfig({
       "X-Content-Type-Options": "nosniff",
     },
     proxy: {
-      "/api/maplestory": {
-        target: "https://www.nexon.com",
-        changeOrigin: true,
-        secure: true,
-      },
-      "/api/steam-maplestory-news": {
-        target: "https://api.steampowered.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/steam-maplestory-news/, "/ISteamNews/GetNewsForApp/v2/"),
-      },
-      "/api/reddit-maplestory": {
-        target: "https://www.reddit.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/reddit-maplestory/, "/r/Maplestory"),
-      },
-      "/api/pullpush-reddit": {
-        target: "https://api.pullpush.io",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/pullpush-reddit/, "/reddit/search/submission/"),
-      },
-      "/api/mapletodo": {
-        target: "https://mapletodo.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/mapletodo/, ""),
-      },
-      "/api/grandis-library": {
-        target: "https://grandislibrary.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/grandis-library/, ""),
-      },
-      "/api/gucci-guild": {
-        target: "https://gucciguild.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/gucci-guild/, ""),
-      },
-      "/maplestory-io-api": {
-        target: "https://maplestory.io",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/maplestory-io-api/, "/api"),
-      },
-      "/api/maplestory-fandom": {
-        target: "https://maplestory.fandom.com",
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api\/maplestory-fandom/, "/api.php"),
-      },
       "/api": {
         target: process.env.MAPLE_SQL_API_ORIGIN || "http://127.0.0.1:8080",
         changeOrigin: true,

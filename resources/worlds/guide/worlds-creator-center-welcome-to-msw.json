@@ -1,0 +1,35 @@
+{
+  "id": "worlds-creator-center-welcome-to-msw",
+  "name": "Welcome to MapleStory Worlds",
+  "website": "MapleStory Worlds Creator Center",
+  "page": "Welcome to MSW (ENG)",
+  "url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "guide",
+  "subcategory": "creator",
+  "description": "Introduces the MapleStory Worlds editor, LuaScript concepts, networking, world creation, publishing, and monetization for creators.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "creator",
+    "lua-script",
+    "publishing",
+    "world-editor"
+  ],
+  "source_urls": [
+    "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987"
+  ],
+  "notes": null
+}

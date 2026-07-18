@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" role="img" aria-labelledby="title desc">
+  <title id="title">MapleStorySEA official news</title><desc id="desc">MapleStory Southeast Asia branded news placeholder</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17539a"/><stop offset="1" stop-color="#39a9dc"/></linearGradient></defs>
+  <rect width="1200" height="628" fill="url(#g)"/><circle cx="1025" cy="85" r="250" fill="#fff" opacity=".1"/><path d="M0 500c210-90 370-80 480 30 140 135 345 95 720-120v218H0Z" fill="#08346f" opacity=".3"/>
+  <path d="M190 150c75 62 114 139 119 234-66-33-129-35-188-9 38-71 61-146 69-225Z" fill="#ffd85c"/><path d="M132 406c74-29 143-22 207 22-57 28-105 69-143 124-15-56-36-105-64-146Z" fill="#fff" opacity=".94"/>
+  <text x="430" y="270" fill="#fff" font-family="Arial,sans-serif" font-size="66" font-weight="700">MapleStorySEA</text><text x="430" y="345" fill="#fff" opacity=".92" font-family="Arial,sans-serif" font-size="32">Official News &amp; Events</text>
+</svg>

@@ -38,8 +38,10 @@ node .\readdy-sync.mjs --project <你的_READDY_PROJECT_ID> --dry-run
 
 脚本自带默认 include/exclude：
 
-- include：`src/**`、`public/**`、`index.html`、`package.json`、`vite.config.*`、`tsconfig*.json` 等常见配置
+- include：`src/**`、`public/**`、SEO 构建脚本、`index.html`、`package.json`、`vite.config.*`、`tsconfig*.json` 等常见配置
 - exclude：`node_modules/**`、`out/**`、`dist/**`、`.env*`、`**/*.log`、`maple.zip` 等
+
+注意：Readdy 的 SEO Configuration 按网站版本独立保存。`code_edit` 生成新版本后，需要在该版本的 SEO Configuration 中重新点击 Generate，再重新发布域名。当前同步接口只上传文本源码；新增或替换的 PNG、JPG 等图片需要通过 Readdy Files 上传。
 
 ## 关于 token（安全说明）
 
@@ -59,4 +61,3 @@ Remove-Item Env:\READDY_ACCESS_TOKEN
 - `未能确认找到 readdy_access_token`：通常是 Edge 没登录 Readdy，或你登录的不是默认 profile。用 `--edge-profile` 指到正确 profile。
 - `projectId is required` / `X-Project-Id`：脚本已处理；如果仍出现，多半是 projectId 填错或权限不足。
 - 上传后右侧没有新卡片：脚本会自动尝试 `msg` 同步；如果返回已存在，会跳过。
-

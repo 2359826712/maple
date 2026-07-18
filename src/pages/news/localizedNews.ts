@@ -1,8 +1,18 @@
-import type { NewsItem } from '@/services/liveContent';
+import type { NewsContentLanguage, NewsItem, NewsLocalizedEdition, NewsTranslation } from '@/services/liveContent';
+import { getCuratedNewsEdition } from './editorialNewsEditions';
+
+export type NewsLocalizationKind = 'source' | 'editorial' | 'translated' | 'original-fallback';
 
 type NewsCopy = {
   title: string;
   excerpt: string;
+  date: string;
+  sourceLanguage: NewsContentLanguage;
+  usesOriginalCopy: boolean;
+  localizationKind: NewsLocalizationKind;
+  localizedCategory?: string;
+  actionLabel?: string;
+  searchTerms: string[];
 };
 
 type ArticleCopy = {
@@ -16,35 +26,121 @@ const categoryLabels: Record<string, Record<string, string>> = {
     zh: '更新公告',
     'zh-Hant': '更新公告',
     ja: 'アップデート情報',
+    ko: '업데이트 공지',
   },
   Event: {
     zh: '活动',
     'zh-Hant': '活動',
     ja: 'イベント',
+    ko: '이벤트',
   },
   General: {
     zh: '综合公告',
     'zh-Hant': '綜合公告',
     ja: '一般告知',
+    ko: '일반 공지',
   },
   'Cash Shop': {
     zh: '商城',
     'zh-Hant': '商城',
     ja: '課金',
+    ko: '캐시샵',
   },
 };
 
-const normalizeLanguage = (language: string) => {
-  if (language.startsWith('zh-Hant')) return 'zh-Hant';
-  if (language.startsWith('zh')) return 'zh';
-  if (language.startsWith('ja')) return 'ja';
+export const normalizeNewsLanguage = (language: string): NewsContentLanguage => {
+  const normalized = language.toLowerCase();
+  if (normalized.startsWith('zh-hant') || normalized.startsWith('zh-tw') || normalized.startsWith('zh-hk')) return 'zh-Hant';
+  if (normalized.startsWith('zh')) return 'zh';
+  if (normalized.startsWith('ja')) return 'ja';
+  if (normalized.startsWith('ko')) return 'ko';
   return 'en';
 };
 
-export function getNewsCopy(news: NewsItem, _language: string): NewsCopy {
+const validTranslation = (
+  value: NewsTranslation | undefined,
+  source: Pick<NewsItem, 'title' | 'excerpt'>,
+): value is NewsTranslation => Boolean(
+  value?.title?.trim()
+  && value?.excerpt?.trim()
+  && (
+    value.title.trim() !== source.title.trim()
+    || value.excerpt.trim() !== source.excerpt.trim()
+  ),
+);
+
+const publishableEdition = (value: NewsLocalizedEdition | undefined): value is NewsLocalizedEdition =>
+  Boolean(
+    value?.editorialStatus === 'reviewed'
+    && value.title.trim()
+    && value.summary.trim()
+    && value.categoryLabel.trim()
+    && value.actionLabel.trim(),
+  );
+
+const sourceLanguagesByVersion: Record<string, NewsContentLanguage> = {
+  gms: 'en',
+  kms: 'ko',
+  msea: 'en',
+  jms: 'ja',
+  tms: 'zh-Hant',
+};
+
+export const getNewsSourceLanguageForVersion = (version: string): NewsContentLanguage =>
+  sourceLanguagesByVersion[version] || 'en';
+
+export const getNewsSourceLanguage = (news: NewsItem): NewsContentLanguage =>
+  news.sourceLanguage || getNewsSourceLanguageForVersion(news.versions[0] || 'gms');
+
+export const newsSourceLanguageTranslationKey: Record<NewsContentLanguage, string> = {
+  en: 'news_source_language_en',
+  zh: 'news_source_language_zh',
+  'zh-Hant': 'news_source_language_zh_hant',
+  ja: 'news_source_language_ja',
+  ko: 'news_source_language_ko',
+};
+
+export const formatNewsDate = (publishedAt: string, language: string, fallback = '') => {
+  const date = new Date(publishedAt);
+  if (Number.isNaN(date.getTime())) return fallback;
+
+  return new Intl.DateTimeFormat(normalizeNewsLanguage(language), {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+};
+
+export function getNewsCopy(news: NewsItem, language: string): NewsCopy {
+  const requestedLanguage = normalizeNewsLanguage(language);
+  const sourceLanguage = getNewsSourceLanguage(news);
+  const backendEdition = news.localizedEditions?.[requestedLanguage];
+  const editorialEdition = requestedLanguage !== sourceLanguage && publishableEdition(backendEdition)
+    ? backendEdition
+    : requestedLanguage !== sourceLanguage
+      ? getCuratedNewsEdition(news, requestedLanguage)
+      : undefined;
+  const translation = news.translations?.[requestedLanguage];
+  const translated = requestedLanguage !== sourceLanguage && validTranslation(translation, news);
+  const usesOriginalCopy = requestedLanguage !== sourceLanguage && !editorialEdition && !translated;
+
   return {
-    title: news.title,
-    excerpt: news.excerpt,
+    title: editorialEdition?.title.trim() || (translated ? translation.title.trim() : news.title),
+    excerpt: editorialEdition?.summary.trim() || (translated ? translation.excerpt.trim() : news.excerpt),
+    date: formatNewsDate(news.publishedAt, requestedLanguage, news.date),
+    sourceLanguage,
+    usesOriginalCopy,
+    localizationKind: editorialEdition
+      ? 'editorial'
+      : translated
+        ? 'translated'
+        : usesOriginalCopy
+          ? 'original-fallback'
+          : 'source',
+    localizedCategory: editorialEdition?.categoryLabel,
+    actionLabel: editorialEdition?.actionLabel,
+    searchTerms: editorialEdition?.searchTerms || [],
   };
 }
 
@@ -53,5 +149,5 @@ export function getNewsArticleCopy(_id: string, _language: string, fallback: Art
 }
 
 export function getNewsCategoryLabel(category: string, language: string): string {
-  return categoryLabels[category]?.[normalizeLanguage(language)] ?? category;
+  return categoryLabels[category]?.[normalizeNewsLanguage(language)] ?? category;
 }

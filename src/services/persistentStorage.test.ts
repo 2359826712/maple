@@ -84,6 +84,7 @@ describe('player data deletion', () => {
   it('classifies player data without including caches or the signed-in session', () => {
     expect(isPlayerDataStorageKey('maplehub-characters:v2')).toBe(true);
     expect(isPlayerDataStorageKey('maplehub-checklist-local-1:v2:v1-backup')).toBe(true);
+    expect(isPlayerDataStorageKey('maplehub-link-planner:v2:gms')).toBe(true);
     expect(isPlayerDataStorageKey('maplehub-game-version')).toBe(true);
     expect(isPlayerDataStorageKey('maplehub-online-news')).toBe(false);
     expect(isPlayerDataStorageKey('maplehub-auth-session')).toBe(false);
@@ -94,6 +95,7 @@ describe('player data deletion', () => {
     storage.setItem('maplehub-characters:v2', '[]');
     storage.setItem('maplehub-checklist-local-1:v2', '{}');
     storage.setItem('maplehub-news-state:v1', '{}');
+    storage.setItem('maplehub-link-planner:v2:gms', '{"ranks":{}}');
     storage.setItem('maplehub-theme', 'dark');
     storage.setItem('maplehub-auth-session', 'signed-in');
     storage.setItem('maplehub-online-news', 'cache');
@@ -101,6 +103,7 @@ describe('player data deletion', () => {
     expect(deleteAllPlayerData(storage).sort()).toEqual([
       'maplehub-characters:v2',
       'maplehub-checklist-local-1:v2',
+      'maplehub-link-planner:v2:gms',
       'maplehub-news-state:v1',
       'maplehub-theme',
     ]);

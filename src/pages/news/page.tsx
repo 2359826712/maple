@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState, type SyntheticEvent } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
@@ -7,12 +7,22 @@ import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
+import OfficialServerLinks from '@/components/feature/OfficialServerLinks';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getNewsCategoryLabel, getNewsCopy } from './localizedNews';
-import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
+import { fetchLiveNews, getRegionalContentImage, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import { isRenderableNewsItem } from '@/services/contentCacheValidation';
 import { readJson, writeJsonWithRecovery } from '@/services/persistentStorage';
+import ShareButton from '@/components/feature/ShareButton';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import NewsOriginalLanguageNotice from './NewsOriginalLanguageNotice';
+import { useLocalizedNewsItems } from './useLocalizedNewsItems';
+import { isStaticHydration } from '@/ssg/hydration';
+import { localizeHref } from '@/i18n/languageRouting';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
+import { realtimeCacheDurations } from '@/services/realtimeCache';
 
-type LocalizedNewsItem = NewsItem & { categoryLabel: string };
+type LocalizedNewsItem = NewsItem & ReturnType<typeof getNewsCopy> & { categoryLabel: string };
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -20,19 +30,6 @@ const tagStyle: Record<string, string> = {
   primary: 'bg-primary-100 text-primary-800',
   accent: 'bg-accent-100 text-accent-800',
   secondary: 'bg-secondary-100 text-secondary-900',
-};
-
-const fallbackNewsImage = 'https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png';
-
-const applyNewsImageFallback = (event: SyntheticEvent<HTMLImageElement>) => {
-  const image = event.currentTarget;
-  if (image.dataset.fallbackApplied === 'true') {
-    image.style.display = 'none';
-    return;
-  }
-
-  image.dataset.fallbackApplied = 'true';
-  image.src = fallbackNewsImage;
 };
 
 const NEWS_STATE_KEY = 'maplehub-news-state:v1';
@@ -57,16 +54,21 @@ const loadNewsState = (): NewsState => {
 export default function NewsPage() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialNews } = useServerRouteData();
   const [searchParams] = useSearchParams();
   const [active, setActive] = useState('All');
-  const [shared, setShared] = useState<string | null>(null);
   const [notifOpen, setNotifOpen] = useState(false);
   const [query, setQuery] = useState(searchParams.get('q') ?? '');
   const [viewMode, setViewMode] = useState<'all' | 'saved' | 'unread'>('all');
-  const [initialNewsState] = useState(loadNewsState);
+  const deferBrowserState = isStaticHydration();
+  const [initialNewsState] = useState(() => deferBrowserState
+    ? { saved: {}, read: {} }
+    : loadNewsState());
   const [saved, setSaved] = useState<Record<string, boolean>>(initialNewsState.saved);
   const [read, setRead] = useState<Record<string, boolean>>(initialNewsState.read);
   const [storageError, setStorageError] = useState(false);
+  const [browserStateReady, setBrowserStateReady] = useState(!deferBrowserState);
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const {
     items: realtimeNews,
     liveCount,
@@ -74,21 +76,24 @@ export default function NewsPage() {
     status: realtimeStatus,
     syncNow,
   } = useRealtimeCollection<NewsItem>({
-    storageKey: liveStorageKeys.news,
-    baseItems: [],
-    remoteLoader: fetchLiveNews,
+    storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
+    baseItems: initialNews,
+    intervalMs: realtimeCacheDurations.short,
+    remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const versionList = useMemo(
     () =>
-      realtimeNews
+      localizedNews
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
-          ...getNewsCopy(n, i18n.language),
-          categoryLabel: getNewsCategoryLabel(n.category, i18n.language),
-        })),
-    [i18n.language, realtimeNews, versionInfo.id],
+          categoryLabel: n.localizedCategory || getNewsCategoryLabel(n.category, i18n.language),
+        }))
+        .sort((a, b) => (Date.parse(b.publishedAt) || 0) - (Date.parse(a.publishedAt) || 0)),
+    [i18n.language, localizedNews, versionInfo.id],
   );
   const counts = useMemo(
     () =>
@@ -105,7 +110,8 @@ export default function NewsPage() {
 
     if (normalizedQuery) {
       items = items.filter((n) =>
-        [n.title, n.excerpt, n.author, n.category, n.categoryLabel].some((value) => value.toLowerCase().includes(normalizedQuery)),
+        [n.title, n.excerpt, n.author, n.category, n.categoryLabel, ...n.searchTerms]
+          .some((value) => value.toLowerCase().includes(normalizedQuery)),
       );
     }
 
@@ -121,20 +127,18 @@ export default function NewsPage() {
   }, [active, query, read, saved, versionList, viewMode]);
 
   useEffect(() => {
+    if (!deferBrowserState) return;
+    const stored = loadNewsState();
+    setSaved(stored.saved);
+    setRead(stored.read);
+    setBrowserStateReady(true);
+  }, [deferBrowserState]);
+
+  useEffect(() => {
+    if (!browserStateReady) return;
     const result = writeJsonWithRecovery(window.localStorage, NEWS_STATE_KEY, { saved, read });
     setStorageError(!result.ok);
-  }, [read, saved]);
-
-  const share = async (article: LocalizedNewsItem, channel: string) => {
-    const url = article.sourceUrl;
-    try {
-      await navigator.clipboard?.writeText(url);
-    } catch {
-      // Clipboard access can be blocked in some browser contexts; the in-app toast still confirms the action.
-    }
-    setShared(article.id + channel);
-    setTimeout(() => setShared(null), 1500);
-  };
+  }, [browserStateReady, read, saved]);
 
   const markArticleRead = (article: LocalizedNewsItem) => {
     setRead((current) => ({ ...current, [article.id]: true }));
@@ -172,7 +176,11 @@ export default function NewsPage() {
                   lastSyncedAt={lastSyncedAt}
                   liveCount={liveCount}
                   onRefresh={syncNow}
+                  updateFrequency="fast"
                 />
+              </div>
+              <div className="mb-6">
+                <OfficialServerLinks preferred="news" />
               </div>
               {storageError && (
                 <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700" role="status" aria-live="polite">
@@ -250,10 +258,12 @@ export default function NewsPage() {
                     >
                       <div className={`relative overflow-hidden ${i === 0 ? 'h-64 md:h-80' : 'h-44'}`}>
                         <img
-                          src={n.image || fallbackNewsImage}
+                          src={getRegionalContentImage(n.image, n.versions[0] || versionInfo.id)}
                           alt={n.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                          onError={applyNewsImageFallback}
+                          onError={(event) => applyRegionalImageFallback(event.currentTarget, n.versions[0] || versionInfo.id)}
                         />
                         <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${tagStyle[n.tag]}`}>
                           {n.categoryLabel}
@@ -264,38 +274,42 @@ export default function NewsPage() {
                           </span>
                         )}
                         <div className="absolute bottom-3 right-3 flex gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => share(n, 'link')}
-                            className="w-8 h-8 rounded-full bg-background-50/95 hover:bg-primary-500 hover:text-background-50 text-foreground-800 flex items-center justify-center cursor-pointer transition-colors"
-                            aria-label={t('news_share_aria', { title: n.title, channel: 'link' })}
-                          >
-                            <i className="ri-link"></i>
-                          </button>
+                          <ShareButton
+                            compact
+                            title={n.title}
+                            text={n.excerpt}
+                            url={`/news?q=${encodeURIComponent(n.title)}`}
+                            className="h-8 w-8 bg-background-50/95 hover:bg-primary-500 hover:text-background-50"
+                          />
                         </div>
-                        {shared && shared.startsWith(n.id) && (
-                          <div className="absolute bottom-14 right-3 px-3 py-1.5 rounded-md bg-foreground-900 text-background-50 text-xs">
-                            {t('news_shared_toast')}
-                          </div>
-                        )}
                       </div>
                       <div className="p-5 flex-1 flex flex-col">
                         <h3 className={`font-heading font-semibold text-foreground-950 ${i === 0 ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>
                           {n.title}
                         </h3>
                         <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
+                        {n.localizationKind !== 'source' && (
+                          <NewsOriginalLanguageNotice
+                            sourceLanguage={n.sourceLanguage}
+                            localizationKind={n.localizationKind}
+                            server={n.versions[0]}
+                            className="mt-2"
+                          />
+                        )}
                         <div className="mt-4 flex flex-wrap gap-2">
-                          <a
+                          <Link
                             data-testid={`read-${n.id}`}
-                            href={n.sourceUrl}
-                            target="_blank"
-                            rel="noreferrer noopener"
+                            to={localizeHref(
+                              officialArticleHref(n.sourceUrl, n.title, versionInfo.id, n.image),
+                              i18n.language,
+                              versionInfo.id,
+                            )}
                             onClick={() => markArticleRead(n)}
                             className="h-9 px-4 rounded-full bg-primary-500 hover:bg-primary-600 text-background-50 text-xs font-semibold cursor-pointer whitespace-nowrap"
                           >
                             <i className="ri-book-open-line mr-1"></i>
-                            {t('news_read_article')}
-                          </a>
+                            {n.actionLabel || t('news_read_article')}
+                          </Link>
                           <button
                             type="button"
                             data-testid={`save-${n.id}`}
@@ -330,7 +344,7 @@ export default function NewsPage() {
                           </div>
                           <span className="flex items-center gap-1">
                             <i className="ri-eye-line"></i>
-                            {n.reads}
+                            {n.reads === 'Official' ? t('news_open_source') : n.reads}
                           </span>
                         </div>
                       </div>

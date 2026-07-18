@@ -1,4 +1,4 @@
-export const regions = ['gms', 'kms', 'msea', 'jms', 'cms', 'tms', 'all'] as const;
+export const regions = ['gms', 'kms', 'msea', 'jms', 'tms', 'cms', 'msn', 'msm', 'all'] as const;
 
 export type Region = (typeof regions)[number];
 
@@ -34,6 +34,7 @@ export interface EventDataRecord extends Provenance {
   windowEnd: string;
   regions: Region[];
   rewards: string[];
+  imageUrl?: string;
 }
 
 export interface NewsDataRecord {
@@ -46,6 +47,19 @@ export interface NewsDataRecord {
   regions: Region[];
   sourceUrl: string;
   imageUrl?: string;
+  sourceLanguage?: 'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko';
+  translations?: Partial<Record<'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko', {
+    title: string;
+    excerpt: string;
+  }>>;
+  localizedEditions?: Partial<Record<'en' | 'zh' | 'zh-Hant' | 'ja' | 'ko', {
+    title: string;
+    summary: string;
+    categoryLabel: string;
+    actionLabel: string;
+    searchTerms?: string[];
+    editorialStatus: 'reviewed' | 'draft';
+  }>>;
 }
 
 export interface WikiDataRecord {
@@ -64,7 +78,7 @@ export interface ToolDataRecord extends Provenance {
   regions: Region[];
 }
 
-export const toolCategories = ['calculator', 'database', 'guide', 'tracker', 'simulator', 'utility', 'community'] as const;
+export const toolCategories = ['calculator', 'database', 'guide', 'tracker', 'simulator', 'utility', 'community', 'official'] as const;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -137,6 +151,7 @@ export function validateEventData(value: unknown): ValidationResult<EventDataRec
     issues.push({ path: 'windowEnd', message: 'Event end must be after its start.' });
   }
   if (!Array.isArray(value.rewards) || value.rewards.some((item) => !isNonEmptyString(item))) issues.push({ path: 'rewards', message: 'Expected reward strings.' });
+  if (value.imageUrl !== undefined && !isHttpsUrl(value.imageUrl)) issues.push({ path: 'imageUrl', message: 'Expected an HTTPS image URL.' });
   validateRegions(value.regions, 'regions', issues);
   validateProvenance(value, issues);
   return result<EventDataRecord>(value, issues);
@@ -152,6 +167,51 @@ export function validateNewsData(value: unknown): ValidationResult<NewsDataRecor
   if (!['Patch Notes', 'Event', 'General', 'Cash Shop'].includes(String(value.category))) issues.push({ path: 'category', message: 'Unknown news category.' });
   if (!isHttpsUrl(value.sourceUrl)) issues.push({ path: 'sourceUrl', message: 'Expected an HTTPS source URL.' });
   if (value.imageUrl !== undefined && !isHttpsUrl(value.imageUrl)) issues.push({ path: 'imageUrl', message: 'Expected an HTTPS image URL.' });
+  const contentLanguages = ['en', 'zh', 'zh-Hant', 'ja', 'ko'];
+  if (value.sourceLanguage !== undefined && !contentLanguages.includes(String(value.sourceLanguage))) {
+    issues.push({ path: 'sourceLanguage', message: 'Expected a supported source language.' });
+  }
+  if (value.translations !== undefined) {
+    if (!isRecord(value.translations)) {
+      issues.push({ path: 'translations', message: 'Expected a locale-keyed translation object.' });
+    } else {
+      Object.entries(value.translations).forEach(([language, translation]) => {
+        if (!contentLanguages.includes(language) || !isRecord(translation)) {
+          issues.push({ path: `translations.${language}`, message: 'Expected a supported locale and translation object.' });
+          return;
+        }
+        if (!isNonEmptyString(translation.title)) {
+          issues.push({ path: `translations.${language}.title`, message: 'Translated title is required.' });
+        }
+        if (!isNonEmptyString(translation.excerpt)) {
+          issues.push({ path: `translations.${language}.excerpt`, message: 'Translated excerpt is required.' });
+        }
+      });
+    }
+  }
+  if (value.localizedEditions !== undefined) {
+    if (!isRecord(value.localizedEditions)) {
+      issues.push({ path: 'localizedEditions', message: 'Expected a locale-keyed editorial edition object.' });
+    } else {
+      Object.entries(value.localizedEditions).forEach(([language, edition]) => {
+        if (!contentLanguages.includes(language) || !isRecord(edition)) {
+          issues.push({ path: `localizedEditions.${language}`, message: 'Expected a supported locale and editorial edition.' });
+          return;
+        }
+        for (const field of ['title', 'summary', 'categoryLabel', 'actionLabel'] as const) {
+          if (!isNonEmptyString(edition[field])) {
+            issues.push({ path: `localizedEditions.${language}.${field}`, message: `${field} is required.` });
+          }
+        }
+        if (edition.editorialStatus !== 'reviewed' && edition.editorialStatus !== 'draft') {
+          issues.push({ path: `localizedEditions.${language}.editorialStatus`, message: 'Expected reviewed or draft.' });
+        }
+        if (edition.searchTerms !== undefined && (!Array.isArray(edition.searchTerms) || edition.searchTerms.some((term) => !isNonEmptyString(term)))) {
+          issues.push({ path: `localizedEditions.${language}.searchTerms`, message: 'Expected non-empty search terms.' });
+        }
+      });
+    }
+  }
   validateRegions(value.regions, 'regions', issues);
   return result<NewsDataRecord>(value, issues);
 }

@@ -1,24 +1,56 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
+import OfficialServerLinks from '@/components/feature/OfficialServerLinks';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { fetchLiveEvents, liveStorageKeys, type EventItem } from '@/services/liveContent';
+import {
+  fetchLiveEvents,
+  fetchLiveNews,
+  getRegionalContentImage,
+  liveStorageKeys,
+  officialArticleHref,
+  type EventItem,
+  type NewsItem,
+} from '@/services/liveContent';
+import { isRenderableEventItem, isRenderableNewsItem } from '@/services/contentCacheValidation';
 import { daysUntilEventBoundary, formatServerDateRange, isAvailableInVersion } from '@/domain/regionModel';
+import EventGoalProjection from './EventGoalProjection';
+import ShareButton from '@/components/feature/ShareButton';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useLocalizedEvents } from './useLocalizedEvents';
+import { getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
+import { isStaticHydration } from '@/ssg/hydration';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const EVENT_REMINDERS_KEY = 'maplehub-event-reminders';
+const EVENT_REMINDER_DELIVERY_KEY = 'maplehub-event-reminder-delivery';
+const EVENT_REMINDER_NOTIFIED_KEY = 'maplehub-event-reminder-notified';
+type ReminderDelivery = 'in-app' | 'browser';
 
 const readEventReminders = () => {
   try {
     const value = window.localStorage.getItem(EVENT_REMINDERS_KEY);
-    return value ? (JSON.parse(value) as string[]) : [];
+    if (!value) return [];
+    const parsed = JSON.parse(value) as unknown;
+    return Array.isArray(parsed)
+      ? [...new Set(parsed.filter((item): item is string => typeof item === 'string'))]
+      : [];
   } catch {
     return [];
   }
+};
+
+const readReminderDelivery = (): ReminderDelivery => {
+  try { return localStorage.getItem(EVENT_REMINDER_DELIVERY_KEY) === 'browser' ? 'browser' : 'in-app'; }
+  catch { return 'in-app'; }
 };
 
 const rarityStyle: Record<string, string> = {
@@ -30,9 +62,24 @@ const rarityStyle: Record<string, string> = {
 export default function EventsPage() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialEvents, initialNews } = useServerRouteData();
+  const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
   const [activeEvent, setActiveEvent] = useState<EventItem | null>(null);
-  const [reminders, setReminders] = useState<string[]>(readEventReminders);
+  const deferBrowserState = isStaticHydration();
+  const [reminders, setReminders] = useState<string[]>(() => deferBrowserState ? [] : readEventReminders());
+  const [reminderDelivery, setReminderDelivery] = useState<ReminderDelivery>(() => (
+    deferBrowserState ? 'in-app' : readReminderDelivery()
+  ));
+  const [deliveryMessage, setDeliveryMessage] = useState('');
+
+  useEffect(() => {
+    if (!deferBrowserState) return;
+    setReminders(readEventReminders());
+    setReminderDelivery(readReminderDelivery());
+  }, [deferBrowserState]);
+  const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const {
     items: realtimeEvents,
     liveCount,
@@ -40,14 +87,33 @@ export default function EventsPage() {
     status: realtimeStatus,
     syncNow,
   } = useRealtimeCollection<EventItem>({
-    storageKey: liveStorageKeys.events,
-    baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
+    baseItems: initialEvents,
+    remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
+  const localizedEvents = useLocalizedEvents(
+    realtimeEvents,
+    i18n.language,
+    getNewsSourceLanguageForVersion(versionInfo.id),
+  );
+  const {
+    items: realtimeNews,
+    liveCount: newsLiveCount,
+    lastSyncedAt: newsLastSyncedAt,
+    status: newsStatus,
+    syncNow: syncNews,
+  } = useRealtimeCollection<NewsItem>({
+    storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
+    baseItems: initialNews,
+    remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
+  });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const filteredEvents = useMemo(
-    () => realtimeEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
-    [realtimeEvents, versionInfo.id],
+    () => localizedEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
+    [localizedEvents, versionInfo.id],
   );
   const urgentEvents = useMemo(
     () => [...filteredEvents]
@@ -58,10 +124,37 @@ export default function EventsPage() {
       .slice(0, 3),
     [filteredEvents],
   );
+  const officialEventNews = useMemo(
+    () => localizedNews
+      .filter((item) => item.category === 'Event' && isAvailableInVersion(item.versions, versionInfo.id))
+      .slice(0, 6),
+    [localizedNews, versionInfo.id],
+  );
+  const hasOfficialEventNews = officialEventNews.length > 0;
+  const contentStatus = realtimeStatus === 'unavailable' && hasOfficialEventNews
+    ? newsStatus
+    : realtimeStatus;
+  const contentLastSyncedAt = lastSyncedAt || (hasOfficialEventNews ? newsLastSyncedAt : '');
+  const contentLiveCount = liveCount + (hasOfficialEventNews ? Math.min(newsLiveCount, officialEventNews.length) : 0);
   const eventWindow = (event: EventItem) =>
     formatServerDateRange(event.windowStart, event.windowEnd, versionInfo.id, i18n.language);
-  const reminderId = (event: EventItem) => `${versionInfo.id}:${event.id}`;
+  const reminderId = useCallback((event: EventItem) => `${versionInfo.id}:${event.id}`, [versionInfo.id]);
   const hasReminder = (event: EventItem) => reminders.includes(reminderId(event));
+  usePageMetadata(
+    `${versionInfo.shortLabel} MapleStory Events`,
+    `Current ${versionInfo.shortLabel} event dates, rewards, deadlines, and reminder tools.`,
+  );
+
+  useEffect(() => {
+    setActiveEvent(null);
+  }, [versionInfo.id]);
+
+  useEffect(() => {
+    const requestedGoal = searchParams.get('goal');
+    if (!requestedGoal || activeEvent) return;
+    const match = filteredEvents.find((event) => reminderId(event) === requestedGoal);
+    if (match) setActiveEvent(match);
+  }, [activeEvent, filteredEvents, reminderId, searchParams]);
   const toggleReminder = (event: EventItem) => {
     const id = reminderId(event);
     setReminders((current) => {
@@ -70,6 +163,55 @@ export default function EventsPage() {
       return next;
     });
   };
+
+  const selectInAppDelivery = () => {
+    setReminderDelivery('in-app');
+    setDeliveryMessage('');
+    try { localStorage.setItem(EVENT_REMINDER_DELIVERY_KEY, 'in-app'); } catch { /* keep in memory */ }
+  };
+
+  const enableBrowserDelivery = async () => {
+    if (!('Notification' in window)) {
+      setDeliveryMessage(t('events_delivery_unsupported'));
+      return;
+    }
+    const permission = Notification.permission === 'granted'
+      ? 'granted'
+      : await Notification.requestPermission();
+    if (permission !== 'granted') {
+      setDeliveryMessage(t('events_delivery_denied'));
+      return;
+    }
+    setReminderDelivery('browser');
+    setDeliveryMessage(t('events_delivery_enabled'));
+    try { localStorage.setItem(EVENT_REMINDER_DELIVERY_KEY, 'browser'); } catch { /* keep in memory */ }
+  };
+
+  useEffect(() => {
+    if (reminderDelivery !== 'browser' || !('Notification' in window) || Notification.permission !== 'granted') return;
+    const now = Date.now();
+    const endingSoon = filteredEvents.filter((event) => (
+      reminders.includes(reminderId(event))
+      && Date.parse(event.windowEnd) > now
+      && Date.parse(event.windowEnd) - now <= 86_400_000
+    ));
+    if (endingSoon.length === 0) return;
+    let notified: string[] = [];
+    try {
+      const parsed = JSON.parse(localStorage.getItem(EVENT_REMINDER_NOTIFIED_KEY) || '[]') as unknown;
+      notified = Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === 'string') : [];
+    } catch { notified = []; }
+    const notifiedSet = new Set(notified);
+    for (const event of endingSoon) {
+      const notificationId = `${reminderId(event)}:${event.windowEnd}`;
+      if (notifiedSet.has(notificationId)) continue;
+      new Notification(t('events_delivery_notification_title'), {
+        body: t('events_delivery_notification_body', { event: event.name }),
+      });
+      notifiedSet.add(notificationId);
+    }
+    try { localStorage.setItem(EVENT_REMINDER_NOTIFIED_KEY, JSON.stringify([...notifiedSet])); } catch { /* notification was still delivered */ }
+  }, [filteredEvents, reminderDelivery, reminderId, reminders, t]);
 
   return (
     <div className="min-h-screen bg-background-50">
@@ -80,7 +222,7 @@ export default function EventsPage() {
         <section className="py-14 md:py-20 bg-background-50">
           <div className="w-full px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+              <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <div className="text-xs font-semibold text-primary-600 uppercase tracking-wider flex items-center gap-1.5">
                     <i className="ri-leaf-fill text-primary-500 text-[10px]"></i>
@@ -94,12 +236,43 @@ export default function EventsPage() {
 
               <div className="mb-6">
                 <RealtimeStatus
-                  status={realtimeStatus}
-                  lastSyncedAt={lastSyncedAt}
-                  liveCount={liveCount}
-                  onRefresh={syncNow}
+                  status={contentStatus}
+                  lastSyncedAt={contentLastSyncedAt}
+                  liveCount={contentLiveCount}
+                  onRefresh={() => { void Promise.all([syncNow(), syncNews()]); }}
                 />
               </div>
+              <div className="mb-6">
+                <OfficialServerLinks preferred="events" />
+              </div>
+
+              <section className="mb-6 rounded-xl border border-background-200 bg-background-50 p-4" aria-labelledby="event-delivery-title">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <h2 id="event-delivery-title" className="text-sm font-semibold text-foreground-950">{t('events_delivery_title')}</h2>
+                    <p className="mt-1 text-xs text-foreground-600">{t('events_delivery_desc')}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      aria-pressed={reminderDelivery === 'in-app'}
+                      onClick={selectInAppDelivery}
+                      className={`h-11 rounded-full px-3 text-xs font-semibold ${reminderDelivery === 'in-app' ? 'bg-primary-600 text-white' : 'border border-background-300 bg-white text-foreground-800'}`}
+                    >
+                      {t('events_delivery_in_app')}
+                    </button>
+                    <button
+                      type="button"
+                      aria-pressed={reminderDelivery === 'browser'}
+                      onClick={() => void enableBrowserDelivery()}
+                      className={`h-11 rounded-full px-3 text-xs font-semibold ${reminderDelivery === 'browser' ? 'bg-primary-600 text-white' : 'border border-background-300 bg-white text-foreground-800'}`}
+                    >
+                      {t('events_delivery_browser')}
+                    </button>
+                  </div>
+                </div>
+                {deliveryMessage && <p className="mt-2 text-xs text-foreground-600" role="status">{deliveryMessage}</p>}
+              </section>
 
               {urgentEvents.length > 0 && (
                 <div className="mb-6 rounded-xl border border-primary-200 bg-primary-50/70 p-4">
@@ -143,18 +316,68 @@ export default function EventsPage() {
               )}
 
               {filteredEvents.length === 0 ? (
-                <div className="text-center py-20 text-foreground-600">
-                  <i className={`${realtimeStatus === 'unavailable' && !lastSyncedAt ? 'ri-cloud-off-line' : 'ri-calendar-event-line'} text-5xl mb-4 block`}></i>
-                  <p className="text-lg font-semibold">
-                    {realtimeStatus === 'unavailable' && !lastSyncedAt
-                      ? t('content_live_not_verified')
-                      : t('events_no_items', { version: versionInfo.shortLabel })}
-                  </p>
-                  <p className="text-sm mt-1">
-                    {realtimeStatus === 'unavailable' && !lastSyncedAt
-                      ? t('content_live_no_success')
-                      : t('events_no_items_tip')}
-                  </p>
+                <div className="space-y-6">
+                  {officialEventNews.length > 0 && (
+                    <section aria-labelledby="event-news-fallback-title">
+                      <div className="mb-4">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-primary-700">
+                          {t('events_verified_source')}
+                        </div>
+                        <h2 id="event-news-fallback-title" className="mt-1 font-heading text-xl font-semibold text-foreground-950 md:text-2xl">
+                          {t('events_news_fallback_title')}
+                        </h2>
+                        <p className="mt-1 max-w-3xl text-sm text-foreground-600">
+                          {t('events_news_fallback_desc')}
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                        {officialEventNews.map((item) => (
+                          <article key={item.id} className="flex flex-col overflow-hidden rounded-xl border border-background-200 bg-background-50">
+                            <img
+                              src={getRegionalContentImage(item.image, versionInfo.id)}
+                              alt=""
+                              loading="lazy"
+                              decoding="async"
+                              className="h-32 w-full object-cover"
+                              onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
+                            />
+                            <div className="flex flex-1 flex-col p-4">
+                              <div className="text-xs font-semibold text-primary-700">
+                                {t('events_published')} · {item.date}
+                              </div>
+                              <h3 className="mt-2 font-heading text-base font-semibold leading-snug text-foreground-950">
+                                {item.title}
+                              </h3>
+                              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-foreground-600">
+                                {item.excerpt}
+                              </p>
+                              {item.localizationKind !== 'source' && (
+                                <NewsOriginalLanguageNotice
+                                  sourceLanguage={item.sourceLanguage}
+                                  localizationKind={item.localizationKind}
+                                  server={item.versions[0]}
+                                  className="mt-2"
+                                />
+                              )}
+                              <Link
+                                to={officialArticleHref(item.sourceUrl, item.title, versionInfo.id, item.image)}
+                                className="mt-4 inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
+                              >
+                                {item.actionLabel || t('events_open_source')}
+                                <i className="ri-book-open-line" />
+                              </Link>
+                            </div>
+                          </article>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {officialEventNews.length === 0 && newsStatus === 'unavailable' && (
+                    <p className="text-center text-sm text-foreground-600" role="status">
+                      {t('events_news_unavailable')}
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -165,9 +388,12 @@ export default function EventsPage() {
                     >
                       <div className="relative h-40 md:h-44">
                         <img
-                          src={e.image}
+                          src={getRegionalContentImage(e.image, versionInfo.id)}
                           alt={e.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover object-top"
+                          onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                         />
                         <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${rarityStyle[e.rarity]}`}>
                           {e.rarity}
@@ -213,15 +439,20 @@ export default function EventsPage() {
                           >
                             <i className={hasReminder(e) ? 'ri-notification-3-fill' : 'ri-notification-3-line'} />
                           </button>
-                          <a
-                              href={e.sourceUrl}
-                              target="_blank"
-                              rel="noreferrer"
+                          <ShareButton
+                            compact
+                            title={e.name}
+                            text={`${eventWindow(e)} · ${e.rewards.join(' · ')}`}
+                            url={`/events?goal=${encodeURIComponent(reminderId(e))}`}
+                            className="rounded-md"
+                          />
+                          <Link
+                              to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id, e.image)}
                               className="h-10 w-10 rounded-md bg-background-100 hover:bg-accent-100 hover:text-accent-700 text-foreground-800 flex items-center justify-center cursor-pointer"
                               aria-label={t('events_open_source')}
                             >
-                              <i className="ri-external-link-line"></i>
-                            </a>
+                              <i className="ri-book-open-line"></i>
+                            </Link>
                         </div>
                       </div>
                     </article>
@@ -245,12 +476,18 @@ export default function EventsPage() {
         >
           <article className="max-h-[88vh] w-full max-w-3xl overflow-y-auto rounded-xl border border-primary-200/40 bg-background-50 shadow-xl">
             <div className="relative h-52 overflow-hidden">
-              <img src={activeEvent.image} alt={activeEvent.name} className="h-full w-full object-cover object-top" />
+              <img
+                src={getRegionalContentImage(activeEvent.image, versionInfo.id)}
+                alt={activeEvent.name}
+                decoding="async"
+                className="h-full w-full object-cover object-top"
+                onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground-950/75 to-transparent dark:from-[#120e0b]/75"></div>
               <button
                 type="button"
                 onClick={() => setActiveEvent(null)}
-                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-foreground-950/70 text-background-50 hover:bg-foreground-950"
+                className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-foreground-950/70 text-background-50 hover:bg-foreground-950"
                 aria-label="Close"
               >
                 <i className="ri-close-line"></i>
@@ -286,6 +523,12 @@ export default function EventsPage() {
                 <div className="mb-1 text-xs font-semibold uppercase text-foreground-500">{t('events_reward')}</div>
                 {activeEvent.rewards.join(' · ') || t('events_reward_unlisted')}
               </div>
+              <EventGoalProjection
+                id={`${versionInfo.id}:${activeEvent.id}`}
+                name={activeEvent.name}
+                version={versionInfo.id}
+                windowEnd={activeEvent.windowEnd}
+              />
               <div className="mt-5 flex flex-wrap items-center gap-2">
                 <button
                   type="button"
@@ -299,16 +542,16 @@ export default function EventsPage() {
                   <i className={`${hasReminder(activeEvent) ? 'ri-notification-3-fill' : 'ri-notification-3-line'} mr-1.5`} />
                   {t(hasReminder(activeEvent) ? 'events_reminder_saved' : 'events_remind')}
                 </button>
-                <a
-                    href={activeEvent.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                <Link
+                    to={officialArticleHref(activeEvent.sourceUrl, activeEvent.name, versionInfo.id, activeEvent.image)}
                     className="inline-flex h-10 items-center justify-center rounded-full bg-primary-500 px-5 text-sm font-semibold text-background-50 hover:bg-primary-600"
                   >
                     {t('events_open_source')}
-                    <i className="ri-external-link-line ml-1.5"></i>
-                  </a>
-                <span className="w-full text-xs text-foreground-500">{t('events_reminder_local')}</span>
+                    <i className="ri-book-open-line ml-1.5"></i>
+                  </Link>
+                {hasReminder(activeEvent) && (
+                  <span className="w-full text-xs text-foreground-500">{t('events_reminder_local')}</span>
+                )}
               </div>
             </div>
           </article>

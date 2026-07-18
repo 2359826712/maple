@@ -1,0 +1,86 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-07-14-42197",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/42197/v-269-known-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/42197/v-269-known-issues",
+  "external_id": "42197",
+  "title": "v.269 Known Issues",
+  "original_title": "v.269 Known Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-07-14T10:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:43:52.847Z",
+  "last_checked": "2026-07-18T09:43:52.847Z",
+  "summary": "The v.269 known-issues notice tracks current and resolved problems from Ride the Lightning. Current entries include an Edelstein Temporary Airport disconnect, Erel Light equipment and quest issues, unintended Vestige of Erion Coupon drops, and the early end of the Maple University event buff.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/kxpbsnls/240826_knownissue_wgc-1339_540x304.jpg",
+      "alt": "v.269 Known Issues"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bx3bprjv/240826_knownissue_wgc-1339_1100x225.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0958ac9dc1d710f441d1adcd98587aa753881c3acb495c511d51d286c53e9b36",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:07.125Z",
+    "parser_warnings": [],
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Current tracked issues",
+        "items": [
+          "Entering the Edelstein Temporary Airport can disconnect the client.",
+          "Erel Light weapons may become unlocked when switching equipment presets, and some Erel Light characters cannot complete the Echo of Hero quest after 6th Job Advancement.",
+          "Vestige of Erion Coupons are dropping unintentionally from weekly bosses; obtained coupons are scheduled to become usable after v.270."
+        ]
+      },
+      {
+        "title": "Maple University compensation",
+        "items": [
+          "The 21st Anniversary Maple University event buff ended earlier than scheduled.",
+          "Nexon announced Gift Drop compensation including VIP Boosters, 4x EXP Coupons, Nodestones, Experience Nodestones, and VIP Sauna Passes."
+        ]
+      },
+      {
+        "title": "Resolved history",
+        "items": [
+          "The official notice retains a dated resolution log for v.269 issues and is updated as fixes are confirmed.",
+          "Players should use the canonical Nexon page for changes made after MPStorys' last verification."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

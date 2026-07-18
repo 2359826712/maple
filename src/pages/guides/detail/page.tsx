@@ -1,18 +1,21 @@
-import { type MouseEvent, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type MouseEvent, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import RealtimeStatus from '@/components/feature/RealtimeStatus';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { getGuideCardCopy } from '../localizedGuides';
+import { getGuideCardCopy, guideLocale, localizeGuideItem, useLocalizedGuideItems } from '../localizedGuides';
 import { fetchLiveGuideContent, fetchLiveGuides, liveStorageKeys, type GuideItem } from '@/services/liveContent';
-import { sanitizeMirroredHtml } from '@/services/sanitizeHtml';
+import { prepareStaticHtmlForRender, sanitizeMirroredHtml } from '@/services/sanitizeHtml';
 import GuideScrollTopButton from '../components/GuideScrollTopButton';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import GuideFreshnessBar from '../components/GuideFreshnessBar';
+import ShareButton from '@/components/feature/ShareButton';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { writeGuideReadingProgress } from '@/services/guideReadingProgress';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const sectionId = (value: string) =>
   value
@@ -51,18 +54,18 @@ const guideNavSections = [
 const guideDetailCacheMs = 24 * 60 * 60 * 1000;
 const guideDetailCacheVersion = 'v4';
 
-const guideDetailCacheKey = (guide: GuideItem) =>
-  `maplehub-guide-detail-cache:${guideDetailCacheVersion}:${guide.id}:${guide.sourceUrl || ''}`;
+const guideDetailCacheKey = (guide: GuideItem, language: string) =>
+  `maplehub-guide-detail-cache:${guideDetailCacheVersion}:${guideLocale(language)}:${guide.id}:${guide.sourceUrl || ''}`;
 
-const readGuideDetailCache = (guide: GuideItem) => {
+const readGuideDetailCache = (guide: GuideItem, language: string) => {
   if (typeof window === 'undefined') return null;
 
   try {
-    const raw = window.localStorage.getItem(guideDetailCacheKey(guide));
+    const raw = window.localStorage.getItem(guideDetailCacheKey(guide, language));
     if (!raw) return null;
     const parsed = JSON.parse(raw) as { savedAt?: number; guide?: GuideItem };
     if (!parsed?.guide?.contentHtml || typeof parsed.savedAt !== 'number') return null;
-    const contentHtml = sanitizeMirroredHtml(parsed.guide.contentHtml);
+    const contentHtml = parsed.guide.contentHtml.trim();
     if (!contentHtml) return null;
     return {
       guide: {
@@ -83,7 +86,7 @@ const writeGuideDetailCache = (guide: GuideItem) => {
   const contentHtml = sanitizeMirroredHtml(guide.contentHtml);
   if (!contentHtml) return;
   try {
-    window.localStorage.setItem(guideDetailCacheKey(guide), JSON.stringify({
+    window.localStorage.setItem(guideDetailCacheKey(guide, guide.localizedLanguage || 'en'), JSON.stringify({
       savedAt: Date.now(),
       guide: { ...guide, contentHtml },
     }));
@@ -150,7 +153,7 @@ const grandisGuideFromId = (guideId?: string): GuideItem | null => {
     upvotes: 0,
     author: 'Grandis Library',
     versions: ['gms'],
-    image: 'https://grandislibrary.com/headers/verdel.png',
+  image: '/static/images/vendor/grandislibrary.com/verdel-801df7a4ba.webp',
     excerpt: `${title} from Grandis Library.`,
     sourceLabel: 'Grandis Library',
     sourceUrl: `https://grandislibrary.com/${sourcePath}`,
@@ -183,16 +186,20 @@ const localGrandisGuidePath = (href: string, sourceUrl: string) => {
   }
 };
 
-export default function GuideDetail() {
+export default function GuideDetail({ initialId }: { initialId?: string }) {
   const { t, i18n } = useTranslation();
-  const { id } = useParams<{ id: string }>();
+  const { id: routeId } = useParams<{ id: string }>();
+  const id = routeId || initialId;
   const navigate = useNavigate();
   const location = useLocation();
   const { version } = useVersion();
+  const { initialGuide, initialGuides } = useServerRouteData();
+  const deferredContentLanguage = useDeferredValue(i18n.language);
   const [notifOpen, setNotifOpen] = useState(false);
-  const [hydratedGuide, setHydratedGuide] = useState<GuideItem | null>(null);
+  const [hydratedGuide, setHydratedGuide] = useState<GuideItem | null>(initialGuide);
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState('');
+  const [detailRetryKey, setDetailRetryKey] = useState(0);
   const [openAccordions, setOpenAccordions] = useState<Set<string>>(() => new Set());
   const openAccordionsRef = useRef<Set<string>>(new Set());
   const articleContentRef = useRef<HTMLDivElement | null>(null);
@@ -204,30 +211,49 @@ export default function GuideDetail() {
     syncNow,
   } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
-    baseItems: [],
+    baseItems: initialGuides,
     remoteLoader: fetchLiveGuides,
   });
+  const detailGuideCandidates = useMemo(() => {
+    const current = realtimeGuides.find((item) => item.id === id);
+    const related = realtimeGuides
+      .filter((item) => item.id !== id && isAvailableInVersion(item.versions, version))
+      .slice(0, 4);
+    return current ? [current, ...related] : related;
+  }, [id, realtimeGuides, version]);
+  const localizedRealtimeGuides = useLocalizedGuideItems(detailGuideCandidates, i18n.language);
 
   const guideCard = useMemo(
     () => {
       if (!id) return null;
-      const candidate = realtimeGuides.find((item) => item.id === id) || grandisGuideFromId(id);
+      const candidate = localizedRealtimeGuides.find((item) => item.id === id) || grandisGuideFromId(id);
       return candidate && isAvailableInVersion(candidate.versions, version) ? candidate : null;
     },
-    [id, realtimeGuides, version],
+    [id, localizedRealtimeGuides, version],
   );
   const guide = hydratedGuide?.id === guideCard?.id ? hydratedGuide : guideCard;
   const activeGuideSection = guideNavSections.find((section) => section.label === (guide?.guideSection || 'Content')) || guideNavSections[0];
   const backToGuideSectionLabel = t('guide_back_to_section', { section: activeGuideSection.label });
   const relatedGuides = useMemo(
-    () => realtimeGuides
+    () => localizedRealtimeGuides
       .filter((item) => item.id !== id && isAvailableInVersion(item.versions, version))
       .slice(0, 4),
-    [id, realtimeGuides, version],
+    [id, localizedRealtimeGuides, version],
   );
   const isInitialGuidesSync = realtimeStatus === 'syncing' && realtimeGuides.length === 0;
   const copy = guide ? getGuideCardCopy(guide, i18n.language) : null;
   const sourceUrl = guide?.sourceUrl || 'https://grandislibrary.com/';
+  usePageMetadata(
+    copy?.title || 'MapleStory Guides',
+    guide?.excerpt || 'Version-aware MapleStory class, progression, and boss guides.',
+    {
+      authorName: guide?.author,
+      dateModified: guide?.sourceSyncedAt,
+      image: guide?.image || undefined,
+      imageAlt: copy?.title || 'MapleStory guide',
+      type: 'article',
+    },
+  );
 
   const scrollToGuideHash = useCallback((hash: string, behavior: 'auto' | 'smooth' = 'smooth') => {
     if (!hash || typeof window === 'undefined') return;
@@ -259,6 +285,10 @@ export default function GuideDetail() {
       .filter((heading) => heading.id && heading.title)
       .slice(0, 16);
   }, [guide?.contentHtml]);
+  const renderedGuideHtml = useMemo(
+    () => guide?.contentHtml ? prepareStaticHtmlForRender(guide.contentHtml) : '',
+    [guide?.contentHtml],
+  );
 
   useEffect(() => {
     if (!guideCard?.sourceUrl) {
@@ -266,9 +296,9 @@ export default function GuideDetail() {
       setDetailError('');
       return;
     }
-    if (hydratedGuide?.id === guideCard.id && hydratedGuide.contentHtml) return;
+    if (hydratedGuide?.id === guideCard.id && hydratedGuide.contentHtml && hydratedGuide.localizedLanguage === guideLocale(deferredContentLanguage)) return;
 
-    const cachedGuide = readGuideDetailCache(guideCard);
+    const cachedGuide = readGuideDetailCache(guideCard, deferredContentLanguage);
     if (cachedGuide) {
       setHydratedGuide(cachedGuide.guide);
       if (cachedGuide.fresh) {
@@ -282,6 +312,7 @@ export default function GuideDetail() {
     setDetailLoading(!cachedGuide);
     setDetailError('');
     void fetchLiveGuideContent(guideCard)
+      .then((nextGuide) => localizeGuideItem(nextGuide, deferredContentLanguage))
       .then((nextGuide) => {
         if (!cancelled) {
           setHydratedGuide(nextGuide);
@@ -301,7 +332,13 @@ export default function GuideDetail() {
     return () => {
       cancelled = true;
     };
-  }, [guideCard, hydratedGuide?.contentHtml, hydratedGuide?.id, i18n.language, t]);
+  }, [deferredContentLanguage, detailRetryKey, guideCard, hydratedGuide?.contentHtml, hydratedGuide?.id, hydratedGuide?.localizedLanguage, t]);
+
+  useEffect(() => {
+    if (!detailError || !guideCard?.sourceUrl) return undefined;
+    const retryTimer = window.setTimeout(() => setDetailRetryKey((value) => value + 1), 12_000);
+    return () => window.clearTimeout(retryTimer);
+  }, [detailError, guideCard?.sourceUrl]);
 
   useEffect(() => {
     if (!guide?.contentHtml || !location.hash) return;
@@ -315,21 +352,56 @@ export default function GuideDetail() {
 
   useEffect(() => {
     if (!guide?.id || !copy?.title) return undefined;
-    let frame = 0;
+    let persistTimer: number | undefined;
+    let measureTimer: number | undefined;
+    let hasPersisted = false;
     let lastHash = '';
+    let headings: Array<{ id: string; top: number }> = [];
+
+    const measureHeadings = () => {
+      measureTimer = undefined;
+      const root = articleContentRef.current;
+      if (!root) {
+        headings = [];
+        return;
+      }
+      const scrollY = window.scrollY;
+      headings = Array.from(root.querySelectorAll<HTMLElement>('h2[id], h3[id]')).map((heading) => ({
+        id: heading.id,
+        top: heading.getBoundingClientRect().top + scrollY,
+      }));
+    };
+
+    const scheduleMeasure = () => {
+      if (measureTimer !== undefined) window.clearTimeout(measureTimer);
+      measureTimer = window.setTimeout(measureHeadings, 160);
+    };
+
+    const activeHeadingId = () => {
+      const threshold = window.scrollY + 140;
+      let low = 0;
+      let high = headings.length - 1;
+      let match = '';
+      while (low <= high) {
+        const middle = Math.floor((low + high) / 2);
+        if (headings[middle].top <= threshold) {
+          match = headings[middle].id;
+          low = middle + 1;
+        } else {
+          high = middle - 1;
+        }
+      }
+      return match;
+    };
 
     const persistProgress = () => {
-      frame = 0;
-      const headings = articleContentRef.current
-        ? Array.from(articleContentRef.current.querySelectorAll<HTMLElement>('h2[id], h3[id]'))
-        : [];
-      const activeHeading = headings
-        .filter((heading) => heading.getBoundingClientRect().top <= 140)
-        .at(-1);
+      persistTimer = undefined;
       const routeHash = window.location.hash;
-      const routeHeading = routeHash ? headings.find((heading) => heading.id === routeHash.slice(1)) : null;
-      const hash = routeHeading ? routeHash : activeHeading?.id ? `#${activeHeading.id}` : '';
-      if (hash === lastHash && lastHash) return;
+      const routeHeadingExists = routeHash && headings.some((heading) => heading.id === routeHash.slice(1));
+      const activeId = activeHeadingId();
+      const hash = routeHeadingExists ? routeHash : activeId ? `#${activeId}` : '';
+      if (hasPersisted && hash === lastHash) return;
+      hasPersisted = true;
       lastHash = hash;
       writeGuideReadingProgress({
         guideId: guide.id,
@@ -342,21 +414,28 @@ export default function GuideDetail() {
     };
 
     const schedulePersist = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(persistProgress);
+      if (persistTimer !== undefined) return;
+      persistTimer = window.setTimeout(persistProgress, 140);
     };
 
-    schedulePersist();
+    const root = articleContentRef.current;
+    measureHeadings();
+    persistProgress();
     window.addEventListener('scroll', schedulePersist, { passive: true });
-    window.addEventListener('hashchange', schedulePersist);
+    window.addEventListener('hashchange', persistProgress);
+    window.addEventListener('resize', scheduleMeasure, { passive: true });
     window.addEventListener('pagehide', persistProgress);
+    root?.addEventListener('load', scheduleMeasure, true);
     return () => {
       window.removeEventListener('scroll', schedulePersist);
-      window.removeEventListener('hashchange', schedulePersist);
+      window.removeEventListener('hashchange', persistProgress);
+      window.removeEventListener('resize', scheduleMeasure);
       window.removeEventListener('pagehide', persistProgress);
-      if (frame) window.cancelAnimationFrame(frame);
+      root?.removeEventListener('load', scheduleMeasure, true);
+      if (persistTimer !== undefined) window.clearTimeout(persistTimer);
+      if (measureTimer !== undefined) window.clearTimeout(measureTimer);
     };
-  }, [copy?.title, guide?.contentHtml, guide?.guideSection, guide?.id]);
+  }, [copy?.title, guide?.guideSection, guide?.id, renderedGuideHtml]);
 
   const applyAccordionState = useCallback(() => {
     const root = articleContentRef.current;
@@ -388,22 +467,6 @@ export default function GuideDetail() {
     applyAccordionState();
   }, [applyAccordionState, guide?.contentHtml, openAccordions]);
 
-  useEffect(() => {
-    const root = articleContentRef.current;
-    if (!root) return;
-
-    const observer = new MutationObserver(() => {
-      window.requestAnimationFrame(applyAccordionState);
-    });
-    observer.observe(root, {
-      childList: true,
-      subtree: true,
-    });
-    applyAccordionState();
-
-    return () => observer.disconnect();
-  }, [applyAccordionState, guide?.contentHtml]);
-
   const handleArticleClick = (event: MouseEvent<HTMLDivElement>) => {
     const accordionSummary = (event.target as HTMLElement).closest<HTMLElement>('.MuiAccordionSummary-root');
     if (accordionSummary) {
@@ -420,7 +483,6 @@ export default function GuideDetail() {
           openAccordionsRef.current = next;
           return next;
         });
-        window.requestAnimationFrame(applyAccordionState);
       }
       return;
     }
@@ -465,8 +527,9 @@ export default function GuideDetail() {
       <main id="main-content" tabIndex={-1} className="pt-16 md:pt-20">
         <section className="relative mb-14 h-80 overflow-hidden">
           <img
-            src={guide?.image || 'https://grandislibrary.com/headers/verdel.png'}
+            src={guide?.image || '/static/images/vendor/grandislibrary.com/verdel-801df7a4ba.webp'}
             alt={copy?.title || 'Grandis Library'}
+            decoding="async"
             className="h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-foreground-950/35"></div>
@@ -506,6 +569,9 @@ export default function GuideDetail() {
                   <span>•</span>
                   <span>Grandis Library</span>
                 </div>
+                <div className="mt-5 flex justify-center">
+                  <ShareButton title={copy?.title || 'MapleStory guide'} text={guide.excerpt} />
+                </div>
                 <div className="mx-auto mt-5 max-w-3xl text-left">
                   <GuideFreshnessBar sourceSyncedAt={guide.sourceSyncedAt} versions={guide.versions} />
                 </div>
@@ -535,7 +601,7 @@ export default function GuideDetail() {
                 </div>
               )}
 
-              <article className="grandis-article-content mx-auto mt-12 max-w-4xl">
+              <article className="grandis-article-content static-article-content mx-auto mt-12 max-w-4xl">
                 {detailLoading && guide.contentHtml && (
                   <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary-50 px-3 py-1.5 text-xs font-semibold text-primary-700">
                     <i className="ri-loader-4-line animate-spin"></i>
@@ -546,7 +612,7 @@ export default function GuideDetail() {
                   <div
                     ref={articleContentRef}
                     onClick={handleArticleClick}
-                    dangerouslySetInnerHTML={{ __html: sanitizeMirroredHtml(guide.contentHtml) }}
+                    dangerouslySetInnerHTML={{ __html: renderedGuideHtml }}
                   />
                 ) : (
                   <div className="mx-auto flex min-h-72 max-w-2xl flex-col items-center justify-center py-16 text-center text-foreground-600">
@@ -557,6 +623,18 @@ export default function GuideDetail() {
                     <p className="mt-3 text-sm leading-6">
                       {detailError || t('guide_loading_tip_text')}
                     </p>
+                    {detailError && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDetailError('');
+                          setDetailRetryKey((value) => value + 1);
+                        }}
+                        className="mt-5 rounded-full border border-primary-300 px-4 py-2 text-sm font-semibold text-primary-700 hover:bg-primary-50"
+                      >
+                        {t('rankings_retry')}
+                      </button>
+                    )}
                   </div>
                 )}
                 <a
@@ -582,7 +660,7 @@ export default function GuideDetail() {
                           to={`/guides/${item.id}`}
                           className="block rounded-none border border-background-200 bg-background-50 shadow-[0_0.1rem_0.1rem_rgba(0,0,0,0.08),0_0.2rem_0.2rem_rgba(0,0,0,0.06)] hover:-translate-y-0.5"
                         >
-                          <img src={item.image} alt={relatedCopy.title} className="h-28 w-full object-cover" />
+                          <img src={item.image} alt={relatedCopy.title} className="h-28 w-full object-cover" loading="lazy" decoding="async" />
                           <div className="p-3">
                             <div className="text-sm font-semibold text-foreground-950">{relatedCopy.title}</div>
                             <div className="mt-1 text-xs text-foreground-500">{relatedCopy.classLabel}</div>

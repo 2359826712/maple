@@ -1,6 +1,6 @@
 import type { Region } from './contentSchemas';
 
-export const gameVersions = ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'] as const;
+export const gameVersions = ['gms', 'kms', 'jms', 'tms', 'msea'] as const;
 
 export type GameVersion = (typeof gameVersions)[number];
 
@@ -13,16 +13,72 @@ export interface VersionDefinition {
   utcOffset: number;
   weeklyResetDay: number;
   timeZone: string;
+  defaultLanguage: 'en' | 'ko' | 'ja' | 'zh-Hant';
+  officialLinks: {
+    website?: string;
+    events?: string;
+    news?: string;
+    rankings?: string;
+  };
 }
 
 export const versionDefinitions: readonly VersionDefinition[] = [
-  { id: 'gms', name: 'GMS', fullName: 'Global MapleStory', region: 'Global', shortLabel: 'GMS', utcOffset: 0, weeklyResetDay: 4, timeZone: 'UTC' },
-  { id: 'kms', name: 'KMS', fullName: '한국 메이플스토리', region: 'Korea', shortLabel: 'KMS', utcOffset: 9, weeklyResetDay: 3, timeZone: 'Asia/Seoul' },
-  { id: 'msea', name: 'MSEA', fullName: 'MapleStory SEA', region: 'SE Asia', shortLabel: 'MSEA', utcOffset: 8, weeklyResetDay: 3, timeZone: 'Asia/Singapore' },
-  { id: 'jms', name: 'JMS', fullName: '日本メイプルストーリー', region: 'Japan', shortLabel: 'JMS', utcOffset: 9, weeklyResetDay: 3, timeZone: 'Asia/Tokyo' },
-  { id: 'cms', name: 'CMS', fullName: '冒险岛 online', region: 'China', shortLabel: 'CMS', utcOffset: 8, weeklyResetDay: 3, timeZone: 'Asia/Shanghai' },
-  { id: 'tms', name: 'TMS', fullName: '新楓之谷', region: 'Taiwan', shortLabel: 'TMS', utcOffset: 8, weeklyResetDay: 3, timeZone: 'Asia/Taipei' },
+  {
+    id: 'gms', name: 'GMS', fullName: 'Global MapleStory', region: 'NA / EU', shortLabel: 'GMS',
+    utcOffset: 0, weeklyResetDay: 4, timeZone: 'UTC', defaultLanguage: 'en',
+    officialLinks: {
+      website: 'https://www.nexon.com/maplestory',
+      events: 'https://www.nexon.com/maplestory/News/Events',
+      news: 'https://forums.maplestory.nexon.net/categories/announcements',
+      rankings: 'https://maplestory.nexon.net/rankings/overall-ranking/legendary',
+    },
+  },
+  {
+    id: 'kms', name: 'KMS', fullName: '한국 메이플스토리', region: 'Korea', shortLabel: 'KMS',
+    utcOffset: 9, weeklyResetDay: 3, timeZone: 'Asia/Seoul', defaultLanguage: 'ko',
+    officialLinks: {
+      website: 'https://maplestory.nexon.com',
+      events: 'https://maplestory.nexon.com/news/event',
+      news: 'https://maplestory.nexon.com/news/notice',
+      rankings: 'https://maplestory.nexon.com/N23Ranking/World/Total',
+    },
+  },
+  {
+    id: 'jms', name: 'JMS', fullName: '日本メイプルストーリー', region: 'Japan', shortLabel: 'JMS',
+    utcOffset: 9, weeklyResetDay: 3, timeZone: 'Asia/Tokyo', defaultLanguage: 'ja',
+    officialLinks: {
+      website: 'https://maplestory.nexon.co.jp/',
+      events: 'https://maplestory.nexon.co.jp/notice/event/',
+      news: 'https://maplestory.nexon.co.jp/notice/news/',
+      rankings: 'https://maplestory.nexon.co.jp/community/exp/ranking/',
+    },
+  },
+  {
+    id: 'tms', name: 'TMS', fullName: '新楓之谷', region: 'Taiwan', shortLabel: 'TMS',
+    utcOffset: 8, weeklyResetDay: 3, timeZone: 'Asia/Taipei', defaultLanguage: 'zh-Hant',
+    officialLinks: {
+      website: 'https://maplestory.beanfun.com/main',
+      rankings: 'https://maplestory-event.beanfun.com/UnionWebRank/Index',
+    },
+  },
+  {
+    id: 'msea', name: 'MSEA', fullName: 'MapleStorySEA', region: 'Southeast Asia', shortLabel: 'MSEA',
+    utcOffset: 8, weeklyResetDay: 3, timeZone: 'Asia/Singapore', defaultLanguage: 'en',
+    officialLinks: {
+      website: 'https://www.maplesea.com/',
+      events: 'https://www.maplesea.com/events/',
+      news: 'https://www.maplesea.com/news/',
+    },
+  },
 ] as const;
+
+export type OfficialContentKind = keyof VersionDefinition['officialLinks'];
+
+/** Returns the most specific official destination available for a server. */
+export function getOfficialContentUrl(version: GameVersion, kind: OfficialContentKind): string | undefined {
+  const links = getVersionDefinition(version).officialLinks;
+  return links[kind] ?? links.website;
+}
 
 export function isGameVersion(value: unknown): value is GameVersion {
   return typeof value === 'string' && gameVersions.includes(value as GameVersion);

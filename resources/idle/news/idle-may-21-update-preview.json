@@ -1,0 +1,34 @@
+{
+  "id": "idle-may-21-update-preview",
+  "name": "May 21 Major Update Preview",
+  "website": "MapleStory Idle RPG Forum",
+  "page": "May 21 Major Update Preview",
+  "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096",
+  "series": "idle",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "update-preview",
+  "description": "Previews the official May 21, 2026 Party Quest Exploration system, events, and planned convenience improvements.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "party-quest",
+    "preview",
+    "updates"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096"
+  ],
+  "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+}

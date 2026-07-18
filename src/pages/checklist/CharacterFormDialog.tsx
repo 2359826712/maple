@@ -21,6 +21,7 @@ const MAPLE_CLASSES = [
 interface CharacterFormDialogProps {
   open: boolean;
   editing: CharacterProfile | null;
+  defaultServer?: string;
   onClose: () => void;
   onSave: (input: Omit<CharacterProfile, 'id' | 'isDefault'>) => void;
 }
@@ -28,6 +29,7 @@ interface CharacterFormDialogProps {
 export default function CharacterFormDialog({
   open,
   editing,
+  defaultServer,
   onClose,
   onSave,
 }: CharacterFormDialogProps) {
@@ -35,10 +37,19 @@ export default function CharacterFormDialog({
   const [name, setName] = useState(editing?.name ?? '');
   const [className, setClassName] = useState(editing?.className ?? '');
   const [level, setLevel] = useState(editing?.level ?? 1);
-  const [server, setServer] = useState(editing?.server ?? 'GMS');
+  const [server, setServer] = useState(editing?.server ?? defaultServer ?? 'GMS');
   const [world, setWorld] = useState(editing?.world ?? '');
 
   const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    setName(editing?.name ?? '');
+    setClassName(editing?.className ?? '');
+    setLevel(editing?.level ?? 1);
+    setServer(editing?.server ?? defaultServer ?? 'GMS');
+    setWorld(editing?.world ?? '');
+  }, [defaultServer, editing, open]);
 
   useEffect(() => {
     if (!open) return;
@@ -128,7 +139,7 @@ export default function CharacterFormDialog({
                 onChange={(e) => setServer(e.target.value)}
                 className="w-full border border-background-300 bg-white px-3 py-2 text-sm outline-none focus:border-primary-600"
               >
-                {['GMS', 'KMS', 'MSEA', 'JMS', 'CMS', 'TMS'].map((s) => (
+                {['GMS', 'KMS', 'MSEA', 'JMS', 'TMS'].map((s) => (
                   <option key={s} value={s}>{s}</option>
                 ))}
               </select>

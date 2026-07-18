@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { cachedJsonFetch, realtimeCacheDurations } from '@/services/realtimeCache';
+import { isStaticHydration, scheduleAfterStaticHydration } from '@/ssg/hydration';
 
-export type RealtimeStatus = 'idle' | 'syncing' | 'live' | 'unavailable';
+export type RealtimeStatus = 'idle' | 'syncing' | 'live' | 'cached' | 'unavailable';
 
 interface RealtimeOptions<T extends { id: string }> {
   storageKey: string;
@@ -9,25 +10,36 @@ interface RealtimeOptions<T extends { id: string }> {
   intervalMs?: number;
   remoteUrl?: string;
   remoteLoader?: () => Promise<RemotePayload<T> | T[] | null>;
+  isValidItem?: (value: unknown) => value is T;
+  restoreStoredItemsOnHydration?: boolean;
 }
 
+type RealtimePrefetchOptions<T extends { id: string }> = Pick<
+  RealtimeOptions<T>,
+  'storageKey' | 'remoteLoader' | 'isValidItem' | 'intervalMs'
+>;
+
 const channelName = 'maplehub-realtime-content';
-const defaultIntervalMs = 10000;
+const defaultIntervalMs = realtimeCacheDurations.refresh;
+const minimumIntervalMs = 60 * 1000;
+const staticHydrationAutoSyncDelayMs = 1_500;
 const syncMetadataSuffix = ':last-successful-sync';
+const inFlightCollectionSyncs = new Map<string, Promise<RemotePayload<{ id: string }> | null>>();
 
 type RemotePayload<T extends { id: string }> = {
   items: T[];
   replace: boolean;
 };
 
-const readStoredItems = <T,>(key: string): T[] => {
+const readStoredItems = <T,>(key: string, isValidItem?: (value: unknown) => value is T): T[] => {
   if (typeof window === 'undefined') return [];
 
   try {
     const raw = window.localStorage.getItem(key);
     if (!raw) return [];
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? (parsed as T[]) : [];
+    if (!Array.isArray(parsed)) return [];
+    return isValidItem ? parsed.filter(isValidItem) : (parsed as T[]);
   } catch {
     return [];
   }
@@ -74,9 +86,15 @@ const mergeById = <T extends { id: string }>(baseItems: T[], liveItems: T[]) => 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
-const normalizeRemotePayload = <T extends { id: string }>(data: unknown): RemotePayload<T> | null => {
+const normalizeRemotePayload = <T extends { id: string }>(
+  data: unknown,
+  isValidItem?: (value: unknown) => value is T,
+): RemotePayload<T> | null => {
+  const valid = (item: unknown): item is T => (
+    isRecord(item) && typeof item.id === 'string' && (!isValidItem || isValidItem(item))
+  );
   if (Array.isArray(data)) {
-    return { items: data.filter((item): item is T => isRecord(item) && typeof item.id === 'string'), replace: false };
+    return { items: data.filter(valid), replace: false };
   }
 
   if (!isRecord(data)) return null;
@@ -86,7 +104,7 @@ const normalizeRemotePayload = <T extends { id: string }>(data: unknown): Remote
     : Array.isArray(data.upserts)
       ? data.upserts
       : [];
-  const items = rawItems.filter((item): item is T => isRecord(item) && typeof item.id === 'string');
+  const items = rawItems.filter(valid);
 
   return {
     items,
@@ -110,28 +128,67 @@ const fetchRemoteItems = async <T extends { id: string }>(
 ): Promise<RemotePayload<T> | null> => {
   if (typeof window === 'undefined') return null;
 
-  if (remoteLoader) {
+  const existingSync = inFlightCollectionSyncs.get(storageKey);
+  if (existingSync) return existingSync as Promise<RemotePayload<T> | null>;
+
+  const request = (async () => {
+    if (remoteLoader) {
+      try {
+        return normalizeRemotePayload<T>(await remoteLoader());
+      } catch {
+        return null;
+      }
+    }
+
+    if (!remoteUrl) return null;
+
     try {
-      return normalizeRemotePayload<T>(await remoteLoader());
+      const url = new URL(remoteUrl, window.location.origin);
+      const data = await cachedJsonFetch<unknown>(url.toString(), {
+        cacheKey: `realtime-collection:${storageKey}:${url.toString()}`,
+        freshMs: intervalMs,
+        staleMs: realtimeCacheDurations.week,
+      });
+      return normalizeRemotePayload<T>(data);
     } catch {
       return null;
     }
-  }
+  })();
 
-  if (!remoteUrl) return null;
-
+  inFlightCollectionSyncs.set(storageKey, request as Promise<RemotePayload<{ id: string }> | null>);
   try {
-    const url = new URL(remoteUrl, window.location.origin);
-    const data = await cachedJsonFetch<unknown>(url.toString(), {
-      cacheKey: `realtime-collection:${storageKey}:${url.toString()}`,
-      freshMs: intervalMs,
-      staleMs: realtimeCacheDurations.long,
-    });
-    return normalizeRemotePayload<T>(data);
-  } catch {
-    return null;
+    return await request;
+  } finally {
+    inFlightCollectionSyncs.delete(storageKey);
   }
 };
+
+export async function prefetchRealtimeCollection<T extends { id: string }>({
+  storageKey,
+  remoteLoader,
+  isValidItem,
+  intervalMs = defaultIntervalMs,
+}: RealtimePrefetchOptions<T>) {
+  if (typeof window === 'undefined' || !remoteLoader) return [] as T[];
+
+  const refreshIntervalMs = Math.max(intervalMs, minimumIntervalMs);
+  const storedItems = readStoredItems<T>(storageKey, isValidItem);
+  const previousSyncMs = Date.parse(readStoredSyncTime(storageKey));
+  if (storedItems.length > 0
+    && Number.isFinite(previousSyncMs)
+    && Date.now() - previousSyncMs < refreshIntervalMs) {
+    return storedItems;
+  }
+
+  const payload = await fetchRemoteItems<T>(storageKey, refreshIntervalMs, undefined, remoteLoader);
+  if (!payload || payload.items.length === 0) return storedItems;
+
+  const nextItems = applyRemotePayload(storedItems, payload);
+  writeStoredItems(storageKey, nextItems);
+  writeStoredSyncTime(storageKey, new Date().toISOString());
+  publishRealtimeUpdate(storageKey);
+  return nextItems;
+}
 
 export function useRealtimeCollection<T extends { id: string }>({
   storageKey,
@@ -139,26 +196,70 @@ export function useRealtimeCollection<T extends { id: string }>({
   intervalMs = defaultIntervalMs,
   remoteUrl,
   remoteLoader,
+  isValidItem,
+  restoreStoredItemsOnHydration,
 }: RealtimeOptions<T>) {
-  const [liveItems, setLiveItems] = useState<T[]>(() => readStoredItems<T>(storageKey));
+  const refreshIntervalMs = Math.max(intervalMs, minimumIntervalMs);
+  const deferBrowserState = isStaticHydration();
+  const initialStorageKeyRef = useRef(storageKey);
+  const [liveItems, setLiveItems] = useState<T[]>(() => (
+    deferBrowserState ? [] : readStoredItems<T>(storageKey, isValidItem)
+  ));
   const [replaceBaseItems, setReplaceBaseItems] = useState(false);
   const [status, setStatus] = useState<RealtimeStatus>('idle');
-  const [lastSyncedAt, setLastSyncedAt] = useState(() => readStoredSyncTime(storageKey));
-  const syncingRef = useRef(false);
+  const [lastSyncedAt, setLastSyncedAt] = useState(() => (
+    deferBrowserState ? '' : readStoredSyncTime(storageKey)
+  ));
+  const liveItemsStorageKeyRef = useRef(storageKey);
+  const syncingKeysRef = useRef(new Set<string>());
+  const activeStorageKeyRef = useRef(storageKey);
+  activeStorageKeyRef.current = storageKey;
 
-  const syncNow = useCallback(async () => {
-    if (syncingRef.current) return;
+  useEffect(() => {
+    liveItemsStorageKeyRef.current = storageKey;
+    return scheduleAfterStaticHydration(() => {
+      const shouldRestoreStoredItems = restoreStoredItemsOnHydration
+        ?? (baseItems.length === 0 || storageKey !== initialStorageKeyRef.current);
+      setLiveItems(shouldRestoreStoredItems
+        ? readStoredItems<T>(storageKey, isValidItem)
+        : []);
+      setReplaceBaseItems(false);
+      setLastSyncedAt(readStoredSyncTime(storageKey));
+      setStatus('idle');
+    }, { autoDelayMs: staticHydrationAutoSyncDelayMs });
+  }, [baseItems.length, isValidItem, restoreStoredItemsOnHydration, storageKey]);
 
-    syncingRef.current = true;
+  const syncCollection = useCallback(async (force = false) => {
+    if (syncingKeysRef.current.has(storageKey)) return;
+
+    const storedItems = readStoredItems<T>(storageKey, isValidItem);
+    const previousSync = readStoredSyncTime(storageKey);
+    const previousSyncMs = Date.parse(previousSync);
+    // A timestamp without usable cached content is not a successful sync. This
+    // can be left behind by an upstream response that temporarily returned an
+    // empty collection, so retry automatically instead of waiting for the
+    // configured refresh window.
+    if (!force && storedItems.length > 0
+      && Number.isFinite(previousSyncMs)
+      && Date.now() - previousSyncMs < refreshIntervalMs) {
+      setLastSyncedAt(previousSync);
+      setStatus('live');
+      return;
+    }
+
+    syncingKeysRef.current.add(storageKey);
     setStatus('syncing');
     try {
-      const storedItems = readStoredItems<T>(storageKey);
-      const remotePayload = await fetchRemoteItems<T>(storageKey, intervalMs, remoteUrl, remoteLoader);
-      const nextItems = remotePayload ? applyRemotePayload(storedItems, remotePayload) : storedItems;
+      const remotePayload = await fetchRemoteItems<T>(storageKey, refreshIntervalMs, remoteUrl, remoteLoader);
+      // Never replace known-good content, or record a successful sync, from an
+      // empty remote payload. Empty upstream responses are indistinguishable
+      // from the regional source outages this cache is intended to absorb.
+      const acceptedPayload = remotePayload && remotePayload.items.length > 0 ? remotePayload : null;
+      const nextItems = acceptedPayload ? applyRemotePayload(storedItems, acceptedPayload) : storedItems;
       const changed = !sameCollection(storedItems, nextItems);
 
-      if (remotePayload) {
-        setReplaceBaseItems(remotePayload.replace);
+      if (acceptedPayload) {
+        setReplaceBaseItems(acceptedPayload.replace);
       }
 
       if (changed) {
@@ -166,37 +267,52 @@ export function useRealtimeCollection<T extends { id: string }>({
         publishRealtimeUpdate(storageKey);
       }
 
+      if (activeStorageKeyRef.current !== storageKey) return;
+
       setLiveItems(nextItems);
-      if (remotePayload) {
+      if (acceptedPayload) {
         const syncedAt = new Date().toISOString();
         setLastSyncedAt(syncedAt);
         writeStoredSyncTime(storageKey, syncedAt);
       }
-      window.setTimeout(() => setStatus(remotePayload ? 'live' : 'unavailable'), 200);
+      window.setTimeout(() => {
+        if (activeStorageKeyRef.current === storageKey) {
+          setStatus(acceptedPayload
+            ? 'live'
+            : storedItems.length > 0 && Boolean(previousSync)
+              ? 'cached'
+              : 'unavailable');
+        }
+      }, 200);
     } finally {
-      syncingRef.current = false;
+      syncingKeysRef.current.delete(storageKey);
     }
-  }, [intervalMs, remoteLoader, remoteUrl, storageKey]);
+  }, [isValidItem, refreshIntervalMs, remoteLoader, remoteUrl, storageKey]);
+
+  const syncNow = useCallback(() => syncCollection(true), [syncCollection]);
 
   useEffect(() => {
-    void syncNow();
-    const timer = window.setInterval(syncNow, intervalMs);
+    const cancelInitialSync = scheduleAfterStaticHydration(
+      () => { void syncCollection(); },
+      { autoDelayMs: staticHydrationAutoSyncDelayMs },
+    );
+    const timer = window.setInterval(() => { void syncCollection(); }, refreshIntervalMs);
     const channel = 'BroadcastChannel' in window ? new BroadcastChannel(channelName) : null;
 
     const onMessage = (event: MessageEvent<{ storageKey?: string }>) => {
-      if (!event.data?.storageKey || event.data.storageKey === storageKey) void syncNow();
+      if (!event.data?.storageKey || event.data.storageKey === storageKey) void syncCollection();
     };
 
     const onStorage = (event: StorageEvent) => {
-      if (event.key === storageKey) void syncNow();
+      if (event.key === storageKey) void syncCollection();
     };
 
     const onFocus = () => {
-      void syncNow();
+      void syncCollection();
     };
 
     const onVisibilityChange = () => {
-      if (document.visibilityState === 'visible') void syncNow();
+      if (document.visibilityState === 'visible') void syncCollection();
     };
 
     channel?.addEventListener('message', onMessage);
@@ -206,6 +322,7 @@ export function useRealtimeCollection<T extends { id: string }>({
     document.addEventListener('visibilitychange', onVisibilityChange);
 
     return () => {
+      cancelInitialSync();
       window.clearInterval(timer);
       window.removeEventListener('storage', onStorage);
       window.removeEventListener('focus', onFocus);
@@ -214,18 +331,23 @@ export function useRealtimeCollection<T extends { id: string }>({
       channel?.removeEventListener('message', onMessage);
       channel?.close();
     };
-  }, [intervalMs, storageKey, syncNow]);
+  }, [refreshIntervalMs, storageKey, syncCollection]);
 
+  const partitionIsCurrent = liveItemsStorageKeyRef.current === storageKey;
+  const activeLiveItems = partitionIsCurrent ? liveItems : readStoredItems<T>(storageKey, isValidItem);
+  const activeReplaceBaseItems = partitionIsCurrent ? replaceBaseItems : false;
   const items = useMemo(
-    () => (replaceBaseItems && liveItems.length > 0 ? liveItems : mergeById(baseItems, liveItems)),
-    [baseItems, liveItems, replaceBaseItems],
+    () => (activeReplaceBaseItems && activeLiveItems.length > 0
+      ? activeLiveItems
+      : mergeById(baseItems, activeLiveItems)),
+    [activeLiveItems, activeReplaceBaseItems, baseItems],
   );
 
   return {
     items,
-    liveCount: liveItems.length,
-    lastSyncedAt,
-    status,
+    liveCount: activeLiveItems.length || baseItems.length,
+    lastSyncedAt: partitionIsCurrent ? lastSyncedAt : readStoredSyncTime(storageKey),
+    status: partitionIsCurrent ? status : 'idle',
     syncNow,
   };
 }

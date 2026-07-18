@@ -1,10 +1,17 @@
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { communityLinks } from '@/constants/communityLinks';
+import { SITE_NAME } from '@/constants/site';
+import { localizeHref } from '@/i18n/languageRouting';
+import { useVersion } from '@/hooks/VersionContext';
+import { getSeriesProduct } from '@/pages/series/catalog';
+import { getSeriesIdFromSearch, scopeModuleHref } from '@/pages/series/scope';
 
 const groups = [
   {
     titleKey: 'footer_group_explore',
     links: [
+      { nameKey: 'footer_series', href: '/' },
       { nameKey: 'footer_latest_news', href: '/news' },
       { nameKey: 'footer_guides_library', href: '/guides' },
       { nameKey: 'footer_events_calendar', href: '/events' },
@@ -18,8 +25,8 @@ const groups = [
       { nameKey: 'footer_character_lookup', href: '/mapler-house#char-lookup' },
       { nameKey: 'footer_star_force_sim', href: '/mapler-house#enhance' },
       { nameKey: 'footer_cube_simulator', href: '/mapler-house#enhance' },
-      { nameKey: 'footer_familiar_planner', href: '/mapler-house' },
       { nameKey: 'footer_mapler_house', href: '/mapler-house' },
+      { nameKey: 'footer_shop', href: '/shop' },
     ],
   },
   {
@@ -45,7 +52,10 @@ const groups = [
 ];
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const { version } = useVersion();
+  const { search } = useLocation();
+  const activeSeriesId = getSeriesProduct(getSeriesIdFromSearch(search))?.id;
 
   return (
     <footer className="bg-gradient-to-b from-accent-950 to-foreground-950 dark:to-[#120e0b] border-t border-accent-800/30">
@@ -58,7 +68,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-heading text-xl font-semibold text-background-50">
-                  MapleHub
+                  {SITE_NAME}
                 </div>
                 <div className="text-[11px] text-accent-300 tracking-wide">
                   {t('footer_tagline')}
@@ -103,7 +113,7 @@ export default function Footer() {
                   return (
                     <li key={l.nameKey}>
                     <a
-                      href={l.href}
+                      href={isExternal ? l.href : localizeHref(scopeModuleHref(activeSeriesId, l.href), i18n.language, version)}
                       target={isExternal ? '_blank' : undefined}
                       rel={isExternal ? 'noreferrer' : undefined}
                       className="text-sm text-accent-200/60 hover:text-primary-400 cursor-pointer transition-colors"

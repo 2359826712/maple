@@ -1,0 +1,40 @@
+{
+  "id": "n-official-documentation-announcements",
+  "name": "MapleStory N Official Notices",
+  "series": "n",
+  "regions": ["multi-region"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["developer-note", "event", "maintenance", "news", "patch-note"],
+  "base_url": "https://msu.io/maplestoryn/news/notices",
+  "discovery_urls": ["https://msu.io/maplestoryn/news/notices"],
+  "feed_url": null,
+  "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+  "sitemap_urls": [],
+  "adapter": "nexon-community",
+  "parser": "maplestory-n-official-notices",
+  "adapter_config": {
+    "block_size": 9,
+    "board_id": "5288",
+    "canonical_template": "https://msu.io/maplestoryn/news/notices/{threadId}",
+    "default_content_type": "news",
+    "headers": {
+      "community-id": "500",
+      "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+    },
+    "mode": "n",
+    "page_size": 25
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "3h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-18 against the current public MapleStory Universe notices page and its official public read API. The former documentation announcement path is no longer the live notice index."
+}

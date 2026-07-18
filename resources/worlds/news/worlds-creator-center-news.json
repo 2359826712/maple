@@ -1,0 +1,34 @@
+{
+  "id": "worlds-creator-center-news",
+  "name": "MapleStory Worlds Creator Center",
+  "website": "MapleStory Worlds Creator Center",
+  "page": "Creators News",
+  "url": "https://maplestoryworlds-creators.nexon.com/en",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "creator-news",
+  "description": "Publishes official MapleStory Worlds maintenance, platform, campaign, policy, and creator announcements.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "creators",
+    "maintenance",
+    "platform-news"
+  ],
+  "source_urls": [
+    "https://maplestoryworlds-creators.nexon.com/en"
+  ],
+  "notes": null
+}

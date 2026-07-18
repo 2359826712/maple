@@ -1,13 +1,19 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { fetchLiveEvents, liveStorageKeys, type EventItem } from '@/services/liveContent';
+import { fetchLiveEvents, getRegionalContentImage, liveStorageKeys, officialArticleHref, type EventItem } from '@/services/liveContent';
+import { isRenderableEventItem } from '@/services/contentCacheValidation';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
 import {
   daysUntilEventBoundary,
   formatServerDateRange,
   isAvailableInVersion,
 } from '@/domain/regionModel';
+import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
+import { getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const rarityStyle: Record<string, string> = {
   Legendary: 'bg-primary-500 text-background-50',
@@ -18,15 +24,23 @@ const rarityStyle: Record<string, string> = {
 export default function EventsPreview() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialEvents } = useServerRouteData();
+  const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
   const { items: realtimeEvents, status, lastSyncedAt } = useRealtimeCollection<EventItem>({
-    storageKey: liveStorageKeys.events,
-    baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
+    baseItems: initialEvents,
+    remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
+  const localizedEvents = useLocalizedEvents(
+    realtimeEvents,
+    i18n.language,
+    getNewsSourceLanguageForVersion(versionInfo.id),
+  );
 
   const filteredEvents = useMemo(
-    () => realtimeEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
-    [realtimeEvents, versionInfo.id],
+    () => localizedEvents.filter((event) => isAvailableInVersion(event.regions, versionInfo.id)),
+    [localizedEvents, versionInfo.id],
   );
   const eventWindow = (event: EventItem) =>
     formatServerDateRange(event.windowStart, event.windowEnd, versionInfo.id, i18n.language);
@@ -67,9 +81,12 @@ export default function EventsPreview() {
               >
                 <div className="relative h-40 md:h-44">
                   <img
-                    src={e.image}
+                    src={getRegionalContentImage(e.image, versionInfo.id)}
                     alt={e.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top"
+                    onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                   />
                   <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${rarityStyle[e.rarity]}`}>
                     {e.rarity}
@@ -94,15 +111,13 @@ export default function EventsPreview() {
                     <i className="ri-gift-2-line text-secondary-700"></i>
                     <span>{t('events_reward')} · <span className="font-semibold text-foreground-900">{e.rewards.join(' · ') || t('events_reward_unlisted')}</span></span>
                   </div>
-                  <a
-                    href={e.sourceUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    to={officialArticleHref(e.sourceUrl, e.name, versionInfo.id, e.image)}
                     className="mt-4 inline-flex h-10 items-center justify-center rounded-md bg-primary-500 px-4 text-sm font-semibold text-background-50 hover:bg-primary-600"
                   >
                     {t('events_open_source')}
-                    <i className="ri-external-link-line ml-1.5"></i>
-                  </a>
+                    <i className="ri-book-open-line ml-1.5"></i>
+                  </Link>
                 </div>
               </article>
             ))}

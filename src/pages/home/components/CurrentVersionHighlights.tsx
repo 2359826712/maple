@@ -1,70 +1,147 @@
+import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { fetchLiveNews, fetchLiveEvents, fetchLiveGuides, liveStorageKeys, type NewsItem, type EventItem, type GuideItem } from '@/services/liveContent';
-import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
+import { fetchLiveNews, fetchLiveEvents, fetchLiveGuides, getRegionalContentImage, liveStorageKeys, type NewsItem, type EventItem, type GuideItem } from '@/services/liveContent';
+import { isRenderableEventItem, isRenderableNewsItem } from '@/services/contentCacheValidation';
+import { getNewsCategoryLabel, getNewsSourceLanguageForVersion, newsSourceLanguageTranslationKey } from '@/pages/news/localizedNews';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useLocalizedEvents } from '@/pages/events/useLocalizedEvents';
+import { getGuideCardCopy, useLocalizedGuideItems } from '@/pages/guides/localizedGuides';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 export default function CurrentVersionHighlights() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialEvents, initialGuides, initialNews } = useServerRouteData();
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
+  const loadEvents = useCallback(() => fetchLiveEvents(versionInfo.id), [versionInfo.id]);
 
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
-    storageKey: liveStorageKeys.news,
-    baseItems: [],
-    remoteLoader: fetchLiveNews,
+    storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
+    baseItems: initialNews,
+    remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
   const { items: realtimeEvents } = useRealtimeCollection<EventItem>({
-    storageKey: liveStorageKeys.events,
-    baseItems: [],
-    remoteLoader: fetchLiveEvents,
+    storageKey: `${liveStorageKeys.events}:${versionInfo.id}`,
+    baseItems: initialEvents,
+    remoteLoader: loadEvents,
+    isValidItem: isRenderableEventItem,
   });
+  const localizedEvents = useLocalizedEvents(
+    realtimeEvents,
+    i18n.language,
+    getNewsSourceLanguageForVersion(versionInfo.id),
+  );
   const { items: realtimeGuides } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
-    baseItems: [],
+    baseItems: initialGuides,
     remoteLoader: fetchLiveGuides,
   });
+  const localizedGuides = useLocalizedGuideItems(realtimeGuides, i18n.language);
 
-  const topNews = realtimeNews.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
-  const topEvent = realtimeEvents.find((item) => isAvailableInVersion(item.regions, versionInfo.id)) ?? null;
-  const topGuide = realtimeGuides.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
+  const topNews = localizedNews.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
+  const topEvent = localizedEvents.find((item) => isAvailableInVersion(item.regions, versionInfo.id)) ?? null;
+  const topEventNews = localizedNews.find((item) => (
+    item.category === 'Event' && isAvailableInVersion(item.versions, versionInfo.id)
+  )) ?? null;
+  const topGuide = localizedGuides.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
 
-  const cards = [
-    topNews ? {
-      icon: 'ri-newspaper-line',
-      label: t('home_cv_latest_news'),
-      title: topNews.title,
-      sub: `${getNewsCategoryLabel(topNews.category, i18n.language)} · ${topNews.date}`,
-      href: '/news',
-      hrefLabel: t('home_cv_all_news'),
-      image: topNews.image,
-    } : null,
-    topEvent ? {
-      icon: 'ri-calendar-event-line',
-      label: t('home_cv_active_event'),
-      title: topEvent.name,
-      sub: `${new Date(topEvent.windowEnd).toLocaleDateString()} · ${topEvent.rewards.join(' · ')}`,
-      href: '/events',
-      hrefLabel: t('home_cv_all_events'),
-      image: topEvent.image,
-    } : null,
-    topGuide ? {
-      icon: 'ri-book-open-line',
-      label: t('home_cv_top_guide'),
-      title: topGuide.title,
-      sub: `${topGuide.class} · ${topGuide.difficulty}`,
-      href: '/guides',
-      hrefLabel: t('home_cv_all_guides'),
-      image: topGuide.image,
-    } : null,
-  ].filter(Boolean);
+  const newsCard = topNews ? {
+    kind: 'live' as const,
+    icon: 'ri-newspaper-line',
+    label: t('home_cv_latest_news'),
+    title: topNews.title,
+    sub: `${topNews.localizedCategory || getNewsCategoryLabel(topNews.category, i18n.language)} · ${topNews.date}`,
+    href: '/news',
+    hrefLabel: t('home_cv_all_news'),
+    image: topNews.image,
+    sourceCue: topNews.localizationKind === 'editorial'
+      ? t('news_localized_edition', {
+          server: topNews.versions[0]?.toUpperCase() || '',
+          language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]),
+        })
+      : topNews.usesOriginalCopy
+        ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]) })
+        : topNews.localizationKind === 'translated'
+          ? t('news_translated_edition', {
+              server: topNews.versions[0]?.toUpperCase() || '',
+              language: t(newsSourceLanguageTranslationKey[topNews.sourceLanguage]),
+            })
+          : undefined,
+  } : {
+    kind: 'fallback' as const,
+    icon: 'ri-newspaper-line',
+    title: t('home_cv_fallback_news'),
+    href: '/news',
+  };
 
-  const fallbackCards = [
-    { icon: 'ri-newspaper-line', title: t('home_cv_fallback_news'), href: '/news' },
-    { icon: 'ri-calendar-event-line', title: t('home_cv_fallback_events'), href: '/events' },
-    { icon: 'ri-book-open-line', title: t('home_cv_fallback_guides'), href: '/guides' },
-  ];
+  const eventCard = topEvent ? {
+    kind: 'live' as const,
+    icon: 'ri-calendar-event-line',
+    label: t('home_cv_active_event'),
+    title: topEvent.name,
+    sub: `${new Date(topEvent.windowEnd).toLocaleDateString()} · ${topEvent.rewards.join(' · ')}`,
+    href: '/events',
+    hrefLabel: t('home_cv_all_events'),
+    image: topEvent.image,
+    sourceCue: undefined,
+  } : topEventNews ? {
+    kind: 'live' as const,
+    icon: 'ri-calendar-event-line',
+    label: t('events_latest_official'),
+    title: topEventNews.title,
+    sub: `${t('events_published')} · ${topEventNews.date}`,
+    href: '/events',
+    hrefLabel: t('home_cv_all_events'),
+    image: topEventNews.image,
+    sourceCue: topEventNews.localizationKind === 'editorial'
+      ? t('news_localized_edition', {
+          server: topEventNews.versions[0]?.toUpperCase() || '',
+          language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]),
+        })
+      : topEventNews.usesOriginalCopy
+        ? t('news_original_language', { language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]) })
+        : topEventNews.localizationKind === 'translated'
+          ? t('news_translated_edition', {
+              server: topEventNews.versions[0]?.toUpperCase() || '',
+              language: t(newsSourceLanguageTranslationKey[topEventNews.sourceLanguage]),
+            })
+          : undefined,
+  } : {
+    kind: 'fallback' as const,
+    icon: 'ri-calendar-event-line',
+    title: t('home_cv_fallback_events'),
+    href: '/events',
+  };
+
+  const guideCard = topGuide ? {
+    kind: 'live' as const,
+    icon: 'ri-book-open-line',
+    label: t('home_cv_top_guide'),
+    title: getGuideCardCopy(topGuide, i18n.language).title,
+    sub: `${getGuideCardCopy(topGuide, i18n.language).classLabel} · ${getGuideCardCopy(topGuide, i18n.language).difficulty}`,
+    sourceCue: t('home_cv_english_source', { source: topGuide.sourceLabel || 'Grandis Library' }),
+    href: '/guides',
+    hrefLabel: t('home_cv_all_guides'),
+    image: topGuide.image,
+  } : {
+    kind: 'fallback' as const,
+    icon: 'ri-book-open-line',
+    title: t('home_cv_fallback_guides'),
+    href: '/guides',
+  };
+
+  /*
+   * Keep one destination per player intent. Live feeds fail independently, so a
+   * guide should not suppress useful News and Events fallbacks (or vice versa).
+   */
+  const cards = [newsCard, eventCard, guideCard];
 
   return (
     <section className="py-10 md:py-14 bg-background-50">
@@ -82,36 +159,41 @@ export default function CurrentVersionHighlights() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {cards.length === 0 && fallbackCards.map((card) => (
-            <Link
-              key={card.href}
-              to={card.href}
-              className="group rounded-xl border border-dashed border-background-300 bg-background-100/60 p-5 transition hover:border-primary-300 hover:bg-primary-50/50"
-            >
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-background-200 text-foreground-700">
-                <i className={`${card.icon} text-lg`} />
-              </div>
-              <h3 className="font-heading text-base font-semibold text-foreground-900">{card.title}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-foreground-600">{t('home_cv_fallback_desc')}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-700">
-                {t('home_cv_fallback_action')}
-                <i className="ri-arrow-right-s-line transition-transform group-hover:translate-x-0.5" />
-              </span>
-            </Link>
-          ))}
-          {cards.map((card) => card && (
-            <Link
-              key={card.title}
-              to={card.href}
-              className="group relative overflow-hidden rounded-xl border border-background-200 bg-background-50 transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-md"
-            >
+          {cards.map((card) => {
+            if (card.kind === 'fallback') {
+              return (
+                <Link
+                  key={card.href}
+                  to={card.href}
+                  className="group rounded-xl border border-dashed border-background-300 bg-background-100/60 p-5 transition hover:border-primary-300 hover:bg-primary-50/50"
+                >
+                  <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-background-200 text-foreground-700">
+                    <i className={`${card.icon} text-lg`} />
+                  </div>
+                  <h3 className="font-heading text-base font-semibold text-foreground-900">{card.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-foreground-600">{t('home_cv_fallback_desc')}</p>
+                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-700">
+                    {t('home_cv_fallback_action')}
+                    <i className="ri-arrow-right-s-line transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              );
+            }
+
+            return (
+              <Link
+                key={card.href}
+                to={card.href}
+                className="group relative overflow-hidden rounded-xl border border-background-200 bg-background-50 transition hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-md"
+              >
               {card.image && (
                 <div className="h-36 overflow-hidden">
                   <img
-                    src={card.image}
-                    alt=""
+                    src={getRegionalContentImage(card.image, versionInfo.id)}
+                    alt={card.title}
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={(event) => applyRegionalImageFallback(event.currentTarget, versionInfo.id)}
                   />
                   <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-transparent to-background-50/80" />
                 </div>
@@ -129,13 +211,20 @@ export default function CurrentVersionHighlights() {
                   {card.title}
                 </h3>
                 <p className="mt-1.5 text-xs text-foreground-600 line-clamp-1">{card.sub}</p>
+                {card.sourceCue && (
+                  <p className="mt-2 inline-flex items-center gap-1 text-[11px] font-medium text-foreground-500">
+                    <i className="ri-translate-2" aria-hidden="true" />
+                    {card.sourceCue}
+                  </p>
+                )}
                 <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary-600 group-hover:text-primary-700">
                   {card.hrefLabel}
                   <i className="ri-arrow-right-s-line transition-transform group-hover:translate-x-0.5"></i>
                 </div>
               </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

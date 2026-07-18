@@ -1,0 +1,44 @@
+{
+  "id": "n-official-launch-guide",
+  "name": "MapleStory N Official Launch Guide",
+  "website": "MapleStory N Documentation",
+  "page": "MapleStory N Official Launch",
+  "url": "https://docs.maplestoryn.io/welcome-to-maplestory-n/maplestory-n-official-launch",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en",
+    "id",
+    "ja",
+    "ko",
+    "other",
+    "th",
+    "zh-hans",
+    "zh-hant"
+  ],
+  "category": "guide",
+  "subcategory": "beginner",
+  "description": "Documents MapleStory N launch access, web guides, rankings, dynamic pricing, probability information, marketplace access, languages, and support.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "beginner",
+    "dynamic-pricing",
+    "launch",
+    "marketplace",
+    "rankings"
+  ],
+  "source_urls": [
+    "https://docs.maplestoryn.io/welcome-to-maplestory-n/maplestory-n-official-launch",
+    "https://docs.maplestoryn.io/announcement/maplestory-n-official-launch"
+  ],
+  "notes": "The official document moved from its former /announcement/ path and notes that access may be restricted in some regions."
+}

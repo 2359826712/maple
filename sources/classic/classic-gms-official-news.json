@@ -1,0 +1,31 @@
+{
+  "id": "classic-gms-official-news",
+  "name": "Global MapleStory Classic World News",
+  "series": "classic",
+  "regions": ["europe", "north-america"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["cash-shop", "event", "maintenance", "news", "patch-note"],
+  "base_url": "https://www.nexon.com/maplestory/news",
+  "discovery_urls": ["https://www.nexon.com/maplestory/news"],
+  "feed_url": null,
+  "api_url": "https://g.nexonstatic.com/maplestory/cms/v1/news",
+  "sitemap_urls": [],
+  "adapter": "nexon-cms",
+  "parser": "gms-classic-news",
+  "adapter_config": {
+    "default_content_type": "news"
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "3h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-18. Classic World announcements share Nexon's public Global MapleStory CMS and are separated by CMS flags plus title classification."
+}

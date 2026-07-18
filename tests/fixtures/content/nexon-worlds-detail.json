@@ -1,0 +1,13 @@
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "threadId": "3490500",
+    "headlineId": "3479",
+    "title": "Global Creator Challenge Discord Linking Event",
+    "content": "<p>Event Period</p><p>UTC: Thursday, July 2 at 5:00 until Wednesday, October 7 at 14:59</p>",
+    "createDate": 1782968400,
+    "threadModifyDate": 1782968400,
+    "user": { "nickname": "MSW_Creators" }
+  }
+}

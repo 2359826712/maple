@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 628" role="img" aria-labelledby="title desc">
+  <title id="title">JMS official news</title><desc id="desc">Japanese MapleStory branded news placeholder</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9f2742"/><stop offset="1" stop-color="#ed8d8d"/></linearGradient></defs>
+  <rect width="1200" height="628" fill="url(#g)"/><circle cx="1020" cy="90" r="250" fill="#fff" opacity=".1"/><g fill="#ffd9e2" opacity=".55"><circle cx="170" cy="130" r="22"/><circle cx="260" cy="88" r="14"/><circle cx="350" cy="160" r="18"/><circle cx="1050" cy="510" r="25"/></g>
+  <path d="M185 155c75 60 116 137 124 231-68-34-132-38-192-13 39-70 62-143 68-218Z" fill="#fff" opacity=".94"/><path d="M132 404c72-28 140-20 205 24-55 26-103 67-142 123-14-55-35-104-63-147Z" fill="#ffd064"/>
+  <text x="430" y="280" fill="#fff" font-family="Arial,sans-serif" font-size="72" font-weight="700">JMS</text><text x="430" y="350" fill="#fff" opacity=".92" font-family="Arial,sans-serif" font-size="34">メイプルストーリー公式ニュース</text>
+</svg>

@@ -4,26 +4,98 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
-import { fetchWikiEntryByTitleLocalFirst, fetchWikiEntryContent, type WikiEntry } from '@/services/liveContent';
-import { sanitizeMirroredHtml } from '@/services/sanitizeHtml';
+import {
+  fetchWikiEntryForLocale,
+  fetchWikiEntryContent,
+  type WikiEntry,
+} from '@/services/liveContent';
+import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
+import ShareButton from '@/components/feature/ShareButton';
+import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { useTranslatedWikiEntry } from './useTranslatedWikiEntry';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
+import { getWikiArticleImageFallbacks } from './articleImageFallbacks';
+
+const articleTitleKeys: Record<string, string> = {
+  Classes: 'wiki_art_classes',
+  'Link Skill': 'wiki_art_link_skill',
+  'Legion System': 'wiki_art_legion',
+  'Arcane River': 'wiki_art_arcane_river',
+  Grandis: 'wiki_art_grandis',
+  Bosses: 'wiki_art_bosses',
+  'Black Mage': 'wiki_art_black_mage',
+  Lucid: 'wiki_art_lucid',
+  Will: 'wiki_art_will',
+  Lotus: 'wiki_art_lotus',
+  Gloom: 'wiki_art_gloom',
+  'Guardian Angel Slime': 'wiki_art_gas',
+  Magnus: 'wiki_art_magnus',
+  Damien: 'wiki_art_damien',
+  'Star Force': 'wiki_art_star_force',
+  Potential: 'wiki_art_potential',
+  'Hexa Matrix': 'wiki_art_hexa_matrix',
+  Equipment: 'wiki_art_equipment',
+  Locations: 'wiki_art_locations',
+};
+
+const fallbackClassPortraits = [
+  'ren', 'wildhunter', 'shade', 'nightwalker', 'hayato', 'bowmaster', 'lynn', 'hero', 'kanna',
+  'moxuan', 'sia', 'nightlord', 'buccaneer', 'dawnwarrior', 'mercedes', 'shadower', 'aran',
+  'demonslayer', 'windarcher', 'bishop', 'angelicbuster', 'zero', 'adele', 'dualblade',
+  'demonavenger', 'marksman', 'icelightning', 'paladin', 'phantom', 'darkknight', 'erellight',
+  'illium', 'xenon', 'battlemage', 'mechanic', 'khali', 'corsair', 'mihile', 'luminous',
+  'hoyoung', 'kaine', 'firepoison', 'thunderbreaker', 'pathfinder', 'kaiser', 'ark', 'cadena',
+  'lara', 'blaster', 'cannonmaster', 'evan', 'flamewizard', 'kinesis',
+] as const;
+
+const classPortraitUrl = (slug: string) =>
+  `https://www.maplerhouse.com/class-portrait/${slug}.${slug === 'erellight' ? 'png' : 'jpg'}`;
+
+const classPortraitAlt = (slug: string) => slug
+  .replace(/([a-z])([A-Z])/g, '$1 $2')
+  .replace(/[-_]/g, ' ')
+  .replace(/\b\w/g, (character) => character.toUpperCase());
 
 export default function WikiArticlePage() {
   const { t, i18n } = useTranslation();
+  const { initialWikiEntry } = useServerRouteData();
   const navigate = useNavigate();
-  const { '*': titleParam } = useParams<{ '*': string }>();
+  const { '*': legacyTitleParam, articlePath } = useParams<{ '*': string; articlePath: string }>();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [entry, setEntry] = useState<WikiEntry | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [entry, setEntry] = useState<WikiEntry | null>(initialWikiEntry);
+  const [loading, setLoading] = useState(!initialWikiEntry);
   const [error, setError] = useState(false);
   const [hydrating, setHydrating] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [imgLoadFailed, setImgLoadFailed] = useState(false);
 
-  const isZh = i18n.language.startsWith('zh');
+  const titleParam = articlePath || legacyTitleParam;
   const title = titleParam ? decodeURIComponent(titleParam).replace(/_/g, ' ') : '';
 
   // Detect File: namespace pages
   const isFilePage = title.startsWith('File:');
+  const preferredTitle = entry && articleTitleKeys[entry.title] ? t(articleTitleKeys[entry.title]) : undefined;
+  const translatedEntry = useTranslatedWikiEntry(entry, isFilePage ? 'en' : i18n.language, preferredTitle);
+  const displayTitle = translatedEntry.title || title;
+  const htmlContent = translatedEntry.htmlContent;
+  const textContent = translatedEntry.textContent;
+  const renderedHtmlContent = useMemo(
+    () => htmlContent ? prepareStaticHtmlForRender(htmlContent) : '',
+    [htmlContent],
+  );
+  const sourceImageCount = useMemo(() => {
+    const document = new DOMParser().parseFromString(renderedHtmlContent, 'text/html');
+    return document.querySelectorAll('img[src]').length;
+  }, [renderedHtmlContent]);
+  const showClassPortraitFallback = useMemo(() => {
+    const sourceTitle = (entry?.sourcePageTitle || entry?.title || title).replace(/_/g, ' ').trim().toLowerCase();
+    if (sourceTitle !== 'classes') return false;
+    return sourceImageCount < 10;
+  }, [entry?.sourcePageTitle, entry?.title, sourceImageCount, title]);
+  const articleImageFallbacks = useMemo(
+    () => getWikiArticleImageFallbacks(entry?.sourcePageTitle || entry?.title || title, sourceImageCount),
+    [entry?.sourcePageTitle, entry?.title, sourceImageCount, title],
+  );
 
   // Primary: construct CDN URL directly from the File: title
   // All wiki images are hosted at media.maplestorywiki.net/yetidb/{filename}
@@ -36,9 +108,9 @@ export default function WikiArticlePage() {
 
   // Fallback: extract image URL from parsed HTML content
   const htmlExtractedUrl = useMemo(() => {
-    if (!isFilePage || !entry?.htmlContent) return null;
+    if (!isFilePage || !htmlContent) return null;
     const parser = new DOMParser();
-    const doc = parser.parseFromString(entry.htmlContent, 'text/html');
+    const doc = parser.parseFromString(htmlContent, 'text/html');
     const fullImg = doc.querySelector('.fullImageLink img, .mw-file-description img');
     if (fullImg) {
       const src = fullImg.getAttribute('src');
@@ -57,9 +129,9 @@ export default function WikiArticlePage() {
       }
     });
     if (best) return best.src;
-    const cdnMatch = entry.htmlContent.match(/(?:https?:)?\/\/(?:media\.maplestorywiki\.net|upload\.wikimedia\.org|static\.wikia\.nocookie\.net)\/[^"'\s<>]+\.(?:png|jpg|jpeg|gif|webp)(?:\?[^"'\s<>]*)?/i);
+    const cdnMatch = htmlContent.match(/(?:https?:)?\/\/(?:media\.maplestorywiki\.net|upload\.wikimedia\.org|static\.wikia\.nocookie\.net)\/[^"'\s<>]+\.(?:png|jpg|jpeg|gif|webp)(?:\?[^"'\s<>]*)?/i);
     return cdnMatch?.[0]?.startsWith('//') ? `https:${cdnMatch[0]}` : cdnMatch?.[0] ?? null;
-  }, [isFilePage, entry?.htmlContent]);
+  }, [htmlContent, isFilePage]);
 
   // Effective image URL: CDN construction is primary (deterministic from filename), HTML extraction is fallback
   const effectiveFileImageUrl = useMemo(() => {
@@ -106,11 +178,18 @@ export default function WikiArticlePage() {
       return;
     }
 
+    if (initialWikiEntry && initialWikiEntry.title.replace(/_/g, ' ').toLowerCase() === title.toLowerCase()) {
+      setEntry(initialWikiEntry);
+      setLoading(false);
+      setError(false);
+      return;
+    }
+
     let cancelled = false;
     setLoading(true);
     setError(false);
 
-    void fetchWikiEntryByTitleLocalFirst(title)
+    void fetchWikiEntryForLocale(title, i18n.language)
       .then((result) => {
         if (cancelled) return;
         if (result) {
@@ -129,7 +208,7 @@ export default function WikiArticlePage() {
     return () => {
       cancelled = true;
     };
-  }, [title]);
+  }, [i18n.language, initialWikiEntry, title]);
 
   // Handle wiki redirect pages (#REDIRECT [[Target]] and rendered HTML redirects)
   useEffect(() => {
@@ -249,9 +328,17 @@ export default function WikiArticlePage() {
     navigate(`/wiki/article/${encodeURIComponent(decoded)}`);
   };
 
-  const displayTitle = entry ? (isZh ? entry.titleZh : entry.title) : title;
-  const htmlContent = entry ? (isZh ? entry.htmlContentZh || entry.htmlContent : entry.htmlContent) : null;
-  const textContent = entry ? (isZh ? entry.contentZh : entry.content) : '';
+  usePageMetadata(
+    `${displayTitle || 'Article'} · MapleStory Wiki`,
+    (textContent || `Read MapleStory wiki information, guides, mechanics, and reference details about ${displayTitle || 'this topic'}.`).slice(0, 180),
+    {
+      authorName: 'MapleStory Wiki contributors',
+      authorType: 'Organization',
+      dateModified: entry?.lastSynced,
+      noIndex: error && !loading,
+      type: 'article',
+    },
+  );
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
@@ -320,11 +407,16 @@ export default function WikiArticlePage() {
 
             {/* Article */}
             {loading ? (
-              <div className="flex items-center gap-3 py-20 text-foreground-600">
-                <i className="ri-loader-4-line animate-spin text-2xl"></i>
-                <span className="text-sm">
-                  {t('wiki_article_loading')}
-                </span>
+              <div className="py-12">
+                <h1 className="font-serif text-3xl font-normal leading-tight text-foreground-950 md:text-[2.1rem]">
+                  {displayTitle || 'MapleStory Wiki'}
+                </h1>
+                <div className="mt-5 flex items-center gap-3 text-foreground-600" role="status">
+                  <i className="ri-loader-4-line animate-spin text-2xl" aria-hidden="true"></i>
+                  <span className="text-sm">
+                    {t('wiki_article_loading')}
+                  </span>
+                </div>
               </div>
             ) : isFilePage ? (
               /* File: pages always show the file viewer, even without mirror/API data */
@@ -333,7 +425,7 @@ export default function WikiArticlePage() {
                   {title}
                 </h1>
                 <div className="mt-1 text-sm text-foreground-600">
-                  From the MapleStory Wiki, mirrored inside MapleHub
+                  From the MapleStory Wiki, mirrored inside MPStorys
                 </div>
 
                 <div className="mt-5 mb-6">
@@ -348,8 +440,10 @@ export default function WikiArticlePage() {
                           <img
                             src={effectiveFileImageUrl}
                             alt={title}
+                            title={title}
                             className="max-h-[520px] max-w-full object-contain"
                             loading="eager"
+                            decoding="async"
                             onError={() => setImgLoadFailed(true)}
                           />
                           <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-opacity group-hover:opacity-100">
@@ -402,9 +496,9 @@ export default function WikiArticlePage() {
                         {t('wiki_file_description')}
                       </summary>
                       <div
-                        className="wiki-article-content wiki-vector-article mt-3 border-t border-background-100 pt-4"
+                        className="wiki-article-content wiki-vector-article static-article-content mt-3 border-t border-background-100 pt-4"
                         onClick={handleArticleClick}
-                        dangerouslySetInnerHTML={{ __html: sanitizeMirroredHtml(htmlContent || '') }}
+                        dangerouslySetInnerHTML={{ __html: renderedHtmlContent }}
                       />
                     </details>
                   ) : entry && textContent ? (
@@ -422,9 +516,9 @@ export default function WikiArticlePage() {
             ) : error || !entry ? (
               <div className="border border-background-300 bg-background-50 px-6 py-16 text-center">
                 <i className="ri-file-warning-line mb-3 block text-4xl text-background-300"></i>
-                <p className="text-lg font-serif text-foreground-950">
+                <h1 className="text-lg font-serif text-foreground-950">
                   {t('wiki_article_not_found')}
-                </p>
+                </h1>
                 <p className="mt-2 text-sm text-foreground-600">
                   {t('wiki_article_not_found_desc', { title })}
                 </p>
@@ -449,20 +543,48 @@ export default function WikiArticlePage() {
                     {displayTitle}
                   </h1>
                   <div className="mt-1 text-sm text-foreground-600">
-                    {t('wiki_article_from_source', 'From the MapleStory Wiki, mirrored inside MapleHub')}
+                    {t('wiki_article_from_source', 'From the MapleStory Wiki, mirrored inside MPStorys')}
                     {entry.lastSynced && (
                       <span className="ml-2 text-foreground-400">
                         · {t('wiki_article_synced', 'Synced')} {entry.lastSynced.slice(0, 10)}
                       </span>
                     )}
                   </div>
-
+                  <div className="mt-3">
+                    <ShareButton title={displayTitle} text={(textContent || '').slice(0, 140)} />
+                  </div>
                   <div
-                    className="wiki-article-content wiki-vector-article wiki-mainpage-article mt-5"
+                    className="wiki-article-content wiki-vector-article wiki-mainpage-article static-article-content mt-5"
                     onClick={handleArticleClick}
                   >
+                    {showClassPortraitFallback && (
+                      <div className="wiki-class-portrait-fallback" aria-label={displayTitle}>
+                        {fallbackClassPortraits.map((slug) => (
+                          <img
+                            key={slug}
+                            src={classPortraitUrl(slug)}
+                            alt={classPortraitAlt(slug)}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ))}
+                      </div>
+                    )}
+                    {articleImageFallbacks.length > 0 && (
+                      <div className="wiki-article-image-fallback" aria-label={displayTitle}>
+                        {articleImageFallbacks.map((image, index) => (
+                          <img
+                            key={image.src}
+                            src={image.src}
+                            alt={image.alt ? `${displayTitle}: ${image.alt}` : displayTitle}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
+                          />
+                        ))}
+                      </div>
+                    )}
                     {htmlContent && !looksLikeWikitext(htmlContent) ? (
-                      <div dangerouslySetInnerHTML={{ __html: sanitizeMirroredHtml(htmlContent || '') }} />
+                      <div dangerouslySetInnerHTML={{ __html: renderedHtmlContent }} />
                     ) : hydrating ? (
                       <div className="flex items-center gap-3 py-20 text-foreground-600">
                         <i className="ri-loader-4-line animate-spin text-2xl"></i>
@@ -538,7 +660,9 @@ export default function WikiArticlePage() {
           <img
             src={effectiveFileImageUrl}
             alt={title}
+            title={title}
             className="max-h-[90vh] max-w-[90vw] object-contain"
+            decoding="async"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

@@ -29,8 +29,19 @@ const playerDataExactKeys = new Set([
   'maplehub-theme',
   'maplehub-color-mode',
   'maplehub-tool-favorites',
+  'maplehub-home-tool-pins:v1',
   'maplehub-guide-reading-progress:v1',
+  'maplehub-routine-tasks:v1',
+  'maplehub-routine-tasks:v2',
+  'maplehub-event-goals:v1',
+  'maplehub-event-goals:v2',
 ]);
+
+const notifyPlayerDataChanged = (key: string) => {
+  if (typeof window !== 'undefined' && isPlayerDataStorageKey(key)) {
+    window.dispatchEvent(new CustomEvent('maplehub-account-data-changed'));
+  }
+};
 
 export const isQuotaExceededError = (error: unknown) =>
   error instanceof DOMException &&
@@ -42,6 +53,7 @@ export const isReconstructableStorageKey = (key: string) =>
 export const isPlayerDataStorageKey = (key: string) =>
   playerDataExactKeys.has(key) ||
   key.startsWith('maplehub-characters:v2:') ||
+  key.startsWith('maplehub-link-planner:') ||
   key === 'maplehub-checklist' ||
   key.startsWith('maplehub-checklist-');
 
@@ -66,6 +78,9 @@ export const compactReconstructableStorage = (storage: Storage) => {
 export const deleteAllPlayerData = (storage: Storage) => {
   const removed = listStorageKeys(storage).filter(isPlayerDataStorageKey);
   removed.forEach((key) => storage.removeItem(key));
+  if (removed.length > 0 && typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('maplehub-account-data-changed'));
+  }
   return removed;
 };
 
@@ -76,6 +91,7 @@ export function writeStorageValueWithRecovery(
 ): StorageWriteResult {
   try {
     storage.setItem(key, value);
+    notifyPlayerDataChanged(key);
     return { ok: true, compactedKeys: [] };
   } catch (error) {
     if (!isQuotaExceededError(error)) {
@@ -85,6 +101,7 @@ export function writeStorageValueWithRecovery(
     const compactedKeys = compactReconstructableStorage(storage);
     try {
       storage.setItem(key, value);
+      notifyPlayerDataChanged(key);
       return { ok: true, compactedKeys };
     } catch (retryError) {
       return {
@@ -128,6 +145,7 @@ export function applyStorageTransaction(
     for (const { key, value } of mutations) {
       if (value === null) {
         storage.removeItem(key);
+        notifyPlayerDataChanged(key);
         continue;
       }
       const result = writeStorageValueWithRecovery(storage, key, value);

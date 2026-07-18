@@ -1,0 +1,86 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-07-02-3491333",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3491333",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3491333",
+  "external_id": "3491333",
+  "title": "[Updated on July 6, 05:00(UTC)] Known Issues Following the July 1 Patch",
+  "original_title": "[Updated on July 6, 05:00(UTC)] Known Issues Following the July 1 Patch",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "known-issues",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T09:10:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:30.531Z",
+  "last_checked": "2026-07-18T09:44:30.531Z",
+  "summary": "The MapleStory N July 1 known-issues notice records follow-up fixes through July 6. Tropical Adventure clear rewards increased from 50 to 100 coins, the level-160 Monster Park Express Pass issue was fixed, and Morass story-skip access was restored with an extra login-and-map step for earlier completions.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "known-issues",
+    "patch-note"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260514/a01713c6-aee5-4264-8d6c-97e53832e030/%EA%B3%B5%EC%A7%80%EB%B0%B0%EB%84%88knownissue.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260611/599f1450-8572-4f45-9ded-f428c57f333e/knownissueresolved.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0c2893f92104dd175324caf53ef253b844d903b8da8d323402f2e4d6f997597a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:40.161Z",
+    "headline_id": "5041",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Resolved and adjusted",
+        "items": [
+          "Tropical Adventure now awards 100 coins per clear instead of 50, effective after July 3 at 06:50 UTC.",
+          "Characters at level 160 can use the Monster Park Express Pass after the fix.",
+          "Other characters on an account can skip completed Morass story quests again."
+        ]
+      },
+      {
+        "title": "Morass follow-up",
+        "items": [
+          "For accounts that completed the Morass story before July 3 at 07:00 UTC, the completing character must log in and revisit Morass - Trueffet Square before the skip becomes available to other characters.",
+          "The official notice retains resolution timestamps and should be checked for changes after MPStorys' verification date."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2026-07-02T09:10:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

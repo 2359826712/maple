@@ -1,0 +1,74 @@
+{
+  "id": "classic-world-closed-online-test-2-registration",
+  "source_id": "classic-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2",
+  "source_url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2",
+  "external_id": "42364",
+  "title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+  "original_title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
+  "series": "classic",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "announcements",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-07-16",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-18T00:00:00.000Z",
+  "summary": "Registration for the second Global MapleStory Classic World closed online test is open through July 29, 2026. The test is scheduled for August 4-12 and all interested players, including previous testers, must apply again.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "closed-test",
+    "macos",
+    "registration",
+    "third-job"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [
+    "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
+  ],
+  "content_hash": "fbfa24185def5f0a7584692288cc324dda39de01aa0e4b9b973a4920c73c5655",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "classic-nexon-closed-online-test-2",
+    "sections": [
+      {
+        "title": "Key dates",
+        "items": [
+          "Applications close Wednesday, July 29, 2026.",
+          "Closed Online Test #2 is scheduled for August 4-12, 2026.",
+          "Selected players receive access instructions through the email registered to their Nexon account."
+        ]
+      },
+      {
+        "title": "What's new in test #2",
+        "items": [
+          "The preview adds 3rd Job Advancement and the Ossyria areas Orbis and El Nath.",
+          "macOS support and controller support with customizable layouts are included.",
+          "The test build adds more language options and incorporates feedback from the first test."
+        ]
+      },
+      {
+        "title": "Participation rules",
+        "items": [
+          "Everyone must submit a new application, including players who participated in the first closed test.",
+          "Test content, balance, Cash Shop features, and other systems are not final.",
+          "Characters and progress will be wiped after the test ends."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against Nexon's official news and campaign pages on 2026-07-18."
+}

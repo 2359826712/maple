@@ -1,0 +1,34 @@
+{
+  "id": "n-official-updates",
+  "name": "MapleStory N Updates",
+  "website": "MapleStory N Documentation",
+  "page": "Updates",
+  "url": "https://docs.maplestoryn.io/archives/updates",
+  "series": "n",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "news",
+  "subcategory": "updates",
+  "description": "Indexes official MapleStory N notices, game patches, service changes, and update announcements.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "announcements",
+    "patch-notes",
+    "updates"
+  ],
+  "source_urls": [
+    "https://docs.maplestoryn.io/archives/updates"
+  ],
+  "notes": null
+}

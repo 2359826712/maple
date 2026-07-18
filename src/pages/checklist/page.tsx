@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { isStaticHydration } from '@/ssg/hydration';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
@@ -31,6 +32,7 @@ import {
   type BossDifficultyChecklistRule,
 } from '@/domain/bossChecklistRules';
 import ChecklistBossRow from './ChecklistBossRow';
+import RoutineChecklist from './RoutineChecklist';
 
 function formatCountdown(ms: number): string {
   if (ms <= 0) return '00:00:00';
@@ -44,13 +46,19 @@ export default function ChecklistPage() {
   const { t } = useTranslation();
   const { version, setVersion } = useVersion();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [now, setNow] = useState(Date.now());
-  const [filter, setFilter] = useState<'all' | 'daily' | 'weekly'>('all');
+  const deferBrowserState = isStaticHydration();
+  const [now, setNow] = useState(0);
+  const [filter, setFilter] = useState<'all' | 'daily' | 'weekly'>(() => {
+    const period = searchParams.get('period');
+    return period === 'daily' || period === 'weekly' ? period : 'all';
+  });
   const [searchQuery, setSearchQuery] = useState('');
   const [isEditingChecklist, setIsEditingChecklist] = useState(false);
   const [showIneligible, setShowIneligible] = useState(false);
   const [compact, setCompact] = useState(() => {
+    if (deferBrowserState) return false;
     try { return localStorage.getItem('maplehub-checklist-density') === 'compact'; } catch { return false; }
   });
   const [undoAction, setUndoAction] = useState<{
@@ -117,9 +125,13 @@ export default function ChecklistPage() {
   });
 
   useEffect(() => {
+    setNow(Date.now());
+    if (deferBrowserState) {
+      try { setCompact(localStorage.getItem('maplehub-checklist-density') === 'compact'); } catch { /* use default */ }
+    }
     const timer = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [deferBrowserState]);
 
   useEffect(() => {
     if (checklistOpenTrackedRef.current) return;
@@ -214,7 +226,7 @@ export default function ChecklistPage() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `maplehub-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    link.download = `mpstorys-backup-${new Date().toISOString().slice(0, 10)}.json`;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -231,7 +243,7 @@ export default function ChecklistPage() {
         const reasons: Record<string, string> = {
           'too-large': t('import_error_too_large', 'File is too large (max 5 MB).'),
           'invalid-json': t('import_error_invalid_json', 'The file is not valid JSON.'),
-          'invalid-schema': t('import_error_invalid_schema', 'The file is not a valid MapleHub backup.'),
+          'invalid-schema': t('import_error_invalid_schema', 'The file is not a valid MPStorys backup.'),
         };
         setImportError(reasons[parsed.reason] || t('checklist_import_error'));
         setImportPreview(null);
@@ -318,9 +330,13 @@ export default function ChecklistPage() {
     [regionBosses, version],
   );
   const defaultSelectedTaskIds = useMemo(() => eligibleBosses.flatMap((boss) => {
-    const rule = rulesByBossId.get(boss.id)?.at(-1);
+    const comfortablyUnlocked = (activeCharacter?.level ?? 0) >= boss.minLevel + 10;
+    if (!comfortablyUnlocked) return [];
+    const rules = rulesByBossId.get(boss.id) ?? [];
+    const dailyRules = rules.filter((rule) => rule.period === 'daily');
+    const rule = dailyRules.at(-1) ?? rules.at(0);
     return rule ? [checklistTaskId(boss.id, rule.difficulty)] : [];
-  }), [eligibleBosses, rulesByBossId]);
+  }), [activeCharacter?.level, eligibleBosses, rulesByBossId]);
   const rawSelectedTaskIds = checklistConfig?.selectedTaskIds ?? defaultSelectedTaskIds;
   const normalizedSelectedTaskIds = useMemo(
     () => normalizeTrackedDifficulties(regionBosses, rawSelectedTaskIds),
@@ -534,11 +550,19 @@ export default function ChecklistPage() {
             </div>
           </div>
 
+          <RoutineChecklist
+            version={version}
+            characterId={activeCharId}
+            periodFilter={filter}
+            nowMs={now}
+            world={activeCharacter?.world || activeCharacter?.server || ''}
+          />
+
           {isPrimaryEmptyState ? emptyStateContent : (<>
           {/* Progress cards */}
           <div className="mb-6 grid gap-4 sm:grid-cols-3">
             {/* Daily progress */}
-            <div className="border border-background-300 bg-white p-4">
+            <div id="quick-actions" className="scroll-mt-24 border border-background-300 bg-white p-4">
               <div className="mb-1 flex items-center justify-between">
                 <span className="text-sm font-semibold text-foreground-950">
                   {t('checklist_daily')}
@@ -776,7 +800,7 @@ export default function ChecklistPage() {
             emptyStateContent
           ) : (<>
           {/* One responsive row per boss; difficulty controls appear only in edit mode. */}
-          <div className={compact ? 'space-y-1.5' : 'space-y-2.5'}>
+          <div id="boss-checklist" className={`scroll-mt-24 ${compact ? 'space-y-1.5' : 'space-y-2.5'}`}>
             {(() => {
               const renderResetHeader = (
                 period: 'daily' | 'weekly',
@@ -854,6 +878,27 @@ export default function ChecklistPage() {
         </div>
         )}
         </ErrorBoundary>
+
+        <section className="mx-auto max-w-6xl px-4 pb-12 pt-4 md:px-8" aria-labelledby="checklist-about-title">
+          <div className="border-t border-background-300 pt-8">
+            <h2 id="checklist-about-title" className="font-heading text-xl font-semibold text-foreground-950 md:text-2xl">
+              {t('checklist_about_title')}
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground-600">
+              {t('checklist_about_desc')}
+            </p>
+            <ul className="mt-4 grid gap-3 text-sm leading-6 text-foreground-700 md:grid-cols-2">
+              <li className="border border-background-300 bg-white p-4">
+                <strong className="block text-foreground-950">{t('checklist_about_tracking_title')}</strong>
+                <span>{t('checklist_about_tracking_desc')}</span>
+              </li>
+              <li className="border border-background-300 bg-white p-4">
+                <strong className="block text-foreground-950">{t('checklist_about_privacy_title')}</strong>
+                <span>{t('checklist_about_privacy_desc')}</span>
+              </li>
+            </ul>
+          </div>
+        </section>
       </main>
 
       <Footer />

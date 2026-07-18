@@ -41,10 +41,6 @@ const EXTRA: Record<string, PieceDef[]> = {
     { id: 'p17', name: 'Lvl 250 Lab', rows: 2, cols: 5, color: '#f97316', category: 'Lab' },
     { id: 'p18', name: 'Lvl 250 Lab+', rows: 2, cols: 3, color: '#fbbf24', category: 'Lab+' },
   ],
-  cms: [
-    { id: 'p16', name: 'Lvl 200 Training', rows: 2, cols: 4, color: '#fb923c', category: 'Training' },
-    { id: 'p17', name: 'Lvl 250 Training', rows: 2, cols: 5, color: '#f97316', category: 'Training' },
-  ],
   tms: [
     { id: 'p16', name: 'Lvl 200 Training', rows: 2, cols: 4, color: '#fb923c', category: 'Training' },
     { id: 'p17', name: 'Lvl 250 Training', rows: 2, cols: 5, color: '#f97316', category: 'Training' },

@@ -1,0 +1,19 @@
+{
+  "total_content": 21,
+  "total_sources": 6,
+  "enabled_sources": 6,
+  "content_types": {
+    "cash-shop": 1,
+    "creator-announcement": 2,
+    "event": 2,
+    "guide": 3,
+    "maintenance": 7,
+    "news": 4,
+    "patch-note": 2
+  },
+  "statuses": {
+    "expired": 1,
+    "published": 19,
+    "updated": 1
+  }
+}

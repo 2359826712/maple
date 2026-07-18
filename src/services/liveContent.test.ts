@@ -2,7 +2,19 @@
 
 import { describe, expect, it, vi } from 'vitest';
 import {
+  extractOfficialArticleImage,
+  getPrefetchedOfficialArticleDocument,
+  getNewsFallbackImage,
+  getRegionalContentImage,
   normalizeEventFeed,
+  normalizeOrangeMushroomKmsCoverage,
+  normalizeTmsBulletins,
+  officialArticleHref,
+  fetchOfficialArticleDocument,
+  fetchLiveGuideContent,
+  parseJmsListing,
+  parseKmsListing,
+  parseMseaListing,
   parseGrandisSectionPage,
   validateHydratedWikiEntry,
   wikiEntryFromMirrorRecord,
@@ -10,7 +22,224 @@ import {
 import type { WikiMirrorPageRecord } from './mapleSqlApi';
 import type { WikiEntry } from '@/mocks/wiki';
 
+describe('official regional news adapters', () => {
+  it('uses distinct branded fallbacks for regional servers', () => {
+    expect(new Set([
+      getNewsFallbackImage('jms'),
+      getNewsFallbackImage('tms'),
+      getNewsFallbackImage('msea'),
+    ]).size).toBe(3);
+    expect(getRegionalContentImage(getNewsFallbackImage('gms'), 'jms')).toBe(getNewsFallbackImage('jms'));
+  });
+
+  it('prefers real article artwork over generic social and tracking images', () => {
+    const image = extractOfficialArticleImage(`
+      <meta property="og:image" content="http://media.example.com/facebook/maplestory.png">
+      <main>
+        <img width="1" height="1" src="https://tracker.example.com/pixel.png">
+        <img data-src="/uploads/summer-event.webp" alt="Summer event">
+      </main>
+    `, 'https://maplestory.example.com/news/123');
+
+    expect(image).toBe('https://maplestory.example.com/uploads/summer-event.webp');
+  });
+
+  it('imports KMS notices and events', () => {
+    const items = parseKmsListing(`
+      <ul><li>
+        <p><a href="/News/Notice/All/149495"><em><img src="notice.png" alt="[공지]"></em><span>운영정책 안내</span></a></p>
+        <div class="heart_date">2026.07.09</div>
+      </li></ul>
+    `, 'General');
+
+    expect(items[0]).toMatchObject({
+      title: '운영정책 안내',
+      versions: ['kms'],
+      sourceUrl: 'https://maplestory.nexon.com/News/Notice/All/149495',
+    });
+  });
+
+  it('keeps KMS news and event coverage available when the Nexon listing proxy fails', () => {
+    const items = normalizeOrangeMushroomKmsCoverage([{ posts: [
+      {
+        ID: 82441,
+        title: 'KMS ver. 1.2.416 &#8211; Ruler of Covenants',
+        URL: 'http://orangemushroom.net/2026/07/05/kms-ver-1-2-416/',
+        date: '2026-07-05T09:48:29-04:00',
+        excerpt: '<p>The newest Korean MapleStory update.</p>',
+        featured_image: 'https://orangemushroom.wordpress.com/update.png',
+        author: { name: 'Max' },
+        categories: { KMS: {} },
+      },
+      {
+        ID: 82117,
+        title: 'KMS ver. 1.2.415 &#8211; Maple Attack: Event Boss',
+        URL: 'https://orangemushroom.net/2026/05/20/kms-ver-1-2-415/',
+        date: '2026-05-20T11:47:51-04:00',
+        excerpt: '<p>Event coverage.</p>',
+        categories: { KMS: {} },
+      },
+    ] }]);
+
+    expect(items).toHaveLength(2);
+    expect(items[0]).toMatchObject({
+      title: 'KMS ver. 1.2.416 – Ruler of Covenants',
+      category: 'Patch Notes',
+      sourceLanguage: 'en',
+      versions: ['kms'],
+    });
+    expect(items[1]).toMatchObject({ category: 'Event', versions: ['kms'] });
+  });
+
+  it('builds an internal route for official articles', () => {
+    const href = officialArticleHref('https://www.maplesea.com/news/view/example/', 'Example', 'msea', '/static/example.webp');
+    const url = new URL(href, 'https://maplehub.test');
+    expect(url.pathname).toBe('/source');
+    expect(url.searchParams.get('url')).toBe('https://www.maplesea.com/news/view/example/');
+    expect(url.searchParams.get('server')).toBe('msea');
+    expect(url.searchParams.get('image')).toBe('/static/example.webp');
+  });
+
+  it('loads Orange Mushroom fallback articles through the WordPress content API', async () => {
+    window.localStorage.clear();
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify([{
+      content: { rendered: '<article><h2>KMS update</h2><p>Verified article body.</p></article>' },
+    }]), { status: 200, headers: { 'Content-Type': 'application/json' } }));
+
+    try {
+      const article = await fetchOfficialArticleDocument(
+        'https://orangemushroom.net/2026/07/04/kms-ver-1-2-416-maplestory-overdrive/',
+        'kms',
+      );
+
+      expect(article.html).toContain('Verified article body.');
+      expect(getPrefetchedOfficialArticleDocument(article.sourceUrl, 'kms')).toEqual(article);
+      expect(String(fetchMock.mock.calls[0]?.[0])).toContain('/static-content?url=');
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('imports MapleStorySEA listing rows as in-site news cards', () => {
+    const items = parseMseaListing(`
+      <ul><li class="title_links">[08.07] :
+        <a href="https://www.maplesea.com/events/view/v252_Sunday_Jul/"><img src="/images/sunday.jpg">July Sunday Maple Benefits</a>
+      </li></ul>
+    `, 'Event');
+
+    expect(items).toHaveLength(1);
+    expect(items[0]).toMatchObject({
+      title: 'July Sunday Maple Benefits',
+      category: 'Event',
+      versions: ['msea'],
+      sourceUrl: 'https://www.maplesea.com/events/view/v252_Sunday_Jul/',
+      image: 'https://www.maplesea.com/images/sunday.jpg',
+    });
+  });
+
+  it('imports JMS notice table rows with their official article URL', () => {
+    const items = parseJmsListing(`
+      <table class="notice-list"><tr>
+        <td class="category"><p class="event">イベント</p></td>
+        <td class="ttl"><p><a href="/notice/view/?alias=abc&amp;id=event"><img data-src="/images/sunday.png">サンデーメイプル</a></p></td>
+        <td class="date">2026.07.08</td><td class="view">20662</td>
+      </tr></table>
+    `);
+
+    expect(items[0]).toMatchObject({
+      title: 'サンデーメイプル',
+      category: 'Event',
+      versions: ['jms'],
+      sourceUrl: 'https://maplestory.nexon.co.jp/notice/view/?alias=abc&id=event',
+      image: 'https://maplestory.nexon.co.jp/images/sunday.png',
+    });
+  });
+
+  it('attaches reviewed locale copies to current JMS notices', () => {
+    const items = parseJmsListing(`
+      <table class="notice-list"><tr>
+        <td class="category"><p class="event">イベント</p></td>
+        <td class="ttl"><p><a href="/notice/view/?alias=23be945847fd412cb1bc778856c2478a&amp;id=all">スペシャルサンデーメイプル</a></p></td>
+        <td class="date">2026.07.08</td><td class="view">20662</td>
+      </tr></table>
+    `);
+
+    expect(items[0].translations?.zh).toEqual({
+      title: '特别周日冒险岛',
+      excerpt: '特别周日冒险岛',
+    });
+    expect(items[0].translations?.ko?.title).toBe('스페셜 선데이 메이플');
+  });
+
+  it('imports the safe JMS markdown mirror when the official site blocks the backend client', () => {
+    const items = parseJmsListing(`
+      | カテゴリ | 件名 | 日付 | 表示回数 |
+      | --- | --- | --- | --- |
+      | イベント | [スペシャルサンデー](https://maplestory.nexon.co.jp/notice/view/?alias=abc&id=all) | 2026.07.08 | 20688 |
+    `);
+
+    expect(items[0]).toMatchObject({ title: 'スペシャルサンデー', category: 'Event', versions: ['jms'] });
+  });
+
+  it('normalizes TMS bulletin API records', () => {
+    const items = normalizeTmsBulletins([{
+      bullentinId: '82054', bullentinCatId: '72', startDate: '2026/07/08',
+      title: '潘朵拉箱子', urlLink: null,
+    }]);
+
+    expect(items[0]).toMatchObject({
+      title: '潘朵拉箱子',
+      category: 'Event',
+      versions: ['tms'],
+      sourceUrl: 'https://maplestory.beanfun.com/bulletin?bid=82054',
+    });
+  });
+
+  it('keeps a real TMS thumbnail and upgrades it to HTTPS', () => {
+    const items = normalizeTmsBulletins([{
+      bullentinId: '82055', bullentinCatId: '72', startDate: '2026/07/09',
+      title: '夏日活動', urlLink: null, thumbnail: 'http://maplestory.beanfun.com/images/summer.jpg',
+    }]);
+
+    expect(items[0].image).toBe('https://maplestory.beanfun.com/images/summer.jpg');
+  });
+});
+
 describe('Grandis class landing import', () => {
+  it.each([
+    ['boss-pre-quests', 'boss-matchmaking-pre-quests'],
+    ['upgrading-and-enhancing-equipment', 'upgrading-enhancing-equipment'],
+  ])('loads a cached legacy %s URL from its current source path', async (legacySlug, currentSlug) => {
+    window.localStorage.clear();
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(`
+      <main id="main-content"><h1>Updated guide</h1><p>Current article body.</p></main>
+    `, { status: 200 }));
+
+    try {
+      const guide = await fetchLiveGuideContent({
+        id: `grandis-content-${legacySlug}`,
+        title: 'Updated guide',
+        class: 'Content',
+        guideSection: 'Content',
+        difficulty: 'Intermediate',
+        length: 'Live',
+        upvotes: 0,
+        author: 'Grandis Library',
+        versions: ['gms'],
+        image: '/grandis.png',
+        excerpt: 'Updated guide.',
+        sourceLabel: 'Grandis Library',
+        sourceUrl: `https://grandislibrary.com/content/${legacySlug}`,
+      });
+
+      expect(guide.sourceUrl).toBe(`https://grandislibrary.com/content/${currentSlug}`);
+      expect(guide.contentText).toContain('Current article body.');
+      expect(decodeURIComponent(String(fetchMock.mock.calls[0]?.[0]))).toContain(`/content/${currentSlug}`);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('replaces upstream swiper markup with grouped h2 + container sections (GL layout)', () => {
     const page = parseGrandisSectionPage(`
       <main id="main-content">
@@ -87,13 +316,15 @@ const validEvent = {
 
 describe('live event import boundary', () => {
   it('accepts a canonical event feed envelope', () => {
-    const items = normalizeEventFeed({ items: [validEvent] }, Date.parse('2026-07-11T00:00:00.000Z'));
+    const imageUrl = 'https://example.com/summer-event.jpg';
+    const items = normalizeEventFeed({ items: [{ ...validEvent, imageUrl }] }, Date.parse('2026-07-11T00:00:00.000Z'));
     expect(items).toHaveLength(1);
     expect(items[0]).toMatchObject({
       id: validEvent.id,
       name: validEvent.title,
       regions: ['gms'],
       rewards: ['Event Ring'],
+      image: imageUrl,
     });
   });
 

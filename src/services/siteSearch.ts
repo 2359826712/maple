@@ -12,6 +12,14 @@ import { bosses } from '@/mocks/bosses';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { getBossChecklistRules } from '@/domain/bossChecklistRules';
 import type { GameVersion } from '@/domain/regionModel';
+import {
+  getIndexedResourceModule,
+  getIndexedResourceSeriesId,
+  indexedResources,
+} from '@/domain/resourceIndex';
+import { indexedContent } from '@/domain/contentIndex';
+import { getSeriesResourceHref } from '@/pages/series/scope';
+import { getVerifiedSeriesResourceSlug } from '@/pages/series/verifiedContent';
 
 export type SearchSection = 'news' | 'guides' | 'events' | 'tools' | 'wiki' | 'maps' | 'bosses';
 
@@ -30,24 +38,62 @@ type SearchableResult = SiteSearchResult & {
 };
 
 const staticRoutes = [
-  { id: 'route-news', href: '/news', section: 'news' as const, icon: 'ri-newspaper-line', titles: ['News', '资讯', 'ニュース', '資訊'] },
-  { id: 'route-guides', href: '/guides', section: 'guides' as const, icon: 'ri-book-open-line', titles: ['Guides', '攻略', 'ガイド', '攻略'] },
-  { id: 'route-events', href: '/events', section: 'events' as const, icon: 'ri-calendar-event-line', titles: ['Events', '活动', 'イベント', '活動'] },
-  { id: 'route-checklist', href: '/checklist', section: 'tools' as const, icon: 'ri-checkbox-circle-line', titles: ['Daily Boss Checklist', '每日 Boss 清单', 'デイリーボスチェックリスト', '每日 Boss 清單'] },
-  { id: 'route-tools', href: '/mapler-house', section: 'tools' as const, icon: 'ri-tools-line', titles: ['Mapler House Tools', 'Mapler House 工具', 'Mapler House ツール', 'Mapler House 工具'] },
-  { id: 'route-wiki', href: '/wiki', section: 'wiki' as const, icon: 'ri-book-2-line', titles: ['MapleStory Wiki', '冒险岛百科', 'メイプルストーリーWiki', '楓之谷百科'] },
-  { id: 'route-maps', href: '/maps', section: 'maps' as const, icon: 'ri-map-2-line', titles: ['World Maps', '世界地图', 'ワールドマップ', '世界地圖'] },
-  { id: 'route-rankings', href: '/rankings', section: 'tools' as const, icon: 'ri-bar-chart-grouped-line', titles: ['Rankings', '排行榜', 'ランキング', '排行榜'] },
+  { id: 'route-series', href: '/series', section: 'guides' as const, icon: 'ri-apps-2-line', titles: ['MapleStory Series', '冒险岛系列', 'メイプルストーリーシリーズ', '楓之谷系列', '메이플스토리 시리즈'] },
+  { id: 'route-news', href: '/news', section: 'news' as const, icon: 'ri-newspaper-line', titles: ['News', '资讯', 'ニュース', '資訊', '뉴스'] },
+  { id: 'route-upcoming', href: '/upcoming', section: 'news' as const, icon: 'ri-radar-line', titles: ['Upcoming Updates', '未来版本', '今後のアップデート', '未來版本', '향후 업데이트'] },
+  { id: 'route-guides', href: '/guides', section: 'guides' as const, icon: 'ri-book-open-line', titles: ['Guides', '攻略', 'ガイド', '攻略', '가이드'] },
+  { id: 'route-events', href: '/events', section: 'events' as const, icon: 'ri-calendar-event-line', titles: ['Events', '活动', 'イベント', '活動', '이벤트'] },
+  { id: 'route-checklist', href: '/checklist', section: 'tools' as const, icon: 'ri-checkbox-circle-line', titles: ['Daily Boss Checklist', '每日 Boss 清单', 'デイリーボスチェックリスト', '每日 Boss 清單', '일일 보스 체크리스트'] },
+  { id: 'route-tools', href: '/mapler-house', section: 'tools' as const, icon: 'ri-tools-line', titles: ['Mapler House Tools', 'Mapler House 工具', 'Mapler House ツール', 'Mapler House 工具', 'Mapler House 도구'] },
+  { id: 'route-wiki', href: '/wiki', section: 'wiki' as const, icon: 'ri-book-2-line', titles: ['MapleStory Wiki', '冒险岛百科', 'メイプルストーリーWiki', '楓之谷百科', '메이플스토리 위키'] },
+  { id: 'route-maps', href: '/maps', section: 'maps' as const, icon: 'ri-map-2-line', titles: ['World Maps', '世界地图', 'ワールドマップ', '世界地圖', '월드맵'] },
+  { id: 'route-rankings', href: '/rankings', section: 'tools' as const, icon: 'ri-bar-chart-grouped-line', titles: ['Rankings', '排行榜', 'ランキング', '排行榜', '랭킹'] },
 ] as const;
 
 const languageIndex = (language: string) => {
   if (language === 'zh-Hant') return 3;
   if (language.startsWith('zh')) return 1;
   if (language.startsWith('ja')) return 2;
+  if (language.startsWith('ko')) return 4;
   return 0;
 };
 
 const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, ' ').trim();
+
+const collectIndexedText = (value: unknown): string[] => {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap(collectIndexedText);
+  if (value && typeof value === 'object') return Object.values(value).flatMap(collectIndexedText);
+  return [];
+};
+
+const indexedContentByResourceId = new Map(
+  indexedContent.flatMap((record) => (
+    typeof record.metadata.resource_id === 'string' ? [[record.metadata.resource_id, record] as const] : []
+  )),
+);
+
+const resourceSection = (module: ReturnType<typeof getIndexedResourceModule>): SearchSection => {
+  if (module === 'news' || module === 'upcoming') return 'news';
+  if (module === 'guides') return 'guides';
+  if (module === 'events') return 'events';
+  if (module === 'wiki') return 'wiki';
+  return 'tools';
+};
+
+const resourceIcon = (module: ReturnType<typeof getIndexedResourceModule>) => ({
+  news: 'ri-newspaper-line',
+  upcoming: 'ri-radar-line',
+  guides: 'ri-book-open-line',
+  events: 'ri-calendar-event-line',
+  tools: 'ri-tools-line',
+  checklist: 'ri-checkbox-circle-line',
+  wiki: 'ri-book-2-line',
+  rankings: 'ri-bar-chart-grouped-line',
+  shop: 'ri-shopping-bag-3-line',
+  community: 'ri-group-line',
+  feedback: 'ri-feedback-line',
+}[module]);
 
 const readLiveItems = <T,>(key: string): T[] => {
   if (typeof window === 'undefined') return [];
@@ -107,11 +153,44 @@ export function getSiteSearchResults(query: string, language: string, version: s
       score: 0,
       haystack: [...route.titles, route.href, route.section].join(' '),
     })),
+    ...indexedResources.map((resource) => {
+      const module = getIndexedResourceModule(resource);
+      const seriesId = getIndexedResourceSeriesId(resource);
+      const content = indexedContentByResourceId.get(resource.id);
+      const slug = getVerifiedSeriesResourceSlug({
+        title: resource.name,
+        description: resource.description,
+        sourceLabel: resource.website,
+        sourceUrl: resource.url,
+      });
+      return {
+        id: `resource-${resource.id}`,
+        title: resource.name,
+        excerpt: `${resource.website} · ${content?.summary || resource.description}`,
+        href: getSeriesResourceHref(seriesId, module, slug),
+        section: resourceSection(module),
+        icon: resourceIcon(module),
+        score: 0,
+        haystack: [
+          resource.name,
+          resource.website,
+          resource.page,
+          resource.description,
+          resource.series,
+          resource.category,
+          resource.subcategory || '',
+          ...resource.regions,
+          ...resource.languages,
+          ...resource.tags,
+          ...(content ? collectIndexedText(content) : []),
+        ].join(' '),
+      };
+    }),
     ...liveNews
       .filter((item) => isAvailableInVersion(item.versions, version))
       .map((item) => {
         const copy = getNewsCopy(item, language);
-        const category = getNewsCategoryLabel(item.category, language);
+        const category = copy.localizedCategory || getNewsCategoryLabel(item.category, language);
         return {
           id: item.id,
           title: copy.title,
@@ -120,7 +199,7 @@ export function getSiteSearchResults(query: string, language: string, version: s
           section: 'news' as const,
           icon: 'ri-newspaper-line',
           score: 0,
-          haystack: [copy.title, copy.excerpt, category, item.author, item.sourceUrl].join(' '),
+          haystack: [copy.title, copy.excerpt, category, ...copy.searchTerms, item.author, item.sourceUrl].join(' '),
         };
       }),
     ...liveGuides

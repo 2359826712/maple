@@ -12,7 +12,7 @@ export const quickTools = [
     href: '/mapler-house#char-lookup',
     tag: 'Live',
     dataLabelKey: 'tools_data_official_feed',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     key: 'starforce',
@@ -23,7 +23,7 @@ export const quickTools = [
     href: '/mapler-house#enhance',
     tag: 'Simulator',
     dataLabelKey: 'tools_data_estimate',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     key: 'cube',
@@ -34,7 +34,7 @@ export const quickTools = [
     href: '/mapler-house#enhance',
     tag: 'Simulator',
     dataLabelKey: 'tools_data_estimate',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     key: 'ranking',
@@ -104,7 +104,7 @@ export const videoCards = [
     youtubeId: 'lRq6L98CgMU',
     sourceUrl: 'https://www.youtube.com/watch?v=lRq6L98CgMU',
     versions: ['gms'],
-    thumb: 'https://i.ytimg.com/vi/lRq6L98CgMU/hqdefault.jpg',
+    thumb: '/static/images/vendor/i.ytimg.com/lRq6L98CgMU-mqdefault.jpg',
   },
   {
     id: 'v2',
@@ -116,7 +116,7 @@ export const videoCards = [
     youtubeId: 'vfKP8EaAkvE',
     sourceUrl: 'https://www.youtube.com/watch?v=vfKP8EaAkvE',
     versions: ['gms', 'kms'],
-    thumb: 'https://i.ytimg.com/vi/vfKP8EaAkvE/hqdefault.jpg',
+    thumb: '/static/images/vendor/i.ytimg.com/vfKP8EaAkvE-mqdefault.jpg',
   },
   {
     id: 'v3',
@@ -128,7 +128,7 @@ export const videoCards = [
     youtubeId: 'Y5MXB60M_KQ',
     sourceUrl: 'https://www.youtube.com/watch?v=Y5MXB60M_KQ',
     versions: ['gms'],
-    thumb: 'https://i.ytimg.com/vi/Y5MXB60M_KQ/hqdefault.jpg',
+    thumb: '/static/images/vendor/i.ytimg.com/Y5MXB60M_KQ-mqdefault.jpg',
   },
   {
     id: 'v4',
@@ -140,7 +140,7 @@ export const videoCards = [
     youtubeId: 'jrNaGRDfg6k',
     sourceUrl: 'https://www.youtube.com/watch?v=jrNaGRDfg6k',
     versions: ['gms'],
-    thumb: 'https://i.ytimg.com/vi/jrNaGRDfg6k/hqdefault.jpg',
+    thumb: '/static/images/vendor/i.ytimg.com/jrNaGRDfg6k-mqdefault.jpg',
   },
   {
     id: 'v5',
@@ -152,7 +152,7 @@ export const videoCards = [
     youtubeId: 'CvcQKSz1kOY',
     sourceUrl: 'https://www.youtube.com/watch?v=CvcQKSz1kOY',
     versions: ['gms', 'kms'],
-    thumb: 'https://i.ytimg.com/vi/CvcQKSz1kOY/hqdefault.jpg',
+    thumb: '/static/images/vendor/i.ytimg.com/CvcQKSz1kOY-mqdefault.jpg',
   },
 ];
 
@@ -234,7 +234,7 @@ export const communityHighlights = [
     id: 'c1',
     user: 'PeachyMule',
     avatar:
-      'https://readdy.ai/api/search-image?query=Cute%20chibi%20fantasy%20MMO%20female%20warrior%20avatar%20with%20pink%20hair%20on%20warm%20cream%20background%2C%20soft%20painterly%20cartoon%20style%2C%20simple%20centered%20portrait%2C%20whimsical%20mood%2C%20warm%20highlights%2C%20clean%20elegant%20composition%20with%20plenty%20of%20negative%20space%20around%20subject&width=120&height=120&seq=maple-avatar-peachy&orientation=squarish',
+      '/static/images/readdy/maple-avatar-peachy.jpg',
     title: 'Finally hit 30★ on Arcane fair umbrella — 118 stars total',
     tag: 'Screenshot',
     reactions: 402,
@@ -244,7 +244,7 @@ export const communityHighlights = [
     id: 'c2',
     user: 'CoffeeArchmage',
     avatar:
-      'https://readdy.ai/api/search-image?query=Chibi%20fantasy%20mage%20boy%20wearing%20glasses%20holding%20a%20warm%20coffee%20cup%20on%20cream%20background%2C%20soft%20painterly%20cartoon%20style%20avatar%2C%20simple%20centered%20portrait%2C%20whimsical%20mood%2C%20warm%20highlights%2C%20clean%20elegant%20composition%20with%20negative%20space&width=120&height=120&seq=maple-avatar-coffee&orientation=squarish',
+      '/static/images/readdy/maple-avatar-coffee.jpg',
     title: 'Kalos hard practice pug — recruiting Hayato & Kanna mules',
     tag: 'Party Recruit',
     reactions: 217,
@@ -254,7 +254,7 @@ export const communityHighlights = [
     id: 'c3',
     user: 'MapleTeaHouse',
     avatar:
-      'https://readdy.ai/api/search-image?query=Chibi%20fantasy%20female%20avatar%20wearing%20cozy%20tea%20themed%20outfit%20on%20cream%20background%2C%20warm%20orange%20highlights%2C%20soft%20painterly%20cartoon%20style%20portrait%2C%20simple%20centered%20subject%2C%20whimsical%20mood%2C%20clean%20elegant%20composition%20with%20negative%20space&width=120&height=120&seq=maple-avatar-tea&orientation=squarish',
+      '/static/images/readdy/maple-avatar-tea.jpg',
     title: 'Mapler House gallery — the cozy library build (blueprint inside)',
     tag: 'Build',
     reactions: 512,
@@ -279,13 +279,13 @@ export const toolShowcase = [
     name: 'Legion Optimizer',
     detail: 'Best board layout by attacker, buff, or damage-taken profile.',
     icon: 'ri-layout-grid-line',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     name: 'Nodestone Simulator',
     detail: 'Skill node crafting probability, per-class recommended trios.',
     icon: 'ri-stack-line',
-    versions: ['gms', 'kms', 'msea', 'jms', 'cms', 'tms'],
+    versions: ['gms', 'kms', 'msea', 'jms', 'tms'],
   },
   {
     name: 'Hyper Stat Calculator',

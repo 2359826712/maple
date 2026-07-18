@@ -13,7 +13,7 @@ export default function RankingsPage() {
       <NotificationDrawer open={notifOpen} onClose={() => setNotifOpen(false)} />
 
       <main id="main-content" tabIndex={-1} className="pt-16 md:pt-20">
-        <RankingBoard />
+        <RankingBoard headingLevel="h1" />
       </main>
 
       <Footer />

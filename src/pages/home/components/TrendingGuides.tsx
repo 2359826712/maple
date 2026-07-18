@@ -5,9 +5,11 @@ import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { getGuideCardCopy } from '@/pages/guides/localizedGuides';
+import { getGuideCardCopy, useLocalizedGuideItems } from '@/pages/guides/localizedGuides';
 import AuthRequiredNotice from '@/components/feature/AuthRequiredNotice';
+import ShareButton from '@/components/feature/ShareButton';
 import { fetchLiveGuides, liveStorageKeys, type GuideItem } from '@/services/liveContent';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const difficultyColor: Record<string, string> = {
   Beginner: 'bg-accent-100 text-accent-800',
@@ -18,14 +20,16 @@ const difficultyColor: Record<string, string> = {
 export default function TrendingGuides() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialGuides } = useServerRouteData();
   const [liked, setLiked] = useState<Record<string, boolean>>({});
   const [authPrompt, setAuthPrompt] = useState(false);
   const { isSignedIn } = useAuthSession();
   const { items: realtimeGuides, status: realtimeStatus } = useRealtimeCollection<GuideItem>({
     storageKey: liveStorageKeys.guides,
-    baseItems: [],
+    baseItems: initialGuides,
     remoteLoader: fetchLiveGuides,
   });
+  const localizedGuides = useLocalizedGuideItems(realtimeGuides, i18n.language);
   const requireAuth = () => {
     if (isSignedIn) return true;
     setAuthPrompt(true);
@@ -38,8 +42,8 @@ export default function TrendingGuides() {
   };
 
   const filteredGuides = useMemo(
-    () => realtimeGuides.filter((guide) => isAvailableInVersion(guide.versions, versionInfo.id)),
-    [realtimeGuides, versionInfo.id],
+    () => localizedGuides.filter((guide) => isAvailableInVersion(guide.versions, versionInfo.id)),
+    [localizedGuides, versionInfo.id],
   );
   const isInitialGuidesSync = realtimeStatus === 'syncing' && realtimeGuides.length === 0;
 
@@ -98,6 +102,8 @@ export default function TrendingGuides() {
                       <img
                         src={g.image}
                         alt={copy.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                       <span className="absolute top-3 left-3 px-2 py-1 rounded-md bg-background-50/95 text-[11px] font-semibold text-foreground-900">
@@ -147,9 +153,12 @@ export default function TrendingGuides() {
                         >
                           <i className="ri-bookmark-line"></i>
                         </button>
-                        <button className="w-9 h-9 rounded-full bg-background-100 hover:bg-secondary-100 hover:text-secondary-800 flex items-center justify-center cursor-pointer" aria-label="share">
-                          <i className="ri-share-forward-line"></i>
-                        </button>
+                        <ShareButton
+                          compact
+                          title={copy.title}
+                          text={g.excerpt}
+                          url={`/guides/${encodeURIComponent(g.id)}`}
+                        />
                       </div>
                     </div>
                   </div>

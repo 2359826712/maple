@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { describe, expect, it } from 'vitest';
-import { sanitizeMirroredHtml } from './sanitizeHtml';
+import { prepareStaticHtmlForRender, sanitizeMirroredHtml } from './sanitizeHtml';
 
 describe('sanitizeMirroredHtml', () => {
   it('removes executable markup and event handlers', () => {
@@ -38,6 +38,30 @@ describe('sanitizeMirroredHtml', () => {
     expect(output).toContain('data-guide-region="gms"');
     expect(output).toContain('data-guide-source-synced-at="2026-07-12T08:00:00.000Z"');
     expect(output).not.toContain('data-secret');
+  });
+
+  it('preserves lazy asynchronous image hints for large static articles', () => {
+    const output = sanitizeMirroredHtml('<img src="https://example.com/item.png" loading="lazy" decoding="async">');
+    expect(output).toContain('loading="lazy"');
+    expect(output).toContain('decoding="async"');
+  });
+
+  it('promotes a remote lazy-load source before data attributes are removed', () => {
+    const output = sanitizeMirroredHtml([
+      '<img alt="Adventurers"',
+      ' src="data:image/gif;base64,placeholder"',
+      ' data-src="https://static.wikia.nocookie.net/maplestory/adventurers.png"',
+      ' class="mw-file-element lazyload">',
+    ].join(''));
+
+    expect(output).toContain('src="https://static.wikia.nocookie.net/maplestory/adventurers.png"');
+    expect(output).not.toContain('data-src');
+    expect(output).not.toContain('data:image');
+  });
+
+  it('upgrades legacy HTTP article images to HTTPS', () => {
+    const output = sanitizeMirroredHtml('<img src="http://nxcache.nexon.net/cms/maple-memo.jpg" alt="Maple Memo">');
+    expect(output).toContain('src="https://nxcache.nexon.net/cms/maple-memo.jpg"');
   });
 
   it('neutralizes the OWASP XSS filter-evasion payload classes', () => {
@@ -77,5 +101,30 @@ describe('sanitizeMirroredHtml', () => {
         }
       }
     }
+  });
+});
+
+describe('prepareStaticHtmlForRender', () => {
+  it('defers article images and marks only substantial off-screen sections', () => {
+    const largeSection = `<section><h2>Large</h2>${'<p>article paragraph</p>'.repeat(10)}<img src="https://example.com/a.png"><img src="https://example.com/b.png"></section>`;
+    const output = prepareStaticHtmlForRender(`<main><div><div class="content-container">${largeSection}<section><p>Small</p></section></div></div></main>`);
+    const documentFragment = new DOMParser().parseFromString(output, 'text/html');
+    const sections = documentFragment.querySelectorAll('section');
+
+    expect(sections[0].hasAttribute('data-static-content-block')).toBe(true);
+    expect(sections[1].hasAttribute('data-static-content-block')).toBe(false);
+    const images = documentFragment.querySelectorAll('img');
+    expect(images[0].getAttribute('loading')).toBe('eager');
+    expect(images[0].getAttribute('fetchpriority')).toBe('high');
+    for (const image of Array.from(images).slice(1)) {
+      expect(image.getAttribute('loading')).toBe('lazy');
+      expect(image.getAttribute('decoding')).toBe('async');
+    }
+  });
+
+  it('still sanitizes executable markup before rendering', () => {
+    const output = prepareStaticHtmlForRender('<div><script>alert(1)</script><img src="https://example.com/a.png" onerror="alert(2)"></div>');
+    expect(output).not.toContain('script');
+    expect(output).not.toContain('onerror');
   });
 });

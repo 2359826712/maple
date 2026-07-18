@@ -1,0 +1,80 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-07-07-42501",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/42501/completed-scheduled-minor-patch-maintenance-july-9-2026",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/42501/completed-scheduled-minor-patch-maintenance-july-9-2026",
+  "external_id": "42501",
+  "title": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026",
+  "original_title": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-07-07T18:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:43:52.847Z",
+  "last_checked": "2026-07-18T09:43:52.847Z",
+  "summary": "The July 9 minor patch maintenance completed at 11:55 AM PDT after updating MapleStory to v.269.3.0. All game servers were unavailable during the five-hour window, and eligible Cash Shop item durations were extended by five hours.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+      "alt": "[Completed]Scheduled Minor Patch Maintenance - July 9, 2026"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "bbbb4c50093478b3f81feac163de5a32f2d43fe2babaf84de7a439de1d464900",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:10.127Z",
+    "parser_warnings": [],
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Maintenance window",
+        "items": [
+          "Scheduled for July 9 from 7:00 AM to 12:00 PM PDT, with all MapleStory servers unavailable.",
+          "Completion was confirmed at 11:55 AM PDT, and players were asked to restart Nexon Launcher or Steam.",
+          "Cash Shop items in player inventories were extended by five hours."
+        ]
+      },
+      {
+        "title": "v.269.3.0 fixes",
+        "items": [
+          "The patch addressed crashes or freezes involving Receipt Damage Skin and Lynn's Whirlwind.",
+          "It corrected Beyond Burning access and reward indicators, several Erel Light and Sia Astelle event or quest issues, and item enhancement problems.",
+          "The official notice contains the complete fix list for the minor patch."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

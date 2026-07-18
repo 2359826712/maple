@@ -1,9 +1,8 @@
 import { getAccessToken } from '@/hooks/useAuthSession';
+import { apiBaseUrl, apiEndpoint } from './apiEndpoint';
 import { telemetry } from './telemetry';
 
-const rawApiBaseUrl = (import.meta.env.VITE_MAPLE_SQL_API_BASE_URL || '/api').trim();
-const apiBaseUrl = rawApiBaseUrl.replace(/\/+$/, '');
-const defaultTenantKey = (import.meta.env.VITE_MAPLE_SQL_TENANT_KEY || 'default').trim() || 'default';
+const defaultTenantKey = (process.env.NEXT_PUBLIC_MAPLE_SQL_TENANT_KEY || 'default').trim() || 'default';
 
 export class MapleApiError extends Error {
   status: number;
@@ -22,12 +21,8 @@ type RequestOptions = {
   headers?: Headers | Record<string, string>;
   body?: unknown;
   auth?: boolean;
+  accessToken?: string;
   [key: string]: unknown;
-};
-
-const buildUrl = (path: string) => {
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
-  return `${apiBaseUrl}${normalizedPath}`;
 };
 
 const parseResponseBody = async (response: Response) => {
@@ -53,8 +48,8 @@ const normalizeErrorMessage = (payload: unknown, fallback: string) => {
 };
 
 async function request<T>(path: string, options: RequestOptions = {}): Promise<T> {
-  const { body, headers, auth = false, ...rest } = options;
-  const token = auth ? getAccessToken() : null;
+  const { body, headers, auth = false, accessToken, ...rest } = options;
+  const token = auth ? accessToken || getAccessToken() : null;
   const requestHeaders = new Headers(headers);
 
   if (body !== undefined && !requestHeaders.has('Content-Type')) {
@@ -66,7 +61,8 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 
   let response: Response;
   try {
-    response = await fetch(buildUrl(path), {
+    response = await fetch(apiEndpoint(path), {
+      credentials: 'include',
       ...(rest as Record<string, unknown>),
       headers: requestHeaders,
       body: body === undefined ? undefined : JSON.stringify(body),
@@ -100,8 +96,40 @@ export type AuthUser = {
 
 export type AuthResponse = {
   access_token: string;
+  access_expires_at: string;
+  auto_login_expires_at?: string;
   user: AuthUser;
   tenant_id: string;
+  permissions: string[];
+};
+
+export type SiteFeedbackStatus = 'new' | 'in_progress' | 'resolved' | 'closed';
+
+export type SiteFeedbackRecord = {
+  id: string;
+  tenant_id: string;
+  category: 'bug' | 'suggestion' | 'content' | 'other';
+  subject: string;
+  details: string;
+  contact_email: string;
+  locale: string;
+  page_url: string;
+  status: SiteFeedbackStatus;
+  admin_note: string;
+  handled_by?: string;
+  handled_at?: string;
+  created_at: string;
+  updated_at: string;
+};
+
+export type SiteFeedbackInput = {
+  category: SiteFeedbackRecord['category'];
+  subject: string;
+  details: string;
+  contact_email?: string;
+  locale?: string;
+  page_url?: string;
+  tenant_key?: string;
 };
 
 export type NewsletterSubscribeInput = {
@@ -259,11 +287,44 @@ export const mapleSqlApi = {
   },
 
   auth: {
-    login: (payload: { email: string; password: string }) =>
+    google: (payload: { credential: string; auto_login: boolean }) =>
+      request<AuthResponse>('/auth/google', { method: 'POST', body: payload }),
+    login: (payload: { email: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/login', { method: 'POST', body: payload }),
-    signup: (payload: { email: string; username: string; display_name: string; password: string }) =>
+    signup: (payload: { email: string; username: string; display_name: string; password: string; auto_login: boolean }) =>
       request<AuthResponse>('/auth/signup', { method: 'POST', body: payload }),
-    me: () => request<{ user_id: string; tenant_id: string }>('/me', { auth: true }),
+    refresh: () => request<AuthResponse>('/auth/refresh', { method: 'POST', auth: true }),
+    logout: (accessToken?: string) => request<void>('/auth/logout', { method: 'POST', auth: true, accessToken }),
+    me: () => request<{ user_id: string; tenant_id: string; permissions: string[] }>('/me', { auth: true }),
+  },
+  feedback: {
+    create: (payload: SiteFeedbackInput) =>
+      request<SiteFeedbackRecord>('/feedback', {
+        method: 'POST',
+        body: { tenant_key: defaultTenantKey, ...payload },
+      }),
+    list: (params: { status?: SiteFeedbackStatus | ''; query?: string } = {}) => {
+      const query = new URLSearchParams();
+      if (params.status) query.set('status', params.status);
+      if (params.query) query.set('q', params.query);
+      const suffix = query.toString() ? `?${query}` : '';
+      return request<SiteFeedbackRecord[]>(`/admin/feedback${suffix}`, { auth: true });
+    },
+    update: (id: string, payload: { status: SiteFeedbackStatus; admin_note: string }) =>
+      request<SiteFeedbackRecord>(`/admin/feedback/${encodeURIComponent(id)}`, {
+        method: 'PATCH',
+        auth: true,
+        body: payload,
+      }),
+  },
+  accountData: {
+    get: () => request<{ data: Record<string, string>; revision: number; updated_at?: string }>('/player-data', { auth: true }),
+    save: (data: Record<string, string>) =>
+      request<{ data: Record<string, string>; revision: number; updated_at: string }>('/player-data', {
+        method: 'PUT',
+        auth: true,
+        body: { data },
+      }),
   },
   newsletter: {
     subscribe: (payload: NewsletterSubscribeInput) =>
@@ -336,8 +397,13 @@ export const mapleSqlApi = {
   },
 
   notifications: {
-    list: (unreadOnly = false) =>
-      request<MapleNotification[]>(`/notifications${unreadOnly ? '?unread=1' : ''}`, { auth: true }),
+    list: async (unreadOnly = false) => {
+      const items = await request<MapleNotification[] | null>(
+        `/notifications${unreadOnly ? '?unread=1' : ''}`,
+        { auth: true },
+      );
+      return Array.isArray(items) ? items : [];
+    },
     markRead: (id: string) =>
       request<{ ok: true }>(`/notifications/${id}/read`, { method: 'POST', auth: true }),
     markAllRead: () =>

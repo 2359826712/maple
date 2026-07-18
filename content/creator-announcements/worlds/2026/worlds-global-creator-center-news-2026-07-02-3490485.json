@@ -1,0 +1,79 @@
+{
+  "id": "worlds-global-creator-center-news-2026-07-02-3490485",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490485",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3490485",
+  "external_id": "3490485",
+  "title": "Open Market Store Process Abuse Sanction Post - June 2026",
+  "original_title": "Open Market Store Process Abuse Sanction Post - June 2026",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-07-02T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:12.015Z",
+  "last_checked": "2026-07-18T09:44:12.015Z",
+  "summary": "MapleStory Worlds reported permanent account bans and currency retrieval for 509 accounts found to have abused open-market-store or payment processes during June 2026. The notice also explains where World Coin and in-World purchase refund requests must be submitted.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/bbe6b528-4de4-4f81-8b81-da2098170acd/MSWGenericPostBanners740x120notice.png",
+      "alt": "Open Market Store Process Abuse Sanction Post - June 2026"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/fc63a8a5-5ac6-41d4-aa22-6fe22cb5b930/image202607011354491.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "565718f1ddef3ea8dd7082644aae8d5f14426b63277c34b8a0e00314b8a9ce39",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:25.277Z",
+    "headline_id": "3476",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Enforcement result",
+        "items": [
+          "The June 2026 notice lists 509 sanctioned accounts.",
+          "The stated reason is inappropriate transaction or payment activity involving company and open-market-store processes.",
+          "The stated penalty is a permanent account ban and currency retrieval under the operating policy."
+        ]
+      },
+      {
+        "title": "Refund route",
+        "items": [
+          "World Coin purchase refunds must be requested from MapleStory Worlds Support before the currency is used.",
+          "Refunds for items purchased inside a World must be sent to that World's creator through the Inquire with a Creator option."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

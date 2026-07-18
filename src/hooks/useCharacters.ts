@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getAccessToken } from '@/hooks/useAuthSession';
+import { ACCOUNT_CACHE_CHANGED_EVENT, ACCOUNT_CACHE_OWNER_KEY } from '@/services/accountDataSync';
+import { isStaticHydration, scheduleAfterStaticHydration } from '@/ssg/hydration';
 import {
   applyStorageTransaction,
   deleteAllPlayerData,
@@ -33,9 +35,24 @@ const LEGACY_CHARACTERS_KEY = 'maplehub-characters';
 const LEGACY_CHECKLIST_KEY = 'maplehub-checklist';
 const NEWS_STATE_KEY = 'maplehub-news-state:v1';
 const EXPORT_FORMAT = 'maplehub-export';
-const EXPORT_VERSION = 2;
+const EXPORT_VERSION = 3;
 const MAX_IMPORT_BYTES = 5 * 1024 * 1024;
-const PREFERENCE_KEYS = ['maplehub-game-version', 'maplehub-language', 'i18nextLng', 'maplehub-theme', 'maplehub-color-mode', 'maplehub-tool-favorites', 'maplehub-guide-reading-progress:v1'] as const;
+const PREFERENCE_KEYS = [
+  'maplehub-game-version',
+  'maplehub-language',
+  'i18nextLng',
+  'maplehub-theme',
+  'maplehub-color-mode',
+  'maplehub-tool-favorites',
+  'maplehub-guide-reading-progress:v1',
+  'maplehub-routine-tasks:v2',
+  'maplehub-event-goals:v2',
+  'maplehub-link-planner:v2:gms',
+  'maplehub-link-planner:v2:kms',
+  'maplehub-link-planner:v2:jms',
+  'maplehub-link-planner:v2:tms',
+  'maplehub-link-planner:v2:msea',
+] as const;
 const MAX_FIELD_LENGTH = 200;
 const MAX_PREFERENCE_LENGTH = 100_000;
 const forbiddenRecordKeys = new Set(['__proto__', 'prototype', 'constructor']);
@@ -53,6 +70,10 @@ interface MapleHubExportEnvelope {
 
 interface MapleHubExportEnvelopeV1 extends Omit<MapleHubExportEnvelope, 'version' | 'checklistConfigs'> {
   version: 1;
+}
+
+interface MapleHubExportEnvelopeV2 extends Omit<MapleHubExportEnvelope, 'version'> {
+  version: 2;
 }
 
 const isCharacterProfile = (value: unknown): value is CharacterProfile => {
@@ -160,11 +181,11 @@ const hasValidEnvelopeCore = (value: Record<string, unknown>) => {
   return isPreferenceRecord(value.preferences);
 };
 
-const isExportEnvelopeV2 = (value: unknown): value is MapleHubExportEnvelope => {
+const isExportEnvelopeWithChecklist = (value: unknown, version: number) => {
   if (!isPlainRecord(value)) return false;
   const allowedKeys = new Set(['format', 'version', 'exportedAt', 'characters', 'checklists', 'checklistConfigs', 'newsState', 'preferences']);
   if (!hasExactKeys(value, [...allowedKeys])) return false;
-  if (value.format !== EXPORT_FORMAT || value.version !== EXPORT_VERSION) return false;
+  if (value.format !== EXPORT_FORMAT || value.version !== version) return false;
   if (!hasValidEnvelopeCore(value)) return false;
   if (!isPlainRecord(value.checklistConfigs) || !hasSafeKeys(value.checklistConfigs)) return false;
   return Object.entries(value.checklistConfigs).every(([characterId, config]) =>
@@ -172,6 +193,12 @@ const isExportEnvelopeV2 = (value: unknown): value is MapleHubExportEnvelope => 
     && isChecklistConfiguration(config),
   );
 };
+
+const isExportEnvelopeV3 = (value: unknown): value is MapleHubExportEnvelope =>
+  isExportEnvelopeWithChecklist(value, EXPORT_VERSION);
+
+const isExportEnvelopeV2 = (value: unknown): value is MapleHubExportEnvelopeV2 =>
+  isExportEnvelopeWithChecklist(value, 2);
 
 const isExportEnvelopeV1 = (value: unknown): value is MapleHubExportEnvelopeV1 => {
   if (!isPlainRecord(value)) return false;
@@ -185,7 +212,8 @@ export function parseMapleHubImport(text: string):
   if (new Blob([text]).size > MAX_IMPORT_BYTES) return { ok: false, reason: 'too-large' };
   try {
     const envelope = JSON.parse(text) as unknown;
-    if (isExportEnvelopeV2(envelope)) return { ok: true, envelope };
+    if (isExportEnvelopeV3(envelope)) return { ok: true, envelope };
+    if (isExportEnvelopeV2(envelope)) return { ok: true, envelope: { ...envelope, version: EXPORT_VERSION } };
     if (isExportEnvelopeV1(envelope)) {
       return { ok: true, envelope: { ...envelope, version: EXPORT_VERSION, checklistConfigs: {} } };
     }
@@ -202,11 +230,11 @@ function generateId(): string {
 function loadLocalCharacters(): CharacterProfile[] {
   try {
     const migration = migrateStorageKey(localStorage, LEGACY_CHARACTERS_KEY, CHARACTERS_KEY, isCharacterList);
-    if (migration.status === 'failed') console.warn('[MapleHub] Character migration failed; legacy data was preserved.', migration.error);
+    if (migration.status === 'failed') console.warn('[MPStorys] Character migration failed; legacy data was preserved.', migration.error);
     const parsed = readJson<unknown>(localStorage, CHARACTERS_KEY);
     return isCharacterList(parsed) ? parsed : [];
   } catch (error) {
-    console.warn('[MapleHub] Failed to load characters; stored data was preserved.', error);
+    console.warn('[MPStorys] Failed to load characters; stored data was preserved.', error);
     return [];
   }
 }
@@ -284,11 +312,11 @@ export function resolveActiveCharacter(
 function loadChecklist(charId: string): TaskState {
   try {
     const migration = migrateStorageKey(localStorage, legacyChecklistKey(charId), checklistKey(charId), isTaskState);
-    if (migration.status === 'failed') console.warn('[MapleHub] Checklist migration failed; legacy data was preserved.', migration.error);
+    if (migration.status === 'failed') console.warn('[MPStorys] Checklist migration failed; legacy data was preserved.', migration.error);
     const parsed = readJson<unknown>(localStorage, checklistKey(charId));
     return isTaskState(parsed) ? parsed : {};
   } catch (error) {
-    console.warn('[MapleHub] Failed to load checklist; stored data was preserved.', error);
+    console.warn('[MPStorys] Failed to load checklist; stored data was preserved.', error);
     return {};
   }
 }
@@ -302,7 +330,7 @@ function loadChecklistConfig(charId: string): ChecklistConfiguration | null {
     const parsed = readJson<unknown>(localStorage, checklistConfigKey(charId));
     return isChecklistConfiguration(parsed) ? parsed : null;
   } catch (error) {
-    console.warn('[MapleHub] Failed to load checklist configuration; stored data was preserved.', error);
+    console.warn('[MPStorys] Failed to load checklist configuration; stored data was preserved.', error);
     return null;
   }
 }
@@ -331,7 +359,7 @@ function migrateLegacyData(characters: CharacterProfile[]): CharacterProfile[] {
     const checklistResult = writeStorageValueWithRecovery(localStorage, checklistKey(defaultChar.id), legacyRaw);
     if ('error' in checklistResult) throw checklistResult.error;
   } catch (error) {
-    console.warn('[MapleHub] Failed to migrate legacy checklist data; legacy data was preserved.', error);
+    console.warn('[MPStorys] Failed to migrate legacy checklist data; legacy data was preserved.', error);
     return characters;
   }
 
@@ -340,12 +368,20 @@ function migrateLegacyData(characters: CharacterProfile[]): CharacterProfile[] {
   return result.ok ? updated : characters;
 }
 
+function loadCharactersForCurrentSession() {
+  if (typeof window === 'undefined') return [];
+  const belongsToAccount = Boolean(localStorage.getItem(ACCOUNT_CACHE_OWNER_KEY));
+  if (belongsToAccount && !getAccessToken()) return [];
+  return migrateLegacyData(loadLocalCharacters());
+}
+
 export function useCharacters() {
-  const isLoggedIn = Boolean(getAccessToken());
-  const [characters, setCharacters] = useState<CharacterProfile[]>(() => {
-    const loaded = loadLocalCharacters();
-    return migrateLegacyData(loaded);
-  });
+  const deferBrowserState = isStaticHydration();
+  const [browserStateReady, setBrowserStateReady] = useState(!deferBrowserState);
+  const isLoggedIn = browserStateReady && Boolean(getAccessToken());
+  const [characters, setCharacters] = useState<CharacterProfile[]>(() => (
+    deferBrowserState ? [] : loadCharactersForCurrentSession()
+  ));
   const [activeCharId, setActiveCharId] = useState<string | null>(
     () => characters[0]?.id ?? null,
   );
@@ -361,6 +397,32 @@ export function useCharacters() {
   const taskOwnerRef = useRef(activeCharId);
   const configOwnerRef = useRef(activeCharId);
 
+  useEffect(() => {
+    const reloadAccountData = () => {
+      const nextCharacters = loadCharactersForCurrentSession();
+      const nextActive = nextCharacters.find((character) => character.isDefault) ?? nextCharacters[0] ?? null;
+      taskOwnerRef.current = nextActive?.id ?? null;
+      configOwnerRef.current = nextActive?.id ?? null;
+      prevCharIdRef.current = nextActive?.id ?? null;
+      setCharacters(nextCharacters);
+      setActiveCharId(nextActive?.id ?? null);
+      setTasks(nextActive ? loadChecklist(nextActive.id) : {});
+      setChecklistConfig(nextActive ? loadChecklistConfig(nextActive.id) : null);
+    };
+
+    const cancelReload = deferBrowserState
+      ? scheduleAfterStaticHydration(() => {
+          reloadAccountData();
+          setBrowserStateReady(true);
+        }, { autoDelayMs: 0 })
+      : () => {};
+    window.addEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
+    return () => {
+      cancelReload();
+      window.removeEventListener(ACCOUNT_CACHE_CHANGED_EVENT, reloadAccountData);
+    };
+  }, [deferBrowserState]);
+
   const safeSave = useCallback((key: string, data: unknown) => {
     const result = writeJsonWithRecovery(localStorage, key, data);
     if (result.ok) {
@@ -370,15 +432,16 @@ export function useCharacters() {
       const msg = result.quotaExceeded
         ? 'Storage full — your progress is still in this tab but could not be saved. Export your data from Quick Actions to keep it safe.'
         : 'Failed to save data locally.';
-      console.warn('[MapleHub]', msg, result.error);
+      console.warn('[MPStorys]', msg, result.error);
       setSaveError(msg);
     }
   }, []);
 
   // Persist characters
   useEffect(() => {
+    if (!browserStateReady) return;
     safeSave(CHARACTERS_KEY, characters);
-  }, [characters, safeSave]);
+  }, [browserStateReady, characters, safeSave]);
 
   // Switch checklist when active character changes
   useEffect(() => {
@@ -503,8 +566,8 @@ export function useCharacters() {
     const mutations = buildImportMutations(envelope, characters);
     const transaction = applyStorageTransaction(localStorage, mutations);
     if ('error' in transaction) {
-      if (transaction.rollbackError) console.error('[MapleHub] Import rollback failed.', transaction.rollbackError);
-      console.warn('[MapleHub] Import failed; previous data was restored.', transaction.error);
+      if (transaction.rollbackError) console.error('[MPStorys] Import rollback failed.', transaction.rollbackError);
+      console.warn('[MPStorys] Import failed; previous data was restored.', transaction.error);
       return { ok: false as const, message: 'Import failed. Your previous data was restored.' };
     }
 
@@ -521,7 +584,7 @@ export function useCharacters() {
     setChecklistConfig(nextConfig);
     setSaveError(null);
     setLastSaved(Date.now());
-    return { ok: true as const, message: 'MapleHub data imported successfully.' };
+    return { ok: true as const, message: 'MPStorys data imported successfully.' };
   }, [characters]);
 
   const activeCharacter = characters.find((c) => c.id === activeCharId) ?? null;

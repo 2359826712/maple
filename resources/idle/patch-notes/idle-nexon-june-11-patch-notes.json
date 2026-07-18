@@ -1,0 +1,36 @@
+{
+  "id": "idle-nexon-june-11-patch-notes",
+  "name": "MapleStory: Idle RPG June 11 Patch Notes",
+  "website": "MapleStory: Idle RPG Forum",
+  "page": "June 11 Patch Notes",
+  "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+  "series": "idle",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "patch-notes",
+  "subcategory": null,
+  "description": "Documents the Hero's Journey system, new chapters, growth content, summer events, guild seasons, controls, and fixes added on June 11, 2026.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "events",
+    "guild",
+    "heros-journey",
+    "progression",
+    "summer"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
+  ],
+  "notes": null
+}

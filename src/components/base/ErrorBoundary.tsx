@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from 'react';
 import { telemetry } from '@/services/telemetry';
+import { recoverFromStaleAssets } from '@/services/runtimeRecovery';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -21,8 +22,9 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    console.error('[MapleHub] Uncaught error:', error, errorInfo);
+    console.error('[MPStorys] Uncaught error:', error, errorInfo);
     telemetry.trackErrorBoundary('react-root', error.name || 'Error');
+    recoverFromStaleAssets(error);
   }
 
   private handleReset = () => {

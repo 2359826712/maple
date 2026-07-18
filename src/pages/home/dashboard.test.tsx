@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { VersionProvider } from '@/hooks/VersionContext';
 import i18n from '@/i18n';
@@ -46,6 +46,7 @@ const renderDashboard = () =>
 
 describe('DAILY-05 Today in Maple dashboard', () => {
   beforeEach(async () => {
+    localStorage.clear();
     await i18n.changeLanguage('en');
     mockUseRealtimeCollection.mockReturnValue({
       items: [],
@@ -154,7 +155,7 @@ describe('DAILY-05 Today in Maple dashboard', () => {
     expect(progressBar).toBeTruthy();
   });
 
-  it('does not show misleading 0/0 progress when no tasks are selected', () => {
+  it('shows default non-boss routines when no boss tasks are selected', () => {
     mockUseCharacters.mockReturnValue({
       activeCharacter: {
         id: 'local-1',
@@ -173,8 +174,111 @@ describe('DAILY-05 Today in Maple dashboard', () => {
 
     renderDashboard();
 
-    expect(screen.getByText('No tasks configured yet.')).toBeTruthy();
+    expect(screen.getByText('0/3 complete')).toBeTruthy();
     expect(screen.queryByText('0/0 complete')).toBeNull();
+  });
+
+  it('shows one explainable reset-aware action with character scope', () => {
+    mockUseCharacters.mockReturnValue({
+      activeCharacter: {
+        id: 'local-1',
+        name: 'ActionHero',
+        className: '',
+        level: 250,
+        server: 'GMS',
+        world: 'Bera',
+        isDefault: true,
+      },
+      activeCharId: 'local-1',
+      characters: [],
+      tasks: {},
+      checklistConfig: { selectedTaskIds: [], updatedAt: new Date().toISOString() },
+    } as never);
+
+    renderDashboard();
+
+    expect(screen.getByText('Next best action')).toBeTruthy();
+    expect(screen.getByText('Daily quests and symbols')).toBeTruthy();
+    expect(screen.getByText(/First because the daily reset is in \d{2}:\d{2}:\d{2}/)).toBeTruthy();
+    expect(screen.getByText('Character')).toBeTruthy();
+    expect(screen.getByLabelText('Open Daily quests and symbols').getAttribute('href'))
+      .toBe('/checklist#routine-daily-quests');
+  });
+
+  it('shows account scope when the selected action is account-wide', () => {
+    localStorage.setItem('maplehub-routine-tasks:v1', JSON.stringify({
+      selectedIds: ['event-attendance'],
+      completedPeriods: {},
+    }));
+    mockUseCharacters.mockReturnValue({
+      activeCharacter: {
+        id: 'local-1',
+        name: 'AccountHero',
+        className: 'Hero',
+        level: 250,
+        server: 'GMS',
+        world: 'Bera',
+        isDefault: true,
+      },
+      activeCharId: 'local-1',
+      characters: [],
+      tasks: {},
+      checklistConfig: { selectedTaskIds: [], updatedAt: new Date().toISOString() },
+    } as never);
+
+    renderDashboard();
+
+    expect(screen.getByText('Event attendance and claims')).toBeTruthy();
+    expect(screen.getByText('Account')).toBeTruthy();
+  });
+
+  it('switches roster characters and exposes the validated backup destination', () => {
+    const setActiveCharId = vi.fn();
+    const characters = [
+      { id: 'local-1', name: 'MainHero', className: 'Hero', level: 280, server: 'GMS', world: 'Bera', isDefault: true },
+      { id: 'local-2', name: 'BossMule', className: 'Paladin', level: 260, server: 'GMS', world: 'Bera', isDefault: false },
+    ];
+    mockUseCharacters.mockReturnValue({
+      activeCharacter: characters[0],
+      activeCharId: 'local-1',
+      characters,
+      setActiveCharId,
+      tasks: {},
+      checklistConfig: { selectedTaskIds: [], updatedAt: new Date().toISOString() },
+    } as never);
+
+    renderDashboard();
+
+    expect(screen.getByText('2 in roster')).toBeTruthy();
+    fireEvent.change(screen.getByRole('combobox'), { target: { value: 'local-2' } });
+    expect(setActiveCharId).toHaveBeenCalledWith('local-2');
+    expect(screen.getByText('Back up data').closest('a')?.getAttribute('href')).toBe('/checklist#quick-actions');
+  });
+
+  it('hides the recommendation when no configured task is actionable', () => {
+    localStorage.setItem('maplehub-routine-tasks:v1', JSON.stringify({
+      selectedIds: [],
+      completedPeriods: {},
+    }));
+    mockUseCharacters.mockReturnValue({
+      activeCharacter: {
+        id: 'local-1',
+        name: 'DoneHero',
+        className: 'Hero',
+        level: 250,
+        server: 'GMS',
+        world: 'Bera',
+        isDefault: true,
+      },
+      activeCharId: 'local-1',
+      characters: [],
+      tasks: {},
+      checklistConfig: { selectedTaskIds: [], updatedAt: new Date().toISOString() },
+    } as never);
+
+    renderDashboard();
+
+    expect(screen.queryByText('Next best action')).toBeNull();
   });
 
   it('shows urgent events sorted by urgency when available', () => {
@@ -200,7 +304,7 @@ describe('DAILY-05 Today in Maple dashboard', () => {
 
     // Override the default mock for this test
     mockUseRealtimeCollection.mockImplementation(({ storageKey }: { storageKey: string }) => {
-      if (storageKey === 'test-events') {
+      if (storageKey.startsWith('test-events')) {
         return {
           items: [
             {
@@ -275,7 +379,7 @@ describe('DAILY-05 Today in Maple dashboard', () => {
     } as never);
 
     mockUseRealtimeCollection.mockImplementation(({ storageKey }: { storageKey: string }) => {
-      if (storageKey === 'test-news') {
+      if (storageKey.startsWith('test-news')) {
         return {
           items: [
             {

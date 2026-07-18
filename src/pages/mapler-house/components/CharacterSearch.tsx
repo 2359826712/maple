@@ -13,7 +13,7 @@ type OfficialCharacterResult = NexonRankingRow & {
 };
 
 export default function CharacterSearch() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { version, versionInfo } = useVersion();
   const [query, setQuery] = useState('');
   const [result, setResult] = useState<OfficialCharacterResult | null>(null);
@@ -23,7 +23,11 @@ export default function CharacterSearch() {
   const [recentSearches, setRecentSearches] = useState<string[]>(() => {
     try {
       const saved = typeof window !== 'undefined' ? localStorage.getItem('mh_recent_chars') : null;
-      return saved ? JSON.parse(saved) : [];
+      if (!saved) return [];
+      const parsed = JSON.parse(saved) as unknown;
+      return Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === 'string').slice(0, 10)
+        : [];
     } catch { return []; }
   });
 
@@ -46,6 +50,7 @@ export default function CharacterSearch() {
         board: 'overall',
         world: 'all',
         characterName: trimmedQuery,
+        language: i18n.language,
       });
       const found = data.ranks.find(
         (rank) => rank.characterName.toLowerCase() === trimmedQuery.toLowerCase(),

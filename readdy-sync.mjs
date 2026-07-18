@@ -10,6 +10,7 @@
  * 用法示例：
  *   node readdy-sync.mjs --project <PROJECT_ID>
  *   node readdy-sync.mjs --project <PROJECT_ID> --root "D:\\Desktop\\maple"
+ *   node readdy-sync.mjs --project <PROJECT_ID> --remote-prefix frontend
  *   node readdy-sync.mjs --project <PROJECT_ID> --dry-run
  *
  * 可选环境变量：
@@ -20,6 +21,7 @@ import fs from 'node:fs/promises';
 import fssync from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { execFileSync } from 'node:child_process';
 
 const READDY_ORIGIN = 'https://readdy.ai';
 const DEFAULT_MAX_MSG_PAGES = 12;
@@ -33,8 +35,12 @@ readdy-sync.mjs
 
 可选：
   --root <DIR>                    本地项目根目录（默认当前目录）
-  --include <PATTERN>             上传包含规则（可多次填写）。默认：src/** + 常见配置文件
+  --remote-prefix <PATH>          远端路径前缀（例如 frontend）；用于覆盖已有子目录中的同路径文件
+  --include <PATTERN>             上传包含规则（可多次填写）。默认：src/** + public/** + SEO 构建脚本 + 常见配置文件
   --exclude <PATTERN>             排除规则（可多次填写）。默认：node_modules/** out/** dist/** .env* **/*.log maple.zip
+  --delete-git-removed            同步当前 Git 工作区中已删除的文件（用于目录迁移）
+  --delete <REMOTE_FILE>          删除远端遗留文件（可多次填写）
+  --delete-list <FILE>            从文本文件读取远端删除路径（每行一个，可多次填写）
   --edge-profile <DIR>            Edge profile 路径（默认：LOCALAPPDATA\\Microsoft\\Edge\\User Data\\Default）
   --max-pages <N>                 msg_list 最多扫描页数（默认：12）
   --parent-version <ID>           手动指定 parentVersionID（跳过 msg_list 自动取最新版本）
@@ -53,6 +59,7 @@ function parseArgs(argv) {
   const out = {
     projectId: '',
     root: process.cwd(),
+    remotePrefix: '',
     include: [],
     exclude: [],
     edgeProfile: '',
@@ -61,6 +68,9 @@ function parseArgs(argv) {
     dryRun: false,
     yes: false,
     verbose: false,
+    deleteGitRemoved: false,
+    deleteFiles: [],
+    deleteListFiles: [],
   };
   const args = [...argv];
   while (args.length) {
@@ -68,6 +78,7 @@ function parseArgs(argv) {
     if (!key) break;
     if (key === '--project') out.projectId = String(args.shift() || '');
     else if (key === '--root') out.root = String(args.shift() || '');
+    else if (key === '--remote-prefix') out.remotePrefix = String(args.shift() || '');
     else if (key === '--include') out.include.push(String(args.shift() || ''));
     else if (key === '--exclude') out.exclude.push(String(args.shift() || ''));
     else if (key === '--edge-profile') out.edgeProfile = String(args.shift() || '');
@@ -76,6 +87,9 @@ function parseArgs(argv) {
     else if (key === '--dry-run') out.dryRun = true;
     else if (key === '--yes') out.yes = true;
     else if (key === '--verbose') out.verbose = true;
+    else if (key === '--delete-git-removed') out.deleteGitRemoved = true;
+    else if (key === '--delete') out.deleteFiles.push(String(args.shift() || ''));
+    else if (key === '--delete-list') out.deleteListFiles.push(String(args.shift() || ''));
     else if (key === '-h' || key === '--help') usage();
     else throw new Error(`未知参数: ${key}`);
   }
@@ -168,6 +182,16 @@ async function walkFiles(rootDir) {
 function normalizeRelPath(rootDir, absFile) {
   const rel = path.relative(rootDir, absFile);
   return rel.split(path.sep).join('/');
+}
+
+function normalizeRemotePrefix(value) {
+  const prefix = String(value || '').replace(/\\/g, '/').replace(/^\/+|\/+$/g, '');
+  if (!prefix) return '';
+  const segments = prefix.split('/');
+  if (segments.some(segment => !segment || segment === '.' || segment === '..')) {
+    throw new Error(`远端路径前缀不安全: ${value}`);
+  }
+  return prefix;
 }
 
 function makeHeaders(token, projectId) {
@@ -280,6 +304,7 @@ function findReaddyAccessTokenFromEdgeLeveldb(edgeProfileDir) {
     throw new Error(`未找到 Edge Local Storage leveldb: ${levelRoot}`);
   }
   const names = fssync.readdirSync(levelRoot);
+  const candidates = [];
   for (const name of names) {
     if (!/\.(log|ldb)$/i.test(name)) continue;
     const filePath = path.join(levelRoot, name);
@@ -290,20 +315,34 @@ function findReaddyAccessTokenFromEdgeLeveldb(edgeProfileDir) {
     } catch {
       continue;
     }
-    const idx = text.indexOf('readdy_access_token');
-    if (idx < 0) continue;
-    const windowText = text.slice(Math.max(0, idx - 2000), idx + 8000);
-    const matches = [...windowText.matchAll(jwtRe)].map(m => m[0]);
-    if (matches.length) {
-      // 取最长的一个（通常是完整 JWT）
-      matches.sort((a, b) => b.length - a.length);
-      return matches[0];
+    let idx = text.indexOf('readdy_access_token');
+    while (idx >= 0) {
+      const windowText = text.slice(Math.max(0, idx - 2000), idx + 8000);
+      for (const match of windowText.matchAll(jwtRe)) {
+        const token = match[0];
+        let exp = 0;
+        try {
+          exp = Number(JSON.parse(Buffer.from(token.split('.')[1], 'base64url').toString('utf8')).exp || 0);
+        } catch {
+          exp = 0;
+        }
+        candidates.push({ token, exp, length: token.length });
+      }
+      idx = text.indexOf('readdy_access_token', idx + 1);
     }
+  }
+  if (candidates.length) {
+    const now = Math.floor(Date.now() / 1000);
+    candidates.sort((a, b) => {
+      const validDelta = Number(b.exp > now) - Number(a.exp > now);
+      return validDelta || b.exp - a.exp || b.length - a.length;
+    });
+    return candidates[0].token;
   }
   throw new Error('未能确认找到 readdy_access_token。请确认 Edge 已登录 Readdy，且脚本读取的是同一个 profile。');
 }
 
-async function collectUploadEdits(rootDir, includePatterns, excludePatterns, verbose, readContent = true) {
+async function collectUploadEdits(rootDir, includePatterns, excludePatterns, remotePrefix, verbose, readContent = true) {
   const allFilesAbs = await walkFiles(rootDir);
   const includes = includePatterns.map(globToRegExp);
   const excludes = excludePatterns.map(globToRegExp);
@@ -327,11 +366,11 @@ async function collectUploadEdits(rootDir, includePatterns, excludePatterns, ver
     if (readContent) {
       const content = await fs.readFile(item.abs, 'utf8');
       totalBytes += Buffer.byteLength(content);
-      edits.push({ action: 'edit', file: item.rel, content });
+      edits.push({ action: 'edit', file: remotePrefix ? `${remotePrefix}/${item.rel}` : item.rel, content });
     } else {
       const stat = await fs.stat(item.abs);
       totalBytes += Number(stat.size || 0);
-      edits.push({ action: 'edit', file: item.rel });
+      edits.push({ action: 'edit', file: remotePrefix ? `${remotePrefix}/${item.rel}` : item.rel });
     }
   }
 
@@ -342,6 +381,20 @@ async function collectUploadEdits(rootDir, includePatterns, excludePatterns, ver
   }
 
   return { edits, totalBytes };
+}
+
+function collectGitRemovedEdits(rootDir, remotePrefix) {
+  const output = execFileSync(
+    'git',
+    ['diff', '--name-only', '--diff-filter=D', '--relative', '--'],
+    { cwd: rootDir, encoding: 'utf8', windowsHide: true },
+  );
+  return [...new Set(output.split(/\r?\n/).map((value) => value.trim()).filter(Boolean))]
+    .filter((file) => !file.startsWith('../') && !path.isAbsolute(file))
+    .map((file) => ({
+      action: 'delete',
+      file: remotePrefix ? `${remotePrefix}/${file.replace(/\\/g, '/')}` : file.replace(/\\/g, '/'),
+    }));
 }
 
 async function confirmOrThrow(message) {
@@ -427,14 +480,20 @@ async function main() {
   const cfg = parseArgs(process.argv.slice(2));
   const projectId = assertProjectId(cfg.projectId || process.env.READDY_PROJECT_ID);
   const rootDir = path.resolve(cfg.root);
+  const remotePrefix = normalizeRemotePrefix(cfg.remotePrefix);
   const maxPages = Math.max(1, Math.min(50, Number(cfg.maxPages) || DEFAULT_MAX_MSG_PAGES));
 
   const defaultInclude = [
     'src/**',
     'public/**',
+    'scripts/generate-localized-static-routes.mjs',
+    'scripts/verify-seo-output.mjs',
     'index.html',
     'package.json',
+    'package-lock.json',
     'vite.config.*',
+    'next.config.*',
+    'next-env.d.ts',
     'tsconfig*.json',
     'postcss.config.*',
     'tailwind.config.*',
@@ -447,6 +506,8 @@ async function main() {
     'node_modules/**',
     'out/**',
     'dist/**',
+    '.next/**',
+    '.ssg/**',
     '.env*',
     '**/*.log',
     'maple.zip',
@@ -455,7 +516,28 @@ async function main() {
   const include = (cfg.include.length ? cfg.include : defaultInclude).filter(Boolean);
   const exclude = (cfg.exclude.length ? cfg.exclude : defaultExclude).filter(Boolean);
 
-  const { edits, totalBytes } = await collectUploadEdits(rootDir, include, exclude, cfg.verbose, !cfg.dryRun);
+  for (const deleteListFile of cfg.deleteListFiles) {
+    const lines = fssync.readFileSync(path.resolve(deleteListFile), 'utf8')
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'));
+    cfg.deleteFiles.push(...lines);
+  }
+
+  const { edits, totalBytes } = await collectUploadEdits(rootDir, include, exclude, remotePrefix, cfg.verbose, !cfg.dryRun);
+  if (cfg.deleteGitRemoved) {
+    const removedEdits = collectGitRemovedEdits(rootDir, remotePrefix);
+    const editedFiles = new Set(edits.map((edit) => edit.file));
+    edits.push(...removedEdits.filter((edit) => !editedFiles.has(edit.file)));
+  }
+  for (const requestedFile of cfg.deleteFiles) {
+    const normalizedFile = String(requestedFile || '').replace(/\\/g, '/').replace(/^\/+/, '');
+    if (!normalizedFile || normalizedFile.split('/').some((segment) => !segment || segment === '.' || segment === '..')) {
+      throw new Error(`远端删除路径不安全: ${requestedFile}`);
+    }
+    const remoteFile = remotePrefix ? `${remotePrefix}/${normalizedFile}` : normalizedFile;
+    if (!edits.some((edit) => edit.file === remoteFile)) edits.push({ action: 'delete', file: remoteFile });
+  }
   if (!edits.length) throw new Error('没有匹配到需要上传的文件（include/exclude 规则可能不正确）。');
 
   // dry-run：只输出本地上传清单，不触发 token 获取，也不会访问 Readdy API
@@ -463,6 +545,7 @@ async function main() {
     ok: true,
     projectId,
     root: rootDir,
+    remotePrefix,
     parentVersionID: cfg.parentVersionID ? Number(cfg.parentVersionID) : null,
     latestBefore: null,
     upload: {
@@ -473,6 +556,10 @@ async function main() {
       sampleTruncated: edits.length > 30,
     },
     dryRun: cfg.dryRun,
+    postUploadSteps: [
+      'Readdy 的 SEO Configuration 按版本独立；新版本上传后需要重新 Generate，再发布域名。',
+      'code_edit 只同步文本源码；新增或替换的 PNG/JPG 等二进制资源需要通过 Readdy Files 上传。',
+    ],
     note: cfg.dryRun
       ? 'dry-run 不会访问 Readdy；真实上传时将通过 msg_list 自动获取最新 parentVersionID（除非你手动指定 --parent-version）。'
       : '本脚本不会自动 Publish/Update 生产环境。',
@@ -557,6 +644,7 @@ async function main() {
     },
     messageSync,
     latestAfter,
+    postUploadSteps: summary.postUploadSteps,
   }, null, 2));
 }
 

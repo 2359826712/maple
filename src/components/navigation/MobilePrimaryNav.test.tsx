@@ -1,0 +1,53 @@
+// @vitest-environment jsdom
+import { cleanup, render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import MobilePrimaryNav from './MobilePrimaryNav';
+
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: (key: string) => key, i18n: { language: 'en' } }),
+}));
+
+afterEach(cleanup);
+
+function renderNav(pathname = '/') {
+  return render(
+    <MemoryRouter initialEntries={[pathname]}>
+      <MobilePrimaryNav />
+    </MemoryRouter>,
+  );
+}
+
+describe('MobilePrimaryNav', () => {
+  it('keeps the five highest-value player destinations one tap away', () => {
+    renderNav('/');
+
+    expect(screen.getAllByRole('link')).toHaveLength(5);
+    expect(screen.getByRole('link', { name: 'dashboard_title' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_search_button' }).getAttribute('href')).toBe('/search/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS');
+  });
+
+  it('marks the current section for assistive technology', () => {
+    renderNav('/checklist/en/GMS');
+
+    expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('aria-current')).toBe('page');
+    expect(screen.getByRole('link', { name: 'dashboard_title' }).hasAttribute('aria-current')).toBe(false);
+  });
+
+  it('keeps mobile destinations inside the active series', () => {
+    renderNav('/news/en/GMS?series=maplestory-m');
+
+    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS?series=maplestory-m');
+    expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS?series=maplestory-m');
+  });
+
+  it('stays out of authentication flows', () => {
+    renderNav('/auth/login/en/GMS');
+
+    expect(screen.queryByRole('navigation')).toBeNull();
+  });
+});

@@ -1,3 +1,5 @@
+import { apiBaseUrl, apiEndpoint } from './apiEndpoint';
+
 type RealtimeCacheEntry<T> = {
   savedAt: number;
   data: T;
@@ -16,16 +18,23 @@ type CachedJsonFetchOptions = {
   retryMs?: number;
   timeoutMs?: number;
   requestInit?: globalThis.RequestInit;
+  suppressFailureCooldown?: boolean;
 };
 
 type CachedTextFetchOptions = CachedJsonFetchOptions & {
   transform?: (value: string) => string;
 };
 
+type CachedValueLoadOptions<T> = Pick<CachedJsonFetchOptions, 'freshMs' | 'staleMs' | 'retryMs'> & {
+  shouldCache?: (data: T) => boolean;
+};
+
 const realtimeCachePrefix = 'maplehub-realtime-cache:';
 const realtimeFailurePrefix = 'maplehub-realtime-failure:';
+const inFlightValueLoads = new Map<string, Promise<unknown>>();
 
 export const realtimeCacheDurations = {
+  refresh: 5 * 60 * 1000,
   short: 5 * 60 * 1000,
   medium: 30 * 60 * 1000,
   long: 24 * 60 * 60 * 1000,
@@ -96,13 +105,108 @@ const writeRecentFailure = (key: string) => {
   }
 };
 
+const base64Body = (value: globalThis.RequestInit['body']) => {
+  if (value == null) return '';
+  if (typeof value !== 'string') {
+    throw new Error('Static content requests require a string request body');
+  }
+  const bytes = new TextEncoder().encode(value);
+  let binary = '';
+  bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
+  return window.btoa(binary);
+};
+
+const staticContentTransport = (url: string, requestInit: globalThis.RequestInit) => {
+  const parsed = new URL(url, window.location.origin);
+  const apiRoot = new URL(apiBaseUrl, window.location.origin);
+  const method = (requestInit.method || 'GET').toUpperCase();
+  const isApiRequest = parsed.origin === apiRoot.origin
+    && (parsed.pathname === apiRoot.pathname || parsed.pathname.startsWith(`${apiRoot.pathname}/`));
+  if (parsed.origin === window.location.origin || isApiRequest) return { url, requestInit };
+
+  if (method === 'GET') {
+    return {
+      url: apiEndpoint(`/static-content?url=${encodeURIComponent(parsed.toString())}`),
+      requestInit: { signal: requestInit.signal } satisfies globalThis.RequestInit,
+    };
+  }
+
+  const headers = new Headers(requestInit.headers);
+  const forwardedHeaders = ['Accept', 'Content-Type', 'X-Requested-With'].reduce<Record<string, string>>((result, name) => {
+    const value = headers.get(name);
+    if (value) result[name] = value;
+    return result;
+  }, {});
+  return {
+    url: apiEndpoint('/static-content'),
+    requestInit: {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        url: parsed.toString(),
+        method,
+        headers: forwardedHeaders,
+        body: base64Body(requestInit.body),
+      }),
+      signal: requestInit.signal,
+    } satisfies globalThis.RequestInit,
+  };
+};
+
+const resolveContentTransport = (url: string, requestInit: globalThis.RequestInit) => (
+  typeof window === 'undefined'
+    ? { url, requestInit }
+    : staticContentTransport(url, requestInit)
+);
+
+export async function cachedValueLoad<T>(
+  cacheKey: string,
+  loader: () => Promise<T>,
+  options: CachedValueLoadOptions<T> = {},
+) {
+  const {
+    freshMs = realtimeCacheDurations.refresh,
+    staleMs = realtimeCacheDurations.long,
+    retryMs = 60 * 1000,
+    shouldCache = () => true,
+  } = options;
+  const freshCache = readRealtimeCache<T>(cacheKey, freshMs);
+  if (freshCache.hit) return freshCache.data as T;
+
+  const staleCache = readRealtimeCache<T>(cacheKey, staleMs);
+  if (readRecentFailure(cacheKey, retryMs)) {
+    if (staleCache.hit) return staleCache.data as T;
+    throw new Error('Remote content load is cooling down after a recent failure');
+  }
+
+  const existingLoad = inFlightValueLoads.get(cacheKey);
+  if (existingLoad) return existingLoad as Promise<T>;
+
+  const request = loader()
+    .then((data) => {
+      if (shouldCache(data)) writeRealtimeCache(cacheKey, data);
+      return data;
+    })
+    .catch((error: unknown) => {
+      writeRecentFailure(cacheKey);
+      if (staleCache.hit) return staleCache.data as T;
+      throw error instanceof Error ? error : new Error('Remote content load failed');
+    })
+    .finally(() => {
+      inFlightValueLoads.delete(cacheKey);
+    });
+
+  inFlightValueLoads.set(cacheKey, request);
+  return request;
+}
+
 export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOptions = {}) {
   const {
     cacheKey = url,
-    freshMs = realtimeCacheDurations.short,
+    freshMs = realtimeCacheDurations.refresh,
     staleMs = realtimeCacheDurations.long,
     retryMs = 60 * 1000,
-    timeoutMs = 5000,
+    timeoutMs = 50_000,
     requestInit = {},
   } = options;
 
@@ -117,7 +221,7 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
 
   const controller = new AbortController();
   const externalSignal = requestInit.signal;
-  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  const timeout = globalThis.setTimeout(() => controller.abort(), timeoutMs);
 
   const onExternalAbort = () => {
     controller.abort(externalSignal?.reason);
@@ -130,9 +234,10 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
   }
 
   const { signal: _signal, ...fetchInit } = requestInit;
+  const transport = resolveContentTransport(url, { ...fetchInit, signal: controller.signal });
 
   try {
-    const response = await fetch(url, { ...fetchInit, cache: 'no-store', signal: controller.signal });
+    const response = await fetch(transport.url, { ...transport.requestInit, cache: 'no-store', signal: controller.signal });
     if (!response.ok) throw new Error(`Realtime request failed with ${response.status}`);
 
     const data = (await response.json()) as T;
@@ -144,7 +249,7 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
     if (staleCache.hit) return staleCache.data as T;
     throw error instanceof Error ? error : new Error('Realtime request failed');
   } finally {
-    window.clearTimeout(timeout);
+    globalThis.clearTimeout(timeout);
     externalSignal?.removeEventListener('abort', onExternalAbort);
   }
 }
@@ -152,26 +257,27 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
 export async function cachedTextFetch(url: string, options: CachedTextFetchOptions = {}) {
   const {
     cacheKey = url,
-    freshMs = realtimeCacheDurations.short,
+    freshMs = realtimeCacheDurations.refresh,
     staleMs = realtimeCacheDurations.long,
     retryMs = 60 * 1000,
-    timeoutMs = 5000,
+    timeoutMs = 50_000,
     requestInit = {},
     transform = (value) => value,
+    suppressFailureCooldown = false,
   } = options;
 
   const freshCache = readRealtimeCache<string>(cacheKey, freshMs);
   if (freshCache.hit) return transform(freshCache.data as string);
 
   const staleCache = readRealtimeCache<string>(cacheKey, staleMs);
-  if (readRecentFailure(cacheKey, retryMs)) {
+  if (!suppressFailureCooldown && readRecentFailure(cacheKey, retryMs)) {
     if (staleCache.hit) return transform(staleCache.data as string);
     throw new Error('Realtime request is cooling down after a recent failure');
   }
 
   const controller = new AbortController();
   const externalSignal = requestInit.signal;
-  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  const timeout = globalThis.setTimeout(() => controller.abort(), timeoutMs);
 
   const onExternalAbort = () => {
     controller.abort(externalSignal?.reason);
@@ -184,9 +290,10 @@ export async function cachedTextFetch(url: string, options: CachedTextFetchOptio
   }
 
   const { signal: _signal, ...fetchInit } = requestInit;
+  const transport = resolveContentTransport(url, { ...fetchInit, signal: controller.signal });
 
   try {
-    const response = await fetch(url, { ...fetchInit, cache: 'no-store', signal: controller.signal });
+    const response = await fetch(transport.url, { ...transport.requestInit, cache: 'no-store', signal: controller.signal });
     if (!response.ok) throw new Error(`Realtime request failed with ${response.status}`);
 
     const data = transform(await response.text());
@@ -194,11 +301,11 @@ export async function cachedTextFetch(url: string, options: CachedTextFetchOptio
     return data;
   } catch (error) {
     if (externalSignal?.aborted) throw error;
-    writeRecentFailure(cacheKey);
+    if (!suppressFailureCooldown) writeRecentFailure(cacheKey);
     if (staleCache.hit) return transform(staleCache.data as string);
     throw error instanceof Error ? error : new Error('Realtime request failed');
   } finally {
-    window.clearTimeout(timeout);
+    globalThis.clearTimeout(timeout);
     externalSignal?.removeEventListener('abort', onExternalAbort);
   }
 }

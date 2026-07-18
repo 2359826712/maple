@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mpstorys.com/schemas/event.schema.json",
+  "title": "MapleStory structured event",
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/contentRecord" },
+    {
+      "type": "object",
+      "required": ["event_name", "registration_start", "registration_end", "event_start", "event_end", "claim_start", "claim_end", "shop_start", "shop_end", "timezone", "eligibility", "requirements", "rewards", "event_currency", "event_shop", "participation_steps", "related_announcement_id", "related_patch_ids", "calendar_status"],
+      "properties": {
+        "content_type": { "const": "event" },
+        "event_name": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "registration_start": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "registration_end": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "event_start": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "event_end": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "claim_start": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "claim_end": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "shop_start": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "shop_end": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "timezone": { "type": ["string", "null"], "pattern": "^[A-Za-z_+-]+(?:/[A-Za-z0-9_+.-]+)*$" },
+        "eligibility": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "requirements": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "rewards": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "event_currency": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "event_shop": { "type": ["string", "null"], "minLength": 1, "pattern": "\\S" },
+        "participation_steps": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "related_announcement_id": { "anyOf": [{ "type": "null" }, { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/slug" }] },
+        "related_patch_ids": { "type": "array", "uniqueItems": true, "items": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/slug" } },
+        "calendar_status": { "enum": ["upcoming", "active", "ending-soon", "ended", "unknown"] }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}

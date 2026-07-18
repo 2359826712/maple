@@ -1,26 +1,39 @@
 import { useEffect, useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useVersion, VERSIONS, type GameVersion } from '@/hooks/VersionContext';
+import { useVersion, type GameVersion } from '@/hooks/VersionContext';
 import { getSiteSearchResults, getPopularSearchTerms } from '@/services/siteSearch';
 import SearchResultList from '@/components/search/SearchResultList';
 import UniversalSearchDialog from '@/components/search/UniversalSearchDialog';
-import { useAuthSession } from '@/hooks/useAuthSession';
+import { AUTO_LOGIN_ENABLED_KEY, clearAuthSession, useAuthSession } from '@/hooks/useAuthSession';
 import { mapleSqlApi } from '@/services/mapleSqlApi';
+import { clearAccountDataCache, collectAccountData } from '@/services/accountDataSync';
+import { SITE_NAME, SITE_TAGLINE } from '@/constants/site';
+import { localizeHref, normalizeLanguage, stripRouteSuffixes, withRouteSuffixes } from '@/i18n/languageRouting';
+import { getLocalizedVersionPresentation } from '@/domain/versionPresentation';
+import { prefetchRouteForPath } from '@/router/config';
+import { getSeriesProduct, seriesProducts } from '@/pages/series/catalog';
+import {
+  getSeriesModuleHref,
+  getSeriesRouteState,
+  isSeriesModuleAvailable,
+  scopeModuleHref,
+} from '@/pages/series/scope';
+import { getSeriesVersions, getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
+  { key: 'nav_upcoming', href: '/upcoming' },
   { key: 'nav_guides', href: '/guides' },
   { key: 'nav_events', href: '/events' },
   { key: 'nav_tools', href: '/mapler-house' },
   { key: 'nav_checklist', href: '/checklist' },
   { key: 'nav_wiki', href: '/wiki' },
   { key: 'nav_rankings', href: '/rankings' },
+  { key: 'nav_shop', href: '/shop' },
   { key: 'nav_community', href: '/community' },
+  { key: 'nav_feedback', href: '/feedback' },
 ];
-
-const primaryNavLinkKeys = navLinkKeys.slice(0, 5);
-const secondaryNavLinkKeys = navLinkKeys.slice(5);
 
 const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
 
@@ -71,7 +84,8 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const { version, versionInfo, setVersion } = useVersion();
   const navigate = useNavigate();
   const location = useLocation();
-  const { isSignedIn, displayName, session } = useAuthSession();
+  const routePathname = stripRouteSuffixes(location.pathname);
+  const { isSessionResolved, isSignedIn, isAdmin, displayName, session } = useAuthSession();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -79,16 +93,21 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [versionMenuOpen, setVersionMenuOpen] = useState(false);
+  const [seriesMenuOpen, setSeriesMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [guideMenuOpen, setGuideMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
-  const [moreMenuOpen, setMoreMenuOpen] = useState(false);
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(unread);
   const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
   const [defaultToolFavorites, setDefaultToolFavorites] = useState<string[]>(() => {
     try {
       const value = window.localStorage.getItem(TOOL_FAVORITES_KEY);
-      return value ? JSON.parse(value) as string[] : [];
+      if (!value) return [];
+      const parsed = JSON.parse(value) as unknown;
+      return Array.isArray(parsed)
+        ? parsed.filter((item): item is string => typeof item === 'string')
+        : [];
     } catch {
       return [];
     }
@@ -98,19 +117,32 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const mobileSearchButtonRef = useRef<HTMLButtonElement | null>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement | null>(null);
   const versionRef = useRef<HTMLDivElement | null>(null);
+  const seriesRef = useRef<HTMLDivElement | null>(null);
   const langRef = useRef<HTMLDivElement | null>(null);
   const guideMenuRef = useRef<HTMLDivElement | null>(null);
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileToolMenuRef = useRef<HTMLDivElement | null>(null);
-  const moreMenuRef = useRef<HTMLDivElement | null>(null);
+  const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const guideMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const toolMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    let frame = 0;
+    const updateScrolled = () => {
+      frame = 0;
+      const nextScrolled = window.scrollY > 30;
+      setScrolled((current) => current === nextScrolled ? current : nextScrolled);
+    };
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateScrolled);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateScrolled();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   useEffect(() => {
@@ -140,11 +172,14 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
       if (versionRef.current && !versionRef.current.contains(e.target as Node)) {
         setVersionMenuOpen(false);
       }
+      if (seriesRef.current && !seriesRef.current.contains(e.target as Node)) {
+        setSeriesMenuOpen(false);
+      }
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangMenuOpen(false);
       }
-      if (moreMenuRef.current && !moreMenuRef.current.contains(e.target as Node)) {
-        setMoreMenuOpen(false);
+      if (accountMenuRef.current && !accountMenuRef.current.contains(e.target as Node)) {
+        setAccountMenuOpen(false);
       }
       const target = e.target as Node;
       const insideGuideMenu = guideMenuRef.current?.contains(target);
@@ -199,7 +234,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   useEffect(() => {
     if (!toolMenu) {
-      window.localStorage.setItem(TOOL_FAVORITES_KEY, JSON.stringify(defaultToolFavorites));
+      try {
+        window.localStorage.setItem(TOOL_FAVORITES_KEY, JSON.stringify(defaultToolFavorites));
+      } catch {
+        // Storage can be blocked or full; favorites still work for this session.
+      }
     }
   }, [defaultToolFavorites, toolMenu]);
 
@@ -211,6 +250,25 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     () => getPopularSearchTerms(i18n.language, versionInfo.id, 5),
     [i18n.language, versionInfo.id],
   );
+
+  const handleSignOut = () => {
+    const accessToken = session?.accessToken;
+    const accountData = collectAccountData();
+    const persistAccountData = mapleSqlApi.accountData.save(accountData).catch(() => undefined);
+
+    clearAccountDataCache();
+    localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+    clearAuthSession();
+    setAccountMenuOpen(false);
+    setMenuOpen(false);
+    navigate('/');
+
+    // Finish remote cleanup after the local UI has already signed out. The
+    // captured token remains valid even though browser storage is now clear.
+    void persistAccountData.finally(() => (
+      mapleSqlApi.auth.logout(accessToken || undefined).catch(() => undefined)
+    ));
+  };
 
   const openGuideMenu = () => {
     if (!guideMenu) return;
@@ -228,10 +286,19 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   }, [i18n.language]);
 
   const switchLang = (lang: string) => {
-    window.localStorage.setItem('i18nextLng', lang);
-    window.localStorage.setItem('maplehub-language', lang);
-    document.documentElement.lang = lang;
-    i18n.changeLanguage(lang);
+    const language = normalizeLanguage(lang);
+    window.localStorage.setItem('i18nextLng', language);
+    window.localStorage.setItem('maplehub-language', language);
+    document.documentElement.lang = language;
+    void i18n.changeLanguage(language);
+    navigate(
+      {
+        pathname: withRouteSuffixes(location.pathname, language, versionInfo.id),
+        search: location.search,
+        hash: location.hash,
+      },
+      { replace: true },
+    );
     setLangMenuOpen(false);
   };
 
@@ -240,8 +307,36 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     setVersionMenuOpen(false);
   };
 
-  const defaultToolValue = location.pathname === '/mapler-house'
-    ? window.location.hash.replace('#', '') || 'dashboard'
+  const seriesRoute = getSeriesRouteState(routePathname, location.search);
+  const isSeriesChooser = routePathname === '/' || routePathname === '/series';
+  const activeSeries = getSeriesProduct(seriesRoute.seriesId)
+    || (isSeriesChooser ? undefined : getSeriesProduct('maplestory-pc'));
+  const availableVersions = useMemo(() => getSeriesVersions(activeSeries?.id), [activeSeries?.id]);
+  const activeVersionShortLabel = getSeriesVersionShortLabel(activeSeries?.id, version);
+
+  useEffect(() => {
+    if (!availableVersions.some((item) => item.id === version)) {
+      setVersion(availableVersions[0]?.id || 'gms');
+    }
+  }, [activeSeries?.id, availableVersions, setVersion, version]);
+
+  const handleSeriesChange = (seriesId?: string) => {
+    const requestedModule = seriesRoute.module || 'news';
+    const destinationModule = isSeriesModuleAvailable(seriesId, requestedModule) ? requestedModule : 'news';
+    const href = seriesId
+      ? getSeriesModuleHref(seriesId, destinationModule)
+      : '/';
+    setSeriesMenuOpen(false);
+    navigate(localizeHref(href, i18n.language, versionInfo.id));
+  };
+
+  const getNavHref = (href: string) => scopeModuleHref(activeSeries?.id, href);
+  const visibleNavLinkKeys = navLinkKeys.filter((link) => (
+    isSeriesModuleAvailable(activeSeries?.id, getSeriesRouteState(link.href).module)
+  ));
+
+  const defaultToolValue = routePathname === '/mapler-house'
+    ? (typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '') || 'dashboard'
     : '';
 
   const defaultToolOptions = useMemo(
@@ -416,11 +511,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   const isNavActive = (href: string) => {
     if (href.startsWith('http')) return false;
-    if (href === '/') return location.pathname === '/';
+    const destination = getNavHref(href);
+    if (destination !== href) return routePathname === destination;
+    if (href === '/') return routePathname === '/';
     if (href === '/mapler-house') {
-      return location.pathname === '/mapler-house' || location.pathname === '/maps';
+      return routePathname === '/mapler-house' || routePathname === '/maps';
     }
-    return location.pathname === href || location.pathname.startsWith(`${href}/`);
+    return routePathname === href || routePathname.startsWith(`${href}/`);
+  };
+
+  const prefetchNav = (href: string) => {
+    if (!href.startsWith('http')) void prefetchRouteForPath(href);
   };
 
   return (
@@ -438,7 +539,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             : 'border-primary-300/40 shadow-sm'
         }`}
       >
-        <div className="w-full px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
+        <div className="w-full px-4 md:px-8 xl:px-4 2xl:px-8 h-16 md:h-20 flex items-center justify-between">
           {/* === MAPLE LEAF LOGO === */}
           <Link to="/" className="flex items-center gap-2.5 cursor-pointer flex-shrink-0 group">
             <div className="relative w-10 h-10 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-primary-500 to-accent-600 flex items-center justify-center maple-pulse-glow group-hover:scale-105 transition-transform">
@@ -447,17 +548,18 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             </div>
             <div className="flex flex-col leading-tight">
               <span className="font-heading text-lg md:text-xl font-semibold text-foreground-950 whitespace-nowrap">
-                MapleHub
+                {SITE_NAME}
               </span>
               <span className="text-[10px] md:text-[11px] text-primary-600 tracking-wider whitespace-nowrap font-semibold">
-                {versionInfo.shortLabel} COMMUNITY
+                {SITE_TAGLINE.toUpperCase()}
               </span>
             </div>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-1">
-            {primaryNavLinkKeys.map((l) => {
+          <nav className="hidden 2xl:flex items-center gap-1">
+            {visibleNavLinkKeys.map((l) => {
               const active = isNavActive(l.href);
+              const destinationHref = getNavHref(l.href);
 
               if (l.key === 'nav_guides' && guideMenu) {
                 return (
@@ -465,7 +567,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     key={l.href}
                     ref={guideMenuRef}
                     className="relative group"
-                    onMouseEnter={openGuideMenu}
+                    onMouseEnter={() => {
+                      prefetchNav(destinationHref);
+                      openGuideMenu();
+                    }}
+                    onFocus={() => prefetchNav(destinationHref)}
                     onMouseLeave={closeGuideMenuLater}
                   >
                     <button
@@ -477,7 +583,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       aria-haspopup="menu"
                       aria-expanded={guideMenuOpen}
                       aria-current={active ? 'page' : undefined}
-                      className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
+                      className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
                         guideMenuOpen || active
                           ? 'bg-primary-100 text-primary-700 shadow-sm'
                           : 'text-foreground-800 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
@@ -515,13 +621,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 );
               }
 
-              if (l.key === 'nav_tools') {
+              if (l.key === 'nav_tools' && (!activeSeries || activeSeries.id === 'maplestory-pc')) {
                 return (
                   <div
                     key={l.href}
                     ref={toolMenuRef}
                     className="relative group"
-                    onMouseEnter={openToolMenu}
+                    onMouseEnter={() => {
+                      prefetchNav(destinationHref);
+                      openToolMenu();
+                    }}
+                    onFocus={() => prefetchNav(destinationHref)}
                     onMouseLeave={closeToolMenuLater}
                   >
                     <button
@@ -533,7 +643,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       aria-haspopup="menu"
                       aria-expanded={toolMenuOpen}
                       aria-current={active ? 'page' : undefined}
-                      className={`px-3 py-2 rounded-md text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
+                      className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap inline-flex items-center gap-1 ${
                         toolMenuOpen || active
                           ? 'bg-primary-100 text-primary-700 shadow-sm'
                           : 'text-foreground-800 hover:text-primary-600 hover:bg-primary-50 group-hover:bg-primary-50 group-hover:text-primary-700'
@@ -582,7 +692,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     href={l.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="px-3 py-2 rounded-md text-sm font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
+                    className="px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50 transition-colors cursor-pointer whitespace-nowrap"
                   >
                     {t(l.key)}
                   </a>
@@ -592,9 +702,12 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               return (
                 <Link
                   key={l.href}
-                  to={l.href}
+                  to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
+                  onMouseEnter={() => prefetchNav(destinationHref)}
+                  onFocus={() => prefetchNav(destinationHref)}
+                  onTouchStart={() => prefetchNav(destinationHref)}
                   aria-current={active ? 'page' : undefined}
-                  className={`px-3 py-2 rounded-md text-sm transition-colors cursor-pointer whitespace-nowrap ${
+                  className={`px-2 2xl:px-3 py-2 rounded-md text-xs 2xl:text-sm transition-colors cursor-pointer whitespace-nowrap ${
                     active
                       ? 'bg-primary-100 text-primary-700 font-semibold shadow-sm'
                       : 'font-semibold text-foreground-800 hover:text-primary-600 hover:bg-primary-50'
@@ -604,57 +717,29 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 </Link>
               );
             })}
-            <div ref={moreMenuRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setMoreMenuOpen((open) => !open)}
-                aria-haspopup="menu"
-                aria-expanded={moreMenuOpen}
-                className={`inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
-                  moreMenuOpen || secondaryNavLinkKeys.some((link) => isNavActive(link.href))
-                    ? 'bg-primary-100 text-primary-700'
-                    : 'text-foreground-800 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                {t('nav_more')}
-                <i className="ri-arrow-down-s-line text-xs" />
-              </button>
-              {moreMenuOpen && (
-                <div
-                  className="absolute right-0 top-full z-50 mt-2 w-48 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1 shadow-xl"
-                  role="menu"
-                >
-                  {secondaryNavLinkKeys.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      onClick={() => setMoreMenuOpen(false)}
-                      role="menuitem"
-                      className={`flex items-center px-4 py-2.5 text-sm font-medium transition-colors ${
-                        isNavActive(link.href)
-                          ? 'bg-primary-50 text-primary-700'
-                          : 'text-foreground-800 hover:bg-background-100 hover:text-primary-700'
-                      }`}
-                    >
-                      {t(link.key)}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-3 ml-2">
+          <div className="ml-2 flex items-center gap-2 md:gap-3 xl:ml-1 xl:gap-1 2xl:ml-2 2xl:gap-3">
             <div ref={searchRef} className="relative hidden md:block">
-              <form
+              {routePathname === '/' ? (
+                <button
+                  type="button"
+                  onClick={() => setPaletteOpen(true)}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-600 hover:border-primary-300/60 hover:text-primary-700"
+                  aria-label={t('search_palette_open')}
+                  title={`${t('search_palette_open')} · ⌘/Ctrl K`}
+                >
+                  <i className="ri-search-line" aria-hidden="true"></i>
+                </button>
+              ) : <form
                 onSubmit={(event) => {
                   event.preventDefault();
                   submitSearch();
                 }}
                 className={`h-10 flex items-center gap-2 rounded-full px-3 md:px-4 transition-all cursor-pointer whitespace-nowrap ${
                   searchOpen
-                    ? 'bg-background-50 border border-primary-400/50 w-72'
-                    : 'bg-background-100 border border-background-200 w-56 hover:border-primary-300/60'
+                    ? 'bg-background-50 border border-primary-400/50 w-44 2xl:w-72'
+                    : 'bg-background-100 border border-background-200 w-32 2xl:w-56 hover:border-primary-300/60'
                 }`}
               >
                 <button
@@ -681,20 +766,94 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   ⌘/Ctrl K
                 </button>
               </form>
+              }
               {searchOpen && renderSearchMenu('absolute right-0 mt-2 w-80 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden shadow-lg')}
+            </div>
+
+            {/* Series Selector */}
+            <div ref={seriesRef} className="relative hidden sm:block">
+              <button
+                type="button"
+                onClick={() => {
+                  setVersionMenuOpen(false);
+                  setLangMenuOpen(false);
+                  setSeriesMenuOpen((open) => !open);
+                }}
+                aria-haspopup="menu"
+                aria-expanded={seriesMenuOpen}
+                className="flex h-10 max-w-44 items-center gap-1.5 rounded-full border border-background-200 bg-background-100 px-2.5 text-sm font-semibold text-foreground-800 hover:border-primary-300/60"
+                title={t('home_series_title')}
+              >
+                {activeSeries ? (
+                  <img src={activeSeries.image} alt="" className="h-5 w-5 shrink-0 rounded-md object-cover" />
+                ) : (
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-primary-100 text-primary-700">
+                    <i className="ri-apps-2-line text-xs" aria-hidden="true" />
+                  </span>
+                )}
+                <span className="hidden max-w-32 truncate lg:inline">{activeSeries?.name || t('nav_series')}</span>
+                <i className="ri-arrow-down-s-line shrink-0 text-xs text-foreground-500" aria-hidden="true" />
+              </button>
+              {seriesMenuOpen && (
+                <div className="absolute right-0 z-50 mt-2 w-72 overflow-hidden rounded-lg border border-primary-200/40 bg-background-50 shadow-lg" role="menu">
+                  <div className="flex items-center gap-2 bg-background-100 px-4 py-2 text-xs font-semibold uppercase text-foreground-500">
+                    <i className="ri-apps-2-line text-primary-600" aria-hidden="true" />
+                    {t('home_series_title')}
+                  </div>
+                  <ul className="max-h-[70vh] overflow-y-auto py-1">
+                    <li>
+                      <button
+                        type="button"
+                        role="menuitem"
+                        onClick={() => handleSeriesChange()}
+                        className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm ${
+                          !activeSeries ? 'bg-primary-50 font-semibold text-primary-700' : 'text-foreground-800 hover:bg-background-100'
+                        }`}
+                      >
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-background-200 text-foreground-700">
+                          <i className="ri-layout-grid-line" aria-hidden="true" />
+                        </span>
+                        <span className="min-w-0 flex-1">{t('home_series_all')}</span>
+                        {!activeSeries && <i className="ri-check-line text-primary-600" aria-hidden="true" />}
+                      </button>
+                    </li>
+                    {seriesProducts.map((product) => (
+                      <li key={product.id}>
+                        <button
+                          type="button"
+                          role="menuitem"
+                          onClick={() => handleSeriesChange(product.id)}
+                          className={`flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm ${
+                            activeSeries?.id === product.id
+                              ? 'bg-primary-50 font-semibold text-primary-700'
+                              : 'text-foreground-800 hover:bg-background-100'
+                          }`}
+                        >
+                          <img src={product.image} alt="" className="h-8 w-8 shrink-0 rounded-md object-cover" loading="lazy" />
+                          <span className="min-w-0 flex-1 truncate">{product.name}</span>
+                          {activeSeries?.id === product.id && <i className="ri-check-line text-primary-600" aria-hidden="true" />}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
 
             {/* Version Selector */}
             <div ref={versionRef} className="relative hidden sm:block">
               <button
-                onClick={() => setVersionMenuOpen((v) => !v)}
+                onClick={() => {
+                  setSeriesMenuOpen(false);
+                  setVersionMenuOpen((v) => !v);
+                }}
                 className="h-10 flex items-center gap-1.5 rounded-full px-3 bg-background-100 border border-background-200 hover:border-primary-300/60 text-sm font-semibold text-foreground-800 cursor-pointer whitespace-nowrap"
                 title={t('nav_version_label')}
               >
                 <span className="w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-accent-600 text-background-50 text-[10px] font-bold flex items-center justify-center">
-                  {versionInfo.shortLabel[0]}
+                  {activeVersionShortLabel[0]}
                 </span>
-                <span className="hidden lg:inline">{versionInfo.shortLabel}</span>
+                <span className="hidden lg:inline">{activeVersionShortLabel}</span>
                 <i className="ri-arrow-down-s-line text-foreground-500 text-xs"></i>
               </button>
               {versionMenuOpen && (
@@ -704,7 +863,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                     {t('nav_version_label')}
                   </div>
                   <ul className="py-1">
-                    {VERSIONS.map((ver) => (
+                    {availableVersions.map((ver) => (
                       <li key={ver.id}>
                         <button
                           onClick={() => handleVersionChange(ver.id)}
@@ -719,11 +878,13 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                               ? 'bg-gradient-to-br from-primary-500 to-accent-600 text-background-50'
                               : 'bg-background-100 text-foreground-700'
                           }`}>
-                            {ver.shortLabel[0]}
+                            {getSeriesVersionShortLabel(activeSeries?.id, ver.id)[0]}
                           </span>
-                          <div className="flex flex-col">
-                            <span className="text-sm leading-tight">{ver.name}</span>
-                            <span className="text-[10px] text-foreground-500 leading-tight">{ver.region}</span>
+                          <div className="flex min-w-0 flex-col">
+                            <span className="truncate text-sm leading-tight">{activeSeries && activeSeries.id !== 'maplestory-pc' ? activeSeries.name : getLocalizedVersionPresentation(ver, t).name}</span>
+                            <span className="flex items-center gap-1.5 text-[10px] leading-tight text-foreground-500">
+                              {getSeriesVersionShortLabel(activeSeries?.id, ver.id)} · {getLocalizedVersionPresentation(ver, t).region}
+                            </span>
                           </div>
                           {version === ver.id && (
                             <i className="ri-check-line text-primary-600 ml-auto"></i>
@@ -744,7 +905,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 title={t('nav_lang_label')}
               >
                 <i className="ri-global-line"></i>
-                <span className="hidden lg:inline">{i18n.language === 'zh' ? '中文' : i18n.language === 'ja' ? '日本語' : i18n.language === 'zh-Hant' ? '繁體' : 'EN'}</span>
+                <span className="hidden lg:inline">{i18n.language === 'zh' ? '中文' : i18n.language === 'ja' ? '日本語' : i18n.language === 'ko' ? '한국어' : i18n.language === 'zh-Hant' ? '繁體' : 'EN'}</span>
               </button>
               {langMenuOpen && (
                 <div className="absolute right-0 mt-2 w-36 bg-background-50 border border-primary-200/40 rounded-xl overflow-hidden z-50 shadow-lg">
@@ -772,6 +933,17 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                       >
                         <span>🇨🇳</span> 中文
                         {i18n.language === 'zh' && <i className="ri-check-line ml-auto text-primary-600"></i>}
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => switchLang('ko')}
+                        className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2 cursor-pointer ${
+                          i18n.language === 'ko' ? 'bg-primary-50 text-primary-700 font-semibold' : 'text-foreground-800 hover:bg-background-100'
+                        }`}
+                      >
+                        <span>🇰🇷</span> 한국어
+                        {i18n.language === 'ko' && <i className="ri-check-line ml-auto text-primary-600"></i>}
                       </button>
                     </li>
                     <li>
@@ -810,7 +982,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 setSearchOpen(false);
                 setMobileSearchOpen((open) => !open);
               }}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-700 transition-colors hover:border-primary-300/60 hover:bg-primary-50 md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 transition-colors hover:border-primary-400 hover:bg-primary-50 md:hidden"
               aria-label={mobileSearchOpen ? t('nav_search_close') : t('nav_search_open')}
               aria-expanded={mobileSearchOpen}
               aria-controls="mobile-site-search"
@@ -821,7 +993,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             {/* Notifications */}
             <button
               onClick={onOpenNotifications}
-              className="relative w-10 h-10 flex items-center justify-center rounded-full bg-background-100 border border-background-200 hover:bg-primary-50 hover:border-primary-300/50 transition-colors cursor-pointer"
+              className="relative flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 transition-colors hover:border-primary-400 hover:bg-primary-50 cursor-pointer"
               aria-label={t('nav_notifications')}
             >
               <i className="ri-notification-3-line text-foreground-700 text-lg"></i>
@@ -834,21 +1006,62 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             </button>
 
             {/* Account state */}
-            {isSignedIn ? (
-              <Link
-                to="/checklist"
-                className="hidden h-10 max-w-40 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100 sm:flex"
-                title={t('nav_account_signed_in', { name: displayName })}
-              >
-                {session?.avatarUrl ? (
-                  <img src={session.avatarUrl} alt="" className="h-7 w-7 rounded-full object-cover" />
-                ) : (
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-500 text-xs text-background-50">
-                    {(displayName || '?').slice(0, 1).toUpperCase()}
-                  </span>
+            {!isSessionResolved ? (
+              <div className="hidden h-10 w-28 sm:block 2xl:w-36" aria-hidden="true" />
+            ) : isSignedIn ? (
+              <div ref={accountMenuRef} className="relative hidden sm:block">
+                <button
+                  type="button"
+                  onClick={() => setAccountMenuOpen((open) => !open)}
+                  aria-haspopup="menu"
+                  aria-expanded={accountMenuOpen}
+                  className="flex h-10 max-w-32 2xl:max-w-44 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100"
+                  title={t('nav_account_signed_in', { name: displayName })}
+                >
+                  {session?.avatarUrl ? (
+                    <img src={session.avatarUrl} alt="" className="h-7 w-7 rounded-full object-cover" />
+                  ) : (
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-500 text-xs text-background-50">
+                      {(displayName || '?').slice(0, 1).toUpperCase()}
+                    </span>
+                  )}
+                  <span className="truncate">{displayName}</span>
+                  <i className="ri-arrow-down-s-line text-xs" aria-hidden="true" />
+                </button>
+                {accountMenuOpen && (
+                  <div className="absolute right-0 top-full z-50 mt-2 w-52 overflow-hidden rounded-lg border border-background-200 bg-background-50 py-1 shadow-xl" role="menu">
+                    <Link
+                      to="/account"
+                      onClick={() => setAccountMenuOpen(false)}
+                      role="menuitem"
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-foreground-800 hover:bg-background-100"
+                    >
+                      <i className="ri-user-settings-line" aria-hidden="true" />
+                      {t('nav_account_dashboard')}
+                    </Link>
+                    {isAdmin && (
+                      <Link
+                        to={localizeHref('/admin/feedback', i18n.language, versionInfo.id)}
+                        onClick={() => setAccountMenuOpen(false)}
+                        role="menuitem"
+                        className="flex items-center gap-2 border-t border-background-200 px-4 py-2.5 text-sm font-medium text-foreground-800 hover:bg-background-100"
+                      >
+                        <i className="ri-feedback-line" aria-hidden="true" />
+                        {t('nav_feedback_admin')}
+                      </Link>
+                    )}
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      role="menuitem"
+                      className="flex w-full items-center gap-2 border-t border-background-200 px-4 py-2.5 text-left text-sm font-medium text-red-700 hover:bg-red-50"
+                    >
+                      <i className="ri-logout-circle-r-line" aria-hidden="true" />
+                      {t('nav_sign_out')}
+                    </button>
+                  </div>
                 )}
-                <span className="truncate">{displayName}</span>
-              </Link>
+              </div>
             ) : (
               <Link
                 to="/auth/login"
@@ -866,7 +1079,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 setMobileSearchOpen(false);
                 setMenuOpen((v) => !v);
               }}
-              className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-background-100 border border-background-200 cursor-pointer"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-background-300 bg-background-100 text-foreground-800 2xl:hidden cursor-pointer"
               aria-label={menuOpen ? t('nav_menu_close') : t('nav_menu_open')}
             >
               <i className={`${menuOpen ? 'ri-close-line' : 'ri-menu-line'} text-foreground-800 text-xl`}></i>
@@ -905,7 +1118,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 <button
                   type="button"
                   onClick={() => setQuery('')}
-                  className="flex h-8 w-8 items-center justify-center rounded-full text-foreground-500 hover:bg-background-200 hover:text-foreground-800"
+                  className="flex h-11 w-11 items-center justify-center rounded-full text-foreground-700 hover:bg-background-200 hover:text-foreground-950"
                   aria-label={t('search_clear_btn')}
                 >
                   <i className="ri-close-line"></i>
@@ -917,10 +1130,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
         )}
 
         {menuOpen && (
-          <div className="lg:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
+          <div className="2xl:hidden bg-background-50 border-t border-primary-200/20 px-4 py-3">
             <nav className="flex flex-col">
-              {navLinkKeys.map((l) => {
+              {visibleNavLinkKeys.map((l) => {
                 const active = isNavActive(l.href);
+                const destinationHref = getNavHref(l.href);
 
                 if (l.key === 'nav_guides' && guideMenu) {
                   return (
@@ -960,7 +1174,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   );
                 }
 
-                if (l.key === 'nav_tools') {
+                if (l.key === 'nav_tools' && (!activeSeries || activeSeries.id === 'maplestory-pc')) {
                   return (
                     <div key={l.href} ref={mobileToolMenuRef} className="py-1">
                       <button
@@ -1023,7 +1237,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 return (
                   <Link
                     key={l.href}
-                    to={l.href}
+                    to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
+                    onMouseEnter={() => prefetchNav(destinationHref)}
+                    onFocus={() => prefetchNav(destinationHref)}
+                    onTouchStart={() => prefetchNav(destinationHref)}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active ? 'page' : undefined}
                     className={`rounded-md px-3 py-2 text-sm cursor-pointer ${
@@ -1037,67 +1254,97 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 );
               })}
               <div className="mt-3 pt-3 border-t border-background-200 flex flex-col gap-2">
-                <div className="text-xs text-foreground-500 flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 text-xs font-medium text-foreground-700">
                   <i className="ri-leaf-fill text-primary-500 text-xs"></i>
                   {t('nav_version_label')}
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {VERSIONS.map((ver) => (
+                  {availableVersions.map((ver) => (
                     <button
                       key={ver.id}
                       onClick={() => { setVersion(ver.id); setMenuOpen(false); }}
-                      className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                        version === ver.id ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                      className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                        version === ver.id ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                       }`}
                     >
                       {ver.name}
                     </button>
                   ))}
                 </div>
-                <div className="text-xs text-foreground-500 mt-1">{t('nav_lang_label')}</div>
+                <div className="mt-1 text-xs font-medium text-foreground-700">{t('nav_lang_label')}</div>
                 <div className="flex gap-1.5">
                   <button
                     onClick={() => switchLang('en')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'en' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'en' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     English
                   </button>
                   <button
                     onClick={() => switchLang('zh')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'zh' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'zh' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     中文
                   </button>
                   <button
+                    onClick={() => switchLang('ko')}
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'ko' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
+                    }`}
+                  >
+                    한국어
+                  </button>
+                  <button
                     onClick={() => switchLang('ja')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'ja' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'ja' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     日本語
                   </button>
                   <button
                     onClick={() => switchLang('zh-Hant')}
-                    className={`px-3 py-1.5 rounded-full text-xs font-semibold cursor-pointer whitespace-nowrap ${
-                      i18n.language === 'zh-Hant' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'bg-background-100 text-foreground-700 border border-background-200'
+                    className={`inline-flex min-h-11 items-center rounded-full px-3 py-1.5 text-xs font-semibold cursor-pointer whitespace-nowrap ${
+                      i18n.language === 'zh-Hant' ? 'bg-gradient-to-r from-primary-500 to-accent-600 text-background-50' : 'border border-background-300 bg-background-100 text-foreground-800'
                     }`}
                   >
                     繁體
                   </button>
                 </div>
-                {isSignedIn ? (
-                  <Link
-                    to="/checklist"
-                    onClick={() => setMenuOpen(false)}
-                    className="mt-2 flex h-10 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
-                  >
-                    <i className="ri-user-smile-line" />
-                    {displayName}
-                  </Link>
+                {!isSessionResolved ? (
+                  <div className="mt-2 h-10" aria-hidden="true" />
+                ) : isSignedIn ? (
+                  <div className="mt-2 grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+                    <Link
+                      to="/account"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex h-10 min-w-0 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
+                    >
+                      <i className="ri-user-smile-line" />
+                      <span className="truncate">{displayName}</span>
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleSignOut}
+                      className="flex h-10 items-center justify-center gap-1.5 rounded-full border border-red-200 bg-white px-3 text-sm font-semibold text-red-700"
+                    >
+                      <i className="ri-logout-circle-r-line" aria-hidden="true" />
+                      {t('nav_sign_out')}
+                    </button>
+                    {isAdmin && (
+                      <Link
+                        to={localizeHref('/admin/feedback', i18n.language, versionInfo.id)}
+                        onClick={() => setMenuOpen(false)}
+                        className="col-span-2 flex h-10 items-center justify-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-4 text-sm font-semibold text-primary-800"
+                      >
+                        <i className="ri-feedback-line" aria-hidden="true" />
+                        {t('nav_feedback_admin')}
+                      </Link>
+                    )}
+                  </div>
                 ) : (
                   <Link
                     to="/auth/login"

@@ -57,7 +57,7 @@ const outfitPresets: OutfitPreset[] = [
   {
     set: 'Festival Style',
     rarity: 'Legendary',
-    versions: ['gms', 'kms', 'cms', 'tms', 'jms', 'msea'],
+    versions: ['gms', 'kms', 'tms', 'jms', 'msea'],
     items: [
       { id: 1004424, name: 'Festival Hat', slot: 'Hat', rarity: 'Epic' },
       { id: 1052882, name: 'Festival Outfit', slot: 'Overall', rarity: 'Legendary' },

@@ -1,0 +1,35 @@
+{
+  "id": "maplestory-miracle-summer-2026",
+  "name": "Miracle Summer 2026",
+  "website": "Global MapleStory",
+  "page": "Miracle Summer 2026",
+  "url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "events",
+  "subcategory": "seasonal-event",
+  "description": "Publishes the official Global MapleStory Miracle Summer 2026 event announcement and participation details.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "events",
+    "miracle-summer",
+    "summer"
+  ],
+  "source_urls": [
+    "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026"
+  ],
+  "notes": null
+}

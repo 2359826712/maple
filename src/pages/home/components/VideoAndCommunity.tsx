@@ -59,6 +59,8 @@ export default function VideoAndCommunity() {
                       <img
                         src={v.thumb}
                         alt={v.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground-950/60 via-transparent to-transparent dark:from-[#120e0b]/60"></div>
@@ -118,6 +120,8 @@ export default function VideoAndCommunity() {
                     <img
                       src={c.avatar}
                       alt={c.user}
+                      loading="lazy"
+                      decoding="async"
                       className="w-10 h-10 rounded-full object-cover object-top"
                     />
                     <div className="flex-1">

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { cachedJsonFetch, realtimeCacheDurations } from '@/services/realtimeCache';
 import { WORLD_MAP_HIT_MASKS, type OverlayHitMask } from './worldMapHitMasks';
 import { mapLocations } from '@/mocks/mapler-house';
+import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services/staticTranslation';
 
 type MajorRegion = 'maple' | 'arcane' | 'grandis';
 type SortKey = 'level' | 'exp' | 'meso' | 'spawn' | 'name';
@@ -74,17 +75,17 @@ type RootHotspot = { region: MajorRegion; label: string; x: number; y: number; w
 
 const MAP_API_REGION = 'GMS';
 const MAP_API_VERSION = '253';
-const MAPLESTORY_IO_API_BASE = '/maplestory-io-api';
+const MAPLESTORY_IO_API_BASE = 'https://maplestory.io/api';
 const MAPLEMAPS_ASSET_BASE = 'https://d3uzjcc4cyf4cj.cloudfront.net';
 const MAP_IMAGE_SOURCE = 'Maplemaps map render';
 
 const MAPLEMAPS_HOME_REGION_IMAGES = {
-  maple: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/maple_world_select.webp',
-  grandis: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/grandis_select.webp',
-  arcane: 'https://d3uzjcc4cyf4cj.cloudfront.net/other/arcane_river_select.webp',
+  maple: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/maple_world_select-8888b64182.webp',
+  grandis: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/grandis_select-53a0364877.webp',
+  arcane: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/arcane_river_select-897e7f69e5.webp',
 } as const;
 
-const MAPLEMAPS_HOME_TABLE_IMAGE = 'https://d3uzjcc4cyf4cj.cloudfront.net/other/spreadsheet_light.PNG';
+const MAPLEMAPS_HOME_TABLE_IMAGE = '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/spreadsheet_light-26bda6d4e2.png';
 
 type MaplemapsOverlay = {
   id: string;
@@ -140,14 +141,14 @@ type MaplemapsMobMeta = {
   exp?: number;
 };
 
-async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arcane_river') {
-  return cachedJsonFetch<{
+async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arcane_river', language: string) {
+  const payload = await cachedJsonFetch<{
     worldMapsData: Record<string, MaplemapsWorldMapRemote>;
     mapsData: Record<string, MaplemapsMapMeta>;
     mobsData: Record<string, MaplemapsMobMeta>;
   }>('https://v66rewn65j.execute-api.us-west-2.amazonaws.com/prod/fetch-mongodb', {
     cacheKey: `maplemaps-region:${region}`,
-    freshMs: realtimeCacheDurations.long,
+    freshMs: realtimeCacheDurations.refresh,
     staleMs: realtimeCacheDurations.week,
     requestInit: {
       method: 'POST',
@@ -155,70 +156,104 @@ async function fetchMaplemapsRegionData(region: 'maple_world' | 'grandis' | 'arc
       body: JSON.stringify({ reqType: 'regionData', region }),
     },
   });
+  const targetLanguage = normalizeStaticContentLanguage(language);
+  if (targetLanguage === 'en') return payload;
+
+  const worldMapsData = Object.fromEntries(Object.entries(payload.worldMapsData).map(([key, value]) => [key, {
+    ...value,
+    maps: value.maps.map((dot) => ({ ...dot })),
+  }]));
+  const mapsData = Object.fromEntries(Object.entries(payload.mapsData).map(([key, value]) => [key, { ...value }]));
+  const mobsData = Object.fromEntries(Object.entries(payload.mobsData).map(([key, value]) => [key, { ...value }]));
+  const labels = Array.from(new Set([
+    ...Object.values(worldMapsData).flatMap((value) => [value.worldMapName, ...value.maps.map((dot) => dot.description || '')]),
+    ...Object.values(mapsData).flatMap((value) => [value.name, value.streetName]),
+    ...Object.values(mobsData).map((value) => value.name),
+  ].filter(Boolean)));
+  try {
+    const translations = await translateStaticTexts(labels, targetLanguage, { sourceLanguage: 'en' });
+    const localized = new Map(labels.map((label, index) => [label, translations[index] || label]));
+    Object.values(worldMapsData).forEach((value) => {
+      value.worldMapName = localized.get(value.worldMapName) || value.worldMapName;
+      value.maps.forEach((dot) => {
+        if (dot.description) dot.description = localized.get(dot.description) || dot.description;
+      });
+    });
+    Object.values(mapsData).forEach((value) => {
+      value.name = localized.get(value.name) || value.name;
+      value.streetName = localized.get(value.streetName) || value.streetName;
+    });
+    Object.values(mobsData).forEach((value) => {
+      value.name = localized.get(value.name) || value.name;
+    });
+  } catch {
+    return payload;
+  }
+  return { worldMapsData, mapsData, mobsData };
 }
 
 const MAPLEMAPS_WORLDMAPS: Record<string, MaplemapsWorldMapDef> = {
   WorldMap: {
     worldMap: 'WorldMap',
     parentWorld: '',
-    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap.webp?v=2', width: 640, height: 470 },
+    base: { src: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap-54232a134b.webp', width: 640, height: 470 },
     overlays: [
-      { id: 'WorldMap000', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap000.webp?v=1', leftPx: 118, topPx: 65, widthPx: 53, heightPx: 41 },
-      { id: 'WorldMap010', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap010.webp?v=1', leftPx: 21, topPx: 109, widthPx: 130, heightPx: 117 },
-      { id: 'WorldMap100', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap100.webp?v=1', leftPx: 19, topPx: 219, widthPx: 69, heightPx: 95 },
-      { id: 'WorldMap110', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap110.webp?v=1', leftPx: 442, topPx: 4, widthPx: 193, heightPx: 152 },
-      { id: 'WorldMap170', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap170a.webp?v=1', leftPx: 234, topPx: 395, widthPx: 105, heightPx: 77 },
-      { id: 'WorldMap160', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap160.webp?v=1', leftPx: 26, topPx: 51, widthPx: 101, heightPx: 67 },
-      { id: 'WorldMap020', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap020.webp?v=1', leftPx: 230, topPx: 120, widthPx: 269, heightPx: 217 },
-      { id: 'WorldMap030', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap030.webp?v=1', leftPx: 195, topPx: 229, widthPx: 144, heightPx: 113 },
-      { id: 'WorldMap040', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap040.webp?v=1', leftPx: 146, topPx: 161, widthPx: 95, heightPx: 74 },
-      { id: 'WorldMap050', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap050.webp?v=1', leftPx: 74, topPx: 218, widthPx: 214, heightPx: 245 },
-      { id: 'WorldMap060', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap060.webp?v=1', leftPx: 458, topPx: 203, widthPx: 165, heightPx: 224 },
-      { id: 'WorldMap070', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap070.webp?v=1', leftPx: 274, topPx: 314, widthPx: 219, heightPx: 156 },
-      { id: 'WorldMap080', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap080.webp?v=1', leftPx: 7, topPx: 318, widthPx: 128, heightPx: 127 },
-      { id: 'WorldMap090', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap090.webp?v=1', leftPx: 143, topPx: 83, widthPx: 98, heightPx: 89 },
+      { id: 'WorldMap000', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap000-8193d68e92.webp', leftPx: 118, topPx: 65, widthPx: 53, heightPx: 41 },
+      { id: 'WorldMap010', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap010-b5f4384324.webp', leftPx: 21, topPx: 109, widthPx: 130, heightPx: 117 },
+      { id: 'WorldMap100', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap100-c975815903.webp', leftPx: 19, topPx: 219, widthPx: 69, heightPx: 95 },
+      { id: 'WorldMap110', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap110-ba99a1ed68.webp', leftPx: 442, topPx: 4, widthPx: 193, heightPx: 152 },
+      { id: 'WorldMap170', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap170a-7d55888ba6.webp', leftPx: 234, topPx: 395, widthPx: 105, heightPx: 77 },
+      { id: 'WorldMap160', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap160-1f587460f3.webp', leftPx: 26, topPx: 51, widthPx: 101, heightPx: 67 },
+      { id: 'WorldMap020', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap020-0fc23dd9ce.webp', leftPx: 230, topPx: 120, widthPx: 269, heightPx: 217 },
+      { id: 'WorldMap030', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap030-5a4d4b47f2.webp', leftPx: 195, topPx: 229, widthPx: 144, heightPx: 113 },
+      { id: 'WorldMap040', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap040-9c34de294e.webp', leftPx: 146, topPx: 161, widthPx: 95, heightPx: 74 },
+      { id: 'WorldMap050', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap050-ca67f8b36c.webp', leftPx: 74, topPx: 218, widthPx: 214, heightPx: 245 },
+      { id: 'WorldMap060', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap060-14ab65e704.webp', leftPx: 458, topPx: 203, widthPx: 165, heightPx: 224 },
+      { id: 'WorldMap070', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap070-72297d0216.webp', leftPx: 274, topPx: 314, widthPx: 219, heightPx: 156 },
+      { id: 'WorldMap080', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap080-d05cfe05d9.webp', leftPx: 7, topPx: 318, widthPx: 128, heightPx: 127 },
+      { id: 'WorldMap090', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap090-0528184737.webp', leftPx: 143, topPx: 83, widthPx: 98, heightPx: 89 },
     ],
   },
   WorldMap160: {
     worldMap: 'WorldMap160',
     parentWorld: 'WorldMap',
-    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap160.webp?v=2', width: 640, height: 470 },
+    base: { src: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap160-82acf0d3ec.webp', width: 640, height: 470 },
     overlays: [
-      { id: 'WorldMap161', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap161.webp?v=1', leftPx: 146, topPx: 78, widthPx: 418, heightPx: 258 },
-      { id: 'WorldMap169', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap169.webp?v=1', leftPx: 26, topPx: 83, widthPx: 146, heightPx: 142 },
-      { id: 'WorldMap162', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap162.webp?v=1', leftPx: 465, topPx: 71, widthPx: 150, heightPx: 162 },
-      { id: 'WorldMap163', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap163.webp?v=1', leftPx: 51, topPx: 223, widthPx: 196, heightPx: 175 },
+      { id: 'WorldMap161', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap161-48ac62b79d.webp', leftPx: 146, topPx: 78, widthPx: 418, heightPx: 258 },
+      { id: 'WorldMap169', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap169-7c1e6c5d18.webp', leftPx: 26, topPx: 83, widthPx: 146, heightPx: 142 },
+      { id: 'WorldMap162', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap162-324fa9f7ad.webp', leftPx: 465, topPx: 71, widthPx: 150, heightPx: 162 },
+      { id: 'WorldMap163', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap163-7a3b1b617d.webp', leftPx: 51, topPx: 223, widthPx: 196, heightPx: 175 },
     ],
   },
   WGWorldMap: {
     worldMap: 'WGWorldMap',
     parentWorld: 'GWorldMap',
-    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WGWorldMap.webp?v=2', width: 640, height: 470 },
+    base: { src: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/wgworldmap-e8a87ae35a.webp', width: 640, height: 470 },
     overlays: [
-      { id: 'WorldMap230', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap230a.webp?v=1', leftPx: 82, topPx: 146, widthPx: 146, heightPx: 128 },
-      { id: 'WorldMap250', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap250.webp?v=1', leftPx: 209, topPx: 127, widthPx: 162, heightPx: 115 },
-      { id: 'WorldMap270', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap270a.webp?v=1', leftPx: 283, topPx: 30, widthPx: 107, heightPx: 119 },
-      { id: 'WorldMap300', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap300.webp?v=1', leftPx: 59, topPx: 51, widthPx: 150, heightPx: 84 },
-      { id: 'WorldMap310', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap310.webp?v=1', leftPx: 66, topPx: 318, widthPx: 194, heightPx: 125 },
-      { id: 'WorldMap320', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap320.webp?v=1', leftPx: 252, topPx: 237, widthPx: 133, heightPx: 119 },
-      { id: 'WorldMap350', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap350.webp?v=1', leftPx: 348, topPx: 193, widthPx: 112, heightPx: 95 },
+      { id: 'WorldMap230', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap230a-447974a524.webp', leftPx: 82, topPx: 146, widthPx: 146, heightPx: 128 },
+      { id: 'WorldMap250', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap250-c95018b30b.webp', leftPx: 209, topPx: 127, widthPx: 162, heightPx: 115 },
+      { id: 'WorldMap270', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap270a-4a8b312bc6.webp', leftPx: 283, topPx: 30, widthPx: 107, heightPx: 119 },
+      { id: 'WorldMap300', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap300-6434e1f8c3.webp', leftPx: 59, topPx: 51, widthPx: 150, heightPx: 84 },
+      { id: 'WorldMap310', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap310-6715bb1765.webp', leftPx: 66, topPx: 318, widthPx: 194, heightPx: 125 },
+      { id: 'WorldMap320', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap320-8863b0e02a.webp', leftPx: 252, topPx: 237, widthPx: 133, heightPx: 119 },
+      { id: 'WorldMap350', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap350-1344f8392f.webp', leftPx: 348, topPx: 193, widthPx: 112, heightPx: 95 },
     ],
   },
   WorldMap082: {
     worldMap: 'WorldMap082',
     parentWorld: '',
-    base: { src: 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap082.webp?v=2', width: 640, height: 470 },
+    base: { src: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap082-d870f798bd.webp', width: 640, height: 470 },
     overlays: [
-      { id: 'WorldMap0821', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0821.webp?v=1', leftPx: 6, topPx: 6, widthPx: 177, heightPx: 183 },
-      { id: 'WorldMap0822', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0822.webp?v=1', leftPx: 34, topPx: 255, widthPx: 217, heightPx: 133 },
-      { id: 'WorldMap0823', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0823.webp?v=1', leftPx: 100, topPx: 123, widthPx: 218, heightPx: 166 },
-      { id: 'WorldMap0824', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0824.webp?v=1', leftPx: 255, topPx: 72, widthPx: 209, heightPx: 161 },
-      { id: 'WorldMap0825', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0825.webp?v=1', leftPx: 238, topPx: 224, widthPx: 181, heightPx: 182 },
-      { id: 'WorldMap0826', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0826.webp?v=1', leftPx: 388, topPx: 169, widthPx: 234, heightPx: 140 },
-      { id: 'WorldMap0827', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0827.webp?v=1', leftPx: 406, topPx: 21, widthPx: 206, heightPx: 175 },
-      { id: 'WorldMap0828', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0828.webp?v=1', leftPx: 170, topPx: 15, widthPx: 156, heightPx: 97 },
-      { id: 'WorldMap0829', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap0829.webp?v=1', leftPx: 25, topPx: 356, widthPx: 132, heightPx: 93 },
-      { id: 'WorldMap082a', img: 'https://d3uzjcc4cyf4cj.cloudfront.net/linkImages/WorldMap082a.webp?v=1', leftPx: 387, topPx: 281, widthPx: 152, heightPx: 113 },
+      { id: 'WorldMap0821', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0821-995b0c68d6.webp', leftPx: 6, topPx: 6, widthPx: 177, heightPx: 183 },
+      { id: 'WorldMap0822', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0822-49f880f196.webp', leftPx: 34, topPx: 255, widthPx: 217, heightPx: 133 },
+      { id: 'WorldMap0823', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0823-1ae24a0811.webp', leftPx: 100, topPx: 123, widthPx: 218, heightPx: 166 },
+      { id: 'WorldMap0824', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0824-3cb1234a68.webp', leftPx: 255, topPx: 72, widthPx: 209, heightPx: 161 },
+      { id: 'WorldMap0825', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0825-3403990654.webp', leftPx: 238, topPx: 224, widthPx: 181, heightPx: 182 },
+      { id: 'WorldMap0826', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0826-0b84358c61.webp', leftPx: 388, topPx: 169, widthPx: 234, heightPx: 140 },
+      { id: 'WorldMap0827', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0827-54df01f813.webp', leftPx: 406, topPx: 21, widthPx: 206, heightPx: 175 },
+      { id: 'WorldMap0828', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0828-ec53e19b59.webp', leftPx: 170, topPx: 15, widthPx: 156, heightPx: 97 },
+      { id: 'WorldMap0829', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap0829-68fef1a8d0.webp', leftPx: 25, topPx: 356, widthPx: 132, heightPx: 93 },
+      { id: 'WorldMap082a', img: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap082a-2802db85d1.webp', leftPx: 387, topPx: 281, widthPx: 152, heightPx: 113 },
     ],
   },
 };
@@ -358,7 +393,7 @@ const ACKNOWLEDGEMENTS = [
   { label: 'StrategyWiki', detail: 'Exp and meso formulas', href: 'https://strategywiki.org/wiki/MapleStory' },
 ];
 
-const ROOT_WORLD_IMAGE = 'https://d3uzjcc4cyf4cj.cloudfront.net/world_maps/WorldMap.webp?v=2';
+const ROOT_WORLD_IMAGE = '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/worldmap-54232a134b.webp';
 const ROOT_WORLD_HOTSPOTS: RootHotspot[] = [
   { region: 'maple', label: 'Maple World', x: 26, y: 53, width: 28, height: 32, note: 'Victoria, Orbis, Ludibrium, Zipangu' },
   { region: 'arcane', label: 'Arcane River', x: 72, y: 77, width: 20, height: 18, note: 'VJ, Chu Chu, Arcana, Limina' },
@@ -384,7 +419,6 @@ const expandedMapRules = [
   { street: 'Arteria', minLevel: 280, maxLevel: 295, limit: 34, monsters: ['Arteria Mob', 'High Flora Guard'] },
   { street: 'Carcion', minLevel: 285, maxLevel: 300, limit: 46, monsters: ['Carcion Mob', 'Abyss Creature'] },
   { street: 'Commerci Republic', minLevel: 160, maxLevel: 210, limit: 40, monsters: ['Grosso Polpo', 'Aqua Patrol'], version: 'gms' },
-  { street: 'Shaolin Temple', minLevel: 250, maxLevel: 275, limit: 24, monsters: ['Sweeping Monk', 'Bronze Man'], version: 'cms' },
   { street: 'Orbis', minLevel: 50, maxLevel: 90, limit: 34, monsters: ['Cloud Mob', 'Sky Sentinel'], version: 'all' },
   { street: 'El Nath', minLevel: 70, maxLevel: 120, limit: 34, monsters: ['Snowfield Mob', 'Ice Sentinel'], version: 'all' },
   { street: 'Ludibrium', minLevel: 90, maxLevel: 130, limit: 40, monsters: ['Toy Mob', 'Clocktower Mob'], version: 'all' },
@@ -586,7 +620,7 @@ const maplemapsMetaToRow = (mapId: number, meta?: MaplemapsMapMeta): TableRow =>
 };
 
 export default function MapExplorer() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [selectedRegion, setSelectedRegion] = useState<MajorRegion>('maple');
   const [navigatorNode, setNavigatorNode] = useState<NavigatorNode>('root');
   const [worldMapStack, setWorldMapStack] = useState<WorldMapStackItem[]>([{ worldMap: 'WorldMap', parentWorld: '' }]);
@@ -620,12 +654,24 @@ export default function MapExplorer() {
       try {
         const apiMaps = await cachedJsonFetch<MapleStoryIoMap[]>(mapleStoryIoEndpoint('/map'), {
           cacheKey: `maplestoryio-proxy-v2-map-list:${MAP_API_REGION}:${MAP_API_VERSION}`,
-          freshMs: realtimeCacheDurations.long,
+          freshMs: realtimeCacheDurations.refresh,
           staleMs: realtimeCacheDurations.week,
         });
         if (!isActive) return;
 
         setExpandedMaps(buildExpandedMaps(apiMaps));
+        const targetLanguage = normalizeStaticContentLanguage(i18n.language);
+        if (targetLanguage !== 'en') {
+          const localizedMaps = apiMaps.map((map) => ({ ...map }));
+          const labels = localizedMaps.flatMap((map) => [map.streetName, map.name]);
+          const translations = await translateStaticTexts(labels, targetLanguage, { sourceLanguage: 'en' })
+            .catch(() => labels);
+          localizedMaps.forEach((map, index) => {
+            map.streetName = translations[index * 2] || map.streetName;
+            map.name = translations[index * 2 + 1] || map.name;
+          });
+          if (isActive) setExpandedMaps(buildExpandedMaps(localizedMaps));
+        }
       } catch (error) {
         if (!isActive) return;
         setExpandedMaps([]);
@@ -640,7 +686,14 @@ export default function MapExplorer() {
     return () => {
       isActive = false;
     };
-  }, []);
+  }, [i18n.language]);
+
+  useEffect(() => {
+    setLiveMonsterCache({});
+    setLoadedMaplemapsRegions({});
+    setMaplemapsWorldMapsData({});
+    setMaplemapsMapsData({});
+  }, [i18n.language]);
 
   const allMaps = useMemo(() => [...(mapLocations as MapLocation[]), ...expandedMaps], [expandedMaps]);
   const rows = useMemo(() => allMaps.map(toRow), [allMaps]);
@@ -738,7 +791,7 @@ export default function MapExplorer() {
           mapleStoryIoEndpoint(`/map/${selectedMap.mapId}`),
           {
             cacheKey: `maplestoryio-proxy-v2-map:${MAP_API_REGION}:${MAP_API_VERSION}:${selectedMap.mapId}`,
-            freshMs: realtimeCacheDurations.long,
+            freshMs: realtimeCacheDurations.refresh,
             staleMs: realtimeCacheDurations.week,
           },
         );
@@ -752,24 +805,33 @@ export default function MapExplorer() {
           return;
         }
 
-        const mobEntries = await Promise.all(
-          uniqueMobIds.map(async (mobId) => {
-            const mob = await cachedJsonFetch<MapleStoryIoMob>(mapleStoryIoEndpoint(`/mob/${mobId}`), {
+        const mobs = await Promise.all(
+          uniqueMobIds.map((mobId) =>
+            cachedJsonFetch<MapleStoryIoMob>(mapleStoryIoEndpoint(`/mob/${mobId}`), {
               cacheKey: `maplestoryio-proxy-v2-mob:${MAP_API_REGION}:${MAP_API_VERSION}:${mobId}`,
-              freshMs: realtimeCacheDurations.long,
+              freshMs: realtimeCacheDurations.refresh,
               staleMs: realtimeCacheDurations.week,
-            });
-            return {
+            }),
+          ),
+        );
+        const originalNames = mobs.map((mob, index) => mob.name || `Mob ${uniqueMobIds[index]}`);
+        const targetLanguage = normalizeStaticContentLanguage(i18n.language);
+        const localizedNames = targetLanguage === 'en'
+          ? originalNames
+          : await translateStaticTexts(originalNames, targetLanguage, { sourceLanguage: 'en' })
+              .catch(() => originalNames);
+        const mobEntries = mobs.map((mob, index) => {
+          const mobId = uniqueMobIds[index];
+          return {
               key: `${mobId}`,
               mobId,
-              name: mob.name || `Mob ${mobId}`,
+              name: localizedNames[index] || originalNames[index],
               icon: mobIcon(mobId),
               level: mob.meta?.level,
               exp: mob.meta?.exp,
               hp: mob.meta?.maxHP,
             } satisfies MonsterVisual;
-          }),
-        );
+        });
 
         if (!isActive) return;
         setLiveMonsterCache((current) => ({ ...current, [selectedMap.mapId]: mobEntries }));
@@ -786,7 +848,7 @@ export default function MapExplorer() {
     return () => {
       isActive = false;
     };
-  }, [liveMonsterCache, selectedMap]);
+  }, [i18n.language, liveMonsterCache, selectedMap]);
 
   const selectedMapMonsters = useMemo<MonsterVisual[]>(
     () => (selectedMap ? liveMonsterCache[selectedMap.mapId] || fallbackMonsterVisuals(selectedMap.monsters) : []),
@@ -842,7 +904,7 @@ export default function MapExplorer() {
     let active = true;
     (async () => {
       try {
-        const payload = await fetchMaplemapsRegionData(regionKey);
+        const payload = await fetchMaplemapsRegionData(regionKey, i18n.language);
         if (!active) return;
         setMaplemapsWorldMapsData((current) => ({ ...current, ...payload.worldMapsData }));
         setMaplemapsMapsData((current) => ({ ...current, ...payload.mapsData }));
@@ -855,7 +917,7 @@ export default function MapExplorer() {
     return () => {
       active = false;
     };
-  }, [loadedMaplemapsRegions, navigatorNode]);
+  }, [i18n.language, loadedMaplemapsRegions, navigatorNode]);
 
   const enterRegion = (region: MajorRegion) => {
     setSelectedRegion(region);
@@ -1556,7 +1618,7 @@ function WorldMapNavigatorRoot({
   return (
     <div className="p-4">
       <section className="rounded-md border border-background-200 bg-background-100 p-4">
-        <h1 className="text-lg font-semibold text-foreground-950">Select a Region:</h1>
+        <h2 className="text-lg font-semibold text-foreground-950">Select a Region:</h2>
         <div className="mt-4 grid grid-cols-3 gap-3">
           <button
             type="button"
@@ -1764,7 +1826,7 @@ function MaplemapsWorldMapPanel({
           return (
             <div key={`${current.worldMap}-link-${link.linksTo}`} className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2" style={{ left: `${left}%`, top: `${top}%` }}>
               <img
-                src="https://d3uzjcc4cyf4cj.cloudfront.net/dots/3.png"
+                src="/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/3-4d374b534d.png"
                 alt=""
                 title={label}
                 className="pointer-events-none h-5 w-5 drop-shadow-[0_2px_2px_rgba(0,0,0,.35)]"

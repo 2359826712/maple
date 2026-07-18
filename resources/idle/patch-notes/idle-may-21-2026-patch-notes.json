@@ -1,0 +1,35 @@
+{
+  "id": "idle-may-21-2026-patch-notes",
+  "name": "May 21 Patch Notes",
+  "website": "MapleStory Idle RPG Forum",
+  "page": "05.21 Patch Notes",
+  "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161",
+  "series": "idle",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "patch-notes",
+  "subcategory": "game-update",
+  "description": "Documents the official May 21, 2026 Party Quest changes, combat improvements, content updates, events, and system fixes.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "combat",
+    "events",
+    "party-quest",
+    "patch-notes"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161"
+  ],
+  "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+}

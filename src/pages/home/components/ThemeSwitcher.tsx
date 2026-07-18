@@ -40,7 +40,7 @@ export default function ThemeSwitcher() {
   }, [open]);
 
   return (
-    <div className="fixed bottom-4 right-4 z-30 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-24 right-4 z-30 md:bottom-6 md:right-6">
       {open && (
         <div
           ref={panelRef}

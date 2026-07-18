@@ -1,10 +1,17 @@
-import { useMemo, useState, type SyntheticEvent } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
-import { getNewsCategoryLabel, getNewsCopy } from '@/pages/news/localizedNews';
-import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
+import { getNewsCategoryLabel } from '@/pages/news/localizedNews';
+import { fetchLiveNews, getRegionalContentImage, liveStorageKeys, officialArticleHref, type NewsItem } from '@/services/liveContent';
+import { isRenderableNewsItem } from '@/services/contentCacheValidation';
+import ShareButton from '@/components/feature/ShareButton';
+import { applyRegionalImageFallback } from '@/components/feature/regionalImageFallback';
+import NewsOriginalLanguageNotice from '@/pages/news/NewsOriginalLanguageNotice';
+import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 const filters = ['All', 'Patch Notes', 'Event', 'General', 'Cash Shop'];
 
@@ -14,55 +21,34 @@ const tagStyle: Record<string, string> = {
   secondary: 'bg-secondary-100 text-secondary-900',
 };
 
-const fallbackNewsImage = 'https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png';
-
-const applyNewsImageFallback = (event: SyntheticEvent<HTMLImageElement>) => {
-  const image = event.currentTarget;
-  if (image.dataset.fallbackApplied === 'true') {
-    image.style.display = 'none';
-    return;
-  }
-
-  image.dataset.fallbackApplied = 'true';
-  image.src = fallbackNewsImage;
-};
-
 export default function LatestNews() {
   const { t, i18n } = useTranslation();
   const { versionInfo } = useVersion();
+  const { initialNews } = useServerRouteData();
   const [active, setActive] = useState('All');
-  const [shared, setShared] = useState<string | null>(null);
+  const loadNews = useCallback(() => fetchLiveNews(versionInfo.id), [versionInfo.id]);
   const { items: realtimeNews } = useRealtimeCollection<NewsItem>({
-    storageKey: liveStorageKeys.news,
-    baseItems: [],
-    remoteLoader: fetchLiveNews,
+    storageKey: `${liveStorageKeys.news}:${versionInfo.id}`,
+    baseItems: initialNews,
+    remoteLoader: loadNews,
+    isValidItem: isRenderableNewsItem,
   });
+  const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
   const versionList = useMemo(
     () =>
-      realtimeNews
+      localizedNews
         .filter((item) => isAvailableInVersion(item.versions, versionInfo.id))
         .map((n) => ({
           ...n,
-          ...getNewsCopy(n, i18n.language),
-          categoryLabel: getNewsCategoryLabel(n.category, i18n.language),
+          categoryLabel: n.localizedCategory || getNewsCategoryLabel(n.category, i18n.language),
         })),
-    [i18n.language, realtimeNews, versionInfo.id],
+    [i18n.language, localizedNews, versionInfo.id],
   );
   const list = useMemo(
     () => (active === 'All' ? versionList : versionList.filter((n) => n.category === active)),
     [active, versionList],
   );
-
-  const share = async (id: string, url: string) => {
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
-      // Clipboard can be unavailable in restricted browser contexts.
-    }
-    setShared(id);
-    setTimeout(() => setShared(null), 1500);
-  };
 
   return (
     <section id="news" className="py-14 md:py-20 bg-background-100">
@@ -111,10 +97,12 @@ export default function LatestNews() {
               >
                 <div className={`relative overflow-hidden ${i === 0 ? 'h-64 md:h-80' : 'h-44'}`}>
                   <img
-                    src={n.image || fallbackNewsImage}
+                    src={getRegionalContentImage(n.image, n.versions[0] || versionInfo.id)}
                     alt={n.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    onError={applyNewsImageFallback}
+                    onError={(event) => applyRegionalImageFallback(event.currentTarget, n.versions[0] || versionInfo.id)}
                   />
                   <span className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-semibold ${tagStyle[n.tag]}`}>
                     {n.categoryLabel}
@@ -125,26 +113,28 @@ export default function LatestNews() {
                     </span>
                   )}
                   <div className="absolute bottom-3 right-3 flex gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => void share(n.id, n.sourceUrl)}
-                      className="w-8 h-8 rounded-full bg-background-50/95 hover:bg-primary-500 hover:text-background-50 text-foreground-800 flex items-center justify-center cursor-pointer transition-colors"
-                      aria-label={t('news_share_aria', { title: n.title, channel: 'link' })}
-                    >
-                      <i className="ri-link"></i>
-                    </button>
+                    <ShareButton
+                      compact
+                      title={n.title}
+                      text={n.excerpt}
+                      url={`/news?q=${encodeURIComponent(n.title)}`}
+                      className="h-8 w-8 bg-background-50/95 hover:bg-primary-500 hover:text-background-50"
+                    />
                   </div>
-                  {shared && shared.startsWith(n.id) && (
-                    <div className="absolute bottom-14 right-3 px-3 py-1.5 rounded-md bg-foreground-900 text-background-50 text-xs">
-                      {t('news_shared_toast')}
-                    </div>
-                  )}
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <h3 className={`font-heading font-semibold text-foreground-950 ${i === 0 ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>
                     {n.title}
                   </h3>
                   <p className="mt-2 text-sm text-foreground-700 flex-1">{n.excerpt}</p>
+                  {n.localizationKind !== 'source' && (
+                    <NewsOriginalLanguageNotice
+                      sourceLanguage={n.sourceLanguage}
+                      localizationKind={n.localizationKind}
+                      server={n.versions[0]}
+                      className="mt-2"
+                    />
+                  )}
                   <div className="mt-4 flex items-center justify-between text-xs text-foreground-600">
                     <div className="flex items-center gap-2">
                       <div className="w-6 h-6 rounded-full bg-primary-200 text-primary-800 flex items-center justify-center font-semibold text-[10px]">
@@ -156,9 +146,16 @@ export default function LatestNews() {
                     </div>
                     <span className="flex items-center gap-1">
                       <i className="ri-eye-line"></i>
-                      {n.reads}
+                      {n.reads === 'Official' ? t('news_open_source') : n.reads}
                     </span>
                   </div>
+                  <Link
+                    to={officialArticleHref(n.sourceUrl, n.title, versionInfo.id, n.image)}
+                    className="mt-4 inline-flex h-9 items-center justify-center gap-1.5 rounded-full bg-primary-500 px-4 text-xs font-semibold text-background-50 hover:bg-primary-600"
+                  >
+                    <i className="ri-book-open-line" aria-hidden="true" />
+                    {n.actionLabel || t('news_read_article')}
+                  </Link>
                 </div>
               </article>
             ))}

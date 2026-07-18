@@ -1,0 +1,82 @@
+{
+  "id": "worlds-global-creator-center-news-2026-07-02-3491322",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3491322",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3491322",
+  "external_id": "3491322",
+  "title": "Hotfix Maintenance – 2026 July 2",
+  "original_title": "Hotfix Maintenance – 2026 July 2",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-07-02T09:10:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:44:12.015Z",
+  "last_checked": "2026-07-18T09:44:12.015Z",
+  "summary": "MapleStory Worlds scheduled a July 2 hotfix for the PC app while keeping the platform and apps available. Temporary disconnects could occur, and the update corrected custom-font rendering when RASTER or SMOOTH render modes were used.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260702/5ef41b02-ac8f-4bc2-bfa6-9b79055b5dac/hotfixwest111.png",
+      "alt": "Hotfix Maintenance – 2026 July 2"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260421/16b099bc-a737-437b-b950-eaa8115d8866/WGC1404240930GenericPostBanners740x120HotFix1.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260608/4a017aca-3110-4476-a228-065837683cfe/image202606081723091.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a50bbe72260e16564aa1b7f1c96282df25aca19b24c077d1b30bee541dd2f3f7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:16.142Z",
+    "headline_id": "3477",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Hotfix schedule",
+        "items": [
+          "Scheduled for July 2 at 09:30 UTC / 02:30 PDT / 18:30 KST.",
+          "The platform remained available, but Worlds could temporarily disconnect and display reconnection messages.",
+          "Creators were instructed to relaunch through the official site after the hotfix."
+        ]
+      },
+      {
+        "title": "PC update",
+        "items": [
+          "PC app version: 26.5.6; Windows distribution 26.5.6.718 and Mac distribution 26.5.6.79.",
+          "The hotfix corrected custom fonts not rendering correctly in RASTER or SMOOTH mode."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

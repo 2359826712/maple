@@ -1,0 +1,34 @@
+{
+  "id": "n-official-events",
+  "name": "MapleStory N Events",
+  "website": "MapleStory N Documentation",
+  "page": "Events",
+  "url": "https://docs.maplestoryn.io/archives/events",
+  "series": "n",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "events",
+  "subcategory": "event-directory",
+  "description": "Lists current official MapleStory N events and provides access to the official past-event archive.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "event-directory",
+    "events",
+    "rewards"
+  ],
+  "source_urls": [
+    "https://docs.maplestoryn.io/archives/events"
+  ],
+  "notes": null
+}

@@ -1,0 +1,77 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-07-15-42359",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/42359/try-the-kinesis-demo",
+  "source_url": "https://www.nexon.com/maplestory/news/general/42359/try-the-kinesis-demo",
+  "external_id": "42359",
+  "title": "Try the Kinesis Demo!",
+  "original_title": "Try the Kinesis Demo!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-07-15T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T09:43:52.847Z",
+  "last_checked": "2026-07-18T09:43:52.847Z",
+  "summary": "Global MapleStory released a browser-based Kinesis demo ahead of the character's upcoming revamp. It previews new skills and abilities, while warning that the demo's cooldown timing does not represent the final game balance.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ri2bksex/540x304-kinesis-revamp-demo-maplestory.png",
+      "alt": "Try the Kinesis Demo!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ufbfc50h/1100x225-kinesis-revamp-demo-maplestory.png",
+      "alt": "July 1 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r0bnjorx/kinesis-demo-banner-maplestory.png",
+      "alt": "July 1 cash shop update maplestory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "dd3567b9cd21f54a8ac621c1fb17483518c31b9d1fb04c0d7c0d7f4d723a301a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-18T09:44:01.103Z",
+    "parser_warnings": [],
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Demo scope",
+        "items": [
+          "The web demo provides an early look at Kinesis skills and abilities associated with the announced revamp.",
+          "It is intended both for existing Kinesis players and players considering the class.",
+          "Skill cooldowns shown in the demo are not final gameplay values."
+        ]
+      }
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
+  },
+  "notes": null
+}

@@ -11,6 +11,7 @@ import GuidesPage from './page';
 const mocks = vi.hoisted(() => ({
   version: 'gms',
   fetchSection: vi.fn(),
+  translateStaticText: vi.fn(),
 }));
 
 vi.mock('@/hooks/VersionContext', () => ({
@@ -23,6 +24,11 @@ vi.mock('@/hooks/VersionContext', () => ({
 vi.mock('@/services/liveContent', async (importOriginal) => {
   const actual = await importOriginal<typeof import('@/services/liveContent')>();
   return { ...actual, fetchGrandisGuideSectionPage: mocks.fetchSection };
+});
+
+vi.mock('@/services/staticTranslation', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/services/staticTranslation')>();
+  return { ...actual, translateStaticText: mocks.translateStaticText };
 });
 
 vi.mock('@/pages/home/components/Navbar', () => ({ default: () => <nav>Navigation</nav> }));
@@ -44,6 +50,8 @@ describe('guide freshness and applicability', () => {
     localStorage.clear();
     mocks.version = 'gms';
     mocks.fetchSection.mockReset();
+    mocks.translateStaticText.mockReset();
+    mocks.translateStaticText.mockImplementation(async (value: string) => value);
     mocks.fetchSection.mockResolvedValue({
       section: 'content',
       html: '<div data-testid="source-guide">Progression Guide</div>',
@@ -89,5 +97,13 @@ describe('guide freshness and applicability', () => {
     expect(screen.queryByRole('link', { name: 'Resume guide' })).toBeNull();
     expect(localStorage.getItem(GUIDE_READING_PROGRESS_KEY)).toBeNull();
   });
-});
 
+  it('keeps the cached source page visible when localization fails', async () => {
+    await i18n.changeLanguage('zh');
+    mocks.translateStaticText.mockRejectedValue(new Error('translation unavailable'));
+    renderPage();
+
+    await waitFor(() => expect(screen.getByText('Progression Guide')).toBeTruthy());
+    expect(screen.queryByText(i18n.t('guide_section_error'))).toBeNull();
+  });
+});

@@ -1,0 +1,35 @@
+{
+  "id": "classic-world-test-2-campaign",
+  "name": "Classic World Closed Online Test #2",
+  "website": "Global MapleStory Classic World",
+  "page": "Closed Online Test #2",
+  "url": "https://www.nexon.com/mscw/classic-world-closed-online-test-2",
+  "series": "classic",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "official",
+  "subcategory": "closed-test",
+  "description": "Provides Nexon's official campaign page for registration and access information for Classic World Closed Online Test #2.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "closed-test",
+    "registration",
+    "test-schedule"
+  ],
+  "source_urls": [
+    "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
+  ],
+  "notes": null
+}

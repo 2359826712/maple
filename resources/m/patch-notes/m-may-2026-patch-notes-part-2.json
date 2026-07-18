@@ -1,0 +1,37 @@
+{
+  "id": "m-may-2026-patch-notes-part-2",
+  "name": "05.20/21 Patch Notes Part 2",
+  "website": "MapleStory M Global Forum",
+  "page": "05.20/21 Patch Notes Pt.2",
+  "url": "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2690&thread=3448834",
+  "series": "m",
+  "regions": [
+    "europe",
+    "north-america",
+    "sea"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "patch-notes",
+  "subcategory": "game-update",
+  "description": "Documents the official May 2026 MapleStory M events, growth support, Boss Invitation content, event shops, and package changes.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "events",
+    "game-update",
+    "patch-notes",
+    "shops"
+  ],
+  "source_urls": [
+    "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2690&thread=3448834"
+  ],
+  "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+}

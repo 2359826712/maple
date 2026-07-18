@@ -1,0 +1,34 @@
+{
+  "id": "worlds-ip-use-scope",
+  "name": "Specific Scope of IP Use",
+  "website": "MapleStory Worlds Creator Center",
+  "page": "Specific Scope of IP Use",
+  "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1161",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "guide",
+  "subcategory": "policy",
+  "description": "Defines the official permitted scope for using MapleStory and other supplied intellectual property in creator-generated Worlds.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "creator-policy",
+    "intellectual-property",
+    "policy"
+  ],
+  "source_urls": [
+    "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1161"
+  ],
+  "notes": null
+}

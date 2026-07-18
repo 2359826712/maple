@@ -1,0 +1,93 @@
+{
+  "id": "maplestory-miracle-summer-2026-event",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026",
+  "source_url": "https://www.nexon.com/maplestory/news/events/41369/miracle-summer-2026",
+  "external_id": "41369",
+  "title": "Miracle Summer 2026",
+  "original_title": "Miracle Summer 2026",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "seasonal-event",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-18",
+  "updated_at": null,
+  "discovered_at": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-18T00:00:00.000Z",
+  "summary": "Miracle Summer ran from June 26 through July 1, 2026 UTC. Each event day applied double Rank-Up chances to a different group of equipment slots.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "equipment",
+    "miracle-summer",
+    "rank-up",
+    "summer"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "60781b66c39d3c8f6a349bd886bff4c8fe1de4e4c3ae8f1a56ebdd267c2e6d68",
+  "status": "expired",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "maplestory-miracle-summer-2026",
+    "sections": [
+      {
+        "title": "Event format",
+        "items": [
+          "The event used a six-day rotating schedule instead of applying the bonus to every equipment slot at once.",
+          "Each day granted double Rank-Up chances for the equipment slots assigned to that day's window.",
+          "The official notice is the source of record for the slot-by-slot UTC schedule."
+        ]
+      },
+      {
+        "title": "Before using cubes",
+        "items": [
+          "Confirm the current UTC event window and the eligible equipment slots in the official schedule.",
+          "Check that the cube and target equipment support the intended potential tier and rank-up operation.",
+          "Do not assume a bonus window applies to an equipment slot listed for a different day."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against the official announcement and Nexon's Steam announcement mirror on 2026-07-18.",
+  "event_name": "Miracle Summer 2026",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-26",
+  "event_end": "2026-07-01",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [
+    "Global MapleStory players in the North America and Europe service regions"
+  ],
+  "requirements": [
+    "Use an eligible cube on an equipment slot assigned to the active daily window"
+  ],
+  "rewards": [
+    "Double Rank-Up chance for the designated equipment slots during each daily window"
+  ],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [
+    "Open the official event schedule and identify the current UTC window.",
+    "Verify that the target equipment slot is included in that window.",
+    "Use a compatible cube during the active window."
+  ],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "ended"
+}

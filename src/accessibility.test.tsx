@@ -1235,9 +1235,9 @@ describe('F-05 Accessibility Tests', () => {
       expect(sourceText).toContain('Quick Actions');
     });
 
-    it('import dialog i18n keys exist across all 4 locales', () => {
+    it('import dialog i18n keys exist across all 5 locales', () => {
       const keys = ['import_dialog_title', 'import_dialog_confirm', 'import_dialog_cancel', 'import_dialog_close'];
-      const locales = ['en', 'zh', 'ja', 'zh-Hant'];
+      const locales = ['en', 'zh', 'ja', 'ko', 'zh-Hant'];
 
       for (const locale of locales) {
         const localePath = resolve(__dirname, `i18n/local/${locale}/common.ts`);
@@ -1288,7 +1288,7 @@ describe('F-05 Accessibility Tests', () => {
     });
 
     it('wiki data-access strategy document exists', () => {
-      const docPath = resolve(__dirname, '../docs/wiki-data-access-strategy.md');
+      const docPath = resolve(__dirname, '../../maple_doc_1/wiki-data-access-strategy.md');
       const docText = readFileSync(docPath, 'utf-8');
 
       expect(docText).toContain('TRUST-12');

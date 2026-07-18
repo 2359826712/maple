@@ -13,9 +13,38 @@ describe('universal site search index', () => {
     ]));
   });
 
+  it('finds the upcoming updates destination', () => {
+    const results = getSiteSearchResults('upcoming updates', 'en', 'gms');
+    expect(results).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: 'route-upcoming', href: '/upcoming' }),
+    ]));
+  });
+
+  it('finds generated series resources and keeps navigation on this site', () => {
+    const results = getSiteSearchResults('Guide for New Maplers', 'en', 'gms');
+    expect(results).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        id: 'resource-m-nexon-guide-for-new-maplers',
+        href: expect.stringMatching(/^\/content\/guides\/.+\?series=maplestory-m$/),
+      }),
+    ]));
+  });
+
+  it.each([
+    ['Miracle Summer 2026', /^\/content\/events\/.+\?series=maplestory-pc$/],
+    ['MapleStory N Beginner', /^\/content\/guides\/.+\?series=maplestory-n$/],
+    ['Managing Resources', /^\/content\/guides\/.+\?series=maplestory-worlds$/],
+    ['MapleStory Idle RPG FAQ', /^\/content\/wiki\/.+\?series=maplestory-idle$/],
+  ])('routes generated resource search for %s through an internal detail page', (query, href) => {
+    const result = getSiteSearchResults(query, 'en', 'gms')
+      .find((entry) => entry.id.startsWith('resource-'));
+    expect(result?.href).toMatch(href);
+  });
+
   it.each([
     ['zh', '每日 Boss 清单'],
     ['ja', 'デイリーボスチェックリスト'],
+    ['ko', '일일 보스 체크리스트'],
     ['zh-Hant', '每日 Boss 清單'],
   ])('returns localized static route titles for %s', (language, title) => {
     const results = getSiteSearchResults('checklist', language, 'gms');

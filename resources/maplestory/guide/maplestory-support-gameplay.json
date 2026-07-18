@@ -1,0 +1,36 @@
+{
+  "id": "maplestory-support-gameplay",
+  "name": "Global MapleStory Gameplay Help",
+  "website": "Nexon MapleStory Support",
+  "page": "Gameplay",
+  "url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "guide",
+  "subcategory": "gameplay-help",
+  "description": "Organizes official gameplay help for worlds, classes, Star Force, items, skills, guilds, events, and common account questions.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "gameplay",
+    "help",
+    "star-force",
+    "worlds"
+  ],
+  "source_urls": [
+    "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay"
+  ],
+  "notes": null
+}

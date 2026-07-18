@@ -1,0 +1,35 @@
+{
+  "id": "worlds-managing-resources-guide",
+  "name": "Managing Resources",
+  "website": "MapleStory Worlds Creator Center",
+  "page": "Managing Resources",
+  "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "category": "guide",
+  "subcategory": "resource-management",
+  "description": "Explains official resource classifications, permissions, storage, sharing, migration, and version behavior in MapleStory Worlds Maker.",
+  "official": true,
+  "opensource": false,
+  "github_url": null,
+  "api_url": null,
+  "mobile_support": "responsive",
+  "login_required": false,
+  "status": "active",
+  "last_checked": "2026-07-18",
+  "tags": [
+    "maker",
+    "permissions",
+    "resource-management",
+    "storage"
+  ],
+  "source_urls": [
+    "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
+  ],
+  "notes": null
+}

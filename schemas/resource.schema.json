@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mpstorys.com/schemas/resource.schema.json",
+  "title": "MapleStory Resource",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "website",
+    "page",
+    "url",
+    "series",
+    "regions",
+    "languages",
+    "category",
+    "subcategory",
+    "description",
+    "official",
+    "opensource",
+    "github_url",
+    "api_url",
+    "mobile_support",
+    "login_required",
+    "status",
+    "last_checked",
+    "tags",
+    "source_urls",
+    "notes"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "website": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "page": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "series": {
+      "enum": ["maplestory", "classic", "m", "worlds", "n", "idle"]
+    },
+    "regions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "global",
+          "korea",
+          "japan",
+          "taiwan",
+          "hong-kong",
+          "macau",
+          "china",
+          "sea",
+          "north-america",
+          "europe",
+          "oceania",
+          "multi-region",
+          "unknown"
+        ]
+      }
+    },
+    "languages": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["en", "ko", "ja", "zh-hans", "zh-hant", "th", "vi", "id", "ms", "other", "unknown"]
+      }
+    },
+    "category": {
+      "enum": [
+        "official",
+        "wiki",
+        "database",
+        "calculator",
+        "simulator",
+        "planner",
+        "builder",
+        "optimizer",
+        "guide",
+        "news",
+        "events",
+        "patch-notes",
+        "character-lookup",
+        "guild-lookup",
+        "rankings",
+        "api",
+        "sdk",
+        "library",
+        "developer-tool",
+        "github",
+        "community",
+        "discord",
+        "reddit",
+        "youtube",
+        "media",
+        "downloads",
+        "other"
+      ]
+    },
+    "subcategory": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      ]
+    },
+    "description": { "type": "string", "minLength": 10, "maxLength": 500, "pattern": "\\S" },
+    "official": { "type": "boolean" },
+    "opensource": { "type": "boolean" },
+    "github_url": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "format": "uri", "pattern": "^https://github\\.com/" }
+      ]
+    },
+    "api_url": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "format": "uri", "pattern": "^https://" }
+      ]
+    },
+    "mobile_support": {
+      "enum": ["native", "responsive", "partial", "unsupported", "unknown"]
+    },
+    "login_required": {
+      "type": ["boolean", "null"]
+    },
+    "status": {
+      "enum": ["active", "maintenance", "inactive", "archived", "deprecated", "unknown"]
+    },
+    "last_checked": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+    },
+    "source_urls": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "format": "uri", "pattern": "^https://" }
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  }
+}

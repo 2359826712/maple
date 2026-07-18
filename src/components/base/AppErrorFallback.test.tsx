@@ -1,9 +1,10 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { MemoryRouter, useLocation } from 'react-router-dom';
+import { MemoryRouter, useLocation, useNavigate } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import AppErrorFallback from './AppErrorFallback';
 import ErrorBoundary from './ErrorBoundary';
+import RouteErrorBoundary from './RouteErrorBoundary';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -18,6 +19,17 @@ function CurrentPath() {
   return <output aria-label="Current path">{location.pathname}</output>;
 }
 
+function RouteSensitiveContent() {
+  const location = useLocation();
+  if (location.pathname === '/broken') throw new Error('route render failed');
+  return <h1>Healthy route</h1>;
+}
+
+function ChangeRoute() {
+  const navigate = useNavigate();
+  return <button type="button" onClick={() => navigate('/healthy')}>Open healthy route</button>;
+}
+
 describe('AppErrorFallback', () => {
   it('offers retry and a recoverable route back home', () => {
     const onReset = vi.fn();
@@ -30,7 +42,7 @@ describe('AppErrorFallback', () => {
     );
 
     expect(screen.getByRole('alert')).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'MapleHub hit an unexpected error' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MPStorys hit an unexpected error' })).toBeTruthy();
 
     fireEvent.click(screen.getByRole('button', { name: 'Try Again' }));
     expect(onReset).toHaveBeenCalledTimes(1);
@@ -54,7 +66,24 @@ describe('AppErrorFallback', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByRole('heading', { name: 'MapleHub hit an unexpected error' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MPStorys hit an unexpected error' })).toBeTruthy();
+    consoleError.mockRestore();
+  });
+
+  it('isolates failures to the current route and recovers after navigation', () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    render(
+      <MemoryRouter initialEntries={['/broken']}>
+        <ChangeRoute />
+        <RouteErrorBoundary>
+          <RouteSensitiveContent />
+        </RouteErrorBoundary>
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByRole('heading', { name: 'MPStorys hit an unexpected error' })).toBeTruthy();
+    fireEvent.click(screen.getByRole('button', { name: 'Open healthy route' }));
+    expect(screen.getByRole('heading', { name: 'Healthy route' })).toBeTruthy();
     consoleError.mockRestore();
   });
 });

@@ -1,11 +1,11 @@
-import { type MouseEvent, useCallback, useEffect, useState } from 'react';
+import { type MouseEvent, useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { fetchGrandisGuideSectionPage, type GrandisGuideSection } from '@/services/liveContent';
-import { sanitizeMirroredHtml } from '@/services/sanitizeHtml';
+import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 import GuideScrollTopButton from './components/GuideScrollTopButton';
 import GuideFreshnessBar from './components/GuideFreshnessBar';
 import { useVersion } from '@/hooks/VersionContext';
@@ -14,6 +14,9 @@ import {
   readGuideReadingProgress,
   type GuideReadingProgress,
 } from '@/services/guideReadingProgress';
+import { normalizeStaticContentLanguage, translateStaticText } from '@/services/staticTranslation';
+import { isStaticHydration } from '@/ssg/hydration';
+import { useServerRouteData } from '@/next/ServerRouteDataContext';
 
 type GuideSectionKey = GrandisGuideSection;
 
@@ -30,15 +33,21 @@ const guideNavSections: Array<{
 export default function GuidesPage() {
   const { t, i18n } = useTranslation();
   const { version, versionInfo } = useVersion();
+  const { initialGuideSection } = useServerRouteData();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
-  const [sectionHtml, setSectionHtml] = useState('');
-  const [sectionError, setSectionError] = useState('');
-  const [sectionLoading, setSectionLoading] = useState(true);
-  const [sourceSyncedAt, setSourceSyncedAt] = useState<string>();
+  const [sourceSectionHtml, setSourceSectionHtml] = useState(initialGuideSection?.html || '');
+  const [sectionHtml, setSectionHtml] = useState(initialGuideSection?.html || '');
+  const [sectionError, setSectionError] = useState(false);
+  const [sectionLoading, setSectionLoading] = useState(!initialGuideSection);
+  const [sourceSyncedAt, setSourceSyncedAt] = useState<string | undefined>(initialGuideSection?.sourceSyncedAt);
   const [applicableOnly, setApplicableOnly] = useState(true);
-  const [continueReading, setContinueReading] = useState<GuideReadingProgress | null>(readGuideReadingProgress);
+  const deferBrowserState = isStaticHydration();
+  const [continueReading, setContinueReading] = useState<GuideReadingProgress | null>(() => (
+    deferBrowserState ? null : readGuideReadingProgress()
+  ));
+  const deferredContentLanguage = useDeferredValue(i18n.language);
   const activeSection = guideNavSections.find((section) => section.key === searchParams.get('section')) || guideNavSections[0];
 
   const setGuideSection = (section: GuideSectionKey) => {
@@ -46,22 +55,27 @@ export default function GuidesPage() {
   };
 
   useEffect(() => {
+    if (initialGuideSection?.section === activeSection.key) return;
     let cancelled = false;
     setSectionLoading(true);
-    setSectionError('');
+    setSectionError(false);
+    setSourceSectionHtml('');
+    setSectionHtml('');
 
     void fetchGrandisGuideSectionPage(activeSection.key)
       .then((page) => {
-        if (!cancelled) {
-          setSectionHtml(page.html);
-          setSourceSyncedAt(page.sourceSyncedAt);
-        }
+        if (cancelled) return;
+        setSourceSectionHtml(page.html);
+        setSectionHtml(page.html);
+        setSourceSyncedAt(page.sourceSyncedAt);
+        setSectionLoading(false);
       })
       .catch(() => {
         if (!cancelled) {
           setSectionHtml('');
+          setSourceSectionHtml('');
           setSourceSyncedAt(undefined);
-          setSectionError(t('guide_section_error'));
+          setSectionError(true);
         }
       })
       .finally(() => {
@@ -71,20 +85,47 @@ export default function GuidesPage() {
     return () => {
       cancelled = true;
     };
-  }, [activeSection.key, i18n.language, t]);
+  }, [activeSection.key, initialGuideSection]);
+
+  useEffect(() => {
+    if (!sourceSectionHtml) return;
+    let cancelled = false;
+    if (
+      initialGuideSection?.section === activeSection.key
+      && initialGuideSection.html === sourceSectionHtml
+      && initialGuideSection.localizedLanguage === normalizeStaticContentLanguage(deferredContentLanguage)
+    ) {
+      setSectionHtml(sourceSectionHtml);
+      return () => { cancelled = true; };
+    }
+    void translateStaticText(sourceSectionHtml, deferredContentLanguage, {
+      sourceLanguage: 'en',
+      format: 'html',
+    }).then((localizedHtml) => {
+      if (!cancelled) setSectionHtml(localizedHtml);
+    }).catch(() => {
+      if (!cancelled) setSectionHtml(sourceSectionHtml);
+    });
+    return () => { cancelled = true; };
+  }, [activeSection.key, deferredContentLanguage, initialGuideSection, sourceSectionHtml]);
 
   useEffect(() => {
     const refreshProgress = () => setContinueReading(readGuideReadingProgress());
+    if (deferBrowserState) refreshProgress();
     window.addEventListener('focus', refreshProgress);
     window.addEventListener('storage', refreshProgress);
     return () => {
       window.removeEventListener('focus', refreshProgress);
       window.removeEventListener('storage', refreshProgress);
     };
-  }, []);
+  }, [deferBrowserState]);
 
   const sourceAppliesToCurrentVersion = version === 'gms';
   const showSourceContent = Boolean(sectionHtml) && (!applicableOnly || sourceAppliesToCurrentVersion);
+  const renderedSectionHtml = useMemo(
+    () => sectionHtml ? prepareStaticHtmlForRender(sectionHtml) : '',
+    [sectionHtml],
+  );
 
   const handleGrandisPageClick = useCallback((event: MouseEvent<HTMLElement>) => {
     const anchor = (event.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
@@ -186,9 +227,9 @@ export default function GuidesPage() {
 
         {showSourceContent ? (
           <article
-            className="grandis-page-content"
+            className="grandis-page-content static-article-content"
             onClick={handleGrandisPageClick}
-            dangerouslySetInnerHTML={{ __html: sanitizeMirroredHtml(sectionHtml) }}
+            dangerouslySetInnerHTML={{ __html: renderedSectionHtml }}
           />
         ) : sectionHtml && applicableOnly && !sourceAppliesToCurrentVersion ? (
           <section className="mx-auto flex min-h-[50vh] max-w-2xl flex-col items-center justify-center px-4 py-16 text-center">
@@ -202,13 +243,13 @@ export default function GuidesPage() {
         ) : (
           <section className="mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center px-4 py-20 text-center">
             <i className={`${sectionLoading ? 'ri-loader-4-line animate-spin' : 'ri-book-open-line'} mb-4 text-5xl text-primary-500`}></i>
-            <h1 className="font-heading text-3xl font-semibold text-foreground-950">
+            <h2 className="font-heading text-3xl font-semibold text-foreground-950">
               {sectionLoading
                 ? t('guide_section_loading')
                 : activeSection.label}
-            </h1>
+            </h2>
             <p className="mt-4 text-sm leading-6 text-foreground-600">
-              {sectionError || t('guide_section_loading_tip')}
+              {sectionError ? t('guide_section_error') : t('guide_section_loading_tip')}
             </p>
           </section>
         )}

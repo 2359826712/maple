@@ -4,8 +4,16 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
-import { saveAuthSession } from '@/hooks/useAuthSession';
+import {
+  AUTO_LOGIN_DAYS,
+  AUTO_LOGIN_ENABLED_KEY,
+  REMEMBERED_ACCOUNT_KEY,
+  saveAuthSession,
+  useAuthSession,
+} from '@/hooks/useAuthSession';
 import { mapleSqlApi, MapleApiError, type AuthResponse } from '@/services/mapleSqlApi';
+import { syncAccountDataAfterLogin } from '@/services/accountDataSync';
+import GoogleSignInButton from './GoogleSignInButton';
 
 type AuthMode = 'signin' | 'signup';
 
@@ -19,18 +27,24 @@ export default function LoginPage() {
   const [searchParams] = useSearchParams();
   const [notifOpen, setNotifOpen] = useState(false);
   const [mode, setMode] = useState<AuthMode>('signin');
-  const [email, setEmail] = useState('');
+  const rememberedEmail = typeof window === 'undefined' ? '' : localStorage.getItem(REMEMBERED_ACCOUNT_KEY) || '';
+  const [email, setEmail] = useState(rememberedEmail);
   const [password, setPassword] = useState('');
+  const [rememberAccount, setRememberAccount] = useState(Boolean(rememberedEmail));
+  const [autoLogin, setAutoLogin] = useState(false);
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const { isSessionResolved, isSignedIn, displayName } = useAuthSession();
 
-  const saveSession = (provider: 'Email', response: AuthResponse) => {
+  const saveSession = async (provider: 'Email' | 'Google', response: AuthResponse) => {
     const userLabel = response.user.display_name || response.user.username || response.user.email;
     saveAuthSession({
       provider,
       user: userLabel,
       mode,
       signedInAt: new Date().toISOString(),
+      expiresAt: response.access_expires_at,
+      autoLoginExpiresAt: response.auto_login_expires_at,
       accessToken: response.access_token,
       tenantId: response.tenant_id,
       userId: response.user.id,
@@ -38,14 +52,45 @@ export default function LoginPage() {
       username: response.user.username,
       displayName: response.user.display_name,
       avatarUrl: response.user.avatar_url,
+      permissions: response.permissions,
     });
-    setMessage(t('auth_success', { provider: provider === 'Email' ? 'Maple SQL' : provider }));
-    const next = searchParams.get('next');
-    if (next?.startsWith('/')) {
-      window.setTimeout(() => {
-        window.location.assign(next);
-      }, 300);
+    if (rememberAccount) localStorage.setItem(REMEMBERED_ACCOUNT_KEY, response.user.email.trim().toLowerCase());
+    else localStorage.removeItem(REMEMBERED_ACCOUNT_KEY);
+    if (autoLogin) localStorage.setItem(AUTO_LOGIN_ENABLED_KEY, 'true');
+    else localStorage.removeItem(AUTO_LOGIN_ENABLED_KEY);
+
+    try {
+      await syncAccountDataAfterLogin(response.user.id);
+    } catch {
+      setMessage(t('auth_sync_failed'));
+      return false;
     }
+
+    setPassword('');
+    setMessage(t('auth_success', { provider: provider === 'Email' ? 'Maple SQL' : provider }));
+    const requestedNext = searchParams.get('next');
+    const next = requestedNext?.startsWith('/') && !requestedNext.startsWith('//')
+      ? requestedNext
+      : '/account';
+    window.setTimeout(() => {
+      window.location.assign(next);
+    }, 300);
+    return true;
+  };
+
+  const signInWithGoogle = (credential: string) => {
+    setSubmitting(true);
+    setMessage('');
+    void mapleSqlApi.auth.google({ credential, auto_login: autoLogin })
+      .then((response) => saveSession('Google', response))
+      .catch((error) => {
+        setMessage(error instanceof MapleApiError ? error.message : t('auth_google_failed'));
+      })
+      .finally(() => setSubmitting(false));
+  };
+
+  const showGoogleUnavailable = () => {
+    setMessage(t('auth_google_unavailable'));
   };
 
   const submitEmail = (event: FormEvent<HTMLFormElement>) => {
@@ -65,14 +110,16 @@ export default function LoginPage() {
           ? await mapleSqlApi.auth.login({
               email: normalizedEmail,
               password,
+              auto_login: autoLogin,
             })
           : await mapleSqlApi.auth.signup({
               email: normalizedEmail,
               username: deriveUsername(normalizedEmail),
               display_name: deriveUsername(normalizedEmail),
               password,
+              auto_login: autoLogin,
             });
-        saveSession('Email', response);
+        await saveSession('Email', response);
       } catch (error) {
         setMessage(error instanceof MapleApiError ? error.message : 'Unable to sign in right now.');
       } finally {
@@ -104,6 +151,38 @@ export default function LoginPage() {
               </div>
 
               <div className="p-6">
+                {!isSessionResolved ? (
+                  <div className="h-64 rounded-lg bg-background-100" aria-busy="true" />
+                ) : isSignedIn ? (
+                  <div className="rounded-lg border border-primary-200 bg-primary-50 p-5 text-center">
+                    <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-500 text-xl text-white">
+                      <i className="ri-check-line" aria-hidden="true" />
+                    </span>
+                    <h2 className="mt-3 font-heading text-lg font-semibold text-foreground-950">
+                      {t('auth_already_signed_in', { name: displayName })}
+                    </h2>
+                    <p className="mt-1 text-sm text-foreground-600">{t('auth_already_signed_in_desc')}</p>
+                    <Link
+                      to="/account"
+                      className="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary-600 px-5 text-sm font-semibold text-white hover:bg-primary-700"
+                    >
+                      <i className="ri-user-settings-line" aria-hidden="true" />
+                      {t('auth_open_account')}
+                    </Link>
+                  </div>
+                ) : (<>
+                <GoogleSignInButton
+                  disabled={submitting}
+                  onCredential={signInWithGoogle}
+                  onUnavailable={showGoogleUnavailable}
+                />
+
+                <div className="flex items-center gap-3 my-5">
+                  <div className="flex-1 h-px bg-background-200" />
+                  <span className="text-xs text-foreground-500">{t('auth_or_email')}</span>
+                  <div className="flex-1 h-px bg-background-200" />
+                </div>
+
                 <div className="grid grid-cols-2 gap-1 rounded-md bg-background-100 p-1 mb-5">
                   <button
                     type="button"
@@ -150,10 +229,27 @@ export default function LoginPage() {
                     />
                   </label>
 
-                  <div className="text-xs">
-                    <label className="flex items-center gap-2 text-foreground-600">
-                      <input type="checkbox" className="h-4 w-4 rounded border-background-300 accent-primary-600" />
-                      {t('auth_remember')}
+                  <div className="space-y-3 text-xs">
+                    <label className="flex min-h-11 items-center gap-3 rounded-md border border-background-200 px-3 text-foreground-700">
+                      <input
+                        type="checkbox"
+                        checked={rememberAccount}
+                        onChange={(event) => setRememberAccount(event.target.checked)}
+                        className="h-4 w-4 rounded border-background-300 accent-primary-600"
+                      />
+                      <span>{t('auth_remember_account')}</span>
+                    </label>
+                    <label className="flex min-h-14 items-start gap-3 rounded-md border border-background-200 px-3 py-2.5 text-foreground-700">
+                      <input
+                        type="checkbox"
+                        checked={autoLogin}
+                        onChange={(event) => setAutoLogin(event.target.checked)}
+                        className="mt-0.5 h-4 w-4 rounded border-background-300 accent-primary-600"
+                      />
+                      <span>
+                        <span className="block font-semibold">{t('auth_auto_login', { days: AUTO_LOGIN_DAYS })}</span>
+                        <span className="mt-0.5 block leading-5 text-foreground-500">{t('auth_auto_login_desc', { days: AUTO_LOGIN_DAYS })}</span>
+                      </span>
                     </label>
                   </div>
 
@@ -162,7 +258,7 @@ export default function LoginPage() {
                     disabled={submitting}
                     className="w-full h-11 rounded-md bg-primary-600 hover:bg-primary-700 text-background-50 font-semibold text-sm cursor-pointer whitespace-nowrap"
                   >
-                    {submitting ? 'Connecting...' : mode === 'signin' ? t('auth_sign_in_submit') : t('auth_sign_up_submit')}
+                    {submitting ? t('auth_connecting') : mode === 'signin' ? t('auth_sign_in_submit') : t('auth_sign_up_submit')}
                   </button>
                 </form>
 
@@ -171,8 +267,24 @@ export default function LoginPage() {
                     {message}
                   </div>
                 )}
+                </>)}
               </div>
             </div>
+
+            {isSessionResolved && !isSignedIn && (
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {[
+                  ['ri-cloud-line', 'auth_benefit_sync'],
+                  ['ri-notification-3-line', 'auth_benefit_notifications'],
+                  ['ri-chat-heart-line', 'auth_benefit_community'],
+                ].map(([icon, label]) => (
+                  <div key={label} className="rounded-lg border border-background-200 bg-background-50 p-3 text-center text-xs font-medium text-foreground-700">
+                    <i className={`${icon} mb-1 block text-lg text-primary-600`} aria-hidden="true" />
+                    {t(label)}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       </main>

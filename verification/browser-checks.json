@@ -1,0 +1,22 @@
+{
+  "checks": [
+    {
+      "resource_id": "m-nexon-guide-for-new-maplers",
+      "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388",
+      "checked_at": "2026-07-18",
+      "method": "chrome",
+      "result": "verified",
+      "page_title": "04 Guide for New Maplers",
+      "evidence": "The official MapleStory M Global Forum page loaded in Chrome. The page showed Game Guide > Beginner's Guide, author GM, date 2025.01.15, and the expected beginner guide content."
+    },
+    {
+      "resource_id": "idle-nexon-june-11-patch-notes",
+      "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001",
+      "checked_at": "2026-07-18",
+      "method": "chrome",
+      "result": "verified",
+      "page_title": "(Updated) June 11 Patch Notes",
+      "evidence": "The official MapleStory: Idle RPG Forum page loaded in Chrome. The page showed the June 11, 2026 patch notes and the Hero's Journey update details."
+    }
+  ]
+}

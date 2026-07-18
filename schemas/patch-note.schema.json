@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mpstorys.com/schemas/patch-note.schema.json",
+  "title": "MapleStory patch note",
+  "type": "object",
+  "allOf": [
+    { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/contentRecord" },
+    {
+      "type": "object",
+      "required": ["game_version", "patch_date", "maintenance_start", "maintenance_end", "changes", "known_issues", "resolved_issues"],
+      "properties": {
+        "content_type": { "const": "patch-note" },
+        "game_version": { "type": ["string", "null"] },
+        "patch_date": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "maintenance_start": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "maintenance_end": { "$ref": "https://mpstorys.com/schemas/article.schema.json#/$defs/nullableDateOrDateTime" },
+        "changes": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "known_issues": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } },
+        "resolved_issues": { "type": "array", "items": { "type": "string", "minLength": 1, "pattern": "\\S" } }
+      }
+    }
+  ],
+  "unevaluatedProperties": false
+}
