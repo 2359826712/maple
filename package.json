@@ -38,6 +38,7 @@
     "enqueue:translations": "node scripts/translation-enqueue.mjs",
     "translation:worker": "node scripts/translation-worker.mjs",
     "translation:quality-requeue": "node scripts/translation-quality-requeue.mjs",
+    "translation:evaluate-providers": "node scripts/provider-evaluation.mjs",
     "update:event-status": "node scripts/update-event-status.mjs",
     "generate:site-data": "node scripts/generate-site-data.mjs",
     "db:migrate": "node scripts/migrate-supabase.mjs",

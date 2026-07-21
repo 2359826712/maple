@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "routing_version": "1",
+  "evaluation": {
+    "sample_size": 5,
+    "target_language": "zh",
+    "providers": ["deepl", "ollama", "libretranslate"]
+  },
+  "providers": {
+    "deepl": {
+      "model": "prefer_quality_optimized",
+      "required_environment": ["DEEPL_API_KEY"],
+      "optional_environment": ["DEEPL_API_URL"]
+    },
+    "ollama": {
+      "model_environment": "OLLAMA_MODEL",
+      "required_environment": ["OLLAMA_API_URL", "OLLAMA_MODEL"]
+    },
+    "libretranslate": {
+      "model": "argos",
+      "required_environment": ["LIBRETRANSLATE_API_URL"]
+    }
+  },
+  "modules": {
+    "news": {
+      "title": ["deepl", "ollama", "libretranslate"],
+      "summary": ["deepl", "ollama", "libretranslate"]
+    },
+    "upcoming": {
+      "title": ["deepl", "ollama", "libretranslate"],
+      "summary": ["deepl", "ollama", "libretranslate"]
+    },
+    "events": {
+      "title": ["deepl", "ollama", "libretranslate"],
+      "summary": ["deepl", "ollama", "libretranslate"]
+    },
+    "shop": {
+      "title": ["libretranslate", "deepl"]
+    },
+    "guides": {
+      "title": ["deepl", "ollama", "libretranslate"],
+      "summary": ["ollama", "deepl", "libretranslate"]
+    }
+  }
+}
