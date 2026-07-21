@@ -1,0 +1,80 @@
+{
+  "id": "n-multi-region-official-updates-2025-07-24-3054078",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/3054078",
+  "source_url": "https://msu.io/maplestoryn/news/update/3054078",
+  "external_id": "3054078",
+  "title": "[UPDATED] July 23 Patch Note",
+  "original_title": "[UPDATED] July 23 Patch Note",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "patch-notes",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-07-24T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:18:23.541Z",
+  "last_checked": "2026-07-20T06:18:23.541Z",
+  "summary": "“[UPDATED] July 23 Patch Note” is an official patch note from MapleStory N Official Updates on 2025-07-24. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "patch-notes"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241122/bf2e7a17-6a8e-442c-a414-7b91e53f888d/EAheaderPATCHNOTE.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "609512a53c956c0a02ab3b1dde0ee264e0313e28842da10ca3c61c1b43ab6d0e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:24:20.961Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-07-24.",
+          "Official classification: patch notes.",
+          "Nexon thread ID: 3054078."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2025-07-24T02:00:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

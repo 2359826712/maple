@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-04-16-26163",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/26163/inkwell-s-note-20th-anniversary",
+  "source_url": "https://www.nexon.com/maplestory/news/general/26163/inkwell-s-note-20th-anniversary",
+  "external_id": "26163",
+  "title": "INKWELL'S NOTE: 20TH ANNIVERSARY!",
+  "original_title": "INKWELL'S NOTE: 20TH ANNIVERSARY!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-04-16T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“INKWELL'S NOTE: 20TH ANNIVERSARY!” is an official news item from Global MapleStory Official News on 2025-04-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/2apdj44y/website-news-post-540x304-inkwells-note-april-2025-maplestory.png",
+      "alt": "INKWELL'S NOTE: 20TH ANNIVERSARY!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5htgbeb3/inkwells_note_01_april_2025_maplestory.png",
+      "alt": "Inkwell's Note April 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5oxge2l5/inkwells_note_02_april_2025_maplestory.png",
+      "alt": "Inkwell's Note April 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xd5j0vzb/inkwells_note_03_april_2025_maplestory.png",
+      "alt": "Inkwell's Note April 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kizcovmg/inkwells_note_05_april_2025_maplestory.png",
+      "alt": "Inkwell's Note April 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wkdnd0jt/inkwells_note_06_april_2025_maplestory.png",
+      "alt": "Inkwell's Note April 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eelbuc1y/inkwells_note_07_april_2025_maplestory.png",
+      "alt": "Inkwell's Note April 2025 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4d5f9fe201a07716b42ddf0b9d014ffcd18dec58f20e18581d4090e5eb09a0d7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:08:13.824Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26163",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-04-16.",
+          "Official category: general.",
+          "Nexon article ID: 26163."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

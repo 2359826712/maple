@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-18-16213",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16213/livestream-play-v-237-ignition-cygnus-knights-redux-with-cm-ezrabell",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16213/livestream-play-v-237-ignition-cygnus-knights-redux-with-cm-ezrabell",
+  "external_id": "16213",
+  "title": "Livestream - Play v.237 Ignition: Cygnus Knights Redux with CM Ezrabell",
+  "original_title": "Livestream - Play v.237 Ignition: Cygnus Knights Redux with CM Ezrabell",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-18T17:20:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Livestream - Play v.237 Ignition: Cygnus Knights Redux with CM Ezrabell” is an official news item from Global MapleStory Official News on 2022-11-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1b79dc7044f097eb3df1e0680591a30c5bcb428ea2dd6695fc3ad25d9ed4c037",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:12.010Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16213",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-18.",
+          "Official category: community.",
+          "Nexon article ID: 16213."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

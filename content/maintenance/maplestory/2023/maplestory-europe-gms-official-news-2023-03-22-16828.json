@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-22-16828",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/16828/completed-all-servers-temporarily-unavailable-march-22-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/16828/completed-all-servers-temporarily-unavailable-march-22-2023",
+  "external_id": "16828",
+  "title": "[Completed] All Servers Temporarily Unavailable  - March 22, 2023",
+  "original_title": "[Completed] All Servers Temporarily Unavailable  - March 22, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-22T21:18:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Completed] All Servers Temporarily Unavailable  - March 22, 2023” is an official maintenance notice from Global MapleStory Official News on 2023-03-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ymhprt1r/160510_ms_maintenance_template_01.webp",
+      "alt": "[Completed] All Servers Temporarily Unavailable  - March 22, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0a074d885712f9f1c6ece8929bc3508ea20e3822fad4d8b471ccbaadb095b0ae",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:11.482Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16828",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-22.",
+          "Official category: maintenance.",
+          "Nexon article ID: 16828."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

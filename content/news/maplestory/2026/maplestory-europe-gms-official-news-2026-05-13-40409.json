@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-05-13-40409",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/40409/sign-up-to-join-the-public-test-server",
+  "source_url": "https://www.nexon.com/maplestory/news/general/40409/sign-up-to-join-the-public-test-server",
+  "external_id": "40409",
+  "title": "Sign Up to Join the Public Test Server!",
+  "original_title": "Sign Up to Join the Public Test Server!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-05-13T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Sign Up to Join the Public Test Server!” is an official news item from Global MapleStory Official News on 2026-05-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/es2pmlxw/540x304-sign-up-for-the-public-test-server-maplestory.png",
+      "alt": "Sign Up to Join the Public Test Server!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1azlsxaf/1100x225-sign-up-for-the-public-test-server-maplestory.png",
+      "alt": "Public Test Server Logo MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjrh3lg5/public-test-server-logo-maplestory.png",
+      "alt": "Public Test Server Logo MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "db9a317afd3fffa301470a553f7c550b36ddf351ed62feb2b521e52ab01b7df4",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:46:22.676Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "40409",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-05-13.",
+          "Official category: general.",
+          "Nexon article ID: 40409."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

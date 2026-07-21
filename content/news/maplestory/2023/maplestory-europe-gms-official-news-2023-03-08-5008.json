@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-08-5008",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5008/kartrider-drift-arrives-on-console",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5008/kartrider-drift-arrives-on-console",
+  "external_id": "5008",
+  "title": "KartRider: Drift Arrives on Console",
+  "original_title": "KartRider: Drift Arrives on Console",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-08T19:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“KartRider: Drift Arrives on Console” is an official news item from Global MapleStory Official News on 2023-03-08. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/0lkihb5m/news-post-540x304-kartrider-drift-season-1-launch.webp",
+      "alt": "KartRider: Drift Arrives on Console"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2402/in-post-banner-1100x225-kartrider-drift-season-1-launch.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "bde73181af1bd98f6aaccd9c4dbeaea12c93dbd77834593637503c718b417217",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:44.593Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5008",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-08.",
+          "Official category: general.",
+          "Nexon article ID: 5008."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

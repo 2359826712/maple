@@ -1,0 +1,110 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-10-18-16205-halloween-candy-party",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16205/my-halloween-home-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16205/my-halloween-home-events",
+  "external_id": "16205:halloween-candy-party",
+  "title": "Halloween Candy Party",
+  "original_title": "My Halloween Home Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-10-18T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Halloween Candy Party” is an official event notice from Global MapleStory Official News on 2022-10-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1236/1100x225-my-halloween-home-events-maplestory.jpg",
+      "alt": "MapleStory My Halloween Home Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1003/maplestory-midnight-carnival-mmorpg-halloweenhome.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1012/maplestory-midnight-carnival-mmorpg-halloweenhome_furnishing.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1013/maplestory-midnight-carnival-mmorpg-halloweenhome_furnishing2.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1001/maplestory-midnight-carnival-mmorpg-halloweencandy1.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1002/maplestory-midnight-carnival-mmorpg-halloweencandy2.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f861f37cd954d39b103b1a68ba1abd456fd42a3a1a9edda3fb279a2a1b229617",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "halloween-candy-party",
+    "fetched_at": "2026-07-21T02:43:18.194Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16205",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-10-18.",
+          "Official category: events.",
+          "Nexon article ID: 16205."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Halloween Candy Party",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2022-10-26T00:00:00.000Z",
+  "event_end": "2022-11-01T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

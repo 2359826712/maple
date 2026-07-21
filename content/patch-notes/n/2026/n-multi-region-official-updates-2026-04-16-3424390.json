@@ -1,0 +1,94 @@
+{
+  "id": "n-multi-region-official-updates-2026-04-16-3424390",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/3424390",
+  "source_url": "https://msu.io/maplestoryn/news/update/3424390",
+  "external_id": "3424390",
+  "title": "[Updated] April 15 Patch Note",
+  "original_title": "[Updated] April 15 Patch Note",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "patch-notes",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-04-16T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:18:23.541Z",
+  "last_checked": "2026-07-20T06:18:23.541Z",
+  "summary": "“[Updated] April 15 Patch Note” is an official patch note from MapleStory N Official Updates on 2026-04-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "patch-notes"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241122/bf2e7a17-6a8e-442c-a414-7b91e53f888d/EAheaderPATCHNOTE.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260415/5ea5ee39-cba4-4aef-9159-c9eaa423784a/%ED%8C%A8%ED%8C%8Cfincopy.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260415/c7cb56aa-3d3d-4df2-894f-f15385b448d8/%EB%93%80%EB%B8%94fincopy.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260415/8ee29df5-dca6-405f-8a1e-2cc006c4acea/%EC%BA%90%EC%8A%88fincopy.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3512a023f9ee280c46c931eb0b4cb62b8f393ad4f364b8a24ee05ce450dee40f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:20:11.070Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [
+      "https://msu.io/maplestoryn/news/update"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-04-16.",
+          "Official classification: patch notes.",
+          "Nexon thread ID: 3424390."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2026-04-16T05:00:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

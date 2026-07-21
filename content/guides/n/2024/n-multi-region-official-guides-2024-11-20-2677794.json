@@ -1,0 +1,88 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2677794",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677794",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677794",
+  "external_id": "2677794",
+  "title": "[Community] Blacklist",
+  "original_title": "[Community] Blacklist",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "system-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Community] Blacklist” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "guide",
+    "system-guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/db7bcb0b-9857-4c44-8d98-a97b2521f13b/image202411181730545.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "386e4bc79a6a1b080fbac23feec8e7faf7a4372b65877aff507dd9bfea51ec0c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:00:18.701Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: system guide.",
+          "Nexon thread ID: 2677794."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

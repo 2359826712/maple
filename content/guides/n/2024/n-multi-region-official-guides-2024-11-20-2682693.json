@@ -1,0 +1,100 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2682693",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682693",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682693",
+  "external_id": "2682693",
+  "title": "[Adventure] Special Theme Dungeon",
+  "original_title": "[Adventure] Special Theme Dungeon",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "gameplay-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Adventure] Special Theme Dungeon” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "gameplay-guide",
+    "guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/f1fd649b-8bd6-4857-9d68-e61a8ca1a715/image202411191045526.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/06d14e82-5945-45dc-948d-f26337afa659/image202411191045527.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/d114bc2b-0d2e-4185-aa89-8a2a729a79f7/image202411191045528.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/795953a9-6eaf-4940-8907-5c6d545cfb27/image202411191045529.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4afdc19beb698fb0f5ae8fedb53f8502bc62f178c65929665eb47566e1d85d6a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:00:00.692Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: gameplay guide.",
+          "Nexon thread ID: 2682693."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

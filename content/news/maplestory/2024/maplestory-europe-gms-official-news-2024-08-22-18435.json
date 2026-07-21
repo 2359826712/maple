@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-22-18435",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/18435/community-livestream-v-253-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/community/18435/community-livestream-v-253-update-preview",
+  "external_id": "18435",
+  "title": "Community Livestream - v.253 Update Preview",
+  "original_title": "Community Livestream - v.253 Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-22T11:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Community Livestream - v.253 Update Preview” is an official news item from Global MapleStory Official News on 2024-08-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/foxhrzvz/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
+      "alt": "Community Livestream - v.253 Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jq2ospmz/wgc-1206-240701-v253-bugcat-livestream-overlays-1920x1080.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b36fb613ebf3a9128cc1bf84ef86d7ff061a8a7463991b433833940b211fba07",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:20:30.200Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "18435",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-22.",
+          "Official category: community.",
+          "Nexon article ID: 18435."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

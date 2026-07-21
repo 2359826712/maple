@@ -1,0 +1,103 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-08-23-5228",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/5228/v-244-punch-king-palooza-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/5228/v-244-punch-king-palooza-update-preview",
+  "external_id": "5228",
+  "title": "v.244 Punch King Palooza Update Preview",
+  "original_title": "v.244 Punch King Palooza Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-08-23T11:05:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.244 Punch King Palooza Update Preview” is an official news item from Global MapleStory Official News on 2023-08-23. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/yefhnart/230818-msw-6517-v244-punchkingpalooza-540x304.webp",
+      "alt": "v.244 Punch King Palooza Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1957/230818_v244_designpost_6490_01.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1958/230818_v244_designpost_6490_02.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1959/230818_v244_designpost_6490_03.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1960/230818_v244_designpost_6490_04.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1961/230818_v244_designpost_6490_05.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1962/230818_v244_designpost_6490_06.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1956/btn_forum.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1955/btn_discord.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b3d6a0a3c673adc93d762fc617ede5cb9f3bc9d992044297ca0961b541fe0687",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:32:43.808Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5228",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-08-23.",
+          "Official category: update.",
+          "Nexon article ID: 5228."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

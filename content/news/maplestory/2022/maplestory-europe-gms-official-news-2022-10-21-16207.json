@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-10-21-16207",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16207/check-out-the-october-2022-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16207/check-out-the-october-2022-art-corner",
+  "external_id": "16207",
+  "title": "Check Out the October 2022 Art Corner",
+  "original_title": "Check Out the October 2022 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-10-21T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the October 2022 Art Corner” is an official news item from Global MapleStory Official News on 2022-10-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1336/img1r.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1337/img2r.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1338/img3r.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1339/img4r.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1340/img5r.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1341/img6r.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1b725ca0bf01594f7373d9fbd49e8e2040ddf438aaa1223f36ececaa72d54e8d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:43:03.131Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16207",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-10-21.",
+          "Official category: community.",
+          "Nexon article ID: 16207."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

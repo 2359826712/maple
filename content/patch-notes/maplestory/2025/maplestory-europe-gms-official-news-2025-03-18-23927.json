@@ -1,0 +1,510 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-03-18-23927",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/23927/updated-3-19-v-258-maplestory-x-demon-slayer-kimetsu-no-yaiba-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/23927/updated-3-19-v-258-maplestory-x-demon-slayer-kimetsu-no-yaiba-patch-notes",
+  "external_id": "23927",
+  "title": "[Updated 3/19] v.258 - MapleStory x Demon Slayer: Kimetsu no Yaiba Patch Notes",
+  "original_title": "[Updated 3/19] v.258 - MapleStory x Demon Slayer: Kimetsu no Yaiba Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-03-18T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Updated 3/19] v.258 - MapleStory x Demon Slayer: Kimetsu no Yaiba Patch Notes” is an official patch note from Global MapleStory Official News on 2025-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/pqydejo4/241218_ms_demonslayer_collab_540x304_wgc-1595.jpg",
+      "alt": "[Updated 3/19] v.258 - MapleStory x Demon Slayer: Kimetsu no Yaiba Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w2pdlfgh/241218_ms_demonslayer_collab_1100x225_wgc-1595.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gzsjxisd/autoharvestui.png?height=797&rmode=max&width=587",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kpndjmyu/autoharvestminimized.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4lulajkn/farmselection.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fhzpos0f/autoharvestclaim.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qkcnr02x/ahdailyquest.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mcnlshwd/professioncredit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ki0nw0h0/ossy.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcBSQUFdVd0yBchlcK5EEMaZSFELzfHZmnnAFbDNL33Wu_F1XPwfZiBEIbMgWAE0ZqsUp3I_IaNGGLLHaEB2oFTbtQIvSuYorPHMxKO8DSkh2jvG5_menRZOR6PKMR_EsWWezTK?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeUlfJE8J8h7xjENX4r6jymXHbdWR_efdwYpN2sf7B0XBvkXvYJMuVwQEaZbakM4gXPnj9Q_t0xbGm2v8KVWMwQGSva7muaXgsnIaqWEW_tTTDBStCWYmsbZvWi6ZXM9SQydM_W?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcMeRosNMXTudidQ8nUcVplvBT1qyPkLrjh9RzWXe3xW9CIrjmhqKHvpCOnbjkeXmEKOVDR0KfZGMGVUoztCxDgQSaahRW5hdObYSiZgv9TQVxWKeQHVfYbWsuYlQCBjnruKCV1?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeiM1kubU26kgObT_BkT5OyDO8YV3voDzLcEAiUSxPPNbhfABJmIq9SQMLNcvkquqGkirhM5klKmK0WpnDbyo_y6jrpbAyTH8_OSYqKeeN4yfIQzzlZgk-FNI6efVmZ5Ls7GWUlKQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfPWdFjdEGqixXq-3FZ0XVADg5ghdpfzuoSM4AuxnPQy0yYfkAAYzhR9uztu4S_bGmdCAZYUySe-guZ5Wh3IP0mBKKoVaSLNZKFqoO8vj4_R-AVxscoYDuh0O960VQtAo6KJBqOHw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcB7VxHpED1bx9juNw7L58Kl7B-f8wQM6mlDMSTDSQ_s2cijJAnwKGnvpzYcunfUwGIip5DjI-AcnZVbUugidn52Uh0cx0MIX4inuV6XmW9OmdQvy3J-2v9o_4ji9xsXkgjAwY8OQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdflQlwKeLQkLsQk5mYFcGy3RIZ0sjp2D_wkC-EJ3npwTaVcOlICGAOdgOENtvUHsBYBH7Cj8lq6TfF1z3G4qvSxVz-AIbL8UpYFIABjSgAAi2Cluxc6jzwNAnF18YidQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfudvw6uwx5l_dEmSb2cBNtjtDY31SSkrZD11DT15bpL-sNe7EoheY3EAXNyZw7M00GpW5ZjIHJ99IpclyDldglEESZpK9mxtwAqk48JaXCxK1DiOkHxnJL56OXuZ7lZPVESM2ypg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcRLWApyagqdj4wlMRkzkr4-POrYVsd6v1PGkiFTr6iwqoK7yOB5lXSW-4Cblu3e1-S9Zg4QALShfEkyvc_7-9jDQxjg0pqgYDOsSQknHFxzU14cvujS63wBTqulF2_KC_hyvW-Mg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcKrJzJhw1KQ7M9Xsz7YiKmJngyOKv9mF1J7yVIkCdVUB1uScn24DG5NkxkVruDbS8TPeVYbxPr8iKxMOhqjmXmsW4tI_31JPitZIi-BR3jn3Va-QxKKrtkdpdsrlw93lRzoJvQHQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfyeToX9CADIj9tn38DZO07B2o8_FamkRn3hJKRow_xrJasV_-a-_k8f-5oZne6CFUlmcUoEVRwnKW8UQhO9GaMYhAQGCGR88kJAGROqNbA8JVUV9xd3-6mwrE5QjsKBHYNkGOd?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXe7PtDpM-hbR3azswp6zev6uloXr3tMYsHsnwsll4P5jTSjk3pl8B36HbIV_kg1hM6ZhTDX5kHsw-RbzCNiflaHv1UnzWj1hz3DLX6_bNLDgBUfAsYj692d3kq91rSXFVUO11aGEA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXe5Z0t5Q8JluHgojSGuikvU_RuCT6G5LQq2L_Jlvv937j1ujV_mITdSnX4gjtAmSR2wAO1a5SoL-Q-aw0EP1cJJWZ_6EUvT-sTwVFTAusBYeKdBjhEhcCWPHtXdw3nW5yq3k3Wk?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcx5-lVKnHP_i7w1zZxTww-ppWlKoAI3RTTQqU0G93LUlYdRtLrI9g9722dNwvqgja4dyJKs6zIvait7SFFIg3YnWLC8dGuTeTQIafRGZex97HEJhAKFA4BzUIuHeuDxMbMJEEAQA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfHMNVRZ2orjTAwP3GOL-c0O1N-KvesfmPMy7-S4Kefyi7A8LsVDdpdf4NFswnAWQN7jZTjePwiAjFgyPYzMem2DZ3fj9O9Gm2zuzlXFH0RPKQZt2FCT0s4pYxIKF72_NeLCo86?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeGLXB8g1PWSjwZoHe3Sw7btxTthcw8pGHe6dLoyTL-yh9ukZnZL3lm-RG7K4gfEOAg0v_roDI8yHBS_sLhe3GYE-LeuJIymzX9_1vjWARehuHH0_0H6YAzjDn3EUaPeB2tJ9KGfQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdcBjI0df4_G5GlVXlIajaQuXYv6UWHYFP3Pm8WLd8Jrz3OHPEFTfCt8EEJz8O43XeFAA2el3WbI_DuSZoNCKrm7DK-x-x_HXcw5P6i99Xwc0osKEPRidps8BsTCIzxpM95lA3L?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXexNY3NCPyDHIZM4e7I5Zl9Bo9OA34Lc0Fo1Qw8DdnWN3x_HFhnlOdClEtmhVKu-WOB_B-wF1x3dpU5d-88xMrI3gnUvMpQi2wqRuZTei2kqV2haBFSfNDzpqR20qJrXqu-DVn8Gw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXduLlXqb4V_INB7oJIBjtF0IuIK2hseQSpcHmbI0FnPPuviiIokWy8DB9hVaAm3f8qEknyG60phL2TxFny8L8TuF8Ko305Kb2NE1zYPGuqu1YBkfNfK6UkWbvciyXTR4qVPHzD3Xg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf8hDLVy5GEtaSerrqTqKMg1RFrjyILVEm2t0zNH2f8bXFeXHH-XwJuPa8B0zuO-epyHbwCnvVb6EQL_gwrzZ5iLq4BHgR5bCCI5XVWAKUyezTrz8kI3v4CtEdYxA8aKXmYcKVliQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfwIhyK5YtZA6sXYF03gspRXXhndj9WI7cqnXkK87hcrt7o2t9fUvjPGyAgdpav9UANfhL1GS10NN01HuE7zgaGGuXnCzR2OE28qFl15aRtdGtbiW4zkqYwyO-Hmye-DoolSiFR?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXchU2BDSyBBnv5KVApkW8wPnzNQ1QhmGu_lOwPQJiHeMyL172fwZCXGnYeubv6qD2PWAFffnRzEjhSvEhXJpDAwBRpedCzrqlN1RTmK5GGGzHDHfDbKUMwQWwI_lGcDUTjGFTZiLA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdHLXQR7k7TL8nPoWn3-MEueFlpNN11jDevCXBeRuV-tKh6B9Gsx5J9IACHACkXAe9BDOaVC4x_Xs54HDlei1v3OB93rTD3wWdj9yFt4Mu4UbRhJltbd-hSQh0v9S-dOnPTZNhemw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcowdT0VCH01-USxGAMiPz4yjWYLCoIFwKw_op6HYQgsgcs0XagRZckFIS5BkzjGtbA0bVlkDNH4GLumfbUY9Vl8Bpsce-FPw9zH2r5-D0lx2MfupHzRy6iUmeUX4Ej5San3y-qNw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfubeQiN3n_dmZ8vF5gHcFwZwrabM38t8hVWeHmpidYu_TAeWmLaBLrDhp_EGFDxLT8h7GI4bzFTZmjF4RfjdwcsNDytESMnmrGUTFHFrjqkwt9pLBR9p19znTh6R0DC1P4VqkmuQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf5gVtGM7I3et6Ec9jZnWZI_XcmVZ1vrPb-FXVmKFkHP_tgQptL4SwTOybaAFfwF3Bwu9coYKktcqXiUyaNsoo_FAj279suEnDu_K2r03oGfU16o7_WQwg0Ym538E6cRiajSFqw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kwyjcjqk/tanjirosjournal.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdW0FltaaIYa4IYH98QVrxXS7XqahP4Jq8qWsQi_i0nKUS1Y4iUunnjASYFcFDacHucYKTH_4HpZ-5BcCiCs59LTc3LiT7np4aClry0j3sxT_KmMR24PTgwvoDP6J71j5V7yrDMHw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfgaBjAmj5TK-897QwQsAh6AClF3rHOVgJEgoY1Gi2GnlyyKN3kYkVrddTi6lRcH9DM1mO5s_6stVgdMiOvaSG1IWHIQLn6hrdtU364NEjIQLbO5BiLBnOuGO-xxM1CL7ycEeRBuQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfJiptxQertzsr3V3_51kOUT_-Kf8Lrcpppc6aOtXZzTg_NN-a1OC5npHn3Hl6QbxnrWALsv-7NNY1OXYTDbh94qDrfi2OZCxBD0BqAQS9jBUS9r_lazpjVkrIqABwh4VJdaowarQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcOb2rRQWbWINEkWwVK8ePvIICmyr2oeoJqGxkFQW1qYCA6_9ipDnBB4eeCLp4frhlFtnilyw2tQhdfux26p3aIgK1zZp94-y37tyEpEW1AhEWJeBZFa_qzpHJspjU96EFxwXoX?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeRTRMHEdy4RVHHg5qT812oM9JkY5gQhyvarly6gc9UJUmJ55f-B-Fj68FrK6ltU9dBnfea6YUZ3sfsGFJOh-UfF-WDz_cKZtFRzVyl6zBR1RlbynRjXuOXQ5_ONc8IPuK3R-5xOQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXepcd4APn_nIi6kinjZFXI6R0q42b4z3xNzsFO0bFJQsKhDshVWbE5arjMEzw5JfkH1pp_fRio0AFXlnGwLvun_O_qx_a8w302yy0vU6D9Wgouz9mrebnvts1YnIsNdXaON3Dip?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXczCMwgmHllFklaYdNsDc_PtQz2wCvEl_ftyZYP7Oh8bcKdF2m849wM7292s7qyijtv1M4VGPTh1cVWUZK6fjxX_dSawPgS7addVnUys00B80hYZ8NOrlP1od4lgdoJiiuVC0XI?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXc8sFSMSr90whWAnGfwJivZfASDGa5sKXAfFl2UzHL8Qt-5xzV5JLx33QDc97Iq1elpMbkp44rQNqUIpp78RPF-YHwdaH_hfydOeNo2XWFBAIvH5-DDE_4yViMP2F521ngGbdWVdg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf71vDjQsrxkvuI9qzHq51S8A0_HcDaCLDRWNgLrpYKOCSNU6EMKnHzSR2ijdaVC33vsdW7qvkwtqgGOmkx64_QzKQQOURxdh-yMSTBvLhhaUI6VPVf9olbX_MJ_dNR_okPzfkdHQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfumRAsoHkGX5V0ByCBxGWI9MoVtWFkO2gaSZDkiVEfCV31yUfjdf5hdvaDuErKYd43rB1NGP4rlmaV6vXRourpK1fLtjlH8QwgSKtSjrR0xsJqSbRD6irBWD05Soc0cX40qjlfKg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd6quB-UItv7uvpIcmjNjv8i4sCH4Jefk4GfjSzksksQexDrSbrYgr-JwqPEa1c2PLhUAyYmdXe4utTO-37XusvX-IgUJe_96sbI0bPJPk98QygMv9dK7wdUbf5EFDqMC-_cwCSOw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeNLt8VXjNks86XoBtF-m3s7GXEN8tPeq_F0oHK6cYnTbvzPBF6zqwSXekjEJkkLF-2isQsiaRx17YE1BpOt8oxV5vTwESW3hDcscADkyZxVHd8s3zxYA62EaHWO66LDSsYFqMb?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeuXjtUFJJTZ0On5pffkn_n-ZxEQbUepO0M4MP2hLkaImVA_x1K46cW6_WglZ4cx4r-vQ3MSfrMmpw9Y6xpiC-PVOikCGawSBxL4e2TLk2p9XeHgLdo7yK7lUBuLC-eFWWiUVRUqQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdf6L0QKCTmkIXb-2hF6IbEthesJINxVoU7KLDeIKiswNslASYD7xmJMWW_ipQtHq5ZXQyetuUrN0_E40zhwZmq5YHN-h_80XJdvWy74V3dcHKBF4RNaMyylfuCfY87oxnjJ17BmQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcQP8uk3FjPjcwsF1xO3AbigiICoy60XffsAbgu4IBMcsVoYyxyRlWJv5Jiqlnm_ZViaX0I6g-XK6AWPrhhKmUNv3vF2FMlrUVc0fj8dCC5-46wrjyEHuyrcrM-KLYQxiP5xMMr?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdwmcL44sCXxTG7KydzYxKHEL5xLlQSXDm5z0LV8XdrBdDBGusxLY2EvKsmxvKqT5010tIQQmBeTQePcZHrEqFA6otT6gbiGb6mQxM6U39s0bxp9RTEDer5HIkRlCStS9NbWHm2FA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfsdM7gIebe723bMokljw19Tl1kcgs2marhS8nUl65-H9EfHJxMOPqS7pH-W3SQLLmF6eb9huLz2UTdXk_G16LtmZAypXU_xGjoN-ywcusg9-zIK6sYMnKiCQQOHMO9yrQDZhu2WQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfYjmsqegPJq--VyOkwhfIjPwXUZsNx7FCR7pNR7XlQJ0DL2AMjZ_4pJWMmsk1FhZ21LfPDJhjCi6QXrO9Y5EX8OVCtxgZ9no-2n6Z21xjUDHAIObfi2lOiJLLdaJKYWAdSEMlw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfN5fVI5vFUtmB84H6cp6xCvbZIw-jTdWY4CtekZOfFa_LvVdBBJKYht8efyV9F4ecoBz_n1xFl-xjyRn_rmfmHTbpiwyhscDmHEK4CrpCBWW6kmriKAq_RKpanD9xHwuJJjpDO?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf1IknPd6Y_0pY0i7YzIt1_53wJRO3aPVPRB4WOc-0X0XdOh84FkF2VNYZN3XOWj0-YrJVkqWaHQmYkNompw7qYmP0zoqhxmIKpCCQcZ8U2YKw5z3jEXnidt8MaUG6AT1lk9LTulA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdG91Bn7xA3bt4q68UJF_G15Y_GJ-0TDY6dj6RlTkoo512X6kcPpdggUkjnxjXvlpRvz_M-bFU2vZDxiXcyjr2oJ0lC7eS_DxdEzz-xEFjEZZzVvfjjbtqwbyjy3EJFUSVnzs7rzA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdaCMteLNHmwyGkZLeaVZvZW3Yf1bG-qsaoyxVTdj7fSchAKG1xLFHFb9HzAScIYn4FS1XhxaPEJ0HBe3c4XP9Yz8e3QAkOBrWgpz3vfLE8dTKMflTJol3OBbLO-ofRXOHsyiUQHw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd2DMnY9Ey_ZIr70bwInda9SFrxD64pFKPPpKATGW8iGz4HmxuFGFjDBIlKs8xFL9BlV8twZg6tr5umnf58d75xAMcJ7NE6c3lfyR0Yeaofi1oOnMrfNUj-FCfXkwFYhVB2lJRqOg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdjnfmmGrsEEVRA79xJgs6--f-eH8cseY4VUSMAgeQVghlkaGYfznOLbZCDYP-SkoU0w4t3XcSG5yqAjeQST6NAG7z9JFYg7wt4BlZyu1HCUeuBASFEQsn97V0cyQS0k-yKaf_Z2g?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXe4Vxgxb0gjc793-IZ_SQl_S9w6LUyqNRCQ7VktCeK-WAL81q0dpDTJnRlpaxScQI-7D28SWxuHSoTi0djQXD0TtbJoCFzAa8foPM-YQQaPhdd0haSrwYln2wLKm2EKeqd3q6OQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXc9PhTsJUhiIp3FOna02Irs2ksVS05mxSGmMNGbXQ0XGhoAt8MASy9GEfaBKeRj2BnZPR6B8862wE_XfsmvhllAtBx__tcOZ5hbcfrzT0jQedNZJfgfG7_w5By4CCEum0exRImLyQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf_yf7T89aFeJ-qCEG3UmhYwphb-XS8uqgvzMb8sZ4WMWVQ9xMdFC3IaebPcKKIGqPXgXXQco7xzHarTp5R_zNsSRfqCiSvyXo6-QpnCQcKm9_EZqh_JP_XcVOvHDtkRMyNxi3aAQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXe5BoK7rAqVjlYPuSdlb756yZUQo5PYyF6HtuIarTrALcJ3TT47o-4DphjeBrKxgOkIuumaHVWV3WORq0C5iiWKDikMF95uSbWIf7GTSYMjZCCw8Djk1P_oZx9aEB0oMTzppxcipw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0a4dmxo2/giveitallyouvegottanjiro.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdhgg-1N5IA-XbYNT9AYYpFEeMqsHPEb1ADZRn7fYu7evuJxTzqZP586lNKI7p3iXSsGivo240jZvthGI0M8x1xgmPcFDUE6E4UbBYmThgleVhUnnlbpqjGDwK9UrRRqjlx_zNlrg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcBdgUfV2LUDE4Hsg0wTRZjUwMz06NIYHTyT2ucJo8tkWNqd4xVAfSEPWZnlruaOV056skdxgvyulAD3Tq1E-Xlun-tbiKBkmc7Xn3FEwrRAaNBtI_PtUU8iCrQGquOBp_pSFI-jg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfeRy95StP_y5a_NSAt-hRLoK0SsQBowurdXCPJpHg3W6lEpv9_5Fo_pHepW0f8q35YGHT2sxDcIO428_A8ZV2YSn4v7sfjaMqSQHpxIalMKTUfFdvnD7fh-ppbuQPXXIQSl67WyQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcRUd4srKKK0I30hK4k8nPCn0o-GKD2gi6NPQGN_IjT6D28rGpIWI4vKibVaiutixWqh-sQYJPN15pGK22wI4_CvlmBFbBqGCRCB4eS_fX265Wk8KPiS0bGSBE3LNjwjBcjG8EYNA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfulITiVjOkeIiBpfoGDGFnjNb5-HbLqASByDTi23bp9QFad_Nbnsf_4zaBOFi1qkQHdoFbyIUQFlwLxpkclLk6c8-4dii1rly3G3vbpNcmkoCB9JP6YJ-YOakFs3Tv0URgWKPxhQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfoxZQw15n9ROacrJ4Ds5jL10O8wnUA1kPS9-mXMNYSrUyjSWQUH-GWslxL-OM44QohPz0W8eTVI0nPcwLY9lZm1fD5E96LZPc7Ar5RwmZM1gfZOPGdV9E-ni4b2s1WrDRjYMT_?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdv6_Tmf9BfoK3oCM3I3IBzwKY50vQY1b7Qvu-a8bB-YFFnx6mTl8RuLRJRchWTRcufyaPCV6Lzjf5ewzki9Zumhk1Hrmq5IIhTjaqCwEEVYzKaAgzsD269XxmTb0a3AjZb_3Wv?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXftfH6GR4V2usjSITTDY9h4UhN6s5ewCa0lBc_4fNV_yLOkF5oFi9g5dgxMRtR7YTDSRY7vW7oPZ50Ho3ByAjzUL9f58z3aUZJe6cKJ6cf0hrDQr6Mx2spLhmdv53-hJ12Pwq7ptA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcUrjDJMY4OQ-xH3do7W0Y42-Voq9dk7NpWevChKDxqbPPMQZy_j2A0QxeKCZ3RfX7aYrQojag_VQioT4SokcVtSIC_5p-SRH_yiFeIc8bfPp0FjbiJ87yxg87kAV_XG6qEMZ1Eow?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zzbjer1m/inosukeroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qrbjp1xv/trainingjournal.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdMMgElSx9U7Iy3wABUagrDxMQ0p2zs2UOv7mJxlX3rGiLTB3OsJSvKc1c0GojxdA204hAAvh5Wt52TeiDn-n-SpEhZNMQ2TCg30tx_GqH_QhKwJW8NwarLk2Ieo6AAd7NoVkkd?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeaPWGwkUgcpJJkzi7bc0uyDEYzTNmRj_N8oLBOIbiPNEMELkKCGXEeaIxWQhdUhXk1MOKsaKXq62ifWrJuahHOZlPwDPjNN7_77YcdqqcnEowNPQSjPFEoEG17EnFVYabvZA8myg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXea6BAkTV_MRnFVzOXwr_U9H_1-T_fqiTwpgubo_2WETKlDc5HKHgpNdfvGkDQL9PpGPqkuzD2HOh5j7VPFjmp2A8oo5YbBzz28Rdd65BJzTzdiEnFLC0Y7Kea1Y_flRjHtVyDOfg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeU8MLmUHab55wj5GyPBdMbX-MbLbimB_Eoq4Cr577GX5vklKqXizadqRH5-2JhrewRyZkJQaqVvrfy-7bTiIOjk7jVnggyic3qMLcbUFm4vVABMMNO72t1_wFt_IgVvWWO8YnruQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdsEyoqLlGe-L7NodyfJei-LAcc8IwZctBH6lV560ulktjwUd9MROIxAImknEeEfzNVEmScrcnYSdUz5tdSmrci4swPG4Z1PRfX9fl0wrn2mtf8IRGRxOkkGOofwI7kshiNch7GUg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfnmS7JJ8EvdWsEpvccZMA9N-fi78ZS5YQ940aMeR3TKH0g515Wccf1znIu94TXiyI4h0ioY7wm9icVF6L77rdi1rfn30-qLclM5OZH2JVuZRjevu6G8wlK2W40RsfX6O3W28x_eQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdJXJBhqxF5gaWEVzTaEGGQzk09JZ_T-F1cnRzG8Rzsz790nTh6rsThuqyWvfAoYDvNv7ic-sHJLCaf1D5yBR55-C9UCurI8ufbMeCurde0QYV_rANtaRtDB_rMu1yOebQQ9BmBjg?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd6YJDYcoSL6sKM21-yikkCKCwe_QhqW44oxBn323yLJKESDlTXbpb4vRyX525MHSW-l5zSAlHiNBdPqrFvB6-172q_DTFfk3aJgtWIJQg0Hm1UPqs0cBcG121j4Q1YbB_rzb79gw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdJK-puZ3Y17dXG2oQ9MReSMDEsruqhtaoxTtq0fG-j5SWSqBQKpmhvPqI8rGuVcltCc4OfNVRHrqN12Iuee8X0g9SnE7nwTg8kQ5F2jiVMu431i5LiKTbCPCVLFm5pX5pi2CyV?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfnpxZuPuN04gcmFMLUlqdf-B165s2dEldZqjCJ4eNZ0DMaOa1k4eCYgzMeJVNrGoPEItZ53Oh5wcJAXOMAH8gWf7g-B9Rw7RNsplJd0iDyZ4CvTmk0ZzfibWLnMHNpWypueYJn9Q?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcVaeZ1C-9hqNrmY1NpmIDlXpiou6b2G6q17U6Zmx--CjvNWAvoe3zQwHnw_wmZT4hBxvke2PhghXJGK0pq7xZoEwJcExImh2xhIOELL0fHdbxwDtUqNc9OPlazBlJljgnMHrDLNw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf7rtDXFaZRGNRREzSX8y32E1VGT0FOmK4Krd1yzTpDAnfJEk4bsXxVhcBbJwMnXu1modlPALa_xGmyl2g1jcGH66ZNNKmpO71DL-BELvCqZTxugNuEWewV23EG_WQMFQd0k3g-3w?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXebo_uuz17l5RAbAGmZLhJ1fR5C0AO3ym-vBBEgurxj16vEBfyUmSjfkdDiKTa17i_5WVLZsKccKjRPIqKYH50inIC7XD8FDPJMIrKDRh4_fpck0XexkKS7orrk_ELw3WfLYrjQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfdfZwPsY4PCEPo4fw-UKoLXMFQ6bfpQAtgalpvzFXUCwLHGiwhkxKxr18W1eTsQ4c7e2ClUeQItWvED7dxgMpbuCgXOnsPC2CeiCe3M8RqsYXlZQYnO--q2dTNmLt0vX8FmvqwDQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r0yahtav/muichirohair.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXftjBU9P4kmdT_KTVAcjk2Ip0_3GASqKE_EqIL4C-fHYc-bkRR1KV_KCuRrubkywAdciWmFt40w3U7DccKTfT79nDZBMtTySi0CGganHSaz-I0MDb9x1CBQVJK9Wx_fD5ngXWCifw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXen21HERsz6mWy-TVi8Y8BH8fEIZRwJ18NmYbOw82W1pEpHLubHdCD8sTL4h5cIZknRC_KGJX3xN6WsFxy3bNx1tFpnlvFQJ_E-CEsifBOtWQZ7HPQtVL4uZGRsysjlctFKFMyBqQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf7tXI9UZlfIOo8L3obYjJgjoFICfsjRIPVTyaplzk3pzINtgc-4SJ6ZHq3WTxI8tHbGm-SsaQDNa_FwXUJV5Dk8nUV_k63pUJDWU5rXaZgSJJv4--Q8zQZaYVZhZXMgFVCPFjc0g?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeYX2XnIRzMFwYjZOnVXLDT2LaV6UJean0B3e9-o6H_GXtvzt56Wv17_aLb6SCz99Ta8xAYSWEMbC51p_9BqwF9TiWD6LIFxKes-BeAenOxnCh3C8-mkDp8a_90hJiKvFYvgrMJAA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcO5P1zajzbC-azySwWtK9kbnKp0Zy12LQMA1PQYh5swxg0a1lkiKHTrxseGm1S-LQh17oiZiG2aXZSXu270BUnhv5j0RIDp56tyvBHy9ktA6bIRIeDvuj9QmSNcO4iPAMhQjyx3w?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf4YoS6H-qbHyREe3KF5_VE1gG2zOj9w_n8mRfu-em4cUyMlNvkL5q3eMc8gRzRDea2Kpv5ShJNmgOSNH5h3U44aAXPUyQRawri_rShlb8fnfVTT7eMYpYuQwSRiMZR_xgwNimaqQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXehm--FsxWreyuGVQR79HJ-5VXrXLQpsQfrWmoYU7kU6iLe5JmpmGKZ6Rpg4KzKuizLG3e8i3d2xwNxaJzWQG8EMqwWPnjfIByufmtkHHs3zmsAsdbLw8TNWc0Z1I9eIxMI1lsuaQ?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXc-j9xNzx0RQLZ8_hnwCpPC2WkbKFxyRoIyMH2gv-MVYganC-N5ZCzlsDACZqjQ_yDUYwaN34zOdVpkxKW8HHhUFDb9mTVQC2Ef0UwyesDG3IzIIuphaLy3tKLfGp-Ukf0fBQC7?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeB42nYJtmKzzgzbJVgXxP5E8GTQ99grpSxBAwZtauy9_uXkC92VfhqDVvXz7T-cW7xnDUtU8OzT-RyhYiSRzk5bVJ-3UamcTrDe-tJfzkGB4i6Mdiy-pz5gcWFWS2uOAh1eX2gsA?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfHJhJYX9Z4A-ETE8aT0BIN3ZgQIVlW2TOAbntl1WBeEOBDjt3L2UPFHJxkIm8QvyVi_g8oT0KPRr7ow-Nu_DCXT53fBCrGWHPKKGKL69bdnePQdywj3Ajr9OJKBlX0KMjpTlFRXw?key=nVs91T916KXD3Q-p5X298SNN",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bjgl0zui/msxdsmedal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/emonm2vk/gourdtrainingchair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jvinio4t/itstheheartthatdrivespeople.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tz4ldvoo/newrockspiritgg.png?height=588&rmode=max&width=628",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bv1mruem/rockspirithairs.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0ileyk5o/bonbonnchocolate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gkphd5v1/luxesaunacoupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/riwmq02i/luxesaunaroom.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "15d8d44479acdf4cf9e77285a8293e13b6feb570f957ed403d1d794381d64ade",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:09:04.966Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "23927",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-03-18.",
+          "Official category: update.",
+          "Nexon article ID: 23927."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2025-03-18T14:00:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

@@ -1,0 +1,578 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-18-36785-wild-hunter-redux-celebratory-gift",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/36785/update-march-26-wild-hunter-remaster",
+  "source_url": "https://www.nexon.com/maplestory/news/events/36785/update-march-26-wild-hunter-remaster",
+  "external_id": "36785:wild-hunter-redux-celebratory-gift",
+  "title": "Wild Hunter Redux Celebratory Gift",
+  "original_title": "[Update March 26] Wild Hunter Remaster",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-18T10:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Wild Hunter Redux Celebratory Gift” is an official event notice from Global MapleStory Official News on 2026-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/r00lhlkb/540x304-wild-hunter-revamp-v267-update-maplestory.png",
+      "alt": "[Update March 26] Wild Hunter Remaster"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dxylaazq/1100x225-wild-hunter-revamp-v267-update-maplestory.png",
+      "alt": "Wild hunter remaster v267 update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2j1bmpm2/wild_hunter_v267_395x400.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kxjj0wvp/crystal-throw.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/beplojwk/infiltrate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qo0omqxh/potion-mastery.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2hnk2zmp/wild-arrow-blast-proto.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/53bcs10j/jaguar-rider.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1zylylkw/savage-bound.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lowcmy03/predators-pounce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/es3jgyf2/predators-pounce-footstool.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zkxaagqu/ravenous-gait.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rjupxyzb/natures-wrath.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bewnhczd/wild-arrow-blast-detonation.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xshn1uch/assist-rending-swipe.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y4ymgntn/call-of-the-wild.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ch4o2fjg/final-attack.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/44hdzimo/soul-arrow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3kbhxyik/agile-crossbows.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gerh3eqz/crossbow-expert.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zvtpppfq/primal-edge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hcofouu0/physical-training.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/11wlrxv4/wild-arrow-blast-shattershot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bgdpbcen/white-heat-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/prrjvusq/trap-seed.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/od3pqicf/assist-snapping-fangs.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zphlymy4/feline-berserk.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/liihdoao/backstep.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kusbfvnq/another-bite.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q5lb1350/feral-resonance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ptafuk0k/slinking-titan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ecnhes1f/wild-arrow-blast-apex-hexa-also.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ajoddqvq/assist-skull-bash-hexa-also.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ntxdwywn/command-alpha-surge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z1kp3sms/lure-beacon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d1jjsfsi/sharp-eyes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4lgfakpu/maple-warrior.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dg0aygag/heros-will.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mv5duj0h/extended-magazine.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d4agzd03/advanced-final-attack.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nl5hddn4/wild-instinct.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5clf4v3c/wild-arrow-blast-apex-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dbrpbr3r/wild-arrow-blast-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tkhplytl/wild-arrow-blast-spread.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0vdd44fd/assist-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3eeb3pq1/assist-spread.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qs5l5xmr/assist-boss-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ackmclx0/another-bite-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k3uphfxl/another-bite-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qovhky4b/another-bite-boss-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ikxbav05/for-liberty.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yyljjn03/volt-snare.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iq2lrtdd/command-titan-pounce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v23e1top/command-predators-eye.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/302d5avw/wild-arrow-blast-overdrive.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4yuohe55/primal-bloom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zerh5ecg/overbite.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xecc2hjj/wild_hunter_wild_arrow_blast_apex.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u00mdok1/synchronous-hunt.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/whimlnuz/gear-storm.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1j5ba1oz/wild_hunter_hexa_wild_arrow_blast_apex.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zr2ci1kk/wild_hunter_hexa_assist_rending_swipe.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yj2bp5wu/hexa-command-alpha-surge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t50klghu/hexa-command-titan-pounce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/azmpdlqv/hexa-another-bite.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tq0jdeqh/hexa-final-attack.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oifd1sqc/hexa-trap-seed.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/idvb4qqe/wild_hunter_overbite.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jqwaq4nx/savage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dixfzeep/lil-ashlii.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4wzffemz/black-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ecghmdum/green-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5jcd51nw/blue-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mnepqgjx/brown-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kclbtwky/emerald-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kpjacj3i/plum-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gsip2z4j/purple-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/scedbktp/red-male-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2ghkrv0a/black-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1mrl12dq/green-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a4jnp1jg/blue-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0lhpayof/brown-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/krchq1za/emerald-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/55fl2mdk/plum-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/je0b0g2m/purple-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/koxhx4fl/red-female-face.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/12momvyt/purple-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3w4nwtfg/orange-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0exjrygu/green-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sk0ny3pd/blue-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rl4j2wrl/brown-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jenb1ohp/black-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qu4njvrl/yellow-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4g3crhzc/red-male-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5lzbjyl3/purple-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hdqhymd1/orange-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wa0lupd3/green-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ucinojds/blue-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zmqbi5th/brown-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ve0grjxr/black-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f1mlxbhw/yellow-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yobecwr5/red-female-hair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xocfrx0q/wild-hunter-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjnlqdev/untamed-suit-male.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vzcj3k31/untamed-suit-female.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4djfee1r/untamed-hairpin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bnqhcook/untamed-shoes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/knbdjmeg/untamed-crossbow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bxbewxe4/savagelabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lw1jmyxa/jaguar-on-break.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t5wl4f5z/savage-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wmjpx255/secret-plaza-background.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tf2dqc1l/maplestorya_usj5unasc0.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k5jplril/hyperburn-wh.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2lghjzkw/grey.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hmwaywls/yellow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h5tcnrnj/red.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c1nkd1dk/purple.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qqplbzt2/blue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wvkfprlj/jaira.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fobdz3tv/snowhite.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1j3pf2xx/onyx.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/akhdqc3s/armored-crimson.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "010350c55fe94bba24aace57438dbc23184c95af75fdc4237836060a7029a021",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "wild-hunter-redux-celebratory-gift",
+    "fetched_at": "2026-07-20T02:48:07.943Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36785",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-18.",
+          "Official category: events.",
+          "Nexon article ID: 36785."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Wild Hunter Redux Celebratory Gift",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-03-18",
+  "event_end": "2026-04-21T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

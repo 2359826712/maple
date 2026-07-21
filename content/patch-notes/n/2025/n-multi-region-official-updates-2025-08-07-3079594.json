@@ -1,0 +1,112 @@
+{
+  "id": "n-multi-region-official-updates-2025-08-07-3079594",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/3079594",
+  "source_url": "https://msu.io/maplestoryn/news/update/3079594",
+  "external_id": "3079594",
+  "title": "[UPDATED] August 6 Patch Note",
+  "original_title": "[UPDATED] August 6 Patch Note",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "patch-notes",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-08-07T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:18:23.541Z",
+  "last_checked": "2026-07-20T06:18:23.541Z",
+  "summary": "“[UPDATED] August 6 Patch Note” is an official patch note from MapleStory N Official Updates on 2025-08-07. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "patch-notes"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241122/bf2e7a17-6a8e-442c-a414-7b91e53f888d/EAheaderPATCHNOTE.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/fd4e296c-e985-443d-a92d-bef500798c7e/image202508061700301.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/78cdf7eb-a113-4224-8882-b70d387947dd/image202508061702483.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/764d2dea-fa30-4f03-bc63-e850261d074e/image202508061704006.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/09b69a4c-6d9f-4c10-81dd-f788d4bad4ca/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/3a5f4570-b3b3-425b-9bcb-5ae7833d769a/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/6cdab101-d97b-4636-9809-0506f1b18fe8/image202508061705409.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/318cc4b1-d600-4e76-9353-49f22a27099e/image2025080617054010.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/ee626ccb-1db3-45af-96ca-e99991d78917/image202508061705408.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7f7510f3d140eac52781b6d863eff1bce3de7107d3c5c886b756659c9290ceae",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:24:06.993Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-08-07.",
+          "Official classification: patch notes.",
+          "Nexon thread ID: 3079594."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2025-08-07T02:00:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

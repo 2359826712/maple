@@ -1,0 +1,687 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-05-12-40364",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/40364/cash-shop-update-for-may-13",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/40364/cash-shop-update-for-may-13",
+  "external_id": "40364",
+  "title": "Cash Shop Update for May 13",
+  "original_title": "Cash Shop Update for May 13",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-05-12T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Cash Shop Update for May 13” is an official Cash Shop notice from Global MapleStory Official News on 2026-05-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/v5jdkjdz/news-post-540x304-may-13-cash-shop-update-maplestory.jpg",
+      "alt": "Cash Shop Update for May 13"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gwghva2b/in-post-banner-1100x225-may-13-cash-shop-update-maplestory.jpg",
+      "alt": "MapleStory May 6 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kk5pkjcp/pssb-1-male-may-13-cash-shop-update-maplestory.png",
+      "alt": "Dreamcore Crasher Set May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i0rfee1m/pssb-1-female-may-13-cash-shop-update-maplestory.png",
+      "alt": "Dreamcore Crasher Set May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gochktsz/pssb-2-male-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lmyfex13/pssb-2-female-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4wzmwgml/pssb-3-male-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4wxjxvgd/pssb-3-female-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yd5gnv1l/pssb-4-male-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4p2hjnzb/pssb-4-female-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mzfku1f3/pssb-5-male-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jtepn3qw/pssb-5-female-may-13-cash-shop-update-maplestory.png",
+      "alt": "PSSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qqvmizkj/male-royal-hairs-may-13-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 cash shop update male royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2ifankq4/female-royal-hairs-may-13-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 cash shop update female royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ekxgmbcg/male-royal-faces-may-13-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 cash shop update male royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dvfdzfps/female-royal-faces-may-13-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 cash shop update female royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bxudtyah/coloring-prism-daily-deal-maplestory.png",
+      "alt": "MapleStory coloring prism daily deal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pkkjunt5/in-post-banner-1100x225-april-29-cash-shop-update-maplestory.jpg",
+      "alt": "April 29 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b5dllyst/slime-chic-package-may-6-cash-shop-update-maplestory.png",
+      "alt": "Slime Chic May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u14plywh/pink-bean-chic-package-may-6-cash-shop-update-maplestory.png",
+      "alt": "Pink Bean Chic May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/htgjy3qr/yeti-chic-package-may-6-cash-shop-update-maplestory.png",
+      "alt": "Yeti Chic May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o3aphq5n/orange-mushroom-chic-package-may-6-cash-shop-update-maplestory.png",
+      "alt": "Orange Chic May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a2fhtmv5/pepe-chic-package-may-6-cash-shop-update-maplestory.png",
+      "alt": "Pepe Chic May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/erliy4ze/party-glasses-hotel-maple-party-hat-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Party Glasses Hotel Maple Party Hat Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2tsidwx1/twinkling-star-headband-hotel-maple-party-hat-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Twinkling Star Headband Hotel Maple Party Hat Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/54gfeokr/twinkling-heart-headband-hotel-maple-party-hat-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Twinkling Heart Headband Hotel Maple Party Hat Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ysvbxpmt/protagonists-tiara-hotel-maple-party-hat-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Protagonist's Tiara Hotel Maple Party Hat Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eclp0ae5/congratulations-cake-hat-hotel-maple-party-hat-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Congratulations Cake Hat Hotel Maple Party Hat Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hs5fsubu/twinkling-mini-cone-hat-hotel-maple-party-hat-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Twinkling Mini-Cone Hat Hotel Maple Party Hat Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/55mfsgki/picnic-time-14th-street-picnic-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Picnic Time 14th Street Picnic Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kynb0jss/picnic-snapback-hat-14th-street-picnic-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Picnic Snapback Hat 14th Street Picnic Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/unxjplfw/picnic-fruit-hairpin-14th-street-picnic-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Picnic Fruit Hairpin 14th Street Picnic Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hshn5wnt/picnic-maki-hairpin-14th-street-picnic-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Picnic Maki Hairpin 14th Street Picnic Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o3bd0vpt/picnic-musubi-hairpin-14th-street-picnic-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Picnic Musubi Hairpin 14th Street Picnic Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sqnfqpkt/picnic-balloons-14th-street-picnic-box-may-6-cash-shop-update-maplestory.png",
+      "alt": "Picnic Balloons 14th Street Picnic Box May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ypdlqolm/17th-anniversary-fireworks-cape-anniversary-covers-may-6-cash-shop-update-maplestory.gif",
+      "alt": "17th Anniversary Fireworks Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/giblsbpr/5th-anniversary-confetti-anniversary-cape-anniversary-covers-may-6-cash-shop-update-maplestory.png",
+      "alt": "5th Anniversary Confetti Anniversary Cape Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zknpvhka/6th-anniversary-cone-hat-anniversary-covers-may-6-cash-shop-update-maplestory.png",
+      "alt": "6th Anniversary Cone Hat Anniversary Cape Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hkfffoqk/6th-anniversary-top-hat-anniversary-covers-may-6-cash-shop-update-maplestory.png",
+      "alt": "6th Anniversary Top Hat Anniversary Cape Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f1choqmg/6th-anniversary-party-hat-anniversary-covers-may-6-cash-shop-update-maplestory.png",
+      "alt": "6th Anniversary Party Hat Anniversary Cape Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2yzbogaa/6th-anniversary-party-glasses-anniversary-covers-may-6-cash-shop-update-maplestory.png",
+      "alt": "6th Anniversary Party Glasses Anniversary Cape Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvtd1ht0/6th-anniversary-party-wand-anniversary-covers-may-6-cash-shop-update-maplestory.png",
+      "alt": "6th Anniversary Party Wand Anniversary Cape Anniversary Outfit May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gxbhhcnk/my-secret-sanctuary-april-29-cash-shop-update-maplestory.gif",
+      "alt": "My Secret Sanctuary april 29 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rkiflqdl/happy-maple-day-chair-april-29-cash-shop-update-maplestory.gif",
+      "alt": "Happy Maple Day Chair april 29 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4dwpigqt/blooming-tulip-chair-april-29-cash-shop-update-maplestory.gif",
+      "alt": "Blooming Tulip Chair april 29 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jy2kaq5c/veggie-power-mount-april-29-cash-shop-update-maplestory.gif",
+      "alt": "Veggie Power! Mount April 29 Cash Shop Update Maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/udxjxo3i/dream-festa-damage-skin-symbol-april-29-cash-shop-update-maplestory.png",
+      "alt": "Dream Festa Damage Skin damage skin (symbol) april 29 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vbydxdcw/im-cherry-hat-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "I'm Cherry Hat Atelier Reliquary Angelic Birthday Candles MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kh3jxlhc/im-cherry-too-hat-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Atelier Reliquary Angelic Birthday Candles MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dt0d1qj0/paper-doll-ethereal-atelier-angelic-birthday-candle-maplestory.gif",
+      "alt": "Paper Doll Chair Atelier Reliquary Angelic Birthday Candles MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yyenhgnh/icy-dream-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Icy Dream Set Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kfde4q53/rosy-dream-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Rosy Dream Set Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/44dlsdsh/zooming-tangerine-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Zooming Tangerine Set Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mpljlii2/sunny-tangerine-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Sunny Tangerine Set Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0l2hdasn/whipping-strawberry-set-male-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Whipping Strawberry Set Female Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i1qbhak1/whipping-strawberry-set-female-male-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Whipping Strawberry Set Female Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lpflh5av/persimmon-stained-smirk-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Persimmon-Stained Smirk Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/heof30xb/gentle-blush-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Gentle Blush Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l2eiqtj5/weapon-effect-prism-maplestory.png",
+      "alt": "Weapon Effect Prism Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ravpcppn/coloring-badge-icon-maplestory.png",
+      "alt": "MapleStory June 25 Cash Shop Update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ujuohh4l/oberon-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Oberon Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aozf05yb/titania-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Titania Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qjilx3um/petite-pico-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Petite Pico Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zjkkhwgz/victory-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "VIctory Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jz1blv5d/glory-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Glory Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j5zb4nz1/lil-pony-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Lil Pony Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yskjp1aq/dusk-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Dusk Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yuqlb12s/dawn-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Dawn Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pkqncmw5/lil-glowy-chat-label-ring-petite-luna-ring-box-maplestory.png",
+      "alt": "Lil Glowy Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gzkpkyyk/all-day-pink-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "All Day Pink Set Coupon Ethereal Atelier Angelic Birthday Candles MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4btbtuls/arcana-set-male-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Arcana Set Coupon Male Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3e4knofq/arcana-set-female-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Arcana Set Coupon Female Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0fnlitu0/heart-kitty-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Heart Kitty Set Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/syolfejn/dream-bear-set-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Dream Bear Set Coupon Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xxmdrdhp/clear-squat-chair-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Clear Squat Chair Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rxlhdl0i/clear-prone-chair-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Clear Prone Chair Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bzihyios/clear-flying-chair-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Clear Flying Chair Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d4olzlsk/clear-mount-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Permanent Clear Mount Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mvke0loq/soft-lavender-skin-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Soft Lavender Skin Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rrinlyf3/blushing-lavender-skin-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Blushing Lavender Skin Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cevofw2v/atelier-hair-male-selector-coupon-black-friday-2025-maplestory.png",
+      "alt": "Atelier Hair (M) Selector Ethereal Atelier Keys to Love February 18 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/evddl5bc/atelier-hair-female-selector-coupon-black-friday-2025-maplestory.png",
+      "alt": "Atelier Hair (F) Selector Ethereal Atelier Keys to Love February 18 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l22mb1xr/apricot-wishes-set-male-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Apricot Wishes Male Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/enrbyex2/apricot-wishes-set-female-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Apricot Wishes Female Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e5rbg3eb/starry-night-orchid-set-male-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Starry Night Orchid Set Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/na3j4ktd/starry-night-orchid-set-female-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Starry Night Orchid Set Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ueul3ffn/flower-cloud-orchid-set-male-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Flower Cloud Orchid Set Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/flhgorvz/flower-cloud-orchid-set-female-ethereal-atelier-angelic-birthday-candle-maplestory.png",
+      "alt": "Flower Cloud Orchid Set Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lboe53ho/custom-skin-coupon-voucher-black-friday-2025-maplestory.png",
+      "alt": "Custom Skin Coupon Voucher Ethereal Atelier Keys to Love February 18 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3k2netae/angel-feather-rewards-11-black-friday-2025-maplestory.png",
+      "alt": "Skin Prism Coloring Prism Pro Freestyle Coupon Ethereal Atelier Keys to Love February 18 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/04baabj5/black-mamba-chat-label-ring-style-box-maplestory.png",
+      "alt": "Black Mamba Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wfvoizlz/glacial-chat-label-ring-style-box-maplestory.png",
+      "alt": "Glacial Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3cabkpob/ribbon-chat-label-ring-style-box-maplestory.png",
+      "alt": "Ribbon Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mfxjsnjk/foretelling-destiny-chat-label-ring-style-box-maplestory.png",
+      "alt": "Fortelling Destiny Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d3bd41gj/time-to-brush-your-teeth-chat-label-ring-style-box-maplestory.png",
+      "alt": "Time to Brush Your Teeth Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b44kxljx/navy-bunny-express-chat-label-ring-style-box-maplestory.png",
+      "alt": "Navy Bunny Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ecdbdy5c/drowsy-panda-chat-label-ring-style-box-maplestory.png",
+      "alt": "Drowsy Panda Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/scxddrk5/drowsy-white-bear-chat-label-ring-style-box-maplestory.png",
+      "alt": "Drowsy White Bear Chat and Label Rings Angelic Birthday Candles Ethereal Atelier Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qz5bkgtm/male-choice-hair-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 Male Choice Hair"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qaiiyxzs/female-choice-hair-styles-april-22-cash-shop-update-maplestory-v2.png",
+      "alt": "MapleStory April 22 Female Choice Hair"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pcofccx3/male-choice-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 Male Choice Face"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eulksw3g/female-choice-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 Female Choice Face"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eevhe123/star-stamps-maplestory.png",
+      "alt": "MapleStory stamp exchange coupons"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i4anlk3r/star-stamp-shop-rewards-november-12-cash-shop-update-maplestory.png",
+      "alt": "Star stamp shop items maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sttlvyib/mythic-ssb-1-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ztcdyp0h/mythic-ssb-2-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1t2hrx4j/mythic-ssb-3-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/faafdqae/mythic-ssb-4-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wo5bbtqw/mythic-ssb-5-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5nkke1s3/premium-coloring-prism-maplestory.png",
+      "alt": "Mythic star style box maplestory june 25 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gibjubum/lil-flora-pets-1-july-17-cash-shop-update-maplestory.png",
+      "alt": "MapleStory lil flora pets july 16 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ppagyemw/anniversary-ssb-1-male-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ul3narcr/anniversary-ssb-1-female-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1ehln1dq/anniversary-ssb-2-male-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/juqgi05k/anniversary-ssb-2-female-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i4tjsbia/anniversary-ssb-3-male-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sfplier5/anniversary-ssb-3-female-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/23sjksby/anniversary-ssb-4-male-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yqvbfobg/anniversary-ssb-4-female-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kufksvqu/anniversary-ssb-5-may-6-cash-shop-update-maplestory.png",
+      "alt": "Anniversary SSB May 6 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sr2p1n53/male-anniversary-royal-hairs-may-6-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 Cash Shop Update Male Anniversary Royal Hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vridxlea/female-anniversary-royal-hairs-may-6-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 Cash Shop Update Female Anniversary Royal Hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/20inedvx/male-anniversary-royal-faces-may-6-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 Cash Shop Update Male Anniversary Royal Faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5hypwifw/female-anniversary-royal-faces-may-6-cash-shop-update-maplestory.png",
+      "alt": "MapleStory May 6 Cash Shop Update Female Anniversary Royal Faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4qkej3ik/throwing-weapon-anniversary-daily-deals-maplestory.png",
+      "alt": "MapleStory Cash Shop Update Throwing Weapons"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q2lerw5w/first-adversary-male-permanent-outfit-package-maplestory.png",
+      "alt": "First Adversary Package Male MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ge0pdzrx/first-adversary-female-permanent-outfit-package-maplestory.png",
+      "alt": "First Adversary Package Female MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fo3kzq01/baldrix-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Baldrix Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w12b3o3z/magnus-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Magnus Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jaib4nk5/arkarium-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Arkarium Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s1rfdiai/dark-cygnus-female-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Dark Cygnus Package (F) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hcmflc4v/dark-cygnus-male-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Dark Cygnus Package (M) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1captfcg/damien-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Damien Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tt2kw2ct/will-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Will Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1p4lf2r2/verus-hilla-female-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Verus Hilla Package (F) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/endhizsg/verus-hilla-male-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Verus Hilla Package (M) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvfpgfkd/darknell-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Darknell Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tdqh1n5g/black-mage-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Black Mage Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1pii2axc/seren-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Chosen Seren Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4fgnx0wd/kaling-female-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Kaling Package (F) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t3rnarya/kaling-male-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Kaling Package (M) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hyeliq2b/bigfoot-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Extreme Bigfoot Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ocjtv2m/limbo-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Limbo Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4kpfys1k/pssb-1-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB Rock Star Set April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/feehcoim/pssb-1-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB Rock Star Set April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0gqoj0bl/pssb-2-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ha3dorhz/pssb-2-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kvsk4xzv/pssb-3-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ms0f0hek/pssb-3-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/plvky0av/pssb-4-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vmpjkp4d/pssb-4-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g40gqot0/male-royal-hair-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update male royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/utdievg1/female-royal-hair-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update female royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hl3cjvkk/male-royal-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update male royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zrbpyery/female-royal-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update female royal faces"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "373e4be1684674b04d56473544d503bffad86e12fc7ef1cc8141cde0c0a8a43b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:46:25.699Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "40364",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-05-12.",
+          "Official category: sale.",
+          "Nexon article ID: 40364."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,82 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-09-05-20757",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/20757/v-253-patch-notes-chat-closure",
+  "source_url": "https://www.nexon.com/maplestory/news/general/20757/v-253-patch-notes-chat-closure",
+  "external_id": "20757",
+  "title": "v.253 Patch Notes Chat Closure",
+  "original_title": "v.253 Patch Notes Chat Closure",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-09-05T10:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.253 Patch Notes Chat Closure” is an official patch note from Global MapleStory Official News on 2024-09-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "patch-note"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "v.253 Patch Notes Chat Closure"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8c8fe3546dff65d7f428f451ea7ef2be2caa4525f7f32f445b89acf0c2d85c22",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:19:48.067Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20757",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-09-05.",
+          "Official category: general.",
+          "Nexon article ID: 20757."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2024-09-05T10:00:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

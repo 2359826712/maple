@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2026-02-03-3366642",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366642",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366642",
+  "external_id": "3366642",
+  "title": "Open Market Store Process Abuse Sanction List - January 2026",
+  "original_title": "Open Market Store Process Abuse Sanction List - January 2026",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-02-03T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Open Market Store Process Abuse Sanction List - January 2026” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-02-03. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/9a853e10-979d-41bd-8e18-b0549637b96c/MSWGenericPostBanners740x120notice.png",
+      "alt": "Open Market Store Process Abuse Sanction List - January 2026"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/ff5eeb29-0091-4875-8d93-54e6103b67e1/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ccf3080f9b9dbfae34324b2cd110f9938347b9b197ef705e0f2630efb4fa805d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:22:51.723Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-02-03.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3366642."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-03-22243",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/22243/yeti-s-holiday-giveaway",
+  "source_url": "https://www.nexon.com/maplestory/news/general/22243/yeti-s-holiday-giveaway",
+  "external_id": "22243",
+  "title": "Yeti's Holiday Giveaway!",
+  "original_title": "Yeti's Holiday Giveaway!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-03T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Yeti's Holiday Giveaway!” is an official news item from Global MapleStory Official News on 2024-12-03. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/sfhgu2p1/news-post-540x304-yetis-holiday-giveaway-maplestory.png",
+      "alt": "Yeti's Holiday Giveaway!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sx2blp2q/in-post-banner-1100x225-yetis-holiday-giveaway-maplestory.png",
+      "alt": "MapleStory Yeti's Holiday Giveaway"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "492caeea3fad6b7c15fb46e17808b7d2777f120ccb1cc1b846a0ed7dddc4e0fb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:17:17.751Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22243",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-03.",
+          "Official category: general.",
+          "Nexon article ID: 22243."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

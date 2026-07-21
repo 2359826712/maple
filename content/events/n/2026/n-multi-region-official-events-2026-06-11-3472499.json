@@ -1,0 +1,108 @@
+{
+  "id": "n-multi-region-official-events-2026-06-11-3472499",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3472499",
+  "source_url": "https://msu.io/maplestoryn/news/events/3472499",
+  "external_id": "3472499",
+  "title": "[Hyper Summer] Pick a Pearl!",
+  "original_title": "[Hyper Summer] Pick a Pearl!",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-11T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Hyper Summer] Pick a Pearl!” is an official event notice from MapleStory N Official Events on 2026-06-11. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/08c5b4b8-7207-43bd-bef5-064d343d83bc/ExportMSNEVENTThumb.png",
+      "alt": "[Hyper Summer] Pick a Pearl!"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/159a9055-092b-4a06-95f5-343dc8cf780a/image2026061017203522.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/f047f81f-37d4-45dc-ba92-41c0e617e75d/image2026061017203523.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/3d52b2ed-1915-43e4-bdf7-e4b82845f6c0/image2026061017203524.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f9e0f354c657390a9c06b6afb3efdeac8ae7320456ce99ded88b5a9e78f557b0",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:04:06.363Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-06-11",
+      "2026-08-19T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-11.",
+          "Official classification: event.",
+          "Nexon thread ID: 3472499.",
+          "Confirmed event period: 2026-06-11 through 2026-08-19T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Summer] Pick a Pearl!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-11",
+  "event_end": "2026-08-19T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

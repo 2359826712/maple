@@ -1,0 +1,130 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-16-16211",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16211/hyper-burning-event-and-burning-world",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16211/hyper-burning-event-and-burning-world",
+  "external_id": "16211",
+  "title": "Hyper Burning",
+  "original_title": "Hyper Burning Event and Burning World!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-16T20:35:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Hyper Burning” is an official event notice from Global MapleStory Official News on 2022-11-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1742/1100x225-hyper-burning-world-winter-2022-maplestory.jpg",
+      "alt": "MapleStory Hyper Burning World"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5786/newteraeffect.png",
+      "alt": "http://nxcache.nexon.net/cms/2018/5786/newteraeffect.png"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/1725/tera-burning-reward-boxes-maplestory.png",
+      "alt": "Tera Burning Reward Boxes MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2019/q4/1804/tera-burning-rewards.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1630/hyper-burning-rewards-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q4/1584/burning-world-character-selection.png",
+      "alt": "MapleStory Burning World Characters"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q3/1132/burning-world-items.png",
+      "alt": "MapleStory Burning World Rewards"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/1002/burning-rewards-icons.png",
+      "alt": "Pixel Burning Reward Icons MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/1117/pixel-burning-rewards-maplestory-mega-burning-at-the-pixel-party.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q4/1537/burning-world-step-up-event-ui-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q3/1134/world-leap-screen.png",
+      "alt": "MapleStory Burning World World Leap Screen"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "de6507d2029f7421934a28c24969bfa509cd4b1c8b7c6b3bb885c3b3a93b6288",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:27.066Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16211",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-16.",
+          "Official category: events.",
+          "Nexon article ID: 16211."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Hyper Burning",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2022-11-16",
+  "event_end": "2023-02-07T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

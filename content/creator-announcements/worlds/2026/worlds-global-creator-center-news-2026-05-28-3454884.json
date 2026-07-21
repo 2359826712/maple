@@ -1,0 +1,80 @@
+{
+  "id": "worlds-global-creator-center-news-2026-05-28-3454884",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3454884",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3454884",
+  "external_id": "3454884",
+  "title": "Recruitment Announcement! (6/3~ 10/6 PT)",
+  "original_title": "Recruitment Announcement! (6/3~ 10/6 PT)",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-05-28T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“Recruitment Announcement! (6/3~ 10/6 PT)” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-05-28. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260528/eb721b4a-468e-46ca-b2d7-f9274f7c2473/MSWGenericPostBanners740x120notice.png",
+      "alt": "Recruitment Announcement! (6/3~ 10/6 PT)"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260527/c640ffc0-2a9c-4991-836f-813aae44c11b/image202605271640029.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260527/84adf2d3-8815-4c84-830d-451820a5bdc4/image2026052716400210.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260527/707527ba-6677-41fe-9676-2981d16ef50f/image2026052716400211.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7a1824c0601ee1707d2b897d8575aeb22938f07e8f17803415fb8fbd3b38268c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:10.133Z",
+    "headline_id": "5287",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-05-28.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3454884."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

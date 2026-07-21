@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2025-06-26-2988510",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2988510",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2988510",
+  "external_id": "2988510",
+  "title": "Measures Against Abnormal Usage",
+  "original_title": "Measures Against Abnormal Usage",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-06-26T01:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Measures Against Abnormal Usage” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-06-26. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250625/a954dcfa-a77d-42c0-a38f-c1f97277d963/MSWGenericPostBanners740x120notice.png",
+      "alt": "Measures Against Abnormal Usage"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250624/dc5bd594-6168-46f8-9bc5-1f97c21671a7/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d60d3ff8e43ddbf487ae556d4660b252e7cf8058bf56e61fc05c6862b45622f8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:30:29.610Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-06-26.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2988510."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

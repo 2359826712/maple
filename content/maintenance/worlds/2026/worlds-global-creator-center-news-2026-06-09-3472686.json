@@ -1,0 +1,75 @@
+{
+  "id": "worlds-global-creator-center-news-2026-06-09-3472686",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3472686",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3472686",
+  "external_id": "3472686",
+  "title": "Hotfix Maintenance – 2026 June 8",
+  "original_title": "Hotfix Maintenance – 2026 June 8",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-06-09T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:08:37.286Z",
+  "last_checked": "2026-07-20T01:08:37.286Z",
+  "summary": "“Hotfix Maintenance – 2026 June 8” is an official maintenance notice from MapleStory Worlds Creator Center News on 2026-06-09. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260608/3ee92d75-5c6b-4ca4-96da-ff1dc0b8292a/hotfixwest2.png",
+      "alt": "Hotfix Maintenance – 2026 June 8"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260421/16b099bc-a737-437b-b950-eaa8115d8866/WGC1404240930GenericPostBanners740x120HotFix1.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260608/4a017aca-3110-4476-a228-065837683cfe/image202606081723091.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0de48c68db114ada2ec620b06330130ae410d872bbf8c2c539c8dfc097518754",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:09:23.965Z",
+    "headline_id": "3477",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-06-09.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3472686."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

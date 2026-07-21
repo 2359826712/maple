@@ -1,0 +1,81 @@
+{
+  "id": "worlds-global-creator-center-news-2025-03-19-2749245",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2749245",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2749245",
+  "external_id": "2749245",
+  "title": "[Complete] Server Maintenance - 2025 March 19",
+  "original_title": "[Complete] Server Maintenance - 2025 March 19",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-03-19T01:37:36.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Complete] Server Maintenance - 2025 March 19” is an official maintenance notice from MapleStory Worlds Creator Center News on 2025-03-19. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250319/a1f41eaf-25aa-437c-af30-afc245b7b543/MSWGenericPostBanners740x120maintenance.png",
+      "alt": "[Complete] Server Maintenance - 2025 March 19"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250319/994aae8c-6f17-441e-b691-218a98842d13/WGC1404240930GenericPostBanners740x120maintenance.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250319/3a166543-c14d-4ada-9fd3-80cdc7a3d6ea/image2.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7bcfbcf0c5f4bd52db37f02a07dad8babb6c5499d538c72ac186dab28752f858",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:32:20.906Z",
+    "headline_id": "3478",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-03-19.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 2749245."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

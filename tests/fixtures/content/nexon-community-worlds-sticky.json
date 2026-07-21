@@ -1,0 +1,9 @@
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "stickyThreads": [
+      { "threadId": "1099", "headlineId": "3476", "title": "Pinned creator notice", "createDate": 1782990000, "threadModifyDate": 1782990100, "isSticky": true }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "id": "worlds-global-creator-center-news-2025-08-27-3116673",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3116673",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3116673",
+  "external_id": "3116673",
+  "title": "The MapleStory Worlds Global Github is now live!",
+  "original_title": "The MapleStory Worlds Global Github is now live!",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-08-27T17:27:32.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“The MapleStory Worlds Global Github is now live!” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-08-27. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250827/da71f945-12f0-4bcc-a335-82b71f3ac163/MSWGenericPostBanners740x120notice.png",
+      "alt": "The MapleStory Worlds Global Github is now live!"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250827/ed201869-5e35-41ec-ab0b-6fa0a30f6cd4/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250827/0184fa63-c488-474b-8b49-418fbddb03e0/Screenshot20250826185251.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ec41e2b860a37f26dabf28ec9bb4e7a023c919433410509b5306762b48b4ef47",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:29:32.969Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-08-27.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3116673."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

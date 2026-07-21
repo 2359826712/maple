@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-05-13296",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/13296/resolved-investigation-of-scania-server-issues-december-5th-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/13296/resolved-investigation-of-scania-server-issues-december-5th-2023",
+  "external_id": "13296",
+  "title": "[Resolved] Investigation of Scania Server Issues - December 5th, 2023",
+  "original_title": "[Resolved] Investigation of Scania Server Issues - December 5th, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-05T10:06:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Resolved] Investigation of Scania Server Issues - December 5th, 2023” is an official maintenance notice from Global MapleStory Official News on 2023-12-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/k3xlcxkf/120516_540x304_generic_news_6410.webp",
+      "alt": "[Resolved] Investigation of Scania Server Issues - December 5th, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2293/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d5519efc24355115055eceaf8733e1086875a7b169b1fa7db096badd7291086d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:29:01.319Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13296",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-05.",
+          "Official category: maintenance.",
+          "Nexon article ID: 13296."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

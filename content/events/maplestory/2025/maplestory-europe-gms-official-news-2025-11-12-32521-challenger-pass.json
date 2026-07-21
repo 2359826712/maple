@@ -1,0 +1,170 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-11-12-32521-challenger-pass",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/32521/blazing-start-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/32521/blazing-start-events",
+  "external_id": "32521:challenger-pass",
+  "title": "Challenger Pass",
+  "original_title": "Blazing Start Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-11-12T12:00:01Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Challenger Pass” is an official event notice from Global MapleStory Official News on 2025-11-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hatbqtec/540x304-blazing-start-events-winter-2025-maplestory.jpg",
+      "alt": "Blazing Start Events"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jmujh25n/1100x225-blazing-start-events-winter-2025-maplestory.jpg",
+      "alt": "Blazing Start Events MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x3zpka1r/challenger-coin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zpilc5qf/advanced-challenger-coin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ntzfddrk/eternal-flame-title-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2xedey50/cw2bronze.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wh1hbioi/cw2silver.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ht5lklsf/cw2gold.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r2odfmvc/cw2platinum.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/miug3oua/cw2emerald.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5djjd104/cw2diamond.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bzhnr1ba/battlefield-valkyrie-set-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tculawpd/cw2master.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oevl0x5k/cw2challenger.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mxslxuzv/arcane-seal-ui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b4seg4h4/using-sealing-wand-animation.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mfthko1g/maplestorya_dtytcefmmu.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mztfq405/maplestorya_4kfdiwdpgb.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nsynevgz/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o0hj153k/burning-flames-wings.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/slaojv2y/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "062737b1b02221b54e98e8cb64358da2104ea2c717cf06129ef04a06e0a14ac3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "challenger-pass",
+    "fetched_at": "2026-07-20T11:01:24.882Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "32521",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-11-12.",
+          "Official category: events.",
+          "Nexon article ID: 32521."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Challenger Pass",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-11-12",
+  "event_end": "2026-02-03T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": "2026-02-03T23:59:00.000Z",
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

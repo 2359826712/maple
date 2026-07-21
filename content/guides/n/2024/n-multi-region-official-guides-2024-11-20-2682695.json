@@ -1,0 +1,124 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2682695",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682695",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682695",
+  "external_id": "2682695",
+  "title": "[Adventure] Elite Monsters, Champions, Bosses",
+  "original_title": "[Adventure] Elite Monsters, Champions, Bosses",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "gameplay-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Adventure] Elite Monsters, Champions, Bosses” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "gameplay-guide",
+    "guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/42b1390c-ba55-4329-bcb4-51eec901178c/image2024111910494410.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/d49c6238-7878-4aca-9a07-6dee9dfe58d7/image2024111910494411.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/7fb701b2-ffd9-4d36-8d20-388c1876e88c/image2024111910494412.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/392ba060-aca5-40a4-8e7a-0487065e1031/image2024111910494413.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/1315bc20-8ccf-4c0e-8298-df79c028d05f/image2024111910494414.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/bffc4347-3871-4ea3-be76-9fb8978a7bc0/image2024111910494415.jpeg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/b61e22d9-e691-4ab0-a3d5-3680d3bf0eee/image2024111910494418.jpeg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/0244b8f3-ea52-4f6c-ba0f-5d32c5051e57/image2024111910494419.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/59aa3263-7672-4aba-8d9a-4aec17aaeca4/image2024111910494420.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/49c5a360-e650-41c3-bec2-43bf60cdf21f/image2024111910494421.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "33d76618cc17be5c9eecefc688a8d7f8f639eff37e1e599a2caf0c24484f0f6b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T05:59:57.854Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: gameplay guide.",
+          "Nexon thread ID: 2682695."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

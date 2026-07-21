@@ -1,0 +1,77 @@
+{
+  "id": "worlds-global-creator-center-news-2026-01-06-3335306",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3335306",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3335306",
+  "external_id": "3335306",
+  "title": "[Complete] Server Maintenance - 2026 January 6",
+  "original_title": "[Complete] Server Maintenance - 2026 January 6",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-01-06T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“[Complete] Server Maintenance - 2026 January 6” is an official maintenance notice from MapleStory Worlds Creator Center News on 2026-01-06. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260106/4d07454e-f7ed-43c1-b755-21978d3ba23b/MSWGenericPostBanners740x120maintenance.png",
+      "alt": "[Complete] Server Maintenance - 2026 January 6"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250603/15e70584-543e-4c92-8b83-d19f665be182/WGC1404240930GenericPostBanners740x120maintenance.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f897df3ec19a46139034f1144c69b98daefe288d76c8b956b44810c0dabb172c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:23:06.883Z",
+    "headline_id": "3477",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-01-06.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3335306."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

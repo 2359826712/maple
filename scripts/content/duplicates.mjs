@@ -19,7 +19,11 @@ function groups(records, keyForRecord) {
 export function findContentDuplicates(records) {
   return {
     ids: groups(records, (record) => record.data.id),
-    urls: groups(records, (record) => normalizeCanonicalUrl(record.data.canonical_url)),
+    urls: groups(records, (record) => {
+      const url = normalizeCanonicalUrl(record.data.canonical_url);
+      const occurrence = record.data.content_type === 'event' && record.data.metadata?.event_occurrence_key;
+      return occurrence ? `${url}#event-occurrence=${occurrence}` : url;
+    }),
     externalIds: groups(records, (record) => record.data.external_id && `${record.data.source_id}:${record.data.external_id}`),
     hashes: groups(records, (record) => record.data.content_hash),
     titleDates: groups(records, (record) => `${record.data.series}:${normalizeTitle(record.data.title)}:${record.data.published_at || 'unknown'}`),

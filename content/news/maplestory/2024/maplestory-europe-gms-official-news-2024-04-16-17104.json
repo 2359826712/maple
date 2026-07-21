@@ -1,0 +1,91 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-04-16-17104",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/17104/inkwell-s-note-greetings",
+  "source_url": "https://www.nexon.com/maplestory/news/general/17104/inkwell-s-note-greetings",
+  "external_id": "17104",
+  "title": "Inkwell's Note: Greetings!",
+  "original_title": "Inkwell's Note: Greetings!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-04-16T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Inkwell's Note: Greetings!” is an official news item from Global MapleStory Official News on 2024-04-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/iqajs2j0/540x304_inkwell_banner.webp",
+      "alt": "Inkwell's Note: Greetings!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1199/inkwells_note_post_01-maplestory.jpg",
+      "alt": "Inkwell's Note Part 1 MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1200/inkwells_note_post_02-maplestory.jpg",
+      "alt": "Inkwell's Note Part 2 MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1201/inkwells_note_post_03-maplestory.jpg",
+      "alt": "Inkwell's Note Part 3 MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1202/inkwells_note_post_04-maplestory.jpg",
+      "alt": "Inkwell's Note Part 4 MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1203/inkwells_note_post_05-maplestory.jpg",
+      "alt": "Inkwell's Note Part 5 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "de6e9329dacea089fecd2635fa56b8bbea4e1d4992644afe93559c8048467790",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:42.715Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17104",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-04-16.",
+          "Official category: general.",
+          "Nexon article ID: 17104."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

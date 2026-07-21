@@ -1,0 +1,132 @@
+{
+  "id": "n-multi-region-official-events-2026-07-02-3485222",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3485222",
+  "source_url": "https://msu.io/maplestoryn/news/events/3485222",
+  "external_id": "3485222",
+  "title": "[Hyper Summer] 7-Star Catered Buffet",
+  "original_title": "[Hyper Summer] 7-Star Catered Buffet",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Hyper Summer] 7-Star Catered Buffet” is an official event notice from MapleStory N Official Events on 2026-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/f62cc35c-afad-4fec-a801-3e402c0d6cc7/ExportMSNEVENTThumb.png",
+      "alt": "[Hyper Summer] 7-Star Catered Buffet"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/ed901590-8235-41bc-a24a-9a3e1faf2ec8/image2026061017133515.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/fae8b996-019b-46a8-846f-a16d3e4f48be/image2026070119011023.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/b8487512-dc9b-4732-bd93-7c275a8eb9cb/image2026070119011024.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/a03363d7-4c89-4ca1-8346-09051a8b5ba7/image2026070119011025.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/9aa54122-9553-415e-a38b-1a4736312113/image2026070119011026.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/2e745ea3-818e-45b8-b858-6f0544a9d24a/image2026070119011027.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/64cb7c02-ccce-49a3-98d8-26920b2bc65e/image2026070119011028.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/5088ce4e-5bd5-4642-9aa3-daae6a388b76/image2026070119011029.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/577e8a52-311d-4139-8016-4e82ac124a45/image2026070119011030.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "38ea7ed81314d82fa6d21be3b143e2a9d182e86ecd8b8c677e73b811aabb863f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:03:33.249Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-07-02",
+      "2026-07-22T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-07-02.",
+          "Official classification: event.",
+          "Nexon thread ID: 3485222.",
+          "Confirmed event period: 2026-07-02 through 2026-07-22T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Summer] 7-Star Catered Buffet",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-07-02",
+  "event_end": "2026-07-22T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

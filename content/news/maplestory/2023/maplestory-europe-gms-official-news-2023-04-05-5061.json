@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-04-05-5061",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5061/resolved-investigation-on-character-creation-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5061/resolved-investigation-on-character-creation-issues",
+  "external_id": "5061",
+  "title": "[Resolved] Investigation on Character Creation Issues",
+  "original_title": "[Resolved] Investigation on Character Creation Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-04-05T20:35:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Resolved] Investigation on Character Creation Issues” is an official news item from Global MapleStory Official News on 2023-04-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "[Resolved] Investigation on Character Creation Issues"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2ebf78119b8cfd0601fbd858b8bcd9e55a8d670a2e3ee059cbc21fa5bc605960",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:14.414Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5061",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-04-05.",
+          "Official category: general.",
+          "Nexon article ID: 5061."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

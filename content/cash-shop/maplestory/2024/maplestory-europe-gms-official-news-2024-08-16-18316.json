@@ -1,0 +1,123 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-16-18316",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/18316/the-marvel-machine-returns-august-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/18316/the-marvel-machine-returns-august-2024",
+  "external_id": "18316",
+  "title": "The Marvel Machine Returns! (August 2024)",
+  "original_title": "The Marvel Machine Returns! (August 2024)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-16T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The Marvel Machine Returns! (August 2024)” is an official Cash Shop notice from Global MapleStory Official News on 2024-08-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/axvpinnv/news-post-540x304-august-2024-marvel-machine-back-maplestory.png",
+      "alt": "The Marvel Machine Returns! (August 2024)"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0symfi1r/wgc-1246-240802-design-post-marvel-machine_01-update.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ovnpree4/wgc-1246-240802-design-post-marvel-machine_03-button.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0dvcrw1o/wgc-1246-240802-design-post-marvel-machine_04.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tpkdusec/wgc-1246-240802-design-post-marvel-machine_05.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vmldart1/wgc-1246-240802-design-post-marvel-machine_06.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5wqlovee/wgc-1246-240802-design-post-marvel-machine_07.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tzgn1bu5/new-mm-chairs-with-glow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v0sdgw3n/cubes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1pnbmngc/cube.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m5kjog1s/200313_marvelmachine_prizes2-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1802/200313_marvelmachine_transparant.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3h5fm0uz/wgc-1246-240802-design-post-marvel-machine_09.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bhiogcac/wgc-1246-240802-design-post-marvel-machine-hover_10up.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "fe200253755cf714a07182641c7a46acbe4e5bb3a7e0471b162cf89ba2f4ecee",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:20:45.197Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "18316",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-16.",
+          "Official category: sale.",
+          "Nexon article ID: 18316."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

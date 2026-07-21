@@ -1,0 +1,32 @@
+[
+  {
+    "imageThumbnail": "/media/archive-1.png",
+    "summary": "Archived fixture one.",
+    "featured": false,
+    "isArchived": true,
+    "liveDate": "2024-12-30T14:00:00Z",
+    "name": "Archived Fixture One",
+    "id": 22379,
+    "category": "general"
+  },
+  {
+    "imageThumbnail": "/media/archive-2.png",
+    "summary": "Archived fixture two.",
+    "featured": false,
+    "isArchived": true,
+    "liveDate": "2024-12-29T14:00:00Z",
+    "name": "Archived Fixture Two",
+    "id": 22378,
+    "category": "events"
+  },
+  {
+    "imageThumbnail": "/media/archive-3.png",
+    "summary": "Archived fixture three.",
+    "featured": false,
+    "isArchived": true,
+    "liveDate": "2024-12-28T14:00:00Z",
+    "name": "Archived Fixture Three",
+    "id": 22377,
+    "category": "maintenance"
+  }
+]

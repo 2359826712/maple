@@ -1,0 +1,77 @@
+{
+  "id": "worlds-global-creator-center-news-2025-07-16-3040035",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3040035",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3040035",
+  "external_id": "3040035",
+  "title": "Upcoming Term Re-Acceptance After the July 23 Maintenance",
+  "original_title": "Upcoming Term Re-Acceptance After the July 23 Maintenance",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-07-16T21:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Upcoming Term Re-Acceptance After the July 23 Maintenance” is an official maintenance notice from MapleStory Worlds Creator Center News on 2025-07-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250716/dc35611e-a5fb-4594-87a2-a79a9e03acf0/MSWGenericPostBanners740x120notice.png",
+      "alt": "Upcoming Term Re-Acceptance After the July 23 Maintenance"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250715/2c80d2d7-a217-415f-8850-c36fd3dbf02b/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7a1a522879e90cd39e85728401a6d60dce1f6ea55bf2c8e2db7b31c7ddba0ec9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:30:05.569Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-07-16.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3040035."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

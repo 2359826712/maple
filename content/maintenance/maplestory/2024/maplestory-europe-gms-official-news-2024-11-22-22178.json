@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-11-22-22178",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/22178/completed-unscheduled-minor-patch-november-22-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/22178/completed-unscheduled-minor-patch-november-22-2024",
+  "external_id": "22178",
+  "title": "[Completed] Unscheduled Minor Patch - November 22, 2024",
+  "original_title": "[Completed] Unscheduled Minor Patch - November 22, 2024",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-11-22T10:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Completed] Unscheduled Minor Patch - November 22, 2024” is an official maintenance notice from Global MapleStory Official News on 2024-11-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+      "alt": "[Completed] Unscheduled Minor Patch - November 22, 2024"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/agoizvir/maintenance-1100x225-maplestory.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8784261ab9ce51f2b7b682fc8b45612fa1dc5444ff4dfb528c74a611a3006b52",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:17:41.793Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22178",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-11-22.",
+          "Official category: maintenance.",
+          "Nexon article ID: 22178."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

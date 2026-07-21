@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-12-18304",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/18304/food-for-thought-ama-livestream-with-miso-potaro-and-tako",
+  "source_url": "https://www.nexon.com/maplestory/news/community/18304/food-for-thought-ama-livestream-with-miso-potaro-and-tako",
+  "external_id": "18304",
+  "title": "Food for Thought (AMA) Livestream with Miso, Potaro, and TAKO",
+  "original_title": "Food for Thought (AMA) Livestream with Miso, Potaro, and TAKO",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-12T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Food for Thought (AMA) Livestream with Miso, Potaro, and TAKO” is an official news item from Global MapleStory Official News on 2024-08-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/foxhrzvz/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.png",
+      "alt": "Food for Thought (AMA) Livestream with Miso, Potaro, and TAKO"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mzifjpq5/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a92772ecee486870cfc15f3b628b698def682928cef7d5310e433f80c326d3dc",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:21:00.201Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "18304",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-12.",
+          "Official category: community.",
+          "Nexon article ID: 18304."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

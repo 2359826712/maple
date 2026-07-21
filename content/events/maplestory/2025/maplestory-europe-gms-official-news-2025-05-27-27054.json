@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-05-27-27054",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/27054/goodbye-victoria-cup",
+  "source_url": "https://www.nexon.com/maplestory/news/events/27054/goodbye-victoria-cup",
+  "external_id": "27054",
+  "title": "Goodbye, Victoria Cup!",
+  "original_title": "Goodbye, Victoria Cup!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-05-27T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Goodbye, Victoria Cup!” is an official event notice from Global MapleStory Official News on 2025-05-27. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/o4qapqqr/540x304-goodbye-victoria-cup-event-maplestory.jpg",
+      "alt": "Goodbye, Victoria Cup!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1zfdjzdx/1100x225-goodbye-victoria-cup-event-maplestory.jpg",
+      "alt": "MapleStory Goodbye Victoria Cup"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ewrfbvrd/image-61.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8cefbb03b325b58581697f23a3dd8e8bc8233dcd2f94897e927d653362eb6307",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:06:49.599Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "27054",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-05-27.",
+          "Official category: events.",
+          "Nexon article ID: 27054."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Goodbye, Victoria Cup!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-05-28T00:00:00.000Z",
+  "event_end": "2025-06-10T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

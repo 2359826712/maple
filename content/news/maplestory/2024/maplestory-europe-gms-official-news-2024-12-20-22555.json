@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-20-22555",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/22555/notice-regarding-ghastly-the-snowman-reward-issue",
+  "source_url": "https://www.nexon.com/maplestory/news/general/22555/notice-regarding-ghastly-the-snowman-reward-issue",
+  "external_id": "22555",
+  "title": "Notice Regarding Ghastly the Snowman Reward Issue",
+  "original_title": "Notice Regarding Ghastly the Snowman Reward Issue",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-20T10:15:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Notice Regarding Ghastly the Snowman Reward Issue” is an official news item from Global MapleStory Official News on 2024-12-20. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Notice Regarding Ghastly the Snowman Reward Issue"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2b61a5dfeee123c14f3a3cc211767fed65a523ee21df6316944581b9c6cf2388",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:11:44.408Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22555",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-20.",
+          "Official category: general.",
+          "Nexon article ID: 22555."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

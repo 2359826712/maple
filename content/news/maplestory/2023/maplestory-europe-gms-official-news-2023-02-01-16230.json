@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-02-01-16230",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16230/community-livestream-v-239-neo-tokyo-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16230/community-livestream-v-239-neo-tokyo-update-preview",
+  "external_id": "16230",
+  "title": "Community Livestream - v.239 Neo Tokyo Update Preview",
+  "original_title": "Community Livestream - v.239 Neo Tokyo Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-02-01T17:07:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Community Livestream - v.239 Neo Tokyo Update Preview” is an official news item from Global MapleStory Official News on 2023-02-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "dc8412ec67895f52478f78d7636c4a6b10cbccb5759fa96a7187977a2606e376",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:39:38.690Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16230",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-02-01.",
+          "Official category: community.",
+          "Nexon article ID: 16230."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

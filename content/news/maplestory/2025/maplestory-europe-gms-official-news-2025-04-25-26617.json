@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-04-25-26617",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/26617/check-out-the-april-2025-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/26617/check-out-the-april-2025-art-corner",
+  "external_id": "26617",
+  "title": "Check Out the April 2025 Art Corner",
+  "original_title": "Check Out the April 2025 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-04-25T18:55:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Check Out the April 2025 Art Corner” is an official news item from Global MapleStory Official News on 2025-04-25. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qygf2dpm/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
+      "alt": "Check Out the April 2025 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ryadlk30/maplestory_final-elle.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f3jh4joy/pax.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "12632815c7fc0a0c9300779652e412f2bceff97665f31bab5d20e779bc83cb7a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:07:55.777Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26617",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-04-25.",
+          "Official category: community.",
+          "Nexon article ID: 26617."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

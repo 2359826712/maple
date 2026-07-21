@@ -1,0 +1,138 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-10-04-4894",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/4894/update-nov-1-v-236-midnight-carnival-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/4894/update-nov-1-v-236-midnight-carnival-patch-notes",
+  "external_id": "4894",
+  "title": "[Update Nov 1] v.236 - Midnight Carnival Patch Notes",
+  "original_title": "[Update Nov 1] v.236 - Midnight Carnival Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-10-04T13:45:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Update Nov 1] v.236 - Midnight Carnival Patch Notes” is an official patch note from Global MapleStory Official News on 2022-10-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/unwbkkbm/maplestory-midnight-carnival-patchnotes-540x304-v2.webp",
+      "alt": "[Update Nov 1] v.236 - Midnight Carnival Patch Notes"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1009/maplestory-midnight-carnival-patchnotes-1100x225-v2.jpg",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1006/maplestory-midnight-carnival-mmorpg-nt-title.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1005/maplestory-midnight-carnival-mmorpg-nt-diving.gif",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1004/maplestory-midnight-carnival-mmorpg-nt-bumpercar.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1001/maplestory-midnight-carnival-mmorpg-halloweencandy1.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1002/maplestory-midnight-carnival-mmorpg-halloweencandy2.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1003/maplestory-midnight-carnival-mmorpg-halloweenhome.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1012/maplestory-midnight-carnival-mmorpg-halloweenhome_furnishing.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1013/maplestory-midnight-carnival-mmorpg-halloweenhome_furnishing2.png",
+      "alt": "MapleStory Midnight Carnival MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1684/maplestory-rocking-revamp-mmorpg-goldengiveaway-facehair.png",
+      "alt": "MapleStory Rocking Revamp MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1682/maplestory-rocking-revamp-mmorpg-goldengiveaway-cape.png",
+      "alt": "MapleStory Rocking Revamp MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q1/1431/maplestory-festival-of-foodies-mmorpg-fairybros-skins.png",
+      "alt": "Rosy or Flushed Skin Coupon"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1685/maplestory-rocking-revamp-mmorpg-goldengiveaway-mount.png",
+      "alt": "MapleStory Rocking Revamp MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1700/maplestory-rocking-revamp-mmorpg-goldengiveaway-outfits.png",
+      "alt": "MapleStory Rocking Revamp MMORPG"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1683/maplestory-rocking-revamp-mmorpg-goldengiveaway-dmgskins.png",
+      "alt": "MapleStory Rocking Revamp MMORPG"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ebcf3498eb85454db65538e775cbc7775842862141058adada91d43423fa8f0a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:43:39.253Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4894",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-10-04.",
+          "Official category: update.",
+          "Nexon article ID: 4894."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2022-10-04T13:45:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

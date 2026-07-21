@@ -1,0 +1,106 @@
+{
+  "id": "worlds-global-creator-center-news-2024-11-25-2689367",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2689367",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2689367",
+  "external_id": "2689367",
+  "title": "[Updated 1/13] Q4 2024 Suggestion/Bug Report Update",
+  "original_title": "[Updated 1/13] Q4 2024 Suggestion/Bug Report Update",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2024-11-25T22:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Updated 1/13] Q4 2024 Suggestion/Bug Report Update” is an official creator announcement from MapleStory Worlds Creator Center News on 2024-11-25. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241105/c3ed5e46-3797-42b9-856d-03debc1660db/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXdTVWXXFYPpuJiwzv-y_ML4OhhLV_WidF9Gc5Ek20Jzh3NZDjeKaN4eSYyJr1Eus3T30IpwjjZJdddhXndjqrXhVLCyUVOeUy2s7PntJzOiefVRRNsMUvYMxxHlcWUKcdPDkIKhlw?key=F40at6YgYWgPPBue86ZgFOSD",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXedXO6pFQgo9pfg3ieXl3Ycw_3G1e6V8yAtU0L0YqfQQ8Yho_rzw6ICu7UmuZokne5cjCTIRzRpEadN5aANc27fTYodp0KPaNed8-s_Bd5NDsQ2ZXuKZKgW1SZYyCO30vZu8y7sNg?key=F40at6YgYWgPPBue86ZgFOSD",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250110/0fa46ff9-1fa1-46d0-b9bd-27e2dddd2634/WGC1404240930GenericPostBanners740x10notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241218/ca8b5a96-7140-42d2-b5bd-6fe2a2fb19db/Nov2024Suggestiof.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241218/54c99ad5-8a0c-4ecc-9daf-c071d43a9020/Nov2024Bugs.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241218/18d6fd0a-3fcc-4b01-99d4-846d3b1a43d4/WGC1404240930GenericPostBanners740x10notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241121/0b5cad7e-fc6f-4acc-9eef-e48c4f9c855f/Screenshot20241121143959.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241121/22b68424-760e-4cca-b7b2-f3a448269878/Screenshot20241121144053.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4798cc2b84fcf1210a69adecf851d18f421d841182474cd4613a2a35117885b9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:33:57.178Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2024-11-25.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2689367."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

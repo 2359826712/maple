@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-16-20932",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/20932/maplestory-worlds-americas-soft-launch",
+  "source_url": "https://www.nexon.com/maplestory/news/general/20932/maplestory-worlds-americas-soft-launch",
+  "external_id": "20932",
+  "title": "MapleStory Worlds Americas Soft Launch!",
+  "original_title": "MapleStory Worlds Americas Soft Launch!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-16T19:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory Worlds Americas Soft Launch!” is an official news item from Global MapleStory Official News on 2024-10-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/dgxju1gt/540x304-maplestory-worlds-americas-soft-launch.jpg",
+      "alt": "MapleStory Worlds Americas Soft Launch!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i20ke4d1/1100x225-maplestory-worlds-americas-soft-launch.jpg",
+      "alt": "MapleStory Worlds Americas Soft-Launch"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f9b3d86f273dd1328db30c9ab7c8b6cda20ae5c26cd77abec1653f290df5439e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:47.976Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20932",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-16.",
+          "Official category: general.",
+          "Nexon article ID: 20932."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

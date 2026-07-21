@@ -1,0 +1,107 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-15-29312",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/29312/marvel-machine-play-now-august-2025",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/29312/marvel-machine-play-now-august-2025",
+  "external_id": "29312",
+  "title": "Marvel Machine - Play Now! (August 2025)",
+  "original_title": "Marvel Machine - Play Now! (August 2025)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-15T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Marvel Machine - Play Now! (August 2025)” is an official Cash Shop notice from Global MapleStory Official News on 2025-08-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/j3ldxpju/540x304-august-15-2025-marvel-machine-is-back-maplestory.jpg",
+      "alt": "Marvel Machine - Play Now! (August 2025)"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4lggy0tg/top-august-15-2025-marvel-machine-maplestory.jpg",
+      "alt": "August 15 2025 Marvel Machine MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/opgmguox/button-august-15-2025-marvel-machine-maplestory.jpg",
+      "alt": "Go to the Marvel Machine MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jzhfyrrq/how-august-15-2025-marvel-machine-maplestory.jpg",
+      "alt": "How to Play the Marvel Machine MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nkjakmvu/prizes-header-august-15-2025-marvel-machine-maplestory.jpg",
+      "alt": "Prizes Section August 15 2025 Marvel Machine Machine"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yecj0p1v/chairs-august-15-2025-marvel-machine-maplestory.png",
+      "alt": "August 15 2025 Marvel Machine Chairs MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vc0oc4ih/pets-august-15-2025-marvel-machine-maplestory.png",
+      "alt": "August 15 2025 Marvel Machine Pets MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qdij1yha/cubes-august-15-2025-marvel-machine-maplestory.png",
+      "alt": "Marvel Machine August 15 2025 Cubes MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wppnx2zy/marvel-machine-icons-maplestory.png",
+      "alt": "Additional Prizes August 15 2025 Marvel Machine MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jwicljfc/bottom-august-15-2025-marvel-machine-maplestory.jpg",
+      "alt": "August 15 2025 Marvel Machine MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "de3732033e6bb80cd86c5f6971aea4e2fc259d0fe92190468ed2b895538b4f34",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:04:07.213Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29312",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-15.",
+          "Official category: sale.",
+          "Nexon article ID: 29312."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

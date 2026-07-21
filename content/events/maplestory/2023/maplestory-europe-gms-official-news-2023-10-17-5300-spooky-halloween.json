@@ -1,0 +1,118 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-17-5300-spooky-halloween",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5300/halloween-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5300/halloween-events",
+  "external_id": "5300:spooky-halloween",
+  "title": "Spooky Halloween",
+  "original_title": "Halloween Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-17T11:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Spooky Halloween” is an official event notice from Global MapleStory Official News on 2023-10-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/o13bjvcp/231013-wgc-327-ms-myhomehalloween-540x304.webp",
+      "alt": "Halloween Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1245/231013-wgc-327-ms-myhomehalloween-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1085/image-15.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1053/image-3.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1045/image-6.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1047/image-8.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1050/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1049/image-10.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "449c17c0cd72b831ac85c7c1312d01427e5fbecab8be415993de3c4ca86958e7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "spooky-halloween",
+    "fetched_at": "2026-07-21T02:30:43.571Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5300",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-17.",
+          "Official category: events.",
+          "Nexon article ID: 5300."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Spooky Halloween",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-10-25T00:00:00.000Z",
+  "event_end": "2023-10-31T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

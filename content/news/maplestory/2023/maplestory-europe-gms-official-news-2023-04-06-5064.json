@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-04-06-5064",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5064/all-cm-april-fools-day-livestream-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5064/all-cm-april-fools-day-livestream-2023",
+  "external_id": "5064",
+  "title": "All-CM April Fools' Day Livestream 2023!",
+  "original_title": "All-CM April Fools' Day Livestream 2023!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-04-06T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“All-CM April Fools' Day Livestream 2023!” is an official news item from Global MapleStory Official News on 2023-04-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/rrwjdspg/msw-5951-220318-all-cm-april-fools-stream-overlays-news-thumb-824x412.webp",
+      "alt": "All-CM April Fools' Day Livestream 2023!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3164/msw-5951-220318-all-cm-april-fools-stream-overlays-header-940x290.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "10ef2880784bd70b55cee284e656580b0f91d77e1935cb363dbc19dffdbeaef5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:11.395Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5064",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-04-06.",
+          "Official category: community.",
+          "Nexon article ID: 5064."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

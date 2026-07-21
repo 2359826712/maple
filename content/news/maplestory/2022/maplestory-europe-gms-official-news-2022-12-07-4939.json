@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-07-4939",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4939/updated-investigation-of-clover-reset-december-7-2022",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4939/updated-investigation-of-clover-reset-december-7-2022",
+  "external_id": "4939",
+  "title": "[Updated] Investigation of Clover Reset - December 7, 2022",
+  "original_title": "[Updated] Investigation of Clover Reset - December 7, 2022",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-07T17:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated] Investigation of Clover Reset - December 7, 2022” is an official news item from Global MapleStory Official News on 2022-12-07. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "[Updated] Investigation of Clover Reset - December 7, 2022"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0f25784f7a6b14099a051ba6bc81005d069ec007a3de80956022f42d3e365abe",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:35.923Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4939",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-07.",
+          "Official category: general.",
+          "Nexon article ID: 4939."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

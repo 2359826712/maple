@@ -1,0 +1,116 @@
+{
+  "id": "n-multi-region-official-events-2025-09-04-3124916",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3124916",
+  "source_url": "https://msu.io/maplestoryn/news/events/3124916",
+  "external_id": "3124916",
+  "title": "Honorable Heroes! Event",
+  "original_title": "Honorable Heroes! Event",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-09-04T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:40:41.416Z",
+  "last_checked": "2026-07-20T07:40:41.416Z",
+  "summary": "“Honorable Heroes! Event” is an official event notice from MapleStory N Official Events on 2025-09-04. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250903/450362e5-91bd-4a85-a5bd-2d5f36cf9304/MSNEventThumb%EC%BD%94%EC%9D%B8%EC%9D%B5%EC%8A%A4%ED%94%84%EB%A0%88%EC%8A%A4.png",
+      "alt": "Honorable Heroes! Event"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250903/4ccf797b-f35b-463e-9611-7716fa708576/image202509031442061.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250903/3d62588f-c38f-4d11-8eae-f0f43df975a3/image202509031442062.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250904/af0a6c6f-e5e2-41aa-a4fe-3bfa4b8971a4/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250903/27c22fce-55ea-4847-ae8b-d58cb168dc3c/image202509031443174.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7c058690f1b7d2de77d02ce89e569035b2d26c2d2ecd7e6aba08a72e7e2b12dd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:44:21.741Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2025-09-04",
+      "2025-09-17T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-09-04.",
+          "Official classification: event.",
+          "Nexon thread ID: 3124916.",
+          "Confirmed event period: 2025-09-04 through 2025-09-17T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Honorable Heroes! Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-09-04",
+  "event_end": "2025-09-17T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

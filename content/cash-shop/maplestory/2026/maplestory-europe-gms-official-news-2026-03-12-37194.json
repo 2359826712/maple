@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-12-37194",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/37194/march-14-cube-daily-deals",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/37194/march-14-cube-daily-deals",
+  "external_id": "37194",
+  "title": "March 14 Cube Daily Deals!",
+  "original_title": "March 14 Cube Daily Deals!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-12T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“March 14 Cube Daily Deals!” is an official Cash Shop notice from Global MapleStory Official News on 2026-03-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1l4jpq5z/ms_dailydeal_540x304.jpg",
+      "alt": "March 14 Cube Daily Deals!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fpmlgoz4/daily-deal-1100x225-maplestory.png",
+      "alt": "MapleStory violet cube daily deal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/43dbrs3v/interactive-world-cube-packs-maplestory.png",
+      "alt": "MapleStory radiant glowing brilliant bright dazzling bonus glowing cube packs"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bkgb3djj/heroic-world-cubes-maplestory.png",
+      "alt": "MapleStory glowing bright cubes"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "eaaaf6692ea5a9b7331fa6beddd92948d1463fe2e211cef962548fe528443f88",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:19.961Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "37194",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-12.",
+          "Official category: sale.",
+          "Nexon article ID: 37194."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

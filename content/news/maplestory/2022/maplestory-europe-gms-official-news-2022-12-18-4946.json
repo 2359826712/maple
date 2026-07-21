@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-18-4946",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4946/update-on-na-reboot-world-miracle-time-event",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4946/update-on-na-reboot-world-miracle-time-event",
+  "external_id": "4946",
+  "title": "Update on NA Reboot World Miracle Time Event",
+  "original_title": "Update on NA Reboot World Miracle Time Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-18T01:45:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Update on NA Reboot World Miracle Time Event” is an official news item from Global MapleStory Official News on 2022-12-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "Update on NA Reboot World Miracle Time Event"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "66a7d2876dc8704f2bc2eb4f977fdb6150fdfe48ca25281c2e4fea3b33a8cd6c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:40:59.854Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4946",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-18.",
+          "Official category: general.",
+          "Nexon article ID: 4946."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

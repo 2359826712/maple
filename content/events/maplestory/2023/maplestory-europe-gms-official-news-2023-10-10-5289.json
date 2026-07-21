@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-10-5289",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5289/updated-oct-12th-journey-toward-the-sixth-star-ch-v",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5289/updated-oct-12th-journey-toward-the-sixth-star-ch-v",
+  "external_id": "5289",
+  "title": "[Updated Oct. 12th] Journey Toward the Sixth Star - Ch. V",
+  "original_title": "[Updated Oct. 12th] Journey Toward the Sixth Star - Ch. V",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-10T17:14:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated Oct. 12th] Journey Toward the Sixth Star - Ch. V” is an official event notice from Global MapleStory Official News on 2023-10-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jk5f2jas/230713_540x304_sixthstarwarm-upevent_6470.webp",
+      "alt": "[Updated Oct. 12th] Journey Toward the Sixth Star - Ch. V"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2113/230713_1100x225_sixthstarwarm-upevent_6470.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1369/ch.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1394/image-2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1054/image-4.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "68463e1971d9759d9155387702e4884a0117c7fc5cf5f3aea34bb5b0e8a5c4ee",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:58.702Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5289",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-10.",
+          "Official category: events.",
+          "Nexon article ID: 5289."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Updated Oct. 12th] Journey Toward the Sixth Star - Ch. V",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-10-11T00:00:00.000Z",
+  "event_end": "2023-10-31T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

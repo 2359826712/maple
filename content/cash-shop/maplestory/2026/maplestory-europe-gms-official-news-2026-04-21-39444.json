@@ -1,0 +1,447 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-04-21-39444",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/39444/cash-shop-update-for-april-22",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/39444/cash-shop-update-for-april-22",
+  "external_id": "39444",
+  "title": "Cash Shop Update for April 22",
+  "original_title": "Cash Shop Update for April 22",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-04-21T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Cash Shop Update for April 22” is an official Cash Shop notice from Global MapleStory Official News on 2026-04-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/3idltsp5/news-post-540x304-april-22-cash-shop-update-maplestory.jpg",
+      "alt": "Cash Shop Update for April 22"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zpjghuas/in-post-banner-1100x225-april-22-cash-shop-update-maplestory.jpg",
+      "alt": "April 22 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q2lerw5w/first-adversary-male-permanent-outfit-package-maplestory.png",
+      "alt": "First Adversary Package Male MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ge0pdzrx/first-adversary-female-permanent-outfit-package-maplestory.png",
+      "alt": "First Adversary Package Female MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fo3kzq01/baldrix-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Baldrix Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w12b3o3z/magnus-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Magnus Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jaib4nk5/arkarium-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Arkarium Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s1rfdiai/dark-cygnus-female-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Dark Cygnus Package (F) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hcmflc4v/dark-cygnus-male-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Dark Cygnus Package (M) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1captfcg/damien-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Damien Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tt2kw2ct/will-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Will Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1p4lf2r2/verus-hilla-female-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Verus Hilla Package (F) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/endhizsg/verus-hilla-male-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Verus Hilla Package (M) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvfpgfkd/darknell-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Darknell Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tdqh1n5g/black-mage-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Black Mage Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1pii2axc/seren-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Chosen Seren Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4fgnx0wd/kaling-female-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Kaling Package (F) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t3rnarya/kaling-male-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Kaling Package (M) MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hyeliq2b/bigfoot-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Extreme Bigfoot Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ocjtv2m/limbo-boss-permanent-outfit-package-maplestory.png",
+      "alt": "Boss Limbo Package MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4kpfys1k/pssb-1-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB Rock Star Set April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/feehcoim/pssb-1-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB Rock Star Set April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0gqoj0bl/pssb-2-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ha3dorhz/pssb-2-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kvsk4xzv/pssb-3-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ms0f0hek/pssb-3-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/plvky0av/pssb-4-male-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vmpjkp4d/pssb-4-female-april-22-cash-shop-update-maplestory.png",
+      "alt": "PSSB April 22 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g40gqot0/male-royal-hair-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update male royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/utdievg1/female-royal-hair-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update female royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hl3cjvkk/male-royal-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update male royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zrbpyery/female-royal-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 cash shop update female royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qz5bkgtm/male-choice-hair-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 Male Choice Hair"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qaiiyxzs/female-choice-hair-styles-april-22-cash-shop-update-maplestory-v2.png",
+      "alt": "MapleStory April 22 Female Choice Hair"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pcofccx3/male-choice-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 Male Choice Face"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eulksw3g/female-choice-face-styles-april-22-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 22 Female Choice Face"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cbhfx433/custom-color-coupons-maplestory.png",
+      "alt": "MapleStory Custom Color Coupons"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bxudtyah/coloring-prism-daily-deal-maplestory.png",
+      "alt": "MapleStory coloring prism daily deal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vmlh05cn/spiegelmanns-grand-magic-hat-illusion-pets-season-1-rings-4-april-15-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 15 Cash Shop Update Spiegelmann's Magic Hat: Pets Season 1"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kvgpndi3/spiegelmanns-grand-magic-hat-illusion-rings-3-january-29-cash-shop-update-maplestory.png",
+      "alt": "MapleStory January 29 Cash Shop Update Spiegelmann's Magic Hat: Pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5qemmfyd/spiegelmanns-grand-magic-hat-illusion-rings-2-january-29-cash-shop-update-maplestory.png",
+      "alt": "MapleStory January 29 Cash Shop Update Spiegelmann's Magic Hat: Pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qhenuq51/spiegelmanns-grand-magic-hat-illusion-rings-1-january-29-cash-shop-update-maplestory.png",
+      "alt": "MapleStory January 29 Cash Shop Update Spiegelmann's Magic Hat: Pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v3clbrgi/birdie-pets-march-4-cash-shop-update-maplestory.png",
+      "alt": "MapleStory marvel machine pet equipment march 4 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/psdfiwup/council-of-elders-chair-gachapon-chair-april-1-cash-shop-update-maplestory.gif",
+      "alt": "Council of elders chair april 1 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q1ukcayd/portrait-in-oils-chair-gachapon-chair-april-1-cash-shop-update-maplestory.gif",
+      "alt": "Portrait in oils chair april 1 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2gojhe4g/mushroom-family-photo-zone-chair-gachapon-chair-april-1-cash-shop-update-maplestory.gif",
+      "alt": "Mushroom family photo zone chair april 1 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hwsekllf/sturdy-crilia-mount-gachapon-mount-april-1-cash-shop-update-maplestory.gif",
+      "alt": "Sturdy crilia mount aprl 1 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cwglzecv/my-animal-doodle-damage-skin-symbol-gachapon-april-1-cash-shop-update-maplestory.png",
+      "alt": "My animal doodle damage skin (symbol) april 1 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eevhe123/star-stamps-maplestory.png",
+      "alt": "MapleStory stamp exchange coupons"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i4anlk3r/star-stamp-shop-rewards-november-12-cash-shop-update-maplestory.png",
+      "alt": "Star stamp shop items maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sttlvyib/mythic-ssb-1-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ztcdyp0h/mythic-ssb-2-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1t2hrx4j/mythic-ssb-3-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/faafdqae/mythic-ssb-4-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wo5bbtqw/mythic-ssb-5-november-12-cash-shop-update-maplestory.png",
+      "alt": "Mythic star style box maplestory november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5nkke1s3/premium-coloring-prism-maplestory.png",
+      "alt": "Mythic star style box maplestory june 25 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gibjubum/lil-flora-pets-1-july-17-cash-shop-update-maplestory.png",
+      "alt": "MapleStory lil flora pets july 16 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3bsbjgyr/mysterious-easter-baskets-maplestory.png",
+      "alt": "Mysterious Easter Basket Icons MapleStory April 15 Cash Shop"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5jecf2ef/mysterious-easter-basket-items-april-15-cash-shop-update-maplestory.png",
+      "alt": "Mysterious Easter Basket Rewards MapleStory April 15 Cash Shop"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yxol0wj3/lucky-jewel-box-april-15-cash-shop-update-maplestory.png",
+      "alt": "MapleStory April 15 Lucky Jewel Box"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ccun2wou/cutie-bunny-permanent-outfit-package-april-15-cash-shop-update-maplestory.png",
+      "alt": "Cutie Bunny Permanent Outfit Packages April 15 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/arakxcbi/moon-bunny-permanent-outfit-package-april-15-cash-shop-update-maplestory.png",
+      "alt": "Moon Bunny Permanent Outfit Packages April 15 Cash Shop Update MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fgihz4kk/throwing-eggs-weapon-pink-rabbit-puppet-april-15-cash-shop-update-maplestory.png",
+      "alt": "Pink Rabbit Puppet Throwing Eggs Weapon April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ayebyp2x/carrot-weapon-april-15-cash-shop-update-maplestory.png",
+      "alt": "Carrot Weapon April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bnnbfo4k/bunny-nunchucks-april-15-cash-shop-update-maplestory.png",
+      "alt": "Bunny Nunchucks April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ygdc0lgx/moon-bunny-shield-april-15-cash-shop-update-maplestory.png",
+      "alt": "Moon Bunny Shield April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/armdvcu1/angel-bunny-promise-ring-april-15-cash-shop-update-maplestory.png",
+      "alt": "Angel Bunny Promise Ring April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uvvjrtpi/white-rabbits-foot-april-15-cash-shop-update-maplestory.png",
+      "alt": "White Rabbit's Foot April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c2qpbyv5/big-rabbit-feet-april-15-cash-shop-update-maplestory.png",
+      "alt": "Big Rabbit Feet April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gk3ftyzo/bunny-costume-bunny-boots-april-15-cash-shop-update-maplestory.png",
+      "alt": "Bunny Costume Bunny Boots April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2gunhoto/pink-bunny-cap-april-15-cash-shop-update-maplestory.png",
+      "alt": "Pink Bunny Cap April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gq1diqil/easter-bonnet-april-15-cash-shop-update-maplestory.png",
+      "alt": "Easter Bonnet Hat April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ha0lsvr1/white-rabbit-hat-april-15-cash-shop-update-maplestory.png",
+      "alt": "White Rabbit Hat April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l4dlk1bh/bunny-hat-april-15-cash-shop-update-maplestory.png",
+      "alt": "Bunny Hat April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b2adeu04/courageous-bunny-hat-april-15-cash-shop-update-maplestory.png",
+      "alt": "Courageous Bunny Hat April 15 cash shop update maplestory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/1170/violet-cube-maplestory-october-21-cash-shop-update.png",
+      "alt": "MapleStory Violet Cube Icon"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bglidtgx/pssb-1-male-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b5npuc0f/pssb-1-female-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zeubzgmm/pssb-2-male-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1khowj2z/pssb-2-female-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5tbftshq/pssb-3-male-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b2yj5n0j/pssb-3-female-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c10d5yd1/pssb-4-male-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bachkxyz/pssb-4-female-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pdmp0hsp/pssb-5-april-8-cash-shop-update-maplestory.png",
+      "alt": "PSSB april 8 cash shop update maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fztlvgb0/male-royal-hairs-april-8-cash-shop-update-maplestory.png",
+      "alt": "MapleStory april 8 cash shop update male royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iifjlqcv/female-royal-hairs-april-8-cash-shop-update-maplestory.png",
+      "alt": "MapleStory april 8 cash shop update female royal hairstyles"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/skbn4p4i/male-royal-faces-april-8-cash-shop-update-maplestory.png",
+      "alt": "MapleStory april 8 cash shop update male royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/elnp0bi1/female-royal-faces-april-8-cash-shop-update-maplestory.png",
+      "alt": "MapleStory april 8 cash shop update female royal faces"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dzfg2tfj/lil-ashlii-pet-march-18-cash-shop-update-maplestory.png",
+      "alt": "MapleStory lil ashlii pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pobllucj/baby-teddy-pets-february-4-cash-shop-update-maplestory.png",
+      "alt": "MapleStory february 4 cash shop update baby teddy pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5lmdsuxx/other-wonderberry-pets-february-4-cash-shop-update-maplestory.png",
+      "alt": "MapleStory february 4 cash shop update interactive worlds wonderberry pets"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q1/1695/wondercookies-and-premium-water-of-life-maplestory-wonderberry-rewards.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mcip2kkl/frosty-friends-pets-july-16-cash-shop-update-maplestory.png",
+      "alt": "MapleStory frosty friends pets november 12 cash shop update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s2iptik2/other-luna-crystal-pets-february-4-cash-shop-update-maplestory.png",
+      "alt": "MapleStory other luna crystal pets february 4 cash shop update"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e89734be07044613bc12b86dfda0493d210c50576de21d4255ca3ed9a11dd473",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:46:46.730Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "39444",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-04-21.",
+          "Official category: sale.",
+          "Nexon article ID: 39444."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

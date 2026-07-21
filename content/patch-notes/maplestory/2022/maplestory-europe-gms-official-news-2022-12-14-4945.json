@@ -1,0 +1,82 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-14-4945",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/4945/update-jan-11-v-238-ignition-extreme-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/4945/update-jan-11-v-238-ignition-extreme-patch-notes",
+  "external_id": "4945",
+  "title": "[Update Jan 11] v.238 - Ignition: Extreme Patch Notes",
+  "original_title": "[Update Jan 11] v.238 - Ignition: Extreme Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-14T00:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Update Jan 11] v.238 - Ignition: Extreme Patch Notes” is an official patch note from Global MapleStory Official News on 2022-12-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/calhzscd/msw-6266-221209-v238-patch-notes-news-post-540x304.webp",
+      "alt": "[Update Jan 11] v.238 - Ignition: Extreme Patch Notes"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2152/msw-6266-221209-v238-patch-notes-in-post-banner-1100x225.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a3936d3a83c0fee341e0a7ff8e44b7e2e5301d3a074acc00d999b1c9292f60eb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:23.914Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4945",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-14.",
+          "Official category: update.",
+          "Nexon article ID: 4945."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2022-12-14T00:40:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

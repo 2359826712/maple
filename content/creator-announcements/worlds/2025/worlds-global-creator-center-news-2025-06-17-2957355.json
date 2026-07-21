@@ -1,0 +1,106 @@
+{
+  "id": "worlds-global-creator-center-news-2025-06-17-2957355",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2957355",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2957355",
+  "external_id": "2957355",
+  "title": "Announcing The MapleStory Worlds Package Repository",
+  "original_title": "Announcing The MapleStory Worlds Package Repository",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-06-17T17:03:23.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Announcing The MapleStory Worlds Package Repository” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-06-17. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250617/d7e03423-4cea-46c5-a2a0-b5c0054aa608/WGC1404240930GenericPostBanners74x44notice.png",
+      "alt": "Announcing The MapleStory Worlds Package Repository"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/68b08f74-6d43-48a2-bea6-91d86e0b1bdb/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/6a2e0482-6417-4c26-b8e6-56eed8578a0f/Screenshot20250602102438.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/cf2f4909-4583-4cfa-9f37-ce18d3866cd5/Screenshot20250602102700.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/29fe0e9c-f659-4af8-bd9a-e984c6207e36/Screenshot20250602122817.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/a4496724-fc43-4bb6-baab-3e1a09718bf0/Screenshot20250602181442.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/af9b29e5-6c97-48cb-86e3-179cf43997a1/Screenshot20250602192903.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/ed712112-2879-4f99-8a8e-cba4e087206c/Screenshot20250602192844.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250616/01b2251e-23dc-4ada-b612-c909dd90a7f4/Screenshot20250602185641.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5d607f95fb40497ce8dc80cb334cd0ec3d78b9f1aadf4ef8e95ba5bc256bae7f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:30:32.906Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-06-17.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2957355."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

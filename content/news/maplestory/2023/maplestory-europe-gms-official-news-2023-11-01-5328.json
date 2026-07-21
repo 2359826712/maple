@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-11-01-5328",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5328/maple-memo-world-selection-reorganization-and-a-new-world",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5328/maple-memo-world-selection-reorganization-and-a-new-world",
+  "external_id": "5328",
+  "title": "Maple Memo: World Selection Reorganization and a New World",
+  "original_title": "Maple Memo: World Selection Reorganization and a New World",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-11-01T17:41:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Maple Memo: World Selection Reorganization and a New World” is an official news item from Global MapleStory Official News on 2023-11-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: World Selection Reorganization and a New World"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2f8a225f66927012ace4877ae6be3921e6b2d1238ea6fc358d5f5a0db7a20655",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:29:55.476Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5328",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-11-01.",
+          "Official category: general.",
+          "Nexon article ID: 5328."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

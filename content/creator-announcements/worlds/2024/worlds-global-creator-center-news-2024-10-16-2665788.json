@@ -1,0 +1,82 @@
+{
+  "id": "worlds-global-creator-center-news-2024-10-16-2665788",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2665788",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2665788",
+  "external_id": "2665788",
+  "title": "[Applications Open] Creator Circle Information [Updated Nov 18]",
+  "original_title": "[Applications Open] Creator Circle Information [Updated Nov 18]",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2024-10-16T19:21:58.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Applications Open] Creator Circle Information [Updated Nov 18]” is an official creator announcement from MapleStory Worlds Creator Center News on 2024-10-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250513/0b889b63-6781-4b60-92bf-808d2aae0b48/MSWGenericPostBanners740x120creatorsFAQ.png",
+      "alt": "[Applications Open] Creator Circle Information [Updated Nov 18]"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241015/785c2dea-7279-4e9d-8bda-fdfe2599da9c/WGC1426240926MSWCreatorCircleLogo850x400.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0bef4021867980fdefdb36c04fab50764d20d45f862343b6a9a0fe55095a96e3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:34:57.300Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [
+      "Creator",
+      "Circle",
+      "Program"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2024-10-16.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2665788."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-11-29024",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/29024/update-aug-15-the-marvel-machine-returns-august-15",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/29024/update-aug-15-the-marvel-machine-returns-august-15",
+  "external_id": "29024",
+  "title": "[Update Aug 15] The Marvel Machine Returns August 15!",
+  "original_title": "[Update Aug 15] The Marvel Machine Returns August 15!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-11T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Update Aug 15] The Marvel Machine Returns August 15!” is an official Cash Shop notice from Global MapleStory Official News on 2025-08-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/x4iipq33/540x304-august-15-2025-marvel-machine-coming-soon-maplestory.jpg",
+      "alt": "[Update Aug 15] The Marvel Machine Returns August 15!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qq5lzvjq/1100x225-august-15-2025-marvel-machine-coming-soon-maplestory.jpg",
+      "alt": "August 15 2025 Marvel Machine Coming Soon MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yecj0p1v/chairs-august-15-2025-marvel-machine-maplestory.png",
+      "alt": "August 15 2025 Marvel Machine Chairs MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wppnx2zy/marvel-machine-icons-maplestory.png",
+      "alt": "Marvel Machine Items MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ca091b1ad2d6bc1fef41b4f0bef0fd225053c0b7f905976913ac6695bbd07e91",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:04:19.244Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29024",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-11.",
+          "Official category: sale.",
+          "Nexon article ID: 29024."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

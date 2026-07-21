@@ -1,0 +1,127 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-02-01-4976",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/4976/v-239-neo-tokyo-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/4976/v-239-neo-tokyo-update-preview",
+  "external_id": "4976",
+  "title": "v.239 Neo Tokyo Update Preview",
+  "original_title": "v.239 Neo Tokyo Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-02-01T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.239 Neo Tokyo Update Preview” is an official news item from Global MapleStory Official News on 2023-02-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/g0flddbo/msw-6324-230126-v239-update-banners-news-post-540x304.webp",
+      "alt": "v.239 Neo Tokyo Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1750/01_1v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1719/02_v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1765/03_1_v239_neotokyo.gif",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1766/04_1_v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1707/05_v239_neotokyo_sm.gif",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1716/06_v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1715/07_v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1706/08_v239_neotokyo_sm.gif",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1714/09_v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1713/10_v239_neotokyo.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1712/11_v239_neotokyo.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1749/11_-1v239_neotokyo.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1709/14_btn1_v239_neotokyo.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1708/14_btn2_v239_neotokyo.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "dee8412844b1524ad9401eabb73715785069df988873513d5dd570757483d31d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:39:41.693Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4976",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-02-01.",
+          "Official category: update.",
+          "Nexon article ID: 4976."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,87 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-04-25-26591",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/26591/what-s-your-maplestory-sirdavis",
+  "source_url": "https://www.nexon.com/maplestory/news/community/26591/what-s-your-maplestory-sirdavis",
+  "external_id": "26591",
+  "title": "What's Your MapleStory? - SirDavis",
+  "original_title": "What's Your MapleStory? - SirDavis",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-04-25T18:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“What's Your MapleStory? - SirDavis” is an official news item from Global MapleStory Official News on 2025-04-25. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/j4blwolp/190307_post_540x304_what_is_yourmaplestory.jpg",
+      "alt": "What's Your MapleStory? - SirDavis"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aysfxkjj/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ls0i12f2/whimsy.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gl4i3trz/arch-mage-ice_lightning-_art.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s1ggzd0b/whimsypt2.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "409b5d097a1fd755ea0c3e3b369359a5845b4e273bad50351e46cc1688d75c7d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:07:59.055Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26591",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-04-25.",
+          "Official category: community.",
+          "Nexon article ID: 26591."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

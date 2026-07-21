@@ -1,0 +1,110 @@
+{
+  "id": "worlds-global-creator-center-news-2025-02-14-2731677",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2731677",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2731677",
+  "external_id": "2731677",
+  "title": "[Updated 4/10] Q1 2025 Suggestion/Bug Report Update",
+  "original_title": "[Updated 4/10] Q1 2025 Suggestion/Bug Report Update",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-02-14T01:30:16.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Updated 4/10] Q1 2025 Suggestion/Bug Report Update” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-02-14. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250214/40d7f71b-1988-4488-8f88-bc4739be3f89/MSWGenericPostBanners740x120notice.png",
+      "alt": "[Updated 4/10] Q1 2025 Suggestion/Bug Report Update"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250318/ef9f5a30-9bd2-49a6-90ac-2dc08dc7e3b4/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXeUv9NG7juI2h9qRcQyBF4IIJr0wFUk4APxXAypo6uiLsIb-aapNXwqpDaGkavxgoyHSF8OapED_cz-ZLHlvKr5QDufSV8-xxsB1KvtY3UE4DWC6L0aEos0RdtThEi6zaC4q5F7zQ?key=n8dU82g4aEQpyKf4s9OIgq-j",
+      "alt": null
+    },
+    {
+      "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd8gMVwiEGO7G4l1oOv8la6JMOhicoAclu1heNehXifJi4zA2z346vzx3j92aD1_5cdoXj_MmA8Lxcb8WfiZA-3ARhrcZ1W0H9FyQTXPqTK4mP6RTdv1nz8dtz4Cj7RC3eKW4zaoQ?key=n8dU82g4aEQpyKf4s9OIgq-j",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250411/1694b742-3d94-4657-a963-2afe0ba5fa72/WGC1404240930GenericPostBanners740x10notice1.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250318/7135aff5-cd65-4b02-93b9-cb76a3360537/Screenshot20250318115604.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250318/2cacf04b-7bc2-4758-bfca-46f07cb6f64c/Screenshot20250318115619.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250318/ce46b436-3684-44f1-a0b6-d7b986c9e414/WGC1404240930GenericPostBanners740x10notice1.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250213/0635564c-b556-4f34-90b7-435b79228c42/Screenshot20250212145102.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250213/0caadae4-e70f-4980-9fd9-a3d42c5b9488/Screenshot20250212145257.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "db4091ad2a6c01b5a895b068de5b051f7354bb6999d6632c179a6072adc83b4f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:32:44.954Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-02-14.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2731677."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-11-10-5335",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5335/what-s-your-maplestory-skywired",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5335/what-s-your-maplestory-skywired",
+  "external_id": "5335",
+  "title": "What's Your MapleStory? - Skywired",
+  "original_title": "What's Your MapleStory? - Skywired",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-11-10T11:02:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“What's Your MapleStory? - Skywired” is an official news item from Global MapleStory Official News on 2023-11-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ycgj1msw/190307_post_what_is_yourmaplestory.webp",
+      "alt": "What's Your MapleStory? - Skywired"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1510/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1569/skywired.png?height=580&mode=max&width=1040",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1584/image-1.png?height=434&mode=max&width=371",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6d3bd11b4e20a31e24fc6b7c82ae0172422ef88ddb54712004001d2e6a46ffc7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:29:40.436Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5335",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-11-10.",
+          "Official category: community.",
+          "Nexon article ID: 5335."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

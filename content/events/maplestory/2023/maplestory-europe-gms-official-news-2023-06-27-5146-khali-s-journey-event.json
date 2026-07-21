@@ -1,0 +1,154 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-06-27-5146-khali-s-journey-event",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5146/khali-the-wind-of-vengeance-is-now-available",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5146/khali-the-wind-of-vengeance-is-now-available",
+  "external_id": "5146:khali-s-journey-event",
+  "title": "Khali's Journey Event",
+  "original_title": "Khali, the Wind of Vengeance, is Now Available!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-06-27T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Khali's Journey Event” is an official event notice from Global MapleStory Official News on 2023-06-27. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/gkbndd4r/540x304-play-khali-wind-of-vengeance-maplestory.webp",
+      "alt": "Khali, the Wind of Vengeance, is Now Available!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2606/1100x225-play-khali-wind-of-vengeance-maplestory.jpg",
+      "alt": "Play Khali the Wind of Vengeance MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2321/khali.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2323/khali-w-w.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2382/image-16.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2383/image-17.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2370/image-4.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2320/ccpb.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2384/image-18.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2375/image-9.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2385/image-19.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2391/image-25.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2577/khali-basic-attack-maplestory.png",
+      "alt": "Khali Basic Combat MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2578/summon-chakri-khali-maplestory.png",
+      "alt": "Khali Summon Chakri MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2580/void-rush-khali-maplestory.png",
+      "alt": "Khali Void Rush MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2579/triple-bash-khali-maplestory.png",
+      "alt": "Khali Triple Bash MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2581/chakram-split-khali-maplestory.png",
+      "alt": "Khali Chakram Split MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3d4486ac596b7c1c6ac51926b7299ee23d925c7205a3accfa08d505ce2a8bea5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "khali-s-journey-event",
+    "fetched_at": "2026-07-21T02:34:53.095Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5146",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-06-27.",
+          "Official category: events.",
+          "Nexon article ID: 5146."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Khali's Journey Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-06-28T00:00:00.000Z",
+  "event_end": "2023-08-29T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "imageThumbnail": "/media/news.png",
+    "summary": "Repeated across the current/archive boundary.",
+    "featured": false,
+    "isArchived": true,
+    "liveDate": "2026-07-16T15:00:00Z",
+    "name": "Maple Memo: Fixture Notice",
+    "id": 42797,
+    "category": "general"
+  },
+  {
+    "imageThumbnail": "/media/archive-1.png",
+    "summary": "Archived fixture one.",
+    "featured": false,
+    "isArchived": true,
+    "liveDate": "2024-12-30T14:00:00Z",
+    "name": "Archived Fixture One",
+    "id": 22379,
+    "category": "general"
+  },
+  {
+    "imageThumbnail": "/media/archive-2.png",
+    "summary": "Archived fixture two.",
+    "featured": false,
+    "isArchived": true,
+    "liveDate": "2024-12-29T14:00:00Z",
+    "name": "Archived Fixture Two",
+    "id": 22378,
+    "category": "events"
+  }
+]

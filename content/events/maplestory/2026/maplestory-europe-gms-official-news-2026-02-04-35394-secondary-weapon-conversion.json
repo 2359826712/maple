@@ -1,0 +1,862 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-02-04-35394-secondary-weapon-conversion",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/35394/sengoku-warrior-revamp",
+  "source_url": "https://www.nexon.com/maplestory/news/events/35394/sengoku-warrior-revamp",
+  "external_id": "35394:secondary-weapon-conversion",
+  "title": "Secondary Weapon Conversion",
+  "original_title": "Sengoku Warrior Revamp",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-02-04T15:45:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Secondary Weapon Conversion” is an official event notice from Global MapleStory Official News on 2026-02-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/nsubydps/540x304-sengoku-warrior-revamp-maplestory.jpg",
+      "alt": "Sengoku Warrior Revamp"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i14bcb0h/1100x225-sengoku-warrior-revamp-maplestory.jpg",
+      "alt": "MapleStory Sengoku Warrior Revamp"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tscbk1cs/%EC%B9%B8%EB%82%98-%EC%8A%A4%ED%83%A0%EB%94%A9-%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8_f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yfwoe0op/talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kuzfmpxx/spirit-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l5cfe2uj/soul-melting-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/01qixoyw/shikigami-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o2ap2vkj/frozen-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/axrpernd/princess-no_s-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cgpexsnz/pandemonium-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4m1gqa15/thousand-soul-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eqqnypfo/secondaryweaponconversion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ci1komls/blessing-of-the-five-elements.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jbgc2urp/hand-of-fate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o3mc5bbe/return-of-the-five-planets-kanna.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uh5hvrmd/haku-the-familiar.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jabfnfbh/soul-shatter-talisman-scores.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j00nscwz/commune.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uxngfgng/leap-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eeahdboq/summon-oni.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4tfbfudl/crimson-covenant.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2bob5pgh/clear-mind.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjnmgvwn/eternal-bonds.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m5ibyr5y/spiritual-enlightenment.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4b0nkceu/soul-shatter-talisman-icon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ps4lwci3/evils-end-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/meklvbwz/order-spinning-strike.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d3xdoxuw/peacocks-plumage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0lmbj3k0/crimson-covenant-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0rgjzzkk/ayanokouji-bloodline.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bwlfotnj/soul-shatter-talisman-spirit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zuga4zcz/summon-tengu.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c21nchtc/shikigami-charm.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tf2nogrm/barrier-curse-ward.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zlcj5u1s/order-standby.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5axfrdqh/crimson-covenant-iii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3hnn3ua3/obsidian-feather.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pkgn0jyw/spirit-path.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vybnaova/unshakeable-faith.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qyjds3fn/soul-shatter-talisman-dance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ivbj4k3z/barrier-spirit-chains.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hkjn0353/heart-wreck-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rxtmvj3h/summon-orochi.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dgql3ssq/akatsuki-warrior.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vqolqdh1/akatsuki-will.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/simdc3zb/call-of-unity.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/koxcd3x1/order-execute.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/efxkfrf3/order-shade-fletched-arrow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l2ynd43x/ivory-fang.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aygla1po/obsidian-feather-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oo1fk4o5/crimson-covenant-iv.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j20m5r5p/shikigami-master.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5nmdjzy0/kasen.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q1zpi0l0/pulverizing-strike-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/okomi5bw/pulverizing-strike-critical-chance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/txjdqrna/pulverizing-strike-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vkujs5ez/shade-fletched-arrow-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qsldosb0/shade-fletched-arrow-critical-chance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jtuhaomo/shade-fletched-arrow-boss-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w0ihn2hw/execute-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sn2oq2dg/execute-critical-chance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4wajll1w/execute-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/agwnhxpr/order-pulverizing-strike.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/krja2mez/akatsuki-blessing.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yudbvpdk/true-name-revelation.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/etghm4kb/spirit-hakumenkonmou-juubi-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eo4b5oz0/spirit-unleash-the-radiant-flame.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jhofup51/spirit-unleash-black-winged-destruction.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hcxlj0gs/spirit-unleash-soul-searing-venom-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g4shutjl/soul-shatter-talisman-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jibb4pwr/summon-oni-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nhrhjjnk/order-pulverizing-strike-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wyyln2wv/summon-tengu-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4huo22rg/heart-wreck-talisman-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yy1fanzo/summon-orochi-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5qrlavrz/order-shade-fletched-arrow-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ko0fiuw1/divine-will-advent-of-crimson.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ccnkpys/advent-of-crimson.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pbvkg2jq/divine-will-final-rest.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yb5jidus/finalrest.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z4nfdbta/hexa-soul-shatter-talisman-dance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hl1d3hz3/hexa-heart-wreck-talisman.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o0ia4pwo/hexa-summon-oni.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bglboipg/hexa-order-spinning-strike.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tlzdhyvk/hexa-order-pulverizing-strike.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q2wd2lv2/hexa-summon-tengu.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wynpwen3/hexa-shade-fletched-arrow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rogbp3ou/hexa-summon-orochi.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tblijmtn/hexa-order-execute.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/picnqozd/spirit-unleash-the-radiant-flame.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4koi3yeu/spirit-unleash-black-winged-destruction-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v5al2joh/spirit-unleash-soul-searing-venom-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w0wh5k4y/%ED%95%98%EC%95%BC%ED%86%A0_f2.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/voodb1cv/natural-talent.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bcykxysf/return-of-the-five-planets.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uemjrn45/shinsoku-mist-slash.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qdqpwfk2/shinsoku-grazing-cut.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gk1nljlv/battoujutsu-dash.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2vbbb0sj/aoryu.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dmgciia4/mist-slash-mastery.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o0tlu1b5/shinsoku-countercurrent-slash.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mgqn4tku/battou-crossing-draw.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1daof5vu/mushin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/klihexgo/akatsuki-samurai.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jlcfvo3v/indomitable-vanguard.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pcyikqxx/identify-weakness.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q1xj5gr0/polished-form.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/erpfbmu2/mist-slash-mastery-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3ntnetak/reactive-focus.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eijnfu32/battou-dark-moon-cut.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jfygkawm/shinsoku-crescent-moon-cut.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3euhyjjb/shinsoku-stormcloud-splitter.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b2ol2p2o/hitokiri-hundred-strike-legacy.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wslakbgm/endless-rain.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uvnfbnob/warrior_s-heart.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mdtpbs2h/mist-slash-mastery-iii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/otejd0qm/noto.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1upj0yrj/shinsoku-afterimage-slash.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qgflbpx5/akatsuki-warrior.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ixjn35bt/akatsuki-will.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l0vf3uix/battou-full-moon_s-rage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zbgpo2bm/noble-sword.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/grnl4tzk/steel-resolve.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yf0luumf/cleaver.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0ooc4ab3/deflection.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/axyokvhc/shinsoku-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j0nhdfzx/shinsoku-boss-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d2ajxt54/shinsoku-spread.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2vahxrqd/shinsoku-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mi2ddgo5/battou-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gcmfa4cg/battou-boss-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3xqbhset/battou-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pekj34hf/reactive-focus-cooldown-cutter.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/51rd2zgu/reactive-focus-enhance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qxoplby0/shinsoku-silent-arc.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r22ffizi/akatsuki-blessing.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r3cpb2we/bushido.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nwybervx/shogetsu-form.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wjeeiwhm/shinsoku-crashing-tide.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nzhp2akk/shinsoku-light-cutter.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u0xlx0eg/battou-wailing-heavens.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bwohis3w/shinsoku-mist-slash-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ld4o1usg/shinsoku-grazing-cut-shinsoku-stormcloud-splitter-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2vcnd5yf/reactive-focus-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1ltlo5dp/shinsoku-crescent-moon-cut-battou-dark-moon-cut-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g2ddcpup/shinsoku-afterimage-slash-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o2qfcfro/battou-full-moon_s-rage-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3csn2oou/shinsoku-silent-arc-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l4dknef2/shin-quick-draw.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y3xfyku1/shin-quick-draw.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0s3lpltl/fleeting-breath.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f45bef03/hayato.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tzhig04f/hexa-shinsoku-mist-slash.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y21ihq4b/hexa-shinsoku-afterimage-slash.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/521hxnia/hexa-shinsoku-crescent-moon-cut.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jvcclenj/hexa-shinsoku-silent-arc.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjsmg0nk/hexa-battou-dark-moon-cut.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/brjf31qv/hexa-battou-full-moon_s-rage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bhwhgafq/shogetsu-form-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/urebphi5/shinsoku-crashing-tide-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zxik0yi4/shinsoku-light-cutter-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jhxnqcxi/battou-wailing-heavens-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/geaat0pm/princess-sakuno.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ya4cvhen/gold-crescent-emblem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0somrp14/gold-blossom-emblem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m4cl0l5f/lil-sakuno.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wznjlfgh/throwback-hayato-m-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vaefw150/throwback-hayato-f-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cazdrcds/throwback-kanna-m-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h3ykmwnk/throwback-kanna-f-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aw5ppifr/warrior-armor-decoration.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v2xhhi4x/sword-training-dummy.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tmxberpu/katana-maintenance-shelf.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mnlnri5z/alliance-of-the-dawn-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jgrbz14s/sengoku-warrior-label-ringchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5klls5wh/spirit-walker-rack.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zlfd14wo/kanna-scroll.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ufeodkde/hakus-face-mask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pu0ff0rt/shikigami-hangout-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2aogrwf0/sengoku-warriors-arch-shelf.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fk4livv2/traditional-kotatsu.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ddbg41m/sengoku-warrior-effect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vjbm4vlv/new-sengoku-warrior-hayato-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a4sd12io/new-sengoku-warrior-hayato-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ihrfszb0/new-sengoku-warrior-kanna-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ta4bbe1s/new-sengoku-warrior-kanna-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kh3lqp4o/white-haireye-hayato-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5v0hhbxc/white-haireye-hayato-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ew0jfqfi/white-haireye-kanna-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j4vdrbse/white-haireye-kanna-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0fonjshm/hanging-with-haku-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2qhb3jv2/sengoku-warrior-background.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/brgflqan/sakunoroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eyjb0s3g/sengoku-warrior-title.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1eb580efca441bf3991e866338b395425130977efbd1c89c830a787b3d7c90c0",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "secondary-weapon-conversion",
+    "fetched_at": "2026-07-20T02:49:05.085Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "35394",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-02-04.",
+          "Official category: events.",
+          "Nexon article ID: 35394."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Secondary Weapon Conversion",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-02-04",
+  "event_end": "2026-03-17T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

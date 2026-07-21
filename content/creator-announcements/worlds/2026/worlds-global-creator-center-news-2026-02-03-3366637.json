@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2026-02-03-3366637",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366637",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366637",
+  "external_id": "3366637",
+  "title": "Resource Removal Notice",
+  "original_title": "Resource Removal Notice",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-02-03T08:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Resource Removal Notice” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-02-03. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/c440bdbe-22e2-4137-a394-776ed921b89c/MSWGenericPostBanners740x120notice.png",
+      "alt": "Resource Removal Notice"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/2ff68b41-0a29-44b3-abc7-374472257b30/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3e39757b2253d52d64e67414ea658f2caa36f60321e5d46bd57242d5a0929317",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:22:45.762Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-02-03.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3366637."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

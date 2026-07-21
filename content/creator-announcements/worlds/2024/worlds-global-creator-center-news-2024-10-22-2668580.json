@@ -1,0 +1,82 @@
+{
+  "id": "worlds-global-creator-center-news-2024-10-22-2668580",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2668580",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2668580",
+  "external_id": "2668580",
+  "title": "Applications Closed - Creators Workshop [Updated Jan 3]",
+  "original_title": "Applications Closed - Creators Workshop [Updated Jan 3]",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2024-10-22T01:48:06.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Applications Closed - Creators Workshop [Updated Jan 3]” is an official creator announcement from MapleStory Worlds Creator Center News on 2024-10-22. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241017/601cfc48-dcb0-4836-807c-2481c8b685af/WGC1511241011CreatorWorkshopAnnouncementAssets740x120.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241017/d18ac853-f2c7-45ec-b149-93080751b838/creatorsFAQ.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "06e0ff52240613cf9cfa15a10ad4a20c49336467ca7ed992c62f43566ff646ef",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:34:33.205Z",
+    "headline_id": "3480",
+    "official_category": null,
+    "official_tags": [
+      "Creator",
+      "Program",
+      "Workshop"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2024-10-22.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2668580."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

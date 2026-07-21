@@ -18,8 +18,21 @@
     "canonical_template": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/{threadId}",
     "community_type": 5,
     "default_content_type": "creator-announcement",
+    "headline_type_map": {
+      "3477": "maintenance",
+      "3478": "maintenance"
+    },
     "mode": "worlds",
-    "page_size": 25
+    "page_size": 25,
+    "pagination": {
+      "strategy": "nexon-keyset",
+      "start": 1,
+      "page_size": 25,
+      "block_size": 25,
+      "pagination_type": "PAGING",
+      "include_sticky": true,
+      "sticky_page_size": 5
+    }
   },
   "official": true,
   "enabled": true,
@@ -32,5 +45,5 @@
   "last_checked": null,
   "last_success": null,
   "last_error": null,
-  "notes": "Verified on 2026-07-18 against the public English Creator Center listing and the same public read API used by the official page."
+  "notes": "Verified on 2026-07-20 against the public English Creator Center listing and its official public read API. The board reports 230 unique historical threads and exposes reproducible Nexon keyset pagination. Its one pinned thread is returned by both the sticky endpoint and its chronological list position, so the adapter merges it on page 1 and stable external-ID deduplication prevents a second record."
 }

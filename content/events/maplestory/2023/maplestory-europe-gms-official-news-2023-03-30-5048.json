@@ -1,0 +1,110 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-30-5048",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5048/find-pink-bean-one-two-three",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5048/find-pink-bean-one-two-three",
+  "external_id": "5048",
+  "title": "Find Pink Bean, One! Two! Three!",
+  "original_title": "Find Pink Bean, One! Two! Three!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-30T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Find Pink Bean, One! Two! Three!” is an official event notice from Global MapleStory Official News on 2023-03-30. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1asfpbkm/msw-6360-230327-find-pink-bean-banners-news-post-540x304.webp",
+      "alt": "Find Pink Bean, One! Two! Three!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3080/msw-6360-230327-find-pink-bean-banners-in-post-banner-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3125/pink-hairb.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3122/yeti-hairb.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3124/green-hairb.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2739/bean-green.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a50d229e2aa2067a173ece8a42c8a7b655a3ad82afc0f841aa20237c14a03db3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:44.448Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5048",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-30.",
+          "Official category: events.",
+          "Nexon article ID: 5048."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Find Pink Bean, One! Two! Three!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-04-01T00:00:00.000Z",
+  "event_end": "2023-04-03T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

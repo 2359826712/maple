@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-07-03-5151",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5151/maple-memo-jett-advancement-to-explorer-event-notice",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5151/maple-memo-jett-advancement-to-explorer-event-notice",
+  "external_id": "5151",
+  "title": "Maple Memo:  Jett Advancement to Explorer Event Notice",
+  "original_title": "Maple Memo:  Jett Advancement to Explorer Event Notice",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-07-03T17:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Maple Memo:  Jett Advancement to Explorer Event Notice” is an official news item from Global MapleStory Official News on 2023-07-03. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo:  Jett Advancement to Explorer Event Notice"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "474671232a4020433baf51e7225801f2bcde753c46bcde9bf1976b765432c752",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:34:38.077Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5151",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-07-03.",
+          "Official category: general.",
+          "Nexon article ID: 5151."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

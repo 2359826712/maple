@@ -1,0 +1,100 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2682696",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682696",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682696",
+  "external_id": "2682696",
+  "title": "[Adventure] Star Force Hunting Field",
+  "original_title": "[Adventure] Star Force Hunting Field",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "gameplay-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Adventure] Star Force Hunting Field” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "gameplay-guide",
+    "guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/d95ee351-cc66-4701-ba9b-c03d240328fc/image2024111911105323.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/79a42a46-8b1d-418d-8682-07bc2df1de40/image2024111911105324.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/d59864ec-33b7-4170-b815-55b3873d6fb5/image2024111911105325.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241119/c7c566c5-c6d8-40ae-a587-027ab5cd4130/image2024111911105326.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f4b15c791f542cced0af79afc7321677151b43125c35c534bf7b9a2519154e9d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T05:59:54.889Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: gameplay guide.",
+          "Nexon thread ID: 2682696."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

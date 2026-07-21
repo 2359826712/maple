@@ -1,0 +1,17 @@
+{
+  "threads": [
+    { "threadId": "9101", "boardId": "5289", "headlineId": "3296", "title": "Open-Ended Training Event", "summary": "Participate and earn rewards.", "tags": ["2026-07-01", "9999-01-01T23:59:59Z"], "createDate": 1782864000, "isSticky": true },
+    { "threadId": "9102", "boardId": "5289", "headlineId": "3296", "title": "Two-Stage Adventure", "summary": "Two independently scheduled stages.", "tags": [], "createDate": 1782777600, "isSticky": false },
+    { "threadId": "9103", "boardId": "5289", "headlineId": "3297", "title": "Summer Training Winner Announcement", "summary": "The final winners are listed.", "tags": [], "createDate": 1782691200, "isSticky": false },
+    { "threadId": "9104", "boardId": "5289", "headlineId": "3297", "title": "Summer Training Reward Distribution", "summary": "Existing event rewards have been distributed.", "tags": [], "createDate": 1782604800, "isSticky": false },
+    { "threadId": "9105", "boardId": "5289", "headlineId": "3296", "title": "Summer Training Schedule Change", "summary": "The existing event schedule changed.", "tags": [], "createDate": 1782518400, "isSticky": false },
+    { "threadId": "9106", "boardId": "5289", "headlineId": "3297", "title": "Summer Training Event Cancelled", "summary": "The event has been cancelled.", "tags": [], "createDate": 1782432000, "isSticky": false },
+    { "threadId": "9107", "boardId": "5289", "headlineId": "3296", "title": "Community Challenge Event", "summary": "Participation and rewards are confirmed; dates are not announced.", "tags": [], "createDate": 1782345600, "isSticky": false },
+    { "threadId": "9108", "boardId": "5289", "headlineId": "3296", "title": "Treasure Hunt", "summary": "The claim window differs from the event period.", "tags": ["2026-06-20", "2026-06-27T23:59:59Z"], "createDate": 1782259200, "isSticky": false }
+  ],
+  "totalElements": "11",
+  "totalPages": 2,
+  "numberOfElements": 8,
+  "blockStartKey": ["253402300799", "9223372036854775807"],
+  "blockStartNo": 1
+}

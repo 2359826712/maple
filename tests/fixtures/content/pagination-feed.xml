@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link rel="next" href="https://example.com/feed?page=2" />
+  <entry><id>101</id><title>Article 101</title><link href="https://example.com/news/101"/><published>2026-07-01T00:00:00Z</published></entry>
+</feed>

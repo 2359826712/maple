@@ -1,0 +1,52 @@
+[
+  {
+    "id": 35238,
+    "name": "Miracle Winter - January 31 - Shoes",
+    "liveDate": "2026-01-26T14:00:00Z",
+    "body": "<h2>Miracle Time - Shoes</h2><p>Event Duration: PST (UTC -8): Friday, January 30, 2026 4:00 PM - Saturday, January 31, 2026 3:59 PM CET (UTC +1): Saturday, January 31, 2026 1:00 AM - Sunday, February 1, 2026 12:59 AM</p>",
+    "expectedStart": "2026-01-31T00:00:00.000Z",
+    "expectedEnd": "2026-01-31T23:59:00.000Z"
+  },
+  {
+    "id": 35394,
+    "name": "Sengoku Warrior Revamp",
+    "liveDate": "2026-02-04T15:45:00Z",
+    "body": "<h2>Princess Sakuno's Support</h2><p>February 4 (after maintenance) - March 17 11:59 PM UTC</p>",
+    "expectedStart": "2026-02-04",
+    "expectedEnd": "2026-03-17T23:59:00.000Z"
+  },
+  {
+    "id": 36026,
+    "name": "February 2026 Hot Weeks!",
+    "liveDate": "2026-02-06T16:00:00Z",
+    "body": "<p>All giveaways start at 12:00 AM UTC on the noted day, and end at 12:00 AM UTC on the following day.</p><h2>Hot Week Rewards</h2><p>Monday, February 9, 2026; Tuesday, February 10, 2026; Saturday, February 21, 2026; Sunday, February 22, 2026.</p>",
+    "expectedStart": "2026-02-09T00:00:00.000Z",
+    "expectedEnd": "2026-02-23T00:00:00.000Z"
+  },
+  {
+    "id": 33968,
+    "name": "Twenteena's Adventure Day",
+    "liveDate": "2025-12-17T12:00:01Z",
+    "body": "<h2>Twenteena's Adventure Day</h2><p>Event Duration PST (UTC -8): Wednesday, December 17, 2025 (After Maintenance) - Tuesday, February 3, 2026 3:59 PM</p>",
+    "expectedStart": "2025-12-17",
+    "expectedEnd": "2026-02-03T23:59:00.000Z"
+  },
+  {
+    "id": 33950,
+    "name": "Ride or Die Returns! (December 2025)",
+    "liveDate": "2025-12-17T12:00:00Z",
+    "body": "<h2>Ride or Die</h2><p>Event Duration</p><ul><li>PST (UTC -8): Wednesday, December 17, 2025 (After Maintenance) - Tuesday, February 3, 2026 3:59 PM</li><li>CET (UTC +1): Wednesday, December 17, 2025 (After Maintenance) - Wednesday, February 4, 2026 12:59 AM</li></ul><h2>Ride or Die Coin Shop</h2><p>Coin Acquisition Period: December 17 (after maintenance) - February 3, 2026 11:59 PM UTC</p><p>Shop Availability: December 17 (after maintenance) - February 4, 2026 2:00 PM UTC</p>",
+    "expectedStart": "2025-12-17",
+    "expectedEnd": "2026-02-03T23:59:00.000Z",
+    "expectedShopStart": "2025-12-17",
+    "expectedShopEnd": "2026-02-04T14:00:00.000Z"
+  },
+  {
+    "id": 21136,
+    "name": "[Home] Halloween Event",
+    "liveDate": "2024-10-22T17:00:00Z",
+    "body": "<h2>Event Duration:</h2><p>PDT/PST (UTC -7/-8): Tuesday, October 22, 2024 5:00 PM PDT - Tuesday, November 5, 2024 3:59 PM PST</p>",
+    "expectedStart": "2024-10-23T00:00:00.000Z",
+    "expectedEnd": "2024-11-05T23:59:00.000Z"
+  }
+]

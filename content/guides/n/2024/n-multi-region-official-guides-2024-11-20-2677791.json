@@ -1,0 +1,96 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2677791",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677791",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677791",
+  "external_id": "2677791",
+  "title": "[Community] Messages",
+  "original_title": "[Community] Messages",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "system-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Community] Messages” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "guide",
+    "system-guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/14321b7c-0163-4f63-b81f-dc8a5e4d5025/image202411181726401.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/8578e35e-3d46-4eee-834b-9bed79dc9ad9/image202411181727112.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/e6531770-2c19-4bbc-ad35-7670c3e6fa67/image202411181727463.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b9d4eb29cbed817110f1a776d8ae71c0c92e813ce17856c3d0bda8941c138020",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:00:21.949Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: system guide.",
+          "Nexon thread ID: 2677791."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

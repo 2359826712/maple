@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-04-13-5069",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5069/resolved-temporarily-disabling-marvel-machine",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5069/resolved-temporarily-disabling-marvel-machine",
+  "external_id": "5069",
+  "title": "[Resolved] Temporarily Disabling Marvel Machine",
+  "original_title": "[Resolved] Temporarily Disabling Marvel Machine",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-04-13T12:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Resolved] Temporarily Disabling Marvel Machine” is an official news item from Global MapleStory Official News on 2023-04-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "[Resolved] Temporarily Disabling Marvel Machine"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "97b1ee114c117237a9feff0a121b9493e304c350c17d13999e471ed1b84fa0be",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:36:59.350Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5069",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-04-13.",
+          "Official category: general.",
+          "Nexon article ID: 5069."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

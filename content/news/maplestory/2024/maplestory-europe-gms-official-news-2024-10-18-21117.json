@@ -1,0 +1,115 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-18-21117",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/21117/updated-october-2024-community-contests-and-events",
+  "source_url": "https://www.nexon.com/maplestory/news/community/21117/updated-october-2024-community-contests-and-events",
+  "external_id": "21117",
+  "title": "[Updated] October 2024 Community Contests and Events",
+  "original_title": "[Updated] October 2024 Community Contests and Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-18T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated] October 2024 Community Contests and Events” is an official news item from Global MapleStory Official News on 2024-10-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zospcsre/210406_540x304_communitycontests.jpg",
+      "alt": "[Updated] October 2024 Community Contests and Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1056/1100x225-maplestory-community-contests.jpg",
+      "alt": "MapleStory Community Contests"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ohqpm53h/wgc-1515-241017-october-discord-contest-banners-fb-1200x400-v1.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m2ycjcyg/maplestorya_znlzvn2cci.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2pvdlqtx/mochi-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1d2c2qwa/wgc-1515-241017-october-discord-contest-banners-nightmar-on-maple-street-fb-1200x400.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vobezcqd/wogbkst.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n3ieh3yw/maplestorya_q6olgf4dsh.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/slmhlule/bubble.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lj2jkz3g/wgc-1515-241017-october-discord-contest-banners-main-character-make-ver-fb-1200x400.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xt0ddzg2/maplestorya_iuqwdcpt6v.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xeynostd/maplestorya_1v25tpzobv.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "02ed19d3a749aec2560d40a556c28861a47ad543ab262e391ca20e2a51534ef8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:44.933Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21117",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-18.",
+          "Official category: community.",
+          "Nexon article ID: 21117."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

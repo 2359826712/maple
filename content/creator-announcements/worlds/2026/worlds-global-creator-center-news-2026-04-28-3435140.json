@@ -1,0 +1,92 @@
+{
+  "id": "worlds-global-creator-center-news-2026-04-28-3435140",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3435140",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3435140",
+  "external_id": "3435140",
+  "title": "Creators’ Workshop Class 4 Worlds Are Now Live and Available to Play!",
+  "original_title": "Creators’ Workshop Class 4 Worlds Are Now Live and Available to Play!",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-04-28T18:18:42.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“Creators’ Workshop Class 4 Worlds Are Now Live and Available to Play!” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-04-28. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260428/9bde0ed6-240c-43d2-b5bd-25a10c6ff650/MSWGenericPostBanners740x120notice.png",
+      "alt": "Creators’ Workshop Class 4 Worlds Are Now Live and Available to Play!"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260427/1f9f82db-18b1-4613-a603-737a1b5e0355/image202604271608036.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260427/af2e5bd3-9562-436a-95e4-57f0f4b45fe5/image202604271607451.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260427/3bc1d4c6-919d-4fff-a820-47cc36640bdf/image202604271607462.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260427/f909f726-99f1-4b66-a003-dceadbc35715/image202604271607463.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260427/05f4f40e-3456-49c3-a33d-46af369e82ab/image202604271607464.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260427/c41f88d7-9431-496f-9a81-50c03b67a6f4/image202604271607465.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8c569f82aa2aa66ca4c7be0e25f35a999053b3e32d60696d523f4a6cb20ff8a8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:49.267Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-04-28.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3435140."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

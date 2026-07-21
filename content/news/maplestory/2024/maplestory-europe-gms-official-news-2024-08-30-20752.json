@@ -1,0 +1,91 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-30-20752",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/20752/check-out-the-august-2024-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/20752/check-out-the-august-2024-art-corner",
+  "external_id": "20752",
+  "title": "Check Out the August 2024 Art Corner",
+  "original_title": "Check Out the August 2024 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-30T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the August 2024 Art Corner” is an official news item from Global MapleStory Official News on 2024-08-30. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qygf2dpm/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
+      "alt": "Check Out the August 2024 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rjaii2jn/laikari-laikari-s.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://cdn.discordapp.com/attachments/1269653158339022899/1269653159333330951/aoinbeab465hb_.png?ex=66d31f26&hm=e1931bc15d1afe6e3885146e939148e7aa82015f2ac3b0fdfba71487202867fe&is=66d1cda6",
+      "alt": null
+    },
+    {
+      "url": "https://cdn.discordapp.com/attachments/1275289150161158266/1275289153713606707/damien_2flip.png?ex=66d330d3&hm=28fa55dec196979902fcee6992b1887dd3755c9ddfd60d288ab13d2453815e78&is=66d1df53",
+      "alt": null
+    },
+    {
+      "url": "https://cdn.discordapp.com/attachments/1276494602781720607/1276494603436163072/IMG_20240823_025244163.jpg?ex=66d2f63d&hm=6425dda6c64b57a059582de663e8d6d8d0b40acb37395941d2597ffbac27ef67&is=66d1a4bd",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e86708bc000d5e0cd449e2b1e3651430b9b81ce0f2f9b77090e9e59299ded01d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:20:06.146Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20752",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-30.",
+          "Official category: community.",
+          "Nexon article ID: 20752."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

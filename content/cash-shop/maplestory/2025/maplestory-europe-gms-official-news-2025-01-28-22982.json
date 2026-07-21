@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-01-28-22982",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/22982/updated-investigation-of-cash-shop-crashes-january-28-2025",
+  "source_url": "https://www.nexon.com/maplestory/news/general/22982/updated-investigation-of-cash-shop-crashes-january-28-2025",
+  "external_id": "22982",
+  "title": "[Updated] Investigation of Cash Shop Crashes - January 28, 2025",
+  "original_title": "[Updated] Investigation of Cash Shop Crashes - January 28, 2025",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-01-28T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Updated] Investigation of Cash Shop Crashes - January 28, 2025” is an official Cash Shop notice from Global MapleStory Official News on 2025-01-28. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "general"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/50zmucev/120516_540x304_generic_news_6410.webp",
+      "alt": "[Updated] Investigation of Cash Shop Crashes - January 28, 2025"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "566bd5155ff43171cffa1879d96a55189bbc155cdb3db220e6d6827d8f3b632e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:10:23.161Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22982",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-01-28.",
+          "Official category: general.",
+          "Nexon article ID: 22982."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

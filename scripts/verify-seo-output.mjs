@@ -4,13 +4,17 @@ import { fileURLToPath } from 'node:url';
 
 export async function verifySeoOutput() {
 const output = new URL('../out/', import.meta.url);
-const [robots, sitemap, index, localizedGuide, privateAccount, iconStats, socialImageStats, assetNames] = await Promise.all([
+const [robots, sitemap, index, localizedGuide, privateAccount, iconStats, faviconStats, faviconPngStats, appleIconStats, manifest, socialImageStats, assetNames] = await Promise.all([
   readFile(new URL('robots.txt', output), 'utf8'),
   readFile(new URL('sitemap.xml', output), 'utf8'),
   readFile(new URL('index.html', output), 'utf8'),
   readFile(new URL('guides/zh/KMS/index.html', output), 'utf8'),
   readFile(new URL('account/en/GMS/index.html', output), 'utf8'),
   stat(new URL('mpstorys-icon-128.jpg', output)),
+  stat(new URL('favicon.ico', output)),
+  stat(new URL('favicon-48x48.png', output)),
+  stat(new URL('apple-touch-icon.png', output)),
+  readFile(new URL('site.webmanifest', output), 'utf8'),
   stat(new URL('og.png', output)),
   readdir(new URL('assets/', output)),
 ]);
@@ -34,7 +38,10 @@ const assertions = [
   [index.includes('link rel="canonical"'), 'index.html is missing a canonical link'],
   [index.includes('meta name="keywords"'), 'index.html is missing website keywords required by the Readdy SEO configuration'],
   [index.includes('link rel="icon" type="image/jpeg" sizes="128x128" href="https://mpstorys.com/mpstorys-icon-128.jpg"'), 'index.html is missing the stable domain-level JPG favicon'],
-  [index.includes('link rel="apple-touch-icon" sizes="128x128" href="/mpstorys-icon-128.jpg"'), 'index.html is missing the Apple touch icon'],
+  [index.includes('link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"'), 'index.html is missing the conventional ICO favicon'],
+  [index.includes('link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"'), 'index.html is missing the 48px PNG favicon'],
+  [index.includes('link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"'), 'index.html is missing the Apple touch icon'],
+  [index.includes('link rel="manifest" href="/site.webmanifest"'), 'index.html is missing the web app manifest'],
   [index.includes('meta property="og:image:secure_url"') && index.includes('link rel="image_src"'), 'index.html is missing complete website image metadata'],
   [socialImageStats.size > 0, 'og.png is missing or empty'],
   [localizedGuide.includes('type="application/ld+json" data-seo-schema="route"'), 'localized route HTML is missing static JSON-LD'],
@@ -46,6 +53,8 @@ const assertions = [
   [localizedGuide.includes('https://mpstorys.com/guides/zh/KMS#webpage'), 'structured data URL does not match the canonical localized URL'],
   [privateAccount.includes('noindex, nofollow') && !privateAccount.includes('type="application/ld+json"'), 'private route SEO directives are incorrect'],
   [iconStats.size > 0 && iconStats.size < 20 * 1024, `mpstorys-icon-128.jpg is ${iconStats.size} bytes; it must be non-empty and under 20 KB`],
+  [faviconStats.size > 0 && faviconPngStats.size > 0 && appleIconStats.size > 0, 'one or more favicon assets are empty'],
+  [manifest.includes('/icon-192.png') && manifest.includes('/icon-512.png'), 'site.webmanifest is missing PWA icons'],
   [oversizedScripts.length === 0, `JavaScript chunks exceed 500 KB: ${oversizedScripts.map(({ name, size }) => `${name} (${size} bytes)`).join(', ')}`],
 ];
 

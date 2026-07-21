@@ -1,0 +1,136 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2677807",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677807",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677807",
+  "external_id": "2677807",
+  "title": "[Community] Guild",
+  "original_title": "[Community] Guild",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "system-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Community] Guild” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "guide",
+    "system-guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/3fb74d7b-0259-41b9-9c4a-2c3275c6b9e4/image2024111817374115.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/0746e413-0a70-4f60-8d20-db9309658a59/image2024111817374616.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/84c49e1b-8fbc-4b83-b24f-4a95eb0288c1/image2024111817382717.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/3a46c316-2ab5-46aa-84e0-21b6a61d50eb/image2024111817390418.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/58ec4f4d-3b6f-4a6e-8c19-be9a262269ff/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/297f8c01-6a82-4f55-93c7-a79afbfc0bdc/image2024111817421620.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/b7eb0fd7-7204-43b7-be71-2f76bdebea8f/image2024111817425721.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/ff6fad96-b3a0-46a1-8fc5-9a0aa081c7dd/image2024111817433922.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/6e260a62-7be5-42c4-a2aa-2e5f64cdfb69/image2024111817435423.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/2681c8fb-d643-45ff-9c1e-11d72a48b86a/image2024111817442024.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/a7b03594-0b98-4d97-9f06-f324b9ee0a06/image2024111817443825.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/4a85d1ab-7922-4c9b-8788-dafdf3929def/image2024111817443826.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/c32819ec-c93d-4547-aabb-84a3a8480e0e/image2024111817450627.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f59fc4699846d9b5b88424bcb53a98e472bd95b457950742bdae28f9d92fc98e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:00:09.867Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: system guide.",
+          "Nexon thread ID: 2677807."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

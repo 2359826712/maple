@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-22-16223",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16223/magical-miracle-time-na-reboot-world",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16223/magical-miracle-time-na-reboot-world",
+  "external_id": "16223",
+  "title": "Magical Miracle Time Registration - NA Reboot World",
+  "original_title": "Magical Miracle Time - NA Reboot World",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-22T19:35:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Magical Miracle Time Registration - NA Reboot World” is an official event notice from Global MapleStory Official News on 2022-12-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q2/2193/1100x225-magical-miracle-time-reboot-july-2022-maplestory.jpg",
+      "alt": "MapleStory Magical Miracle Time Reboot"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q2/2175/magical-miracle-time-registration-ticket-maplestory-reboot-world.png",
+      "alt": "Magical Miracle Time Registration MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q4/2052/double-miracle-time-cubes-maplestory-reboot.png",
+      "alt": "Magical Miracle Time Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "fcf83000293917bcf9715306ea5d5dc273471fc5f1caaac304fe839d0e4460f1",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:40:44.818Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16223",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-22.",
+          "Official category: events.",
+          "Nexon article ID: 16223."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Magical Miracle Time Registration - NA Reboot World",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2022-12-28T00:00:00.000Z",
+  "event_end": "2022-12-31T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

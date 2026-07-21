@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-07-20949",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/20949/customize-your-maplestory-fest-2024-character-card",
+  "source_url": "https://www.nexon.com/maplestory/news/community/20949/customize-your-maplestory-fest-2024-character-card",
+  "external_id": "20949",
+  "title": "Customize Your MapleStory Fest 2024 Character Card!",
+  "original_title": "Customize Your MapleStory Fest 2024 Character Card!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-07T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Customize Your MapleStory Fest 2024 Character Card!” is an official news item from Global MapleStory Official News on 2024-10-07. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/y1xaq0op/240903-msf-2024-key-art-resizing-news-post-540x304.jpg",
+      "alt": "Customize Your MapleStory Fest 2024 Character Card!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/egnbkngq/240903-msf-2024-key-art-resizing-in-post-banner-1100x305.jpg",
+      "alt": "MapleStory Fest 2024"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kgmc1cns/1920x1080-character-card-preview-maplestory-fest-2024.png",
+      "alt": "MapleStory Fest 2024 Character Cards"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d304e88a1fc16210f9965b8d728abf30bf10f3ad2d77b5e6801576febd867e67",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:19:05.977Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20949",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-07.",
+          "Official category: community.",
+          "Nexon article ID: 20949."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

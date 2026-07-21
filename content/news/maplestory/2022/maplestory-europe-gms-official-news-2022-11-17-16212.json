@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-17-16212",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16212/maplestory-fest-2022-recap",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16212/maplestory-fest-2022-recap",
+  "external_id": "16212",
+  "title": "MapleStory Fest 2022 Recap",
+  "original_title": "MapleStory Fest 2022 Recap",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-17T12:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory Fest 2022 Recap” is an official news item from Global MapleStory Official News on 2022-11-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1297/1100x225-maplestory-fest-2022.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1753/maplestory-fest-2023-collage.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "15dea58055bda3012c65ba0848343f0e7e9763dc13c4a09d36e81689e480855b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:21.045Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16212",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-17.",
+          "Official category: community.",
+          "Nexon article ID: 16212."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-06-09-41253",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/41253/custom-portrait-notice",
+  "source_url": "https://www.nexon.com/maplestory/news/general/41253/custom-portrait-notice",
+  "external_id": "41253",
+  "title": "Custom Portrait Notice",
+  "original_title": "Custom Portrait Notice",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-09T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:50:14.015Z",
+  "last_checked": "2026-07-20T01:50:14.015Z",
+  "summary": "“Custom Portrait Notice” is an official news item from Global MapleStory Official News on 2026-06-09. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Custom Portrait Notice"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ooxcsfml/blob.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sdlouwqo/blob.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0uonnels/blob.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a33fatni/6e3774f0d95d452f8dbef20ff7409614.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qvtm5uhz/aface54bb3439ebc84ee8a0a514773ed.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xccfqswc/084902f9bc85d5436568e43f90f7a53a.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "28704bafd751e6b55252a2a9589f55a34e1bd113be670a12c86070d4b9f2ab56",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:51:40.154Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "41253",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-06-09.",
+          "Official category: general.",
+          "Nexon article ID: 41253."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

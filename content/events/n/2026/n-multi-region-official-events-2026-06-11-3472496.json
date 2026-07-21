@@ -1,0 +1,112 @@
+{
+  "id": "n-multi-region-official-events-2026-06-11-3472496",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3472496",
+  "source_url": "https://msu.io/maplestoryn/news/events/3472496",
+  "external_id": "3472496",
+  "title": "[Hyper Summer] Special Weekend",
+  "original_title": "[Hyper Summer] Special Weekend",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-11T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Hyper Summer] Special Weekend” is an official event notice from MapleStory N Official Events on 2026-06-11. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/3b049275-02e4-4c62-aaf7-38e32ea24d10/ExportMSNEVENTThumb.png",
+      "alt": "[Hyper Summer] Special Weekend"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/c80e8f0f-4e6d-46a9-8004-a74521da2857/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/bce828d0-834c-4e7e-b84c-7d806b369fe3/image2026061018105261.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/254b61b6-0449-43ec-9bcf-117e602387cb/image2026061018105262.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/a51a5791-1b47-494b-ad0c-9c811c2aa56e/image2026061018105263.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6aab1a6f326445bae749a9d7028ca8299841d3b0f93bca503d40e017bff39834",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:04:15.313Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-06-11",
+      "2026-08-16T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-11.",
+          "Official classification: event.",
+          "Nexon thread ID: 3472496.",
+          "Confirmed event period: 2026-06-11 through 2026-08-16T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Summer] Special Weekend",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-11",
+  "event_end": "2026-08-16T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

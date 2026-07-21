@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-07-10-5159",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5159/miracle-summer-july-15-primary-weapons-secondary-equipment",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5159/miracle-summer-july-15-primary-weapons-secondary-equipment",
+  "external_id": "5159",
+  "title": "Miracle Time - Primary Weapons/Secondary Equipment",
+  "original_title": "Miracle Summer - July 15 - Primary Weapons/Secondary Equipment",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-07-10T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Miracle Time - Primary Weapons/Secondary Equipment” is an official event notice from Global MapleStory Official News on 2023-07-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/icrn5ojz/540x304-miracle-summer-primary-weapons-secondary-maplestory.webp",
+      "alt": "Miracle Summer - July 15 - Primary Weapons/Secondary Equipment"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1029/1100x225-miracle-summer-primary-weapons-secondary-maplestory.jpg",
+      "alt": "Miracle Summer Primary Weapons Secondary MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2349/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Summer Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "54bd11026748a957a9e1e5af32aefc062120bbec58d62bfb0ea3eb766230ec6e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:34:26.127Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5159",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-07-10.",
+          "Official category: events.",
+          "Nexon article ID: 5159."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Primary Weapons/Secondary Equipment",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-07-15T00:00:00.000Z",
+  "event_end": "2023-07-15T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

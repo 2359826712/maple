@@ -1,0 +1,107 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-04-24-40288",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/40288/inkwell-s-note-summer-is-coming",
+  "source_url": "https://www.nexon.com/maplestory/news/general/40288/inkwell-s-note-summer-is-coming",
+  "external_id": "40288",
+  "title": "INKWELL'S NOTE: SUMMER IS COMING",
+  "original_title": "INKWELL'S NOTE: SUMMER IS COMING",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-04-24T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“INKWELL'S NOTE: SUMMER IS COMING” is an official news item from Global MapleStory Official News on 2026-04-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/cunjwklm/website-news-post-540x304-inkwells-note-summer-is-coming-april-2026-maplestory.png",
+      "alt": "INKWELL'S NOTE: SUMMER IS COMING"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dclhjk30/01-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4clfhxgu/03-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zkjpndta/04-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/inofdvx5/05-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/41yjrj22/06-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/elwn3cxt/07-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qi1lwuiv/08-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1rulq0dp/09-inkwells-note-summer-is-coming-april-2026-maplestory.jpg",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ey3fadmg/10-inkwells-note-summer-is-coming-april-2026-maplestory.png",
+      "alt": "Inkwell's Note Summer is Coming April 2026 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3fce9d1ecabc2183a63b11a3b9300c0f2c540da6a8cf1b422130816e94a29314",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:46:43.717Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "40288",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-04-24.",
+          "Official category: general.",
+          "Nexon article ID: 40288."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

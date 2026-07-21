@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-22-21136",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/21136/home-halloween-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/21136/home-halloween-event",
+  "external_id": "21136",
+  "title": "[Home] Halloween Event",
+  "original_title": "[Home] Halloween Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-22T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Home] Halloween Event” is an official event notice from Global MapleStory Official News on 2024-10-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/k3dffntv/540x304-home-halloween-event-maplestory.jpg",
+      "alt": "[Home] Halloween Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qwfjrgv0/1100x225-home-halloween-event-maplestory.jpg",
+      "alt": "Home Halloween Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/clpfsxsp/maplestory-halloween-home-event-halloween-manor.png",
+      "alt": "Halloween Manor Home Halloween Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/flbft5uc/maplestory-halloween-home-event-furnishing1.png",
+      "alt": "Large Halloween Furnishing Pack Home Halloween Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yxsdzots/maplestory-halloween-home-event-furnishing2.png",
+      "alt": "Small Halloween Furnishing Pack Home Halloween Event MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e452112e66edc4a4b18a497eb9f862b945da2bcabee4d539be9176396ce62278",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:41.921Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21136",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-22.",
+          "Official category: events.",
+          "Nexon article ID: 21136."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Home] Halloween Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-10-23T00:00:00.000Z",
+  "event_end": "2024-11-05T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,1066 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-12-16-33938",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/33938/updated-1-12-v-265-every-little-thing-every-precious-thing-2nd-update-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/33938/updated-1-12-v-265-every-little-thing-every-precious-thing-2nd-update-patch-notes",
+  "external_id": "33938",
+  "title": "[Updated 1/12] v.265 - Every Little Thing Every Precious Thing 2nd Update Patch Notes",
+  "original_title": "[Updated 1/12] v.265 - Every Little Thing Every Precious Thing 2nd Update Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-12-16T16:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“[Updated 1/12] v.265 - Every Little Thing Every Precious Thing 2nd Update Patch Notes” is an official patch note from Global MapleStory Official News on 2025-12-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qg5jcufn/251215-v265patchnotes_wgc-2668-540x304.jpg",
+      "alt": "[Updated 1/12] v.265 - Every Little Thing Every Precious Thing 2nd Update Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/02tjqbrx/251215-v265patchnotes_wgc-2668-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/flrluhkf/silent-cleave.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ebme1fub/hero.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5l2msnxu/dark-halidom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d1ppffmk/dark-knight.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zmlhm4c1/dominus-obrion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/snnjcwd0/paladin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0yyhunvi/torrential-flame.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3x0jfgf2/arch-mage-fire-poison.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sf4idlem/parabolic-volt.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ckvd3t0k/arch-mage-ice-lightning.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uc5g2weg/command-of-heaven.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aipckgsu/bishop.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/taulsjmw/point-zero.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qxqbpymi/bowmaster.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mlkcb3td/fatal-trigger.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/klmngdr0/marksman.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yobgifav/relic-penetration.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kzhlkrjn/pathfinder.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qnnp2rcb/crucial-assault.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u1cdyykh/night-lord.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w0rmmcft/authentic-darkness.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4uonoevz/shadower.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5u1ebrlr/yamaz-decree.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/grnjdaat/dual-blade.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bsbhaowh/haymaker.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j4ges3nx/buccaneer.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zsrffx2p/firecracker.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p0xhk5ha/corsair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/42aghhlz/barrel-of-monkeys.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ludozfaq/cannoneer.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oizfl1rt/knight-immortals.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bamdbfxx/mihile.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rcilrnir/totality.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dxjf0cg1/dawnwarriro.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xjtfnfij/flame-concerto.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f3dpggep/blaze-wizard.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cm2hsjqt/element-tempest.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kq4j232d/wind-archer.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xjsldmuy/stygian-command.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nh4jlp2f/night-walker.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ivvh5tvh/flash-storm-annihilation.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ijubi1sl/thunder-breaker.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ym4oem2p/frost-bluster.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2zcjxljg/aran.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/al5luncq/union-drive.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zrkpusof/evan.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zaleib4b/lustrous-orb.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kdjav5cd/luminous.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bxqexhrz/elemental-spirit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5asnrs0i/mercedes.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ctwisgt5/moonlit-serenade.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1txl2yl2/phantom.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u4xldaih/eternal-transcendence.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hurlefcv/shade.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h0jpjlow/vanguard-impact.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wmgjaact/blaster.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tjedi1bv/gloomy-aura.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ovkhmce3/battle-mage.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kpgjhifg/gear-storm.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hsdetx41/wild-hunter.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hesprwhw/neoteric-trice.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wbzdaysk/xenon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ws4hkamn/metal-armor-extermination.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kcphxzib/mechanic.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qoghtpto/pyro-instinct.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5mehq35d/kaiser.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ruvji3o3/possess-malicious-flicker.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nxrju5oh/kain.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f4sevp0f/brutal-ravage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1tcjukh1/cadena.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p0ch2dtl/genuine-encore.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p2vlmkld/angelic-buster.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5papky0w/einheit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dwvd2baa/adele.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5qppub3a/excidium.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qohmnevy/illium.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fylf2zhc/void-awake.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4z3fkum4/khali.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0ielfhpw/whisper-of-the-absolute-abyss.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/apcpg1qz/ark.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vdbhvvpx/sky-splitting-azure-dragon-sword-falling-plum-blossom-petal-heavenly-rain-humanity-desolation.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/va0jjnhg/ren.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gtkax4lp/overflow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5akhv0ut/lara.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/exxatlmm/heavenly-world-swing-spirit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ioftgf4/hoyoungg.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3noombkk/amethystine-intrusion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ddkpiy34/demon-slayer.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zsfjgoad/rageborne-daredevil.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jo5dh3tz/demon-avenger.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/drvdxllu/bitemporis.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x31jkx2c/zero.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bccbswwz/fractal-horizon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wpmh0cje/kinesis.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x3rn5pgw/epicpotential.png?height=45&rmode=max&width=29",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xf4pndqz/mystic-frontierpotentials.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5zmfc3hv/interactive-exploration.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qxnd21oc/hunting-normal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xhib5m0s/hunting-intermediate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cr3jehvb/hunting-advanced.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fgxhjdsr/encounter-normal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w3lebta1/encounter-intermediate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ptslhfbn/encounter-advanced.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/st0fjy50/lucky-normal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/niohmrhe/lucky-intermediate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/myrlzb4n/lucky-advanced.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/asxmaopn/roro-nodestone.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zr0b0e5b/photoshop_zwpkzzmdqw.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5xfjcnsr/mystical-familiar-ring-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qnvh1o5d/hard-familiar-ring-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o2wlyr40/solid-familiar-ring-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j0cizz0n/glowing-familiar-ring-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ocifg5cz/bright-familiar-ring-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/el4ct4do/roros-experience-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kt1crnof/roros-experience-ring-skill.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c21mfone/roros-hunting-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0vrp0vyc/roros-hunting-ring-skill.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2efksomp/roros-thunder-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5hdpakf5/roros-thunder-ring-skill.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f0zgnr2t/photoshop_9ngdwid4bm.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pqodxazu/roro-energy-boost-potion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j4ppaf1a/small-roro-energy-boost-potion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lizna4vx/chaos-pitched-accessory-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nqjlkgtg/damaged-black-heart-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/raagpngb/resonant-dawn-accessory-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ouiht3gl/first-ad.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yl2lapre/maplestorya_h4cakznxzn.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y43pd24q/roid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xmlpc0cw/echo-of-ancient-resolve.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c5yc4qby/ancient-eternal-armor-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eubedwlh/exceptional-hammer-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xejnlmkn/first-adversarys-soul-shard.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hs3nmpxf/beefy-hearty-first-adversarys-soul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w4jbsjma/magnificent-first-adversarys-soul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ymqpakp4/shower-of-greatswords.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rq5j3tb2/arrow-cloudburst.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wa2igqmb/where-wills-meet.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ttiejwjt/permanent-legendary-adversary-mount-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n1lhxnkc/legendary-adversary-effect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hmhnjgo4/first-adversary-chat-and-label.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r4xjlb3q/enduring-will.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ak4ec5gj/adversarys-tribune.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tjnjlbkh/proving-ground-background.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/okbh0k04/adversarys-head-decoration.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2szpcltr/lotus-blackmage.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0gfigc2b/seren.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2yuaa15a/window11efficiencymode.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qujpry0i/rod-ui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yppfvtlt/rodchallenges.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lcsho04w/investigationreport.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i42hc4q3/charges.png?height=272&rmode=max&width=599",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wrvhrpzi/rodobject.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xnvdc3ht/weeklytotalscore.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/efeboo35/inspectors-grindstone-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r00jknyi/maplestorya_mfwwtpvwkm.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zkklryyq/altheatransformationpotion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ru2ozmty/prototype-ring-sample-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dsnlsrrr/ride-or-die-mysterious-cave-background.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjacadwe/ride-or-die-kazaxs-altar-background.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nlxoqw5v/inspectorweapon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rf1j12m2/rodlegionblock.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bkbeezlo/roddamageskin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3k4lhgws/maplemas-light-hairband.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3vzb1ohr/hair-pin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lnlbnphc/wreathe.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ulgje32b/lovely-maple.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i4zp1y53/maplemas-bell.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xy0lgzc3/santa-girl-hat.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xnto3gfg/santa-boy-hat.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kbifdpux/santa-girl-overall.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3g1lwgif/santa-boy-overall.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fhumcs3g/santa-girl-boots.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/myhcm3nd/santa-boy-boots.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/guclndyz/snowman-mask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/untg4hab/snowman-costume.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/djhl5snb/snowman-gloves.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ntidq2rz/winterberry-snowman-hat.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rtffecof/heart-shaped-fur-coat.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k14jdbka/santa-beard.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t3td2vjh/rudi-hat.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i5zjpkid/rudi-outfit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3pdjkly2/ball-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2mplgrxl/stocking-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/seboyugg/gold-ball-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/emdo5znm/gold-stocking-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mxmlvz5g/star-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qcofgtgs/pb-snowball-fight.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y20jd22f/yeti-snowball-fight.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tmrj1jyb/evernium.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e4dbze0w/shining-oasis.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/se2dlivw/sosoris-scroll.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/twdnh0hn/alpaca-merchant-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lcpjisaa/maplestorya_3cstqff9qv.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dinjkhpe/evernian-trade-king-effect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0pwfwri3/evernia-in-bloom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fe0mldku/blooming-evernia-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dspb5pe0/maplestorya_lleotzfe8f.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aejaw23y/wakingpoweroftime.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lhylfflm/hourglass.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1mwfro5s/maplestorya_n6z6ylczvn.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hgrnuq2i/twilight-eve-damage-skin-unit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3aengy3w/hourglass-of-time.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e2hfbqqo/twilight-eve-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tl1ferrd/riyaroid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xvnlfton/traditional-evernian-set-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3p2g3ihj/twilight-altar-custom-background.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c4wdonm0/character-select-twilight-theme-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ejheqnb2/ginseng.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jzzftjdh/licorice.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4appfvup/bloomherbui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x3zpka1r/challenger-coin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zpilc5qf/advanced-challenger-coin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ntzfddrk/eternal-flame-title-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2xedey50/cw2bronze.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wh1hbioi/cw2silver.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ht5lklsf/cw2gold.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r2odfmvc/cw2platinum.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/miug3oua/cw2emerald.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5djjd104/cw2diamond.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bzhnr1ba/battlefield-valkyrie-set-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tculawpd/cw2master.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oevl0x5k/cw2challenger.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mxslxuzv/arcane-seal-ui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b4seg4h4/using-sealing-wand-animation.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mfthko1g/maplestorya_dtytcefmmu.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mztfq405/maplestorya_4kfdiwdpgb.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nsynevgz/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o0hj153k/burning-flames-wings.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/slaojv2y/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pprmsddp/twenteenas-friend-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ua1dngjw/planet-twent-exercise-ball.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ac1n1k1c/planet-twent-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dcgop1es/twenteenas-treasure.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pqyf2oyj/twenteenas-helmet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gpljkogp/twentoonas-aquarium.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xq4jxstb/twenteenas-rocket-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kgfnonas/twenteenas-calendar.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ebvbsyhb/maplestorya_dqgt5smwj9.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3aycundj/genesispass.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/phaooeb3/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a0lh3uhr/weekend-hangout-sneakers.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uqbhfk5j/weekend-hang-out-snacks.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bulntxwt/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qtgewjvx/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gkphd5v1/luxesaunacoupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/riwmq02i/luxesaunaroom.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9fc4bf9d1408d3781396c61458ef898a4ae389dbecc4daea77645d92a428db35",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:50:50.345Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "33938",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-12-16.",
+          "Official category: update.",
+          "Nexon article ID: 33938."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2025-12-16T16:40:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

@@ -1,0 +1,152 @@
+{
+  "id": "n-multi-region-official-events-2025-10-23-3192303",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3192303",
+  "source_url": "https://msu.io/maplestoryn/news/events/3192303",
+  "external_id": "3192303",
+  "title": "Spark Event",
+  "original_title": "Spark Event",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-10-23T02:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:40:41.416Z",
+  "last_checked": "2026-07-20T07:40:41.416Z",
+  "summary": "“Spark Event” is an official event notice from MapleStory N Official Events on 2025-10-23. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/5f8ec831-24e8-4649-8c7f-e7598693e4f9/MSNEventThumbBN.png",
+      "alt": "Spark Event"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/d96302ea-09a6-4c38-812b-6ff7964e7f76/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/25198394-c0b0-4233-a7c5-2a42382598a5/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/43f7bef0-08b5-4fbc-9962-30202fa2f6cf/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/d6b4175a-bf3b-40a1-8ae1-ef779716f54b/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/a27ee2e8-56cc-4920-ab29-d77b44afc926/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/6a7634b1-6657-4174-a15d-0504c921eb99/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/35cc46d5-29cb-47a9-9bf0-32d34ec10cef/image202510230720581.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/ee163b77-c26f-4739-8a75-70feb41955d4/image202510230723322.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/a898f990-1352-41d0-8137-e078064f2cd8/image202510230723323.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/90894ed8-37fe-4e08-8a2f-f5914a9e3c7a/image202510230723324.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/10d1b7a7-ef91-4958-a16f-6b23a80775d3/image202510230723325.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/101e42dc-393b-4fa8-ba59-b405e4befbfd/image202510230723326.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251022/d22486e8-1c39-4b5a-af93-5c1c56f638e7/image202510230723327.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0d3cb14f1af1cc05cde88bc0a9d3d2b3b383925cf9c54c77c894ac5a4df0a834",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:43:51.701Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2025-10-23",
+      "2025-11-19T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-10-23.",
+          "Official classification: event.",
+          "Nexon thread ID: 3192303.",
+          "Confirmed event period: 2025-10-23 through 2025-11-19T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Spark Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-10-23",
+  "event_end": "2025-11-19T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2026-01-27-3359028",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3359028",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3359028",
+  "external_id": "3359028",
+  "title": "MapleStory Worlds Maker 2026 Roadmap",
+  "original_title": "MapleStory Worlds Maker 2026 Roadmap",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-01-27T00:58:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“MapleStory Worlds Maker 2026 Roadmap” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-01-27. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260126/d94b8298-6aa8-43d8-b1e7-5fc2c0219058/MSWGenericPostBanners740x120notice.png",
+      "alt": "MapleStory Worlds Maker 2026 Roadmap"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260124/1c38fbe8-fa2d-41ca-8ebb-c3c8b95b1202/image202601231656046.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6d7616aa2a1dee6bdc4d68e0783913a8b64ee4742d62ceef668bd622042b5ae1",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:23:03.778Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-01-27.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3359028."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-01-11-4961",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4961/the-kartrider-drift-preseason-begins",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4961/the-kartrider-drift-preseason-begins",
+  "external_id": "4961",
+  "title": "The KartRider: Drift Preseason Begins!",
+  "original_title": "The KartRider: Drift Preseason Begins!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-01-11T19:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The KartRider: Drift Preseason Begins!” is an official news item from Global MapleStory Official News on 2023-01-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/mgdoc4o4/ms-540x304-kartrider-drift-preseason-begins.webp",
+      "alt": "The KartRider: Drift Preseason Begins!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1025/ms-1100x225-kartrider-drift-preseason-begins.jpg",
+      "alt": "KartRider: Drift Preseason Begins"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "679e9dd7c54ce5be99a6736e2f38a268ef6ac8f7954cb703db7d9a206eaf9355",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:40:15.041Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4961",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-01-11.",
+          "Official category: general.",
+          "Nexon article ID: 4961."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-21-18333",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/18333/maplestory-m-on-pc",
+  "source_url": "https://www.nexon.com/maplestory/news/general/18333/maplestory-m-on-pc",
+  "external_id": "18333",
+  "title": "MapleStory M on PC",
+  "original_title": "MapleStory M on PC",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-21T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory M on PC” is an official news item from Global MapleStory Official News on 2024-08-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/vhuds4x3/540x304-maplestory-m-on-pc.jpg",
+      "alt": "MapleStory M on PC"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/luchqg4z/1100x225-maplestory-m-on-pc.jpg",
+      "alt": "MapleStory M on PC"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b0da6e70ffa67cb79a24c8c1e7424d8be46c8eebd8299e081ce389e6065c483f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:20:33.173Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "18333",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-21.",
+          "Official category: general.",
+          "Nexon article ID: 18333."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

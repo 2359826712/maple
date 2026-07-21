@@ -1,0 +1,144 @@
+{
+  "id": "n-multi-region-official-events-2026-07-02-3485219",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3485219",
+  "source_url": "https://msu.io/maplestoryn/news/events/3485219",
+  "external_id": "3485219",
+  "title": "[Hyper Summer] Tropical Adventure",
+  "original_title": "[Hyper Summer] Tropical Adventure",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Hyper Summer] Tropical Adventure” is an official event notice from MapleStory N Official Events on 2026-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/1ccedf16-2c41-4814-af69-dedf4c134ec8/ExportMSNEVENTThumb.png",
+      "alt": "[Hyper Summer] Tropical Adventure"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/ed901590-8235-41bc-a24a-9a3e1faf2ec8/image2026061017133515.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/2b18d1dc-64ff-4933-99ce-1d7a6932d161/image2026070119133351.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/957e2955-127b-407a-94c4-c0c581aca0c7/image2026070119133352.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/824178b0-14cc-4d9d-8a49-4046364ff56e/image2026070119133353.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/0458a2cf-7636-437b-b95f-a08459961575/image2026070119133354.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/e78dd360-8d92-42f2-a870-61272861bacd/image2026070119133355.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/fce0bfa1-5e7b-482a-b880-d29379945095/image2026070119133356.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/b806f8a9-157a-4252-89d4-cf648ae6472d/image2026070119133357.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/b768230f-986f-4edb-9ef9-587a260a0726/image2026070119133358.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/c4fa94ca-2629-4338-8875-92b629239650/image2026070119133359.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/04083d81-61e0-41c4-a4b9-e76511b28503/image2026070119133360.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/a23bc674-7fc7-405a-9fd8-917557bf517f/image2026070119133361.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "97ce30af395edb25556d89ccdcd104ee083f8e0bcee6047ee08e60a2edd80c33",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:03:39.176Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-07-02",
+      "2026-07-22T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-07-02.",
+          "Official classification: event.",
+          "Nexon thread ID: 3485219.",
+          "Confirmed event period: 2026-07-02 through 2026-07-22T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Summer] Tropical Adventure",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-07-02",
+  "event_end": "2026-07-22T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

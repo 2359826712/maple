@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-06-18-17625",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/17625/check-out-the-june-2024-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/17625/check-out-the-june-2024-art-corner",
+  "external_id": "17625",
+  "title": "Check Out the June 2024 Art Corner",
+  "original_title": "Check Out the June 2024 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-06-18T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the June 2024 Art Corner” is an official news item from Global MapleStory Official News on 2024-06-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qygf2dpm/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
+      "alt": "Check Out the June 2024 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vkyj4lbf/gimangmal.jpg?height=765&rmode=max&width=741",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qv5m4vvu/deinst.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3hqpl11h/103_2-steven-lee.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qs1fuk3y/pointless-field.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i24buz5w/comm-ptxd15-wsign-vincent-la.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e1cac3b175f9a8a75f9c0c4594b9d7d221b19ef1509f88cd68391e6d45128708",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:22:42.477Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17625",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-06-18.",
+          "Official category: community.",
+          "Nexon article ID: 17625."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

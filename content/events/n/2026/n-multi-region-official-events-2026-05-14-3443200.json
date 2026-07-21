@@ -1,0 +1,112 @@
+{
+  "id": "n-multi-region-official-events-2026-05-14-3443200",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3443200",
+  "source_url": "https://msu.io/maplestoryn/news/events/3443200",
+  "external_id": "3443200",
+  "title": "Universary Mini-Game Night : Puzzle Master",
+  "original_title": "Universary Mini-Game Night : Puzzle Master",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-05-14T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“Universary Mini-Game Night : Puzzle Master” is an official event notice from MapleStory N Official Events on 2026-05-14. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260513/295751ed-92a3-405e-8bd1-a6a1da6f6008/ExportMSNEVENTThumb4.png",
+      "alt": "Universary Mini-Game Night : Puzzle Master"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260512/7feeeb88-ef7c-4d9b-b400-7dc4245afc7c/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260513/341f6280-0c36-4684-a8d6-43327ad313db/%ED%8D%BC%EC%A6%90%EB%A7%88%EC%8A%A4%ED%84%B02.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260512/0c541ab4-71e6-4e0b-aec8-bcb9304a8289/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2b2af273560ae0b39e1230adb38cb58e7651e40c66f4679a3cefedf1df56b730",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:05:27.573Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-05-14",
+      "2026-06-10T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-05-14.",
+          "Official classification: event.",
+          "Nexon thread ID: 3443200.",
+          "Confirmed event period: 2026-05-14 through 2026-06-10T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Universary Mini-Game Night : Puzzle Master",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-05-14",
+  "event_end": "2026-06-10T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-06-15-17595",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/17595/server-stability-in-kronos-world",
+  "source_url": "https://www.nexon.com/maplestory/news/general/17595/server-stability-in-kronos-world",
+  "external_id": "17595",
+  "title": "Server Stability in Kronos World",
+  "original_title": "Server Stability in Kronos World",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-06-15T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Server Stability in Kronos World” is an official news item from Global MapleStory Official News on 2024-06-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Server Stability in Kronos World"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0d23cb25a78527eaa6d7d57b71a935b91d824b2cd270d019af5d0f8a9435e4f3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:22:45.485Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17595",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-06-15.",
+          "Official category: general.",
+          "Nexon article ID: 17595."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

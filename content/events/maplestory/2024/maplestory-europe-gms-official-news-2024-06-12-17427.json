@@ -1,0 +1,158 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-06-12-17427",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/17427/join-angelic-buster-on-her-comeback-tour",
+  "source_url": "https://www.nexon.com/maplestory/news/events/17427/join-angelic-buster-on-her-comeback-tour",
+  "external_id": "17427",
+  "title": "The [Comeback! Battleground Idol!] Event",
+  "original_title": "Join Angelic Buster on Her Comeback Tour!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-06-12T15:24:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The [Comeback! Battleground Idol!] Event” is an official event notice from Global MapleStory Official News on 2024-06-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tgvdap4u/240612-angelic-buster-revamp-live-news-post-540x304.png",
+      "alt": "Join Angelic Buster on Her Comeback Tour!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m5upo4d5/240612-angelic-buster-revamp-live-in-post-banner-1100x225.jpg",
+      "alt": "BANNER"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lliofnye/gowest-ab-worldidol-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/df2hs3ik/gowest-ab-shiningidol-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qviiv0rh/gowest-ab-lileskaladepet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bv0d3rud/gowest-ab-lovelybustersuitechair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rt3oldtv/gowest-ab-damageskin-unit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p1ynzyhs/gowest-ab-comebackoutfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0rmnkcod/gowest-ab-labelpluschatring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ijnluz4o/gowest-ab-chatemoticon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zbojm1zv/gowest-ab-faceplushaircoupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5mxaite4/gowest-ab-popbubbleeffect.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/meejvobz/gowest-ab-firstangelicbusterset-uncornmount_adorationchair_angelwing.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h3cnkwhj/gowest-ab-frostycompact-titles.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fmtfkkgg/on_stage_ab.png",
+      "alt": "Angelic Buster Skill On Stage"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d2emodnq/lovely_sting_ab.png",
+      "alt": "Angelic Buster Skill Lovely Sting"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bcml5bgf/star-crash_ab.png",
+      "alt": "Angelic Buster Skill Star Crash"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dhkkafrx/sparkle-burst_ab.png",
+      "alt": "Angelic Buster Skill Sparkle Burst"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1b12ffce892f2daedcc487a2cfa23b35e16ad9e672b07e90e2ada99cc1f01d19",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:22:57.503Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17427",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-06-12.",
+          "Official category: events.",
+          "Nexon article ID: 17427."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "The [Comeback! Battleground Idol!] Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-06-12",
+  "event_end": "2024-07-16T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

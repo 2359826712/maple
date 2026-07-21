@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2025-03-21-2750886",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2750886",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2750886",
+  "external_id": "2750886",
+  "title": "[Creator] Livestream Notice: 2025 March 25",
+  "original_title": "[Creator] Livestream Notice: 2025 March 25",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-03-21T00:28:17.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Creator] Livestream Notice: 2025 March 25” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-03-21. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250321/9f33db8a-acbb-4560-859a-fe5de579562f/584x354livestream.png",
+      "alt": "[Creator] Livestream Notice: 2025 March 25"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250319/467fd035-f642-4ae2-a77e-09bb62185c4a/250311MSWStreamOverlaysWGC1857promobanner740x1202.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "382c132694ed3831bbb5e7407f7b93e51a01dbe2f8dbf9fe5a71992dfe86e552",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:32:17.855Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-03-21.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2750886."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

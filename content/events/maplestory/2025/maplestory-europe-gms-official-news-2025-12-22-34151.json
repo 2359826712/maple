@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-12-22-34151",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/34151/miracle-winter-december-27-hats",
+  "source_url": "https://www.nexon.com/maplestory/news/events/34151/miracle-winter-december-27-hats",
+  "external_id": "34151",
+  "title": "Miracle Time - Hats",
+  "original_title": "Miracle Winter - December 27 - Hats",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-12-22T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Miracle Time - Hats” is an official event notice from Global MapleStory Official News on 2025-12-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/0n0im5mg/540x304-december-27-miracle-winter-hats-maplestory.jpg",
+      "alt": "Miracle Winter - December 27 - Hats"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/edbg1hzm/1100x225-december-27-miracle-winter-hats-maplestory.jpg",
+      "alt": "Miracle Winter December 27 Hats MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cpnn2030/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Winter Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "806185bd5aef66cc6cd380e7cabbdced23b57054a71aa503a8ec9ab227c89c2f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:50:26.261Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "34151",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-12-22.",
+          "Official category: events.",
+          "Nexon article ID: 34151."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Hats",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-12-27T00:00:00.000Z",
+  "event_end": "2025-12-27T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

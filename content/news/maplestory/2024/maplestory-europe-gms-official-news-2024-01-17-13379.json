@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-01-17-13379",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/13379/take-a-trip-down-maple-lane-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/community/13379/take-a-trip-down-maple-lane-2023",
+  "external_id": "13379",
+  "title": "Take a Trip Down Maple Lane 2023!",
+  "original_title": "Take a Trip Down Maple Lane 2023!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-01-17T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Take a Trip Down Maple Lane 2023!” is an official news item from Global MapleStory Official News on 2024-01-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/by0fuu4q/540x304-trip-down-maple-lane-2023-maplestory.webp",
+      "alt": "Take a Trip Down Maple Lane 2023!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1081/1100x225-trip-down-maple-lane-2023-maplestory.png",
+      "alt": "MapleStory Trip Down Maple Lane 2023"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3a09e5d7124b69af9adf962e693c19589ed0513b777866af136e351db95e289c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:27:22.112Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13379",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-01-17.",
+          "Official category: community.",
+          "Nexon article ID: 13379."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

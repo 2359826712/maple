@@ -1,0 +1,110 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-04-29-26251",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/26251/now-available-mo-xuan",
+  "source_url": "https://www.nexon.com/maplestory/news/events/26251/now-available-mo-xuan",
+  "external_id": "26251",
+  "title": "Xiao Xiao's Level-Up Support Event",
+  "original_title": "Now Available: Mo Xuan!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-04-29T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Xiao Xiao's Level-Up Support Event” is an official event notice from Global MapleStory Official News on 2025-04-29. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5rwcoout/540x304-now-available-mo-xuan-maplestory.png",
+      "alt": "Now Available: Mo Xuan!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gypfd4ep/1100x225-now-available-mo-xuan-maplestory.png",
+      "alt": "MapleStory April 29 Cash Shop Update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5fmh34hm/lindaer-pet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nc0hnasb/foremost-g.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nlqgccii/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uimdyapf/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6b170c04453b55c751aae5c1fdea14b76535fb7814d7d0b7f68e5d3179272e0d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:07:46.762Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26251",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-04-29.",
+          "Official category: events.",
+          "Nexon article ID: 26251."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Xiao Xiao's Level-Up Support Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-04-29",
+  "event_end": "2025-06-10T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

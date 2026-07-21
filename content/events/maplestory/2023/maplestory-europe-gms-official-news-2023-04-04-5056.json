@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-04-04-5056",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5056/grow-the-rock-spirit",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5056/grow-the-rock-spirit",
+  "external_id": "5056",
+  "title": "Grow the Rock Spirit!",
+  "original_title": "Grow the Rock Spirit!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-04-04T15:28:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Grow the Rock Spirit!” is an official event notice from Global MapleStory Official News on 2023-04-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/wrlpzp1c/230331_540x304_grow_the_rockspirit_6361.webp",
+      "alt": "Grow the Rock Spirit!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3087/230331_1100x225_grow_the_rockspirit_6361.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2731/slime.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3123/androidb.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2908/new.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "743a30001f3d4f8f81d768675a01ceca9188cb9d3614d3a405ba0d78115d1d82",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:26.413Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5056",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-04-04.",
+          "Official category: events.",
+          "Nexon article ID: 5056."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Grow the Rock Spirit!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-04-05T00:00:00.000Z",
+  "event_end": "2023-05-02T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

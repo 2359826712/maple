@@ -18,29 +18,79 @@
   "subcategory": "seasonal-event",
   "official": true,
   "author": "Global MapleStory",
-  "published_at": "2026-06-18",
+  "published_at": "2026-06-18T18:00:00Z",
   "updated_at": null,
   "discovered_at": "2026-07-18T00:00:00.000Z",
-  "last_checked": "2026-07-18T00:00:00.000Z",
+  "last_checked": "2026-07-20T01:06:01.566Z",
   "summary": "Miracle Summer ran from June 26 through July 1, 2026 UTC. Each event day applied double Rank-Up chances to a different group of equipment slots.",
   "body_text": null,
   "body_markdown": null,
   "storage_mode": "summary-and-metadata",
   "tags": [
     "equipment",
+    "event",
+    "events",
     "miracle-summer",
     "rank-up",
     "summer"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/n4bnds5t/newspost_540x304-miracle-summer-june-26-july-1-2026-maplestory.jpg",
+      "alt": "Miracle Summer 2026"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sgpoelrw/postheader_1100x225-miracle-summer-june-26-july-1-2026-maplestory.jpg",
+      "alt": "Miracle Summer June 26 - July 1 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/30mdjdxq/miracle-time-cubes-maplestory.png",
+      "alt": "Miracle Summer Cubes MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sh3mguel/accessories-and-more-miracle-time-maplestory.png",
+      "alt": "Miracle Time Accessories and More MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xrpilsb5/weapons-shields-secondaries-miracle-time-maplestory.png",
+      "alt": "Miracle Time Primary Weapons Secondary Equipment MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y1ef4ekw/top-bottom-overall-cape-miracle-time-maplestory.png",
+      "alt": "Miracle Time Tops Bottoms Overalls Capes MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0qsbeicy/hat-miracle-time-maplestory.png",
+      "alt": "Miracle Time Cubes MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vqxnmxgy/gloves-miracle-time-maplestory.png",
+      "alt": "Miracle Time Gloves MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jzmnuruh/shoes-miracle-time-maplestory.png",
+      "alt": "Miracle Time Shoes MapleStory"
+    }
+  ],
   "attachments": [],
   "related_content_ids": [],
   "related_urls": [],
-  "content_hash": "60781b66c39d3c8f6a349bd886bff4c8fe1de4e4c3ae8f1a56ebdd267c2e6d68",
+  "content_hash": "9d6624ac5f131f414436a647f28edb30d6f0b9121cf51f4a6fc806ca0d84415e",
   "status": "expired",
   "translation_status": "not-requested",
   "metadata": {
-    "resource_id": "maplestory-miracle-summer-2026",
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:07:00.281Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "41369",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
     "sections": [
       {
         "title": "Event format",
@@ -58,7 +108,9 @@
           "Do not assume a bonus window applies to an equipment slot listed for a different day."
         ]
       }
-    ]
+    ],
+    "editorial_reviewed": true,
+    "editorial_reviewed_at": "2026-07-18"
   },
   "notes": "Original MPStorys summary and structured facts verified against the official announcement and Nexon's Steam announcement mirror on 2026-07-18.",
   "event_name": "Miracle Summer 2026",

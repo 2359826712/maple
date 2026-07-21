@@ -1,0 +1,123 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-02-20933",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/20933/v-254-midnight-carnival-ludibrium-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/20933/v-254-midnight-carnival-ludibrium-update-preview",
+  "external_id": "20933",
+  "title": "v.254 - Midnight Carnival - Ludibrium Update Preview",
+  "original_title": "v.254 - Midnight Carnival - Ludibrium Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-02T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.254 - Midnight Carnival - Ludibrium Update Preview” is an official news item from Global MapleStory Official News on 2024-10-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/iskebbis/240927_v254-update_newspost_540x304.jpg",
+      "alt": "v.254 - Midnight Carnival - Ludibrium Update Preview"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ku1h1whl/keyart.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/umvlu0hc/night-troupe-header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ck5htp4g/night-troupe-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/452jf4rw/maple-fashion-week-header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0w1jxqsd/maple-fashion-week-art.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rhqbbodd/halloween-header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/saapfcup/halloween-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/phshtggp/legion-relay-header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0rynl3pn/legion-relay-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tsqbcgim/sunny-sunday.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zaqi32t4/discuss-on-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d1pdk3yi/discuss-on-discord.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p0pb43xb/footer.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6338721edceddd136cb8c02f84bdacc71d98e0b50e21293401b47453f0864aa8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:19:08.974Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20933",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-02.",
+          "Official category: update.",
+          "Nexon article ID: 20933."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

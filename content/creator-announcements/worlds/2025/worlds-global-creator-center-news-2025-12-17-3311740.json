@@ -1,0 +1,110 @@
+{
+  "id": "worlds-global-creator-center-news-2025-12-17-3311740",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3311740",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3311740",
+  "external_id": "3311740",
+  "title": "Creators’ Workshop Class 3 Worlds Are Now Live!",
+  "original_title": "Creators’ Workshop Class 3 Worlds Are Now Live!",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-12-17T02:05:04.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Creators’ Workshop Class 3 Worlds Are Now Live!” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-12-17. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251217/53128a54-1199-4345-86d9-2db6875d37df/MSWGenericPostBanners740x120notice.png",
+      "alt": "Creators’ Workshop Class 3 Worlds Are Now Live!"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251204/c11e7e25-15e8-4186-92be-f07b96414b06/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/7c0471c8-30d9-4c3a-b2fc-15245ab647cb/image2025121611540118.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/d0e7654a-ef67-479d-8374-6a08f6a99f92/image2025121611540119.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/a4267bfe-df4e-4abc-9acd-d0aa66e81dae/image2025121611540120.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/08f4fa68-b641-448c-a112-8686b90f9551/image2025121611540121.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/6abf80b4-e28b-4a3a-8ef2-c11a889bcad1/image2025121611540222.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/d7701edd-cd7f-4fb8-95f8-92f03feb7f98/image2025121611540223.jpeg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/5027452d-ebf5-4054-aecc-df36a0d4f774/image2025121611540224.jpeg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251216/aec68ce6-6d61-41cb-8b51-b4116fae2aa2/image2025121611540225.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e75f3a49bfb81a922dbfb65bcfea1920f01ddd7ce9860dfa3be23a01c7535536",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:23:27.760Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-12-17.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3311740."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

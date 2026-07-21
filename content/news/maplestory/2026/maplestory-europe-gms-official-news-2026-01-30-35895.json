@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-01-30-35895",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/35895/check-out-the-january-2026-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/35895/check-out-the-january-2026-art-corner",
+  "external_id": "35895",
+  "title": "Check Out the January 2026 Art Corner",
+  "original_title": "Check Out the January 2026 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-01-30T18:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Check Out the January 2026 Art Corner” is an official news item from Global MapleStory Official News on 2026-01-30. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qygf2dpm/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
+      "alt": "Check Out the January 2026 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gfugpzwx/ceruieon-emily-do.jpeg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1mpekdm3/whimsyscottt-ren2026.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5b2a875834e7f4ca65c3db6383e075bbd1343a189ff7e4ae985a5ee7c806eaa1",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:49:17.097Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "35895",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-01-30.",
+          "Official category: community.",
+          "Nexon article ID: 35895."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

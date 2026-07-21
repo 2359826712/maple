@@ -1,0 +1,132 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-20-2682691",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682691",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2682691",
+  "external_id": "2682691",
+  "title": "[Adventure] Random Portals",
+  "original_title": "[Adventure] Random Portals",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "gameplay-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-20T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Adventure] Random Portals” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "gameplay-guide",
+    "guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/642520bc-4df0-42d3-b65d-faf377f5fc24/image2024111818134156.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/bbf61dca-4c12-4c22-90b8-93b57fc18909/image2024111818134157.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/1a9dbf7d-d0dc-46c0-ae04-156192d0c940/image2024111818134158.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/cf0e9fc0-3fa4-43dd-b821-a8f0995b2b90/image2024111818134159.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/269cbf0a-8c40-4589-a1a1-f997ae6ddb50/image2024111818134160.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/fd9f4dce-1bf0-40ce-a10b-083657a33b79/image2024111818134161.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/0bdb5cc9-17a5-4f31-a475-ab7658e9aefb/image2024111818134162.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/ba30ded7-43a2-4f3c-93ed-9d23b1ee0011/image2024111818134163.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/61cd68a9-9bd4-4832-8dff-9c9e2b6893e9/image2024111818134164.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/b5a9f91f-64ac-456b-8e29-06bb1f81651b/image2024111818134165.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/be6cb845-51e6-4dbc-9322-29b0302c798f/image2024111818134166.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/56bde407-51fe-472d-b971-ebf203cae370/image2024111818134167.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "785e569db9f9cd4d79988e47aeafcf9096eb37077b7b96c9a1a001c5cffd0dab",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:00:06.876Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-20.",
+          "Official classification: gameplay guide.",
+          "Nexon thread ID: 2682691."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

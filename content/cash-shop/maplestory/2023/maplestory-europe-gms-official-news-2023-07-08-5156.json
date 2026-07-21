@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-07-08-5156",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5156/resolved-july-8th-cash-shop-performance-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5156/resolved-july-8th-cash-shop-performance-issues",
+  "external_id": "5156",
+  "title": "[Resolved] July 8th Cash Shop Performance Issues",
+  "original_title": "[Resolved] July 8th Cash Shop Performance Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-07-08T11:28:43Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Resolved] July 8th Cash Shop Performance Issues” is an official Cash Shop notice from Global MapleStory Official News on 2023-07-08. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "general"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/50zmucev/120516_540x304_generic_news_6410.webp",
+      "alt": "[Resolved] July 8th Cash Shop Performance Issues"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0a7125f8171315f5a64080609b9e917de254397496061974f5dc8a098022a897",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:34:29.038Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5156",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-07-08.",
+          "Official category: general.",
+          "Nexon article ID: 5156."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

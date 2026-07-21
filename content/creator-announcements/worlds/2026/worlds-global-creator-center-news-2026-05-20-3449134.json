@@ -1,0 +1,80 @@
+{
+  "id": "worlds-global-creator-center-news-2026-05-20-3449134",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3449134",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3449134",
+  "external_id": "3449134",
+  "title": "Creators’ Workshop Virtual Info Session on May 21",
+  "original_title": "Creators’ Workshop Virtual Info Session on May 21",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-05-20T18:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“Creators’ Workshop Virtual Info Session on May 21” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-05-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260520/c6bfcb66-4ab2-4da3-a3a3-06cd45b50654/MSWGenericPostBanners740x120notice.png",
+      "alt": "Creators’ Workshop Virtual Info Session on May 21"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260520/c32ad2b2-f798-4300-aa1c-252916d57e1d/image202605191852432.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260520/62383f3e-daa6-4e28-973a-d068399586d7/image202605191852434.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260520/fdff2526-854a-48ad-8df1-dd8fe6c9bbae/image202605191852435.jpeg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "67810dc45d6667337fad4a84cb380d7495425f8806fd24d335a315ae775f2fe9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:22.233Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-05-20.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3449134."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

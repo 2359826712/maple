@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-18-36568",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/36568/monster-park-mayhem",
+  "source_url": "https://www.nexon.com/maplestory/news/events/36568/monster-park-mayhem",
+  "external_id": "36568",
+  "title": "Monster Park Mayhem!",
+  "original_title": "Monster Park Mayhem!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-18T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Monster Park Mayhem!” is an official event notice from Global MapleStory Official News on 2026-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/mdnkxepq/540x304-maplestory-x-opm-event-monster-park-post.png",
+      "alt": "Monster Park Mayhem!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/10rlgxjf/maplestory-x-opm-event-monster-park-post-1.jpg",
+      "alt": "MapleStory x one-punch man monster park"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yf0naybd/maplestory-x-opm-event-monster-park-post-2-2.jpg",
+      "alt": "MapleStory x one-punch man monster park"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tn0l1n54/maplestory-x-opm-event-monster-park-post-3.jpg",
+      "alt": "MapleStory x one-punch man monster park"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ci5dne0s/maplestory-x-opm-event-monster-park-post-4.jpg",
+      "alt": "MapleStory x one-punch man monster park"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "19fd1be72c734afe558aa872cb1e18c723332200450b4cc8d1ea9d600fc40908",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-image",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:52.900Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36568",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-18.",
+          "Official category: events.",
+          "Nexon article ID: 36568."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Monster Park Mayhem!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-03-18",
+  "event_end": "2026-04-14T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

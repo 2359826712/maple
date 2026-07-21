@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-23-20892",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/20892/what-s-your-maplestory-vanakin",
+  "source_url": "https://www.nexon.com/maplestory/news/community/20892/what-s-your-maplestory-vanakin",
+  "external_id": "20892",
+  "title": "What's Your MapleStory? - Vanakin",
+  "original_title": "What's Your MapleStory? - Vanakin",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-23T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“What's Your MapleStory? - Vanakin” is an official news item from Global MapleStory Official News on 2024-12-23. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/j4blwolp/190307_post_540x304_what_is_yourmaplestory.jpg",
+      "alt": "What's Your MapleStory? - Vanakin"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aysfxkjj/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g44ckkjr/collage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ctxnetjp/kpqvan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gwapdmar/zakumvan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1p5lybxi/night-walker_art.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2vsppeub/housevan.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e49adfa8f8cd21cd2bf85fb519883e46b1ed9c970d0f672acfe3407c1ae3090f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:11:41.419Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20892",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-23.",
+          "Official category: community.",
+          "Nexon article ID: 20892."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

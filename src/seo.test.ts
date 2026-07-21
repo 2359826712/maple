@@ -53,8 +53,11 @@ describe('search and social metadata', () => {
     const sitemap = read('src/pages/sitemap.xml.next.tsx');
 
     expect(routeHead).toContain('meta name="keywords"');
+    expect(document).toContain('rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"');
+    expect(document).toContain('rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png"');
     expect(document).toContain('rel="icon" type="image/jpeg" sizes="128x128" href="/mpstorys-icon-128.jpg"');
-    expect(document).toContain('href="/mpstorys-icon-128.jpg"');
+    expect(document).toContain('rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"');
+    expect(document).toContain('rel="manifest" href="/site.webmanifest"');
     expect(routeHead).toContain('meta property="og:image"');
     expect(routeHead).toContain('application/ld+json');
     expect(routeHead).toContain('keywords: siteKeywords[language]');
@@ -62,13 +65,19 @@ describe('search and social metadata', () => {
     expect(sitemap).toContain('<priority>');
   });
 
-  it('includes MapleStory Classic and MapleStory Idle in localized search metadata', () => {
+  it('includes every supported MapleStory series in localized search metadata', () => {
     const keywords = JSON.parse(read('src/seo/siteKeywords.json')) as Record<string, string>;
+    const series = [
+      'MapleStory Classic',
+      'MapleStory M',
+      'MapleStory Worlds',
+      'MapleStory N',
+      'MapleStory Idle',
+    ];
     Object.values(keywords).forEach((value) => {
-      expect(value).toContain('MapleStory Classic');
-      expect(value).toContain('MapleStory Idle');
+      series.forEach((name) => expect(value).toContain(name));
     });
-    expect(metadataCatalog.routes['/'].copy.en.description).toContain('MapleStory Classic');
+    series.forEach((name) => expect(metadataCatalog.routes['/'].copy.en.description).toContain(name));
     expect(metadataCatalog.routes['/news'].copy.en.description).toContain('MapleStory Idle');
   });
 

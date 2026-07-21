@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-03-24-22696",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/22696/demon-slayer-community-contest",
+  "source_url": "https://www.nexon.com/maplestory/news/community/22696/demon-slayer-community-contest",
+  "external_id": "22696",
+  "title": "Demon Slayer Community Contest",
+  "original_title": "Demon Slayer Community Contest",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-03-24T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Demon Slayer Community Contest” is an official news item from Global MapleStory Official News on 2025-03-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zospcsre/210406_540x304_communitycontests.jpg",
+      "alt": "Demon Slayer Community Contest"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1056/1100x225-maplestory-community-contests.jpg",
+      "alt": "MapleStory Community Contests"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uqtj3i3u/ds-socials-concepts-discord-community-contest-1200x400-1-1.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9047f6c8c9c5b13f6b17a51cf7e92b2b3c3a8cc1ad57902142b00bc8d7df2594",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:08:47.202Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22696",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-03-24.",
+          "Official category: community.",
+          "Nexon article ID: 22696."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -171,7 +171,66 @@
     "adapter": "nexon-cms",
     "parser": "gms-official-news",
     "adapter_config": {
-      "default_content_type": "news"
+      "default_content_type": "news",
+      "event_date_overrides": {
+        "36565": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        },
+        "36566": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        },
+        "36568": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        },
+        "36569": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        },
+        "36570": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        },
+        "36571": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        },
+        "36572": {
+          "event_start": "2026-03-18",
+          "event_end": "2026-04-14T23:59:00.000Z",
+          "timezone": "UTC",
+          "evidence": "official-body-image"
+        }
+      },
+      "pagination": {
+        "strategy": "client-slice",
+        "endpoint_urls": [
+          "https://g.nexonstatic.com/maplestory/cms/v1/news",
+          "https://g.nexonstatic.com/maplestory/cms/v1/archived"
+        ],
+        "start": 1,
+        "page_size": 18,
+        "sort": "source-order",
+        "filter_series_before_slice": true,
+        "stop_on_empty": true,
+        "stop_on_short_page": true,
+        "resume": true,
+        "total_count_from_response_length": true
+      }
     },
     "official": true,
     "enabled": true,
@@ -187,7 +246,7 @@
     "last_checked": null,
     "last_success": null,
     "last_error": null,
-    "notes": "Verified on 2026-07-18 against Nexon's public Global MapleStory CMS. Classic World titles are excluded and indexed by the separate Classic source."
+    "notes": "Verified on 2026-07-20 against Nexon's public Global MapleStory CMS. The official client concatenates /news and /archived, filters by game version, and paginates the resulting array in source order at 18 items per page. Event-date overrides 36565-36572 were transcribed from the explicit periods displayed in their official image-only article bodies. Classic World titles are excluded and indexed by the separate Classic source."
   },
   {
     "id": "n-official-documentation-announcements",
@@ -221,12 +280,36 @@
       "board_id": "5288",
       "canonical_template": "https://msu.io/maplestoryn/news/notices/{threadId}",
       "default_content_type": "news",
+      "headline_type_map": {
+        "5040": "maintenance",
+        "5041": "patch-note",
+        "5042": "news",
+        "5132": "news"
+      },
+      "classification_rules": [
+        {
+          "content_type": "news",
+          "headline_ids": [
+            "5041"
+          ],
+          "title_pattern": "known issues?",
+          "override_headline": true
+        }
+      ],
       "headers": {
         "community-id": "500",
         "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
       },
       "mode": "n",
-      "page_size": 25
+      "page_size": 25,
+      "pagination": {
+        "strategy": "nexon-keyset",
+        "start": 1,
+        "page_size": 25,
+        "block_size": 9,
+        "pagination_type": "PAGING",
+        "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+      }
     },
     "official": true,
     "enabled": true,
@@ -242,7 +325,359 @@
     "last_checked": null,
     "last_success": null,
     "last_error": null,
-    "notes": "Verified on 2026-07-18 against the current public MapleStory Universe notices page and its official public read API. The former documentation announcement path is no longer the live notice index."
+    "notes": "Verified on 2026-07-20 against the current public MapleStory Universe notices page and its official public read API. The site is a Next.js application backed by a reproducible Nexon keyset-paginated community board with 141 notice threads; Update, Events, and Guide use separate official board IDs and should not be folded into this notices source."
+  },
+  {
+    "id": "n-official-events",
+    "name": "MapleStory N Official Events",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "event",
+      "news"
+    ],
+    "base_url": "https://msu.io/maplestoryn/news/events",
+    "discovery_urls": [
+      "https://msu.io/maplestoryn/news/events"
+    ],
+    "feed_url": null,
+    "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+    "sitemap_urls": [],
+    "adapter": "nexon-community",
+    "parser": "maplestory-n-official-events",
+    "adapter_config": {
+      "board_id": "5289",
+      "canonical_template": "https://msu.io/maplestoryn/news/events/{threadId}",
+      "default_content_type": "event",
+      "headline_type_map": {
+        "3296": "event",
+        "3297": "event"
+      },
+      "headline_label_map": {
+        "3296": "ongoing-event",
+        "3297": "ended-event"
+      },
+      "classification_rules": [
+        {
+          "content_type": "news",
+          "override_headline": true,
+          "title_pattern": "(?:winner(?:s)?(?: announcement)?|event results?|results? announcement|ranking and reward distribution)"
+        },
+        {
+          "content_type": "news",
+          "override_headline": true,
+          "title_pattern": "(?:reward distribution|distribution of .+ rewards?)"
+        },
+        {
+          "content_type": "news",
+          "override_headline": true,
+          "title_pattern": "(?:postpon|cancel|extension|extended|schedule change)"
+        }
+      ],
+      "subcategory_rules": [
+        {
+          "subcategory": "event-result",
+          "content_types": [
+            "news"
+          ],
+          "title_pattern": "(?:winner|results?|ranking)"
+        },
+        {
+          "subcategory": "reward-distribution",
+          "content_types": [
+            "news"
+          ],
+          "title_pattern": "(?:reward distribution|distribution of .+ rewards?)"
+        },
+        {
+          "subcategory": "event-schedule-change",
+          "content_types": [
+            "news"
+          ],
+          "title_pattern": "(?:postpon|cancel|extension|extended|schedule change)"
+        }
+      ],
+      "content_type_subcategory_map": {
+        "event": "event",
+        "news": "event-notice"
+      },
+      "headers": {
+        "community-id": "500",
+        "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+      },
+      "mode": "n",
+      "page_size": 25,
+      "max_server_page_size": 100,
+      "pagination": {
+        "strategy": "nexon-keyset",
+        "start": 1,
+        "page_size": 25,
+        "block_size": 9,
+        "pagination_type": "PAGING",
+        "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+      }
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-20 against the public MapleStory N Events route and official public read API. Board 5289 exposes ongoing and ended headline states; result, reward-distribution, cancellation, postponement, and schedule-change posts remain news unless they independently define an event. Full source text is not retained."
+  },
+  {
+    "id": "n-official-guides",
+    "name": "MapleStory N Official Beginner's Guides",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "guide",
+      "maintenance",
+      "news"
+    ],
+    "base_url": "https://msu.io/maplestoryn/guide/beginnersguide",
+    "discovery_urls": [
+      "https://msu.io/maplestoryn/guide/beginnersguide"
+    ],
+    "feed_url": null,
+    "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+    "sitemap_urls": [],
+    "adapter": "nexon-community",
+    "parser": "maplestory-n-official-guides",
+    "adapter_config": {
+      "board_id": "5291",
+      "canonical_template": "https://msu.io/maplestoryn/news/Beginner's%20Guide/{threadId}",
+      "default_content_type": "guide",
+      "classification_rules": [
+        {
+          "content_type": "maintenance",
+          "override_headline": true,
+          "title_pattern": "maintenance"
+        },
+        {
+          "content_type": "news",
+          "override_headline": true,
+          "title_pattern": "(?:notice|announcement|service interruption)"
+        }
+      ],
+      "subcategory_rules": [
+        {
+          "subcategory": "gameplay-guide",
+          "content_types": [
+            "guide"
+          ],
+          "title_pattern": "\\[Adventure\\]"
+        },
+        {
+          "subcategory": "system-guide",
+          "content_types": [
+            "guide"
+          ],
+          "title_pattern": "\\[Community\\]"
+        },
+        {
+          "subcategory": "marketplace-guide",
+          "content_types": [
+            "guide"
+          ],
+          "title_pattern": "marketplace"
+        },
+        {
+          "subcategory": "account-guide",
+          "content_types": [
+            "guide"
+          ],
+          "title_pattern": "account"
+        },
+        {
+          "subcategory": "faq",
+          "content_types": [
+            "guide"
+          ],
+          "title_pattern": "faq"
+        },
+        {
+          "subcategory": "troubleshooting",
+          "content_types": [
+            "guide"
+          ],
+          "title_pattern": "troubleshoot"
+        }
+      ],
+      "content_type_subcategory_map": {
+        "guide": "guide",
+        "maintenance": "maintenance",
+        "news": "guide-notice"
+      },
+      "headers": {
+        "community-id": "500",
+        "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+      },
+      "mode": "n",
+      "page_size": 25,
+      "max_server_page_size": 100,
+      "pagination": {
+        "strategy": "nexon-keyset",
+        "start": 1,
+        "page_size": 25,
+        "block_size": 9,
+        "pagination_type": "PAGING",
+        "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+      }
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "1d",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-20 against official frontend configuration and a normal browser render. Board 5291 is the official Beginner's Guide article board; its detail route is /maplestoryn/news/Beginner's%20Guide/{threadId}, while the current top-level Beginner's Guide navigation points to official GitBook documentation. Full source text is not retained."
+  },
+  {
+    "id": "n-official-updates",
+    "name": "MapleStory N Official Updates",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "developer-note",
+      "maintenance",
+      "news",
+      "patch-note"
+    ],
+    "base_url": "https://msu.io/maplestoryn/news/update",
+    "discovery_urls": [
+      "https://msu.io/maplestoryn/news/update"
+    ],
+    "feed_url": null,
+    "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+    "sitemap_urls": [],
+    "adapter": "nexon-community",
+    "parser": "maplestory-n-official-updates",
+    "adapter_config": {
+      "board_id": "5290",
+      "canonical_template": "https://msu.io/maplestoryn/news/update/{threadId}",
+      "default_content_type": "news",
+      "classification_rules": [
+        {
+          "content_type": "developer-note",
+          "title_pattern": "(?:(?:developer|director)[’']s? note|dev note|from the development team)"
+        },
+        {
+          "content_type": "patch-note",
+          "title_pattern": "(?:patch notes?|update notes?|version update)"
+        },
+        {
+          "content_type": "maintenance",
+          "title_pattern": "(?:scheduled|temporary|emergency|extended)?\\s*maintenance"
+        },
+        {
+          "content_type": "news",
+          "title_pattern": "(?:known issues?|issue during|log-in issue|login issue)"
+        }
+      ],
+      "subcategory_rules": [
+        {
+          "subcategory": "known-issues",
+          "content_types": [
+            "news"
+          ],
+          "title_pattern": "issue"
+        },
+        {
+          "subcategory": "economy-update",
+          "content_types": [
+            "news",
+            "developer-note"
+          ],
+          "title_pattern": "(?:economy|dynamic pricing|reward balance)"
+        },
+        {
+          "subcategory": "marketplace-update",
+          "content_types": [
+            "news"
+          ],
+          "title_pattern": "marketplace"
+        },
+        {
+          "subcategory": "security-notice",
+          "content_types": [
+            "news",
+            "developer-note"
+          ],
+          "title_pattern": "(?:hack|macro|security)"
+        }
+      ],
+      "content_type_subcategory_map": {
+        "developer-note": "developer-note",
+        "maintenance": "maintenance",
+        "news": "update-notice",
+        "patch-note": "patch-notes"
+      },
+      "headers": {
+        "community-id": "500",
+        "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+      },
+      "mode": "n",
+      "page_size": 25,
+      "max_server_page_size": 100,
+      "pagination": {
+        "strategy": "nexon-keyset",
+        "start": 1,
+        "page_size": 25,
+        "block_size": 9,
+        "pagination_type": "PAGING",
+        "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+      }
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-20 against the public MapleStory N Update route and official public read API. Board 5290 has no useful headline split, so explicit developer/director-note and patch-note evidence is applied before conservative news fallback. Mentioning maintenance inside patch notes does not reclassify them. Full source text is not retained."
   },
   {
     "id": "worlds-creator-center-news",
@@ -277,8 +712,21 @@
       "canonical_template": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/{threadId}",
       "community_type": 5,
       "default_content_type": "creator-announcement",
+      "headline_type_map": {
+        "3477": "maintenance",
+        "3478": "maintenance"
+      },
       "mode": "worlds",
-      "page_size": 25
+      "page_size": 25,
+      "pagination": {
+        "strategy": "nexon-keyset",
+        "start": 1,
+        "page_size": 25,
+        "block_size": 25,
+        "pagination_type": "PAGING",
+        "include_sticky": true,
+        "sticky_page_size": 5
+      }
     },
     "official": true,
     "enabled": true,
@@ -294,6 +742,6 @@
     "last_checked": null,
     "last_success": null,
     "last_error": null,
-    "notes": "Verified on 2026-07-18 against the public English Creator Center listing and the same public read API used by the official page."
+    "notes": "Verified on 2026-07-20 against the public English Creator Center listing and its official public read API. The board reports 230 unique historical threads and exposes reproducible Nexon keyset pagination. Its one pinned thread is returned by both the sticky endpoint and its chronological list position, so the adapter merges it on page 1 and stable external-ID deduplication prevents a second record."
   }
 ]

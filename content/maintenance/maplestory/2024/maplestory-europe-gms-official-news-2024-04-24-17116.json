@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-04-24-17116",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/17116/v-249-hotfixes-april-24-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/17116/v-249-hotfixes-april-24-2024",
+  "external_id": "17116",
+  "title": "V.249 Hotfixes - April 24, 2024",
+  "original_title": "V.249 Hotfixes - April 24, 2024",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-04-24T16:06:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“V.249 Hotfixes - April 24, 2024” is an official maintenance notice from Global MapleStory Official News on 2024-04-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/u0qlvwka/170418mntnpp540x304.webp",
+      "alt": "V.249 Hotfixes - April 24, 2024"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q1/2198/maintenance-post-banner-in-post-banner-1100x225.jpg",
+      "alt": "MapleStory Maintenance Hotfix"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d514568474aaa0f528d02f9c4a29b67cb161cd95cb43596758d880e5a647063f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:27.702Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17116",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-04-24.",
+          "Official category: maintenance.",
+          "Nexon article ID: 17116."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

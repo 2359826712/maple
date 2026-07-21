@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-01-26-35228",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/35228/take-a-trip-down-maple-lane",
+  "source_url": "https://www.nexon.com/maplestory/news/community/35228/take-a-trip-down-maple-lane",
+  "external_id": "35228",
+  "title": "Take a Trip Down Maple Lane!",
+  "original_title": "Take a Trip Down Maple Lane!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-01-26T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Take a Trip Down Maple Lane!” is an official news item from Global MapleStory Official News on 2026-01-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/thnhc2zy/540x304-a-trip-down-maple-lane-2025-maplestory.jpg",
+      "alt": "Take a Trip Down Maple Lane!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3wgaex03/1100x225-a-trip-down-maple-lane-2025-maplestory.jpg",
+      "alt": "MapleStory January 28 Cash Shop Update"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hhmcf30b/maple-lane-2025-example-maplestory.png",
+      "alt": "MapleStory A Trip Down Maple Lane 2025 Example"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "cc2c48daa4e5e1cb174938c0b2c191023f72b7e7ccd509d2bf40cc276e7f855e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:49:35.530Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "35228",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-01-26.",
+          "Official category: community.",
+          "Nexon article ID: 35228."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

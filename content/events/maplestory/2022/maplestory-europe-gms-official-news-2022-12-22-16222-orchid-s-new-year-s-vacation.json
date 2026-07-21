@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-22-16222-orchid-s-new-year-s-vacation",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16222/orchid-s-new-year-vacation",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16222/orchid-s-new-year-vacation",
+  "external_id": "16222:orchid-s-new-year-s-vacation",
+  "title": "Orchid's New Year's Vacation",
+  "original_title": "Orchid's New Year Vacation!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-22T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Orchid's New Year's Vacation” is an official event notice from Global MapleStory Official News on 2022-12-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2310/1100x225-orchids-new-year-vacation-maplestory.jpg",
+      "alt": "Orchid's New Year Vacation"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2280/orchid-new-year-vacation-rewards-maplestory.png",
+      "alt": "Orchid's New Year Vacation Rewards"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2279/puzzle-master-maplestory.png",
+      "alt": "MapleStory Puzzle Master"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4893a24a7224765e4da942ea4e62f5d595cccf15b541e4596ffbdba8c18a34d9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "orchid-s-new-year-s-vacation",
+    "fetched_at": "2026-07-21T02:40:47.835Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16222",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-22.",
+          "Official category: events.",
+          "Nexon article ID: 16222."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Orchid's New Year's Vacation",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2022-12-28T00:00:00.000Z",
+  "event_end": "2023-01-03T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

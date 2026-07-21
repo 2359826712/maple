@@ -1,0 +1,130 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-09-24-20786",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/20786/i-haven-t-done-anything-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/20786/i-haven-t-done-anything-event",
+  "external_id": "20786",
+  "title": "I Haven't Done Anything Event",
+  "original_title": "I Haven't Done Anything Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-09-24T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“I Haven't Done Anything Event” is an official event notice from Global MapleStory Official News on 2024-09-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/edboqoer/540x304-i-havent-done-anything-event-maplestory.png",
+      "alt": "I Haven't Done Anything Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4j2g0cim/1100x225-i-havent-done-anything-event-maplestory.png",
+      "alt": "I Haven't Done Anything Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fnmen3h4/i-havent-done-anything-ui-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i0gfxqq2/peaceful-park-map-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0zccqjf1/dreamy-flower-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jzxlbf4n/anythingchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ewhnt4kf/busy-bee-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ug0nz143/golden-honey-pot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ecopkw0j/golden-honey-pot-jump.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5jedvbf3/diamond-honey-pot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g05aghvz/diamondhoneyjump.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d5824de79b5aba908ccb35d6ae81d60b46614048c9fd7b24869cd9478a382df3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:19:30.022Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20786",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-09-24.",
+          "Official category: events.",
+          "Nexon article ID: 20786."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "I Haven't Done Anything Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-09-25T00:00:00.000Z",
+  "event_end": "2024-10-08T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

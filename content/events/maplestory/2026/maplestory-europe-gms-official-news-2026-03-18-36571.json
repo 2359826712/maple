@@ -1,0 +1,114 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-18-36571",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/36571/heroes-appear",
+  "source_url": "https://www.nexon.com/maplestory/news/events/36571/heroes-appear",
+  "external_id": "36571",
+  "title": "Heroes Appear",
+  "original_title": "Heroes Appear",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-18T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Heroes Appear” is an official event notice from Global MapleStory Official News on 2026-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tylanx0v/540x304-maplestory-x-opm-event-heroes-post.jpg",
+      "alt": "Heroes Appear"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lsubnya0/maplestory-x-opm-event-heroes-post-1.png",
+      "alt": "MapleStory x one-punch man heroes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/spzpukcx/maplestory-x-opm-event-heroes-post-2.png",
+      "alt": "MapleStory x one-punch man heroes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/invdu4de/maplestory-x-opm-event-heroes-post-3.png",
+      "alt": "MapleStory x one-punch man heroes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jopd5my2/maplestory-x-opm-event-heroes-post-4.png",
+      "alt": "MapleStory x one-punch man heroes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/11wlvy5t/maplestory-x-opm-event-heroes-post-5b.png",
+      "alt": "MapleStory x one-punch man heroes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1aicn22j/maplestory-x-opm-event-heroes-post-6.png",
+      "alt": "MapleStory x one-punch man heroes"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3cbc9f3a5473b3e876c3a4412d381de289fa29ec345a190b29021212cceb793a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-image",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:01.924Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36571",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-18.",
+          "Official category: events.",
+          "Nexon article ID: 36571."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Heroes Appear",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-03-18",
+  "event_end": "2026-04-14T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

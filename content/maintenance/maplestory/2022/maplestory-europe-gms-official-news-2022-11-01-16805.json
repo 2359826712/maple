@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-01-16805",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/16805/completed-scheduled-maintenance-november-3-2022",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/16805/completed-scheduled-maintenance-november-3-2022",
+  "external_id": "16805",
+  "title": "[Completed] Scheduled Maintenance - November 3, 2022",
+  "original_title": "[Completed] Scheduled Maintenance - November 3, 2022",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-01T18:38:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Completed] Scheduled Maintenance - November 3, 2022” is an official maintenance notice from Global MapleStory Official News on 2022-11-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/shpjvcdl/170418mntnpp540x304.webp",
+      "alt": "[Completed] Scheduled Maintenance - November 3, 2022"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "25ef5c85ce613aa69ccc561e2d7517e8437e9997b5707df4abb1187f4ce9be22",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:48.099Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16805",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-01.",
+          "Official category: maintenance.",
+          "Nexon article ID: 16805."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

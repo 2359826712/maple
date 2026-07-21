@@ -1,0 +1,80 @@
+{
+  "id": "worlds-global-creator-center-news-2026-04-07-3419147",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3419147",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3419147",
+  "external_id": "3419147",
+  "title": "Creator Livestream Notice: Build a Better Loot System (Using DropTables the Right Way)",
+  "original_title": "Creator Livestream Notice: Build a Better Loot System (Using DropTables the Right Way)",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-04-07T22:03:32.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“Creator Livestream Notice: Build a Better Loot System (Using DropTables the Right Way)” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-04-07. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260407/d6f04f8d-d329-49dc-92bb-5d2cb5d35909/584x354livestream.png",
+      "alt": "Creator Livestream Notice: Build a Better Loot System (Using DropTables the Right Way)"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260403/849a38a7-f9c3-4abd-a7d4-863ec7ca15fa/image202604031539371.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/b6e3a2a3-db79-41a0-8033-ec1d2590cc6b/251008WGC2493TwitchHorizoftal.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/1e510fed-f069-4228-bf85-003ef17e60b3/251008WGC2493YouTubeHorizoftal.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ea7c4796219ec087db7cdeac4ac15332261dcf6a6508404e205ac05531b566bd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:05:16.360Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-04-07.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3419147."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

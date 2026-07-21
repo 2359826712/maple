@@ -1,0 +1,88 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-02-26-3386266",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3386266",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3386266",
+  "external_id": "3386266",
+  "title": "Name Redemption Campaign – Request for Reserved Name NFT Burn",
+  "original_title": "Name Redemption Campaign – Request for Reserved Name NFT Burn",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-02-26T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“Name Redemption Campaign – Request for Reserved Name NFT Burn” is an official news item from MapleStory N Official Notices on 2026-02-26. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250605/cf50ca00-9bc1-4b7f-beab-77133f579371/image202506051815471.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/a29d35c9-4712-4841-a54f-bb51ff0f52c5/image202602251621071.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/6605c285-aca7-4b64-bd36-88325d53e970/image202602251621072.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/d06cc98f-62e6-47f4-841d-44100fde684f/image202602251621073.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/e6f0d4b0-f985-4d9e-94af-69d290e1cf12/image202602251621074.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/9a6ce535-7729-4892-b072-1faf16d120ef/image202602251621075.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ddccffadc5c3692f0928668868a0e6954686bbfd529f55af35dbba446bdfe32d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:12:55.849Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-02-26.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3386266."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

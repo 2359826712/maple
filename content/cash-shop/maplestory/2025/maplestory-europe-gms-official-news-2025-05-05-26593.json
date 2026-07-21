@@ -1,0 +1,115 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-05-05-26593",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/26593/check-out-the-pixel-picks-winners",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/26593/check-out-the-pixel-picks-winners",
+  "external_id": "26593",
+  "title": "Check out the Pixel Picks Winners!",
+  "original_title": "Check out the Pixel Picks Winners!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-05-05T00:09:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Check out the Pixel Picks Winners!” is an official Cash Shop notice from Global MapleStory Official News on 2025-05-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/vltfzcbn/540x304-pixel-picks-2025-winners-maplestory.jpg",
+      "alt": "Check out the Pixel Picks Winners!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d3uddx0r/1100x225-pixel-picks-2025-winners-maplestory.jpg",
+      "alt": "MapleStory Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2jsocvft/pixel-picks-pssb-winners-maplestory.png",
+      "alt": "MapleStory PSSB Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kc5pa5io/pixel-picks-male-royal-hairs-winners-maplestory.png",
+      "alt": "MapleStory Male Royal Hairs Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dkbbcdwm/pixel-picks-female-royal-hairs-winners-maplestory.png",
+      "alt": "MapleStory Female Royal Hairs Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1apnz2gv/pixel-picks-male-royal-faces-winners-maplestory.png",
+      "alt": "MapleStory Male Royal Faces Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uvjiq3jx/pixel-picks-female-royal-faces-winners-maplestory.png",
+      "alt": "MapleStory Female Royal Faces Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z24hlold/pixel-picks-male-change-royal-hairs-winners-maplestory.png",
+      "alt": "MapleStory Male Change Royal Hairs Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/thddnokg/pixel-picks-female-change-royal-hairs-winners-maplestory.png",
+      "alt": "MapleStory Female Change Royal Hairs Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kk0ixbon/pixel-picks-male-change-royal-faces-winners-maplestory.png",
+      "alt": "MapleStory Male Change Royal FacesPixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3gqb3dkl/pixel-picks-female-change-royal-faces-winners-maplestory.png",
+      "alt": "MapleStory Female Change Royal Faces Pixel Picks Winners"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/41cigyut/pixel-picks-damage-skins-winners-maplestory.png",
+      "alt": "MapleStory Damage Skin Pixel Picks Winner"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "07012556d64ba8f105ab41da72e13b668b6b22dbe858f9d7366c29a45e20cb02",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:07:25.715Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26593",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-05-05.",
+          "Official category: sale.",
+          "Nexon article ID: 26593."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

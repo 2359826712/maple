@@ -1,0 +1,124 @@
+{
+  "id": "n-multi-region-official-events-2026-07-02-3485223",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3485223",
+  "source_url": "https://msu.io/maplestoryn/news/events/3485223",
+  "external_id": "3485223",
+  "title": "[Hyper Summer] Raise the Golden Octopus",
+  "original_title": "[Hyper Summer] Raise the Golden Octopus",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Hyper Summer] Raise the Golden Octopus” is an official event notice from MapleStory N Official Events on 2026-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/23587f0d-4a04-4163-9df0-69d2d11a9045/ExportMSNEVENTThumb.png",
+      "alt": "[Hyper Summer] Raise the Golden Octopus"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/ed901590-8235-41bc-a24a-9a3e1faf2ec8/image2026061017133515.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/d35f2474-ef70-4ee8-a558-c7b267338d56/image2026070119070244.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/bd8ae0e6-fc52-469b-a344-3ec17130d02a/image2026070119070245.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/7d9746a9-a712-406d-a841-8bdfd0f46eef/image2026070119070246.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/71342d42-9272-4e78-a0dc-be0a9981a0d2/image2026070119070247.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/18c59079-92d9-4984-a266-5de21349fa93/image2026070119070248.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/df4e8fcd-1d03-4740-b305-18481bfbb881/image2026070119070249.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "11eb5552e2532ba310704ad11e0faa43dacd7eb8539b48251dc4d016e8669d0b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:03:30.164Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-07-02",
+      "2026-07-22T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-07-02.",
+          "Official classification: event.",
+          "Nexon thread ID: 3485223.",
+          "Confirmed event period: 2026-07-02 through 2026-07-22T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Summer] Raise the Golden Octopus",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-07-02",
+  "event_end": "2026-07-22T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

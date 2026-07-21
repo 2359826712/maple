@@ -1,0 +1,78 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-06-21089",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/21089/v-255-known-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/21089/v-255-known-issues",
+  "external_id": "21089",
+  "title": "v.255 Known Issues",
+  "original_title": "v.255 Known Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-06T12:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.255 Known Issues” is an official maintenance notice from Global MapleStory Official News on 2024-12-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/kxpbsnls/240826_knownissue_wgc-1339_540x304.jpg",
+      "alt": "v.255 Known Issues"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bx3bprjv/240826_knownissue_wgc-1339_1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vwmfiajf/fashionweek.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f4e37fe6112f74d64035aa1bddab7c65109890f3bba3057a78b6fefbd82c41e2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:17:08.719Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21089",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-06.",
+          "Official category: maintenance.",
+          "Nexon article ID: 21089."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,90 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-02-21-16232",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16232/maple-hashtag",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16232/maple-hashtag",
+  "external_id": "16232",
+  "title": "Maple Hashtag",
+  "original_title": "Maple Hashtag",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-02-21T16:32:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Maple Hashtag” is an official event notice from Global MapleStory Official News on 2023-02-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2089/230217_1100x225_hastagevent_6328.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "fb802236dc82c3db3b178d75f9db2a3f9b7676c8e550806e30c20835932463bc",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:39:14.624Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16232",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-02-21.",
+          "Official category: events.",
+          "Nexon article ID: 16232."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Maple Hashtag",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-02-22T00:00:00.000Z",
+  "event_end": "2023-03-07T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

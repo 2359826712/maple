@@ -1,0 +1,77 @@
+{
+  "id": "worlds-global-creator-center-news-2025-05-22-2908326",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2908326",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2908326",
+  "external_id": "2908326",
+  "title": "Hotfix - 2025 May 22",
+  "original_title": "Hotfix - 2025 May 22",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-05-22T08:15:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Hotfix - 2025 May 22” is an official maintenance notice from MapleStory Worlds Creator Center News on 2025-05-22. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250528/ece4f93b-922f-4bd6-afc0-f41696103ade/MSWGenericPostBanners740x120HotFix.png",
+      "alt": "Hotfix - 2025 May 22"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/68cea3a9-8b04-4931-84f8-9dfb7c5c03c3/WGC1404240930GenericPostBanners740x120HotFix.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8b44528b7225d8fdb8b55403d026ca049560cb39da16d5f469cee0b632d19c89",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:31:05.734Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-05-22.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 2908326."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

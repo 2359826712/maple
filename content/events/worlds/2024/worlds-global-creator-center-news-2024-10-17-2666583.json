@@ -1,0 +1,106 @@
+{
+  "id": "worlds-global-creator-center-news-2024-10-17-2666583",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2666583",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2666583",
+  "external_id": "2666583",
+  "title": "[Closed] Card Shuffle Challenge [Updated 11/18]",
+  "original_title": "[Closed] Card Shuffle Challenge [Updated 11/18]",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2024-10-17T23:29:21.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Closed] Card Shuffle Challenge [Updated 11/18]” is an official event notice from MapleStory Worlds Creator Center News on 2024-10-17. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241016/38a75b9d-0743-40ca-b324-06b2fca1f963/241016CardShuffleChallengeBanners2.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241016/389d19f6-9d7d-48e8-8a42-b7241bb89225/241016CardShuffleChallengeBanners3.jpg",
+      "alt": "Banner that says, \"The Rules\""
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241016/9e0e5555-98a2-4dd8-b82e-4f34315fe157/241016CardShuffleChallengeBanners4.jpg",
+      "alt": "Banner that says, \"The Prizes\""
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "baaa591e35404a3827887fb62d8cca6783ad88d8f063bcb8114c737428af1257",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:34:36.222Z",
+    "headline_id": "3480",
+    "official_category": null,
+    "official_tags": [
+      "Creator",
+      "Challenge",
+      "Card",
+      "Shuffle"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2024-10-17.",
+          "Official classification: event.",
+          "Nexon thread ID: 2666583.",
+          "Confirmed event period: 2024-11-01 through 2024-11-17 (America/Los_Angeles)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Closed] Card Shuffle Challenge [Updated 11/18]",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-11-01",
+  "event_end": "2024-11-17",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "America/Los_Angeles",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-09-27-16202",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16202/livestream-farewell-cm-ghiblee",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16202/livestream-farewell-cm-ghiblee",
+  "external_id": "16202",
+  "title": "Livestream - Farewell CM Ghiblee!",
+  "original_title": "Livestream - Farewell CM Ghiblee!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-09-27T18:45:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Livestream - Farewell CM Ghiblee!” is an official news item from Global MapleStory Official News on 2022-09-27. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3b102fcb999cbef262f09365fc2050e5d8a6062eadcd264e7194e18abbfd5689",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:43:57.280Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16202",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-09-27.",
+          "Official category: community.",
+          "Nexon article ID: 16202."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

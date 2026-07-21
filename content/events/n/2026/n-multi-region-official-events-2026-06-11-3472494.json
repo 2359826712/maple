@@ -1,0 +1,116 @@
+{
+  "id": "n-multi-region-official-events-2026-06-11-3472494",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3472494",
+  "source_url": "https://msu.io/maplestoryn/news/events/3472494",
+  "external_id": "3472494",
+  "title": "[Updated] [Hyper Summer] 2026 Maple Cup",
+  "original_title": "[Updated] [Hyper Summer] 2026 Maple Cup",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-11T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Updated] [Hyper Summer] 2026 Maple Cup” is an official event notice from MapleStory N Official Events on 2026-06-11. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/dfe10fd5-538a-4625-8ab3-546fc6a7b5b6/ExportMSNEVENTThumb.png",
+      "alt": "[Updated] [Hyper Summer] 2026 Maple Cup"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/0019f702-26b0-4609-88c9-79ee0d9659ba/image202606101952146.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/05a7c6a5-a06c-4418-97c3-5b2869fcd21b/image202606101952147.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/ffe940eb-707c-4fa2-9d29-39f92b22552e/image202606101952148.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/df71bc43-1894-4d7d-9641-fe9dd5b094d8/image202606101952149.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/101a6e72-1e7e-4ff6-b4b6-60702b609a32/image2026061019521410.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "651bd14f7cf1f8f18cdb2f8a671f0bacb5fbca257defb1d5c862bc72b7226bf1",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:04:21.425Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-06-11",
+      "2026-07-01T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-11.",
+          "Official classification: event.",
+          "Nexon thread ID: 3472494.",
+          "Confirmed event period: 2026-06-11 through 2026-07-01T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Updated] [Hyper Summer] 2026 Maple Cup",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-11",
+  "event_end": "2026-07-01T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

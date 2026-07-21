@@ -1,0 +1,127 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-04-24-17115",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/17115/v-250-mayple-island-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/17115/v-250-mayple-island-update-preview",
+  "external_id": "17115",
+  "title": "V.250 - Mayple Island Update Preview",
+  "original_title": "V.250 - Mayple Island Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-04-24T11:01:33Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“V.250 - Mayple Island Update Preview” is an official news item from Global MapleStory Official News on 2024-04-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tkvbfzl4/wgc-884_newspost_540x304.webp",
+      "alt": "V.250 - Mayple Island Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1248/header.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1250/mayple-island.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1249/mayple-island-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1246/child-of-the-forest-lynn.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1247/forest-child-lynn-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1240/hieizan-theme-dungeon-revamp.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1239/hieizan-theme-dungeon-revamp-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1245/cash-shop-transfer.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1244/cash-shop-transfer-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1252/zero-creation.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1251/zero-creation-ss.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1243/btn_discuss-on-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1242/btn_discuss-on-discord.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1241/bottom.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4069ce106188d869f21594309b68fd1ccaf6b9d4e439174dca43ee3d4eeeb934",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:30.690Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17115",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-04-24.",
+          "Official category: update.",
+          "Nexon article ID: 17115."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

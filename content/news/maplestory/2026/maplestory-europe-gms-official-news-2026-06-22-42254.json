@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-06-22-42254",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/42254/compensation-for-the-6-20-unscheduled-maintenance",
+  "source_url": "https://www.nexon.com/maplestory/news/general/42254/compensation-for-the-6-20-unscheduled-maintenance",
+  "external_id": "42254",
+  "title": "Compensation for the 6/20 Unscheduled Maintenance",
+  "original_title": "Compensation for the 6/20 Unscheduled Maintenance",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-22T18:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:06:01.566Z",
+  "last_checked": "2026-07-20T01:06:01.566Z",
+  "summary": "“Compensation for the 6/20 Unscheduled Maintenance” is an official news item from Global MapleStory Official News on 2026-06-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Compensation for the 6/20 Unscheduled Maintenance"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9a3e2bb4cf4e79339eb445365532f7a81a68ac7ab66b948a892ee54d4cbd2494",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:06:51.257Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "42254",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-06-22.",
+          "Official category: general.",
+          "Nexon article ID: 42254."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

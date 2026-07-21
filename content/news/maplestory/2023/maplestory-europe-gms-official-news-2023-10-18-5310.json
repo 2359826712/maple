@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-18-5310",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5310/october-2023-community-contests-and-events",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5310/october-2023-community-contests-and-events",
+  "external_id": "5310",
+  "title": "October 2023 Community Contests and Events",
+  "original_title": "October 2023 Community Contests and Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-18T18:48:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“October 2023 Community Contests and Events” is an official news item from Global MapleStory Official News on 2023-10-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jnaoh0qx/210406_540x304_communitycontests.webp",
+      "alt": "October 2023 Community Contests and Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1056/1100x225-maplestory-community-contests.jpg",
+      "alt": "MapleStory Community Contests"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1294/wgc-385-231005-1200x400-home-halloween-contest-banners-v1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1295/wgc-386-231005-1200x400-what-the-bean.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0a7d21cffb3cc4654f9b74b7c697aae187d7b31a1953512cb6f017e80eda0b50",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:31.552Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5310",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-18.",
+          "Official category: community.",
+          "Nexon article ID: 5310."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

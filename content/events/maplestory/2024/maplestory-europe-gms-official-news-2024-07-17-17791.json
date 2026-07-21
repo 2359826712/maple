@@ -1,0 +1,130 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-07-17-17791",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/17791/update-jul-22-claim-the-pharaoh-s-treasure",
+  "source_url": "https://www.nexon.com/maplestory/news/events/17791/update-jul-22-claim-the-pharaoh-s-treasure",
+  "external_id": "17791",
+  "title": "[Update Jul 22] Claim the Pharaoh's Treasure!",
+  "original_title": "[Update Jul 22] Claim the Pharaoh's Treasure!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-07-17T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Update Jul 22] Claim the Pharaoh's Treasure!” is an official event notice from Global MapleStory Official News on 2024-07-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qkcbun35/post-540x304-pharaohs-treasure-event-maplestory.jpg",
+      "alt": "[Update Jul 22] Claim the Pharaoh's Treasure!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f1rl54rd/post-1100x225-pharaohs-treasure-event-maplestory.jpg",
+      "alt": "MapleStory Pharaoh's Treasure Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b33km5at/pharaohs-teasure-chamber-select-maplestory.png",
+      "alt": "MapleStory Pharaoh's Treasure Chamber Selection"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rkliylcc/pharaohs-teasure-relic-combination-maplestory.png",
+      "alt": "MapleStory Pharaoh's Treasure Relic Combination"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fgjfuhn5/pharaohs-teasure-boss-fight-maplestory.png",
+      "alt": "MapleStory Pharaoh's Treasure Boss Fight"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iuqeiqdn/pharaoh-treasure-quest.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xaljadrq/pharaoh.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ofmnd2pa/pharaohs-chapter-5-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bo1pgy53/pharaohs-treasure-title-and-medal-rewards-maplestory.png",
+      "alt": "MapleStory Pharaoh's Treasure Title and Medal Rewards"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yjblm4rp/pharaohs-treasure-mount-rewards-maplestory.png",
+      "alt": "MapleStory Pharaoh's Treasure Mount Rewards"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t3kha0wy/pharaohs-treasure-chair-rewards-maplestory.png",
+      "alt": "MapleStory Pharaoh's Treasure Chair Rewards"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5959bfccf838b075aedc04b5e7eb1b8219aa7feb3cf32fa0970268348d77e9aa",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:21:36.325Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17791",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-07-17.",
+          "Official category: events.",
+          "Nexon article ID: 17791."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Update Jul 22] Claim the Pharaoh's Treasure!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-07-17",
+  "event_end": "2024-08-27T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

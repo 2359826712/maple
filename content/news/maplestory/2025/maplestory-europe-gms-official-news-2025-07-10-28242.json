@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-07-10-28242",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/28242/mastering-maplestory-1-200-leveling-guide",
+  "source_url": "https://www.nexon.com/maplestory/news/community/28242/mastering-maplestory-1-200-leveling-guide",
+  "external_id": "28242",
+  "title": "Mastering MapleStory: 1-200 Leveling Guide",
+  "original_title": "Mastering MapleStory: 1-200 Leveling Guide",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-07-10T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Mastering MapleStory: 1-200 Leveling Guide” is an official news item from Global MapleStory Official News on 2025-07-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qxvbbtgp/news-post-540x304-mastering-maplestory-1-200-leveling-guide.jpg",
+      "alt": "Mastering MapleStory: 1-200 Leveling Guide"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/klxj2ocf/in-post-banner-1100x225-mastering-maplestory-1-200-leveling-guide.png",
+      "alt": "1-200 Leveling Guide Mastering MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "90e7c8acebf93e09853e29d7a5b4ac554875cdeb251db7f3452cf2ea5064c699",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:05:28.406Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "28242",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-07-10.",
+          "Official category: community.",
+          "Nexon article ID: 28242."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

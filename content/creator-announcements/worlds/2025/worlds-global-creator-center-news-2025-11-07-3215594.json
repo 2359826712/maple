@@ -1,0 +1,94 @@
+{
+  "id": "worlds-global-creator-center-news-2025-11-07-3215594",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3215594",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3215594",
+  "external_id": "3215594",
+  "title": "Page Loading Failure When Logging in via Chrome Browser",
+  "original_title": "Page Loading Failure When Logging in via Chrome Browser",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-11-07T11:45:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Page Loading Failure When Logging in via Chrome Browser” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-11-07. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251107/d0fcb705-ed8c-4a28-92d6-1169cf4e8bb2/MSWGenericPostBanners740x120notice1.png",
+      "alt": "Page Loading Failure When Logging in via Chrome Browser"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251107/73bf319f-30cc-4530-ae5b-cd53c6376913/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251107/94e87b0a-f4ed-48d2-a449-a6df3275397d/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251107/65cc1c64-2dad-4cab-a103-eb9f8dff62e6/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251107/27fd72f9-52a7-4095-ac50-1392db131264/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251107/29e0c37e-244b-4211-914b-52e8dcfaa08f/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f7a97e93dbab500eac4a5fe4c809b6275fa0f58b4fa108791863f8c456d19c84",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:24:21.960Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-11-07.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3215594."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

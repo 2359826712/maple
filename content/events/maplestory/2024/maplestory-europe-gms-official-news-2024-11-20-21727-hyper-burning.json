@@ -1,0 +1,150 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-11-20-21727-hyper-burning",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/21727/the-dark-ride-burning-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/21727/the-dark-ride-burning-events",
+  "external_id": "21727:hyper-burning",
+  "title": "Hyper Burning",
+  "original_title": "The Dark Ride Burning Events!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-11-20T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Hyper Burning” is an official event notice from Global MapleStory Official News on 2024-11-20. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/pralaids/540x304-the-dark-ride-burning-events-maplestory.jpg",
+      "alt": "The Dark Ride Burning Events!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kf0b4gfv/1100x225-the-dark-ride-burning-events-maplestory.jpg",
+      "alt": "The Dark Ride Burning Events MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5786/newteraeffect.png",
+      "alt": "http://nxcache.nexon.net/cms/2018/5786/newteraeffect.png"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/1725/tera-burning-reward-boxes-maplestory.png",
+      "alt": "Tera Burning Reward Boxes MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1538/maplestory-newage-eternalflame-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1519/maplestory-newage-hyperburning-outfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1539/maplestory-newage-infiniteflames-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1518/maplestory-newage-hyperburning-medal.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/drzh5wfr/my-friend-mush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0bdkeqvf/our-maple-tree-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kwgfgnfh/tera-blink-spiegelmann-training.png",
+      "alt": "MapleStory Tera Blink Event"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q4/1584/burning-world-character-selection.png",
+      "alt": "MapleStory Burning World Characters"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q3/1132/burning-world-items.png",
+      "alt": "MapleStory Burning World Rewards"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/1002/burning-rewards-icons.png",
+      "alt": "Pixel Burning Reward Icons MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/1117/pixel-burning-rewards-maplestory-mega-burning-at-the-pixel-party.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q3/1134/world-leap-screen.png",
+      "alt": "MapleStory Burning World World Leap Screen"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "08bcd332bc44e2a8a610fd3dd6f96f576195f0fc1bf6437f34b86f8c7f62c3bd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "hyper-burning",
+    "fetched_at": "2026-07-21T02:17:53.829Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21727",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-11-20.",
+          "Official category: events.",
+          "Nexon article ID: 21727."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Hyper Burning",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-11-20",
+  "event_end": "2025-02-11T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

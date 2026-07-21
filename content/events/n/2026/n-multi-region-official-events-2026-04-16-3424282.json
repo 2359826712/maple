@@ -1,0 +1,108 @@
+{
+  "id": "n-multi-region-official-events-2026-04-16-3424282",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3424282",
+  "source_url": "https://msu.io/maplestoryn/news/events/3424282",
+  "external_id": "3424282",
+  "title": "New Explorer Job Growth Event",
+  "original_title": "New Explorer Job Growth Event",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-04-16T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“New Explorer Job Growth Event” is an official event notice from MapleStory N Official Events on 2026-04-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260417/cec40916-2b89-45b2-9319-8ea29804c9e3/ExportMSNEVENTThumb.png",
+      "alt": "New Explorer Job Growth Event"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260415/345b4bd4-33dd-4818-8962-64c6852f2583/image2026041518432526.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260415/280642a6-0a1b-44aa-9887-9b5c7f9f142b/image2026041518432527.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5c2ddd3b75e5868ec33f586d101d010fa46cd18df6f6efd7e0bb3bcf3d0bbc4d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:05:48.687Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-04-16",
+      "2026-05-27T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-04-16.",
+          "Official classification: event.",
+          "Nexon thread ID: 3424282.",
+          "Confirmed event period: 2026-04-16 through 2026-05-27T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "New Explorer Job Growth Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-04-16",
+  "event_end": "2026-05-27T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

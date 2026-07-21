@@ -1,0 +1,530 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-07-16-17655",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/17655/updated-8-26-2024-v-252-go-west-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/17655/updated-8-26-2024-v-252-go-west-patch-notes",
+  "external_id": "17655",
+  "title": "[Updated 8/26/2024] v.252 - GO WEST! Patch Notes",
+  "original_title": "[Updated 8/26/2024] v.252 - GO WEST! Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-07-16T15:38:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated 8/26/2024] v.252 - GO WEST! Patch Notes” is an official patch note from Global MapleStory Official News on 2024-07-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/j4qntfhr/240712_v252-patchnotes_newspost_540x304.jpg",
+      "alt": "[Updated 8/26/2024] v.252 - GO WEST! Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3jjhyxsu/240712_v252-patchnotes_inpostbanner-1_1100x225-1.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iuqeiqdn/pharaoh-treasure-quest.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xaljadrq/pharaoh.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ofmnd2pa/pharaohs-chapter-5-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ivfhn4qh/guardian-of-eternal-repose-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p4eomeha/demon-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gv5n2tbl/horus-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p45nv5hh/anubis-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z1tlrt1c/golden-altar-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1mabsewq/master-of-exploration-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mt5nawov/willow-dodge-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/avvhge2b/frozen.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f5fhtzon/gowest_hyperburning-outfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/reohnx13/gowest_hyperburning_infiniteflame_title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xwqlh3jd/gowest-hyperburning-medal.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/urop0qn2/gowest-spiegelmannhateffect.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n2bpdpx5/gowest-dazzlinghatpet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pqcdyr2m/gowest-spiegelmannhatchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zrhpkpw4/gowest-burning-flameborn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l20og35h/gowest-burningworld-keeponburning-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2aymzrp0/gowest-ab-skins.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3i5f3lso/gowest-ab-poster-angelicbuster.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bn3peret/gowest-ab-poster-lucid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dvhbb4aq/gowest-ab-abxluciddreamconcert-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oddiocqp/gowest-ab-posterabxlucid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vb3kthxs/gowest-ab-concert-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aiylxefx/gowest-zerotoonehundred.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d5enklqn/gowest-reveriefrag.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/13ynqc05/gowest-dancefrag.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qdihu2hs/gowest-nightfrag.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rlhfowjk/gowest-rosyplusflushedskins.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yojbn1dt/gowest-dreameractiondmgskin-unit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m10c2kaq/gowest-rockspiritchatemoticon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aljlnvv3/gowest-messenger-midsummerlacheleinbackground.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1xabn1ff/gowest-messenger-dreaminglacheleinchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2s3hxpvt/gowest-lacheleinmaskedmasqueradeoutfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jrbhmgcx/gowest-dreaminglachelein-dreamerbackground.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/paphsnrn/gowest-messenger-dreamerlabelchatring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/avqmcyje/gowest-dreamer-medal.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1ufhp53l/gowest-dreaminglucidandroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mrrbnorl/gowest-tomatomounts.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vcnjcavy/gowest-goldentomato.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xgbkcqqi/lucidchatemoticon1.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1btbsiq5/lucidchatemoticon2.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1bdba5v1/lucidchatemoticon3.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yq1pjyfp/lucidchatemoticon4.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/203lyn5w/sweet-dreaming-lachelein.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4puabkcp/gowest-forest-hood.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bhah1e2a/gowest-forest-shoes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xtkmm4np/skyscraper-clocktower.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/10jkalry/gowest-forest-cape.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2b3fbjn2/monster-pyramid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ntxnew2a/gowest-forest-weapon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gazlxeoh/gowest-safechair-mask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/td4fupoy/gowest-safe-oberonpets.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bddfvz14/gowest-safe-victorypets.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e3rbgoh4/gowest-safe-duskpets.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4fumqjz2/gowest-safe-tothpets.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1sdc3ch0/gowest-safe-mazurkapets.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c3qfqpsq/gowest-safe-fairykingoberonhair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zvohsedy/gowest-safe-riderhair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ecupq5yh/gowest-safe-glowybutterflyhair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fvfgzbhy/gowest-safe-tothhair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zhpis3cw/gowest-safe-temporalwhiterabbithair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nvrfhlnv/gowest-safe-glorioushair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lbxb5frs/gowest-safe-kaihair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sfrkrgta/gowest-safe-palemoonlithair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2bihuwzy/gowest-safe-cielhair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/43xjpn0z/gowest-safe-flawlesshair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nkidgbyt/gowest-safe-gentlebreezehair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/whdai5zb/gowest-safe-puzzlekinghair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/okcnqu1a/gowest-safe-masterfairyset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/clmcbqw1/gowest-safe-masterponyset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iwchfbwx/gowest-safe-masterglowybutterflyset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mnmp0jnb/gowest-safe-dreadmasterset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uppj2xiy/gowest-safe-timemasterset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/btvoz5hs/gowest-safe-masterflora.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/utria1i0/gowest-safe-snowroyalsset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3i5pqi1d/gowest-safe-mastercrimsonset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/quldxzxt/gowest-safe-masterstellarset.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tijdc2ke/gowest-safe-shadow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xkqdfwzv/gowest-safe-messengerofstars2.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iydivbkd/protective-mask-dup.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tklhz4qb/gowest-purplefantasyoutfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f2wllp0h/gowest-azureteddy.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qo4nbkob/gowest-dreamkeeper-roid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bpjdx2we/gowest-sheepcountingchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lx0eftbv/gowest-sunsetchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zippofjp/gowest-stardustmount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iskp5rfp/gowest-shrimptempuramount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tr0n4zxv/gowest-seaexplorermount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ngaijbwn/gowest-nightwavesactiondamageskin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nwcbbvhe/gowest-lacheleindamageskin-unit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aicpj3d3/gowest-sweetdreamdamageskin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ggidcb2o/gowest-moonlightdamageskin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v2idlq15/gowest-dreamguidedamageskin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2y1fqpuq/gowest-constellationdamgeskin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3zspgeau/gowest-moniface.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fhdeiy2w/gowest-laniaface.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p4cny1hx/gowest-manjiface.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nbmduc3c/gowest-mesoshop-androids.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ebxhob3q/gowest-heroescutoutchair-mercedes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ncvpi13d/gowest-heroescutoutchair-aran.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ilhbagxc/gowest-heroescutoutchair-phantom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/25vjfdcx/gowest-heroescutoutchair-luminous.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iuwmb0my/gowest-heroescutoutchair-evan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w2nj0v2i/gowest-heroescutoutchair-shade.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a03gwxkr/gowest-adventurousblackbeanmount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zsijxxdc/maple-punk-full-dr-lim-edition.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ghmpqsvr/maple-punk-full-inkwell-edition.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4okhhmdv/maple-punk-damage-skin.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f1zfd2jv/go-west-medal-display.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ljecdxxt/maple-punk-chair.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5db09052eea2813945c9b866348c30a847ab70b60b7f2482aa493665a436b22f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:21:42.318Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17655",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-07-16.",
+          "Official category: update.",
+          "Nexon article ID: 17655."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2024-07-16T15:38:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-05-18-5105",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5105/the-cms-drift-to-the-finish",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5105/the-cms-drift-to-the-finish",
+  "external_id": "5105",
+  "title": "The CMs Drift to the Finish!",
+  "original_title": "The CMs Drift to the Finish!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-05-18T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The CMs Drift to the Finish!” is an official news item from Global MapleStory Official News on 2023-05-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jftcs1dn/230511-krw-1797-season2-allcm-twitch-ms-540x304-v2.webp",
+      "alt": "The CMs Drift to the Finish!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2031/230511-krw-1797-season2-allcm-twitch-mb-940x290-v2.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b9444eb20b7c904401ed3c25a5fc736899c146124617efd48935f73a9b0fc851",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:36:02.293Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5105",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-05-18.",
+          "Official category: community.",
+          "Nexon article ID: 5105."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

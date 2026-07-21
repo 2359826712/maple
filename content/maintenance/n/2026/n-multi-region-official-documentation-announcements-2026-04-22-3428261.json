@@ -1,0 +1,67 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-04-22-3428261",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3428261",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3428261",
+  "external_id": "3428261",
+  "title": "[COMPLETED] April 22 - Temporary Maintenance",
+  "original_title": "[COMPLETED] April 22 - Temporary Maintenance",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-04-22T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“[COMPLETED] April 22 - Temporary Maintenance” is an official maintenance notice from MapleStory N Official Notices on 2026-04-22. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241220/b39f7c87-1b57-4642-9703-19f7cc8b233a/EAheaderMAINTENANCE01.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ad78a3e1f897f2d91fa6e5a4758597ddf4ad7c60a1b43f24f696fe4aee420137",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:11:52.692Z",
+    "headline_id": "5040",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-04-22.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3428261."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

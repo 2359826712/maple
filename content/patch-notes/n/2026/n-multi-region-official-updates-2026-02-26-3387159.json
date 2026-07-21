@@ -1,0 +1,128 @@
+{
+  "id": "n-multi-region-official-updates-2026-02-26-3387159",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/3387159",
+  "source_url": "https://msu.io/maplestoryn/news/update/3387159",
+  "external_id": "3387159",
+  "title": "February 25 Patch Note",
+  "original_title": "February 25 Patch Note",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "patch-notes",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-02-26T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:18:23.541Z",
+  "last_checked": "2026-07-20T06:18:23.541Z",
+  "summary": "“February 25 Patch Note” is an official patch note from MapleStory N Official Updates on 2026-02-26. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "patch-notes"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241122/bf2e7a17-6a8e-442c-a414-7b91e53f888d/EAheaderPATCHNOTE.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/58e22196-a3cb-4979-8e1f-de52ee13c2b2/image2026022521282356.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/6213f36c-eb9d-4e94-9b72-6aff73b2d0cb/image2026022521282357.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/3a98a843-c48d-4ea4-8222-1c245cc0392e/image2026022521282358.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/67822115-6058-47d4-8cd0-76bf61dc338c/image2026022521282359.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/c03074a0-8773-4e0c-a200-2b8102c91d27/image2026022521282360.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260226/596f07e3-60be-4ba6-a16f-f28164e7e3d4/%EA%B7%B8%EB%A6%BC1.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260226/78ca8dc3-2e74-4bc6-989a-a63b0b5ffc93/%EA%B7%B8%EB%A6%BC2.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/233249af-43c8-4dd9-8c45-04dc1f32b796/image2026022521282363.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/62df57cb-6b4b-4138-ac90-cd30b93633d0/image2026022521282364.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/a1dd352e-98f4-4d9e-ba6b-7bac49b66e7b/image2026022521282365.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260226/0831c968-826b-4ca3-901a-9da3ecb36ce5/%ED%83%9C%EC%96%91%EC%9D%98%EC%9E%90%EC%B0%A9%EC%83%B7.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260225/e1baaf42-85ed-4b2c-9dba-f29012db4483/image2026022521282367.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "bd50f2c626c07f0803dc38dc735cdb4bb4024169f7618cfa7b24b627a07bb124",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:20:49.699Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-02-26.",
+          "Official classification: patch notes.",
+          "Nexon thread ID: 3387159."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2026-02-26T02:00:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

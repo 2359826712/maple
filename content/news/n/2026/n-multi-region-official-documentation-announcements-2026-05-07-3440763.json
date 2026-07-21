@@ -1,0 +1,68 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-05-07-3440763",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3440763",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3440763",
+  "external_id": "3440763",
+  "title": "May 7 - Notice on KYC and Credit Level Issues after Patch",
+  "original_title": "May 7 - Notice on KYC and Credit Level Issues after Patch",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-05-07T03:21:03.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“May 7 - Notice on KYC and Credit Level Issues after Patch” is an official news item from MapleStory N Official Notices on 2026-05-07. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260507/1d86d5c8-f32c-4ee2-b261-f1dc06a2ce02/%EA%B3%B5%EC%A7%80%EB%B0%B0%EB%84%88announcement.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "056075c229d556657c29f4fe81fe7155abc8e780250c8a91341f06b6f8117c22",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:11:43.670Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-05-07.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3440763."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

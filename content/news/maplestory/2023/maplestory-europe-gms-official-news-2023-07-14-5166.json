@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-07-14-5166",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5166/what-s-your-maplestory-camitta",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5166/what-s-your-maplestory-camitta",
+  "external_id": "5166",
+  "title": "What's Your MapleStory? - Camitta",
+  "original_title": "What's Your MapleStory? - Camitta",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-07-14T18:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“What's Your MapleStory? - Camitta” is an official news item from Global MapleStory Official News on 2023-07-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ycgj1msw/190307_post_what_is_yourmaplestory.webp",
+      "alt": "What's Your MapleStory? - Camitta"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1510/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1210/maple_230711_192401.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1313/wymsimg.png?height=447&mode=max&width=382",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7775a0979d9855264c010b21e42c53c472de66515e9c946da64e424df75c6e5f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:34:17.038Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5166",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-07-14.",
+          "Official category: community.",
+          "Nexon article ID: 5166."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

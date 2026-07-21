@@ -14,7 +14,66 @@
   "adapter": "nexon-cms",
   "parser": "gms-official-news",
   "adapter_config": {
-    "default_content_type": "news"
+    "default_content_type": "news",
+    "event_date_overrides": {
+      "36565": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      },
+      "36566": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      },
+      "36568": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      },
+      "36569": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      },
+      "36570": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      },
+      "36571": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      },
+      "36572": {
+        "event_start": "2026-03-18",
+        "event_end": "2026-04-14T23:59:00.000Z",
+        "timezone": "UTC",
+        "evidence": "official-body-image"
+      }
+    },
+    "pagination": {
+      "strategy": "client-slice",
+      "endpoint_urls": [
+        "https://g.nexonstatic.com/maplestory/cms/v1/news",
+        "https://g.nexonstatic.com/maplestory/cms/v1/archived"
+      ],
+      "start": 1,
+      "page_size": 18,
+      "sort": "source-order",
+      "filter_series_before_slice": true,
+      "stop_on_empty": true,
+      "stop_on_short_page": true,
+      "resume": true,
+      "total_count_from_response_length": true
+    }
   },
   "official": true,
   "enabled": true,
@@ -27,5 +86,5 @@
   "last_checked": null,
   "last_success": null,
   "last_error": null,
-  "notes": "Verified on 2026-07-18 against Nexon's public Global MapleStory CMS. Classic World titles are excluded and indexed by the separate Classic source."
+  "notes": "Verified on 2026-07-20 against Nexon's public Global MapleStory CMS. The official client concatenates /news and /archived, filters by game version, and paginates the resulting array in source order at 18 items per page. Event-date overrides 36565-36572 were transcribed from the explicit periods displayed in their official image-only article bodies. Classic World titles are excluded and indexed by the separate Classic source."
 }

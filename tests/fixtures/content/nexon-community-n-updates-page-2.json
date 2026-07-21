@@ -1,0 +1,12 @@
+{
+  "threads": [
+    { "threadId": "9208", "boardId": "5290", "headlineId": "0", "title": "June 20 Patch Notes (Updated Title)", "summary": "Boundary overlap with a title edit.", "createDate": 1782345600, "isSticky": false },
+    { "threadId": "9209", "boardId": "5290", "headlineId": "0", "title": "Security Notice", "summary": "Security announcement.", "createDate": 1782259200, "isSticky": false },
+    { "threadId": "9210", "boardId": "5290", "headlineId": "0", "title": "From the Development Team: Economy Direction", "summary": "Developer communication with design rationale.", "createDate": 1782172800, "isSticky": false }
+  ],
+  "totalElements": "10",
+  "totalPages": 2,
+  "numberOfElements": 3,
+  "blockStartKey": ["253402300799", "9223372036854775807"],
+  "blockStartNo": 1
+}

@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-05-03-5092",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5092/maplestory-18th-anniversary-giveaway",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5092/maplestory-18th-anniversary-giveaway",
+  "external_id": "5092",
+  "title": "MapleStory 18th Anniversary Giveaway",
+  "original_title": "MapleStory 18th Anniversary Giveaway",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-05-03T12:05:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory 18th Anniversary Giveaway” is an official news item from Global MapleStory Official News on 2023-05-03. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/gb5ecdav/msw-6403-230426-maple-momentree-polaroid-giveaway-graphics-news-post-540x304.webp",
+      "alt": "MapleStory 18th Anniversary Giveaway"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1683/msw-6403-230426-maple-momentree-polaroid-giveaway-graphics-in-post-banner-1100x225.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1696/gleam_reward_ms.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "53d1b15a0862fe3c84e82d3ecdd41509483717c1c291f85c3cbd2b593e29ac91",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:36:20.286Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5092",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-05-03.",
+          "Official category: community.",
+          "Nexon article ID: 5092."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

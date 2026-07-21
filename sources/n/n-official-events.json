@@ -1,0 +1,73 @@
+{
+  "id": "n-official-events",
+  "name": "MapleStory N Official Events",
+  "series": "n",
+  "regions": ["multi-region"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["event", "news"],
+  "base_url": "https://msu.io/maplestoryn/news/events",
+  "discovery_urls": ["https://msu.io/maplestoryn/news/events"],
+  "feed_url": null,
+  "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+  "sitemap_urls": [],
+  "adapter": "nexon-community",
+  "parser": "maplestory-n-official-events",
+  "adapter_config": {
+    "board_id": "5289",
+    "canonical_template": "https://msu.io/maplestoryn/news/events/{threadId}",
+    "default_content_type": "event",
+    "headline_type_map": { "3296": "event", "3297": "event" },
+    "headline_label_map": { "3296": "ongoing-event", "3297": "ended-event" },
+    "classification_rules": [
+      {
+        "content_type": "news",
+        "override_headline": true,
+        "title_pattern": "(?:winner(?:s)?(?: announcement)?|event results?|results? announcement|ranking and reward distribution)"
+      },
+      {
+        "content_type": "news",
+        "override_headline": true,
+        "title_pattern": "(?:reward distribution|distribution of .+ rewards?)"
+      },
+      {
+        "content_type": "news",
+        "override_headline": true,
+        "title_pattern": "(?:postpon|cancel|extension|extended|schedule change)"
+      }
+    ],
+    "subcategory_rules": [
+      { "subcategory": "event-result", "content_types": ["news"], "title_pattern": "(?:winner|results?|ranking)" },
+      { "subcategory": "reward-distribution", "content_types": ["news"], "title_pattern": "(?:reward distribution|distribution of .+ rewards?)" },
+      { "subcategory": "event-schedule-change", "content_types": ["news"], "title_pattern": "(?:postpon|cancel|extension|extended|schedule change)" }
+    ],
+    "content_type_subcategory_map": { "event": "event", "news": "event-notice" },
+    "headers": {
+      "community-id": "500",
+      "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+    },
+    "mode": "n",
+    "page_size": 25,
+    "max_server_page_size": 100,
+    "pagination": {
+      "strategy": "nexon-keyset",
+      "start": 1,
+      "page_size": 25,
+      "block_size": 9,
+      "pagination_type": "PAGING",
+      "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+    }
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "3h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-20 against the public MapleStory N Events route and official public read API. Board 5289 exposes ongoing and ended headline states; result, reward-distribution, cancellation, postponement, and schedule-change posts remain news unless they independently define an event. Full source text is not retained."
+}

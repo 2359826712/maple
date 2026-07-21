@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-19-13327",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/13327/join-the-abyssal-expedition",
+  "source_url": "https://www.nexon.com/maplestory/news/events/13327/join-the-abyssal-expedition",
+  "external_id": "13327",
+  "title": "Abyssal Expedition",
+  "original_title": "Join the Abyssal Expedition!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-19T14:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Abyssal Expedition” is an official event notice from Global MapleStory Official News on 2023-12-19. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/rezdny5g/newspost_540x304-abyssal-expedition-maplestory.webp",
+      "alt": "Join the Abyssal Expedition!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2630/post-header_1100x225-abyssal-expedition-maplestory.jpg",
+      "alt": "abyssal expedition maplestory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2628/abyssal-expedition-combat-maplestory.png",
+      "alt": "abyssal expedition combat maplestory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2629/abyssal-expedition-ui-maplestory.png",
+      "alt": "abyssal expedition ui maplestory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2419/maplestory-newage-abyssalexpedition-mount.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e5cce76798c0c424f8bd47fe7934086bd4c0121210bf797f5015a4d099dcbc10",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:22.218Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13327",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-19.",
+          "Official category: events.",
+          "Nexon article ID: 13327."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Abyssal Expedition",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-12-20T00:00:00.000Z",
+  "event_end": "2024-02-06T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

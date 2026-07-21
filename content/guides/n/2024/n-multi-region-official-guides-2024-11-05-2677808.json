@@ -1,0 +1,112 @@
+{
+  "id": "n-multi-region-official-guides-2024-11-05-2677808",
+  "source_id": "n-official-guides",
+  "canonical_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677808",
+  "source_url": "https://msu.io/maplestoryn/news/Beginner's%20Guide/2677808",
+  "external_id": "2677808",
+  "title": "[Community] Chat Window",
+  "original_title": "[Community] Chat Window",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "guide",
+  "subcategory": "system-guide",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2024-11-05T05:31:59.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T05:59:47.118Z",
+  "last_checked": "2026-07-20T05:59:47.118Z",
+  "summary": "“[Community] Chat Window” is an official guide from MapleStory N Official Beginner's Guides on 2024-11-05. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "guide",
+    "system-guide"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/42735ca2-2d03-459b-8924-5d563522e5ce/image2024111817551628.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/bb7b7076-5610-4e34-9bfd-67a24d03c455/image2024111817551629.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241121/3e32be87-b6e7-4b6b-9573-97d3c175ee56/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/3d134c6f-5950-47ea-8281-ccba859ef2f5/image2024111817551631.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/d4e8a861-17aa-4577-8ebe-2d1b0025ac29/image2024111817551632.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/c6bc038d-34c3-4537-835f-2f645f9da71b/image2024111817551633.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241118/64c56f1b-237a-44b6-87a2-d638297c8a3f/image2024111817551634.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b6a6d860703f54d868537f7d5290df183eb5d06769677548783e49536c07857a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-guides",
+    "api_record": true,
+    "board_id": "5291",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:00:24.728Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2024-11-05.",
+          "Official classification: system guide.",
+          "Nexon thread ID: 2677808."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "guide_type": "other",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": null,
+  "level_range": null,
+  "difficulty": "unknown",
+  "game_version": null,
+  "applicable_regions": [
+    "multi-region"
+  ],
+  "prerequisites": [],
+  "steps": [],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

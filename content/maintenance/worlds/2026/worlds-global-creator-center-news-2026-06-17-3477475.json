@@ -1,0 +1,75 @@
+{
+  "id": "worlds-global-creator-center-news-2026-06-17-3477475",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3477475",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3477475",
+  "external_id": "3477475",
+  "title": "[Updated] Resource Hotfix Maintenance - 2026 June 16",
+  "original_title": "[Updated] Resource Hotfix Maintenance - 2026 June 16",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-06-17T00:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:08:37.286Z",
+  "last_checked": "2026-07-20T01:08:37.286Z",
+  "summary": "“[Updated] Resource Hotfix Maintenance - 2026 June 16” is an official maintenance notice from MapleStory Worlds Creator Center News on 2026-06-17. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260616/258781e6-ff17-4ec2-9d57-59562724b793/MSWGenericPostBanners740x120HotFix.png",
+      "alt": "[Updated] Resource Hotfix Maintenance - 2026 June 16"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260616/426a9c12-ffdf-4233-ba6f-d0f8e150dd41/image202606161136052.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260616/361f6635-f206-4553-ae1c-9b0505291ef6/image202606161334064.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7ac1e7c0f1b8308e1f8d7a70ebf957300ff8db4c1b62f72d57bcb2c799a23643",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:09:15.048Z",
+    "headline_id": "3477",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-06-17.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3477475."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

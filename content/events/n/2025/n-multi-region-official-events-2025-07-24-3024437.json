@@ -1,0 +1,144 @@
+{
+  "id": "n-multi-region-official-events-2025-07-24-3024437",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3024437",
+  "source_url": "https://msu.io/maplestoryn/news/events/3024437",
+  "external_id": "3024437",
+  "title": "[UPDATED] Heroes Fiesta",
+  "original_title": "[UPDATED] Heroes Fiesta",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-07-24T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:55:51.278Z",
+  "last_checked": "2026-07-20T07:55:51.278Z",
+  "summary": "“[UPDATED] Heroes Fiesta” is an official event notice from MapleStory N Official Events on 2025-07-24. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250723/9366b9cc-78b5-4698-873c-b6fb62301851/MSNEventThumbHeroesfiesta.png",
+      "alt": "[UPDATED] Heroes Fiesta"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250723/7ffb91ca-d66a-4097-bcaa-4e503b4f3ff4/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250723/72d12a1d-41d5-49f6-ad8c-c85e7ca09cec/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250723/458c5fba-f615-488a-9cee-ebb331897a9f/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250723/ea824c97-c766-4e2f-bde5-64c020b70a0c/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/f36ca371-132f-404e-b90e-5b6315b206b2/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/c10492e6-69ee-418c-be69-175171808ef7/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250723/f0cf1fd9-58fa-466e-ac95-6989a6db0341/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/17548292-c4b7-4a92-b518-725ac2dcccfa/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/8157416a-479c-41c4-a821-233b8a625a69/image202508070727561.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/db19bb64-7552-4d1d-a063-2e49fad8bdde/image202508070728032.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250806/cf7d758c-09e4-44e6-bcfe-94d7999a43dd/image202508070728133.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f063c147fcff36e9c6a848dde8dad099c65897ba91cf8e7cec16e94b0bda1bfb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:55:54.823Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2025-07-24",
+      "2025-09-17T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-07-24.",
+          "Official classification: event.",
+          "Nexon thread ID: 3024437.",
+          "Confirmed event period: 2025-07-24 through 2025-09-17T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[UPDATED] Heroes Fiesta",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-07-24",
+  "event_end": "2025-09-17T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

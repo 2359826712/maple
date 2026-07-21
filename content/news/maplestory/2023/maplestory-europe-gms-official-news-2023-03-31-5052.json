@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-31-5052",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5052/maple-memo-gms-roadmap-q2-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5052/maple-memo-gms-roadmap-q2-2023",
+  "external_id": "5052",
+  "title": "Maple Memo: GMS Roadmap Q2 2023",
+  "original_title": "Maple Memo: GMS Roadmap Q2 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-31T13:03:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Maple Memo: GMS Roadmap Q2 2023” is an official news item from Global MapleStory Official News on 2023-03-31. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: GMS Roadmap Q2 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3135/230221_v2_banner_q2_roadmap_timeline_6338.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/3130/230329_v8_q2_roadmap_timeline_6338.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "fe822c5cdb7bd04ac639d555b3d1fcf844acc4c78c3692fe2022ae7622fc23e5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:32.430Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5052",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-31.",
+          "Official category: general.",
+          "Nexon article ID: 5052."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

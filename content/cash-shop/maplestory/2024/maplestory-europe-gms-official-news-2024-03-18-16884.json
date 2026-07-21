@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-03-18-16884",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/16884/the-marvel-machine-returns-march-22",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/16884/the-marvel-machine-returns-march-22",
+  "external_id": "16884",
+  "title": "The Marvel Machine Returns March 22!",
+  "original_title": "The Marvel Machine Returns March 22!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-03-18T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The Marvel Machine Returns March 22!” is an official Cash Shop notice from Global MapleStory Official News on 2024-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/cprbc2w5/news-post-540x304-soon-marvel-machine-march-2024-maplestory.webp",
+      "alt": "The Marvel Machine Returns March 22!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2603/in-post-banner-1100x225-soon-marvel-machine-march-2024-maplestory.jpg",
+      "alt": "MapleStory March 2024 Marvel Machine"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2203/march-2024-marvel-machine-chairs-maplestory.png",
+      "alt": "MapleStory March 2024 Marvel Machine New Items"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "99587d7ac8aef19fa3eaba6a1b6ce7425032c82dff0048f707661046a414e018",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:25:30.835Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16884",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-03-18.",
+          "Official category: sale.",
+          "Nexon article ID: 16884."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-30-5323",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5323/all-cm-halloween-livestream-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5323/all-cm-halloween-livestream-2023",
+  "external_id": "5323",
+  "title": "All-CM Halloween Livestream 2023",
+  "original_title": "All-CM Halloween Livestream 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-30T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“All-CM Halloween Livestream 2023” is an official news item from Global MapleStory Official News on 2023-10-30. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/rksatjz1/wgc-393-231019-all-cm-halloween-stream-2023-540x304.webp",
+      "alt": "All-CM Halloween Livestream 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1387/wgc-393-231019-all-cm-halloween-stream-2023-in-post-banner-1100x225.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0cbcc6938dec0196caa99b2889f5b3f378551afc4dc2d5fb517ace205ce0998c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:04.497Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5323",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-30.",
+          "Official category: community.",
+          "Nexon article ID: 5323."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,17 @@
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "threads": [
+      { "threadId": "1003", "headlineId": "3477", "title": "Maintenance notice", "createDate": 1783000300, "threadModifyDate": 1783000400, "isSticky": false },
+      { "threadId": "1002", "headlineId": "3476", "title": "Creator notice without an update time", "createDate": 1783000200, "isSticky": false },
+      { "threadId": "1001", "headlineId": "3476", "title": "Creator notice with the same publication time", "createDate": 1783000200, "threadModifyDate": 1783000200, "isSticky": false }
+    ],
+    "totalElements": "4",
+    "totalPages": 2,
+    "numberOfElements": 3,
+    "blockStartKey": ["253402300799", "9223372036854775807"],
+    "blockStartNo": 1,
+    "boardTitle": "Notice"
+  }
+}

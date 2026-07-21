@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-01-12-34996",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/34996/miracle-winter-january-17-accessories-emblems-hearts-rings",
+  "source_url": "https://www.nexon.com/maplestory/news/events/34996/miracle-winter-january-17-accessories-emblems-hearts-rings",
+  "external_id": "34996",
+  "title": "Miracle Time - Accessories/Emblems/Hearts/Rings",
+  "original_title": "Miracle Winter - January 17 - Accessories/Emblems/Hearts/Rings",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-01-12T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Miracle Time - Accessories/Emblems/Hearts/Rings” is an official event notice from Global MapleStory Official News on 2026-01-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/2orlh54t/540x304-january-17-miracle-winter-accessories-and-more-maplestory.jpg",
+      "alt": "Miracle Winter - January 17 - Accessories/Emblems/Hearts/Rings"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cwtn5jck/1100x225-january-17-miracle-winter-accessories-and-more-maplestory.jpg",
+      "alt": "MapleStory January 17 Miracle Winter Accessories And More"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cpnn2030/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Summer Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "71313e6c531e910b1e8f8c3a7949d0e4decebe4c07b8ec6d6335d8a011eae997",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:49:59.212Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "34996",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-01-12.",
+          "Official category: events.",
+          "Nexon article ID: 34996."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Accessories/Emblems/Hearts/Rings",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-01-17T00:00:00.000Z",
+  "event_end": "2026-01-17T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

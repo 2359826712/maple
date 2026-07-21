@@ -1,0 +1,115 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-08-18-16852",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/16852/marvel-machine-returns-august-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/16852/marvel-machine-returns-august-2023",
+  "external_id": "16852",
+  "title": "Marvel Machine Returns! (August 2023)",
+  "original_title": "Marvel Machine Returns! (August 2023)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-08-18T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Marvel Machine Returns! (August 2023)” is an official Cash Shop notice from Global MapleStory Official News on 2023-08-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/s3joxzy2/news-post-540x304-back-august-2023-marvel-machine-is-back-maplestory.webp",
+      "alt": "Marvel Machine Returns! (August 2023)"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1785/23024_mm_6332_01.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1786/23024_mm_6332_02.jpg",
+      "alt": "GO TO MARVEL MACHINE NOW!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1787/23024_mm_6332_03.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1788/23024_mm_6332_04.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1792/23024_mm_6332_05.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1756/august-2023-marvel-machine-new-items-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2233/cubes.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2232/cube.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q1/1297/200313_marvelmachine_prizes2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1802/200313_marvelmachine_transparant.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1794/23024_mm_6332_07.jpg",
+      "alt": "GO TO MARVEL MACHINE NOW!"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3ea7e9e0ed9c900645b2eaef110d6d5baf8de7900ccfaedd896ceabb7cec75a9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:32:55.827Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16852",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-08-18.",
+          "Official category: sale.",
+          "Nexon article ID: 16852."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

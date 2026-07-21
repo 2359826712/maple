@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-01-15-22617",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/22617/epic-dungeon-angler-company-now-available",
+  "source_url": "https://www.nexon.com/maplestory/news/update/22617/epic-dungeon-angler-company-now-available",
+  "external_id": "22617",
+  "title": "Epic Dungeon: Angler Company Now Available!",
+  "original_title": "Epic Dungeon: Angler Company Now Available!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-01-15T09:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Epic Dungeon: Angler Company Now Available!” is an official news item from Global MapleStory Official News on 2025-01-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/wj0pdpej/540x304-epic-dungeon-angler-company-maplestory.jpg",
+      "alt": "Epic Dungeon: Angler Company Now Available!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/akgbxuvv/1100x225-epic-dungeon-angler-company-maplestory.jpg",
+      "alt": "Epic Dungeon Angler Company MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/itzh02uw/controlling-senya-angler-company-dungeon.png",
+      "alt": "Epic Dungeon Angler Company MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vdxahd1v/epicdungeonui.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "22c48b906b19d6c4248a0bed83705ce6f536eea28900a09a1bfd911edc17d953",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:10:56.536Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22617",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-01-15.",
+          "Official category: update.",
+          "Nexon article ID: 22617."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

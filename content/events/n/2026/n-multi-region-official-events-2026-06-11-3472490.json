@@ -1,0 +1,100 @@
+{
+  "id": "n-multi-region-official-events-2026-06-11-3472490",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3472490",
+  "source_url": "https://msu.io/maplestoryn/news/events/3472490",
+  "external_id": "3472490",
+  "title": "NESO DROPS",
+  "original_title": "NESO DROPS",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-11T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“NESO DROPS” is an official event notice from MapleStory N Official Events on 2026-06-11. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/26e19d34-6f4b-4ec0-8641-69ed07ed90ad/ExportMSNEVENTThumb.png",
+      "alt": "NESO DROPS"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/af2ab233-ba0c-4ce6-96a0-d2d1f281fd58/EAheaderEVENT.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "626ee7c26b3ba99d0cb6429393b08480cb2a54808d8cc9dfa981848a0e5af00b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:04:33.430Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-06-11",
+      "2026-07-01T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-11.",
+          "Official classification: event.",
+          "Nexon thread ID: 3472490.",
+          "Confirmed event period: 2026-06-11 through 2026-07-01T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "NESO DROPS",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-11",
+  "event_end": "2026-07-01T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

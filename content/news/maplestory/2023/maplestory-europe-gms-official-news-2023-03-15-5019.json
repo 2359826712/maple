@@ -1,0 +1,111 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-15-5019",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/5019/v-240-double-trouble-recharge-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/5019/v-240-double-trouble-recharge-update-preview",
+  "external_id": "5019",
+  "title": "v.240 Double Trouble Recharge Update Preview",
+  "original_title": "v.240 Double Trouble Recharge Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-15T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.240 Double Trouble Recharge Update Preview” is an official news item from Global MapleStory Official News on 2023-03-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1hyoz2k3/230310_540x304_v240_update_6346.webp",
+      "alt": "v.240 Double Trouble Recharge Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2728/230310_v240_updatepreview_6348_01.jpg",
+      "alt": "MapleStory Double Trouble"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2727/230310_v240_updatepreview_6348_02.jpg",
+      "alt": "MapleStory Double Trouble"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2726/230310_v240_updatepreview_6348_03.jpg",
+      "alt": "Super Yeti x Pink Bean World"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2725/230310_v240_updatepreview_6348_04.jpg",
+      "alt": "Yeti x Pink Bean Step Up"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2724/230310_v240_updatepreview_6348_05.jpg",
+      "alt": "Yeti x Pink Bean Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2723/230310_v240_updatepreview_6348_06.jpg",
+      "alt": "v240 Event"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2722/230310_v240_updatepreview_6348_07.jpg",
+      "alt": "Maple Chronicle"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2721/230310_v240_updatepreview_6348_08.jpg",
+      "alt": "Incoming Changes"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2720/btn_01.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2719/btn_02.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ef393b0392ea177560f1b90c43dd5330810a6d6e37468f62af55d1c13f49e186",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:32.532Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5019",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-15.",
+          "Official category: update.",
+          "Nexon article ID: 5019."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

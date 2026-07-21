@@ -1,0 +1,87 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-10-5013",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5013/what-s-your-maplestory-thetabkey",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5013/what-s-your-maplestory-thetabkey",
+  "external_id": "5013",
+  "title": "What's Your MapleStory? - TheTabKey",
+  "original_title": "What's Your MapleStory? - TheTabKey",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-10T18:21:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“What's Your MapleStory? - TheTabKey” is an official news item from Global MapleStory Official News on 2023-03-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ycgj1msw/190307_post_what_is_yourmaplestory.webp",
+      "alt": "What's Your MapleStory? - TheTabKey"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1510/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2646/wyms.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2648/shadower.png?height=371&mode=max&width=316",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2649/bm.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "115d8509b01db0e3a97b9a0eae2d765eeef52410af4ce7b3fa65af42c48f2e82",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:38.576Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5013",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-10.",
+          "Official category: community.",
+          "Nexon article ID: 5013."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

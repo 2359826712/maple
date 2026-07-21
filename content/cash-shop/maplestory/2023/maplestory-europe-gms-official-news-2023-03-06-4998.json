@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-06-4998",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/4998/the-marvel-machine-returns-march-10",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/4998/the-marvel-machine-returns-march-10",
+  "external_id": "4998",
+  "title": "The Marvel Machine Returns March 10!",
+  "original_title": "The Marvel Machine Returns March 10!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-06T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The Marvel Machine Returns March 10!” is an official Cash Shop notice from Global MapleStory Official News on 2023-03-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/fpuf0f4q/540x304-marvel-machine-march-2023-maplestory.webp",
+      "alt": "The Marvel Machine Returns March 10!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2421/1100x225-marvel-machine-march-2023-maplestory.jpg",
+      "alt": "MapleStory March 2023 Marvel Machine"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2231/chairs.png",
+      "alt": "MapleStory March 2023 Marvel Machine"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4b05ed29092e785c1fa1230079cab4175761ce2969c0d553a4c2ee5b66c49d4c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:53.604Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4998",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-06.",
+          "Official category: sale.",
+          "Nexon article ID: 4998."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

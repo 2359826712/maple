@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-09-26-4882",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4882/maple-memo-gms-roadmap-q4-2022",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4882/maple-memo-gms-roadmap-q4-2022",
+  "external_id": "4882",
+  "title": "Maple Memo: GMS Roadmap Q4 2022",
+  "original_title": "Maple Memo: GMS Roadmap Q4 2022",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-09-26T14:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Maple Memo: GMS Roadmap Q4 2022” is an official news item from Global MapleStory Official News on 2022-09-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: GMS Roadmap Q4 2022"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/2054/banner_2022_q4_roadmap_timeline.png",
+      "alt": "MapleStory Maple Memo Q4 2022 Roadmap"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/2097/2022_q4_roadmap_timeline.jpg?height=1017&mode=max&width=964",
+      "alt": "MapleStory Q4 2022 Roadmap Timeline"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2f5bfcef0436c8b681d083ed890ec2c5c7c18121458a621d0c947fd2f17e491d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:44:03.315Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4882",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-09-26.",
+          "Official category: general.",
+          "Nexon article ID: 4882."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

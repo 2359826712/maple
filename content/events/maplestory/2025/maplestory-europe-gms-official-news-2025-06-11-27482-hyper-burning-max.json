@@ -1,0 +1,154 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-06-11-27482-hyper-burning-max",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/27482/challenger-world-and-hyper-burning-max",
+  "source_url": "https://www.nexon.com/maplestory/news/events/27482/challenger-world-and-hyper-burning-max",
+  "external_id": "27482:hyper-burning-max",
+  "title": "Hyper Burning MAX",
+  "original_title": "Challenger World and Hyper Burning MAX",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-06-11T15:56:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Hyper Burning MAX” is an official event notice from Global MapleStory Official News on 2025-06-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/j4kjwms4/540x304-challenger-world-hyper-burning-max-maplestory.jpg",
+      "alt": "Challenger World and Hyper Burning MAX"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v5hnmnfw/1100x225-challenger-world-hyper-burning-max-maplestory.jpg",
+      "alt": "Challenger World and Hyper Burning MAX MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5786/newteraeffect.png",
+      "alt": "http://nxcache.nexon.net/cms/2018/5786/newteraeffect.png"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bbhbneg5/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iaxbzjxu/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tzvh2fvd/hyper-burning-max-medal-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kwgfgnfh/tera-blink-spiegelmann-training.png",
+      "alt": "MapleStory Tera Blink Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mfthko1g/maplestorya_dtytcefmmu.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fwmjzc0m/itemburning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kstlneja/challenger-world-character-select-maplestory.png",
+      "alt": "MapleStory Challenger World Characters"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/01rp3ct3/challenger-world-ui-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nadlx5db/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2sgndcfz/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z24hxbxh/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gjeatfzy/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zamduj5g/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2nxfsctm/maplestorya_q9szo4hher.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f77e271dcb289061a0893db5c5396662427ae647a7050c734463c0d102c0716f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "hyper-burning-max",
+    "fetched_at": "2026-07-20T11:06:13.508Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "27482",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-06-11.",
+          "Official category: events.",
+          "Nexon article ID: 27482."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Hyper Burning MAX",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-06-11",
+  "event_end": "2025-08-26T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": "2025-08-26T23:59:00.000Z",
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

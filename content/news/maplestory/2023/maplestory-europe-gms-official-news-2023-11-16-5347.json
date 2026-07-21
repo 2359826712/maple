@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-11-16-5347",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5347/community-livestream-let-s-play-hyperion-w-cm-jade",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5347/community-livestream-let-s-play-hyperion-w-cm-jade",
+  "external_id": "5347",
+  "title": "Community Livestream - Let's Play Hyperion w/ CM Jade",
+  "original_title": "Community Livestream - Let's Play Hyperion w/ CM Jade",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-11-16T14:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Community Livestream - Let's Play Hyperion w/ CM Jade” is an official news item from Global MapleStory Official News on 2023-11-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tyvdswip/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.webp",
+      "alt": "Community Livestream - Let's Play Hyperion w/ CM Jade"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7ad4f8212a0c3d4e0b7233e6b8d3a191228efaf73809d39f21729e0559154e16",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:29:22.385Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5347",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-11-16.",
+          "Official category: community.",
+          "Nexon article ID: 5347."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

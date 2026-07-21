@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-25-21171",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/21171/a-ghoulishly-good-time-all-cm-halloween-stream",
+  "source_url": "https://www.nexon.com/maplestory/news/community/21171/a-ghoulishly-good-time-all-cm-halloween-stream",
+  "external_id": "21171",
+  "title": "A Ghoulishly Good Time: All CM Halloween Stream!",
+  "original_title": "A Ghoulishly Good Time: All CM Halloween Stream!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-25T13:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“A Ghoulishly Good Time: All CM Halloween Stream!” is an official news item from Global MapleStory Official News on 2024-10-25. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hoslym2v/241021-wgc-1471-all-cm-halloween-stream-2024-824x412-v3.png",
+      "alt": "A Ghoulishly Good Time: All CM Halloween Stream!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iphhgnn5/241021-wgc-1471-all-cm-halloween-stream-2024-1920x622-v3.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b8bbfec7c08149be9c163fb7c23bbe625c323c27bd4db506f77e36878d29eda9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:26.913Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21171",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-25.",
+          "Official category: community.",
+          "Nexon article ID: 21171."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

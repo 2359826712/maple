@@ -76,6 +76,7 @@ try {
       to_regclass('public.series_wiki_pages') is not null as wiki_pages,
       to_regclass('public.series_wiki_translations') is not null as wiki_translations,
       to_regclass('public.series_tools') is not null as series_tools,
+      to_regclass('public.content_releases') is not null as content_releases,
       (select count(*)::int from public.content_series) as series_count,
       (select count(*)::int from public.series_editions) as edition_count
   `)
@@ -88,6 +89,7 @@ try {
     'wiki_pages',
     'wiki_translations',
     'series_tools',
+    'content_releases',
   ]
   if (requiredTables.some((table) => !schema[table])) {
     throw new Error('Supabase series schema verification failed')

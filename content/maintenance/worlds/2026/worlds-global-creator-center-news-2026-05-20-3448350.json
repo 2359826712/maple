@@ -1,0 +1,71 @@
+{
+  "id": "worlds-global-creator-center-news-2026-05-20-3448350",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3448350",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3448350",
+  "external_id": "3448350",
+  "title": "[Complete] Maintenance - 2026 May 20",
+  "original_title": "[Complete] Maintenance - 2026 May 20",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-05-20T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“[Complete] Maintenance - 2026 May 20” is an official maintenance notice from MapleStory Worlds Creator Center News on 2026-05-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260519/75b5d1e3-4e2f-4102-9ec1-250798047ef2/MSWGenericPostBanners740x120maintenance.png",
+      "alt": "[Complete] Maintenance - 2026 May 20"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260519/8870a411-a906-43e1-8936-04071b8ad25f/image202605191148582.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d5e9cafb72ffca8fece95fa152cad11fb1469d800e37b67bec09b25a41cd144b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:25.206Z",
+    "headline_id": "3477",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-05-20.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3448350."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

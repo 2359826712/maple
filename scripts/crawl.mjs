@@ -34,7 +34,7 @@ async function existingContentIndex() {
   };
 }
 
-function candidateAudit(candidate, existing, previous) {
+export function candidateAudit(candidate, existing, previous) {
   const warnings = Array.isArray(candidate.metadata.parser_warnings) ? candidate.metadata.parser_warnings : [];
   const unconfirmedFields = Array.isArray(candidate.metadata.unconfirmed_fields) ? candidate.metadata.unconfirmed_fields : [];
   const idMatch = existing.byId.get(candidate.id);
@@ -69,29 +69,40 @@ function candidateAudit(candidate, existing, previous) {
     candidate.id,
   ].every(Boolean);
   const eventConfirmed = candidate.content_type !== 'event'
-    || Boolean(candidate.event_start && candidate.event_end && candidate.timezone);
+    || Boolean(candidate.event_start
+      && (candidate.event_end || candidate.metadata.event_open_ended === true)
+      && candidate.timezone);
   const bodyExtractable = candidate.metadata.body_extractable === true;
   const summary = typeof candidate.summary === 'string' ? candidate.summary.trim() : null;
   const summaryIsOriginal = Boolean(summary)
     && !/\bpublished this\b|complete first-party announcement/i.test(summary);
 
   return {
+    source_id: candidate.source_id,
     original_title: candidate.original_title,
     canonical_url: candidate.canonical_url,
     source_external_id: candidate.external_id,
     published_at: candidate.published_at,
     updated_at: candidate.updated_at,
+    original_timezone: candidate.metadata.original_timezone ?? null,
     series: candidate.series,
     regions: candidate.regions,
     languages: candidate.languages,
     content_type: candidate.content_type,
     subcategory: candidate.subcategory,
     stable_content_id: candidate.id,
+    content_hash: candidate.content_hash,
     duplicate: { detected: duplicateSignals.length > 0, signals: duplicateSignals },
     body_extractable: bodyExtractable,
     storage_mode: candidate.storage_mode,
     summary,
+    summary_extracted: Boolean(summary),
+    body_stored: Boolean(candidate.body_text || candidate.body_markdown),
     event_dates: eventDates,
+    event_dates_detected: Boolean(eventDates?.event_start
+      && (eventDates?.event_end || candidate.metadata.event_open_ended === true)
+      && eventDates?.timezone),
+    parser: candidate.metadata.parser,
     parser_warnings: warnings,
     unconfirmed_fields: unconfirmedFields,
     quality_gate_passed: requiredConfirmed
@@ -104,9 +115,22 @@ function candidateAudit(candidate, existing, previous) {
 
 export function preserveEditorialReview(candidate, previous) {
   if (previous?.metadata?.editorial_reviewed !== true) return candidate;
+  const preservedStructuredFields = [
+    'eligibility', 'requirements', 'rewards', 'event_currency', 'event_shop', 'participation_steps',
+    'related_announcement_id', 'related_patch_ids', 'guide_type', 'class_name', 'boss_name',
+    'system_name', 'level_range', 'difficulty', 'game_version', 'applicable_regions', 'prerequisites',
+    'steps', 'recommended_items', 'recommended_stats', 'outdated_warning', 'changes', 'known_issues',
+    'resolved_issues',
+  ];
+  const preserved = Object.fromEntries(preservedStructuredFields
+    .filter((field) => previous[field] !== undefined)
+    .map((field) => [field, previous[field]]));
   return {
     ...candidate,
+    ...preserved,
     summary: previous.summary,
+    subcategory: previous.subcategory,
+    status: ['archived', 'expired'].includes(previous.status) ? previous.status : candidate.status,
     metadata: {
       ...candidate.metadata,
       sections: previous.metadata.sections,
@@ -151,6 +175,7 @@ async function crawlSource(source, state, existing, options) {
   let added = 0;
   let updated = 0;
   let unchanged = 0;
+  let skippedInvalid = 0;
   let qualityPassed = 0;
   let qualityFailed = 0;
 
@@ -184,11 +209,20 @@ async function crawlSource(source, state, existing, options) {
       for (const candidate of normalizedItems) {
         const key = normalizeContentUrl(candidate.canonical_url);
         const requestKey = normalizeContentUrl(item.url);
-        const previous = existing.byUrl.get(key) || existing.byUrl.get(requestKey);
+        const occurrence = candidate.metadata.event_occurrence_key;
+        const previousByIdentity = candidate.external_id
+          ? existing.byExternalId.get(`${candidate.source_id}:${candidate.external_id}`)
+          : existing.byId.get(candidate.id);
+        const previous = previousByIdentity
+          || (!occurrence ? existing.byUrl.get(key) || existing.byUrl.get(requestKey) : undefined);
         const audit = candidateAudit(candidate, existing, previous);
         if (audit.quality_gate_passed) qualityPassed += 1;
-        else qualityFailed += 1;
+        else {
+          qualityFailed += 1;
+          skippedInvalid += 1;
+        }
         if (!options.execute) console.log(`DRY_RUN_CANDIDATE ${JSON.stringify(audit)}`);
+        if (!audit.quality_gate_passed) continue;
         if (previous) {
           candidate.id = previous.data.id;
           candidate.discovered_at = previous.data.discovered_at;
@@ -233,7 +267,7 @@ async function crawlSource(source, state, existing, options) {
   currentState.last_checked = now;
   currentState.last_success = now;
   currentState.last_error = null;
-  return { discovered: discovered.length, inspected: items.length, added, updated, unchanged, qualityPassed, qualityFailed };
+  return { discovered: discovered.length, inspected: items.length, added, updated, unchanged, skippedInvalid, qualityPassed, qualityFailed };
 }
 
 export async function runCrawl(args = process.argv.slice(2)) {
@@ -255,7 +289,7 @@ export async function runCrawl(args = process.argv.slice(2)) {
       try {
         const counts = await crawlSource(source, state, existing, options);
         results.push({ source: source.id, ok: true, ...counts });
-        console.log(`${source.id}: discovered ${counts.discovered}, inspected ${counts.inspected}, added ${counts.added}, updated ${counts.updated}, unchanged ${counts.unchanged}, quality passed ${counts.qualityPassed}, failed ${counts.qualityFailed}`);
+        console.log(`${source.id}: discovered ${counts.discovered}, inspected ${counts.inspected}, added ${counts.added}, updated ${counts.updated}, unchanged ${counts.unchanged}, skipped invalid ${counts.skippedInvalid}, quality passed ${counts.qualityPassed}, failed ${counts.qualityFailed}`);
       } catch (error) {
         const currentState = sourceState(state, source.id);
         currentState.last_checked = new Date().toISOString();

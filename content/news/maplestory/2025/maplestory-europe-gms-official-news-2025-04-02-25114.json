@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-04-02-25114",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/25114/upcoming-marvel-machine-changes",
+  "source_url": "https://www.nexon.com/maplestory/news/general/25114/upcoming-marvel-machine-changes",
+  "external_id": "25114",
+  "title": "Upcoming Marvel Machine Changes",
+  "original_title": "Upcoming Marvel Machine Changes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-04-02T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Upcoming Marvel Machine Changes” is an official news item from Global MapleStory Official News on 2025-04-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/opmoqsyv/news-post-540x304-changes-coming-to-marvel-machine-maplestory.png",
+      "alt": "Upcoming Marvel Machine Changes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/is4jmuth/in-post-banner-1100x225-changes-coming-to-marvel-machine-maplestory.jpg",
+      "alt": "Changes Coming to the Marvel Machine MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b8914fe1acb5d4ca8b4586cc7feabb0cec2983d50adcf4edcfb0839715b0f444",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:08:28.859Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "25114",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-04-02.",
+          "Official category: general.",
+          "Nexon article ID: 25114."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

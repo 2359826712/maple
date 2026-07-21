@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-07-03-17764",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/17764/investigation-of-angelic-buster-skin-color-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/general/17764/investigation-of-angelic-buster-skin-color-issues",
+  "external_id": "17764",
+  "title": "Investigation of Angelic Buster Skin Color Issues",
+  "original_title": "Investigation of Angelic Buster Skin Color Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-07-03T18:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Investigation of Angelic Buster Skin Color Issues” is an official news item from Global MapleStory Official News on 2024-07-03. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Investigation of Angelic Buster Skin Color Issues"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f484f601d5fa47884ac1745b758017c052435948ad8b7f000d083eded7ac074f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:22:06.379Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17764",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-07-03.",
+          "Official category: general.",
+          "Nexon article ID: 17764."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

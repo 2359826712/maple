@@ -1,0 +1,118 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-13-18271",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/18271/day-dream-party",
+  "source_url": "https://www.nexon.com/maplestory/news/events/18271/day-dream-party",
+  "external_id": "18271",
+  "title": "Day Dream Party",
+  "original_title": "Day Dream Party",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-13T17:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Day Dream Party” is an official event notice from Global MapleStory Official News on 2024-08-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/biyly254/news-post-540x304-day-dream-party-event-maplestory.jpg",
+      "alt": "Day Dream Party"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dcgfk13h/post-header-1100-x-225-day-dream-party-event-maplestory.jpg",
+      "alt": "Day Dream Party Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gxtbwftd/dream-day-party-ui-maplestory.png",
+      "alt": "Day Dream Party UI MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xgbkcqqi/lucidchatemoticon1.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1btbsiq5/lucidchatemoticon2.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1bdba5v1/lucidchatemoticon3.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yq1pjyfp/lucidchatemoticon4.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/203lyn5w/sweet-dreaming-lachelein.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "889114d21e451b1d0e8241dfca1c3fcf936568aa9390feb7497498e31dfb0339",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:20:54.216Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "18271",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-13.",
+          "Official category: events.",
+          "Nexon article ID: 18271."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Day Dream Party",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-08-14T00:00:00.000Z",
+  "event_end": "2024-08-27T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -50,6 +50,7 @@
     "api_record": true,
     "body_extractable": true,
     "fetched_at": "2026-07-18T09:44:07.125Z",
+    "original_timezone": "UTC",
     "parser_warnings": [],
     "source_category": "maintenance",
     "unconfirmed_fields": [

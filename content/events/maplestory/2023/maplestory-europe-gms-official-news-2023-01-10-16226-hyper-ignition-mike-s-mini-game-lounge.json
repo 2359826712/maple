@@ -1,0 +1,110 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-01-10-16226-hyper-ignition-mike-s-mini-game-lounge",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16226/hyper-ignition-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16226/hyper-ignition-events",
+  "external_id": "16226:hyper-ignition-mike-s-mini-game-lounge",
+  "title": "[Hyper Ignition] Mike's Mini-game Lounge",
+  "original_title": "Hyper Ignition Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-01-10T15:20:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Hyper Ignition] Mike's Mini-game Lounge” is an official event notice from Global MapleStory Official News on 2023-01-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1131/1100x225-hyper-ignition-events-maplestory.jpg",
+      "alt": "MapleStory Hyper Ignition Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1171/wonkys-hyper-time-rewards-maplestory.png",
+      "alt": "MapleStory Wonky the Fairy's Hyper Time Rewards"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1128/blakes-hyper-ignition-game-maplestory.png",
+      "alt": "MapleStory Hyper Ignition Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1169/blakes-hyper-ignition-rewards-maplestory.png",
+      "alt": "MapleStory Blake's Hyper Ignition Rewards MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1129/mikes-minigame-lounge-maplestory.png",
+      "alt": "MapleStory Hyper Ignition Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1170/mikes-minigame-lounge-rewards-maplestory.png",
+      "alt": "MapleStory Mike's Minigame Lounge Rewards"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "22ecb8b1aab6db5414c6f0b5f350e365f0bc6839318c9e1eb3a6a8c0f4930c2d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "hyper-ignition-mike-s-mini-game-lounge",
+    "fetched_at": "2026-07-21T02:40:23.767Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16226",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-01-10.",
+          "Official category: events.",
+          "Nexon article ID: 16226."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Ignition] Mike's Mini-game Lounge",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-01-11T00:00:00.000Z",
+  "event_end": "2023-02-07T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

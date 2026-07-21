@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-08-31-5247",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5247/community-livestream-sixth-star-showdown-w-team-orange-mushroom",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5247/community-livestream-sixth-star-showdown-w-team-orange-mushroom",
+  "external_id": "5247",
+  "title": "Community Livestream - Sixth Star Showdown w/ Team Orange Mushroom",
+  "original_title": "Community Livestream - Sixth Star Showdown w/ Team Orange Mushroom",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-08-31T18:32:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Community Livestream - Sixth Star Showdown w/ Team Orange Mushroom” is an official news item from Global MapleStory Official News on 2023-08-31. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tyvdswip/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.webp",
+      "alt": "Community Livestream - Sixth Star Showdown w/ Team Orange Mushroom"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "993faa8a1cb73222f8fb9b0e14c990f8b402f0f848cf9e66af3e0560d8d9f52b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:32:04.760Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5247",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-08-31.",
+          "Official category: community.",
+          "Nexon article ID: 5247."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

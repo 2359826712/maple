@@ -1,0 +1,73 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-06-20-42252",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/42252/completed-emergency-maintenance-june-20-2026",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/42252/completed-emergency-maintenance-june-20-2026",
+  "external_id": "42252",
+  "title": "[Completed] Emergency Maintenance - June 20, 2026",
+  "original_title": "[Completed] Emergency Maintenance - June 20, 2026",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-20T18:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:06:01.566Z",
+  "last_checked": "2026-07-20T01:06:01.566Z",
+  "summary": "“[Completed] Emergency Maintenance - June 20, 2026” is an official maintenance notice from Global MapleStory Official News on 2026-06-20. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+      "alt": "[Completed] Emergency Maintenance - June 20, 2026"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3a45d24d264061b9dfaec08507e47949b824f12d27f31a3e133ff31777e5d92e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:06:57.332Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "42252",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-06-20.",
+          "Official category: maintenance.",
+          "Nexon article ID: 42252."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

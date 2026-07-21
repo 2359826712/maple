@@ -1,0 +1,116 @@
+{
+  "id": "n-multi-region-official-updates-2026-01-29-3358343",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/3358343",
+  "source_url": "https://msu.io/maplestoryn/news/update/3358343",
+  "external_id": "3358343",
+  "title": "January 28 Patch Note",
+  "original_title": "January 28 Patch Note",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "patch-notes",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-01-29T00:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:18:23.541Z",
+  "last_checked": "2026-07-20T06:18:23.541Z",
+  "summary": "“January 28 Patch Note” is an official patch note from MapleStory N Official Updates on 2026-01-29. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "patch-notes"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241122/bf2e7a17-6a8e-442c-a414-7b91e53f888d/EAheaderPATCHNOTE.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/b988e2b2-683a-4ff9-b1bd-1fd8d97ad467/%EB%82%98%EC%9D%B4%ED%8A%B8%EC%9B%8C%EC%BB%A4%EB%82%A8F.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/03504a14-4b1f-47ad-bb18-d81aacf14d62/%ED%94%8C%EB%A0%88%EC%9E%84%EC%9C%84%EC%9E%90%EB%93%9CF.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/72be1f44-67fa-4a9d-b227-6a9604ff9c2c/%EB%AF%B8%ED%95%98%EC%9D%BCF.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/c1f5b384-bb3f-477b-a109-a8d357d911c1/image202601282351534.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/f9d68151-7378-4d51-b4fc-fad76116f10d/image202601282351535.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/71670c91-465b-4707-b3e8-57d66bb609a2/image202601282351536.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/8ccba914-f025-4f17-ae87-da518aa37b22/image202601282351537.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/0c5125f2-bf0f-4e48-b0ec-52ece5edf392/image202601282351538.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260128/46563cbe-af55-47b0-af65-a81d6a9b1410/image202601282351539.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "44538a4f13029ce62c02a6dada9a404cfed7ea857b4ca1dfe80cd443c8c4e569",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:21:14.441Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-01-29.",
+          "Official classification: patch notes.",
+          "Nexon thread ID: 3358343."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2026-01-29T00:30:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

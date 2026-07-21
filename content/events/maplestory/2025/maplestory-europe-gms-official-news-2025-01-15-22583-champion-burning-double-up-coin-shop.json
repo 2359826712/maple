@@ -1,0 +1,102 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-01-15-22583-champion-burning-double-up-coin-shop",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/22583/champion-burning-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/22583/champion-burning-event",
+  "external_id": "22583:champion-burning-double-up-coin-shop",
+  "title": "Champion Burning Double Up Coin Shop",
+  "original_title": "Champion Burning Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-01-15T09:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Champion Burning Double Up Coin Shop” is an official event notice from Global MapleStory Official News on 2025-01-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/3zrj2cya/540x304-champion-burning-event-maplestory.png",
+      "alt": "Champion Burning Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1rinzvac/1100x225-champion-burning-event-maplestory.png",
+      "alt": "Champion Burning Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/30qjkleu/championburning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dw0jbquc/championfollow.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e62a14f33585d14af38e2d23b12af2c9b3bd2dcb8b39357d5007e77d7cf77bcd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "champion-burning-double-up-coin-shop",
+    "fetched_at": "2026-07-20T11:10:59.554Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22583",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-01-15.",
+          "Official category: events.",
+          "Nexon article ID: 22583."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Champion Burning Double Up Coin Shop",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-01-15",
+  "event_end": "2025-03-18T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-16-5022",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/5022/get-limited-edition-hyperx-orange-mushroom-keycaps",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/5022/get-limited-edition-hyperx-orange-mushroom-keycaps",
+  "external_id": "5022",
+  "title": "Get Limited-Edition HyperX Orange Mushroom Keycaps!",
+  "original_title": "Get Limited-Edition HyperX Orange Mushroom Keycaps!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-16T18:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Get Limited-Edition HyperX Orange Mushroom Keycaps!” is an official Cash Shop notice from Global MapleStory Official News on 2023-03-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tnulhwum/post-540x304-hyperx-keycaps-maplestory.webp",
+      "alt": "Get Limited-Edition HyperX Orange Mushroom Keycaps!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2760/web-post-header-1100x225-hyperx-keycaps-maplestory.jpg",
+      "alt": "MapleStory HyperX Key Cap"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2764/orange-mushroom-landscape-hyperx-keycaps-maplestory.jpg",
+      "alt": "MapleStory HyperX Key Cap"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "21ffde343fe94be9dc93954d8a75cbe669c75967b7fcb690b1b6008d98df98b8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:29.581Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5022",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-16.",
+          "Official category: sale.",
+          "Nexon article ID: 5022."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

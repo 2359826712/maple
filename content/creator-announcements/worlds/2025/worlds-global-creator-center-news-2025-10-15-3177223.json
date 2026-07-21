@@ -1,0 +1,86 @@
+{
+  "id": "worlds-global-creator-center-news-2025-10-15-3177223",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3177223",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3177223",
+  "external_id": "3177223",
+  "title": "Creator Livestream Notice: 2025 October 22 - We Answer Your Creator Questions!",
+  "original_title": "Creator Livestream Notice: 2025 October 22 - We Answer Your Creator Questions!",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-10-15T18:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Creator Livestream Notice: 2025 October 22 - We Answer Your Creator Questions!” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-10-15. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/45bb8f23-4c27-4541-b372-a63f3200c3e6/584x354livestream.png",
+      "alt": "Creator Livestream Notice: 2025 October 22 - We Answer Your Creator Questions!"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251009/148c29c8-8a55-432b-98f0-c8e095c528ae/251001MSWStreamAssetsWGC2492740x120.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/b6e3a2a3-db79-41a0-8033-ec1d2590cc6b/251008WGC2493TwitchHorizoftal.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/1e510fed-f069-4228-bf85-003ef17e60b3/251008WGC2493YouTubeHorizoftal.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5a869d041f4336bea252176f4fbd18f374bce2ca381866d31dca3cc6120c1231",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:25:04.056Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-10-15.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3177223."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

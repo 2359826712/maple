@@ -1,0 +1,112 @@
+{
+  "id": "n-multi-region-official-events-2026-07-02-3485220",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3485220",
+  "source_url": "https://msu.io/maplestoryn/news/events/3485220",
+  "external_id": "3485220",
+  "title": "[Hyper Summer] Bubble & Bubble",
+  "original_title": "[Hyper Summer] Bubble & Bubble",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Hyper Summer] Bubble & Bubble” is an official event notice from MapleStory N Official Events on 2026-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/8e60503f-1b80-49f6-82f5-1ed6e1395128/ExportMSNEVENTThumb.png",
+      "alt": "[Hyper Summer] Bubble &amp; Bubble"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/ed901590-8235-41bc-a24a-9a3e1faf2ec8/image2026061017133515.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/803921dc-49fc-4d48-aa29-d7fdd46614ad/image2026070118574010.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/daa6f1cf-0581-45a7-af52-02b0ca814a1b/image2026070118574011.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/84db986b-1c65-4628-9265-7d4a94bf0b14/image2026070118574012.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "23e25fccc7ec1342f7954dea454427e0649925e9d3454aa1e676fff610e868b7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:03:36.270Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-07-02",
+      "2026-07-22T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-07-02.",
+          "Official classification: event.",
+          "Nexon thread ID: 3485220.",
+          "Confirmed event period: 2026-07-02 through 2026-07-22T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Hyper Summer] Bubble & Bubble",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-07-02",
+  "event_end": "2026-07-22T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

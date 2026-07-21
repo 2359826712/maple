@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-01-09-13359",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/13359/explore-carcion-the-cradle-of-life",
+  "source_url": "https://www.nexon.com/maplestory/news/update/13359/explore-carcion-the-cradle-of-life",
+  "external_id": "13359",
+  "title": "Explore Carcion, the Cradle of Life!",
+  "original_title": "Explore Carcion, the Cradle of Life!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-01-09T15:58:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Explore Carcion, the Cradle of Life!” is an official news item from Global MapleStory Official News on 2024-01-09. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/de5p1yso/carcion-post-540x304.webp",
+      "alt": "Explore Carcion, the Cradle of Life!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1041/carcion-post-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2417/image-3.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "669be874295b162f3ac73ca6abc6dbcaedcf0f3dd6da5ad70cbb536068113953",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:27:46.176Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13359",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-01-09.",
+          "Official category: update.",
+          "Nexon article ID: 13359."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

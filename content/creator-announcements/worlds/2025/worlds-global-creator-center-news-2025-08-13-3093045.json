@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2025-08-13-3093045",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3093045",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3093045",
+  "external_id": "3093045",
+  "title": "Creator Livestream Notice: 2025 August 19 - How to Work with UI",
+  "original_title": "Creator Livestream Notice: 2025 August 19 - How to Work with UI",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-08-13T20:08:08.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Creator Livestream Notice: 2025 August 19 - How to Work with UI” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-08-13. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250813/b39fece3-a933-44da-bbd2-71d55b2d962a/584x354livestream.png",
+      "alt": "Creator Livestream Notice: 2025 August 19 - How to Work with UI"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250811/bc16596a-b4ea-48ba-b3e2-b9cea24d4491/livestream740x120.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2e4427d47043b538ab012d9e748f7bc029ff6e88f74ece487595d8966775e466",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:29:35.510Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-08-13.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3093045."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

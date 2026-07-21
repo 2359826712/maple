@@ -1,0 +1,80 @@
+{
+  "id": "worlds-global-creator-center-news-2026-06-25-3482038",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3482038",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3482038",
+  "external_id": "3482038",
+  "title": "Create a World Trustworthy to Players",
+  "original_title": "Create a World Trustworthy to Players",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-06-25T06:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:08:37.286Z",
+  "last_checked": "2026-07-20T01:08:37.286Z",
+  "summary": "“Create a World Trustworthy to Players” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-06-25. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260624/b67cde2f-332c-4645-a49a-b8a1137276d5/MSWGenericPostBanners740x120notice.png",
+      "alt": "Create a World Trustworthy to Players"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260624/ce52d1f0-9847-47f2-b77c-81201bbcc857/CampaignCreatorCampaignv11.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260624/96a64294-5a9b-4c2d-9a8e-1c28911403fd/CampaignCreatorCampaignv12.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260624/159583a6-5f4e-4f87-a302-8dc453abf2a5/CampaignCreatorCampaignv13.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a4d6aa2a1ba8ec6dc9d5741e92af329ab38e5a8ee7c1d01d296a61cfdc3026e7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:09:02.899Z",
+    "headline_id": "3479",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-06-25.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3482038."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-11-18-32271",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/32271/maple-con-la-2025-recap",
+  "source_url": "https://www.nexon.com/maplestory/news/community/32271/maple-con-la-2025-recap",
+  "external_id": "32271",
+  "title": "Maple Con LA 2025 Recap!",
+  "original_title": "Maple Con LA 2025 Recap!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-11-18T13:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Maple Con LA 2025 Recap!” is an official news item from Global MapleStory Official News on 2025-11-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/b04l4t5p/540x304-maple-con-los-angeles-2025-october-25-maplestory.jpg",
+      "alt": "Maple Con LA 2025 Recap!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iw2j2d3m/1100x225-maple-con-los-angeles-2025-october-25-maplestory.jpg",
+      "alt": "Maple Con Los Angeles 2025 October 25 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ac56dbb14566ef56aa2da2ca98074f9f447fa2a3c0b2c0d1a20d8dbfec4f0fb5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:01:15.830Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "32271",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-11-18.",
+          "Official category: community.",
+          "Nexon article ID: 32271."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

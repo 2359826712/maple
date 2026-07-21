@@ -1,0 +1,77 @@
+{
+  "id": "worlds-global-creator-center-news-2025-03-13-2746793",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2746793",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2746793",
+  "external_id": "2746793",
+  "title": "[Complete] Maintenance - 2025 March 13",
+  "original_title": "[Complete] Maintenance - 2025 March 13",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-03-13T09:19:43.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Complete] Maintenance - 2025 March 13” is an official maintenance notice from MapleStory Worlds Creator Center News on 2025-03-13. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250313/96af165d-7c7c-44e1-a2d0-de8276f67afc/MSWGenericPostBanners740x120maintenance.png",
+      "alt": "[Complete] Maintenance - 2025 March 13"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250211/c291f1d9-1dec-4400-ba23-d03ea8d9431c/WGC1404240930GenericPostBanners740x120maintenance.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1c6141b98a3f20a509e198883b05ba667d38a6c3c1eb27eac6712b4c4d616d07",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:32:24.202Z",
+    "headline_id": "3477",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-03-13.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 2746793."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

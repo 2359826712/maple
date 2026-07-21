@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-08-14-5209",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/5209/the-marvel-machine-returns-august-18",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/5209/the-marvel-machine-returns-august-18",
+  "external_id": "5209",
+  "title": "The Marvel Machine Returns August 18!",
+  "original_title": "The Marvel Machine Returns August 18!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-08-14T18:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The Marvel Machine Returns August 18!” is an official Cash Shop notice from Global MapleStory Official News on 2023-08-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tpepomut/news-post-540x304-august-2023-marvel-machine-coming-soon-maplestory.webp",
+      "alt": "The Marvel Machine Returns August 18!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1752/in-post-banner-1100x225-august-2023-marvel-machine-coming-soon-maplestory.png",
+      "alt": "MapleStory August 2023 Marvel Machine"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1756/august-2023-marvel-machine-new-items-maplestory.png",
+      "alt": "MapleStory August 2023 Marvel Machine New Items"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4d136f92ba2dad479a7b223039fada0c6d1983c5f285d5db6ec8fdd492a30e0c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:33:04.861Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5209",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-08-14.",
+          "Official category: sale.",
+          "Nexon article ID: 5209."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,131 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-10-5010",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/5010/marvel-machine-returns-march-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/5010/marvel-machine-returns-march-2023",
+  "external_id": "5010",
+  "title": "Marvel Machine Returns! (March 2023)",
+  "original_title": "Marvel Machine Returns! (March 2023)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-10T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Marvel Machine Returns! (March 2023)” is an official Cash Shop notice from Global MapleStory Official News on 2023-03-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ejunxr1j/540x304_back-marvel-machine-march-2023-maplestory.webp",
+      "alt": "Marvel Machine Returns! (March 2023)"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2234/230224_mm_01.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2216/btn.png",
+      "alt": "GO TO MARVEL MACHINE NOW!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2230/230224_mm_02.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2229/230224_mm_03.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2228/230224_mm_04.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2227/230224_mm_05.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2226/230224_mm_06.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2225/230224_mm_07.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2224/230224_mm_08.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2223/230224_mm_14.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2231/chairs.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2233/cubes.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2232/cube.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q1/1297/200313_marvelmachine_prizes2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q1/1295/200313_marvelmachine_transparant.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "310ecfc57f5e239f14e02562511a6aad3ec4fc5c2210b865ae366e70f37b38ec",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:41.584Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5010",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-10.",
+          "Official category: sale.",
+          "Nexon article ID: 5010."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

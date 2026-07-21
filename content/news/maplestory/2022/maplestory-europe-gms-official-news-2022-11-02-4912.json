@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-02-4912",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4912/update-on-boss-blitz-twitch-drop-rewards",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4912/update-on-boss-blitz-twitch-drop-rewards",
+  "external_id": "4912",
+  "title": "Update on Boss Blitz Twitch Drop Rewards",
+  "original_title": "Update on Boss Blitz Twitch Drop Rewards",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-02T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Update on Boss Blitz Twitch Drop Rewards” is an official news item from Global MapleStory Official News on 2022-11-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "Update on Boss Blitz Twitch Drop Rewards"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c94a20ea21d039812fdb721e0f923c91a6668429b54ffdddec333cf35a8aa0bc",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:44.810Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4912",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-02.",
+          "Official category: general.",
+          "Nexon article ID: 4912."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

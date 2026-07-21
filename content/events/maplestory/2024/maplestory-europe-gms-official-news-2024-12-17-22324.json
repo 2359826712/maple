@@ -1,0 +1,146 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-17-22324",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/22324/dark-maplemas-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/22324/dark-maplemas-events",
+  "external_id": "22324",
+  "title": "Dark Maplemas Event Duration",
+  "original_title": "Dark Maplemas Events!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-17T10:45:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Dark Maplemas Event Duration” is an official event notice from Global MapleStory Official News on 2024-12-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/vkanpubx/540x304-dark-maplemas-events-maplestory.png",
+      "alt": "Dark Maplemas Events!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rmkj3pcm/1100x225-dark-maplemas-events-maplestory.png",
+      "alt": "Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vawm35pv/slay-ride-dark-maplemas-maplestory.png",
+      "alt": "Slay Ride Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rdefccjt/dark-maplemas-sleigh-chair-dark-maplemas-maplestory.png",
+      "alt": "Sleigh Chair Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/voohstb1/jolly-totem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j4efueyo/o-holy-fright-dark-maplemas-maplestory.png",
+      "alt": "O Holy Fright Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tpici3lr/dark-maplemas-damage-skin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dbddwpgd/fright-totem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gkzgysmm/do-you-fear-what-i-fear-dark-maplemas-maplestory.png",
+      "alt": "Do You Fear What I Fear? Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/24sl02tu/ghastly-the-snowman-dark-maplemas-maplestory.png",
+      "alt": "Jingle Knells Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3ygfkbbc/wicked-wonderland-dark-maplemas-maplestory.png",
+      "alt": "Wicked Wonderland Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pwwfpytk/maplestorya_vi48ld0rou.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/owbiifjn/darkmaplemasmedal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fhrbqn2a/jingle-knells-dark-maplemas-maplestory.png",
+      "alt": "Jingle Knells Dark Maplemas MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ieanqsmx/wreck-the-halls-dark-maplemas-maplestory.png",
+      "alt": "Wreck the Halls Dark Maplemas MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5655224eef04d2f9f94922c385f399fd4b68aea60a395f2f9e98f3ff107452ea",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:11:56.686Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22324",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-17.",
+          "Official category: events.",
+          "Nexon article ID: 22324."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Dark Maplemas Event Duration",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-12-17",
+  "event_end": "2025-01-14T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

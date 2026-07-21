@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-08-25-18275",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/18275/last-day-for-the-marvel-machine-august-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/18275/last-day-for-the-marvel-machine-august-2024",
+  "external_id": "18275",
+  "title": "Last Day for the Marvel Machine! (August 2024)",
+  "original_title": "Last Day for the Marvel Machine! (August 2024)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-08-25T00:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Last Day for the Marvel Machine! (August 2024)” is an official Cash Shop notice from Global MapleStory Official News on 2024-08-25. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/axvpinnv/news-post-540x304-august-2024-marvel-machine-back-maplestory.png",
+      "alt": "Last Day for the Marvel Machine! (August 2024)"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m40nqaxm/in-post-banner-1100x225-august-2024-marvel-machine-back-maplestory.jpg",
+      "alt": "MapleStosry August 2024 Marvel Machine"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c1hld5ka/marvel-machine-august-2024-new-chairs-maplestory.png",
+      "alt": "MapleStosry August 2024 Marvel Machine New Chairs"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "406cc31e1331e543d523f9b7d30631de8e436d6c3a881bad5cf8114445593970",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:20:27.181Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "18275",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-08-25.",
+          "Official category: sale.",
+          "Nexon article ID: 18275."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-04-29400",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/29400/maple-memo-addressing-v-260-and-v-261-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/general/29400/maple-memo-addressing-v-260-and-v-261-issues",
+  "external_id": "29400",
+  "title": "Maple Memo: Addressing v.260 and v.261 Issues",
+  "original_title": "Maple Memo: Addressing v.260 and v.261 Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-04T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Maple Memo: Addressing v.260 and v.261 Issues” is an official news item from Global MapleStory Official News on 2025-08-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: Addressing v.260 and v.261 Issues"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tl5hwp5z/ccpb-med.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gkphd5v1/luxesaunacoupon.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a1df2e45e1b651bbeb42a7288b2ade159f01129b43abdb9751bc365300913d52",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:04:28.263Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29400",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-04.",
+          "Official category: general.",
+          "Nexon article ID: 29400."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

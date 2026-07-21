@@ -1,0 +1,143 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-01-28-35345",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/35345/v-266-the-sengoku-warrior-reawakening-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/35345/v-266-the-sengoku-warrior-reawakening-update-preview",
+  "external_id": "35345",
+  "title": "v.266 – The Sengoku Warrior Reawakening Update Preview",
+  "original_title": "v.266 – The Sengoku Warrior Reawakening Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-01-28T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“v.266 – The Sengoku Warrior Reawakening Update Preview” is an official news item from Global MapleStory Official News on 2026-01-28. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qplhzd5n/260126_wgc-2806_v266_update_v263_newspost_540x304.jpg",
+      "alt": "v.266 – The Sengoku Warrior Reawakening Update Preview"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3uti4sp2/header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/15pjp4b5/ascent-skill-header-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0w2l3xsb/kanna.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f45bef03/hayato.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yxolynek/kana-hayato-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/geaat0pm/princess-sakuno.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nj0nwt2q/newleaf-header_01.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lf5jwuno/newleaf-header_02.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvmjyprz/mart-management-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p4wef1lr/food-court.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gtanmdq4/cindys-helpers.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/elli1u2b/updated-victoria.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p0wctwoq/nlm-mall-duo.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vf1pz4nf/plasma-heart.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xs2es5tr/heart-module.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5p0pex4k/forums.png",
+      "alt": "Forums"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3qddquup/discord.png",
+      "alt": "Discord"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/atbdmol3/footer.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "570b7318b76b67e996cc11663e97a507dc2cef643c627baa99cda7820f565707",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:49:23.115Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "35345",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-01-28.",
+          "Official category: update.",
+          "Nexon article ID: 35345."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

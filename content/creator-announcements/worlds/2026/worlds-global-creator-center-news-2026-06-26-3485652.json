@@ -1,0 +1,72 @@
+{
+  "id": "worlds-global-creator-center-news-2026-06-26-3485652",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3485652",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3485652",
+  "external_id": "3485652",
+  "title": "[Updated 7/1] TeleportService API Issue Notice",
+  "original_title": "[Updated 7/1] TeleportService API Issue Notice",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-06-26T10:07:51.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:08:37.286Z",
+  "last_checked": "2026-07-20T01:08:37.286Z",
+  "summary": "“[Updated 7/1] TeleportService API Issue Notice” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-06-26. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260626/0453d4d2-d6fd-4fcc-8fc6-80ad7f6c946f/MSWGenericPostBanners740x120notice2.png",
+      "alt": "[Updated 7/1] TeleportService API Issue Notice"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260623/a5b337f0-0eee-4c21-9dcd-cd52d755794d/image202606221737302.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1ecd2c1d4cb79f57dd826f075696a697631a455b7e158551a76b7449d408a5e8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:09:00.088Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-06-26.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3485652."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

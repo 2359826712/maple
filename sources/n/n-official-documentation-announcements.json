@@ -18,12 +18,34 @@
     "board_id": "5288",
     "canonical_template": "https://msu.io/maplestoryn/news/notices/{threadId}",
     "default_content_type": "news",
+    "headline_type_map": {
+      "5040": "maintenance",
+      "5041": "patch-note",
+      "5042": "news",
+      "5132": "news"
+    },
+    "classification_rules": [
+      {
+        "content_type": "news",
+        "headline_ids": ["5041"],
+        "title_pattern": "known issues?",
+        "override_headline": true
+      }
+    ],
     "headers": {
       "community-id": "500",
       "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
     },
     "mode": "n",
-    "page_size": 25
+    "page_size": 25,
+    "pagination": {
+      "strategy": "nexon-keyset",
+      "start": 1,
+      "page_size": 25,
+      "block_size": 9,
+      "pagination_type": "PAGING",
+      "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+    }
   },
   "official": true,
   "enabled": true,
@@ -36,5 +58,5 @@
   "last_checked": null,
   "last_success": null,
   "last_error": null,
-  "notes": "Verified on 2026-07-18 against the current public MapleStory Universe notices page and its official public read API. The former documentation announcement path is no longer the live notice index."
+  "notes": "Verified on 2026-07-20 against the current public MapleStory Universe notices page and its official public read API. The site is a Next.js application backed by a reproducible Nexon keyset-paginated community board with 141 notice threads; Update, Events, and Guide use separate official board IDs and should not be folded into this notices source."
 }

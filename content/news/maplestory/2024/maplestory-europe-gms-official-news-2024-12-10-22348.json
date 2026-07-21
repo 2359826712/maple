@@ -1,0 +1,151 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-10-22348",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/22348/v-256-the-dark-ride-limbo-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/22348/v-256-the-dark-ride-limbo-update-preview",
+  "external_id": "22348",
+  "title": "v.256 - The Dark Ride: Limbo Update Preview",
+  "original_title": "v.256 - The Dark Ride: Limbo Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-10T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.256 - The Dark Ride: Limbo Update Preview” is an official news item from Global MapleStory Official News on 2024-12-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zaqlllin/241205_v256update_banners_wgc-1628_540x304.jpg",
+      "alt": "v.256 - The Dark Ride: Limbo Update Preview"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zsup0uqe/header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ndnke5c/title-new-boss_-limbo.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xgtdo3e5/ss_boss_limbo-optimize.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/elhpx220/title-dark-maplemas.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ciinhdw0/ss-dark-maplemas.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fxvp1fib/title-hexa-stat-node-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qkjfytod/ss-hexa-stat-node-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qdyjgr5u/title-new-year-event_-blue-snakes-wish.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/usyeu30g/ss-title-new-year-event_-blue-snakes-wish.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qtzp0q3v/title-new-name-auction.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vk4nw4uq/ss-new-name-auction.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dimowgee/title-burning-express.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vuparojr/ss-burning-express.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvjlxa0o/title-champion-burning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mhsjtzlh/ss-champion-burning.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ey0p0z25/title-extradimensional-visitors.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0ysj0caa/ss-extradimensional-visitors.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aznnhtdc/discuss-on-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/32inbloq/discuss-on-discord.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z5jnrt0w/footer-image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ebd435195eeb96ab3349236111675306f624076f7290f7ed51ba77baedb5fd1b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:17:05.721Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22348",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-10.",
+          "Official category: update.",
+          "Nexon article ID: 22348."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

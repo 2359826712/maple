@@ -1,0 +1,119 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-07-4936",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/4936/v-238-ignition-extreme-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/4936/v-238-ignition-extreme-update-preview",
+  "external_id": "4936",
+  "title": "v.238 - Ignition: Extreme Update Preview",
+  "original_title": "v.238 - Ignition: Extreme Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-07T11:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.238 - Ignition: Extreme Update Preview” is an official news item from Global MapleStory Official News on 2022-12-07. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/oruikh44/221202-msw-6267-ms-ignition-p2-540x304.webp",
+      "alt": "v.238 - Ignition: Extreme Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2118/msw-6269-120222-v238-update-preview_01.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2105/msw-6269-120222-v238-update-preview_02.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2106/msw-6269-120222-v238-update-preview_03.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2107/msw-6269-120222-v238-update-preview_04.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1482/msw-6269-120222-v238-update-preview_05-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2109/msw-6269-120222-v238-update-preview_06.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2110/msw-6269-120222-v238-update-preview_07.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2111/msw-6269-120222-v238-update-preview_08.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2102/msw-6269-120222-v238-update-preview_09.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2117/msw-6090-220708-v234-update-preview-design-post-_09.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1056/msw-6090-btn-forum-rs.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1055/msw-6090-btn-discord-rs.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "738f3c6e23b6dea2d493f1d86b2fcbd7a7f400839bdb972aecf4b0cd0e535678",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:44.942Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4936",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-07.",
+          "Official category: update.",
+          "Nexon article ID: 4936."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

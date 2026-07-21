@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-10-11-16204",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16204/october-2022-community-contests-and-events",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16204/october-2022-community-contests-and-events",
+  "external_id": "16204",
+  "title": "October 2022 Community Contests and Events",
+  "original_title": "October 2022 Community Contests and Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-10-11T18:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“October 2022 Community Contests and Events” is an official news item from Global MapleStory Official News on 2022-10-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1056/1100x225-maplestory-community-contests.jpg",
+      "alt": "MapleStory Community Contests"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1120/221003_pumpkincarvingcontest.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1121/tote-banner-both-bags.png?height=332&mode=max&width=752",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1122/felinerickshawmount.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b72de1058f3bbf066da8b891094547c847ebe6b0e1c5e903cab6b9366ff18f2a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:43:24.220Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16204",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-10-11.",
+          "Official category: community.",
+          "Nexon article ID: 16204."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-09-15-5268",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/5268/v-244-hotfixes-september-15-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/5268/v-244-hotfixes-september-15-2023",
+  "external_id": "5268",
+  "title": "v.244 Hotfixes - September 15, 2023",
+  "original_title": "v.244 Hotfixes - September 15, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-09-15T18:42:12Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.244 Hotfixes - September 15, 2023” is an official maintenance notice from Global MapleStory Official News on 2023-09-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/lqilfkpj/160510_ms_maintenance_template_01.webp",
+      "alt": "v.244 Hotfixes - September 15, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q1/2198/maintenance-post-banner-in-post-banner-1100x225.jpg",
+      "alt": "MapleStory Maintenance Hotfix"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "97ce4c9dc5b8bcf844df25ec9c8c009cc9d4bf227771006bf837203e52524328",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:31:34.668Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5268",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-09-15.",
+          "Official category: maintenance.",
+          "Nexon article ID: 5268."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,110 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-08-30-5244-journey-toward-the-sixth-star-ch-iii-and-ch-iv-2023-09-20",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5244/journey-toward-the-sixth-star-ch-iii-and-ch-iv",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5244/journey-toward-the-sixth-star-ch-iii-and-ch-iv",
+  "external_id": "5244:journey-toward-the-sixth-star-ch-iii-and-ch-iv-2023-09-20",
+  "title": "Journey Toward the Sixth Star - Ch. III and Ch. IV — 2023-09-20",
+  "original_title": "Journey Toward the Sixth Star - Ch. III and Ch. IV",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-08-30T17:03:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Journey Toward the Sixth Star - Ch. III and Ch. IV — 2023-09-20” is an official event notice from Global MapleStory Official News on 2023-08-30. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jk5f2jas/230713_540x304_sixthstarwarm-upevent_6470.webp",
+      "alt": "Journey Toward the Sixth Star - Ch. III and Ch. IV"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2113/230713_1100x225_sixthstarwarm-upevent_6470.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1369/ch.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1394/image-2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2050/terry.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2105/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e7e10184f53f6e9faf81e784dc28b17c8c9d5cfd09ed933ee44b787eed5bdfcb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "journey-toward-the-sixth-star-ch-iii-and-ch-iv-2023-09-20",
+    "fetched_at": "2026-07-21T02:32:13.749Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5244",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-08-30.",
+          "Official category: events.",
+          "Nexon article ID: 5244."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Journey Toward the Sixth Star - Ch. III and Ch. IV — 2023-09-20",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-09-20T00:00:00.000Z",
+  "event_end": "2023-10-10T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

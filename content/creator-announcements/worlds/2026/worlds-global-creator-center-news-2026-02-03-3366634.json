@@ -1,0 +1,94 @@
+{
+  "id": "worlds-global-creator-center-news-2026-02-03-3366634",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366634",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366634",
+  "external_id": "3366634",
+  "title": "Creator Circle Worlds Announcement - February 2026",
+  "original_title": "Creator Circle Worlds Announcement - February 2026",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-02-03T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Creator Circle Worlds Announcement - February 2026” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-02-03. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/a749eb01-21cd-49a0-b53b-c7052a86d2ad/MSWGenericPostBanners740x120notice.png",
+      "alt": "Creator Circle Worlds Announcement - February 2026"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260127/58c1acf6-5192-467c-ae0b-babefca7578b/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/55c60f3f-5aea-4a51-8daa-6e644b9ae1c8/image202602021326371.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260127/f2636eef-4d69-4a76-961d-04218e10ba51/image202601271449032.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260129/10fbbc3c-8115-4986-815a-c91e4f6209fd/NexTaleStandardBanner16x9.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260127/e544de86-f591-4b92-9b9a-6d55477255a1/image202601271449034.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "06c3420d2f5aee853a12bbf15054ec50e29cad41a79d8e54317c416523b6332f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:22:54.859Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-02-03.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3366634."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

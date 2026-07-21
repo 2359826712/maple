@@ -1,0 +1,72 @@
+{
+  "id": "worlds-global-creator-center-news-2026-05-29-3458553",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3458553",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3458553",
+  "external_id": "3458553",
+  "title": "Addition of 2 New World Coin Products - 2026 May 28",
+  "original_title": "Addition of 2 New World Coin Products - 2026 May 28",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-05-29T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“Addition of 2 New World Coin Products - 2026 May 28” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-05-29. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260528/e65c29b2-0e52-4487-9512-26d44202cee5/MSWGenericPostBanners740x120notice1.png",
+      "alt": "Addition of 2 New World Coin Products - 2026 May 28"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260526/b684bc6e-4a2a-4de7-9cb8-59f96f57039e/image202605261305541.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "19673cf5b3b28e665212e5934f3a2ef065748e43cd666069972b81d302cd3c20",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:04.149Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-05-29.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3458553."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

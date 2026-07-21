@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "targets": ["zh", "zh-Hant", "ja", "ko"],
+  "locale_aliases": {
+    "zh-CN": "zh",
+    "zh-TW": "zh-Hant"
+  },
+  "modules": {
+    "news": {
+      "fields": ["title", "summary"]
+    },
+    "upcoming": {
+      "fields": ["title", "summary"]
+    },
+    "events": {
+      "fields": ["title", "summary"]
+    },
+    "shop": {
+      "fields": ["title"]
+    },
+    "guides": {
+      "fields": ["title", "summary"]
+    }
+  }
+}

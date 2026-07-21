@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-09-05-5254",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5254/world-s-best-punch-king",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5254/world-s-best-punch-king",
+  "external_id": "5254",
+  "title": "World's Best Punch King",
+  "original_title": "World's Best Punch King",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-09-05T16:22:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“World's Best Punch King” is an official event notice from Global MapleStory Official News on 2023-09-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/b2cgvmza/230901_worldsbestpunchking_newspost_540x304.webp",
+      "alt": "World's Best Punch King"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2217/230901_worldsbestpunchking_post-header_1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2076/effect.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2057/1st.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2058/2nd.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "add53bcbad11f4b178f4162ed1c2c9ba9ea3e8370a3f109b0bfcf37e85cae789",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:31:58.711Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5254",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-09-05.",
+          "Official category: events.",
+          "Nexon article ID: 5254."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "World's Best Punch King",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-09-06T00:00:00.000Z",
+  "event_end": "2023-10-03T23:59:00.000Z",
+  "claim_start": "2023-10-18T00:00:00.000Z",
+  "claim_end": "2023-10-31T23:59:00.000Z",
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

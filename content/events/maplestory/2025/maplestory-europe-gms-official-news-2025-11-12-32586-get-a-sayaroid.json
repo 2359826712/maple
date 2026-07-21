@@ -1,0 +1,146 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-11-12-32586-get-a-sayaroid",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/32586/now-available-ren-the-red-eyed-wanderer",
+  "source_url": "https://www.nexon.com/maplestory/news/events/32586/now-available-ren-the-red-eyed-wanderer",
+  "external_id": "32586:get-a-sayaroid",
+  "title": "Get a Sayaroid",
+  "original_title": "Now Available: Ren, the Red-Eyed Wanderer!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-11-12T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Get a Sayaroid” is an official event notice from Global MapleStory Official News on 2025-11-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qi1pdtve/newspost_540x304-now-available-ren-the-red-eyed-wanderer-maplestory.jpg",
+      "alt": "Now Available: Ren, the Red-Eyed Wanderer!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5dbd5jyn/postheader_1100x225-now-available-ren-the-red-eyed-wanderer-maplestory.jpg",
+      "alt": "Available Now Ren the Red-Eyed Wanderer MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/42delkev/wanderertravelogue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f3qfjvos/white-plum.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/it1h42vt/travels-end.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hs0pw2zy/tracksofthewanderer.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dxnpay10/lilsaya.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qq0dtfl4/inkandblossomsdamageskin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uqzgtqbz/maplestorya_kwzdswig6s.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t1yfgl4z/wandererring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tdyiyd3p/redeyedwanderertitle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rncdss0n/plumblossomwingsmount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/201hdnob/plumblossomwanderereffect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vsqhveol/wandererabodebackground.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z1nddjcl/sayaroid.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c76991ae7eb5bae6016962caedb809c7d1fb78b72a9b991b960090d07c85a5bf",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "get-a-sayaroid",
+    "fetched_at": "2026-07-20T11:01:27.839Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "32586",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-11-12.",
+          "Official category: events.",
+          "Nexon article ID: 32586."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Get a Sayaroid",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-11-12",
+  "event_end": "2025-12-16T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

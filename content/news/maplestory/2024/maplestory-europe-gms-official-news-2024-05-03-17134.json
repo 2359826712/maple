@@ -1,0 +1,99 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-05-03-17134",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/17134/may-2024-community-contests-and-events",
+  "source_url": "https://www.nexon.com/maplestory/news/community/17134/may-2024-community-contests-and-events",
+  "external_id": "17134",
+  "title": "May 2024 Community Contests and Events",
+  "original_title": "May 2024 Community Contests and Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-05-03T17:25:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“May 2024 Community Contests and Events” is an official news item from Global MapleStory Official News on 2024-05-03. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jnaoh0qx/210406_540x304_communitycontests.webp",
+      "alt": "May 2024 Community Contests and Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1056/1100x225-maplestory-community-contests.jpg",
+      "alt": "MapleStory Community Contests"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1549/240430_lynnbake_contest_wgc-1020.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1543/240430_lynnartcontest_wgc-1019.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1547/yeti-tote-bag-and-usb.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1545/acrylic-examples.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1546/tumbler-keychains.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1548/strap-and-notebook.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8b2ca9a86ca091abbb3460ea365756ae795b550ad9e57e43956f4e5fea38e7d7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:03.647Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17134",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-05-03.",
+          "Official category: community.",
+          "Nexon article ID: 17134."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

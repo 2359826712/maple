@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-04-09-16951",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/16951/completed-scheduled-maintenance-april-11-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/16951/completed-scheduled-maintenance-april-11-2024",
+  "external_id": "16951",
+  "title": "[Completed] Scheduled Maintenance - April 11, 2024",
+  "original_title": "[Completed] Scheduled Maintenance - April 11, 2024",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-04-09T16:56:41Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Completed] Scheduled Maintenance - April 11, 2024” is an official maintenance notice from Global MapleStory Official News on 2024-04-09. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/poodfhlu/170418mntnpp540x304.webp",
+      "alt": "[Completed] Scheduled Maintenance - April 11, 2024"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3910de475084b3e1d094d43de404afc40a25c4869dda4c76f2ff09a536f528d5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:51.733Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16951",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-04-09.",
+          "Official category: maintenance.",
+          "Nexon article ID: 16951."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

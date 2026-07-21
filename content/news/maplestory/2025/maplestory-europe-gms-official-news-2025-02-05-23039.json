@@ -1,0 +1,123 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-02-05-23039",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/23039/v-257-tallahart-grave-of-the-gods-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/23039/v-257-tallahart-grave-of-the-gods-update-preview",
+  "external_id": "23039",
+  "title": "v.257 - Tallahart: Grave of the Gods Update Preview",
+  "original_title": "v.257 - Tallahart: Grave of the Gods Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-02-05T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“v.257 - Tallahart: Grave of the Gods Update Preview” is an official news item from Global MapleStory Official News on 2025-02-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/a4wns1xd/250131_v257_update_newspost_540x304.jpg",
+      "alt": "v.257 - Tallahart: Grave of the Gods Update Preview"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qinccwmo/250131_wgc-1726_header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w4mprvue/title-tallahart.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sfjdckhc/ss-tallahart.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nuheyd5k/title-tirnog-hashtag.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q3edd11c/ss-tirnog-hashtag.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rlhhkbu2/title-champion-burning-challenge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ikxlucft/ss-champion-challenge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zq0dhsp1/title-space-star-pink-bean.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pszpabxz/ss-space-star-pink-bean1.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5kzbuljn/title-sunny-sunday.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/odzdw3pz/discuss-on-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tsibhemi/discuss-on-discord.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vjcjnj3n/footer-image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "96dca3186fb854e680717f5daeac90473294b8f3d51c85b5c37261568e0160ef",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:10:14.153Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "23039",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-02-05.",
+          "Official category: update.",
+          "Nexon article ID: 23039."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

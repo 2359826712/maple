@@ -1,0 +1,130 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-12-17-33968",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/33968/twenteena-s-adventure-day",
+  "source_url": "https://www.nexon.com/maplestory/news/events/33968/twenteena-s-adventure-day",
+  "external_id": "33968",
+  "title": "Twenteena's Adventure Day",
+  "original_title": "Twenteena’s Adventure Day",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-12-17T12:00:01Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Twenteena's Adventure Day” is an official event notice from Global MapleStory Official News on 2025-12-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/bxtlzr4m/540x304-twenteenas-adventure-day-maplestory.jpg",
+      "alt": "Twenteena’s Adventure Day"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ctfnmshv/1100x225-twenteenas-adventure-day-maplestory.jpg",
+      "alt": "MapleStory Twenteena's Adventure Day"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pprmsddp/twenteenas-friend-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ua1dngjw/planet-twent-exercise-ball.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ac1n1k1c/planet-twent-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dcgop1es/twenteenas-treasure.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pqyf2oyj/twenteenas-helmet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gpljkogp/twentoonas-aquarium.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xq4jxstb/twenteenas-rocket-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kgfnonas/twenteenas-calendar.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ebvbsyhb/maplestorya_dqgt5smwj9.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "95ffa85fa0a1ab798742ffb60675a153046007e2360693a0a98ea2a32037fe55",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:50:38.570Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "33968",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-12-17.",
+          "Official category: events.",
+          "Nexon article ID: 33968."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Twenteena's Adventure Day",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-12-17",
+  "event_end": "2026-02-03T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

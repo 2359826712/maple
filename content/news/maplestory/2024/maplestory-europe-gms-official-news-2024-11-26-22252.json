@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-11-26-22252",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/22252/concerning-the-release-of-update-v-255",
+  "source_url": "https://www.nexon.com/maplestory/news/general/22252/concerning-the-release-of-update-v-255",
+  "external_id": "22252",
+  "title": "Concerning the Release of Update v.255",
+  "original_title": "Concerning the Release of Update v.255",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-11-26T17:25:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Concerning the Release of Update v.255” is an official news item from Global MapleStory Official News on 2024-11-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/0miljzb1/mm785tg7.webp",
+      "alt": "Concerning the Release of Update v.255"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0386776961c9084ce9f69a23af7e4989ad518d64968dfe1e6085ab2c82fd8064",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:17:29.798Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22252",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-11-26.",
+          "Official category: general.",
+          "Nexon article ID: 22252."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

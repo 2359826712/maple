@@ -1,0 +1,143 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-03-22-16894",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/16894/the-marvel-machine-returns-mar-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/16894/the-marvel-machine-returns-mar-2024",
+  "external_id": "16894",
+  "title": "The Marvel Machine Returns! (Mar 2024)",
+  "original_title": "The Marvel Machine Returns! (Mar 2024)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-03-22T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“The Marvel Machine Returns! (Mar 2024)” is an official Cash Shop notice from Global MapleStory Official News on 2024-03-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ezjgemsh/news-post-540x304-marvel-machine-march-2024-maplestory.webp",
+      "alt": "The Marvel Machine Returns! (Mar 2024)"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2532/marvel-machine-design-post_01.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2533/marvel-machine-design-post_02.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2534/marvel-machine-design-post_03.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2535/marvel-machine-design-post_04.jpg",
+      "alt": "GO TO MARVEL MACHINE NOW!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2536/marvel-machine-design-post_05.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2624/wgc-788-230408-marvel-machine-design-post_06.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2625/wgc-788-230408-marvel-machine-design-post_07.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2628/wgc-788-230408-marvel-machine-design-post_08.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2629/wgc-788-230408-marvel-machine-design-post_09.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2541/marvel-machine-design-post_10.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2633/wgc-788-230408-marvel-machine-design-post_01.gif",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2544/marvel-machine-design-post_12.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2545/marvel-machine-design-post_14.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2233/cubes.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2232/cube.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2648/wgc-788-230408-marvel-machine-design-post_20.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1802/200313_marvelmachine_transparant.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2630/wgc-788-230408-marvel-machine-design-post_24.png",
+      "alt": "GO TO MARVEL MACHINE NOW!"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "74a869096e99812b0ea7f17aeea7e1a869f9284131f87f54a235bc3487106a91",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:25:18.803Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16894",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-03-22.",
+          "Official category: sale.",
+          "Nexon article ID: 16894."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

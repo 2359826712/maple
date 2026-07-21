@@ -1,0 +1,158 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-06-11-27377",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/27377/now-available-sia-astelle",
+  "source_url": "https://www.nexon.com/maplestory/news/events/27377/now-available-sia-astelle",
+  "external_id": "27377",
+  "title": "Wish Upon a Shooting Star Event",
+  "original_title": "Now Available: Sia Astelle!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-06-11T15:55:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Wish Upon a Shooting Star Event” is an official event notice from Global MapleStory Official News on 2025-06-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/aieju0kc/540x304-now-available-sia-astelle-maplestory.jpg",
+      "alt": "Now Available: Sia Astelle!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ucdes0lv/1100x225-now-available-sia-astelle-maplestory.jpg",
+      "alt": "Now Available Sia Astelle MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1kaj0e3e/wishuponashootingstarui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mummoa4j/a-wish-on-starlit-wings-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h4alcjat/purple-dream-of-stars.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bvfivwep/pink-dream-of-stars-outfit-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pg2mpbnd/sia-astelle-damage-skin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o20fzz3z/siriusmount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qjcdavom/izarroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c02pw5kr/algolroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i4ohyigc/premiumloginui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mknl0op3/sia-gift-box-i.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wemj1fw0/sia-gift-box-iv.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ezkewjsr/asteria-s-wisdom.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ptnf04ki/oort-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5dzhbudo/night-of-falling-stars-effect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0c0eb5ss/splish-splash-spray-set.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rbwbb2ss/oort-background.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d5d8aaedbb0aae74630b625c41f125ff9c329ae2b99c2e58a613c705f53071f2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:06:16.517Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "27377",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-06-11.",
+          "Official category: events.",
+          "Nexon article ID: 27377."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Wish Upon a Shooting Star Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-06-11",
+  "event_end": "2025-08-26T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

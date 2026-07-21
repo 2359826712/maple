@@ -1,0 +1,63 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-06-02-3466511",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3466511",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3466511",
+  "external_id": "3466511",
+  "title": "June 2 - Mercuryo Service Issue",
+  "original_title": "June 2 - Mercuryo Service Issue",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-02T09:45:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:10:00.476Z",
+  "last_checked": "2026-07-20T01:10:00.476Z",
+  "summary": "“June 2 - Mercuryo Service Issue” is an official news item from MapleStory N Official Notices on 2026-06-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1121ee87f5680e45bb9d6077c237624881c3777e036a08afda66858e5e6361b4",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:10:35.599Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-02.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3466511."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

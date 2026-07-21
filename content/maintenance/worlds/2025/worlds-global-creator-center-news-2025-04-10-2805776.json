@@ -1,0 +1,81 @@
+{
+  "id": "worlds-global-creator-center-news-2025-04-10-2805776",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2805776",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2805776",
+  "external_id": "2805776",
+  "title": "Paypal Payment Maintenance - 2025 April 10",
+  "original_title": "Paypal Payment Maintenance - 2025 April 10",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-04-10T00:33:54.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Paypal Payment Maintenance - 2025 April 10” is an official maintenance notice from MapleStory Worlds Creator Center News on 2025-04-10. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250410/ab33539a-9810-42ee-a0eb-594f2052aa1f/MSWGenericPostBanners740x120maintenance.png",
+      "alt": "Paypal Payment Maintenance - 2025 April 10"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250410/1cc43267-f499-4bb2-9181-ea2a8f9571d1/WGC1404240930GenericPostBanners740x120maintenance.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250410/06d9ea9a-765c-4f52-9e85-c1c5381b1807/image3.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f90fae627a63d667f6d43ec42851386ee408ef91dae56a5c3b66d8566a84bca3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:31:53.777Z",
+    "headline_id": "3477",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-04-10.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 2805776."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

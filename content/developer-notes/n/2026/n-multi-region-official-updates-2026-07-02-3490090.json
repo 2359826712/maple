@@ -1,0 +1,72 @@
+{
+  "id": "n-multi-region-official-updates-2026-07-02-3490090",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/3490090",
+  "source_url": "https://msu.io/maplestoryn/news/update/3490090",
+  "external_id": "3490090",
+  "title": "July 1 - MapleStory N Developer's Note",
+  "original_title": "July 1 - MapleStory N Developer's Note",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "developer-note",
+  "subcategory": "developer-note",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:18:23.541Z",
+  "last_checked": "2026-07-20T06:18:23.541Z",
+  "summary": "“July 1 - MapleStory N Developer's Note” is an official developer note from MapleStory N Official Updates on 2026-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "developer-note"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250523/5870a39b-dadc-4745-a5a8-813ecdd0d465/DevelopersNote.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e2ee639cef844778ef2c059dd42b18ef8564fabb38275c8ec8c6b94c95ca6f78",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:18:31.602Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-07-02.",
+          "Official classification: developer note.",
+          "Nexon thread ID: 3490090."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

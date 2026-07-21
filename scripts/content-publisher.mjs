@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import process from 'node:process';
 import { readContentRecords, readSourceRecords } from './content/data.mjs';
 import { readPublisherSnapshot } from './content/manifest.mjs';
+import { readContentReleaseSnapshot } from './content/release.mjs';
 import { applySeriesContent, readSeriesContent } from './content/publisher-database.mjs';
 import { buildPublisherPlan } from './content/publisher.mjs';
 
@@ -78,18 +79,31 @@ function selectContentRecords(records, args, applyMode) {
 
 async function readPublisherInput(args, applyMode) {
   const manifestPath = optionValue(args, '--manifest');
-  if (applyMode && !manifestPath) throw new Error('--apply requires --manifest=<path>');
+  const releasePath = optionValue(args, '--release');
+  if (manifestPath && releasePath) throw new Error('pass only one of --manifest or --release');
+  if (applyMode && !manifestPath && !releasePath) throw new Error('--apply requires --release=<path> or --manifest=<path>');
+  if (releasePath) {
+    const snapshot = await readContentReleaseSnapshot(releasePath);
+    return {
+      snapshot: `release:${releasePath}#${snapshot.release.release_id}`,
+      release: snapshot.release,
+      manifest: snapshot.manifest,
+      contentRecords: snapshot.contentRecords,
+      sourceRecords: snapshot.sourceRecords,
+    };
+  }
   if (manifestPath) {
     const snapshot = await readPublisherSnapshot(manifestPath);
     return {
       snapshot: `manifest:${manifestPath}#${snapshot.manifest.root_sha256}`,
+      release: null,
       manifest: snapshot.manifest,
       contentRecords: snapshot.contentRecords,
       sourceRecords: snapshot.sourceRecords,
     };
   }
   const [contentRecords, sourceRecords] = await Promise.all([readContentRecords(), readSourceRecords()]);
-  return { snapshot: 'live-directory', contentRecords, sourceRecords };
+  return { snapshot: 'live-directory', release: null, contentRecords, sourceRecords };
 }
 
 function printSummary(result, context, sampleSize, title = 'Content Publisher dry-run') {
@@ -165,6 +179,7 @@ async function runApply(args, input, format, sampleSize) {
       ...input,
       runContext: {
         manifestHash: input.manifest.root_sha256,
+        release: input.release,
         sourceCount: input.manifest.file_count,
         selectedCount: input.contentRecords.length,
         selector: {

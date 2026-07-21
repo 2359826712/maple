@@ -1,0 +1,127 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-13-29610",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/29610/inkwell-s-note-post-stargazer-upcoming-plans",
+  "source_url": "https://www.nexon.com/maplestory/news/general/29610/inkwell-s-note-post-stargazer-upcoming-plans",
+  "external_id": "29610",
+  "title": "INKWELL'S NOTE: POST-STARGAZER: UPCOMING PLANS",
+  "original_title": "INKWELL'S NOTE: POST-STARGAZER: UPCOMING PLANS",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-13T15:58:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“INKWELL'S NOTE: POST-STARGAZER: UPCOMING PLANS” is an official news item from Global MapleStory Official News on 2025-08-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/0tclsruz/website-news-post-540x304-inkwells-note-post-stargazer-upcoming-plans-maplestory.png",
+      "alt": "INKWELL'S NOTE: POST-STARGAZER: UPCOMING PLANS"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1ogbzwom/inkwells_note_01_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e1hnvuxu/inkwells_note_02_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zfwdoafa/inkwells_note_03_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t31biizk/inkwells_note_04_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oapb1aya/inkwells_note_05_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f0pkhaft/inkwells_note_06_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ohqpioon/inkwells_note_07_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s4zecujc/inkwells_note_08_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y0jc5svd/inkwells_note_09_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4tnp0otj/inkwells_note_10_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gssljrtw/inkwells_note_11_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lloh2nji/inkwells_note_12_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g2blwde3/inkwells_note_13_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5vihurlx/inkwells_note_14_post-stargazer_upcoming_plans_maplestory.png",
+      "alt": "Inkwell's Note Post-Stargazer Upcoming Plans August 2025 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d98c194cf5e153fb2173e12c3deccdf2c9073554923620d6b3cfc23ce51f9b52",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:04:10.198Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29610",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-13.",
+          "Official category: general.",
+          "Nexon article ID: 29610."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

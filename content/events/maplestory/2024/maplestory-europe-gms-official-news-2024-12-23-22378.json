@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-23-22378",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/22378/miracle-winter-december-28-primary-weapons-secondary-equipment",
+  "source_url": "https://www.nexon.com/maplestory/news/events/22378/miracle-winter-december-28-primary-weapons-secondary-equipment",
+  "external_id": "22378",
+  "title": "Miracle Time - Primary Weapons/Secondary Equipment",
+  "original_title": "Miracle Winter - December 28 - Primary Weapons/Secondary Equipment",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-23T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Miracle Time - Primary Weapons/Secondary Equipment” is an official event notice from Global MapleStory Official News on 2024-12-23. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/eb1ojgvs/540x304-december-28-miracle-winter-primary-weapons-secondary-equipment-maplestory.jpg",
+      "alt": "Miracle Winter - December 28 - Primary Weapons/Secondary Equipment"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rxydxvrh/1100x225-december-28-miracle-winter-primary-weapons-secondary-equipment-maplestory.jpg",
+      "alt": "December 28 Miracle Winter Primary Weapons Secondary Equipment MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2349/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Winter Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "652058a7c0071a76e26d1ff7979549f4c660cff16d83ac92add9afac0fcb9479",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:11:38.398Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22378",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-23.",
+          "Official category: events.",
+          "Nexon article ID: 22378."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Primary Weapons/Secondary Equipment",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-12-28T00:00:00.000Z",
+  "event_end": "2024-12-28T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

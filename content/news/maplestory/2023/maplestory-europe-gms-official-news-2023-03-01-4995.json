@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-01-4995",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/4995/pink-bean-bulletin-addressing-recent-concerns-regarding-duky",
+  "source_url": "https://www.nexon.com/maplestory/news/community/4995/pink-bean-bulletin-addressing-recent-concerns-regarding-duky",
+  "external_id": "4995",
+  "title": "Pink Bean Bulletin: Addressing Recent Concerns Regarding Duky",
+  "original_title": "Pink Bean Bulletin: Addressing Recent Concerns Regarding Duky",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-01T18:31:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Pink Bean Bulletin: Addressing Recent Concerns Regarding Duky” is an official news item from Global MapleStory Official News on 2023-03-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/rtyj5p44/pink-bean-bulletin-assets-news-post-540x304.webp",
+      "alt": "Pink Bean Bulletin: Addressing Recent Concerns Regarding Duky"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q3/1633/pink-bean-bulletin-assets-in-post-banner-1100x225.jpg",
+      "alt": "MapleStory Pink Bean Bulletin"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f84df9ba611f86fcf1104836da35a3ce5a0bd6daa6a5f662284abc2c6b24b1b4",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:59.608Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4995",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-01.",
+          "Official category: community.",
+          "Nexon article ID: 4995."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

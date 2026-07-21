@@ -1,0 +1,102 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-06-02-5118",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5118/updated-june-6th-pre-savior-login-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5118/updated-june-6th-pre-savior-login-event",
+  "external_id": "5118",
+  "title": "[Updated June 6th] Pre-Savior Login Event",
+  "original_title": "[Updated June 6th] Pre-Savior Login Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-06-02T17:45:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated June 6th] Pre-Savior Login Event” is an official event notice from Global MapleStory Official News on 2023-06-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/wjecayic/230531_540x304_pre-saviorloginevent_6429.webp",
+      "alt": "[Updated June 6th] Pre-Savior Login Event"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2174/230531_1100x225_pre-saviorloginevent_6429.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2233/birthday-hat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2232/khali-rings.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "09373c52916ada645c8ba9443bc233fbfdfd3f0ac46717496f61dd3ba6f0e68d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:35:41.183Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5118",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-06-02.",
+          "Official category: events.",
+          "Nexon article ID: 5118."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Updated June 6th] Pre-Savior Login Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-06-05T00:00:00.000Z",
+  "event_end": "2023-06-20T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,108 @@
+{
+  "id": "n-multi-region-official-events-2025-12-18-3310791",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3310791",
+  "source_url": "https://msu.io/maplestoryn/news/events/3310791",
+  "external_id": "3310791",
+  "title": "Challenge! Mini-Game Season 1 - Puzzle Master",
+  "original_title": "Challenge! Mini-Game Season 1 - Puzzle Master",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-12-18T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:40:41.416Z",
+  "last_checked": "2026-07-20T07:40:41.416Z",
+  "summary": "“Challenge! Mini-Game Season 1 - Puzzle Master” is an official event notice from MapleStory N Official Events on 2025-12-18. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251218/535920d5-8ce5-4b1e-b49b-6bc4342baa92/MSNEventThumbgame1.png",
+      "alt": "Challenge! Mini-Game Season 1 - Puzzle Master"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251217/56312aed-64b9-42cf-ba9e-bf3cac3e4aa7/image202512180707065.jpeg",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251217/0860c3e1-4c27-4e88-9857-e4a3647b8af8/image202512180707066.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "df4fa51cfb383e624f0ecb51aa38479f322440cd8e12207c0c81677014c54ae2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:43:15.581Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2025-12-18",
+      "2026-01-07T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-12-18.",
+          "Official classification: event.",
+          "Nexon thread ID: 3310791.",
+          "Confirmed event period: 2025-12-18 through 2026-01-07T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Challenge! Mini-Game Season 1 - Puzzle Master",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-12-18",
+  "event_end": "2026-01-07T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,124 @@
+{
+  "id": "n-multi-region-official-events-2026-06-11-3472495",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3472495",
+  "source_url": "https://msu.io/maplestoryn/news/events/3472495",
+  "external_id": "3472495",
+  "title": "[Updated] [Hyper Summer] Washed Up Guests",
+  "original_title": "[Updated] [Hyper Summer] Washed Up Guests",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-11T03:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“[Updated] [Hyper Summer] Washed Up Guests” is an official event notice from MapleStory N Official Events on 2026-06-11. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/06ebbbfb-c881-4035-9694-c34ffc393c0f/ExportMSNEVENTThumb.png",
+      "alt": "[Updated] [Hyper Summer] Washed Up Guests"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/ab399158-75d8-4b29-9bb3-eb6b91f29058/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/85782c7d-20c6-4d5c-b5fb-6ec6227845e1/image2026061017314641.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/4b2eb6f6-c0fc-459f-afc3-23ff7b55417e/image2026061017314642.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/8546169a-8e36-4442-a66c-a74b1db58556/image2026061017314643.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/600ec736-fce5-4f6b-83cc-6926e118d94d/image2026061017314644.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/a1abb0ef-5fba-42fa-ac8e-ae77cf193053/image2026061017314645.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260610/1dffd230-f61b-46b6-9dcf-26ef46daea05/image2026061017314646.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c193f3db68ba80a34f488cbf562c73590d6aadb3b99f60720c4486f5d90e2d42",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:04:18.390Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-06-11",
+      "2026-07-01T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-11.",
+          "Official classification: event.",
+          "Nexon thread ID: 3472495.",
+          "Confirmed event period: 2026-06-11 through 2026-07-01T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Updated] [Hyper Summer] Washed Up Guests",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-11",
+  "event_end": "2026-07-01T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

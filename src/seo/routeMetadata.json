@@ -20,11 +20,11 @@
       "priority": "1.0",
       "schema": { "types": ["WebSite", "WebPage"] },
       "copy": {
-        "en": { "title": "MPStorys – MapleStory Tools, Guides & Simulators", "description": "MapleStory tools, guides, news, and updates for GMS, KMS, JMS, TMS, MSEA, MapleStory Classic, and MapleStory Idle players." },
-        "zh": { "title": "MPStorys · 冒险岛攻略、工具与社区", "description": "提供冒险岛新闻、攻略、活动、排行、Wiki 和角色工具，并关注 MapleStory Classic 与 MapleStory Idle 的最新内容。" },
-        "ja": { "title": "MPStorys · メイプルストーリー攻略・ツール・コミュニティ", "description": "メイプルストーリーのニュース、攻略、イベント、ツールに加え、MapleStory Classic と MapleStory Idle の最新情報も提供。" },
-        "ko": { "title": "MPStorys · 메이플스토리 공략, 도구 및 커뮤니티", "description": "메이플스토리 뉴스, 공략, 이벤트, 도구와 함께 MapleStory Classic 및 MapleStory Idle 최신 콘텐츠를 제공합니다." },
-        "zh-Hant": { "title": "MPStorys · 楓之谷攻略、工具與社群", "description": "提供楓之谷新聞、攻略、活動、排行、Wiki 與角色工具，並關注 MapleStory Classic 和 MapleStory Idle 的最新內容。" }
+        "en": { "title": "MPStorys – MapleStory Tools, Guides & Simulators", "description": "News, updates, events, guides, tools, Wiki and rankings for MapleStory, MapleStory Classic, MapleStory M, MapleStory Worlds, MapleStory N and MapleStory Idle." },
+        "zh": { "title": "MPStorys · 冒险岛攻略、工具与社区", "description": "汇集冒险岛、MapleStory Classic、MapleStory M、MapleStory Worlds、MapleStory N 与 MapleStory Idle 的新闻、更新、活动、攻略、工具、Wiki 和排行。" },
+        "ja": { "title": "MPStorys · メイプルストーリー攻略・ツール・コミュニティ", "description": "MapleStory、MapleStory Classic、MapleStory M、MapleStory Worlds、MapleStory N、MapleStory Idle のニュース、更新、イベント、攻略、ツール、Wiki、ランキングを確認できます。" },
+        "ko": { "title": "MPStorys · 메이플스토리 공략, 도구 및 커뮤니티", "description": "MapleStory, MapleStory Classic, MapleStory M, MapleStory Worlds, MapleStory N, MapleStory Idle의 뉴스, 업데이트, 이벤트, 공략, 도구, Wiki와 랭킹을 확인하세요." },
+        "zh-Hant": { "title": "MPStorys · 楓之谷攻略、工具與社群", "description": "彙整楓之谷、MapleStory Classic、MapleStory M、MapleStory Worlds、MapleStory N 與 MapleStory Idle 的新聞、更新、活動、攻略、工具、Wiki 和排行。" }
       }
     },
     "/news": {

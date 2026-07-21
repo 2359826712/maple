@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-07-04-17653",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/17653/order-your-angelic-buster-hoodie-by-champion",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/17653/order-your-angelic-buster-hoodie-by-champion",
+  "external_id": "17653",
+  "title": "Order Your Angelic Buster Hoodie by Champion!",
+  "original_title": "Order Your Angelic Buster Hoodie by Champion!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-07-04T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Order Your Angelic Buster Hoodie by Champion!” is an official Cash Shop notice from Global MapleStory Official News on 2024-07-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qe0jnthj/240704-angelic-buster-pre-sale-launch-graphic-assets-news-post-540x304-v2.png",
+      "alt": "Order Your Angelic Buster Hoodie by Champion!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hobdtzeo/240704-angelic-buster-pre-sale-launch-graphic-assets-in-post-banner-1100x225-v2.jpg",
+      "alt": "MapleStory Angelic Buster Hoodie Champion"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ysdok5dc/ab-sale-btn-v2.png",
+      "alt": "MapleStory Angelic Buster Hoodie Champion"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qc3bpxku/240704-angelic-buster-pre-sale-launch-graphic-assets-product-images-v2.png",
+      "alt": "MapleStory Angelic Buster Hoodie Champion"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "98ad5ec777acb977b3b2c3f7ec6331552fc6e3b6d096090f8dbccea9cb58acdd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:22:00.391Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17653",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-07-04.",
+          "Official category: sale.",
+          "Nexon article ID: 17653."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,68 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-02-26-3388449",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3388449",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3388449",
+  "external_id": "3388449",
+  "title": "February 26 – Fixed an issue where the client closes after [Lie Detector - Transparent Figures] is triggered (No Maintenance)",
+  "original_title": "February 26 – Fixed an issue where the client closes after [Lie Detector - Transparent Figures] is triggered (No Maintenance)",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-02-26T12:05:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“February 26 – Fixed an issue where the client closes after [Lie Detector - Transparent Figures] is triggered (No Maintenance)” is an official news item from MapleStory N Official Notices on 2026-02-26. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250605/cf50ca00-9bc1-4b7f-beab-77133f579371/image202506051815471.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e5f64a07ea988bf6c971066201c131a4eb47fd9edf2a20cf83d64ea91cb5a7a4",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:12:43.826Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-02-26.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3388449."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

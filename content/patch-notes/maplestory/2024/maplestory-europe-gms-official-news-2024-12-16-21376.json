@@ -1,0 +1,474 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-16-21376",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/21376/updated-2-12-2025-v-256-the-dark-ride-limbo-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/21376/updated-2-12-2025-v-256-the-dark-ride-limbo-patch-notes",
+  "external_id": "21376",
+  "title": "[Updated 2/12/2025] v.256 - The Dark Ride: Limbo Patch Notes",
+  "original_title": "[Updated 2/12/2025] v.256 - The Dark Ride: Limbo Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-16T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Updated 2/12/2025] v.256 - The Dark Ride: Limbo Patch Notes” is an official patch note from Global MapleStory Official News on 2024-12-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/xqvlx4ol/241211-wgc-1635-ms-thedarkride-limbo-patchnotes-540x304.png",
+      "alt": "[Updated 2/12/2025] v.256 - The Dark Ride: Limbo Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0izdfmeg/241211-wgc-1635-ms-thedarkride-limbo-patchnotes-1100x225.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xgtdo3e5/ss_boss_limbo-optimize.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jd2hz4pp/whisper-of-the-source.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kjoc5wsr/limboroid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5venh3he/distorted-ambition.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2synvora/eternal-armor-of-desire-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u4aptajv/beefytoheartysouls.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jd0jnqkx/magnificentlimbosoul.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vdxahd1v/epicdungeonui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zj2n3k4a/statnodeii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d1iniz3k/decoratetreess.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/24sl02tu/ghastly-the-snowman-dark-maplemas-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1x5lqq5g/wicked.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pwwfpytk/maplestorya_vi48ld0rou.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/owbiifjn/darkmaplemasmedal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ieanqsmx/wreck-the-halls-dark-maplemas-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j4efueyo/o-holy-fright-dark-maplemas-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tpici3lr/dark-maplemas-damage-skin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dbddwpgd/fright-totem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/un1jl4pr/slayridegameplay.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4vholnrk/sleighchair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/voohstb1/jolly-totem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/utdoledf/burningexpressui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/30qjkleu/championburning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dw0jbquc/championfollow.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/drzh5wfr/my-friend-mush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0bdkeqvf/our-maple-tree-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/30xjr52z/set-as-hyper-burning-button-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/geodxujz/trialtitle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3scp1a2f/moonshade-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jkjfzfqb/lil-maha.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wbfbcup0/new-aran-hero-feather.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/03vbqjt1/ice-blossom-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s1ilxl4t/lilins-cozy-home.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dhrfixar/aran-labelchat-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k15ezb3d/aran-emblem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z4vl1aei/nostalgic-aran-set.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/egcis35e/rien-background-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ssydh2vc/cloud-cloaked-moon-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qdsaqomx/lil-moonbean.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w0pfawyc/new-shade-hero-feather.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rvtlrd4s/vulpine-moon-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yzjhmxye/fox-tree-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pndjetsa/shade-label-chat-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nqlo1xo1/emblem-shade.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tghl0lkv/gamingmoonbeamhat.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xnsowivx/nostalgic-set-shade.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ac2pocrf/fox-gratitude-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tmjji5qh/fox-point-village-bg.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zrhpkpw4/gowest-burning-flameborn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f3al1oaj/tirnoginteriormap.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zewfuhq2/blueprintsui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rklbtx4v/godhand-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jr3nqje2/cybertirnogdamageskin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/olhlq0ca/tirnogminiaturechair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gz1bcwo4/toadroid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jvilqlkk/tirnogengineersetcoupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/04do5lvt/gobsgift.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/imsj02rn/exp-playground.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f4whapo4/otherworldly-sun-generator.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nanjnyzk/dimensional-crack.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ccyp5ttz/murgoths-feather.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ormlxcps/preppy-suspenders.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/14xfvfut/froggie-water-slide.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yhael1pf/crystal-glacier.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4jndyhaw/cat-cushion-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z5wfte05/happy-new-year-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v30njhm1/magpie-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sx5jpjgl/ritabird.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w5zn22dx/unforgettablechair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u0cfskm1/updatedbookofforgottenfestivals.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/duuadkwh/skylark.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1yfpbzcm/pombackground.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/phkd4h1s/allphases.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvppvcrg/secretandextrarecords.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/54af5xbm/bluesnakechair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pgvf5xtp/specter-mask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i5wgueoz/ripplessource.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nzuohhav/shadowsourceeffect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y4mbddku/labelringsource.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0lsereyf/chatringsource.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a22h4qnk/masterofsource.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gkwnptl0/cleansing-light-effect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vk4nw4uq/ss-new-name-auction.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kpvck4pk/rodbosses.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iufnbhtv/challenges.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i42hc4q3/charges.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wrvhrpzi/rodobject.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/slnccsyd/rodweeklyscore.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r00jknyi/maplestorya_mfwwtpvwkm.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nxzazebn/mysteriousbackground.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ytkabkbq/inspectoroutfit.png?height=149&rmode=max&width=134",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4qwls4fi/kazaxbackground.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nlxoqw5v/inspectorweapon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jhbn2o3e/rideordielegionblock.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/frmjajxb/slimeface.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pctd4cpq/kazax-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pioncicw/horntailchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nwrdspnc/zakumchair.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "db348f02a8a30b484a966b84e2acaa02f069b500b95a1e7d39cad35ba409aef2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:12:02.467Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21376",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-16.",
+          "Official category: update.",
+          "Nexon article ID: 21376."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2024-12-16T12:00:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

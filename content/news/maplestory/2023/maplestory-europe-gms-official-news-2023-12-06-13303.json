@@ -1,0 +1,123 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-06-13303",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/13303/v-247-new-age-into-the-abyss-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/13303/v-247-new-age-into-the-abyss-update-preview",
+  "external_id": "13303",
+  "title": "V.247 - New Age: Into the Abyss Update Preview",
+  "original_title": "V.247 - New Age: Into the Abyss Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-06T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“V.247 - New Age: Into the Abyss Update Preview” is an official news item from Global MapleStory Official News on 2023-12-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/x15aib32/231128-wgc-530-ms-newage-pt2-540x304.webp",
+      "alt": "V.247 - New Age: Into the Abyss Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2286/231201-wgc-537-v247-update-preview_header.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2276/231201-wgc-537-v247-update-preview_btn-abyssal.png?height=119&mode=max&width=1100",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2302/untitled-4-v2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2277/231201-wgc-537-v247-update-preview_btn-battleship.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2304/untitled-2-v2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2278/231201-wgc-537-v247-update-preview_btn-carcion.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2303/untitled-5-v2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2283/231201-wgc-537-v247-update-preview_btn-kaling.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2295/untitled-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2284/231201-wgc-537-v247-update-preview_btn-maplemas.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2297/untitled-3.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2300/231201-wgc-537-v247-update-preview_btn-forums-hover.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2301/231201-wgc-537-v247-update-preview_btn-disco-hover.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "273c82bd2a2c13e8a34158b9d68f6424fabd5fa04ec85935bc50e314bf91d0e5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:52.312Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13303",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-06.",
+          "Official category: update.",
+          "Nexon article ID: 13303."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

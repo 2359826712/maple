@@ -1,0 +1,175 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-11-36493",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/36493/v-267-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/36493/v-267-update-preview",
+  "external_id": "36493",
+  "title": "v.267 Update Preview",
+  "original_title": "v.267 Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-11T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“v.267 Update Preview” is an official news item from Global MapleStory Official News on 2026-03-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/z2mfsnz1/image-11.png",
+      "alt": "v.267 Update Preview"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cnah0cxx/wild-hunter-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qicbftgw/image-9.png",
+      "alt": "bowman"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/icmlt5ew/gameplay-wh.gif",
+      "alt": "Gameplay 1"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/weenhozs/savage-redux.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gyycueyk/savage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n5kieome/divider-2.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ni1bed5q/epic-dungeon-section-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dj3gc0dq/epic-dungeon-ban.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pmjgqt4c/baekyes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sldmi2vt/world-archive-header.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c51ipk2r/world-archive-fixed.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g1ej4ihy/aknowledge-seeker-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ttzniela/maple-world-map.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4hoiwn3l/job-skills.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lribhtpl/sia.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rdak0wiz/sia-logo.png?height=265&rmode=max&width=369",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q5mj3p3w/algol.gif",
+      "alt": "Algol"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3qcb0btj/wzcomparerr2_auakowvbok.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/elcnfcjl/boom-adjusted.gif",
+      "alt": "Boom adjusted"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kl4esdmx/monsterexpan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1cyfug2c/ui-updates.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qytlcq1m/friends-nobg-ui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3o5nbeia/party-ui_-1.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uxhfcww1/collab.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x4pflgpt/btn-forums.png",
+      "alt": "Forums"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5gbadipe/btn-discord.png",
+      "alt": "Discord"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a55ccee66a687e74c580e741fe77bc34c690826b9ffd701bd8a054cae4e839bf",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:22.974Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36493",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-11.",
+          "Official category: update.",
+          "Nexon article ID: 36493."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

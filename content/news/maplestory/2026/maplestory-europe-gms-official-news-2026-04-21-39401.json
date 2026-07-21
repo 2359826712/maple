@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-04-21-39401",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/39401/maple-memo-notice-regarding-recently-identified-system-discrepancies-and-upcoming-adjustments",
+  "source_url": "https://www.nexon.com/maplestory/news/general/39401/maple-memo-notice-regarding-recently-identified-system-discrepancies-and-upcoming-adjustments",
+  "external_id": "39401",
+  "title": "Maple Memo: Notice Regarding Recently Identified System Discrepancies and Upcoming Adjustments",
+  "original_title": "Maple Memo: Notice Regarding Recently Identified System Discrepancies and Upcoming Adjustments",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-04-21T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Maple Memo: Notice Regarding Recently Identified System Discrepancies and Upcoming Adjustments” is an official news item from Global MapleStory Official News on 2026-04-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: Notice Regarding Recently Identified System Discrepancies and Upcoming Adjustments"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "33421f9a44c9f20321a60445668ca57a212178aad9241455a8013f081df60e7c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:46:52.747Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "39401",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-04-21.",
+          "Official category: general.",
+          "Nexon article ID: 39401."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

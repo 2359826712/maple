@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-22-5034",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5034/pink-bean-and-lucid-debut-in-kartrider-drift",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5034/pink-bean-and-lucid-debut-in-kartrider-drift",
+  "external_id": "5034",
+  "title": "Pink Bean and Lucid Debut in KartRider: Drift!",
+  "original_title": "Pink Bean and Lucid Debut in KartRider: Drift!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-22T19:15:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Pink Bean and Lucid Debut in KartRider: Drift!” is an official news item from Global MapleStory Official News on 2023-03-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/by3hgi3c/news-post-540x304-kartrider-drift-x-maplestory.webp",
+      "alt": "Pink Bean and Lucid Debut in KartRider: Drift!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2887/in-post-banner-1100x225-kartrider-drift-x-maplestory.jpg",
+      "alt": "KartRider: Drift x MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/2647/pinkbean-and-lucid.png",
+      "alt": "KartRider: Drift x MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e28f5cb32817abd399613401cac04014864bcb73b5f29e490f8c08587d2821da",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:38:14.529Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5034",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-22.",
+          "Official category: general.",
+          "Nexon article ID: 5034."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

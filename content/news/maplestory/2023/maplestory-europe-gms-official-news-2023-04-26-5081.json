@@ -1,0 +1,111 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-04-26-5081",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/5081/v-241-maple-momentree-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/5081/v-241-maple-momentree-update-preview",
+  "external_id": "5081",
+  "title": "v.241 Maple Momentree Update Preview",
+  "original_title": "v.241 Maple Momentree Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-04-26T11:09:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.241 Maple Momentree Update Preview” is an official news item from Global MapleStory Official News on 2023-04-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/mgjd0fsy/230420_540x304_18thanniversaryv241_6368.webp",
+      "alt": "v.241 Maple Momentree Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1408/msw-6366-230421-v241-update-preview-design-post_01.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1409/msw-6366-230421-v241-update-preview-design-post_02.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1410/msw-6366-230421-v241-update-preview-design-post_03.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1411/msw-6366-230421-v241-update-preview-design-post_04.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1412/msw-6366-230421-v241-update-preview-design-post_05.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1413/msw-6366-230421-v241-update-preview-design-post_06.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1414/msw-6366-230421-v241-update-preview-design-post_07.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1450/msw-6366-230421-v241-update-preview-design-post_08-updated.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1419/msw-6366-230421-v241-update-preview-design-post-forums-btn_rest.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1417/msw-6366-230421-v241-update-preview-design-post-discord-btn_rest.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4edb4f6cef34dbf911fcd6bcd42e7de8edb980eecd129a6aa7a4080de6a670f3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:36:38.324Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5081",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-04-26.",
+          "Official category: update.",
+          "Nexon article ID: 5081."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

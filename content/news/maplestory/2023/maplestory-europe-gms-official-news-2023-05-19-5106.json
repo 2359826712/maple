@@ -1,0 +1,99 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-05-19-5106",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5106/check-out-the-may-2023-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5106/check-out-the-may-2023-art-corner",
+  "external_id": "5106",
+  "title": "Check Out the May 2023 Art Corner",
+  "original_title": "Check Out the May 2023 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-05-19T19:15:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the May 2023 Art Corner” is an official news item from Global MapleStory Official News on 2023-05-19. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jnec4zct/msw-3707-190313-art-corner-posts-news_post_540x304.webp",
+      "alt": "Check Out the May 2023 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2047/11.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2049/33.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2053/77.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2050/44.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2057/99.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2040/66.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0bcb69c91284182023ae8e8e9ac0fd27c78f97dbe313e1e3682ab2975e964a18",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:35:59.217Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5106",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-05-19.",
+          "Official category: community.",
+          "Nexon article ID: 5106."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

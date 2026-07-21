@@ -1,0 +1,100 @@
+{
+  "id": "n-multi-region-official-events-2026-07-02-3485217",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3485217",
+  "source_url": "https://msu.io/maplestoryn/news/events/3485217",
+  "external_id": "3485217",
+  "title": "Ascendant Tier Raffle Season 7",
+  "original_title": "Ascendant Tier Raffle Season 7",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:03:23.531Z",
+  "last_checked": "2026-07-20T07:03:23.531Z",
+  "summary": "“Ascendant Tier Raffle Season 7” is an official event notice from MapleStory N Official Events on 2026-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/768bf07c-32d5-4cd9-a428-b6bbfffcd2e9/ExportMSNEVENTThumb.png",
+      "alt": "Ascendant Tier Raffle Season 7"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260701/ef0a4cd4-ba23-4808-8ca0-f84dceffb669/image2026070119301666.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0307eb47c9dd89a5baadcc676c83a307979524c7de09f4d6e947f0e8dcb5c175",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:03:45.269Z",
+    "headline_id": "3296",
+    "official_category": "ongoing-event",
+    "official_tags": [
+      "2026-07-02",
+      "2026-07-22T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-07-02.",
+          "Official classification: event.",
+          "Nexon thread ID: 3485217.",
+          "Confirmed event period: 2026-07-02 through 2026-07-22T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Ascendant Tier Raffle Season 7",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-07-02",
+  "event_end": "2026-07-22T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

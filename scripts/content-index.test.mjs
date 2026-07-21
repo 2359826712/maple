@@ -164,6 +164,26 @@ describe('content index infrastructure', () => {
     expect(duplicates.urls).toHaveLength(1);
     expect(duplicates.externalIds).toHaveLength(1);
   });
+
+  it('allows explicit event occurrences to share a source URL but still catches a repeated occurrence', () => {
+    const base = {
+      relativePath: 'content/events/maplestory/2026/first.json',
+      data: {
+        id: 'first', source_id: 'gms', external_id: '42:first', content_type: 'event',
+        canonical_url: 'https://example.com/events/42', title: 'First', published_at: '2026-07-01',
+        series: 'maplestory', content_hash: 'first', metadata: { event_occurrence_key: 'first' },
+      },
+    };
+    const second = {
+      relativePath: 'content/events/maplestory/2026/second.json',
+      data: {
+        ...base.data, id: 'second', external_id: '42:second', title: 'Second', content_hash: 'second',
+        metadata: { event_occurrence_key: 'second' },
+      },
+    };
+    expect(findContentDuplicates([base, second]).urls).toHaveLength(0);
+    expect(findContentDuplicates([base, { ...base, relativePath: 'duplicate.json' }]).urls).toHaveLength(1);
+  });
 });
 
 describe('browser adapter', () => {

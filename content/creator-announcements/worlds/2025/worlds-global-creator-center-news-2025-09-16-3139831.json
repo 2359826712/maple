@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2025-09-16-3139831",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3139831",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3139831",
+  "external_id": "3139831",
+  "title": "Creator Livestream Notice: 2025 September 23 - How to Work with Monster AI Programming",
+  "original_title": "Creator Livestream Notice: 2025 September 23 - How to Work with Monster AI Programming",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-09-16T19:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Creator Livestream Notice: 2025 September 23 - How to Work with Monster AI Programming” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-09-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250915/44b7b3e7-0244-47a2-9037-1532f6e1356b/584x354livestream.png",
+      "alt": "Creator Livestream Notice: 2025 September 23 - How to Work with Monster AI Programming"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250915/562eda72-e3ff-439d-93e0-89f0564d2fcc/250911MSWStreamAssetsWGC2405740x120.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f3b085a7def8a44e91a7de623a5f3a68a65e50c7ae5e6d3106449c8974c20bed",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:25:28.309Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-09-16.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3139831."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

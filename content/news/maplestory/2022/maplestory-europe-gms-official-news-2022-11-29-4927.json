@@ -1,0 +1,87 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-29-4927",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4927/monster-park-extreme-is-back",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4927/monster-park-extreme-is-back",
+  "external_id": "4927",
+  "title": "Monster Park Extreme is Back!",
+  "original_title": "Monster Park Extreme is Back!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-29T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Monster Park Extreme is Back!” is an official news item from Global MapleStory Official News on 2022-11-29. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zwsidl05/540x304-monster-park-extreme-maplestory.webp",
+      "alt": "Monster Park Extreme is Back!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1996/1100x225-monster-park-extreme-maplestory.jpg",
+      "alt": "Monster Park Extreme MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1966/about-monster-park-extreme-maplestory.png",
+      "alt": "Monster Park Extreme Entering MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1968/monster-park-extreme-combat-maplestory.png",
+      "alt": "Monster Park Extreme Hunting MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1967/monster-park-extreme-bigfoot-maplestory.png",
+      "alt": "Monster Park Extreme Bigfoot MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4662052730e3c062e198e0133c642241ffba72f19ba4de95260fba5628cd23a7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:57.202Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4927",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-29.",
+          "Official category: general.",
+          "Nexon article ID: 4927."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

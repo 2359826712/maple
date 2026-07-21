@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2026-02-03-3366644",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366644",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3366644",
+  "external_id": "3366644",
+  "title": "Avatar Product and Creator Sanction List - January 2026",
+  "original_title": "Avatar Product and Creator Sanction List - January 2026",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-02-03T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Avatar Product and Creator Sanction List - January 2026” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-02-03. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/6d905da7-cdb0-474a-819d-b9c65185241d/MSWGenericPostBanners740x120notice.png",
+      "alt": "Avatar Product and Creator Sanction List - January 2026"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260202/a7e51f17-c01f-48fd-bbd6-cf6ac7eddbcc/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7de6c69394ea7efc0a91b015cd01a9eff010a2cee56a9a29720bc1a8ee9648f2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:22:48.741Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-02-03.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3366644."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

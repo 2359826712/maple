@@ -1,0 +1,135 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-20-29588",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/29588/v-262-midnight-carnival-mu-lung-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/29588/v-262-midnight-carnival-mu-lung-update-preview",
+  "external_id": "29588",
+  "title": "v.262 - Midnight Carnival: Mu Lung Update Preview",
+  "original_title": "v.262 - Midnight Carnival: Mu Lung Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-20T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“v.262 - Midnight Carnival: Mu Lung Update Preview” is an official news item from Global MapleStory Official News on 2025-08-20. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/y4yob4r5/250813_ms_v262_banners_wgc-2212-540x304.jpg",
+      "alt": "v.262 - Midnight Carnival: Mu Lung Update Preview"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u5yjivu3/main-art.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rz4ehrf2/header-nighttroupe.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1yldd0bt/night-troupe-festival-decoration.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qlsfhbnn/header-legionchamp.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y5cf3x0w/npc_sir_hamselot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pubil5ot/legion-champp.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qc3lfu0t/header-champraid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pffdmeus/champion-raid-1.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fz4fyqpn/header-champburning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dh4btdgo/champion-burning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sz5fcba1/header-nainteract.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c0mdtyoe/world-merge-event.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fzvanocj/header-sunnysunday.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0xwltazh/button-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jy5cv4yv/button-discord.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/25niblie/bottom-art.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "221d37872f38d22b32d3b4c1e239b36596189d38be1d3863417e44914e9ac39c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:03:52.164Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29588",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-20.",
+          "Official category: update.",
+          "Nexon article ID: 29588."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,78 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-07-02-42339",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/42339/v-270-public-test-server-coming-soon",
+  "source_url": "https://www.nexon.com/maplestory/news/general/42339/v-270-public-test-server-coming-soon",
+  "external_id": "42339",
+  "title": "v.270 Public Test Server Coming Soon!",
+  "original_title": "v.270 Public Test Server Coming Soon!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-07-02T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:06:01.566Z",
+  "last_checked": "2026-07-20T01:06:01.566Z",
+  "summary": "“v.270 Public Test Server Coming Soon!” is an official news item from Global MapleStory Official News on 2026-07-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/q2zpi1hh/540x304-maplestory-public-test-server.png",
+      "alt": "v.270 Public Test Server Coming Soon!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dvhcqwqz/1100x225-maplestory-public-test-server.png",
+      "alt": "MapleStory Public Test Server"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjrh3lg5/public-test-server-logo-maplestory.png",
+      "alt": "Public Test Server Logo MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "bea54e0a40a6b558ae22158d11f1b57008089225ea14bead8c9430086bbb1e04",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:06:24.185Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "42339",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-07-02.",
+          "Official category: general.",
+          "Nexon article ID: 42339."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

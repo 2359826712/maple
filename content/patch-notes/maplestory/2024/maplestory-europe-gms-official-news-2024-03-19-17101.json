@@ -1,0 +1,330 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-03-19-17101",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/17101/updated-4-18-v-249-minar-picnic-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/17101/updated-4-18-v-249-minar-picnic-patch-notes",
+  "external_id": "17101",
+  "title": "[Updated 4/18] v.249 - Minar Picnic Patch Notes",
+  "original_title": "[Updated 4/18] v.249 - Minar Picnic Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-03-19T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated 4/18] v.249 - Minar Picnic Patch Notes” is an official patch note from Global MapleStory Official News on 2024-03-19. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/00zjn3wx/wgc-783-240313-v249-patch-notes-news-post-540x304.webp",
+      "alt": "[Updated 4/18] v.249 - Minar Picnic Patch Notes"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2473/wgc-783-240313-v249-patch-notes-in-post-banner-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2524/abyss-mount.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2527/raiden.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2528/bark.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2529/voltarix.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2526/fluid.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2530/ignis.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2499/memory-bracelet.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2500/warm-autumn-set-f-2.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2493/warm-autumn-set-m-2.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2494/dollyroid.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2488/minar-damage-skin.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2531/picnic-w-halflingers.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2497/sparrow-mount.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2481/bunny-cakes-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2483/acorn-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2485/rice-cake-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2525/persimmon-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2490/leafre-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2480/moon-bunny-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2482/sweet-tea-cake-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2489/full-moon-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2484/gilded-moonlight-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2487/chestnut-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2486/sunny-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2491/striped-ds.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2496/never-wilting-flower.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1546/wonky.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1545/wonky-item.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1544/wave.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1543/wave-item.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1935/fff.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1937/mff.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1936/fhf.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1938/mhf.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1539/slabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1538/schat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1537/tlabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1536/tchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1535/blabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1534/bchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1533/dlabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1532/dchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1531/vlabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1530/vchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1529/olabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1528/ochat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1527/nlabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1526/nchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1525/alabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1542/achat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1541/adlabel.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1540/adchat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1562/image-3.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1564/image-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1563/image-2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1565/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1566/image-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1567/image-2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1568/image-3.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1569/image-4.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1570/image-5.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1571/image-6.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "abfbda46cfd6a67f7c61c1f7a6a78084a0bbba463eb867ef0e76e40c785c850f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:25:24.816Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17101",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-03-19.",
+          "Official category: update.",
+          "Nexon article ID: 17101."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2024-03-19T14:00:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

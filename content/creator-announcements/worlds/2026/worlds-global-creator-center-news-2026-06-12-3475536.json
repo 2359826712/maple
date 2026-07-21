@@ -1,0 +1,72 @@
+{
+  "id": "worlds-global-creator-center-news-2026-06-12-3475536",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3475536",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3475536",
+  "external_id": "3475536",
+  "title": "Use of IP Related to International Sports Events (e.g., the World Cup)",
+  "original_title": "Use of IP Related to International Sports Events (e.g., the World Cup)",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-06-12T17:50:35.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:08:37.286Z",
+  "last_checked": "2026-07-20T01:08:37.286Z",
+  "summary": "“Use of IP Related to International Sports Events (e.g., the World Cup)” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-06-12. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260612/6c315994-6195-4db6-bf6c-ac460f1b28da/MSWGenericPostBanners740x120notice.png",
+      "alt": "Use of IP Related to International Sports Events (e.g., the World Cup)"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260612/4b2313a6-5e48-4816-af68-4959077ef43f/image202606121048071.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "209184542b641689916f8ae02fe57bbb6c9a733f114205eb60201455d3c70853",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:09:20.909Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-06-12.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3475536."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

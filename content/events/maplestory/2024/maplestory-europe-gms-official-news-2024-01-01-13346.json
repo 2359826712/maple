@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-01-01-13346",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/13346/miracle-winter-january-6-tops-bottoms-overalls-capes",
+  "source_url": "https://www.nexon.com/maplestory/news/events/13346/miracle-winter-january-6-tops-bottoms-overalls-capes",
+  "external_id": "13346",
+  "title": "Miracle Time - Tops/Bottoms/Overalls/Capes",
+  "original_title": "Miracle Winter - January 6 - Tops/Bottoms/Overalls/Capes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-01-01T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Miracle Time - Tops/Bottoms/Overalls/Capes” is an official event notice from Global MapleStory Official News on 2024-01-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/2b5l0m2g/540x304-miracle-winter-january-6-tops-bottoms-overalls-capes-maplestory.webp",
+      "alt": "Miracle Winter - January 6 - Tops/Bottoms/Overalls/Capes"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2796/1100x225-miracle-winter-january-6-tops-bottoms-overalls-capes-maplestory.jpg",
+      "alt": "Miracle Winter January 6 Tops/Bottoms/Overalls/Capes MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2349/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Winter Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e5f4191f2599f944d457cd5a74c2b71f19937af1b6b36ea3bb5d262db6b67dfa",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:01.203Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13346",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-01-01.",
+          "Official category: events.",
+          "Nexon article ID: 13346."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Tops/Bottoms/Overalls/Capes",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-01-06T00:00:00.000Z",
+  "event_end": "2024-01-06T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

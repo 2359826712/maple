@@ -1,0 +1,73 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-06-04-34840",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/34840/mac-os-beta-updates",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/34840/mac-os-beta-updates",
+  "external_id": "34840",
+  "title": "Mac OS Beta Updates",
+  "original_title": "Mac OS Beta Updates",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-04T16:25:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:50:14.015Z",
+  "last_checked": "2026-07-20T01:50:14.015Z",
+  "summary": "“Mac OS Beta Updates” is an official maintenance notice from Global MapleStory Official News on 2026-06-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+      "alt": "Mac OS Beta Updates"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ca96a9490455a174b13d520641571423e9a6479e82055a559bf64d77d607d7fb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:51:43.164Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "34840",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-06-04.",
+          "Official category: maintenance.",
+          "Nexon article ID: 34840."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

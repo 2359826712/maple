@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-19-5312",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5312/resolved-investigation-on-na-reboot-server-issues-october-19-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5312/resolved-investigation-on-na-reboot-server-issues-october-19-2023",
+  "external_id": "5312",
+  "title": "[Resolved] Investigation on NA Reboot Server Issues - October 19, 2023",
+  "original_title": "[Resolved] Investigation on NA Reboot Server Issues - October 19, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-19T13:02:24Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Resolved] Investigation on NA Reboot Server Issues - October 19, 2023” is an official news item from Global MapleStory Official News on 2023-10-19. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/50zmucev/120516_540x304_generic_news_6410.webp",
+      "alt": "[Resolved] Investigation on NA Reboot Server Issues - October 19, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "cc1836d1ef4843568bb54f9c237db04bd92f29dca9d0f0cdee61301fc8ee5ddd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:25.532Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5312",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-19.",
+          "Official category: general.",
+          "Nexon article ID: 5312."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

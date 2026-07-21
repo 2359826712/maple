@@ -1,0 +1,286 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-12-13317",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/13317/updated-december-20-v-247-new-age-into-the-abyss-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/13317/updated-december-20-v-247-new-age-into-the-abyss-patch-notes",
+  "external_id": "13317",
+  "title": "[Updated December 20] v.247 - New Age: Into the Abyss Patch Notes",
+  "original_title": "[Updated December 20] v.247 - New Age: Into the Abyss Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-12T14:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated December 20] v.247 - New Age: Into the Abyss Patch Notes” is an official patch note from Global MapleStory Official News on 2023-12-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/03jcriwz/231208-wgc-533-ms-newage-pt2-patchnotes-540x304.webp",
+      "alt": "[Updated December 20] v.247 - New Age: Into the Abyss Patch Notes"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2393/231208-wgc-533-ms-newage-pt2-patchnotes-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2415/image-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2414/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2416/image-2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2417/image-3.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2426/maplestory-newage-monstercollection-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2419/maplestory-newage-abyssalexpedition-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1538/maplestory-newage-eternalflame-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1519/maplestory-newage-hyperburning-outfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1539/maplestory-newage-infiniteflames-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1518/maplestory-newage-hyperburning-medal.gif",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1554/maplestory-newage-burningworld-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1555/maplestory-newage-burningworld-title.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1531/maplestory-newage-zerotoonehundred.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1559/maplestory-newage-identisk-sunlightcoins.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1558/maplestory-newage-identisk-windcoin.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1540/maplestory-newage-identisk-exploration-waveeffect.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1542/maplestory-newage-identisk-exploration-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1523/maplestory-newage-identisk-exploration-damageskin.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1521/maplestory-newage-identisk-exploration-android.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1524/maplestory-newage-identisk-exploration-skins.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1522/maplestory-newage-identisk-exploration-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1541/maplestory-newage-identisk-exploration-outfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1560/maplestory-newage-identisk-exploration-ui.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1562/maplestory-newage-identiskgift-ui.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1685/maplestory-newage-identisk-tiskislandlavalings.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1543/maplestory-newage-tisktropicaladventure.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2424/maplestory-newage-identisk-hunting-hat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2425/maplestory-newage-identisk-hunting-medals.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2420/maplestory-newage-identisk-festival-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2423/maplestory-newage-identisk-festival-rings.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2421/maplestory-newage-identisk-festival-lilenki.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2430/maplestory-newage-identisk-festival-okyatobipets.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1526/maplestory-newage-identisk-mesoshop-dragonpopheadband.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1529/maplestory-newage-identisk-mesoshop-rookiebobbleheartband.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1528/maplestory-newage-identisk-mesoshop-manji.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1527/maplestory-newage-identisk-mesoshop-lania.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1544/maplestory-newage-starmagicstudent.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1525/maplestory-newage-identisk-mesoshop-androids.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2451/maplestory-newage-home-snowmanbed.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2450/maplestory-newage-home-maplemastree.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2418/image-4.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2427/maplestory-newage-rudi-mounts.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2428/maplestory-newage-rudi-shop1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2429/maplestory-newage-rudi-shop2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2431/maplestory-newage-blue-dragon.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1535/maplestory-newage-reboothyperion-ring.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1556/maplestory-newage-reboothyperion-chuchuislandset.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1362/default-avatar.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1363/jettm.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1364/cycle.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1365/emb.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "154a9a93ca89c0bf6003f1695d0bf4d29a6141820ff1e4d585b15a8c721e4af5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:34.278Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13317",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-12.",
+          "Official category: update.",
+          "Nexon article ID: 13317."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2023-12-12T14:30:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

@@ -1,0 +1,128 @@
+{
+  "id": "n-multi-region-official-events-2026-01-08-3335633",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3335633",
+  "source_url": "https://msu.io/maplestoryn/news/events/3335633",
+  "external_id": "3335633",
+  "title": "[UPDATED] Raise Pudgy to Hero",
+  "original_title": "[UPDATED] Raise Pudgy to Hero",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-01-08T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:40:41.416Z",
+  "last_checked": "2026-07-20T07:40:41.416Z",
+  "summary": "“[UPDATED] Raise Pudgy to Hero” is an official event notice from MapleStory N Official Events on 2026-01-08. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/d6fc16b0-3dc3-4f63-9388-0373c77c4b67/MSNEVENTThumb.png",
+      "alt": "[UPDATED] Raise Pudgy to Hero"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/35509173-76d2-4fe3-98b6-645f45a1628d/image202601072210541.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/a40956ca-2259-4c9c-935c-9fc5f5226943/image202601072211232.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/c2fbb3af-0331-41e1-92d7-cd672eb1ad3b/image202601072211233.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/db4206c6-1bc0-4dd7-9e2f-23dc44d7ddff/image202601072211484.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/60e73051-701a-4717-b6b2-f3c3f27f7544/image202601072211485.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/97bef891-4c69-4d57-a5ba-cac4618c5905/image202601072212276.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260107/4040df80-bbdc-4524-9c43-d01e11e04a47/image202601072216428.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e740da574ea9470c1857cb870501b1c0a2e1c8fc24e589856ccc4cb251254006",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:42:15.343Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-01-08",
+      "2026-01-28T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-01-08.",
+          "Official classification: event.",
+          "Nexon thread ID: 3335633.",
+          "Confirmed event period: 2026-01-08 through 2026-01-28T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[UPDATED] Raise Pudgy to Hero",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-01-08",
+  "event_end": "2026-01-28T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

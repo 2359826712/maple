@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-07-21-28757",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/28757/miracle-summer-july-26-gloves",
+  "source_url": "https://www.nexon.com/maplestory/news/events/28757/miracle-summer-july-26-gloves",
+  "external_id": "28757",
+  "title": "Miracle Time - Gloves",
+  "original_title": "Miracle Summer - July 26 - Gloves",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-07-21T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Miracle Time - Gloves” is an official event notice from Global MapleStory Official News on 2025-07-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zmepvxku/540x304-july-26-miracle-summer-gloves-maplestory.jpg",
+      "alt": "Miracle Summer - July 26 - Gloves"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/slqdjway/1100x225-july-26-miracle-summer-gloves-maplestory.jpg",
+      "alt": "July 26 Gloves Miracle Summer MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cpnn2030/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Summer Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "11dd1e067a14e49111f9d3f94ac4d64e183c3d6654bce7f401d2accb6eeef3f7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:05:01.326Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "28757",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-07-21.",
+          "Official category: events.",
+          "Nexon article ID: 28757."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Gloves",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-07-26T00:00:00.000Z",
+  "event_end": "2025-07-26T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

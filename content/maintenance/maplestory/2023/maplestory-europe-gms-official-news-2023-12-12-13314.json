@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-12-13314",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/13314/completed-unscheduled-cash-shop-auction-and-monster-life-server-maintenance-december-12-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/13314/completed-unscheduled-cash-shop-auction-and-monster-life-server-maintenance-december-12-2023",
+  "external_id": "13314",
+  "title": "[Completed] Unscheduled Cash Shop, Auction, and Monster Life Server Maintenance - December 12, 2023",
+  "original_title": "[Completed] Unscheduled Cash Shop, Auction, and Monster Life Server Maintenance - December 12, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-12T13:07:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Completed] Unscheduled Cash Shop, Auction, and Monster Life Server Maintenance - December 12, 2023” is an official maintenance notice from Global MapleStory Official News on 2023-12-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/bjpjddfr/170418mntnpp540x304.webp",
+      "alt": "[Completed] Unscheduled Cash Shop, Auction, and Monster Life Server Maintenance - December 12, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a8eb88d6c701e9e9fcaff13a75e0afd95533de7cf77de501eddd01e5af8c8150",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:37.266Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13314",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-12.",
+          "Official category: maintenance.",
+          "Nexon article ID: 13314."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

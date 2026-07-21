@@ -82,4 +82,19 @@ describe('crawler HTTP policy', () => {
     expect(fetchImpl.mock.calls[1][1].headers).not.toHaveProperty('if-none-match');
     expect(fetchImpl.mock.calls[1][1]).not.toHaveProperty('conditional');
   });
+
+  it('counts transient retries for historical backfill metrics', async () => {
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(new Response('User-agent: *\nAllow: /', { status: 200 }))
+      .mockResolvedValueOnce(new Response('busy', { status: 503 }))
+      .mockResolvedValueOnce(new Response('ok', { status: 200 }));
+    const client = new CrawlHttpClient(
+      { rate_limit: { requests: 20, per_seconds: 1 } },
+      { urls: {} },
+      { fetchImpl, now: () => new Date('2026-07-20T00:00:00Z') },
+    );
+
+    expect((await client.fetch('https://example.com/archive?page=2')).status).toBe(200);
+    expect(client.metrics).toEqual({ requests: 2, retries: 1 });
+  });
 });

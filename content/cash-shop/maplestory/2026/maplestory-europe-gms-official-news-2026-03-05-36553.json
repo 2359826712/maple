@@ -1,0 +1,119 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-05-36553",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/36553/marvel-machine-play-now",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/36553/marvel-machine-play-now",
+  "external_id": "36553",
+  "title": "Marvel Machine - Play Now!",
+  "original_title": "Marvel Machine - Play Now!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-05T10:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Marvel Machine - Play Now!” is an official Cash Shop notice from Global MapleStory Official News on 2026-03-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1scbp4jn/540x304-marvel-machine-march-2026-is-back-maplestory.jpg",
+      "alt": "Marvel Machine - Play Now!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ay0a5k2s/header-marvel-machine-march-2026-maplestory.jpg",
+      "alt": "March 2026 marvel machine maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ohtd4xsn/btn-yellow-marvel-machine-march-2026-maplestory.jpg",
+      "alt": "Go to the marvel machine maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/liap24qe/how_to_play-marvel-machine-march_2026-maplestory.jpg",
+      "alt": "How to play the marvel machine maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1zmbxn3p/prizestitle-marvel-machine-march-2026-maplestory.jpg",
+      "alt": "Prizes section march 2026 marvel machine machine"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j0zh4s2l/star-enhancements-marvel-machine-march-2026-maplestory.png",
+      "alt": "March 2026 marvel machine star enhancement scrolls maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rrthkcwa/chairs-marvel-machine-march-2026-maplestory.png",
+      "alt": "March 2026 marvel machine chairs maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iwalrmos/pets-marvel-machine-march-2026-maplestory.png",
+      "alt": "March 2026 marvel machine pets maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y5ybzvg0/items-marvel-machine-march-2026-maplestory.png",
+      "alt": "March 2026 marvel machine items maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gompxdda/cubes-marvel-machine-march-2026-maplestory.png",
+      "alt": "Marvel machine march 2026 cubes maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pudjknhv/items-highlysought-marvel-machine-march-2026-maplestory.png",
+      "alt": "Additional prizes march 2026 marvel machine maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zmpohww3/btn-purple-marvel-machine-march-2026-maplestory.jpg",
+      "alt": "March 2026 marvel machine maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0nilmffr/bottom-art-marvel-machine-march-2026-maplestory.jpg",
+      "alt": "March 2026 marvel machine maplestory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "72720ad3622ee218422a7c6480e4cac88fb88d4974f8904576fa7ee6362605de",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:28.975Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36553",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-05.",
+          "Official category: sale.",
+          "Nexon article ID: 36553."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

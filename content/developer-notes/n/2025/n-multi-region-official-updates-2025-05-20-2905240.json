@@ -1,0 +1,72 @@
+{
+  "id": "n-multi-region-official-updates-2025-05-20-2905240",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/2905240",
+  "source_url": "https://msu.io/maplestoryn/news/update/2905240",
+  "external_id": "2905240",
+  "title": "Developer’s Note: Direction of the RX Update",
+  "original_title": "Developer’s Note: Direction of the RX Update",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "developer-note",
+  "subcategory": "developer-note",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-05-20T15:45:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:40:25.315Z",
+  "last_checked": "2026-07-20T06:40:25.315Z",
+  "summary": "“Developer’s Note: Direction of the RX Update” is an official developer note from MapleStory N Official Updates on 2025-05-20. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "developer-note"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250523/5557e033-f1c6-4104-9885-310340b55329/DevelopersNote.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b22650a6583f99886c7d1027f911f34f35b56d07cf22c6ce91dfb0fa24f0845c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:40:46.932Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-05-20.",
+          "Official classification: developer note.",
+          "Nexon thread ID: 2905240."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

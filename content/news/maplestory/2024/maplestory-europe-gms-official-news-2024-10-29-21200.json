@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-29-21200",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/21200/check-out-the-october-2024-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/21200/check-out-the-october-2024-art-corner",
+  "external_id": "21200",
+  "title": "Check Out the October 2024 Art Corner",
+  "original_title": "Check Out the October 2024 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-29T10:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the October 2024 Art Corner” is an official news item from Global MapleStory Official News on 2024-10-29. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qygf2dpm/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
+      "alt": "Check Out the October 2024 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zvhcichw/7-damien-tyler-harwood.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/riwgcdtl/tenkokon-tenko-z.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hcadc3cb/blaster-ying-hua.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pb1f2vz0/comm-1-daniel-sura.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h5ynlzxn/105-steven-lee.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b893a8afe68a76443e2a063c443276e519fed03acda8278b5ca7b2dc0b8173a9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:23.887Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21200",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-29.",
+          "Official category: community.",
+          "Nexon article ID: 21200."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,148 @@
+{
+  "id": "n-multi-region-official-events-2025-09-18-3141639",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3141639",
+  "source_url": "https://msu.io/maplestoryn/news/events/3141639",
+  "external_id": "3141639",
+  "title": "[UPDATED] HEROES FIESTA ENCORE",
+  "original_title": "[UPDATED] HEROES FIESTA ENCORE",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-09-18T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:40:41.416Z",
+  "last_checked": "2026-07-20T07:40:41.416Z",
+  "summary": "“[UPDATED] HEROES FIESTA ENCORE” is an official event notice from MapleStory N Official Events on 2025-09-18. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/bc77ab91-9ed8-44d2-8ea5-3a0e8f44137b/MSNEventThumbBN.png",
+      "alt": "[UPDATED] HEROES FIESTA ENCORE"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/1386ba22-f29d-47c0-b3f2-1c2d74ccbb54/image202509180646441.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/f4101d02-3c87-4369-baf3-3929a10e3b89/image202509180646442.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/3f95313e-90e7-4f7d-8003-0c04dc71d1a2/image202509180646443.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/ec5cd5cb-38df-4e07-a558-664ea864a706/image202509180646444.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/124ff043-1231-44d8-9f1f-7ce2f670f4e5/image202509180646445.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/576aa094-a8db-4089-b211-703998a41bb1/image202509180646446.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/f00ed6cd-5472-4005-a7ef-fa81996e6219/image202509180646447.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/2a77eb78-8d54-4dfd-aedc-c4b45465aa43/image202509180646448.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/a3f640cf-c657-4411-a0b6-ab536647fcc0/image202509180646449.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/f6763005-1a0a-4ee1-a6fc-5082a42da862/image2025091806464410.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/ca2e4436-e832-41b2-aa13-0e483c93b403/image2025091806464411.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250917/87c3b8ce-d190-45e5-9cb1-74c93e01a1e0/image2025091806464412.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4b1bb7ee1e1629ffffdb3572d2cd28280d03e7e2852b7e400923013912780c72",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:44:06.621Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2025-09-18",
+      "2025-10-22T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-09-18.",
+          "Official classification: event.",
+          "Nexon thread ID: 3141639.",
+          "Confirmed event period: 2025-09-18 through 2025-10-22T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[UPDATED] HEROES FIESTA ENCORE",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-09-18",
+  "event_end": "2025-10-22T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

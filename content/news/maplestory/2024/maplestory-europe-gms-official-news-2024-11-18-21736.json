@@ -1,0 +1,119 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-11-18-21736",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/21736/ride-or-die-event-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/events/21736/ride-or-die-event-preview",
+  "external_id": "21736",
+  "title": "Ride or Die Event Preview!",
+  "original_title": "Ride or Die Event Preview!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-11-18T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Ride or Die Event Preview!” is an official news item from Global MapleStory Official News on 2024-11-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "events",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ssledykh/news-post-540x304-ride-or-die-event.png",
+      "alt": "Ride or Die Event Preview!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0hvnahvw/ride-or-die-event-01-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ailt2av/ride-or-die-event-02-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k1no0ami/ride-or-die-event-03-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w33ltrfa/ride-or-die-event-04-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/av3fulah/ride-or-die-event-05-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dlylt2mq/ride-or-die-event-06-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ygkhra2e/ride-or-die-event-07-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nnfdki0z/ride-or-die-event-08-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cfhj2ig0/ride-or-die-event-09-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3o1pmrt5/ride-or-die-event-10-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wiugjkag/ride-or-die-event-11-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1owhepyt/ride-or-die-event-12-maplestory.png",
+      "alt": "MapleStory Ride or Die Event"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b1b755aa9110ad19069ad63ab85513ee98226b198514db650939894ed3eb6356",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:05.838Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21736",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-11-18.",
+          "Official category: events.",
+          "Nexon article ID: 21736."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

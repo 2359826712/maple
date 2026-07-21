@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-12-13-22380",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/22380/gms-survey-2024",
+  "source_url": "https://www.nexon.com/maplestory/news/community/22380/gms-survey-2024",
+  "external_id": "22380",
+  "title": "GMS Survey 2024",
+  "original_title": "GMS Survey 2024",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-12-13T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“GMS Survey 2024” is an official news item from Global MapleStory Official News on 2024-12-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/gjykfomk/ms_communitynews_540x304.png",
+      "alt": "GMS Survey 2024"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wdrmjaow/community-news-assets-in-post-banner-1100x225-maplestory.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7c4505a02901569fde398fcd657100bb61678126b1d91b2bc338d64e3f163804",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:12:14.498Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22380",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-12-13.",
+          "Official category: community.",
+          "Nexon article ID: 22380."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

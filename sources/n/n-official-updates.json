@@ -1,0 +1,66 @@
+{
+  "id": "n-official-updates",
+  "name": "MapleStory N Official Updates",
+  "series": "n",
+  "regions": ["multi-region"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["developer-note", "maintenance", "news", "patch-note"],
+  "base_url": "https://msu.io/maplestoryn/news/update",
+  "discovery_urls": ["https://msu.io/maplestoryn/news/update"],
+  "feed_url": null,
+  "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+  "sitemap_urls": [],
+  "adapter": "nexon-community",
+  "parser": "maplestory-n-official-updates",
+  "adapter_config": {
+    "board_id": "5290",
+    "canonical_template": "https://msu.io/maplestoryn/news/update/{threadId}",
+    "default_content_type": "news",
+    "classification_rules": [
+      { "content_type": "developer-note", "title_pattern": "(?:(?:developer|director)[’']s? note|dev note|from the development team)" },
+      { "content_type": "patch-note", "title_pattern": "(?:patch notes?|update notes?|version update)" },
+      { "content_type": "maintenance", "title_pattern": "(?:scheduled|temporary|emergency|extended)?\\s*maintenance" },
+      { "content_type": "news", "title_pattern": "(?:known issues?|issue during|log-in issue|login issue)" }
+    ],
+    "subcategory_rules": [
+      { "subcategory": "known-issues", "content_types": ["news"], "title_pattern": "issue" },
+      { "subcategory": "economy-update", "content_types": ["news", "developer-note"], "title_pattern": "(?:economy|dynamic pricing|reward balance)" },
+      { "subcategory": "marketplace-update", "content_types": ["news"], "title_pattern": "marketplace" },
+      { "subcategory": "security-notice", "content_types": ["news", "developer-note"], "title_pattern": "(?:hack|macro|security)" }
+    ],
+    "content_type_subcategory_map": {
+      "developer-note": "developer-note",
+      "maintenance": "maintenance",
+      "news": "update-notice",
+      "patch-note": "patch-notes"
+    },
+    "headers": {
+      "community-id": "500",
+      "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+    },
+    "mode": "n",
+    "page_size": 25,
+    "max_server_page_size": 100,
+    "pagination": {
+      "strategy": "nexon-keyset",
+      "start": 1,
+      "page_size": 25,
+      "block_size": 9,
+      "pagination_type": "PAGING",
+      "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+    }
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "3h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-20 against the public MapleStory N Update route and official public read API. Board 5290 has no useful headline split, so explicit developer/director-note and patch-note evidence is applied before conservative news fallback. Mentioning maintenance inside patch notes does not reclassify them. Full source text is not retained."
+}

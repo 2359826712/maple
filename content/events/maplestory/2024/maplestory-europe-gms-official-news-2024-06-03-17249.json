@@ -1,0 +1,94 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-06-03-17249",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/17249/mysterious-invitation-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/17249/mysterious-invitation-event",
+  "external_id": "17249",
+  "title": "Mysterious Invitation Event",
+  "original_title": "Mysterious Invitation Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-06-03T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Mysterious Invitation Event” is an official event notice from Global MapleStory Official News on 2024-06-03. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5jinhxvi/wgc-991_newspost_540x304.jpg",
+      "alt": "Mysterious Invitation Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dsvehmii/wgc-991_postheader_1100x225.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e250313a061c9fde4810f3936f9d09e4e9b6cc77889198e0347620750c79844c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:23:21.601Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17249",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-06-03.",
+          "Official category: events.",
+          "Nexon article ID: 17249."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Mysterious Invitation Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-06-05T00:00:00.000Z",
+  "event_end": "2024-06-11T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

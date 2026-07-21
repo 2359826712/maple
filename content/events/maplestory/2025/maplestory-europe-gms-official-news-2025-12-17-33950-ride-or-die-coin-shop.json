@@ -1,0 +1,154 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-12-17-33950-ride-or-die-coin-shop",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/33950/ride-or-die-returns-december-2025",
+  "source_url": "https://www.nexon.com/maplestory/news/events/33950/ride-or-die-returns-december-2025",
+  "external_id": "33950:ride-or-die-coin-shop",
+  "title": "Ride or Die Coin Shop",
+  "original_title": "Ride or Die Returns! (December 2025)",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-12-17T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Ride or Die Coin Shop” is an official event notice from Global MapleStory Official News on 2025-12-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/fjhjmjni/newspost_540x304-ride-or-die-returns-december-2025-maplestory.jpg",
+      "alt": "Ride or Die Returns! (December 2025)"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/orbdwonm/postheader_1100x225-ride-or-die-returns-december-2025-maplestory.jpg",
+      "alt": "MapleStory Ride or Die Returns"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qujpry0i/rod-ui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yppfvtlt/rodchallenges.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lcsho04w/investigationreport.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i42hc4q3/charges.png?height=272&rmode=max&width=599",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wrvhrpzi/rodobject.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xnvdc3ht/weeklytotalscore.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/efeboo35/inspectors-grindstone-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r00jknyi/maplestorya_mfwwtpvwkm.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zkklryyq/altheatransformationpotion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ru2ozmty/prototype-ring-sample-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dsnlsrrr/ride-or-die-mysterious-cave-background.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hjacadwe/ride-or-die-kazaxs-altar-background.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nlxoqw5v/inspectorweapon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rf1j12m2/rodlegionblock.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bkbeezlo/roddamageskin.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "484713dfd66af57573d5467c14e63cd8ab566ae67e1127e0bac469d090131267",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "ride-or-die-coin-shop",
+    "fetched_at": "2026-07-20T02:50:41.316Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "33950",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-12-17.",
+          "Official category: events.",
+          "Nexon article ID: 33950."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Ride or Die Coin Shop",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-12-17",
+  "event_end": "2026-02-03T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": "2025-12-17",
+  "shop_end": "2026-02-04T14:00:00.000Z",
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,94 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-06-06-27590",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/27590/updated-6-18-prepare-for-the-hyperion-world-leap-event-coming-june-11",
+  "source_url": "https://www.nexon.com/maplestory/news/general/27590/updated-6-18-prepare-for-the-hyperion-world-leap-event-coming-june-11",
+  "external_id": "27590",
+  "title": "[Updated 6/18] Prepare for the Hyperion World Leap Event coming June 11",
+  "original_title": "[Updated 6/18] Prepare for the Hyperion World Leap Event coming June 11",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-06-06T18:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Updated 6/18] Prepare for the Hyperion World Leap Event coming June 11” is an official event notice from Global MapleStory Official News on 2025-06-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "general"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/50zmucev/120516_540x304_generic_news_6410.webp",
+      "alt": "[Updated 6/18] Prepare for the Hyperion World Leap Event coming June 11"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "796e6504d05ca83fc61c20f86017c682c9a993ac827163b38b1d557cdf680abd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:06:34.557Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "27590",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-06-06.",
+          "Official category: general.",
+          "Nexon article ID: 27590."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Updated 6/18] Prepare for the Hyperion World Leap Event coming June 11",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-06-11",
+  "event_end": "2025-08-26T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

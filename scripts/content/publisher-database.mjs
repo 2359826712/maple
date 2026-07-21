@@ -23,17 +23,51 @@ export async function readSeriesContent(client, projections = null) {
   `, [JSON.stringify(keys)])).rows;
 }
 
-async function createPublisherRun(client, runContext) {
+async function registerContentRelease(client, release) {
+  if (!release) return null;
+  await client.query(`
+    insert into public.content_releases (
+      id, manifest_uri, manifest_hash, source, file_count, generated_at
+    ) values ($1, $2, $3, $4, $5, $6)
+    on conflict (id) do nothing
+  `, [
+    release.release_id,
+    release.manifest_uri,
+    release.manifest_hash,
+    release.source,
+    release.files,
+    release.generated_at,
+  ]);
+  const result = await client.query(`
+    select id, manifest_uri, manifest_hash, source, file_count, generated_at
+    from public.content_releases
+    where id = $1
+  `, [release.release_id]);
+  const stored = result.rows[0];
+  const storedGeneratedAt = stored?.generated_at ? new Date(stored.generated_at).toISOString() : null;
+  if (!stored
+    || stored.manifest_uri !== release.manifest_uri
+    || stored.manifest_hash !== release.manifest_hash
+    || stored.source !== release.source
+    || stored.file_count !== release.files
+    || storedGeneratedAt !== release.generated_at) {
+    throw new Error(`content release ${release.release_id} conflicts with its immutable registration`);
+  }
+  return stored.id;
+}
+
+async function createPublisherRun(client, runContext, releaseId) {
   const result = await client.query(`
     insert into public.publisher_runs (
-      manifest_hash, source_count, selected_count, selector, status
-    ) values ($1, $2, $3, $4::jsonb, 'running')
+      manifest_hash, source_count, selected_count, selector, release_id, status
+    ) values ($1, $2, $3, $4::jsonb, $5, 'running')
     returning id, manifest_hash, started_at, status
   `, [
     runContext.manifestHash,
     runContext.sourceCount,
     runContext.selectedCount,
     JSON.stringify(runContext.selector),
+    releaseId,
   ]);
   return result.rows[0];
 }
@@ -135,7 +169,8 @@ function assertReconciled(result, expectedCount, stage) {
 
 export async function applySeriesContent(client, { contentRecords, sourceRecords, runContext }) {
   if (!runContext) throw new Error('publisher apply requires run context');
-  const publisherRun = await createPublisherRun(client, runContext);
+  const releaseId = await registerContentRelease(client, runContext.release);
+  const publisherRun = await createPublisherRun(client, runContext, releaseId);
   let committed = false;
   let plan;
   try {

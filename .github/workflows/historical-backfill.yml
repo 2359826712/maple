@@ -1,0 +1,61 @@
+name: Historical Backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Source registry ID
+        required: true
+        type: string
+      max_pages:
+        description: Maximum pages for this run
+        required: true
+        default: '10'
+        type: string
+      resume:
+        description: Resume the saved checkpoint
+        required: true
+        default: false
+        type: boolean
+      execute:
+        description: Write content and checkpoint state (false is dry run)
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Run historical backfill
+        shell: bash
+        env:
+          BACKFILL_SOURCE: ${{ inputs.source }}
+          BACKFILL_MAX_PAGES: ${{ inputs.max_pages }}
+          BACKFILL_RESUME: ${{ inputs.resume }}
+          BACKFILL_EXECUTE: ${{ inputs.execute }}
+        run: |
+          args=(--source="$BACKFILL_SOURCE" --max-pages="$BACKFILL_MAX_PAGES")
+          if [[ "$BACKFILL_RESUME" == "true" ]]; then args+=(--resume); fi
+          if [[ "$BACKFILL_EXECUTE" == "true" ]]; then args+=(--execute); else args+=(--dry-run); fi
+          npm run crawl:backfill -- "${args[@]}"
+      - run: npm run validate:content
+      - run: npm run check:duplicates
+      - uses: actions/upload-artifact@v4
+        if: inputs.execute
+        with:
+          name: historical-backfill-${{ inputs.source }}
+          path: |
+            content
+            snapshots
+            crawl-state/history
+            generated

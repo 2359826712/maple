@@ -1,0 +1,138 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-03-04-23667",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/23667/space-star-pink-bean-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/23667/space-star-pink-bean-event",
+  "external_id": "23667",
+  "title": "Space Star Pink Bean Event",
+  "original_title": "Space Star Pink Bean Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-03-04T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Space Star Pink Bean Event” is an official event notice from Global MapleStory Official News on 2025-03-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/fzmgqp1v/540x304-space-star-pink-bean-event-maplestory.jpg",
+      "alt": "Space Star Pink Bean Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zyqfiwn1/1100x225-space-star-pink-bean-event-maplestory.jpg",
+      "alt": "Space Star Pink Bean Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tkkc2mam/space-star-pink-bean-ui-maplestory.png",
+      "alt": "Space Star Pink Bean UI MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vqzkpm3c/dream-voyage-shoes-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jwbbhbpw/dreamvoyageheels.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1e0jvmyc/dream-voyage-cap.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jyelh0rk/dream-voyage-suit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lvnliljw/dream-voyage-dress-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m2bnhv13/dream-voyage-hat-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m0bd2uh4/dream-voyage-beret-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dptjmpbg/dream-voyage-weapon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c04aqoak/syncroid-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q4sgf1b1/sync-chat-ring.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b18d0472258c9d469755f55b48c7974697f53f1c3bfa03836ad7e58424d1bf04",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:09:29.050Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "23667",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-03-04.",
+          "Official category: events.",
+          "Nexon article ID: 23667."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Space Star Pink Bean Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-03-05T00:00:00.000Z",
+  "event_end": "2025-03-18T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

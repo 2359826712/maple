@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-04-09-16945",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/16945/maple-memo-font-change-update",
+  "source_url": "https://www.nexon.com/maplestory/news/general/16945/maple-memo-font-change-update",
+  "external_id": "16945",
+  "title": "Maple Memo: Font Change Update",
+  "original_title": "Maple Memo: Font Change Update",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-04-09T13:12:32Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Maple Memo: Font Change Update” is an official news item from Global MapleStory Official News on 2024-04-09. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tjzpnqss/mm785tg7.webp",
+      "alt": "Maple Memo: Font Change Update"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "671b31fc3fbcd459265a76795702b48d65951c8a446162a1a9133fc3d8087329",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:57.770Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16945",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-04-09.",
+          "Official category: general.",
+          "Nexon article ID: 16945."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

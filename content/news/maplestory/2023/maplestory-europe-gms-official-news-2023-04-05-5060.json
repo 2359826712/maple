@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-04-05-5060",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5060/livestream-leveling-in-super-yeti-x-pink-bean-world-w-cm-ezrabell-veeraah-ep-2",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5060/livestream-leveling-in-super-yeti-x-pink-bean-world-w-cm-ezrabell-veeraah-ep-2",
+  "external_id": "5060",
+  "title": "Livestream - Leveling in Super Yeti x Pink Bean World w/ CM Ezrabell & Veeraah Ep. 2!",
+  "original_title": "Livestream - Leveling in Super Yeti x Pink Bean World w/ CM Ezrabell & Veeraah Ep. 2!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-04-05T18:46:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Livestream - Leveling in Super Yeti x Pink Bean World w/ CM Ezrabell & Veeraah Ep. 2!” is an official news item from Global MapleStory Official News on 2023-04-05. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/t5ak01xt/news-post-540x304-community-livestream-news-maplestory.webp",
+      "alt": "Livestream - Leveling in Super Yeti x Pink Bean World w/ CM Ezrabell & Veeraah Ep. 2!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e90612d00356d9fbeace78866186f62e1909b8be05ae7a9b50b4d774185fde22",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:20.399Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5060",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-04-05.",
+          "Official category: community.",
+          "Nexon article ID: 5060."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

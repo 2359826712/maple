@@ -104,6 +104,8 @@ describe('resource index', () => {
     expected['content-statistics'] = contentIndexes['content-statistics'];
     const { createContentManifest } = await import('./content/manifest.mjs');
     expected['content-manifest'] = createContentManifest(contentRecords, sourceRecords);
+    const { createContentRelease } = await import('./content/release.mjs');
+    expected['content-release'] = createContentRelease(expected['content-manifest']);
     expected.search = [...expected.search, ...contentIndexes.search].sort((left, right) => left.id.localeCompare(right.id));
     for (const [name, value] of Object.entries(expected)) {
       const generated = JSON.parse(await readFile(path.join(generatedDirectory, `${name}.json`), 'utf8'));

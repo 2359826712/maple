@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2025-07-02-2998191",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2998191",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2998191",
+  "external_id": "2998191",
+  "title": "Global Account Authentication Level Update",
+  "original_title": "Global Account Authentication Level Update",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-07-02T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Global Account Authentication Level Update” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-07-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250702/c564c46e-afa7-4f14-901c-6ea8d5684eb7/MSWGenericPostBanners740x120notice.png",
+      "alt": "Global Account Authentication Level Update"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250701/c2c0e8fc-51f3-4732-a9d1-608f836028f1/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "183ba5a549071475cd3d48e54542fdc93a0cbf8b0c1f351cfad9bbb92e4fcd72",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:30:23.619Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-07-02.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2998191."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

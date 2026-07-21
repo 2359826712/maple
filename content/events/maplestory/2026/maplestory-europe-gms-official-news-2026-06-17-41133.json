@@ -1,0 +1,113 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-06-17-41133",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/41133/operation-dive",
+  "source_url": "https://www.nexon.com/maplestory/news/events/41133/operation-dive",
+  "external_id": "41133",
+  "title": "Record Shop",
+  "original_title": "Operation: Dive",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-17T11:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:50:14.015Z",
+  "last_checked": "2026-07-20T01:50:14.015Z",
+  "summary": "“Record Shop” is an official event notice from Global MapleStory Official News on 2026-06-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ph2nrgxa/540x304-v269-operation-dive-phase-1-maplestory.png",
+      "alt": "Operation: Dive"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/40smikos/1100x225-v269-operation-dive-phase-1-maplestory.png",
+      "alt": "Operation Dive Phase 1 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k2fpyl2t/althea-early-in-story-operation-dive-maplestory.png",
+      "alt": "MapleStory Operation Dive Story"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cmbd2rft/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b0pf2443/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sn2gqi5y/collection-task-weekly-task.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jpgnsxbe/collection-task-special-task.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "44762e2918684b53f5ad7556ce786a82d6fea41268ecb6bdb1d07269389d3563",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:51:25.097Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "41133",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-06-17.",
+          "Official category: events.",
+          "Nexon article ID: 41133."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Record Shop",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-17",
+  "event_end": "2026-07-21T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

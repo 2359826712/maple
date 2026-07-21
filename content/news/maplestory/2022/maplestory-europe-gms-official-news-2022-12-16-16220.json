@@ -1,0 +1,99 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-16-16220",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16220/december-2022-community-contests-and-events",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16220/december-2022-community-contests-and-events",
+  "external_id": "16220",
+  "title": "December 2022 Community Contests and Events",
+  "original_title": "December 2022 Community Contests and Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-16T18:18:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“December 2022 Community Contests and Events” is an official news item from Global MapleStory Official News on 2022-12-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1056/1100x225-maplestory-community-contests.jpg",
+      "alt": "MapleStory Community Contests"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2291/msw-6297-221213-home-holiday-contest-1200x400.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2292/gc17bcshjgr55.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2289/221212-msw-6295-holidaybakingcontest-1200x400.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2294/songlessbird.png?height=262&mode=max&width=278",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2290/221213_holidaygreetingspostcard_contest.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1121/tote-banner-both-bags.png?height=332&mode=max&width=752",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2293/lara-sticker-preview.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "44aeb2fa3dd357c05bd4bf9219de5a6a610e745b5c2b1792dfbb1b7adadfe23a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:02.844Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16220",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-16.",
+          "Official category: community.",
+          "Nexon article ID: 16220."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,122 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-18-36566",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/36566/hero-s-adventure-journal",
+  "source_url": "https://www.nexon.com/maplestory/news/events/36566/hero-s-adventure-journal",
+  "external_id": "36566",
+  "title": "Hero's Adventure Journal",
+  "original_title": "Hero's Adventure Journal",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-18T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Hero's Adventure Journal” is an official event notice from Global MapleStory Official News on 2026-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1f1f0v2c/540x304-maplestory-x-opm-event-adventure-journal-post.png",
+      "alt": "Hero's Adventure Journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jhofqxmq/maplestory-x-opm-event-adventure-journal-post-1.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s1lhcb2h/maplestory-x-opm-event-adventure-journal-post-2.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aq3k1g2r/maplestory-x-opm-event-adventure-journal-post-3b.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zvibyrlz/maplestory-x-opm-event-adventure-journal-post-4.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5jjchaa5/maplestory-x-opm-event-adventure-journal-post-5.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xnbnwuhe/maplestory-x-opm-event-adventure-journal-post-6.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4mjgxxjs/maplestory-x-opm-event-adventure-journal-post-7b.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5mpbqbba/maplestory-x-opm-event-adventure-journal-post-8.jpg",
+      "alt": "MapleStory x one-punch man hero's adventure journal"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b5a63e50031c792624889ea6e89347e80b0ce9279f4735df6253bdef52841afe",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-image",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:49.869Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36566",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-18.",
+          "Official category: events.",
+          "Nexon article ID: 36566."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Hero's Adventure Journal",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-03-18",
+  "event_end": "2026-04-14T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

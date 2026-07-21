@@ -1,0 +1,68 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-04-16-3424261",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3424261",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3424261",
+  "external_id": "3424261",
+  "title": "Notice Regarding Probability System Review & Adjustments",
+  "original_title": "Notice Regarding Probability System Review & Adjustments",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-04-16T05:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“Notice Regarding Probability System Review & Adjustments” is an official news item from MapleStory N Official Notices on 2026-04-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241115/f3b8c404-53f6-4577-b20b-77b34936a133/EAheaderANNOUNCEMENT01.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "834ee6948066dc6f7c44c61fc6b5917b79da62ee1a5a33ea1949905d97da4539",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:12:04.802Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-04-16.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3424261."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

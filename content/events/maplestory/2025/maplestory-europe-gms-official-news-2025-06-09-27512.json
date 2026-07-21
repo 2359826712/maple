@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-06-09-27512",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/27512/update-june-15-miracle-summer-june-14-hats",
+  "source_url": "https://www.nexon.com/maplestory/news/events/27512/update-june-15-miracle-summer-june-14-hats",
+  "external_id": "27512",
+  "title": "Miracle Time - Hats",
+  "original_title": "[Update June 15] Miracle Summer: June 14 - Hats",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-06-09T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Miracle Time - Hats” is an official event notice from Global MapleStory Official News on 2025-06-09. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ha2exuu1/newspost_540x304-june-14-miracle-summer-hats-maplestory.jpg",
+      "alt": "[Update June 15] Miracle Summer: June 14 - Hats"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nqzeegpy/postheader_1100x225-june-14-miracle-summer-hats-maplestory.jpg",
+      "alt": "June 14 Miracle Summer Hats MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cpnn2030/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Summer Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "41318b7dcd236c1ac2222185dfaf9e3f6f06090e4f99f054e8bdabd8fd4c040b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:06:28.547Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "27512",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-06-09.",
+          "Official category: events.",
+          "Nexon article ID: 27512."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Hats",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-06-14T00:00:00.000Z",
+  "event_end": "2025-06-15T06:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

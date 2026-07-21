@@ -1,0 +1,82 @@
+{
+  "id": "worlds-global-creator-center-news-2025-07-08-3023889",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3023889",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3023889",
+  "external_id": "3023889",
+  "title": "Livestream Notice: 2025 July 15",
+  "original_title": "Livestream Notice: 2025 July 15",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-07-08T19:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Livestream Notice: 2025 July 15” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-07-08. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250708/cc44ccf6-42ee-4cdc-a267-43bdad046cde/584x354livestream.png",
+      "alt": "Livestream Notice: 2025 July 15"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250707/c12c5d33-efbc-4f28-a17f-795f7f55a7e5/250703MSWStreamAssetsWGC2158740x120.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250707/bd80dd5e-e5cb-4db2-bceb-70f8f213c5fd/65qngn.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f93296ce11a093c26a3137d8b96f87db8a031391cfe0e1b259a73eb69b819777",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:30:14.598Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-07-08.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3023889."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

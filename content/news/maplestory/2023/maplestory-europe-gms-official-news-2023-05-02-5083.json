@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-05-02-5083",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5083/investigation-of-nvidia-geforce-now-issues-may-2-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5083/investigation-of-nvidia-geforce-now-issues-may-2-2023",
+  "external_id": "5083",
+  "title": "Investigation of NVIDIA GeForce NOW Issues - May 2, 2023",
+  "original_title": "Investigation of NVIDIA GeForce NOW Issues - May 2, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-05-02T13:04:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Investigation of NVIDIA GeForce NOW Issues - May 2, 2023” is an official news item from Global MapleStory Official News on 2023-05-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "Investigation of NVIDIA GeForce NOW Issues - May 2, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c31cf2068ede6e640733676ef3a18e05a47e3f64f7059e8f7aff10a858abb99b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:36:29.289Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5083",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-05-02.",
+          "Official category: general.",
+          "Nexon article ID: 5083."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-02-26-36146",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/36146/v-266-known-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/36146/v-266-known-issues",
+  "external_id": "36146",
+  "title": "V.266 Known Issues",
+  "original_title": "V.266 Known Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-02-26T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“V.266 Known Issues” is an official maintenance notice from Global MapleStory Official News on 2026-02-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/kxpbsnls/240826_knownissue_wgc-1339_540x304.jpg",
+      "alt": "V.266 Known Issues"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bx3bprjv/240826_knownissue_wgc-1339_1100x225.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9dae350fc6045443b890647c4610ff3841fc88e3e014c2d7df60571ea05b2cfb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:37.994Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36146",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-02-26.",
+          "Official category: maintenance.",
+          "Nexon article ID: 36146."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

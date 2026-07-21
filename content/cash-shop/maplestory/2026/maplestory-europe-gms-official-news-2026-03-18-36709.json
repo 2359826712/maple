@@ -1,0 +1,123 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-18-36709",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/36709/themed-surprise-style-box",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/36709/themed-surprise-style-box",
+  "external_id": "36709",
+  "title": "Themed Surprise Style Box",
+  "original_title": "Themed Surprise Style Box",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-18T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Themed Surprise Style Box” is an official Cash Shop notice from Global MapleStory Official News on 2026-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/pwrbkdxt/540x304-themed-surprise-style-box-maplestory-x-one-punch-man.jpg",
+      "alt": "Themed Surprise Style Box"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3bdfjatz/themed-surprise-style-box-01-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/414noh2w/themed-surprise-style-box-02-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sw1fbnvu/themed-surprise-style-box-03-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xt0phjkt/themed-surprise-style-box-04-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/encpghyv/themed-surprise-style-box-05-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box saitama items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zkkhsvqz/themed-surprise-style-box-06-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box job seeker saitama items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/daipj43t/themed-surprise-style-box-07-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box genos items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4kuhnth0/themed-surprise-style-box-08-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box terrible tornado items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d1vhvnzv/themed-surprise-style-box-09-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box hellish blizzard items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dsipsk0c/themed-surprise-style-box-10-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box king items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kazckfbp/themed-surprise-style-box-11-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box flashy flash items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xrvjggkd/themed-surprise-style-box-12-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box speed-o'-sound items"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hwvoapgh/themed-surprise-style-box-13-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man themed surprise style box garou items"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d154146779f4e0d541d400676d9f53f3dd423f3d8abaf43ff1818b8794b7ba45",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:37.850Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36709",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-18.",
+          "Official category: sale.",
+          "Nexon article ID: 36709."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

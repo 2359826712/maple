@@ -1,0 +1,90 @@
+{
+  "id": "worlds-global-creator-center-news-2026-03-04-3393903",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3393903",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3393903",
+  "external_id": "3393903",
+  "title": "Creator Livestream Notice: 2026 March 11 - Crafting Questing Systems with Ursus! Part 1",
+  "original_title": "Creator Livestream Notice: 2026 March 11 - Crafting Questing Systems with Ursus! Part 1",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-03-04T22:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Creator Livestream Notice: 2026 March 11 - Crafting Questing Systems with Ursus! Part 1” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-03-04. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260304/f5740f8b-4ed3-4dc7-8935-da08243577cc/584x354livestream.png",
+      "alt": "Creator Livestream Notice: 2026 March 11 - Crafting Questing Systems with Ursus! Part 1"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260303/730ff017-7be5-43d5-88c4-16488d83acd2/260224MSWStreamAssetsWGC2917740x120V2.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260303/49c0e4bd-ff02-4eee-8b4e-f35e743c9bdc/dog.gif",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/b6e3a2a3-db79-41a0-8033-ec1d2590cc6b/251008WGC2493TwitchHorizoftal.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20251010/1e510fed-f069-4228-bf85-003ef17e60b3/251008WGC2493YouTubeHorizoftal.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "17f277501ac416edd5bcfbfc9940a3009218223ccd660795e889697ea7a33737",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:22:21.588Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-03-04.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3393903."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

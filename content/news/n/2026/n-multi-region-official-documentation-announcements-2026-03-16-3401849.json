@@ -1,0 +1,76 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-03-16-3401849",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3401849",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3401849",
+  "external_id": "3401849",
+  "title": "[Nihal Desert Trade King] Rewards Distribution",
+  "original_title": "[Nihal Desert Trade King] Rewards Distribution",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "announcement",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-03-16T05:16:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“[Nihal Desert Trade King] Rewards Distribution” is an official news item from MapleStory N Official Notices on 2026-03-16. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "announcement",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250605/cf50ca00-9bc1-4b7f-beab-77133f579371/image202506051815471.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260316/3f6a17ac-8ad9-41eb-8e0f-946c7f178ac2/image3.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260316/fa475378-de54-4c40-a491-a98b5c3c976b/image202603161345541.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b9d620e00ccf2ea70aa39bbf9c680e35258998fadbceaa88d5e3d2b543845f39",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:12:19.835Z",
+    "headline_id": "5042",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-03-16.",
+          "Official classification: announcement.",
+          "Nexon thread ID: 3401849."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

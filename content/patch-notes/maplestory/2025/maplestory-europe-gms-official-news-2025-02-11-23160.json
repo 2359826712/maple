@@ -1,0 +1,606 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-02-11-23160",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/23160/v-257-tallahart-grave-of-the-gods-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/23160/v-257-tallahart-grave-of-the-gods-patch-notes",
+  "external_id": "23160",
+  "title": "v.257 - Tallahart: Grave of the Gods Patch Notes",
+  "original_title": "v.257 - Tallahart: Grave of the Gods Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-02-11T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“v.257 - Tallahart: Grave of the Gods Patch Notes” is an official patch note from Global MapleStory Official News on 2025-02-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/e14aafxo/250207_v257_patchnotes_newspost_540x304-1.jpg",
+      "alt": "v.257 - Tallahart: Grave of the Gods Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/54kfgp1k/250207_v257_patchnotes_inpostbanner-1_1100x225-1.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/whnhyd01/tallahartentrance.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/afeezwjw/tallhartmap.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/04imyjmx/ashdevouringsoul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qexbteti/silenceswallowingsoul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2p0pobhq/judgeofstorms.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pbfl5q4l/executorofeternity.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hn3nqwe4/nightguide.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tg2fbaso/phantasmalguide.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5o2gauft/soulslayer.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wxaomkf0/lostsoul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dfjhhbdx/soulofdarkness.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5kedxctm/tallahartsymbol.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/axdggh2k/destinysadversary.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c5yed1uu/allerda-fountain.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bdwkxmme/alltruearachnidreflection.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4gshcyjw/skill_solar_crest.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ybzdryed/all-sol_janus_dawn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1bnk4ssc/skill_fury_of_the_wild.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/weccfwfe/skill_pirates_banner.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/izyoe4vn/skill_defender_of_the_demon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/td0h5vxv/resistance-infantry.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lgmhavod/lotus-flower.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fkymsuz3/skill_burning_soul_blade.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ba5j1bvz/skill_creeping_toxin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xibfxo1c/archmage-fp_ifrit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mxkjs01h/skill_thunder_sphere.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qhgl3nkk/arch-mage-spiritofsnow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o13dw4kh/fountain-of-vengance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cutchlb5/skill_angel_of_balance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qahp0jgr/bowmaster-phoenix.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g1llh451/bowmasterblink-shot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0gzldc4p/skill_freezerfrostprey.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4b3jwesx/arrow-illusion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x5sk4dvo/pathfinder_shadow_raven.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/axcl2wcm/relic-unbound-burst.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rypisrqf/relic-unbounddeluge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0ewbxbvx/relic-unbound-torrent.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tx5nublr/dark-lords-omen.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2vrgw0mn/dual-bladeskill-mirrored-target.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/szdnvsh3/skill_scurvy_summons.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y05bxk0o/skill_all_aboard.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/euajq10t/skill_siege_bomber.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wlap33oe/skill_firing_orders.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vqqftwrf/corsairbroadside.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ocub2e2r/skill_the_dreadnought.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yv0ofkl0/cannoneeranchors-away.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ht5cdixi/cannoneermonkey-militia.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/foxcxbj2/cannoneer-rollingrainbow.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/snzbm0x5/cannoneerpoolmaker.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/153dchqy/cannmonkey_business_waifu2x.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w2fpf30g/mihile-install-shield.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ffydzmnw/dawn-warrior-cosmic-shower.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vzchunsf/dawn-warrior-soul-eclipse.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0ncpje5q/skill_flame_elemental.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qtmbukgc/fires-of-creation.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vg2bofpu/skill_emerald_flower.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wlnljunp/emeralddust.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/brzdymwx/skill_mistral_spring.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nibd4kuq/nwgreater-dark-servant.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0bnhjqff/nwsilence.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pbyj5peb/permafrost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mrxdyafe/evan-summon-onix-dragon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4dsfsbww/evan-elemental-radiance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r40iqsc2/skill_spiral_of_mana.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3sgbukho/skill_heart_grown_fonder.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jgslmu3i/skill_spirit_frenzy.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x44andc0/luminousgate-of-light.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xknlp0n0/skill_orthrus.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zzacnmjh/skill_dimensional_sword.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/40xbzhsl/darequiem.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/orcbwcmi/skill_condemnation.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rcmnkurz/skill_abyssal_lightning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5tjhx22o/mechanic-robo-launcher-rm7.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ejbfkxuu/mechanic-rock-n-shock.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lljngu3u/skill_support_unit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fu2dvexi/mechanic-bots-n-tots.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zfxc1ks0/xenon-hypogram-field-penetrate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qc3jpgkd/xenon-hypogram-field-force-field.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ovcnzmkj/xenon-hypogram-field-support.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fcylu3tc/xenon-hypogram-field-fusion.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hpkmpywj/kaiser-stone-dragon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xwwjscku/kaisernova_guardians.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gcfh04ar/skill_afterimage_of_the_otherworld.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pz2jwkin/skill_ex.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4e1lsg3i/skill_machina.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mtihnkah/skill_crystal_skill_-_deus.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jepjujap/illium-templar-knight.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/omadpadc/skill_mytocrystal_expanse.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q2mpafwz/death-blossom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4jko1auu/lara-eruption-heaving-river.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yy3j1wmi/lara-eruption-whirlwind.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hzsdk43y/skill_eruption_sunrise_well.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/idya2fk5/skill_talisman_seeking_ghost_flame.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wpzd3tfz/hoyoungtalisman-warp-gate.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/twtdv43m/hoyoung-scroll-star-vortex.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/flre0m04/hoyoung-tiger-of-songyu.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mphlwtt4/skill_sage_wrath_of_gods.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uryekmpy/skill_hexa_earth_stone_tremor.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4lyif41w/senya-cube-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pivlsako/limbo-cube-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/30qjkleu/championburning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dw0jbquc/championfollow.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/unhjfj2x/championchallenge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gjcpbzho/hashtagui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zewfuhq2/blueprintsui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rklbtx4v/godhand-mount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jr3nqje2/cybertirnogdamageskin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/olhlq0ca/tirnogminiaturechair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gz1bcwo4/toadroid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jvilqlkk/tirnogengineersetcoupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/04do5lvt/gobsgift.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/imsj02rn/exp-playground.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f4whapo4/otherworldly-sun-generator.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ccyp5ttz/murgoths-feather.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ormlxcps/preppy-suspenders.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/14xfvfut/froggie-water-slide.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yhael1pf/crystal-glacier.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4jndyhaw/cat-cushion-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z5wfte05/happy-new-year-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/v30njhm1/magpie-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pvib0vrt/hashtagmasterchair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vqzkpm3c/dream-voyage-shoes-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jwbbhbpw/dreamvoyageheels.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1e0jvmyc/dream-voyage-cap.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jyelh0rk/dream-voyage-suit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lvnliljw/dream-voyage-dress-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m2bnhv13/dream-voyage-hat-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m0bd2uh4/dream-voyage-beret-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dptjmpbg/dream-voyage-weapon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c04aqoak/syncroid-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q4sgf1b1/sync-chat-ring.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "588ac250004a52926964566e3da8a0016a049549ea2bb8161f43cf16b6a75fd9",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:10:08.144Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "23160",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-02-11.",
+          "Official category: update.",
+          "Nexon article ID: 23160."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2025-02-11T14:00:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

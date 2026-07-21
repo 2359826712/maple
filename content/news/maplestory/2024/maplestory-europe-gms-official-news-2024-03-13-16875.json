@@ -1,0 +1,139 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-03-13-16875",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/16875/v-249-minar-picnic-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/16875/v-249-minar-picnic-update-preview",
+  "external_id": "16875",
+  "title": "V.249 - Minar Picnic Update Preview",
+  "original_title": "V.249 - Minar Picnic Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-03-13T11:23:59Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“V.249 - Minar Picnic Update Preview” is an official news item from Global MapleStory Official News on 2024-03-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/p0amearv/240311-wgc-780-ms-v249-minarpicnic-540x304-v2.webp",
+      "alt": "V.249 - Minar Picnic Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2418/wgc-753-240200-v249-minar-picnic-key-art-logo-small_01.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2414/wgc-753-240200-v249-minar-picnic-key-art-logo-small_02.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2409/minar-picnic-sc-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2410/minar-picnic-1-sc2.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2401/wgc-753-240200-v249-minar-picnic-key-art-logo-small_04.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2411/grand-athenaeum-sc.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2402/wgc-753-240200-v249-minar-picnic-key-art-logo-small_06.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2388/alchemy-ui.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2403/wgc-753-240200-v249-minar-picnic-key-art-logo-small_09.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2390/character-ui-sc.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2404/wgc-753-240200-v249-minar-picnic-key-art-logo-small_11.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2415/monster-life-sc-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2405/wgc-753-240200-v249-minar-picnic-key-art-logo-small_13.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2413/better-maple-1.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2394/forum-btn-rest.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2392/discord-btn-resst.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/2417/wgc-753-240200-v249-minar-picnic-key-art-logo-small_15.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "34b152bcb285b6f6f3f7c69d8539a0c2c7dbac8e54be614e9ec918d4734aec0c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:25:39.861Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16875",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-03-13.",
+          "Official category: update.",
+          "Nexon article ID: 16875."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

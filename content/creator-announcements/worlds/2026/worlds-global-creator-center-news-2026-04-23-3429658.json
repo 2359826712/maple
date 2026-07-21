@@ -1,0 +1,76 @@
+{
+  "id": "worlds-global-creator-center-news-2026-04-23-3429658",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3429658",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3429658",
+  "external_id": "3429658",
+  "title": "MapleStory Worlds Global Launch One Year Anniversary Infographic",
+  "original_title": "MapleStory Worlds Global Launch One Year Anniversary Infographic",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-04-23T18:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“MapleStory Worlds Global Launch One Year Anniversary Infographic” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-04-23. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/69d202e8-8b5a-409e-a615-38ea71fa8607/260417WGC3051MSWGlobalLaunch1yearAnniTHUMB582x352V5.png",
+      "alt": "MapleStory Worlds Global Launch One Year Anniversary Infographic"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/c5c9832a-9cbc-4511-ae24-38f3a3000b67/260420WGC3051MSWGlobalLaunch1yearAnni740x120V2.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/52836a0c-78ba-497c-88f3-099219617ad6/YearOneInfographicR4.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "283e9be958efb4df1fb97781ccf90311f7e58575b7e6d6d6261ff528dc1fb573",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:55.300Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-04-23.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3429658."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

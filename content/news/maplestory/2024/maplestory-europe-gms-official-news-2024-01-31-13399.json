@@ -1,0 +1,123 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-01-31-13399",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/13399/v-248-strawberry-farm-festival-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/13399/v-248-strawberry-farm-festival-update-preview",
+  "external_id": "13399",
+  "title": "V.248 - Strawberry Farm Festival Update Preview",
+  "original_title": "V.248 - Strawberry Farm Festival Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-01-31T11:04:26Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“V.248 - Strawberry Farm Festival Update Preview” is an official news item from Global MapleStory Official News on 2024-01-31. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/gczno1hk/wgc-687_news-post-540x304.webp",
+      "alt": "V.248 - Strawberry Farm Festival Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1325/top-front.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1331/spiegelettes-strawberry-farm.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1335/spiegelettes-strawberry-farm.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1326/world-selection-reorganization.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1330/world-selection-reorganization.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1332/gold-richies-safe.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1334/gold-richies-safe.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1321/burning-world-leap.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1327/burning-world-leap.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1322/exciting-new-collaboration.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1320/btn_discuss-on-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1319/btn_discuss-on-discord.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1338/bottom.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e0330ec2243c9cb1b10af4cb6f30cc92e57b92f138e4bba0c98cc7fa3eb8b73c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:26:58.039Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13399",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-01-31.",
+          "Official category: update.",
+          "Nexon article ID: 13399."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

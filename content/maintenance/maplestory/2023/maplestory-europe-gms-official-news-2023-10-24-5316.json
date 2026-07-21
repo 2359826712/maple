@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-24-5316",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/5316/completed-scheduled-minor-patch-october-26-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/5316/completed-scheduled-minor-patch-october-26-2023",
+  "external_id": "5316",
+  "title": "[Completed] Scheduled Minor Patch - October 26, 2023",
+  "original_title": "[Completed] Scheduled Minor Patch - October 26, 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-24T18:24:19Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Completed] Scheduled Minor Patch - October 26, 2023” is an official maintenance notice from Global MapleStory Official News on 2023-10-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/lqilfkpj/160510_ms_maintenance_template_01.webp",
+      "alt": "[Completed] Scheduled Minor Patch - October 26, 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "56d1abb5408b9d4ccf0813a4a4bab49d2c52d6ff42f163ddab10dd78938d405a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:13.510Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5316",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-24.",
+          "Official category: maintenance.",
+          "Nexon article ID: 5316."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

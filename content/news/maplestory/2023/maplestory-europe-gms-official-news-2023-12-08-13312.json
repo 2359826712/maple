@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-08-13312",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/13312/check-out-the-december-2023-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/13312/check-out-the-december-2023-art-corner",
+  "external_id": "13312",
+  "title": "Check Out the December 2023 Art Corner",
+  "original_title": "Check Out the December 2023 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-08T18:13:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the December 2023 Art Corner” is an official news item from Global MapleStory Official News on 2023-12-08. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/wjlbehkj/msw-3707-190313-art-corner-posts-news_post_540x304.webp",
+      "alt": "Check Out the December 2023 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2324/nerf11-mirikyumaru.png?height=619&mode=max&width=1100",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2321/slumberingdragonislandfishingchairpixelrenders-william-whitehead.png?height=911&mode=max&width=1099",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2320/578e32ac-b85a-4297-9ac0-5c73863e4628-jessie-zhao.png?height=863&mode=max&width=863",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2330/visat-roxy-r.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2323/lunichi-luni.png?height=643&mode=max&width=1100",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "68631f466f9f5d48a4c5ccc757a409503deef8f549bcfb0477c24f50c52dbb7c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:43.506Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13312",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-08.",
+          "Official category: community.",
+          "Nexon article ID: 13312."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

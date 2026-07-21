@@ -1,0 +1,62 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-05-21-3449879",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3449879",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3449879",
+  "external_id": "3449879",
+  "title": "[COMPLETED] May 21 - Temporary Maintenance",
+  "original_title": "[COMPLETED] May 21 - Temporary Maintenance",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-05-21T09:04:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:10:00.476Z",
+  "last_checked": "2026-07-20T01:10:00.476Z",
+  "summary": "“[COMPLETED] May 21 - Temporary Maintenance” is an official maintenance notice from MapleStory N Official Notices on 2026-05-21. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c0fd0aa068deed755c62e3e2c2ad21ddaa22440a9d7fdc548963ce04551f03c6",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:10:38.616Z",
+    "headline_id": "5040",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-05-21.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3449879."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

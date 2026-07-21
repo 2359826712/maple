@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-10-16210",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16210/maplestory-fest-2022-arrives-on-saturday-november-12",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16210/maplestory-fest-2022-arrives-on-saturday-november-12",
+  "external_id": "16210",
+  "title": "MapleStory Fest 2022 Arrives on Saturday, November 12!",
+  "original_title": "MapleStory Fest 2022 Arrives on Saturday, November 12!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-10T14:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory Fest 2022 Arrives on Saturday, November 12!” is an official news item from Global MapleStory Official News on 2022-11-10. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1297/1100x225-maplestory-fest-2022.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1532/maplestory-fest-2022-watch-rewards.png",
+      "alt": "MapleStory Fest 2022 Prizes"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "61d88bb880ae47a207344960fb259f5625e5f976db25c596aac664bcc0901dfb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:36.076Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16210",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-10.",
+          "Official category: community.",
+          "Nexon article ID: 16210."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

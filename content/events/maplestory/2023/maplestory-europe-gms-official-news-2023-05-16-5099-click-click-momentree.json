@@ -1,0 +1,94 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-05-16-5099-click-click-momentree",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5099/more-momentree-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5099/more-momentree-events",
+  "external_id": "5099:click-click-momentree",
+  "title": "Click Click Momentree",
+  "original_title": "More Momentree Events",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-05-16T16:35:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Click Click Momentree” is an official event notice from Global MapleStory Official News on 2023-05-16. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/y3nibnyn/230512-msw-6396-moremomentreeevents-540x304.webp",
+      "alt": "More Momentree Events"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/1972/230512-msw-6396-moremomentreeevents-1100x225.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e369a2e71b426c0638316c4cd36be770d5f67f6efcd6d3fb3cfecb9d7a0a6146",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "click-click-momentree",
+    "fetched_at": "2026-07-21T02:36:08.238Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5099",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-05-16.",
+          "Official category: events.",
+          "Nexon article ID: 5099."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Click Click Momentree",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2023-05-03",
+  "event_end": "2023-06-13T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

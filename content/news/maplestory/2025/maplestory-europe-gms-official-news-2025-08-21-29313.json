@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-21-29313",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/29313/steam-community-market-beta-closes-august-27",
+  "source_url": "https://www.nexon.com/maplestory/news/general/29313/steam-community-market-beta-closes-august-27",
+  "external_id": "29313",
+  "title": "Steam Community Market (BETA) Closes August 27",
+  "original_title": "Steam Community Market (BETA) Closes August 27",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-21T15:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Steam Community Market (BETA) Closes August 27” is an official news item from Global MapleStory Official News on 2025-08-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Steam Community Market (BETA) Closes August 27"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "78955714a847e7d8cabd6da0ba9f9cf98482851e49d1bbe7cfc98486addfb178",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:03:49.152Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29313",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-21.",
+          "Official category: general.",
+          "Nexon article ID: 29313."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

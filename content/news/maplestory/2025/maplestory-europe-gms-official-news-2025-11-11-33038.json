@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-11-11-33038",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/33038/update-jan-27-new-dyeable-outfit-items-in-v-264",
+  "source_url": "https://www.nexon.com/maplestory/news/general/33038/update-jan-27-new-dyeable-outfit-items-in-v-264",
+  "external_id": "33038",
+  "title": "[Update Jan 27] New Dyeable Outfit Items in v.264",
+  "original_title": "[Update Jan 27] New Dyeable Outfit Items in v.264",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-11-11T18:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Update Jan 27] New Dyeable Outfit Items in v.264” is an official news item from Global MapleStory Official News on 2025-11-11. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "[Update Jan 27] New Dyeable Outfit Items in v.264"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5e88ede13b6876cbb67b9ef02fbc6f09f046a7d80e7280ca162716f42b766af6",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:01:34.232Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "33038",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-11-11.",
+          "Official category: general.",
+          "Nexon article ID: 33038."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

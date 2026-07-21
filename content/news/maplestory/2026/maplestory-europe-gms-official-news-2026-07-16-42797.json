@@ -51,6 +51,7 @@
     "api_record": true,
     "body_extractable": true,
     "fetched_at": "2026-07-18T09:43:58.096Z",
+    "original_timezone": "UTC",
     "parser_warnings": [],
     "source_category": "general",
     "unconfirmed_fields": [

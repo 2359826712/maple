@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2025-05-06-2870128",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2870128",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2870128",
+  "external_id": "2870128",
+  "title": "Open Market Store Process Abuse Sanction List - April 2025",
+  "original_title": "Open Market Store Process Abuse Sanction List - April 2025",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-05-06T20:33:44.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“Open Market Store Process Abuse Sanction List - April 2025” is an official creator announcement from MapleStory Worlds Creator Center News on 2025-05-06. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250506/e66bdc6f-615b-4d76-bb4c-a73f3282de41/MSWGenericPostBanners740x120notice.png",
+      "alt": "Open Market Store Process Abuse Sanction List - April 2025"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250502/89cc2e6f-4ffc-42cb-8d99-09501a8e08c1/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "a2410be46d21383b741085dca305d83b6395f5f1fcb6d81d7f53e75d1ebec72b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:31:23.769Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-05-06.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 2870128."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,78 @@
+{
+  "id": "worlds-global-creator-center-news-2026-03-09-3394046",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3394046",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3394046",
+  "external_id": "3394046",
+  "title": "Japan Launch Postponement Notice",
+  "original_title": "Japan Launch Postponement Notice",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-03-09T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:21:50.399Z",
+  "last_checked": "2026-07-20T07:21:50.399Z",
+  "summary": "“Japan Launch Postponement Notice” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-03-09. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260305/2fc35052-6c97-4073-89a2-fe95b26eda59/MSWGenericPostBanners740x120notice.png",
+      "alt": "Japan Launch Postponement Notice"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260305/f6f00b3d-e1ed-4a94-bf89-410a82d24ead/WGC1404240930GenericPostBanners740x120notice.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c928878437673dbb7b9ae373f2cfa957270701dd727fdf5eba0a388465a3eeec",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:22:18.767Z",
+    "headline_id": "3476",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-03-09.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3394046."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

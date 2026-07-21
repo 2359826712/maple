@@ -1,0 +1,111 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-09-27-5282",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/5282/v-245-midnight-carnival-nautilus-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/5282/v-245-midnight-carnival-nautilus-update-preview",
+  "external_id": "5282",
+  "title": "v.245 - Midnight Carnival - Nautilus Update Preview",
+  "original_title": "v.245 - Midnight Carnival - Nautilus Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-09-27T11:48:17Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.245 - Midnight Carnival - Nautilus Update Preview” is an official news item from Global MapleStory Official News on 2023-09-27. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1ixaphur/v245-post-540x304.webp",
+      "alt": "v.245 - Midnight Carnival - Nautilus Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2514/wgc-195-230922-v245-update-preview_01.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2541/wgc-195-230922-v245-update-preview_02.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2516/wgc-195-230922-v245-update-preview_03.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2518/wgc-195-230922-v245-update-preview_04.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2520/wgc-195-230922-v245-update-preview_05.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2521/wgc-195-230922-v245-update-preview_06.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2540/wgc-195-230922-v245-update-preview_07.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2543/wgc-195-230922-v245-update-preview_divider.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2531/wgc-195-230922-v245-update-preview_btn-forums-default.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/2527/wgc-195-230922-v245-update-preview_btn-disco-default.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d7e0191cf84409ccfd3835d3493e5faf4f93977f072fb9e6f93f09e03d46d942",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:31:13.636Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5282",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-09-27.",
+          "Official category: update.",
+          "Nexon article ID: 5282."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

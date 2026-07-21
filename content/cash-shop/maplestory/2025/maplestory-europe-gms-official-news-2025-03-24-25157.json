@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-03-24-25157",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/25157/additional-information-on-issues-related-to-cash-shop",
+  "source_url": "https://www.nexon.com/maplestory/news/general/25157/additional-information-on-issues-related-to-cash-shop",
+  "external_id": "25157",
+  "title": "Additional Information on Issues Related to Cash Shop",
+  "original_title": "Additional Information on Issues Related to Cash Shop",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-03-24T12:20:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Additional Information on Issues Related to Cash Shop” is an official Cash Shop notice from Global MapleStory Official News on 2025-03-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "general"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Additional Information on Issues Related to Cash Shop"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "494c5c56b3aad4cb6ba7b6c693b62d2f40817aab6e8a44da7116f4ecf1efa62a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:08:49.921Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "25157",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-03-24.",
+          "Official category: general.",
+          "Nexon article ID: 25157."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

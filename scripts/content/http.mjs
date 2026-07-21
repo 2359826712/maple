@@ -66,6 +66,7 @@ export class CrawlHttpClient {
     this.conditionalRequests = conditionalRequests;
     this.lastRequestAt = new Map();
     this.robots = new Map();
+    this.metrics = { requests: 0, retries: 0 };
   }
 
   async checkRobots(url) {
@@ -118,6 +119,8 @@ export class CrawlHttpClient {
     let response;
     let lastError;
     for (let attempt = 0; attempt < 3; attempt += 1) {
+      this.metrics.requests += 1;
+      if (attempt > 0) this.metrics.retries += 1;
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 20_000);
       try {

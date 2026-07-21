@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-11-28-13287",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/13287/6th-job-is-available-now",
+  "source_url": "https://www.nexon.com/maplestory/news/general/13287/6th-job-is-available-now",
+  "external_id": "13287",
+  "title": "6th Job is Available Now!",
+  "original_title": "6th Job is Available Now!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-11-28T15:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“6th Job is Available Now!” is an official news item from Global MapleStory Official News on 2023-11-28. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/de2b4ark/wgc-437-231122-6th-job-available-news-post-540x304.webp",
+      "alt": "6th Job is Available Now!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2049/wgc-437-231122-6th-job-available-in-post-banner-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1533/sol-erda.png?height=37&mode=max&width=39",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1532/sol-erda-fragment.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ff1a47f9343e4c7c67ba1d146af5fdba71c2d87d8b0cf9f197110594c464187f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:29:10.315Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13287",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-11-28.",
+          "Official category: general.",
+          "Nexon article ID: 13287."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

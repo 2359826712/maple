@@ -1,0 +1,122 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-18-36569",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/36569/virtual-combat-system",
+  "source_url": "https://www.nexon.com/maplestory/news/events/36569/virtual-combat-system",
+  "external_id": "36569",
+  "title": "Virtual Combat System",
+  "original_title": "Virtual Combat System",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-18T11:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Virtual Combat System” is an official event notice from Global MapleStory Official News on 2026-03-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/mt4m3ph4/540x304-maplestory-x-opm-event-virtual-combat-post.png",
+      "alt": "Virtual Combat System"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2lfkv0bj/maplestory-x-opm-event-virtual-combat-post-1.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fkafb3ns/maplestory-x-opm-event-virtual-combat-post-2.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n2hmwken/maplestory-x-opm-event-virtual-combat-post-3.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ancns24n/maplestory-x-opm-event-virtual-combat-post-4.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fiwjs2sb/maplestory-x-opm-event-virtual-combat-post-5.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1o5f245e/maplestory-x-opm-event-virtual-combat-post-6.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ytklsrng/maplestory-x-opm-event-virtual-combat-post-7.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qydapzho/maplestory-x-opm-event-virtual-combat-post-8.png",
+      "alt": "MapleStory x one-punch man virtual combat"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "825f8fabdb193120908cfb93fc58115744b6ad1b2a25ee53b206867eecef6f22",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-image",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:55.901Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36569",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-18.",
+          "Official category: events.",
+          "Nexon article ID: 36569."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Virtual Combat System",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-03-18",
+  "event_end": "2026-04-14T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

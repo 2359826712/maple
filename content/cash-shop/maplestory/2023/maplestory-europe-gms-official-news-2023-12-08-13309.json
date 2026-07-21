@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-08-13309",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/13309/maplestory-monster-collection-hyperx-keycaps-and-headset-toppers",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/13309/maplestory-monster-collection-hyperx-keycaps-and-headset-toppers",
+  "external_id": "13309",
+  "title": "MapleStory Monster Collection HyperX Keycaps and Headset Toppers!",
+  "original_title": "MapleStory Monster Collection HyperX Keycaps and Headset Toppers!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-08T10:35:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory Monster Collection HyperX Keycaps and Headset Toppers!” is an official Cash Shop notice from Global MapleStory Official News on 2023-12-08. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/n3oenxzn/steampost-540x304-hyperx-maplestory-monster-collection.webp",
+      "alt": "MapleStory Monster Collection HyperX Keycaps and Headset Toppers!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2354/1920x1080-hyperx-maplestory-monster-collection.jpg",
+      "alt": "HyperX MapleStory Monster Collection"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "43a9b9b9a423c0bdff75dd7e3aaf4e7f56bab4dd080e98f506c02ab1858f2bbe",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:46.321Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13309",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-08.",
+          "Official category: sale.",
+          "Nexon article ID: 13309."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

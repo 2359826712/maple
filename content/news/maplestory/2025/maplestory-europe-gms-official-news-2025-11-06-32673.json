@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-11-06-32673",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/32673/maple-con-la-merch-emails-going-out-soon",
+  "source_url": "https://www.nexon.com/maplestory/news/community/32673/maple-con-la-merch-emails-going-out-soon",
+  "external_id": "32673",
+  "title": "Maple Con LA Merch Emails Going Out Soon",
+  "original_title": "Maple Con LA Merch Emails Going Out Soon",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-11-06T12:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Maple Con LA Merch Emails Going Out Soon” is an official news item from Global MapleStory Official News on 2025-11-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/b04l4t5p/540x304-maple-con-los-angeles-2025-october-25-maplestory.jpg",
+      "alt": "Maple Con LA Merch Emails Going Out Soon"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iw2j2d3m/1100x225-maple-con-los-angeles-2025-october-25-maplestory.jpg",
+      "alt": "Maple Con Los Angeles 2025 October 25 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1810de40aed9a1c6c52c213079bb684080e766ff6e68f72a9f1849bf23932e7f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:01:42.877Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "32673",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-11-06.",
+          "Official category: community.",
+          "Nexon article ID: 32673."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,146 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-10-21-31939",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/31939/escape-the-haunted-mansion",
+  "source_url": "https://www.nexon.com/maplestory/news/events/31939/escape-the-haunted-mansion",
+  "external_id": "31939",
+  "title": "Escape the Haunted Mansion!",
+  "original_title": "Escape the Haunted Mansion!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-10-21T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Escape the Haunted Mansion!” is an official event notice from Global MapleStory Official News on 2025-10-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/wjldxajv/540x304-escape-the-haunted-mansion-maplestory.jpg",
+      "alt": "Escape the Haunted Mansion!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l41c1a35/1100x300-escape-the-haunted-mansion-maplestory.jpg",
+      "alt": "Escape the Haunted Mansion MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/llbhqkip/maplestorya_xfmgqzujep.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wzfb4gn3/smilingmask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gionep2u/cryingmask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4lvlsjmv/angrymask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/egpppwdi/sadmask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/el4lmjel/ghostmount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/at3csdcl/fearfulmask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2dql0pmw/scarymask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xmblfdim/smilingmasquerademask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jnwbwbza/cryingmasquerademask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5umnoomf/gloomymask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/agmouzdy/pumpkindamageskin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wqkjpkak/halloweenbackgroundcoupon.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "abb5591c25b952726ee0965e3fa64f7e5d94c7100df5c27d9a16d73c9f690d95",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:02:12.928Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "31939",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-10-21.",
+          "Official category: events.",
+          "Nexon article ID: 31939."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Escape the Haunted Mansion!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-10-22T00:00:00.000Z",
+  "event_end": "2025-11-04T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

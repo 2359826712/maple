@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-05-21-40921",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/40921/mac-os-beta-steam-support-notice",
+  "source_url": "https://www.nexon.com/maplestory/news/general/40921/mac-os-beta-steam-support-notice",
+  "external_id": "40921",
+  "title": "Mac OS Beta Steam Support Notice",
+  "original_title": "Mac OS Beta Steam Support Notice",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-05-21T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:50:14.015Z",
+  "last_checked": "2026-07-20T01:50:14.015Z",
+  "summary": "“Mac OS Beta Steam Support Notice” is an official news item from Global MapleStory Official News on 2026-05-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "Mac OS Beta Steam Support Notice"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrdn1yrd/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "89b9e68fe9b4b0e4da5b94b10264634033e595ed6b4a401667a0d5a5e60deb23",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:51:55.247Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "40921",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-05-21.",
+          "Official category: general.",
+          "Nexon article ID: 40921."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

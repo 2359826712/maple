@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-01-02-13350",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/13350/maplestory-x-sunright-tea-livestream",
+  "source_url": "https://www.nexon.com/maplestory/news/community/13350/maplestory-x-sunright-tea-livestream",
+  "external_id": "13350",
+  "title": "MapleStory x Sunright Tea Livestream",
+  "original_title": "MapleStory x Sunright Tea Livestream",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-01-02T18:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory x Sunright Tea Livestream” is an official news item from Global MapleStory Official News on 2024-01-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/rktc5zom/msw-6101-220707-evergreen-generic-livestream-banners-news-post-540x304.webp",
+      "alt": "MapleStory x Sunright Tea Livestream"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q3/1110/msw-6101-220707-evergreen-generic-livestream-banners-in-post-banner-1100x292.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/2245/1024x576-v1.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e6e07f74b26b20faef9375afc85b9dd0083ae94ee8d1dd73f4ef163c510e4b97",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:27:55.195Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13350",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-01-02.",
+          "Official category: community.",
+          "Nexon article ID: 13350."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

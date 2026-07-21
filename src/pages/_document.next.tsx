@@ -17,8 +17,12 @@ export default function Document(props: DocumentProps) {
         <meta name="mpstorys-build" content="next-ssr-v1" />
         <meta name="theme-color" content="#2f8f5b" />
         <meta name="application-name" content="MPStorys" />
+        <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
         <link rel="icon" type="image/jpeg" sizes="128x128" href="/mpstorys-icon-128.jpg" />
-        <link rel="apple-touch-icon" sizes="128x128" href="/mpstorys-icon-128.jpg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

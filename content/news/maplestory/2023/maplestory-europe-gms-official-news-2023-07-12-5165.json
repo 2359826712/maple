@@ -1,0 +1,107 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-07-12-5165",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/5165/v-243-savior-shangri-la-kaling-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/5165/v-243-savior-shangri-la-kaling-update-preview",
+  "external_id": "5165",
+  "title": "v.243 Savior: Shangri-La & Kaling Update Preview",
+  "original_title": "v.243 Savior: Shangri-La & Kaling Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-07-12T17:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“v.243 Savior: Shangri-La & Kaling Update Preview” is an official news item from Global MapleStory Official News on 2023-07-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/otxaxdd1/540x304x-savior-shangri-la-kaling-maplestory.webp",
+      "alt": "v.243 Savior: Shangri-La & Kaling Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1115/230706_v243updatepreview_6472_01.jpg",
+      "alt": "Savior"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1116/230706_v243updatepreview_6472_02.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1117/230706_v243updatepreview_6472_03.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1118/230706_v243updatepreview_6472_04.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1119/230706_v243updatepreview_6472_05.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1120/230706_v243updatepreview_6472_06.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1121/230706_v243updatepreview_6472_07.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1123/btn_forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1122/btn_discord.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "938842225d3a723ad452f34ff6c49dad327b71e2d1bdd0bc5cc729fbb6e4d3a8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:34:20.079Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5165",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-07-12.",
+          "Official category: update.",
+          "Nexon article ID: 5165."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

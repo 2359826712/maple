@@ -24,6 +24,7 @@ pnpm-debug.log*
 railway-cli-*.tgz
 maple.zip
 crawl-state/state.json
+crawl-state/history/*.json
 raw/**
 !raw/README.md
 

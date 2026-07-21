@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-02-36552",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/36552/the-marvel-machine-returns-march-5",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/36552/the-marvel-machine-returns-march-5",
+  "external_id": "36552",
+  "title": "The Marvel Machine Returns March 5!",
+  "original_title": "The Marvel Machine Returns March 5!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-02T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“The Marvel Machine Returns March 5!” is an official Cash Shop notice from Global MapleStory Official News on 2026-03-02. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/m5ceyjci/540x304-marvel-machine-march-2026-coming-soon-maplestory.jpg",
+      "alt": "The Marvel Machine Returns March 5!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hfvjly30/1100x260-marvel-machine-march-2026-coming-soon-maplestory.jpg",
+      "alt": "Marvel Machine March 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/j0zh4s2l/star-enhancements-marvel-machine-march-2026-maplestory.png",
+      "alt": "Star Enhancement Scrolls Marvel Machine March 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rrthkcwa/chairs-marvel-machine-march-2026-maplestory.png",
+      "alt": "Chairs Marvel Machine March 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iwalrmos/pets-marvel-machine-march-2026-maplestory.png",
+      "alt": "Pets Marvel Machine March 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y5ybzvg0/items-marvel-machine-march-2026-maplestory.png",
+      "alt": "New Items Marvel Machine March 2026 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pudjknhv/items-highlysought-marvel-machine-march-2026-maplestory.png",
+      "alt": "Other Items Marvel Machine March 2026 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4d03b43a9607bb411f0ed537de9c6814be6d83bd9294a7a1338f1a72bab9fd0d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:34.985Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36552",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-02.",
+          "Official category: sale.",
+          "Nexon article ID: 36552."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

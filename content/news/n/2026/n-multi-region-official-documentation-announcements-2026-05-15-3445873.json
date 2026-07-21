@@ -1,0 +1,68 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-05-15-3445873",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3445873",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3445873",
+  "external_id": "3445873",
+  "title": "Notice Regarding Abuse of the Anniversary Universe Villains Event Error",
+  "original_title": "Notice Regarding Abuse of the Anniversary Universe Villains Event Error",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-05-15T10:15:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:10:00.476Z",
+  "last_checked": "2026-07-20T01:10:00.476Z",
+  "summary": "“Notice Regarding Abuse of the Anniversary Universe Villains Event Error” is an official news item from MapleStory N Official Notices on 2026-05-15. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250605/cf50ca00-9bc1-4b7f-beab-77133f579371/image202506051815471.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "f825c7e2faaf4e1a7b0db9e78057b513ed91154829bb75630270de792e3c2b03",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:10:47.616Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-05-15.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3445873."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

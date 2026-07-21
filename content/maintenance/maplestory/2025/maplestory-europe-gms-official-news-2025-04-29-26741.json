@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-04-29-26741",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/26741/completed-unscheduled-login-server-maintenance-april-29-2025",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/26741/completed-unscheduled-login-server-maintenance-april-29-2025",
+  "external_id": "26741",
+  "title": "[Completed] Unscheduled Login Server Maintenance - April 29, 2025",
+  "original_title": "[Completed] Unscheduled Login Server Maintenance - April 29, 2025",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-04-29T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Completed] Unscheduled Login Server Maintenance - April 29, 2025” is an official maintenance notice from Global MapleStory Official News on 2025-04-29. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+      "alt": "[Completed] Unscheduled Login Server Maintenance - April 29, 2025"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "cce572038889073999a389ec5ccdfacce540619e27a5c555f40b90d4d2e00006",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:07:43.764Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26741",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-04-29.",
+          "Official category: maintenance.",
+          "Nexon article ID: 26741."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

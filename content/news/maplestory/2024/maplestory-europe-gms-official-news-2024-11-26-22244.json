@@ -1,0 +1,87 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-11-26-22244",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/22244/check-out-the-november-2024-art-corner",
+  "source_url": "https://www.nexon.com/maplestory/news/community/22244/check-out-the-november-2024-art-corner",
+  "external_id": "22244",
+  "title": "Check Out the November 2024 Art Corner",
+  "original_title": "Check Out the November 2024 Art Corner",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-11-26T17:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Check Out the November 2024 Art Corner” is an official news item from Global MapleStory Official News on 2024-11-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qygf2dpm/msw-3707-190313-art-corner-posts-news_post_540x304.jpg",
+      "alt": "Check Out the November 2024 Art Corner"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2173/art-corner-1100x225-maplestory.png",
+      "alt": "MapleStory Art Corner"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jjthfa4u/ichinosekuro.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5ezowgp1/pinkie_the_fool_dunas-pinkie-the-fool.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mdmd2vta/whizzer.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4ab01111f62c4a7e2d502592a419656a4f76589a9a4ccb71307203bd11450d4a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:17:26.781Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22244",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-11-26.",
+          "Official category: community.",
+          "Nexon article ID: 22244."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

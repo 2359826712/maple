@@ -1,0 +1,71 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-14-16218",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16218/take-a-trip-down-maple-lane-2022",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16218/take-a-trip-down-maple-lane-2022",
+  "external_id": "16218",
+  "title": "Take a Trip Down Maple Lane 2022!",
+  "original_title": "Take a Trip Down Maple Lane 2022!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-14T13:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Take a Trip Down Maple Lane 2022!” is an official news item from Global MapleStory Official News on 2022-12-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2229/1100x225-trip-down-maple-lane-2022.jpg",
+      "alt": "MapleStory Trip Down Maple Lane 2022"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "10b8436da32279e86d0d3c7d25f709c5023e9d716393ad4563ea4790c478f0a2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:17.888Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16218",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-14.",
+          "Official category: community.",
+          "Nexon article ID: 16218."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

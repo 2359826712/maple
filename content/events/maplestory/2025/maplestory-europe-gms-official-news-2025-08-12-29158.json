@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-12-29158",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/29158/burning-express-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/29158/burning-express-event",
+  "external_id": "29158",
+  "title": "Burning Express Event",
+  "original_title": "Burning Express Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-12T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Burning Express Event” is an official event notice from Global MapleStory Official News on 2025-08-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/nmli03wp/newspost_540x304-burning-express-event-maplestory.jpg",
+      "alt": "Burning Express Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yyqc1rax/postheader_1100x225-burning-express-event-maplestory.jpg",
+      "alt": "Burning Express Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xndd1uhc/burningpass.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d77e874b0261de78b3e94e5e4288d63b7e12b1e2ca6f1a70379ca9928f6f832a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:04:16.249Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29158",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-12.",
+          "Official category: events.",
+          "Nexon article ID: 29158."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Burning Express Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-08-13T00:00:00.000Z",
+  "event_end": "2025-08-26T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

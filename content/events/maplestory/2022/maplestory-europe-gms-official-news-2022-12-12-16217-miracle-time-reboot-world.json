@@ -1,0 +1,94 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-12-16217-miracle-time-reboot-world",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/16217/miracle-time-december-17-18",
+  "source_url": "https://www.nexon.com/maplestory/news/events/16217/miracle-time-december-17-18",
+  "external_id": "16217:miracle-time-reboot-world",
+  "title": "Miracle Time — Reboot World",
+  "original_title": "Miracle Time - December 17 - 18!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-12T18:05:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Miracle Time — Reboot World” is an official event notice from Global MapleStory Official News on 2022-12-12. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2176/1100x225-miracle-time-maplestory.jpg",
+      "alt": "Double Miracle Time MapleStory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q2/2097/double-miracle-time-cubes-maplestory.png",
+      "alt": "Double Miracle Time Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "57cc946dd83450b70969f722ced438efb1cfb7b0e6d991a660f9d8e4d3866c5e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "miracle-time-reboot-world",
+    "fetched_at": "2026-07-21T02:41:29.913Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16217",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-12.",
+          "Official category: events.",
+          "Nexon article ID: 16217."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time — Reboot World",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2022-12-18T08:30:00.000Z",
+  "event_end": "2022-12-19T04:00:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

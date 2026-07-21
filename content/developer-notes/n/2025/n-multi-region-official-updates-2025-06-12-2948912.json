@@ -1,0 +1,67 @@
+{
+  "id": "n-multi-region-official-updates-2025-06-12-2948912",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/2948912",
+  "source_url": "https://msu.io/maplestoryn/news/update/2948912",
+  "external_id": "2948912",
+  "title": "[Director’s Note] Response to Abnormal Boss Clears and Bot Abuse",
+  "original_title": "[Director’s Note] Response to Abnormal Boss Clears and Bot Abuse",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "developer-note",
+  "subcategory": "developer-note",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-06-12T11:50:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:40:25.315Z",
+  "last_checked": "2026-07-20T06:40:25.315Z",
+  "summary": "“[Director’s Note] Response to Abnormal Boss Clears and Bot Abuse” is an official developer note from MapleStory N Official Updates on 2025-06-12. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "developer-note"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "584799e42b0d732a40a311a77bf5f6b59baf6cc8a33d7ca8fa55137ae8373a82",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:40:28.992Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-06-12.",
+          "Official classification: developer note.",
+          "Nexon thread ID: 2948912."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

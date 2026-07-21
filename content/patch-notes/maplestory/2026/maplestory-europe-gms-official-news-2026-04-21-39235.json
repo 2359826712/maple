@@ -1,0 +1,742 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-04-21-39235",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/39235/updated-5-19-v-268-maple-university-21st-anniversary-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/39235/updated-5-19-v-268-maple-university-21st-anniversary-patch-notes",
+  "external_id": "39235",
+  "title": "[Updated 5/19] v.268 - Maple University: 21st Anniversary Patch Notes",
+  "original_title": "[Updated 5/19] v.268 - Maple University: 21st Anniversary Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-04-21T15:50:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“[Updated 5/19] v.268 - Maple University: 21st Anniversary Patch Notes” is an official patch note from Global MapleStory Official News on 2026-04-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ivsddp2t/260417_ms_21stanniversary_patchnotes_wgc-3011-540x304.png",
+      "alt": "[Updated 5/19] v.268 - Maple University: 21st Anniversary Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mdybx4rd/260417_ms_21stanniversary_patchnotes_wgc-3011-1100x225.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w4fbpzai/macos-popup.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xohnry3g/21st_mapleacademy.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qxmah1pq/campus-life-basic.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vgmnbeb2/credit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0vupaak3/campus-point.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ip1erlrw/mu-gong-points.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xeejiuct/ephenia-points.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ajnbhwha/maple-campus-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pm2p2s4c/maple-campus-set-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o2gc2sip/maple-campus-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rq2hgdgr/maple-campus-background-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3slc4od3/campus-life-special.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xvihp4lz/student-id.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qt1dkek4/maple-u-memories.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tp2c2ajd/pleasant-maple-u-memorie.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3aiae3z3/happy-maple-u-memories.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/prdljvgj/custom-id.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4vjlyrh4/maple-u-student-id-chair.png?height=362&rmode=max&width=264",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/afpbtqnb/glorious-graduation.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4o3nlkyy/card-game.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pz5l1r23/monster-pyramid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f2xp0y3j/passing-notes.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uwdnti4e/academy-adventure.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vgrijf0t/academy-beach-ball.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/di5hauph/cake-stack.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qaxbm3t5/class-pres-light-stick.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4npadgkx/dorm-desk.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sg4jbdku/lecture-hall-podium.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rdihgqgd/maple-leaf-mood-lamp.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rundeejk/the-thinking-yeti.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4rfbftuu/one-card-deck.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jt2lnshn/potted-sprout.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l0afq4uo/dorm-bookcase.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hionniv5/dorm-bedside-table.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cnpbjjpa/maple-u-stringed-pennants.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fi4jklnf/dorm-bed.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bbhkvklr/textbook-stack-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ywui1dau/dorm-window.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mw4hg3ic/jacket-hook.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ddynj4ll/superstar-pink-bean-poster.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g4vlj11w/monster-translator.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jtheivdy/potted-bloom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/inhlc52f/lecture-hall-window.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lfrbpcph/lecture-hall-chalkboard.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yvqbu1kf/dorm-calendar.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jcal1wdr/2831921-pink-bean-enthusiast-seagull-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o1ppdbiv/dorm-coat-tree.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bhmpsdis/teddy-window.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mnmi3rk4/maple-u-pink-bean-tapestry.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gahekmsb/university-lockers.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5lcj05qu/dorm-display.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/or2dzbvz/lecture-hall-seat.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qxrdhsp4/lecture-hall-sparse-bulletin-board.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vdufdbmt/lecture-hall-full-bulletin-board.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1rwilcjp/2831919-mini-slime-trash-can-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ks1bcmk0/maple-u-crest-statue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c0anypze/maple-school-design.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h1agvwu0/pink-bean-beanie-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h5zn3f5i/black-bean-beanie.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1swnblew/pink-black-sneakers.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xvnntv4l/pink-black-beans.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/44dgixze/pink-black-university-jumper-m.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4p5j51aw/pink-black-university-jumper-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n0xhvnco/pink-bean-terrarium.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ejejr3qc/pink-bean-backpack.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y5jptcz1/maple-u-student-id.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l1zezwm5/college-buddy-pink-bean.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4lbj3jok/pink-black-laptop.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2bajjkmm/maple-uni-student-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q3vj0iku/monster-election.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ih5ebzuw/team-lunar-pixie.png?height=36&rmode=max&width=143",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sr0poafo/team-pepe.png?height=34&rmode=max&width=142",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xsmig3ov/team-desert-rabbit.png?height=34&rmode=max&width=143",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b5epi3ea/minigame-ranker.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ja1gxxbl/model-freshmen-rock-spirit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ubghau1h/eager-freshman-rock-spirit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m0ajquu1/prblematic-freshman.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ejwdmcw3/model-freshmen-rock-spirit-familar.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dtyjzeko/eager-freshman-rock-spirit-familiar.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/40almx25/prblematic-freshman-familiar.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0b2hugal/jr-pepe-doll.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aj5cuood/yet-set-coupon-hat-and-trio.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4sop4bci/jumbo-junior-yeti-doll.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dhohmxir/21st-anniversary-labelchat-ring-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wqpf0udc/12th-anni-char.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t3ybbx1i/expedition-rocket-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/txkpa5rj/14th-street-tourist-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fe1dob13/14th-street-local-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r21n5oko/pixel-first-maple-tree.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ovjgn0l4/pixel-hall-of-maple-warriors.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nqcgnnu2/pixel-ancient-guardian-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/auipbk5s/pixel-arcana-spirit-tree-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pxxhnjdv/pixel-henesys-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w5zmfbbb/pixel-sun-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bf1o03az/pixel-starglow-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1sijzkrv/pixel-bloom-of-lucid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pacnc0ap/vacation-selfie-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oskfm0bi/spring-sky-cherry-blossom-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/haemqbtk/rainy-day-rock-spirit-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e4oin0tj/maple-momentree-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rmullyin/mayple-island-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/at5pzkta/12th-anniversary-maple-leaf-damage.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y2blyfaa/constellation-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/snedu5i4/14th-street-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nkiiz10h/pixel-basic-damage-ski.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/upcb1w2o/crystal-gold-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w1lpmf1a/blooming-forest-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qi5lrq5n/momentree-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sqantx0s/mayple-damage-skin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g4gbynk1/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yb5gwq4h/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/llvncvpu/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3xxl2o1t/m9tpgv7mqu.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jg5biyhj/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y4epc4km/snpzi71wae.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dzqjoupv/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/52cndluf/ectkyqagw3.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qpdlq3p2/l68lb7zvbw.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qten3ep0/kiguqirynq.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1xfji1cu/noble-maple-outfit-set.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4nipuymh/maple-galaxy.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3i2bflq1/maple-gumshoe.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wdcc1bab/maple-pixel-outfit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yptmsjuo/maple-pixel-hero-outfit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ze3m4wse/maple-vacation.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ldwipvzn/blooming-forest-outfit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0q5hibl5/maple-momentree-outfit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/li3bmble/mayple-outfit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yajdolsj/club-v-dance-chair-warm-up.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vluf1qhu/club-v-dance-chair-bounce.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mtoe5mvv/club-v-dance-chair-stepping.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sdxpcqlt/club-v-dance-chair-groove.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l05ewn30/club-v-dance-chair-wave.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cxndbcjz/club-v-dance-chair-master.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ttblhqzg/maple-umbrella.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zn4pd5eo/merry-go-round-music-box.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w1kdsr3m/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4pipmx53/fying-fish-android.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fkzd5s5b/kingdom-parade-set-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3lygk1zd/gpass3.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/polhcqcy/hot-baker-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i2yfs1j2/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qmjbrih5/spacecommander.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5osbf5n3/spark-action-damage-skin.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a1cpilq5/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o4mktlsr/rock-star-rock-spirit.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vztota43/syncroid.png?height=111&rmode=max&width=91",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w11jvffx/legionroid.png?height=106&rmode=max&width=94",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eaxnkest/punchking.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ei2hksjv/dimensional.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xnfdlcme/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yztkgqof/gold-dimensional-power-plaque.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z4gpiiuc/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s5mhw0zw/diamond-dimensional-power-plaque.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g3jfx33d/going-higher-effect.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1gyjepuq/silver-dimensional-power.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fh1nrxrs/summer.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5f2lmbzo/hyp-burninator.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ywbjktni/hyper-burninator.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1aabrcdd/luxe-sauna-timer.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/riwmq02i/luxesaunaroom.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/boqdcpn1/sleepywood-sink.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/k0rnbk4g/bathtub.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3oyotrxn/opt-foot-bath.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/t3zdwvdw/cafe.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0645dd8bc781179a9a4971653f1591c56f0d2ffffbc11f9d667116f2db0bc888",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:46:49.783Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "39235",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-04-21.",
+          "Official category: update.",
+          "Nexon article ID: 39235."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2026-04-21T15:50:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

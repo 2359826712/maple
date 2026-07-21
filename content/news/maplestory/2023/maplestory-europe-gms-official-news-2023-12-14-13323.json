@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-12-14-13323",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/13323/all-cm-holiday-livestream-2023",
+  "source_url": "https://www.nexon.com/maplestory/news/community/13323/all-cm-holiday-livestream-2023",
+  "external_id": "13323",
+  "title": "All-CM Holiday Livestream 2023",
+  "original_title": "All-CM Holiday Livestream 2023",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-12-14T18:20:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“All-CM Holiday Livestream 2023” is an official news item from Global MapleStory Official News on 2023-12-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/yz3dex40/msw-5830-221202-all-cm-holiday-stream-overlay-540x304.webp",
+      "alt": "All-CM Holiday Livestream 2023"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2562/msw-5830-221202-all-cm-holiday-stream-overlay-in-post-banner-1100x225.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "45bf36901f2c8576f6536940ae1bcaef5dc61ad53bbc42348931d282fcb2b1b7",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:28:28.240Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13323",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-12-14.",
+          "Official category: community.",
+          "Nexon article ID: 13323."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

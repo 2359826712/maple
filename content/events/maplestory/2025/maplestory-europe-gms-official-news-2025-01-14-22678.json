@@ -1,0 +1,114 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-01-14-22678",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/22678/update-feb-11-the-dark-ride-bounty-event",
+  "source_url": "https://www.nexon.com/maplestory/news/community/22678/update-feb-11-the-dark-ride-bounty-event",
+  "external_id": "22678",
+  "title": "[Update Feb 11] The Dark Ride Bounty Event",
+  "original_title": "[Update Feb 11] The Dark Ride Bounty Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-01-14T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Update Feb 11] The Dark Ride Bounty Event” is an official event notice from Global MapleStory Official News on 2025-01-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zcklhwih/540x304-the-dark-ride-bounty-event-maplestory.png",
+      "alt": "[Update Feb 11] The Dark Ride Bounty Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r1vj4vgz/in-post-banner-1100x225-1920x622-the-dark-ride-bounty-event-maplestory.png",
+      "alt": "The Dark Ride Bounty Event MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eqbpyxln/ride-or-die-bounty-event-week-4-bounty-guardian-angel-slime-darknell-maplestory.png",
+      "alt": "MapleStory Dark Ride Bounty Week 4 Guardian Angel Slime and Darknell"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ahihdnnx/week-1-community-merch-bag-dark-ride-bounty-event-maplestory.png",
+      "alt": "MapleStory Dark Ride Bounty Week 1 Rewards"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iaqazwid/week-2-community-merch-bag-dark-ride-bounty-event-maplestory.png",
+      "alt": "MapleStory Dark Ride Bounty Week 2 Rewards"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ff5lm05a/week-3-community-merch-bag-dark-ride-bounty-event-maplestory.png",
+      "alt": "MapleStory Dark Ride Bounty Week 3 Rewards"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nkdhyku0/week-4-community-merch-bag-dark-ride-bounty-event-maplestory.png",
+      "alt": "MapleStory Dark Ride Bounty Week 4 Rewards"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "35cfe86f85ae686c5dc9801c1b7a7f7aab9c991a62e8abe7442dab8596ebe06d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:11:08.321Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "22678",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-01-14.",
+          "Official category: community.",
+          "Nexon article ID: 22678."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Update Feb 11] The Dark Ride Bounty Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-02-05T00:00:00.000Z",
+  "event_end": "2025-02-10T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

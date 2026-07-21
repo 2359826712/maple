@@ -1,0 +1,16 @@
+{
+  "code": 0,
+  "message": "success",
+  "data": {
+    "threads": [
+      { "threadId": "1001", "headlineId": "3476", "title": "Creator notice with the same publication time", "createDate": 1783000200, "threadModifyDate": 1783000200, "isSticky": false },
+      { "threadId": "1000", "headlineId": "3480", "title": "Creator event", "createDate": 1783000100, "threadModifyDate": 1783000110, "isSticky": false }
+    ],
+    "totalElements": "4",
+    "totalPages": 2,
+    "numberOfElements": 2,
+    "blockStartKey": ["253402300799", "9223372036854775807"],
+    "blockStartNo": 1,
+    "boardTitle": "Notice"
+  }
+}

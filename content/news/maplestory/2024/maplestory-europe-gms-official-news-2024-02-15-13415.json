@@ -1,0 +1,91 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-02-15-13415",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/13415/v-248-maplestory-x-konosuba-update-preview",
+  "source_url": "https://www.nexon.com/maplestory/news/update/13415/v-248-maplestory-x-konosuba-update-preview",
+  "external_id": "13415",
+  "title": "V.248 - MapleStory X KONOSUBA Update Preview",
+  "original_title": "V.248 - MapleStory X KONOSUBA Update Preview",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-02-15T16:34:39Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“V.248 - MapleStory X KONOSUBA Update Preview” is an official news item from Global MapleStory Official News on 2024-02-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/jl4bncuv/wgc-591_konosuba-update_540x304.webp",
+      "alt": "V.248 - MapleStory X KONOSUBA Update Preview"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1894/keyart.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1893/header.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1892/divider.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1891/button-forums.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1890/button-discord.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d9c0d92cb741904096ecf11346a97f56078715e9f3a93985813159da18e14c7a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:26:27.945Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13415",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-02-15.",
+          "Official category: update.",
+          "Nexon article ID: 13415."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

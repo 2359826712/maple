@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-03-31-5051",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5051/dormant-guild-removal-with-v-241-update",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5051/dormant-guild-removal-with-v-241-update",
+  "external_id": "5051",
+  "title": "Dormant Guild Removal with v.241 Update",
+  "original_title": "Dormant Guild Removal with v.241 Update",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-03-31T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Dormant Guild Removal with v.241 Update” is an official news item from Global MapleStory Official News on 2023-03-31. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4dvcyari/mnesrgrw22.webp",
+      "alt": "Dormant Guild Removal with v.241 Update"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q2/1051/maple-news-2-1100x225-maplestory.png",
+      "alt": "MapleStory News"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "3ab8dfbf6ded1a7629fed869e8e94db1df244a98358db0c90c8457f8df027842",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:37:35.447Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5051",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-03-31.",
+          "Official category: general.",
+          "Nexon article ID: 5051."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

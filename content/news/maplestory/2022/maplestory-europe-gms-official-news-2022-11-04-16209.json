@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-11-04-16209",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16209/what-s-your-maplestory-kikuuwu",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16209/what-s-your-maplestory-kikuuwu",
+  "external_id": "16209",
+  "title": "What's Your MapleStory? - KikuUwU",
+  "original_title": "What's Your MapleStory? - KikuUwU",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-11-04T14:05:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“What's Your MapleStory? - KikuUwU” is an official news item from Global MapleStory Official News on 2022-11-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1510/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1511/unknown.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1514/stand_0.png?height=318&mode=max&width=314",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1517/beasttamerss.png?height=376&mode=max&width=356",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "722d885d78f65b058c7a4563ed8208929d8e4278af2ace38a2dadfbdb7208764",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:42:42.086Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16209",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-11-04.",
+          "Official category: community.",
+          "Nexon article ID: 16209."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

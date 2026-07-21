@@ -1,0 +1,63 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-05-19-3447863",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3447863",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3447863",
+  "external_id": "3447863",
+  "title": "Notice on Delayed Maintenance Compensation",
+  "original_title": "Notice on Delayed Maintenance Compensation",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-05-19T02:20:21.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:10:00.476Z",
+  "last_checked": "2026-07-20T01:10:00.476Z",
+  "summary": "“Notice on Delayed Maintenance Compensation” is an official news item from MapleStory N Official Notices on 2026-05-19. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "7ab85b10df2ea9f80bc7867bce027b98a5cb79d37252a09643481a4e16b9f556",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:10:44.625Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-05-19.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3447863."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

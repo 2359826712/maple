@@ -1,0 +1,61 @@
+{
+  "id": "n-official-guides",
+  "name": "MapleStory N Official Beginner's Guides",
+  "series": "n",
+  "regions": ["multi-region"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["guide", "maintenance", "news"],
+  "base_url": "https://msu.io/maplestoryn/guide/beginnersguide",
+  "discovery_urls": ["https://msu.io/maplestoryn/guide/beginnersguide"],
+  "feed_url": null,
+  "api_url": "https://public.api.nexon.com/community-ext-api/api/v1",
+  "sitemap_urls": [],
+  "adapter": "nexon-community",
+  "parser": "maplestory-n-official-guides",
+  "adapter_config": {
+    "board_id": "5291",
+    "canonical_template": "https://msu.io/maplestoryn/news/Beginner's%20Guide/{threadId}",
+    "default_content_type": "guide",
+    "classification_rules": [
+      { "content_type": "maintenance", "override_headline": true, "title_pattern": "maintenance" },
+      { "content_type": "news", "override_headline": true, "title_pattern": "(?:notice|announcement|service interruption)" }
+    ],
+    "subcategory_rules": [
+      { "subcategory": "gameplay-guide", "content_types": ["guide"], "title_pattern": "\\[Adventure\\]" },
+      { "subcategory": "system-guide", "content_types": ["guide"], "title_pattern": "\\[Community\\]" },
+      { "subcategory": "marketplace-guide", "content_types": ["guide"], "title_pattern": "marketplace" },
+      { "subcategory": "account-guide", "content_types": ["guide"], "title_pattern": "account" },
+      { "subcategory": "faq", "content_types": ["guide"], "title_pattern": "faq" },
+      { "subcategory": "troubleshooting", "content_types": ["guide"], "title_pattern": "troubleshoot" }
+    ],
+    "content_type_subcategory_map": { "guide": "guide", "maintenance": "maintenance", "news": "guide-notice" },
+    "headers": {
+      "community-id": "500",
+      "x-inface-api-key": "8484d734-fc72-5bb4-96a4-5622025f2840"
+    },
+    "mode": "n",
+    "page_size": 25,
+    "max_server_page_size": 100,
+    "pagination": {
+      "strategy": "nexon-keyset",
+      "start": 1,
+      "page_size": 25,
+      "block_size": 9,
+      "pagination_type": "PAGING",
+      "search_keyword_type": "THREAD_TITLE_AND_CONTENT"
+    }
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "1d",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-20 against official frontend configuration and a normal browser render. Board 5291 is the official Beginner's Guide article board; its detail route is /maplestoryn/news/Beginner's%20Guide/{threadId}, while the current top-level Beginner's Guide navigation points to official GitBook documentation. Full source text is not retained."
+}

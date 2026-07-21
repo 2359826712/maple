@@ -1,0 +1,62 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-06-11-3474402",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3474402",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3474402",
+  "external_id": "3474402",
+  "title": "[COMPLETED] June 11 - Temporary Maintenance (enhancement system)",
+  "original_title": "[COMPLETED] June 11 - Temporary Maintenance (enhancement system)",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-06-11T04:06:59.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:10:00.476Z",
+  "last_checked": "2026-07-20T01:10:00.476Z",
+  "summary": "“[COMPLETED] June 11 - Temporary Maintenance (enhancement system)” is an official maintenance notice from MapleStory N Official Notices on 2026-06-11. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "36ca1633ddf1f64509fb5cafd45e6303578627153ba6213bd0336d6dbd314595",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T01:10:29.550Z",
+    "headline_id": "5040",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-06-11.",
+          "Official classification: maintenance.",
+          "Nexon thread ID: 3474402."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,162 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-10-08-20934",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/20934/updated-11-15-v-254-midnight-carnival-ludibrium-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/20934/updated-11-15-v-254-midnight-carnival-ludibrium-patch-notes",
+  "external_id": "20934",
+  "title": "[Updated 11/15] v.254 - Midnight Carnival - Ludibrium Patch Notes",
+  "original_title": "[Updated 11/15] v.254 - Midnight Carnival - Ludibrium Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-10-08T15:30:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated 11/15] v.254 - Midnight Carnival - Ludibrium Patch Notes” is an official patch note from Global MapleStory Official News on 2024-10-08. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/t4djxpso/241004_v254-patchnotes_newspost_540x304.jpg",
+      "alt": "[Updated 11/15] v.254 - Midnight Carnival - Ludibrium Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h2llvi4o/241004_v254-patchnotes_postheader_1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ahvb5acv/pinkshirt.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/l2hfa3jv/pandashirt.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/shmg2byg/roboshirt.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/txnflizr/rock-spirit-golden-giveaway.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uv1pnn3c/msfw-ui-camila-week.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/exwftfde/magicschoolfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xg5bquok/mystic-rose.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/clllhov2/ghostoutfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mvke4trz/candy-magician-outfit-selection-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pyciv520/hallo-hallo-cat.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qf1ovdsi/masquerade-mask.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0sjnqhim/permanent-fireworks-horse-mount-coupon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kr0jo5yz/red-moon-master.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aylps0wk/spooky-darkness-bat.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rlsppokm/magical-ghost-pumpkin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2xebakab/orange-pop.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g4dj0k2u/galactic-guardian-outfit-set-f.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dzrgunuw/baristaoutfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5mxjcjdj/ultimate-tile.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fdhjtj4l/group-punch-chair.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c1185c3e7bb26e391257202841258e3525c51ae54af360d14d0730e4da6823b6",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:18:59.953Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20934",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-10-08.",
+          "Official category: update.",
+          "Nexon article ID: 20934."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2024-10-08T15:30:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

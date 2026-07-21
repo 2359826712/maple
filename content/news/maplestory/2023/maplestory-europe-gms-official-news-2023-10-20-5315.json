@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-20-5315",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/5315/maplestory-fest-2023-recap",
+  "source_url": "https://www.nexon.com/maplestory/news/community/5315/maplestory-fest-2023-recap",
+  "external_id": "5315",
+  "title": "MapleStory Fest 2023 Recap",
+  "original_title": "MapleStory Fest 2023 Recap",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-20T18:55:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“MapleStory Fest 2023 Recap” is an official news item from Global MapleStory Official News on 2023-10-20. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/yvmb24j4/540x304-maplestory-fest-2023.webp",
+      "alt": "MapleStory Fest 2023 Recap"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q3/1945/1100x225-maplestory-fest-2023.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4a18a7d17c72f97d5ea548f27f4653f97ab6bd201621a1bbdfc60b26ac9d0414",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:16.525Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5315",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-20.",
+          "Official category: community.",
+          "Nexon article ID: 5315."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

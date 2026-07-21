@@ -1,0 +1,477 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-06-17-41137",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/41137/now-available-erel-light",
+  "source_url": "https://www.nexon.com/maplestory/news/events/41137/now-available-erel-light",
+  "external_id": "41137",
+  "title": "SHINE: The Power of Starlight",
+  "original_title": "Now Available: Erel Light!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-06-17T11:12:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T01:06:01.566Z",
+  "last_checked": "2026-07-20T01:11:21.402Z",
+  "summary": "“SHINE: The Power of Starlight” is an official event notice from Global MapleStory Official News on 2026-06-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/mfva01p2/540x304-now-available-erel-light-maplestory.jpg",
+      "alt": "Now Available: Erel Light!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/35rd0f4s/1100x225-now-available-erel-light-maplestory.jpg",
+      "alt": "Now Available Erel Light MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/43ngelwj/erel.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4fhldo4a/return-to-helia.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tu1dewe0/stellar-equalize.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/po2p1hmp/spear-of-lugh.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wpydkgn5/radiant-leap.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fxtlccte/radiant-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yaal2me2/radiant-vision.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/34lpgudf/radiant-hold.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h10bky5a/fury-of-roan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gxsnsoim/enhanced-spear-of-lugh-i.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/osqmfagq/call-to-sentinel.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nepboqmg/radiant-pulse.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ysjnj3uq/physical-training.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ebthicxy/gram-mastery.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bhshholx/gram-accelerator.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bslciztt/light-enchant.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lhslvmxr/charge-of-fionn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0wooz22w/enhanced-spear-of-lugh-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/f1qbbwyj/order-to-sentinel-i.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dz0fjzxq/radiant-control.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hxyi1gf3/radiant-shock.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ncvb25ds/radiant-will.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nu1bszm2/enhanced-spear-of-lugh-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/31gb3plh/sting-of-roan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wuidystf/enhanced-fury-of-roan-i.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cwzbxzcy/order-to-sentinel-ii.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jykh5v5l/radiant-dawn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z1ha3yg2/gram-expert.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5kwlqkap/path-of-fionn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h2zbzpjy/helian-blessing.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a1yjlkuw/shield-of-chulainn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qrtc3wz2/maple-warrior.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/msgkxkvj/spear-of-light.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jy4bmnvm/will-of-light.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zqbpw0ew/spear-of-lugh-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5olp5ut2/spear-of-lugh-extra-strike.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/05dfn52i/spear-of-lugh-boss-rush.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3krgej1g/fury-of-roan-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bgeojumu/fury-of-roan-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ii1f2gj3/fury-of-roan-critical-chance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3vkj1wig/sting-of-roan-reinforce.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mxfhngba/sting-of-roan-guardbreak.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y3ldi2qr/sting-of-roan-critical-chance.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m0rno3tv/piercing-of-chulainn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xxspop1o/impulse-of-chulainn.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fpdjvcdy/hundred-pole.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tg3p2b3n/eternal-light.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pm5jjswq/sentinel-rise.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fw1fyuca/eternal-guardian.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4rfbrdan/destruction-of-roan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lw5a1rpw/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qm0gjwdk/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3gejrzi5/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p2wc1xcx/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d33ifhah/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kuhb1ooo/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vswdyior/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/evtbv0ff/fall-of-melin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zleg0hsb/radiant-spear.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z5bl0fdv/shine-spear-of-lugh.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qxjjg5aj/shine-fury-of-roan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0wsnpu50/shine-sting-of-roan.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sckbeuh3/eternal-light-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p44hdtlr/sentinel-rise-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eqofnlap/eternal-guardian-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/emokwfnl/destruction-of-roan-boost.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rncpqwew/shine-starlights-call-ui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xf1l4bog/chosen-by-light.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dgzjcymc/sia-astelle-outfit-selector-dream-of-stars-outfit-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ifvpstec/sia-astelle-outfit-selector-dream-of-hope-outfit-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/12zjajv2/erel-light-outfit-selector-researcher-of-stars-outfit-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ok0hp3si/erel-light-outfit-selector-seeker-of-stars-outfit-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2onbg3kc/sia-astelle-damage-skin-unit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vjfpo4vo/erel-light-damage-skin-unit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o20fzz3z/siriusmount.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tkkl1l4b/permanent-holy-wings-mount.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uiiiltad/izarroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c02pw5kr/algolroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jmtdlpfb/ninielroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kdtd34z2/alkuroid.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s2oho013/niniel-of-hope.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sm2ldyfy/niniel-of-wishes.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tjfbwa2l/niniel-of-faith.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3pkdaupt/niniel-s-radiant-hope.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lgrfuq4x/niniel-s-radiant-wishes.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/a3dp0khh/niniel-s-radiant-faith.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wwsaqs1f/friend-of-the-constellations-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3dnnnxeh/stairs-of-eternal-light-chair.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sngdi1ix/argent-guard-wings.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gfll520l/asteria-s-wisdom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qyynskgt/gram-of-holy-light.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/apsoiqdx/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4eanz1qi/night-of-falling-stars-effect.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yx4ltcm4/mark-of-lights-chosen-effect.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zaqlfnft/stellar-guardian-outfit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hzifrtwx/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "46a3a96f7fe405e7a897762752d33c01b76ae55137d14870fdf2d29e290fca1a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T01:07:03.296Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "41137",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-06-17.",
+          "Official category: events.",
+          "Nexon article ID: 41137."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "SHINE: The Power of Starlight",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-06-17",
+  "event_end": "2026-09-08T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": "2026-09-08T23:59:00.000Z",
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "active"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-02-23-13428",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/13428/what-s-your-maplestory-euri",
+  "source_url": "https://www.nexon.com/maplestory/news/community/13428/what-s-your-maplestory-euri",
+  "external_id": "13428",
+  "title": "What's Your MapleStory? - Euri",
+  "original_title": "What's Your MapleStory? - Euri",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-02-23T14:23:14Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“What's Your MapleStory? - Euri” is an official news item from Global MapleStory Official News on 2024-02-23. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/qcleaiw3/190307_post_what_is_yourmaplestory.webp",
+      "alt": "What's Your MapleStory? - Euri"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/1510/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1967/screenshot-2024-02-21-101840-002.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1969/artwork_ark-1.png?height=355&mode=max&width=340",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1968/xmas-pic-002.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "aee8794c24f9ff88c7492f280df55290f7e9b7805ae03b4e5afeee6d054260ee",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:26:06.923Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13428",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-02-23.",
+          "Official category: community.",
+          "Nexon article ID: 13428."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

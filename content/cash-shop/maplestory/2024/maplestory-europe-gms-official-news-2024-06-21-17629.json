@@ -1,0 +1,79 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-06-21-17629",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/17629/june-22-violet-cube-daily-deal",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/17629/june-22-violet-cube-daily-deal",
+  "external_id": "17629",
+  "title": "June 22 Violet Cube Daily Deal",
+  "original_title": "June 22 Violet Cube Daily Deal",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-06-21T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“June 22 Violet Cube Daily Deal” is an official Cash Shop notice from Global MapleStory Official News on 2024-06-21. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1l4jpq5z/ms_dailydeal_540x304.jpg",
+      "alt": "June 22 Violet Cube Daily Deal"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fpmlgoz4/daily-deal-1100x225-maplestory.png",
+      "alt": "MapleStory Violet Cube Daily Deal"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2020/q4/1170/violet-cube-maplestory-october-21-cash-shop-update.png",
+      "alt": "MapleStory Violet Cube Icon"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b7c8bc83db001b1d1174d708547dd2e48509f2c445174ca5618a7608c0eadd70",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:22:33.456Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17629",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-06-21.",
+          "Official category: sale.",
+          "Nexon article ID: 17629."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

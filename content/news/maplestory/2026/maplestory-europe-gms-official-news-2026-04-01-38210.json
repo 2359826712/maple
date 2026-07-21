@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-04-01-38210",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/38210/now-live-epic-dungeon-nightmare-paradise",
+  "source_url": "https://www.nexon.com/maplestory/news/update/38210/now-live-epic-dungeon-nightmare-paradise",
+  "external_id": "38210",
+  "title": "Now Live: Epic Dungeon: Nightmare Paradise",
+  "original_title": "Now Live: Epic Dungeon: Nightmare Paradise",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-04-01T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Now Live: Epic Dungeon: Nightmare Paradise” is an official news item from Global MapleStory Official News on 2026-04-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4kwnoyt4/540x304-epic-dungeon-nightmare-paradise-maplestory.png",
+      "alt": "Now Live: Epic Dungeon: Nightmare Paradise"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mw5kzbfb/1100x225-epic-dungeon-nightmare-paradise-maplestory.png",
+      "alt": "Epic Dungeon Nightmare Paradise Maplestory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/b1pjck5u/epicdungeonnpstages.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3kmey0pp/wakebringer.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "62650715f3392b711f7ff810fa30452bd6c4b533d9f8adea3cc451b969d74483",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:16.821Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "38210",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-04-01.",
+          "Official category: update.",
+          "Nexon article ID: 38210."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

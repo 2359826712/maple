@@ -1,0 +1,95 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-17-36711",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/36711/special-petite-luna-pets",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/36711/special-petite-luna-pets",
+  "external_id": "36711",
+  "title": "Special Petite Luna Pets",
+  "original_title": "Special Petite Luna Pets",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-17T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Special Petite Luna Pets” is an official Cash Shop notice from Global MapleStory Official News on 2026-03-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ne5hab2f/540x304-lil-pro-hero-special-petite-luna-pets-maplestory-x-one-punch-man.jpg",
+      "alt": "Special Petite Luna Pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vptb5zgp/special-petite-luna-pets-01-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man lil pro hero special petite luna pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uvne0fzw/special-petite-luna-pets-02-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man lil pro hero special petite luna pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/h30azjwa/special-petite-luna-pets-03-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man lil pro hero special petite luna pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/q3mjug0s/special-petite-luna-pets-04-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man lil pro hero special petite luna pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3kznptdv/special-petite-luna-pets-05-maplestory-x-one-punch-man-v2.png",
+      "alt": "MapleStory x one-punch man lil pro hero special petite luna pets"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u5ubpd1z/special-petite-luna-pets-06-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man lil pro hero special petite luna pets"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b0147c6cfc2b81db5a061a9abd86d1a29efb837912a0be032da9d3034baf436e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:43.845Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36711",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-17.",
+          "Official category: sale.",
+          "Nexon article ID: 36711."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

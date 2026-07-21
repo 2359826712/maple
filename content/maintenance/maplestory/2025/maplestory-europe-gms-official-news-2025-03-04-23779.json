@@ -1,0 +1,74 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-03-04-23779",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/maintenance/23779/completed-scheduled-minor-patch-march-6-2025",
+  "source_url": "https://www.nexon.com/maplestory/news/maintenance/23779/completed-scheduled-minor-patch-march-6-2025",
+  "external_id": "23779",
+  "title": "[Completed] Scheduled Minor Patch - March 6, 2025",
+  "original_title": "[Completed] Scheduled Minor Patch - March 6, 2025",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "maintenance",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-03-04T18:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Completed] Scheduled Minor Patch - March 6, 2025” is an official maintenance notice from Global MapleStory Official News on 2025-03-04. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/5g3l0y3t/ms-maintenance_post-540x304.jpg",
+      "alt": "[Completed] Scheduled Minor Patch - March 6, 2025"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2021/q1/2167/maintenance-1100x225-maplestory.png",
+      "alt": "MapleStory Maintenance Notice"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5e17826222abc1cb9c23035f6c80916c7386094b83b89780efcbfd2030e1805a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:09:26.032Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "23779",
+    "source_category": "maintenance",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-03-04.",
+          "Official category: maintenance.",
+          "Nexon article ID: 23779."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

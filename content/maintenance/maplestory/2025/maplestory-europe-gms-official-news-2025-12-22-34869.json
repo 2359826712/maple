@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-12-22-34869",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/34869/maple-memo-additional-issues-addressed-during-the-december-22-scheduled-maintenance",
+  "source_url": "https://www.nexon.com/maplestory/news/general/34869/maple-memo-additional-issues-addressed-during-the-december-22-scheduled-maintenance",
+  "external_id": "34869",
+  "title": "Maple Memo: Additional Issues Addressed during the December 22 Scheduled Maintenance",
+  "original_title": "Maple Memo: Additional Issues Addressed during the December 22 Scheduled Maintenance",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "maintenance",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-12-22T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Maple Memo: Additional Issues Addressed during the December 22 Scheduled Maintenance” is an official maintenance notice from Global MapleStory Official News on 2025-12-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "maintenance"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/1o2bovcw/mm785tg7.webp",
+      "alt": "Maple Memo: Additional Issues Addressed during the December 22 Scheduled Maintenance"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2018/5580/181107mm1100ip.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "feb44e9fa46149d20b9bc39da074aed99485f8385ce610019610f0495be97c33",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:50:29.282Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "34869",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-12-22.",
+          "Official category: general.",
+          "Nexon article ID: 34869."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

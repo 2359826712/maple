@@ -1,0 +1,106 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-11-20-21746-blossoming-by-moonshade-moon-scroll-shade",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/21746/aran-and-shade-redux-events",
+  "source_url": "https://www.nexon.com/maplestory/news/events/21746/aran-and-shade-redux-events",
+  "external_id": "21746:blossoming-by-moonshade-moon-scroll-shade",
+  "title": "Blossoming by Moonshade: Moon Scroll - Shade",
+  "original_title": "Aran and Shade Redux Events!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-11-20T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Blossoming by Moonshade: Moon Scroll - Shade” is an official event notice from Global MapleStory Official News on 2024-11-20. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/drgcokwv/540x304-aran-and-shade-redux-maplestory.jpg",
+      "alt": "Aran and Shade Redux Events!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dwmgweoa/1100x225-aran-and-shade-redux-maplestory.jpg",
+      "alt": "Aran and Shade Redux MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ytdhr5z3/set-as-hyper-burning-button-maplestory.png",
+      "alt": "Set as Hyper Burning Button MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/p3rmu2of/blossoming-by-moonshade-flower-scroll-aran.png",
+      "alt": "Blossoming by Moonshade Flower Scroll Aran MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5fcm5sns/blossoming-by-moonshade-moon-scroll-shade.png",
+      "alt": "Blossoming by Moonshade Moon Scroll Shade MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c28e97cae4df11ac13539eb62d25480c54b7c679d6aec125fc67dae297ae5f15",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "blossoming-by-moonshade-moon-scroll-shade",
+    "fetched_at": "2026-07-21T02:17:50.816Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "21746",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-11-20.",
+          "Official category: events.",
+          "Nexon article ID: 21746."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Blossoming by Moonshade: Moon Scroll - Shade",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-11-20",
+  "event_end": "2025-02-11T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-18-5307",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/5307/updated-issue-with-pumpkin-pets-in-reboot-worlds",
+  "source_url": "https://www.nexon.com/maplestory/news/general/5307/updated-issue-with-pumpkin-pets-in-reboot-worlds",
+  "external_id": "5307",
+  "title": "[Updated] Issue with Pumpkin Pets in Reboot Worlds",
+  "original_title": "[Updated] Issue with Pumpkin Pets in Reboot Worlds",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-18T18:11:01Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Updated] Issue with Pumpkin Pets in Reboot Worlds” is an official news item from Global MapleStory Official News on 2023-10-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/50zmucev/120516_540x304_generic_news_6410.webp",
+      "alt": "[Updated] Issue with Pumpkin Pets in Reboot Worlds"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "844a76a1a25dee7b4edf62fd952b57df01a58dbac0d0c8b289166bcf4c77d47f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:34.565Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5307",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-18.",
+          "Official category: general.",
+          "Nexon article ID: 5307."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-05-27-27058-hit-the-road-event",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/27058/hit-the-road-event",
+  "source_url": "https://www.nexon.com/maplestory/news/events/27058/hit-the-road-event",
+  "external_id": "27058:hit-the-road-event",
+  "title": "Hit the Road Event",
+  "original_title": "Hit the Road Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-05-27T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Hit the Road Event” is an official event notice from Global MapleStory Official News on 2025-05-27. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/s0nnn3b0/540x304-hit-the-road-event-maplestory.jpg",
+      "alt": "Hit the Road Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pytp1btj/1100x225-hit-the-road-event-maplestory.jpg",
+      "alt": "MapleStory Goodbye Victoria Cup"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ig0ify3u/hit-the-road.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9d7f9a7ef60757d864e6b4efa94cb78f6984b1df3d69904b6cc078621a85a586",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "hit-the-road-event",
+    "fetched_at": "2026-07-20T11:06:52.612Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "27058",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-05-27.",
+          "Official category: events.",
+          "Nexon article ID: 27058."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Hit the Road Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-05-28T00:00:00.000Z",
+  "event_end": "2025-06-10T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

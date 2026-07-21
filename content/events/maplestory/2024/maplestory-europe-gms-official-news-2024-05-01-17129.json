@@ -1,0 +1,154 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-05-01-17129",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/17129/forest-child-lynn-is-now-available",
+  "source_url": "https://www.nexon.com/maplestory/news/events/17129/forest-child-lynn-is-now-available",
+  "external_id": "17129",
+  "title": "Great Tree Memories",
+  "original_title": "Forest Child Lynn is Now Available!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-05-01T11:14:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Great Tree Memories” is an official event notice from Global MapleStory Official News on 2024-05-01. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/utpgn4dv/240501_lynn_ms_newspost_540x304.webp",
+      "alt": "Forest Child Lynn is Now Available!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1382/240501_lynn_ms_postheader_1100x225.jpg",
+      "alt": "Forest Child Lynn"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1472/lil-gaia.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1473/lynn-damage-skin.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1475/lynn-label-ring.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1476/lynn-chat-ring.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1477/lynn-outfit-set.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1479/lotus-mount.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1480/great-tree-chair.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1481/great-tree-memories.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1482/baby-lynn-android.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1471/cute-earrings-tail.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1316/lynn-spirit-guides.png",
+      "alt": "Lynn Spirit Guides"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1318/lynn-skill-peck.png",
+      "alt": "Lynn Skill Peck"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1321/lynn-skill-sneak-attack.png",
+      "alt": "Lynn Skill Sneak Attack"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1322/lynn-skill-roar-1-complete.png",
+      "alt": "Lynn Skill Roar"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q2/1317/lynn-skill-mother-natures-touch.png",
+      "alt": "Lynn Skill Mother Nature's Touch"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0c4fbd90543ef508953c13a4a6ef528ed98cfc2c4620a57c8c8beab33f3bece5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:24:09.664Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "17129",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-05-01.",
+          "Official category: events.",
+          "Nexon article ID: 17129."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Great Tree Memories",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-05-01",
+  "event_end": "2024-06-11T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

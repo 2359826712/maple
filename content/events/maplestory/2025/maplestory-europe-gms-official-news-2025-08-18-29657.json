@@ -1,0 +1,98 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-18-29657",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/29657/miracle-summer-august-23-shoes",
+  "source_url": "https://www.nexon.com/maplestory/news/events/29657/miracle-summer-august-23-shoes",
+  "external_id": "29657",
+  "title": "Miracle Time - Shoes",
+  "original_title": "Miracle Summer - August 23 - Shoes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-18T14:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Miracle Time - Shoes” is an official event notice from Global MapleStory Official News on 2025-08-18. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/iumnxlft/540x304-august-23-miracle-summer-shoes-maplestory.jpg",
+      "alt": "Miracle Summer - August 23 - Shoes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2b5pzn4d/1100x225-august-23-miracle-summer-shoes-maplestory.jpg",
+      "alt": "Miracle Summer August 23 Shoes MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cpnn2030/miracle-summer-cubes-maplestory.png",
+      "alt": "Miracle Summer Cubes MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "4764b9a14778b1b3943fd078a85845c5fe862035cb9f580f09dec1910efeb1d5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:04:04.200Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29657",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-18.",
+          "Official category: events.",
+          "Nexon article ID: 29657."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Miracle Time - Shoes",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-08-23T00:00:00.000Z",
+  "event_end": "2025-08-23T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

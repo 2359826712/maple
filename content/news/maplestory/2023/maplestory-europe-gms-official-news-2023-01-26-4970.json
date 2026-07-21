@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-01-26-4970",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/4970/odium-and-extreme-boss-difficulty-are-here",
+  "source_url": "https://www.nexon.com/maplestory/news/general/4970/odium-and-extreme-boss-difficulty-are-here",
+  "external_id": "4970",
+  "title": "Odium and Extreme Boss Difficulty are here!",
+  "original_title": "Odium and Extreme Boss Difficulty are here!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-01-26T10:28:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“Odium and Extreme Boss Difficulty are here!” is an official news item from Global MapleStory Official News on 2023-01-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/zh3jodrf/540x304-odium-and-extreme-boss-difficulty-live-maplestory.webp",
+      "alt": "Odium and Extreme Boss Difficulty are here!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1625/1100x225-odium-and-extreme-boss-difficulty-live-maplestory.jpg",
+      "alt": "MapleStory Odium and Extreme Boss Difficulty Are Here"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1510/odium-town-maplestory.png",
+      "alt": "MapleStory Odium the Awakened Laboratory"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q1/1638/extreme-boss-menu-maplestory-v2.png",
+      "alt": "MapleStory Boss Extreme Mode"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "def2fc8d4f38dda7f4b9cc7a4e44d4b8f9f2cfaa1807f38f98f92ca383a3603c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:39:50.715Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "4970",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-01-26.",
+          "Official category: general.",
+          "Nexon article ID: 4970."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

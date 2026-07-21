@@ -1,0 +1,75 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-02-24-23680",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/general/23680/updated-4-7-2025-addressing-the-recent-unicube-issues",
+  "source_url": "https://www.nexon.com/maplestory/news/general/23680/updated-4-7-2025-addressing-the-recent-unicube-issues",
+  "external_id": "23680",
+  "title": "[Updated 4/7/2025] Addressing the Recent Unicube Issues",
+  "original_title": "[Updated 4/7/2025] Addressing the Recent Unicube Issues",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "general",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-02-24T06:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Updated 4/7/2025] Addressing the Recent Unicube Issues” is an official news item from Global MapleStory Official News on 2025-02-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "general",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/hradkrtw/120516_540x304_generic_maplenews_6410.jpg",
+      "alt": "[Updated 4/7/2025] Addressing the Recent Unicube Issues"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q2/2098/120516_1100x225_generic_news_6410.jpg",
+      "alt": "MapleStory Maple Memo"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "2a9da7aaf3c9b98354b854910c855f82a468eff8dad51598f8e42f251cbeac08",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:09:41.091Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "23680",
+    "source_category": "general",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-02-24.",
+          "Official category: general.",
+          "Nexon article ID: 23680."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,68 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-03-03-3392258",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3392258",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3392258",
+  "external_id": "3392258",
+  "title": "[COMPLETED] March 3 - No maintenance Patch Notice",
+  "original_title": "[COMPLETED] March 3 - No maintenance Patch Notice",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-03-03T09:56:21.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“[COMPLETED] March 3 - No maintenance Patch Notice” is an official news item from MapleStory N Official Notices on 2026-03-03. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "news",
+    "notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250605/cf50ca00-9bc1-4b7f-beab-77133f579371/image202506051815471.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "262411b34850940503ec24935bfaaa114e1a093caa1c3858c8065d265de17a0e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:12:34.804Z",
+    "headline_id": "5132",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-03-03.",
+          "Official classification: notice.",
+          "Nexon thread ID: 3392258."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

@@ -1,0 +1,170 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-01-14-34997",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/34997/now-available-the-first-adversary",
+  "source_url": "https://www.nexon.com/maplestory/news/events/34997/now-available-the-first-adversary",
+  "external_id": "34997",
+  "title": "Undying Purpose Event",
+  "original_title": "Now Available: The First Adversary!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-01-14T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Undying Purpose Event” is an official event notice from Global MapleStory Official News on 2026-01-14. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/iqcczvn1/540x304-now-available-new-boss-the-first-adversary-maplestory.jpg",
+      "alt": "Now Available: The First Adversary!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wcqbpd02/1100x225-now-available-new-boss-the-first-adversary-maplestory.jpg",
+      "alt": "MapleStory New Boss: The First Adversary Now Available"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ouiht3gl/first-ad.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yl2lapre/maplestorya_h4cakznxzn.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y43pd24q/roid.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xmlpc0cw/echo-of-ancient-resolve.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/c5yc4qby/ancient-eternal-armor-box.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eubedwlh/exceptional-hammer-medal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xejnlmkn/first-adversarys-soul-shard.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hs3nmpxf/beefy-hearty-first-adversarys-soul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w4jbsjma/magnificent-first-adversarys-soul.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ymqpakp4/shower-of-greatswords.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rq5j3tb2/arrow-cloudburst.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wa2igqmb/where-wills-meet.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ttiejwjt/permanent-legendary-adversary-mount-coupon.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n1lhxnkc/legendary-adversary-effect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hmhnjgo4/first-adversary-chat-and-label.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r4xjlb3q/enduring-will.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ak4ec5gj/adversarys-tribune.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tjnjlbkh/proving-ground-background.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/okbh0k04/adversarys-head-decoration.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "43838c72a656f7b234673edd6b52e64b08b601327fa50e6301964d177c49bd6e",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:49:53.190Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "34997",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-01-14.",
+          "Official category: events.",
+          "Nexon article ID: 34997."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Undying Purpose Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-01-15T00:00:00.000Z",
+  "event_end": "2026-02-03T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

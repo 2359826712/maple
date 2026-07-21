@@ -1,0 +1,534 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-26-29874",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/update/29874/updated-9-22-v-262-midnight-carnival-mu-lung-patch-notes",
+  "source_url": "https://www.nexon.com/maplestory/news/update/29874/updated-9-22-v-262-midnight-carnival-mu-lung-patch-notes",
+  "external_id": "29874",
+  "title": "[Updated 9/22] v.262 Midnight Carnival: Mu Lung Patch Notes",
+  "original_title": "[Updated 9/22] v.262 Midnight Carnival: Mu Lung Patch Notes",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "update",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-26T16:35:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Updated 9/22] v.262 Midnight Carnival: Mu Lung Patch Notes” is an official patch note from Global MapleStory Official News on 2025-08-26. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "patch-note",
+    "update"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/oodjr5ke/250822_v262_patchnotes_newspost_540x304.jpg",
+      "alt": "[Updated 9/22] v.262 Midnight Carnival: Mu Lung Patch Notes"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/drxlni05/250822_v262_patchnotes_postheader_1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/y5cf3x0w/npc_sir_hamselot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uavd5sm3/legionchampionui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pbghacgg/championmodeui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gguhjnce/rankup.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jkxhx45m/championraidui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/43gji2e2/swapping.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1qdbtnaw/dracoisland.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oxpdnqht/champion-coin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ez3bi1kk/reactive-fruit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2lihczpg/championrenownui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3w4nynlh/scania.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tf4fva50/auroratitle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1rglbhy0/elysiumtitle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/i0eby232/scaniatitle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o1sababa/troupecoin.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ibqpk0rv/festivaldesignerrank.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aemfeim5/designerrank.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/e21jjpws/mulungtroupemedal.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oqrnfne3/nighttroupesageticketui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/odufv5gl/pathtosagehood.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/g3bp0prz/pandagaugeui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m3qdearx/sogongsmartialspirit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kadcoo4g/martialgauge.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/x20k12ca/verus-wukong-statue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fikpnmkq/verus-sondal-statue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uiqmflnw/verus-gold-dragon-statue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jpqn31fv/verus-red-tiger-statue.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3cgjexto/verussondal-statuedrop.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dchf1ory/peachlanternbuff.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hind2zyx/bearlanternbuff.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m2rj5vby/peachlantern.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gixkm0qz/bearlantern.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/r1opualm/goldenlantern.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/d0dpwtfz/commonmedicinebundle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z1zbznho/qualitymedicinebundle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o0thzuv5/mysteriousdecoctionui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/333mmupn/jujubefruit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/rhchq3jd/easternlicorice.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/quqphvdp/finemapleleafpowder.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tdbn3a45/ginger.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hp4f02yh/taigaroot.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/eyqbc4yc/milleniabellflower.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/542au05u/giantblackhoodmushroom.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vmbjpbec/everlastingpeachblossombranch.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/junntccz/magicalmedicineingredient.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4hzfuvvb/craftingdecoction.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/my5ac1rw/medicinedonate.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4ejbzuhw/mysticbondui.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gipjvdwp/inheritorui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/febcnirm/moonlitdojo.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4yunzw0o/herbtownboatbash.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4q5ppzmm/boogiebellflower.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/o5kjivjc/dancehallbellflower.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/kahf0klh/discobellflower.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0chjaggb/nogongacuitytraining.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sbxnnwty/mysteriousfortunesticks.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2qcf5hil/championdoubleupui.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dw0jbquc/championfollow.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/monl5qvj/doubleupexp.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dfod1v2l/boat.png?height=347&rmode=max&width=693",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yzvp1ktd/daves-phone-dave-the-diver-maplestory.png?height=626&rmode=max&width=368",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/0l1duztb/idiver-menu-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5pcmev5e/weaponshop.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mw3lacih/tokenshopnew.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/oiibtz54/starting-a-dive-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/w4ulykq2/meleeweapon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/equjrgdc/harpoon.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pted0pvy/rifle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cawodaxk/aiming.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/24chjzgv/weaponboxes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/dmtdqxqq/equipmentboxes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hrfhiy2i/redsniperrifle.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/tp5p3ngs/oxygencapsule.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wtunjkuo/underwaterscooter.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/anydbe1y/gunenhancementkit.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/uobbclv0/emergencypager.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gz5fn2sm/ammoboxes.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zqolqfgy/airtank.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gsxfuq44/escapepod.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/omwbdmhy/collectinglargefish.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mawg4zme/reel-in-the-fish-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/u5bdtlds/fishpda.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bn3fnz04/oxygen-depth-weight-info-dave-the-diver-maplestory.png?height=282&rmode=max&width=492",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5qnbbwc2/diving-inventory-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1crokdh3/bancho-sushi-start-dave-the-diver-maplestory.png?height=404&rmode=max&width=715",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zcthtgn4/openmenu.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pybfbv4h/dishenhancements.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zmxd5wqq/sushi-party-notice-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/coilxoej/hiring-staff-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4p0ef2kn/opening-bancho-sushi-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gedmthww/pouring-green-tea-dave-the-diver-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vzlfya1n/servingdishes.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/odnfriml/cleaningmess.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/evzb2fae/wasabi.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yf4ndj4z/dtdeffect.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fwmjzc0m/itemburning.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/01rp3ct3/challenger-world-ui-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nadlx5db/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2sgndcfz/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/z24hxbxh/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/gjeatfzy/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zamduj5g/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2nxfsctm/maplestorya_q9szo4hher.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/lkdfonhj/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/25zoa0ky/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2nubg2it/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bhgk2lvn/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5ado40va/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/45zpb44a/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vpyhi5xt/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/yh5pi2fi/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/sf1fcf0g/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/00gfdfnc/image.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "40890495ca991df69101770e826edad9ca9a196cfc56ecc6e2a814352b2232fc",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:03:40.130Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29874",
+    "source_category": "update",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-26.",
+          "Official category: update.",
+          "Nexon article ID: 29874."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2025-08-26T16:35:00Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

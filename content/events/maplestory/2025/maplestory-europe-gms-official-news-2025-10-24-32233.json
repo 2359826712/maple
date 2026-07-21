@@ -1,0 +1,94 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-10-24-32233",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/32233/maple-con-la-2025-social-hashtag-event",
+  "source_url": "https://www.nexon.com/maplestory/news/community/32233/maple-con-la-2025-social-hashtag-event",
+  "external_id": "32233",
+  "title": "Maple Con LA 2025 Social Hashtag Event",
+  "original_title": "Maple Con LA 2025 Social Hashtag Event",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-10-24T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Maple Con LA 2025 Social Hashtag Event” is an official event notice from Global MapleStory Official News on 2025-10-24. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/fkolvwx0/news-post-540x304-snap-share-win-maple-con-la-2025-hashtag-contest-maplestory.png",
+      "alt": "Maple Con LA 2025 Social Hashtag Event"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/cawpmhgu/1920x1080-animated-snap-share-win-maple-con-la-2025-hashtag-contest-maplestory.png",
+      "alt": "Maple Con Los Angeles 2025 October 25 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "ea28290b71a7d0e4b84e4f469487e58c0fd61a0dedf6720f2cbeb29b0b382c87",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:02:00.919Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "32233",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-10-24.",
+          "Official category: community.",
+          "Nexon article ID: 32233."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Maple Con LA 2025 Social Hashtag Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-10-25T16:00:00.000Z",
+  "event_end": "2025-10-25T22:30:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

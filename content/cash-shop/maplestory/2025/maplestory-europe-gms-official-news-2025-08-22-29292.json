@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-08-22-29292",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/29292/sold-out-maple-con-los-angeles-2025-tickets-on-sale",
+  "source_url": "https://www.nexon.com/maplestory/news/community/29292/sold-out-maple-con-los-angeles-2025-tickets-on-sale",
+  "external_id": "29292",
+  "title": "[Sold Out] Maple Con Los Angeles 2025 Tickets On Sale!",
+  "original_title": "[Sold Out] Maple Con Los Angeles 2025 Tickets On Sale!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-08-22T13:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“[Sold Out] Maple Con Los Angeles 2025 Tickets On Sale!” is an official Cash Shop notice from Global MapleStory Official News on 2025-08-22. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "community"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/fkdl5tsf/540x304-maple-con-la-october-25-tickets-on-sale-maplestory.jpg",
+      "alt": "[Sold Out] Maple Con Los Angeles 2025 Tickets On Sale!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/n1ilshu3/1100x225-maple-con-la-october-25-tickets-on-sale-maplestory.jpg",
+      "alt": "Maple Con Los Angeles 2025 October 25 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/smfhybny/get-tickets-button-maple-con-la-october-25-maplestory.png",
+      "alt": "Maple Con Los Angeles 2025 Get Tickets October 25 MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pebbko0h/maple-con-la-2025-rewards-maplestory.png",
+      "alt": "Maple Con Los Angeles 2025 Rewards October 25 MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "9827e1d6e52273701cd90212b43b6c2699647ad8ae4e0a0f106f5a2157395cbd",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:03:46.154Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "29292",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-08-22.",
+          "Official category: community.",
+          "Nexon article ID: 29292."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

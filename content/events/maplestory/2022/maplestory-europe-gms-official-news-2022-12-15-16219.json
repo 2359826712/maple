@@ -1,0 +1,90 @@
+{
+  "id": "maplestory-europe-gms-official-news-2022-12-15-16219",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/16219/all-cm-holiday-livestream-event-2022",
+  "source_url": "https://www.nexon.com/maplestory/news/community/16219/all-cm-holiday-livestream-event-2022",
+  "external_id": "16219",
+  "title": "All-CM Holiday Livestream Event 2022",
+  "original_title": "All-CM Holiday Livestream Event 2022",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2022-12-15T13:19:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“All-CM Holiday Livestream Event 2022” is an official event notice from Global MapleStory Official News on 2022-12-15. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://nxcache.nexon.net/cms/2022/q4/2275/msw-6272-221202-all-cm-holiday-stream-news-article-header-940x290.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "c6519f5f6b0b299d32559405dfb58cfb564a9e4aa80af7a0fc557f1f831eec5b",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:41:08.883Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "16219",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2022-12-15.",
+          "Official category: community.",
+          "Nexon article ID: 16219."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "All-CM Holiday Livestream Event 2022",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2022-12-16T21:00:00.000Z",
+  "event_end": "2022-12-16T21:00:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

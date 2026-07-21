@@ -1,0 +1,93 @@
+{
+  "id": "worlds-global-creator-center-news-2025-03-10-2744799",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2744799",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/2744799",
+  "external_id": "2744799",
+  "title": "[Updated 6/9 - Closed] Introducing The 90-Day Challenge",
+  "original_title": "[Updated 6/9 - Closed] Introducing The 90-Day Challenge",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2025-03-10T17:22:27.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T08:29:26.629Z",
+  "last_checked": "2026-07-20T08:29:26.629Z",
+  "summary": "“[Updated 6/9 - Closed] Introducing The 90-Day Challenge” is an official event notice from MapleStory Worlds Creator Center News on 2025-03-10. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250304/3a62da00-8086-48c0-90d2-19ab33db5a66/25022790DayCreatorChallengeBanners740x1202.jpg",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d1e2856f34ab90192a56944bb2edb5e28bcd5c56065c66c4306d3e8c658c1c52",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "board_id": "5485",
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T08:32:30.476Z",
+    "headline_id": "3480",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2025-03-10.",
+          "Official classification: event.",
+          "Nexon thread ID: 2744799.",
+          "Confirmed event period: 2025-03-10 through 2025-06-09 (America/Los_Angeles)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Updated 6/9 - Closed] Introducing The 90-Day Challenge",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-03-10",
+  "event_end": "2025-06-09",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "America/Los_Angeles",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

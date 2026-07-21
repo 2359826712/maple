@@ -1,0 +1,103 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-03-17-36710",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/sale/36710/philosopher-s-book",
+  "source_url": "https://www.nexon.com/maplestory/news/sale/36710/philosopher-s-book",
+  "external_id": "36710",
+  "title": "Philosopher's Book",
+  "original_title": "Philosopher's Book",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "cash-shop",
+  "subcategory": "sale",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-03-17T12:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“Philosopher's Book” is an official Cash Shop notice from Global MapleStory Official News on 2026-03-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "cash-shop",
+    "sale"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ceugbcun/540x304-philosophers-book-maplestory-x-one-punch-man.jpg",
+      "alt": "Philosopher's Book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ml4jgejf/philosophers-book-01-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/xspbslgh/philosophers-book-02-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/2nifwzva/philosophers-book-03-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/opxj2ms4/philosophers-book-04-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5n2hhsig/philosophers-book-05-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qylhlw3g/philosophers-book-06-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/iotos2bk/philosophers-book-07-maplestory-x-one-punch-man-v2.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pcsh5iuu/philosophers-book-08-maplestory-x-one-punch-man.png",
+      "alt": "MapleStory x one-punch man philsopher's book"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5db3ceef3518261ec26c1c234bd49e653cbc36dbe8424ae29e9452e879f2e7d5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:47:40.858Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36710",
+    "source_category": "sale",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-03-17.",
+          "Official category: sale.",
+          "Nexon article ID: 36710."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

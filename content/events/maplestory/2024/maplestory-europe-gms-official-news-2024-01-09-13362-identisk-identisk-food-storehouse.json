@@ -1,0 +1,118 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-01-09-13362-identisk-identisk-food-storehouse",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/13362/more-identisk-events-to-enjoy",
+  "source_url": "https://www.nexon.com/maplestory/news/events/13362/more-identisk-events-to-enjoy",
+  "external_id": "13362:identisk-identisk-food-storehouse",
+  "title": "[Identisk] Identisk Food Storehouse",
+  "original_title": "More Identisk Events to Enjoy!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-01-09T18:18:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Identisk] Identisk Food Storehouse” is an official event notice from Global MapleStory Official News on 2024-01-09. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/tjvb5plp/wgc-435-231113-v246-events-news-post-540x304.webp",
+      "alt": "More Identisk Events to Enjoy!"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2024/q1/1085/wgc-435-231113-v246-events-in-post-banner-1100x225.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2424/maplestory-newage-identisk-hunting-hat.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2425/maplestory-newage-identisk-hunting-medals.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2420/maplestory-newage-identisk-festival-chair.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2423/maplestory-newage-identisk-festival-rings.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2421/maplestory-newage-identisk-festival-lilenki.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/2430/maplestory-newage-identisk-festival-okyatobipets.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "89cfa34e81bc6db4995a63ef2592aae9d618e38e6872e966e7f21685fffe42e2",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": "identisk-identisk-food-storehouse",
+    "fetched_at": "2026-07-21T02:27:43.175Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "13362",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-01-09.",
+          "Official category: events.",
+          "Nexon article ID: 13362."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Identisk] Identisk Food Storehouse",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2024-01-10T00:00:00.000Z",
+  "event_end": "2024-02-06T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

@@ -1,0 +1,152 @@
+{
+  "id": "n-multi-region-official-events-2026-03-26-3408067",
+  "source_id": "n-official-events",
+  "canonical_url": "https://msu.io/maplestoryn/news/events/3408067",
+  "source_url": "https://msu.io/maplestoryn/news/events/3408067",
+  "external_id": "3408067",
+  "title": "Ember Event",
+  "original_title": "Ember Event",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "event",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-03-26T01:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T07:40:41.416Z",
+  "last_checked": "2026-07-20T07:40:41.416Z",
+  "summary": "“Ember Event” is an official event notice from MapleStory N Official Events on 2026-03-26. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/26a1aa48-de3a-4026-8e0d-94aa8a1cd5a6/MSNEVENTThumb.png",
+      "alt": "Ember Event"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241211/4163906b-82fe-4c7d-9782-7f7d7410fb7d/EAheaderEVENT.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/39f1ddbc-00d7-477d-a19d-1e589ac68a20/image202603251640321.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/64d1ad76-7c97-4c7c-be19-b1de87fae246/image202603251640322.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/779efa27-a51f-4533-849d-a91cb31dc187/image202603251640323.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/7fc9efa6-3436-4ec4-8b6a-cd2cbbd08ba7/image202603251642294.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/46441243-cf0f-4288-aebe-d7230adc58df/image202603251644305.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/38c35685-d2a7-4409-87d5-58b95ab340d8/image202603251644306.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/77903afc-cd56-4cfa-80ee-2f6e05d6a921/image202603251644307.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/45d5c6ee-14a9-414e-98b1-c7994504f5f2/image202603251644308.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/9b8e1164-f219-4d2d-a123-dc918eab6fb1/image202603251644309.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/d6badca7-2c33-449a-a119-3fbd5a27fd4a/image2026032516443010.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/b0d53f4e-ad43-4799-8dd2-a7b8951f0c03/image2026032516443011.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/83b1d4ae-f81f-4dda-b9a0-e3cba47cbc18/image2026032516443012.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260325/ede76a35-1c38-4cd1-a6d3-cf1e60f33e3a/image2026032516443013.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "33a2eebf50a311a8600d52272330013679dc6ee057ae1ace8ec3b0c7c68a45d1",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-events",
+    "api_record": true,
+    "board_id": "5289",
+    "body_extractable": true,
+    "event_date_evidence": "official-listing-tags",
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T07:41:06.104Z",
+    "headline_id": "3297",
+    "official_category": "ended-event",
+    "official_tags": [
+      "2026-03-26",
+      "2026-04-15T23:59:59Z"
+    ],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-03-26.",
+          "Official classification: event.",
+          "Nexon thread ID: 3408067.",
+          "Confirmed event period: 2026-03-26 through 2026-04-15T23:59:59.000Z (UTC)."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Ember Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-03-26",
+  "event_end": "2026-04-15T23:59:59.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

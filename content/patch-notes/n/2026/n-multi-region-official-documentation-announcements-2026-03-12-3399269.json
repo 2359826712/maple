@@ -1,0 +1,75 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-03-12-3399269",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3399269",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3399269",
+  "external_id": "3399269",
+  "title": "March 11 – Item Display Issue Resolved and Cause Details",
+  "original_title": "March 11 – Item Display Issue Resolved and Cause Details",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "patch-note",
+  "subcategory": "known-issues",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-03-12T01:10:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:10:30.871Z",
+  "last_checked": "2026-07-20T04:10:30.871Z",
+  "summary": "“March 11 – Item Display Issue Resolved and Cause Details” is an official patch note from MapleStory N Official Notices on 2026-03-12. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "known-issues",
+    "patch-note"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241120/595a1041-5449-4be9-a4ac-9c47dea827f9/MSUKnownIssue%EB%9D%A0%EB%B0%B0%EB%84%88.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5d094ef69e75e4a2c04c978e20eccdccebbb453c14b64cb83b1578bcb55ee360",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:12:25.774Z",
+    "headline_id": "5041",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-03-12.",
+          "Official classification: known issues.",
+          "Nexon thread ID: 3399269."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "game_version": null,
+  "patch_date": "2026-03-12T01:10:00.000Z",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [],
+  "known_issues": [],
+  "resolved_issues": []
+}

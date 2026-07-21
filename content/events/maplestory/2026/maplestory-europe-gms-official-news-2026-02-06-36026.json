@@ -1,0 +1,154 @@
+{
+  "id": "maplestory-europe-gms-official-news-2026-02-06-36026",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/36026/update-feb-19-february-2026-hot-weeks",
+  "source_url": "https://www.nexon.com/maplestory/news/events/36026/update-feb-19-february-2026-hot-weeks",
+  "external_id": "36026",
+  "title": "[Update Feb 19] February 2026 Hot Weeks!",
+  "original_title": "[Update Feb 19] February 2026 Hot Weeks!",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2026-02-06T16:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T02:46:14.913Z",
+  "last_checked": "2026-07-20T02:46:14.913Z",
+  "summary": "“[Update Feb 19] February 2026 Hot Weeks!” is an official event notice from Global MapleStory Official News on 2026-02-06. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/4p0pfr25/540x304-february-2026-hot-weeks-maplestory.jpg",
+      "alt": "[Update Feb 19] February 2026 Hot Weeks!"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s02j3uyz/1100x225-february-2026-hot-weeks-maplestory.jpg",
+      "alt": "MapleStory February 2026 Hot Week"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/m0yjbktd/mystical-familiar-card-maplestory.png",
+      "alt": "Mystic Familiar Card Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/1f2p5vqw/vip-booster-maplestory.png",
+      "alt": "VIP Booster Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/mmnhzjoz/solid-cube-maplestory.png",
+      "alt": "Solid Cube Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nwcmlit0/spiegelettes-golden-strawberry-farm-one-time-entry-pass-maplestory.png",
+      "alt": "Spiegelette's Golden Strawberry Farm One-Time Entry Pass Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nz5l0pw4/experience-nodestone-maplestory.png",
+      "alt": "Experience Nodestone Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wvubvjdi/luxe-sauna-coupon-maplestory.png",
+      "alt": "Luxe Sauna Coupon Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/blldhk23/special-medal-of-honor-maplestory.png",
+      "alt": "Special Medal of Honor Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/3cwfddu5/legendary-circulator-maplestory.png",
+      "alt": "Legendary Circulator Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pkujhevs/arcane-sacred-symbol-selector-maplestory.png",
+      "alt": "Arcane/Sacred Symbol Selector Coupon Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/bxopelwt/bright-cube-maplestory.png",
+      "alt": "Bright Cube Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/ktkp1xif/beauty-salon-slot-expansion-maplestory.png",
+      "alt": "Beauty Salon Slot Expansion Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/nvlpxs3d/magnificent-growth-potion-maplestory.png",
+      "alt": "Magnificent Growth Potion Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/spgc2420/sol-erda-sol-erda-fragment-selector-maplestory.png",
+      "alt": "Sol Erda/Sol Erda Fragment Selector Coupon Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vslpgnpz/bonus-bright-cube-maplestory.png",
+      "alt": "Bonus Bright Cube Hot Week Rewards MapleStory"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/di5oeiy3/karma-black-rebirth-flame-maplestory.png",
+      "alt": "Karma Black Rebirth Flame Hot Week Rewards MapleStory"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "52efa198d9ec9cc54b5a7b77ed3e2ba79df23f5e3b74d8e1888574da3c3b4fb8",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T02:48:59.053Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "36026",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2026-02-06.",
+          "Official category: events.",
+          "Nexon article ID: 36026."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "[Update Feb 19] February 2026 Hot Weeks!",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-02-09T00:00:00.000Z",
+  "event_end": "2026-02-23T00:00:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

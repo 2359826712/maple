@@ -1,0 +1,73 @@
+{
+  "id": "n-multi-region-official-updates-2025-05-24-2911197",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/2911197",
+  "source_url": "https://msu.io/maplestoryn/news/update/2911197",
+  "external_id": "2911197",
+  "title": "Developer's Note: Ongoing Measures Against Hacks and Macros",
+  "original_title": "Developer's Note: Ongoing Measures Against Hacks and Macros",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "developer-note",
+  "subcategory": "security-notice",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-05-24T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:40:25.315Z",
+  "last_checked": "2026-07-20T06:40:25.315Z",
+  "summary": "“Developer's Note: Ongoing Measures Against Hacks and Macros” is an official developer note from MapleStory N Official Updates on 2025-05-24. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "developer-note",
+    "security-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250523/46b731b6-37c7-46d1-aab1-992ff1d54e60/DevelopersNote.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "5a67e63badaaef0a4fc744847fcea1bb5762e04063ca0b523cff5db2d682db7f",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:40:40.905Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-05-24.",
+          "Official classification: security notice.",
+          "Nexon thread ID: 2911197."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

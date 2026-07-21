@@ -1,0 +1,126 @@
+{
+  "id": "maplestory-europe-gms-official-news-2025-05-13-26797",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/26797/victoria-boat-racing",
+  "source_url": "https://www.nexon.com/maplestory/news/events/26797/victoria-boat-racing",
+  "external_id": "26797",
+  "title": "Victoria Boat Racing",
+  "original_title": "Victoria Boat Racing",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2025-05-13T17:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T11:00:25.641Z",
+  "last_checked": "2026-07-20T11:00:25.641Z",
+  "summary": "“Victoria Boat Racing” is an official event notice from Global MapleStory Official News on 2025-05-13. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "event",
+    "events"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/15cjnbya/540x304-victoria-boat-racing-maplestory.jpg",
+      "alt": "Victoria Boat Racing"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/5tpbimet/1100x225-victoria-boat-racing-maplestory.jpg",
+      "alt": "MapleStory Victoria Boat Racing"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/hosn05qv/image.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/jkaptp5r/maplestorya_apo2dz85xy.gif",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/4adkdjfu/pink-bean-helmet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/qqrmjag0/yeti.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/wwvnnzj4/orange-mushroom-helmet.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/zmohuvy3/stand1_3.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vl1ldxml/stand1_0.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/fd2b2vvv/maplestorya_o57u5pzvuk.gif",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "aa802a2c494bc17164e8358319768da5261997a06c67f16f277f5df63f4c3b4a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": "official-body-text",
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T11:07:16.672Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "26797",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2025-05-13.",
+          "Official category: events.",
+          "Nexon article ID: 26797."
+        ]
+      }
+    ]
+  },
+  "notes": null,
+  "event_name": "Victoria Boat Racing",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2025-05-14T00:00:00.000Z",
+  "event_end": "2025-05-27T23:59:00.000Z",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "UTC",
+  "eligibility": [],
+  "requirements": [],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": [],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "unknown"
+}

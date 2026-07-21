@@ -1,0 +1,78 @@
+{
+  "id": "n-multi-region-official-documentation-announcements-2026-01-29-3361047",
+  "source_id": "n-official-documentation-announcements",
+  "canonical_url": "https://msu.io/maplestoryn/news/notices/3361047",
+  "source_url": "https://msu.io/maplestoryn/news/notices/3361047",
+  "external_id": "3361047",
+  "title": "[UPDATED on February 23, 2026] Known Issues Following the January 28 Patch",
+  "original_title": "[UPDATED on February 23, 2026] Known Issues Following the January 28 Patch",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "announcement",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2026-01-29T00:30:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T09:07:43.222Z",
+  "last_checked": "2026-07-20T09:07:43.222Z",
+  "summary": "“[UPDATED on February 23, 2026] Known Issues Following the January 28 Patch” is an official news item from MapleStory N Official Notices on 2026-01-29. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "announcement",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20241120/595a1041-5449-4be9-a4ac-9c47dea827f9/MSUKnownIssue%EB%9D%A0%EB%B0%B0%EB%84%88.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260223/67d0e2cd-e3f2-4d6f-8b4f-0b50ed3b67c4/image202602231828401.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1f3f17cac0ccf583c6637e44f1cdeb992fa2827073b441f48ea97fc713fdd2ec",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-notices",
+    "api_record": true,
+    "board_id": "5288",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_open_ended": false,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T09:08:20.845Z",
+    "headline_id": "5041",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2026-01-29.",
+          "Official classification: announcement.",
+          "Nexon thread ID: 3361047."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

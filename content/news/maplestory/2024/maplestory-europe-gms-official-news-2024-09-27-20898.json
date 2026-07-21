@@ -1,0 +1,87 @@
+{
+  "id": "maplestory-europe-gms-official-news-2024-09-27-20898",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/community/20898/what-s-your-maplestory-aelika",
+  "source_url": "https://www.nexon.com/maplestory/news/community/20898/what-s-your-maplestory-aelika",
+  "external_id": "20898",
+  "title": "What's Your MapleStory? -  Aelika",
+  "original_title": "What's Your MapleStory? -  Aelika",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "community",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2024-09-27T14:40:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“What's Your MapleStory? -  Aelika” is an official news item from Global MapleStory Official News on 2024-09-27. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "community",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/j4blwolp/190307_post_540x304_what_is_yourmaplestory.jpg",
+      "alt": "What's Your MapleStory? -  Aelika"
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/aysfxkjj/wyms-1100x225-1100x225-maplestory.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/pjanckeg/aelika.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/s0mhdrvq/top3.png",
+      "alt": null
+    },
+    {
+      "url": "https://g.nexonstatic.com/media/vmxnwss0/chairs.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "abcdee3a080758982e27e78643e9732b1ea2c2a3939c8e50ed865a3459a12923",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:19:18.020Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "20898",
+    "source_category": "community",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2024-09-27.",
+          "Official category: community.",
+          "Nexon article ID: 20898."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

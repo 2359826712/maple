@@ -1,0 +1,83 @@
+{
+  "id": "maplestory-europe-gms-official-news-2023-10-17-5303",
+  "source_id": "maplestory-gms-official-news",
+  "canonical_url": "https://www.nexon.com/maplestory/news/events/5303/update-oct-26-world-s-best-punch-king-winners",
+  "source_url": "https://www.nexon.com/maplestory/news/events/5303/update-oct-26-world-s-best-punch-king-winners",
+  "external_id": "5303",
+  "title": "[Update Oct 26] World's Best Punch King Winners",
+  "original_title": "[Update Oct 26] World's Best Punch King Winners",
+  "series": "maplestory",
+  "regions": [
+    "europe",
+    "north-america"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "events",
+  "official": true,
+  "author": "Global MapleStory",
+  "published_at": "2023-10-17T17:10:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-21T02:16:54.787Z",
+  "last_checked": "2026-07-21T02:16:54.787Z",
+  "summary": "“[Update Oct 26] World's Best Punch King Winners” is an official news item from Global MapleStory Official News on 2023-10-17. Its canonical Nexon article and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "events",
+    "news"
+  ],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/ylgfojtg/news-thumb-540x304-maplestory-worlds-best-punch-king-winners.webp",
+      "alt": "[Update Oct 26] World's Best Punch King Winners"
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1232/inpost-1100x225-maplestory-worlds-best-punch-king-winners.jpg",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1055/1st.png",
+      "alt": null
+    },
+    {
+      "url": "https://nxcache.nexon.net/cms/2023/q4/1056/effect.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "d1f4dddac447957fe677085a6e50cda3b1d982d96f62d5a2976f1180944b2a55",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "gms-official-news",
+    "api_record": true,
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-21T02:30:40.581Z",
+    "original_timezone": "UTC",
+    "parser_warnings": [],
+    "source_external_id": "5303",
+    "source_category": "events",
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by Global MapleStory on 2023-10-17.",
+          "Official category: events.",
+          "Nexon article ID: 5303."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

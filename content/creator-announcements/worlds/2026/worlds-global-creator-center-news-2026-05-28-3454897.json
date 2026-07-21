@@ -1,0 +1,76 @@
+{
+  "id": "worlds-global-creator-center-news-2026-05-28-3454897",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3454897",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3454897",
+  "external_id": "3454897",
+  "title": "FAQ",
+  "original_title": "FAQ",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "creator-announcement",
+  "subcategory": "creator-notice",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-05-28T02:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "“FAQ” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-05-28. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "creator-announcement",
+    "creator-notice"
+  ],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260528/c81432f8-8649-4989-baf3-56fec32d1288/MSWGenericPostBanners740x120creatorsFAQ.png",
+      "alt": "FAQ"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260527/23642692-5db1-4b1c-ad48-c3518e002d07/image202605271602291.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260527/319570ca-cc25-4db9-ac43-d150100d994a/image202605271602292.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "687702358459afded5a95ea9e01ac26cfd009b467301c1f13c0bb41738e105ef",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:04:07.158Z",
+    "headline_id": "5287",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by MSW_Creators on 2026-05-28.",
+          "Official classification: creator notice.",
+          "Nexon thread ID: 3454897."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

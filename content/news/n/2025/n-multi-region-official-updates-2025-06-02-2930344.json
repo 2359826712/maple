@@ -1,0 +1,68 @@
+{
+  "id": "n-multi-region-official-updates-2025-06-02-2930344",
+  "source_id": "n-official-updates",
+  "canonical_url": "https://msu.io/maplestoryn/news/update/2930344",
+  "source_url": "https://msu.io/maplestoryn/news/update/2930344",
+  "external_id": "2930344",
+  "title": "[RESOLVED] \"Invalid Character\" Issue During Character Selection",
+  "original_title": "[RESOLVED] \"Invalid Character\" Issue During Character Selection",
+  "series": "n",
+  "regions": [
+    "multi-region"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": "known-issues",
+  "official": true,
+  "author": "msnadmin",
+  "published_at": "2025-06-02T09:26:57.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T06:40:25.315Z",
+  "last_checked": "2026-07-20T06:40:25.315Z",
+  "summary": "“[RESOLVED] \"Invalid Character\" Issue During Character Selection” is an official news item from MapleStory N Official Updates on 2025-06-02. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [
+    "known-issues",
+    "news"
+  ],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1974e9af6e53d69df01fa60365273ac39122f18f9f56c78052a546cc32a605cf",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "maplestory-n-official-updates",
+    "api_record": true,
+    "board_id": "5290",
+    "body_extractable": true,
+    "event_date_evidence": null,
+    "event_occurrence_key": null,
+    "fetched_at": "2026-07-20T06:40:31.863Z",
+    "headline_id": "0",
+    "official_category": null,
+    "official_tags": [],
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {
+        "title": "Official publication record",
+        "items": [
+          "Published by msnadmin on 2025-06-02.",
+          "Official classification: known issues.",
+          "Nexon thread ID: 2930344."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}
