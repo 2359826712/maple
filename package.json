@@ -36,6 +36,7 @@
     "publish:content": "node scripts/content-publisher.mjs",
     "plan:translations": "node scripts/translation-plan.mjs",
     "enqueue:translations": "node scripts/translation-enqueue.mjs",
+    "translation:worker": "node scripts/translation-worker.mjs",
     "update:event-status": "node scripts/update-event-status.mjs",
     "generate:site-data": "node scripts/generate-site-data.mjs",
     "db:migrate": "node scripts/migrate-supabase.mjs",
