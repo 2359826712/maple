@@ -17,6 +17,7 @@ import {
 
 const policy = {
   schema_version: 1,
+  policy_version: '1',
   targets: ['zh', 'zh-Hant', 'ja', 'ko'],
   locale_aliases: { 'zh-CN': 'zh', 'zh-TW': 'zh-Hant' },
   modules: {
@@ -87,6 +88,8 @@ describe('translation policy planning', () => {
     });
 
     expect(plan.summary.jobs).toBe(2);
+    expect(plan.policy_version).toBe('1');
+    expect(plan.jobs.every((job) => job.policy_version === '1')).toBe(true);
     expect(plan.jobs.every((job) => job.target_language === 'zh')).toBe(true);
     expect(plan.jobs.find((job) => job.slug === 'example').fields).toEqual(['title', 'summary']);
     expect(plan.jobs.find((job) => job.slug === 'shop-example').fields).toEqual(['title']);
@@ -94,6 +97,8 @@ describe('translation policy planning', () => {
   });
 
   it('rejects body_html policy, unknown modules, and missing revisions', () => {
+    expect(validateTranslationPolicy({ ...policy, policy_version: 'v1' }))
+      .toContain('policy_version must be a positive integer string');
     expect(validateTranslationPolicy({
       ...policy,
       modules: { ...policy.modules, news: { fields: ['title', 'body_html'] } },

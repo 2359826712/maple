@@ -9,6 +9,9 @@ export function validateTranslationPolicy(policy) {
   const errors = [];
   if (!policy || typeof policy !== 'object' || Array.isArray(policy)) return ['policy must be an object'];
   if (policy.schema_version !== 1) errors.push('unsupported policy schema version');
+  if (typeof policy.policy_version !== 'string' || !/^[1-9][0-9]*$/.test(policy.policy_version)) {
+    errors.push('policy_version must be a positive integer string');
+  }
   if (!Array.isArray(policy.targets) || policy.targets.length === 0) {
     errors.push('targets must be a non-empty array');
   } else {
@@ -87,6 +90,7 @@ export function buildTranslationPlan({ projections, policy, targetLocales, modul
     for (const targetLanguage of targets) {
       if (targetLanguage === projection.source_language) continue;
       jobs.push({
+        policy_version: policy.policy_version,
         entity_type: 'series_content',
         series_id: projection.series_id,
         module: projection.module,
@@ -110,6 +114,7 @@ export function buildTranslationPlan({ projections, policy, targetLocales, modul
   }
 
   return {
+    policy_version: policy.policy_version,
     summary: {
       content_available: available.length,
       content_selected: selected.length,

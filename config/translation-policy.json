@@ -1,5 +1,6 @@
 {
   "schema_version": 1,
+  "policy_version": "1",
   "targets": ["zh", "zh-Hant", "ja", "ko"],
   "locale_aliases": {
     "zh-CN": "zh",

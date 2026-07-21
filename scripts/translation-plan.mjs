@@ -54,7 +54,11 @@ async function main() {
     dry_run: true,
     database_writes: 0,
     release: snapshot.release,
-    policy: { path: policyPath, targets: targets.length ? targets : policy.targets },
+    policy: {
+      path: policyPath,
+      version: policy.policy_version,
+      targets: targets.length ? targets : policy.targets,
+    },
     ...plan,
   };
 
@@ -65,6 +69,7 @@ async function main() {
   console.log('Translation plan dry-run');
   console.log(`Release: ${snapshot.release.release_id}`);
   console.log(`Manifest: ${snapshot.release.manifest_hash}`);
+  console.log(`Policy version: ${plan.policy_version}`);
   console.log(`Content available: ${plan.summary.content_available}`);
   console.log(`Content selected: ${plan.summary.content_selected}`);
   console.log(`Would create: ${plan.summary.jobs}`);

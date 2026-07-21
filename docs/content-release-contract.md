@@ -33,6 +33,8 @@ Public aliases are normalized at the boundary: `zh-CN` becomes `zh`, and `zh-TW`
 
 Phase 1D permits only `title` and `summary`. `body_html` is intentionally rejected. Every candidate must have a `source_revision`; translation validity will later use `content_id + locale + source_revision`.
 
+The policy has an explicit `policy_version`. Every planned candidate records that version, so a later field-policy change cannot silently reinterpret an older plan.
+
 Generate the first read-only pilot plan with:
 
 ```powershell
