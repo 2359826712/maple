@@ -1,6 +1,11 @@
 {
   "schema_version": 1,
-  "policy_version": "1",
+  "policy_version": "2",
+  "resolution_order": ["exact", "glossary", "memory", "template", "provider"],
+  "provider_fallback": {
+    "enabled": false,
+    "reason": "Phase 2D requires deterministic localization resolution before any provider call."
+  },
   "targets": ["zh", "zh-Hant", "ja", "ko"],
   "locale_aliases": {
     "zh-CN": "zh",

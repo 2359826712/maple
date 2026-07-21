@@ -79,6 +79,8 @@ try {
       to_regclass('public.content_releases') is not null as content_releases,
       to_regclass('public.translation_jobs') is not null as translation_jobs,
       to_regclass('public.translation_provider_evaluations') is not null as provider_evaluations,
+      to_regclass('public.localization_memory') is not null as localization_memory,
+      to_regclass('public.localization_resolutions') is not null as localization_resolutions,
       (select count(*)::int from public.content_series) as series_count,
       (select count(*)::int from public.series_editions) as edition_count
   `)
@@ -94,6 +96,8 @@ try {
     'content_releases',
     'translation_jobs',
     'provider_evaluations',
+    'localization_memory',
+    'localization_resolutions',
   ]
   if (requiredTables.some((table) => !schema[table])) {
     throw new Error('Supabase series schema verification failed')

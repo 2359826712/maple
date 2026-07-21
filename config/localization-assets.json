@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "asset_version": "1",
+  "glossary": [
+    {
+      "id": "maplestory-official-name",
+      "source": "MapleStory",
+      "source_language": "en",
+      "memory_type": "official",
+      "localizations": {
+        "zh": "冒险岛",
+        "ja": "メイプルストーリー",
+        "ko": "메이플스토리"
+      }
+    },
+    {
+      "id": "nexon-brand-name",
+      "source": "Nexon",
+      "source_language": "en",
+      "memory_type": "official",
+      "localizations": {
+        "zh": "Nexon",
+        "ja": "Nexon",
+        "ko": "Nexon"
+      }
+    },
+    {
+      "id": "cash-shop",
+      "source": "Cash Shop",
+      "source_language": "en",
+      "memory_type": "glossary",
+      "localizations": {
+        "zh": "商城"
+      }
+    },
+    {
+      "id": "mesos",
+      "source": "Mesos",
+      "source_language": "en",
+      "memory_type": "glossary",
+      "localizations": {
+        "zh": "金币"
+      }
+    },
+    {
+      "id": "maintenance-notice",
+      "source": "Maintenance Notice",
+      "source_language": "en",
+      "memory_type": "glossary",
+      "localizations": {
+        "zh": "维护公告"
+      }
+    }
+  ],
+  "exact": [
+    {
+      "id": "worlds-creator-circle-applications-open-2024",
+      "source": "[Applications Open] Creator Circle Information [Updated Nov 18]",
+      "source_language": "en",
+      "target_language": "zh",
+      "localized": "[开放申请] Creator Circle 信息 [11月18日更新]",
+      "memory_type": "manual",
+      "review_status": "approved"
+    },
+    {
+      "id": "worlds-maplejam-2024",
+      "source": "MapleJam '24",
+      "source_language": "en",
+      "target_language": "zh",
+      "localized": "MapleJam '24",
+      "memory_type": "manual",
+      "review_status": "approved"
+    },
+    {
+      "id": "worlds-creator-cashout-feature",
+      "source": "Creator Cashout Feature",
+      "source_language": "en",
+      "target_language": "zh",
+      "localized": "创作者提现功能",
+      "memory_type": "manual",
+      "review_status": "approved"
+    },
+    {
+      "id": "worlds-creator-income-information",
+      "source": "Creator Income Information",
+      "source_language": "en",
+      "target_language": "zh",
+      "localized": "创作者收入信息",
+      "memory_type": "manual",
+      "review_status": "approved"
+    },
+    {
+      "id": "worlds-creators-workshop-applications-closed",
+      "source": "Applications Closed - Creators Workshop [Updated Jan 3]",
+      "source_language": "en",
+      "target_language": "zh",
+      "localized": "申请已截止——创作者工作坊 [1月3日更新]",
+      "memory_type": "manual",
+      "review_status": "approved"
+    }
+  ],
+  "templates": [
+    {
+      "id": "worlds-creator-announcement-summary-v1",
+      "source_language": "en",
+      "target_language": "zh",
+      "source_pattern": "^“(?<title>.+)” is an official creator announcement from MapleStory Worlds Creator Center News on (?<date>[0-9]{4}-[0-9]{2}-[0-9]{2})\\. Its canonical Nexon thread and publication metadata are retained for source-backed verification\\.$",
+      "localized_template": "“{{title}}”是 MapleStory Worlds 创作者中心于 {{date}} 发布的官方创作者公告。保留了 Nexon 官方主题帖及发布元数据，供来源核验。",
+      "variables": {
+        "title": "localize",
+        "date": "preserve"
+      },
+      "review_status": "approved"
+    }
+  ]
+}

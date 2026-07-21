@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { publisherLocales } from './publisher.mjs';
 
 export const translatableFields = ['title', 'summary'];
+const localizationResolutionTypes = ['exact', 'glossary', 'memory', 'template', 'provider'];
 
 const canonicalLocales = new Set(publisherLocales);
 
@@ -40,6 +41,15 @@ export function validateTranslationPolicy(policy) {
       for (const field of fields) {
         if (!translatableFields.includes(field)) errors.push(`module ${module} cannot translate field ${JSON.stringify(field)}`);
       }
+    }
+  }
+  if (policy.resolution_order !== undefined) {
+    if (!Array.isArray(policy.resolution_order)
+        || JSON.stringify(policy.resolution_order) !== JSON.stringify(localizationResolutionTypes)) {
+      errors.push(`resolution_order must be ${localizationResolutionTypes.join(' -> ')}`);
+    }
+    if (typeof policy.provider_fallback?.enabled !== 'boolean') {
+      errors.push('provider_fallback.enabled must be boolean');
     }
   }
   return errors;

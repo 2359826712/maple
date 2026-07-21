@@ -1,5 +1,8 @@
 # Translation Provider Evaluation
 
+> Phase 2D now prioritizes the Localization Foundation. Provider evaluation remains
+> available as an optional fallback experiment and is not the primary execution path.
+
 Phase 2D compares providers without changing `translation_jobs` or the authoritative
 `series_content_translations` display rows. Candidate output is stored only in the
 private `translation_provider_evaluations` table; the public API never reads it.
