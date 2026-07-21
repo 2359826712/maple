@@ -9,7 +9,7 @@ describe('translation worker MVP', () => {
       expect(JSON.parse(request.body)).toEqual({
         q: ['Summer Event', 'Join the event.'],
         source: 'en',
-        target: 'zh',
+        target: 'zh-Hans',
         format: 'text',
       });
       return new Response(JSON.stringify({ translatedText: ['夏季活动', '参加活动。'] }), {

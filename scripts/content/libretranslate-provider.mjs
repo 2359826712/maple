@@ -1,7 +1,6 @@
 const languageCodes = {
   en: 'en',
-  zh: 'zh',
-  'zh-Hant': 'zh',
+  zh: 'zh-Hans',
   ja: 'ja',
   ko: 'ko',
 };

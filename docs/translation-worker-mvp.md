@@ -2,6 +2,8 @@
 
 Phase 2B processes one explicitly bounded batch and exits. It is not a daemon or Railway cron service.
 
+The current LibreTranslate image advertises `en`, `zh-Hans`, `ja`, and `ko`. This pilot maps database locale `zh` to provider locale `zh-Hans`; `zh-Hant` remains unsupported until a provider with Traditional Chinese output is configured.
+
 ```text
 claim up to 5 jobs
         |
