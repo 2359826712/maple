@@ -75,7 +75,7 @@ describe('SchemaOrgRoute', () => {
     expect(schemas().find((schema) => schema['@type'] === 'BreadcrumbList')).toEqual(expect.objectContaining({
       '@type': 'BreadcrumbList',
       itemListElement: [
-        expect.objectContaining({ position: 1, item: 'https://mpstorys.com/en/GMS' }),
+        expect.objectContaining({ position: 1, item: 'https://mpstorys.com/' }),
         expect.objectContaining({ position: 2, item: 'https://mpstorys.com/guides/en/GMS' }),
         expect.objectContaining({ position: 3, item: 'https://mpstorys.com/guides/level/en/GMS' }),
       ],

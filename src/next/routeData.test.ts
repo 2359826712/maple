@@ -27,7 +27,7 @@ vi.mock('@/services/upcomingUpdates', () => ({
 }));
 vi.mock('@/services/serverDom', () => ({ ensureServerDom: vi.fn() }));
 
-import { fetchLiveNews, type NewsItem } from '@/services/liveContent';
+import { fetchLiveEvents, fetchLiveGuides, fetchLiveNews, type NewsItem } from '@/services/liveContent';
 import { createRoutePageProps, getLocalizedRedirect } from './routeData';
 
 const newsItem: NewsItem = {
@@ -49,6 +49,10 @@ describe('Next route data', () => {
   beforeEach(() => {
     vi.mocked(fetchLiveNews).mockReset();
     vi.mocked(fetchLiveNews).mockResolvedValue({ items: [newsItem], replace: true });
+    vi.mocked(fetchLiveEvents).mockReset();
+    vi.mocked(fetchLiveEvents).mockResolvedValue({ items: [], replace: true });
+    vi.mocked(fetchLiveGuides).mockReset();
+    vi.mocked(fetchLiveGuides).mockResolvedValue({ items: [], replace: true });
   });
 
   it('includes official news in the server props for the news route', async () => {
@@ -68,6 +72,15 @@ describe('Next route data', () => {
   it('preserves series scope while redirecting to a localized route', () => {
     expect(getLocalizedRedirect('/content/news/example?series=maplestory-classic'))
       .toBe('/content/news/example/en/GMS?series=maplestory-classic');
+  });
+
+  it('serves the default homepage at the bare domain and retires the legacy suffix', async () => {
+    expect(getLocalizedRedirect('/')).toBeNull();
+    expect(getLocalizedRedirect('/?series=maplestory-pc')).toBeNull();
+    expect(getLocalizedRedirect('/en/GMS')).toBe('/');
+
+    const props = await createRoutePageProps('/');
+    expect(props).toEqual(expect.objectContaining({ language: 'en', pathname: '/', server: 'gms' }));
   });
 
   it('redirects unsupported series ranking routes to series news', () => {

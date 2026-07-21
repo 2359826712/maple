@@ -108,11 +108,12 @@ describe('search and social metadata', () => {
     expect(routePage).toContain('<NextApplication {...props} initialRouteElement={initialRouteElement} />');
   });
 
-  it('redirects the bare root to the canonical localized homepage', () => {
+  it('serves the bare root as the canonical default homepage', () => {
     const routeData = read('src/next/routeData.ts');
     const serverRoute = read('src/next/serverRoute.ts');
 
-    expect(routeData).toContain("withRouteSuffixes(stripRouteSuffixes(normalized), language || 'en', server || 'gms')");
+    expect(routeData).toContain("const isDefaultHomepage = normalized === '/'");
+    expect(routeData).toContain('return localizedUrl === requestPath ? null : localizedUrl');
     expect(serverRoute).toContain('permanent: true');
   });
 

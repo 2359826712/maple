@@ -37,7 +37,11 @@ const localizedPath = (route, language) => {
   return `${baseRoute}/${catalog.languages[language].segment}` || '/';
 };
 
-const localizedServerPath = (route, language, server) => `${localizedPath(route, language)}/${server}`;
+const localizedServerPath = (route, language, server) => (
+  route === '/' && language === 'en' && server === 'GMS'
+    ? '/'
+    : `${localizedPath(route, language)}/${server}`
+);
 
 const absoluteUrl = (pathname) => `${siteUrl}${pathname}`;
 

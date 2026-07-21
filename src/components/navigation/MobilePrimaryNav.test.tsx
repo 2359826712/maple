@@ -23,8 +23,8 @@ describe('MobilePrimaryNav', () => {
     renderNav('/');
 
     expect(screen.getAllByRole('link')).toHaveLength(5);
-    expect(screen.getByRole('link', { name: 'dashboard_title' }).getAttribute('href')).toBe('/en/GMS');
-    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'dashboard_title' }).getAttribute('href')).toBe('/');
+    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/');
     expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS');
     expect(screen.getByRole('link', { name: 'nav_search_button' }).getAttribute('href')).toBe('/search/en/GMS');
     expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS');
@@ -40,7 +40,7 @@ describe('MobilePrimaryNav', () => {
   it('keeps mobile destinations inside the active series', () => {
     renderNav('/news/en/GMS?series=maplestory-m');
 
-    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/en/GMS');
+    expect(screen.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/');
     expect(screen.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist/en/GMS?series=maplestory-m');
     expect(screen.getByRole('link', { name: 'nav_tools' }).getAttribute('href')).toBe('/mapler-house/en/GMS?series=maplestory-m');
   });

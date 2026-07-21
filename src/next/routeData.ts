@@ -110,9 +110,10 @@ export const getLocalizedRedirect = (pathname: string) => {
     const destination = withRouteSuffixes('/news', language || 'en', server || 'gms');
     return `${destination}${requestUrl.search}${requestUrl.hash}`;
   }
-  if (language && server) return null;
   const destination = withRouteSuffixes(stripRouteSuffixes(normalized), language || 'en', server || 'gms');
-  return `${destination}${requestUrl.search}${requestUrl.hash}`;
+  const localizedUrl = `${destination}${requestUrl.search}${requestUrl.hash}`;
+  const requestPath = `${normalized}${requestUrl.search}${requestUrl.hash}`;
+  return localizedUrl === requestPath ? null : localizedUrl;
 };
 
 const jsonValue = <T,>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
@@ -257,8 +258,9 @@ const fallbackGuideForId = (guideId: string): GuideItem | undefined => {
 export async function createRoutePageProps(requestUrl: string): Promise<NextRoutePageProps | null> {
   ensureServerDom();
   const normalized = normalizeRequestPath(requestUrl);
-  const language = getPathLanguage(normalized);
-  const server = getPathServer(normalized);
+  const isDefaultHomepage = normalized === '/';
+  const language = getPathLanguage(normalized) || (isDefaultHomepage ? 'en' : null);
+  const server = getPathServer(normalized) || (isDefaultHomepage ? 'gms' : null);
   if (!language || !server || !isKnownApplicationPath(normalized)) return null;
 
   const routePath = stripRouteSuffixes(normalized);

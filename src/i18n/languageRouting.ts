@@ -90,8 +90,11 @@ export const withServerSuffix = (pathname: string, server: string) => {
   return `${localizedPath}/${serverSuffix}`.replace(/^\/\//, '/');
 };
 
-export const withRouteSuffixes = (pathname: string, language: string, server: string) =>
-  withServerSuffix(withLanguageSuffix(pathname, language), server);
+export const withRouteSuffixes = (pathname: string, language: string, server: string) => {
+  const route = stripRouteSuffixes(pathname);
+  if (route === '/' && normalizeLanguage(language) === 'en' && normalizeServer(server) === 'gms') return '/';
+  return withServerSuffix(withLanguageSuffix(route, language), server);
+};
 
 export const localizeHref = (href: string, language: string, server?: string) => {
   if (!href.startsWith('/') || href.startsWith('//')) return href;
