@@ -45,7 +45,8 @@ async function main() {
     const reset = await client.query(`
       update public.translation_jobs
       set status = 'pending', completed_at = null, next_attempt_at = now(),
-          locked_at = null, worker_id = null, last_error = null, updated_at = now()
+          priority = 32767, locked_at = null, worker_id = null,
+          last_error = null, updated_at = now()
       where id = any($1::uuid[])
       returning id
     `, [ids]);

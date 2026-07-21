@@ -97,4 +97,12 @@ describe('translation quality layer', () => {
     expect(migration).toContain('Public can read content translations');
     expect(migration).not.toMatch(/drop\s+constraint\s+.*pkey/i);
   });
+
+  it('prioritizes requeued pilot jobs so the worker cannot expand the batch', async () => {
+    const script = await import('node:fs/promises').then(({ readFile }) => (
+      readFile('scripts/translation-quality-requeue.mjs', 'utf8')
+    ));
+    expect(script).toContain('priority = 32767');
+    expect(script).toContain('quality-pilot-five-only');
+  });
 });
