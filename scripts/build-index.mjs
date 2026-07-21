@@ -11,6 +11,7 @@ import { validateResourceSet } from './lib/resource-validation.mjs';
 import { createContentIndexes } from './content/build.mjs';
 import { findContentDuplicates, findSourceDuplicates } from './content/duplicates.mjs';
 import { readContentRecords, readSourceRecords } from './content/data.mjs';
+import { createContentManifest } from './content/manifest.mjs';
 import { validateContentSet, validateSourceSet } from './content/validation.mjs';
 
 export async function buildResourceIndex() {
@@ -43,6 +44,7 @@ export async function buildResourceIndex() {
   indexes.content = contentIndexes.content;
   indexes.sources = contentIndexes.sources;
   indexes['content-statistics'] = contentIndexes['content-statistics'];
+  indexes['content-manifest'] = createContentManifest(contentRecords, sourceRecords);
   indexes.search = [...indexes.search, ...contentIndexes.search]
     .sort((left, right) => left.id.localeCompare(right.id));
   for (const [name, value] of Object.entries(indexes)) {

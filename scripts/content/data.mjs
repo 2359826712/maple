@@ -1,4 +1,5 @@
 import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { repositoryRoot, compareStrings } from '../lib/resource-index.mjs';
 
@@ -58,11 +59,15 @@ async function walkJsonFiles(directory) {
 
 async function readRecords(directory) {
   const files = await walkJsonFiles(directory);
-  return Promise.all(files.map(async (filePath) => ({
-    data: JSON.parse(await readFile(filePath, 'utf8')),
-    filePath,
-    relativePath: path.relative(repositoryRoot, filePath).replaceAll(path.sep, '/'),
-  })));
+  return Promise.all(files.map(async (filePath) => {
+    const rawText = await readFile(filePath, 'utf8');
+    return {
+      data: JSON.parse(rawText),
+      fileHash: createHash('sha256').update(rawText, 'utf8').digest('hex'),
+      filePath,
+      relativePath: path.relative(repositoryRoot, filePath).replaceAll(path.sep, '/'),
+    };
+  }));
 }
 
 export const readSourceRecords = (directory = sourcesDirectory) => readRecords(directory);

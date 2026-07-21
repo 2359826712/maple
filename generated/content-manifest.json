@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-18T09:45:10.043Z",
+  "file_count": 21,
+  "source_count": 6,
+  "root_sha256": "85ae9ba86314c1529212715d74b2cf0d654d165cc4f64aa7d0d9ab29295b2a0c",
+  "content": [
+    {
+      "path": "content/cash-shop/maplestory/2026/maplestory-europe-gms-official-news-2026-07-14-42333.json",
+      "id": "maplestory-europe-gms-official-news-2026-07-14-42333",
+      "file_sha256": "2d6f6ee756ee04e0124f5234ed657d583930382391cbe626dc371d311f73aaa8"
+    },
+    {
+      "path": "content/creator-announcements/worlds/2026/worlds-global-creator-center-news-2026-07-02-3490485.json",
+      "id": "worlds-global-creator-center-news-2026-07-02-3490485",
+      "file_sha256": "6043d4f0ba178565bf66ccbc871c0a0f95dc0a2c98d993c8fa456689ce0cd2ab"
+    },
+    {
+      "path": "content/creator-announcements/worlds/2026/worlds-global-creator-center-news-2026-07-02-3490487.json",
+      "id": "worlds-global-creator-center-news-2026-07-02-3490487",
+      "file_sha256": "7863f0c532fa08d4c52ab213ee523751d4cd96dd9d9e34aa2ff741c8ed7eed21"
+    },
+    {
+      "path": "content/events/maplestory/2026/maplestory-miracle-summer-2026-event.json",
+      "id": "maplestory-miracle-summer-2026-event",
+      "file_sha256": "5efe3b2d82e4a3c239693ced7bdb5d63c17639b7082954be507c3d829afe6ce2"
+    },
+    {
+      "path": "content/events/worlds/2026/worlds-global-creator-center-news-2026-07-02-3490500.json",
+      "id": "worlds-global-creator-center-news-2026-07-02-3490500",
+      "file_sha256": "b87304f4cad0184ef2cd5c1c590c65edeffa765be5ec93c814f0267c7fa9b521"
+    },
+    {
+      "path": "content/guides/m/2025/maplestory-m-guide-for-new-maplers.json",
+      "id": "maplestory-m-guide-for-new-maplers",
+      "file_sha256": "52df13a2dcd53d62294ada632d5371c22f6b1ee07dcb421f84acf6ad748c3b67"
+    },
+    {
+      "path": "content/guides/n/2026/maplestory-n-beginners-guide.json",
+      "id": "maplestory-n-beginners-guide",
+      "file_sha256": "99e77ef6333ee089e8a3954f69c53293f889061ec0c92cea9d8d1dd294e9c510"
+    },
+    {
+      "path": "content/guides/worlds/2023/welcome-to-maplestory-worlds-creator-guide.json",
+      "id": "welcome-to-maplestory-worlds-creator-guide",
+      "file_sha256": "06ed918efad512956abf030089578b5b29745ab09630ba17a5a071a2af368ae7"
+    },
+    {
+      "path": "content/maintenance/maplestory/2026/maplestory-europe-gms-official-news-2026-07-07-42501.json",
+      "id": "maplestory-europe-gms-official-news-2026-07-07-42501",
+      "file_sha256": "55b8563ae6b9d180dec69f8067707bf5650db8210ce011103e2886fa2a18add9"
+    },
+    {
+      "path": "content/maintenance/maplestory/2026/maplestory-europe-gms-official-news-2026-07-14-42197.json",
+      "id": "maplestory-europe-gms-official-news-2026-07-14-42197",
+      "file_sha256": "50a8586915592ca47f1101dd6129adfc178a604cc6096fbe0e3c71ee55e06267"
+    },
+    {
+      "path": "content/maintenance/n/2026/n-multi-region-official-documentation-announcements-2026-06-24-3481429.json",
+      "id": "n-multi-region-official-documentation-announcements-2026-06-24-3481429",
+      "file_sha256": "c1dcce7b6bae2128068217c69b8fcb301a1b60a7b68049d315afb88d1f4fb381"
+    },
+    {
+      "path": "content/maintenance/n/2026/n-multi-region-official-documentation-announcements-2026-07-01-3489822.json",
+      "id": "n-multi-region-official-documentation-announcements-2026-07-01-3489822",
+      "file_sha256": "a76aeddb4419a3d830f510506cbb7831f63e478f13dbb31139bd9561bd6f8c90"
+    },
+    {
+      "path": "content/maintenance/n/2026/n-multi-region-official-documentation-announcements-2026-07-15-3498012.json",
+      "id": "n-multi-region-official-documentation-announcements-2026-07-15-3498012",
+      "file_sha256": "af80190629f23326b69b460bc099cb3884abacd89c250cecd19b66bc308a4f76"
+    },
+    {
+      "path": "content/maintenance/worlds/2026/worlds-global-creator-center-news-2026-07-01-3489476.json",
+      "id": "worlds-global-creator-center-news-2026-07-01-3489476",
+      "file_sha256": "f25367c8a91e12aedb576aa4b513579d7735f0a282b3b0926542557c7ad20e69"
+    },
+    {
+      "path": "content/maintenance/worlds/2026/worlds-global-creator-center-news-2026-07-02-3491322.json",
+      "id": "worlds-global-creator-center-news-2026-07-02-3491322",
+      "file_sha256": "0696e4a2ca02a9d1b08d21c22f6736935cf1733ce5661ab161f7c083a4a7a1a0"
+    },
+    {
+      "path": "content/news/classic/2026/classic-world-closed-online-test-2-registration.json",
+      "id": "classic-world-closed-online-test-2-registration",
+      "file_sha256": "221fc910d3c91cb3d96b630ec42c08af58f301fdf009834d91402d160fbc32f8"
+    },
+    {
+      "path": "content/news/maplestory/2026/maplestory-europe-gms-official-news-2026-07-15-42359.json",
+      "id": "maplestory-europe-gms-official-news-2026-07-15-42359",
+      "file_sha256": "d7e0f845345ccc576868d9c1d46e1485d6041aa2df975f1db05a21838c879f66"
+    },
+    {
+      "path": "content/news/maplestory/2026/maplestory-europe-gms-official-news-2026-07-16-42797.json",
+      "id": "maplestory-europe-gms-official-news-2026-07-16-42797",
+      "file_sha256": "788274fc7a2600845016775f06b718d79f7a3feaf4557e964ef33add802b4284"
+    },
+    {
+      "path": "content/news/n/2026/n-multi-region-official-documentation-announcements-2026-07-16-3500515.json",
+      "id": "n-multi-region-official-documentation-announcements-2026-07-16-3500515",
+      "file_sha256": "06b01c42ff0f94d90def33253c958081ef809d72bafef89c3f8acb3e948ae1b7"
+    },
+    {
+      "path": "content/patch-notes/idle/2026/maplestory-idle-june-11-2026-patch-notes.json",
+      "id": "maplestory-idle-june-11-2026-patch-notes",
+      "file_sha256": "44e7e58b31e74a4f6d36072056b8ceccd3d2d9f51ec290a92bcd27bd513c4b7e"
+    },
+    {
+      "path": "content/patch-notes/n/2026/n-multi-region-official-documentation-announcements-2026-07-02-3491333.json",
+      "id": "n-multi-region-official-documentation-announcements-2026-07-02-3491333",
+      "file_sha256": "4dd0739df0f4a936e9b8d09f2df96e612166e22b8dd1f432d947625e2ab99453"
+    }
+  ],
+  "sources": [
+    {
+      "path": "sources/classic/classic-gms-official-news.json",
+      "id": "classic-gms-official-news",
+      "file_sha256": "1a545d26601c1f2361788f283fa105dd78c8681a5d2bd87e2b925f65253cd63b"
+    },
+    {
+      "path": "sources/idle/idle-nexon-official-patch-notes.json",
+      "id": "idle-nexon-official-patch-notes",
+      "file_sha256": "2ef7458a931eb6b1f4c0958906c3bc632f3d860603dab9cb01a636852a337d53"
+    },
+    {
+      "path": "sources/m/m-nexon-official-news.json",
+      "id": "m-nexon-official-news",
+      "file_sha256": "2dcd3436659e33692f2dc7f89ab25960807f1811e3199ae95294892220bde3a3"
+    },
+    {
+      "path": "sources/maplestory/maplestory-gms-official-news.json",
+      "id": "maplestory-gms-official-news",
+      "file_sha256": "71d2056211d8815da1ddc232a9d0cb292e23f4367def35818f646374b2cc5b35"
+    },
+    {
+      "path": "sources/n/n-official-documentation-announcements.json",
+      "id": "n-official-documentation-announcements",
+      "file_sha256": "4507e27c77535b8f79ed775e0a0cc39abd1aba6569694f03d83c0ad5268a3b22"
+    },
+    {
+      "path": "sources/worlds/worlds-creator-center-news.json",
+      "id": "worlds-creator-center-news",
+      "file_sha256": "df9ca1e4f8ed6cce78b1f4d0b67265cf4599b60c89c0f4f154571ea966c6701c"
+    }
+  ]
+}

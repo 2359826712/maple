@@ -32,6 +32,7 @@
     "crawl:guides": "node scripts/crawl.mjs --type=guide",
     "crawl:patch-notes": "node scripts/crawl.mjs --type=patch-note",
     "crawl:source": "node scripts/crawl.mjs",
+    "publish:content": "node scripts/content-publisher.mjs",
     "update:event-status": "node scripts/update-event-status.mjs",
     "generate:site-data": "node scripts/generate-site-data.mjs",
     "db:migrate": "node scripts/migrate-supabase.mjs",

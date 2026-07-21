@@ -96,10 +96,14 @@ describe('resource index', () => {
 
   it('keeps generated output reproducible from source resources', async () => {
     const expected = createGeneratedIndexes(await readResourceRecords());
-    const contentIndexes = createContentIndexes(await readContentRecords(), await readSourceRecords());
+    const contentRecords = await readContentRecords();
+    const sourceRecords = await readSourceRecords();
+    const contentIndexes = createContentIndexes(contentRecords, sourceRecords);
     expected.content = contentIndexes.content;
     expected.sources = contentIndexes.sources;
     expected['content-statistics'] = contentIndexes['content-statistics'];
+    const { createContentManifest } = await import('./content/manifest.mjs');
+    expected['content-manifest'] = createContentManifest(contentRecords, sourceRecords);
     expected.search = [...expected.search, ...contentIndexes.search].sort((left, right) => left.id.localeCompare(right.id));
     for (const [name, value] of Object.entries(expected)) {
       const generated = JSON.parse(await readFile(path.join(generatedDirectory, `${name}.json`), 'utf8'));
