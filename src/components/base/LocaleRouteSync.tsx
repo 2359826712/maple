@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ensureLanguageResources } from '@/i18n';
 import {
   getPathLanguage,
   getPathServer,
@@ -41,7 +40,7 @@ export default function LocaleRouteSync() {
     document.documentElement.dataset.server = pathServer;
 
     if (normalizeLanguage(i18n.resolvedLanguage || i18n.language) !== pathLanguage) {
-      void ensureLanguageResources(pathLanguage, i18n).then(() => i18n.changeLanguage(pathLanguage));
+      void i18n.changeLanguage(pathLanguage);
     }
   }, [i18n, location.hash, location.pathname, location.search, navigate]);
 

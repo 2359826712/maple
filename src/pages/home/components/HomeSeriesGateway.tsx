@@ -30,6 +30,14 @@ const contentPaths = [
   { href: '/events', icon: 'ri-calendar-event-line', titleKey: 'nav_events', descriptionKey: 'events_news_fallback_desc' },
 ] as const;
 
+const trackLandingConversion = (action: string, destination: string) => {
+  if (typeof window === 'undefined') return;
+  window.gtag?.('event', 'landing_cta_click', {
+    action,
+    destination,
+  });
+};
+
 export default function HomeSeriesGateway() {
   const { t, i18n } = useTranslation();
   const { version } = useVersion();
@@ -50,48 +58,52 @@ export default function HomeSeriesGateway() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-50" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-500" />
               </span>
-              {t('series_eyebrow')}
+              {t('landing_eyebrow')}
             </div>
 
             <h1 className="mt-6 max-w-4xl font-heading text-5xl font-semibold leading-[0.98] tracking-[-0.04em] text-foreground-950 sm:text-6xl lg:text-7xl">
-              {t('home_series_title')}
+              {t('landing_title_line1')}
               <span className="sr-only"> — </span>
               <span className="mt-2 block bg-gradient-to-r from-primary-600 via-primary-500 to-secondary-600 bg-clip-text text-transparent">
-                {t('series_catalog_title')}
+                {t('landing_title_line2')}
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground-700 sm:text-xl">
-              {t('home_series_desc')}
+              {t('landing_subtitle')}
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#choose-your-series"
+                data-conversion-id="hero-series-selector"
+                onClick={() => trackLandingConversion('hero_series_selector', '#choose-your-series')}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-foreground-950 px-6 text-sm font-bold text-background-50 shadow-lg shadow-foreground-950/15 transition hover:-translate-y-0.5 hover:bg-primary-600"
               >
-                {t('home_series_title')}
+                {t('landing_primary_cta')}
                 <i className="ri-arrow-down-line" aria-hidden="true" />
               </a>
               <Link
                 to={localized('/news')}
+                data-conversion-id="hero-latest-updates"
+                onClick={() => trackLandingConversion('hero_latest_updates', '/news')}
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-background-300 bg-background-50/90 px-6 text-sm font-bold text-foreground-900 shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-primary-300 hover:text-primary-700"
               >
                 <i className="ri-flashlight-line text-primary-600" aria-hidden="true" />
-                {t('series_latest_news')}
+                {t('landing_secondary_cta')}
               </Link>
             </div>
 
             <dl className="mt-10 grid max-w-2xl grid-cols-3 divide-x divide-background-300 border-y border-background-300 py-4">
               <div className="pr-3 sm:pr-6">
-                <dt className="text-[10px] font-bold uppercase tracking-wider text-foreground-500">{t('footer_series')}</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-foreground-500">{t('landing_proof_series')}</dt>
                 <dd className="mt-1 font-heading text-2xl font-semibold text-foreground-950">6</dd>
               </div>
               <div className="px-3 sm:px-6">
-                <dt className="text-[10px] font-bold uppercase tracking-wider text-foreground-500">{t('series_scope_regions_title')}</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-foreground-500">{t('landing_proof_regions')}</dt>
                 <dd className="mt-1 font-heading text-2xl font-semibold text-foreground-950">5</dd>
               </div>
               <div className="pl-3 sm:pl-6">
-                <dt className="text-[10px] font-bold uppercase tracking-wider text-foreground-500">{t('series_scope_language_title')}</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-foreground-500">{t('landing_proof_languages')}</dt>
                 <dd className="mt-1 font-heading text-2xl font-semibold text-foreground-950">5</dd>
               </div>
             </dl>
@@ -132,6 +144,8 @@ export default function HomeSeriesGateway() {
                     <Link
                       key={module}
                       to={localized(getSeriesModuleHref(featuredSeries.id, module))}
+                      data-conversion-id={`featured-${module}`}
+                      onClick={() => trackLandingConversion(`featured_${module}`, getSeriesModuleHref(featuredSeries.id, module))}
                       className="inline-flex min-h-11 items-center gap-1.5 rounded-lg bg-background-50 px-4 text-sm font-bold text-foreground-950 transition hover:bg-primary-100"
                     >
                       {t(`series_content_${module}`)}
@@ -148,11 +162,11 @@ export default function HomeSeriesGateway() {
       <section id="choose-your-series" className="scroll-mt-24 bg-background-50 py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-600">{t('series_eyebrow')}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-600">{t('landing_series_eyebrow')}</p>
             <h2 className="mt-3 font-heading text-4xl font-semibold tracking-tight text-foreground-950 md:text-5xl">
-              {t('home_series_title')}
+              {t('landing_series_title')}
             </h2>
-            <p className="mt-4 text-base leading-7 text-foreground-700 md:text-lg">{t('series_catalog_desc')}</p>
+            <p className="mt-4 text-base leading-7 text-foreground-700 md:text-lg">{t('landing_series_desc')}</p>
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -163,6 +177,8 @@ export default function HomeSeriesGateway() {
               >
                 <Link
                   to={localized(getSeriesModuleHref(product.id, 'news'))}
+                  data-conversion-id={`series-image-${product.id}`}
+                  onClick={() => trackLandingConversion('series_select', product.id)}
                   className="relative block aspect-[16/9] overflow-hidden bg-foreground-950"
                   aria-label={`${product.name} — ${t('series_enter_hub')}`}
                 >
@@ -184,6 +200,8 @@ export default function HomeSeriesGateway() {
                   <p className="mt-3 flex-1 text-sm leading-6 text-foreground-700">{t(product.descriptionKey)}</p>
                   <Link
                     to={localized(getSeriesModuleHref(product.id, 'news'))}
+                    data-conversion-id={`series-cta-${product.id}`}
+                    onClick={() => trackLandingConversion('series_select', product.id)}
                     className="mt-5 inline-flex min-h-11 items-center justify-between rounded-xl bg-background-100 px-4 text-sm font-bold text-foreground-900 transition group-hover:bg-foreground-950 group-hover:text-background-50"
                   >
                     {t('series_enter_hub')}
@@ -200,9 +218,9 @@ export default function HomeSeriesGateway() {
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary-300">MPStorys</p>
-              <h2 className="mt-3 font-heading text-4xl font-semibold md:text-5xl">{t('series_verified_sources')}</h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-background-50/70">{t('series_desc')}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary-300">{t('landing_trust_eyebrow')}</p>
+              <h2 className="mt-3 font-heading text-4xl font-semibold md:text-5xl">{t('landing_trust_title')}</h2>
+              <p className="mt-4 max-w-xl text-base leading-7 text-background-50/70">{t('landing_trust_desc')}</p>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
               {proofPoints.map((point) => (
@@ -223,11 +241,16 @@ export default function HomeSeriesGateway() {
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-600">{t('series_content_scope')}</p>
-              <h2 className="mt-3 font-heading text-4xl font-semibold text-foreground-950 md:text-5xl">{t('series_catalog_title')}</h2>
-              <p className="mt-4 text-base leading-7 text-foreground-700">{t('home_series_desc')}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-600">{t('landing_paths_eyebrow')}</p>
+              <h2 className="mt-3 font-heading text-4xl font-semibold text-foreground-950 md:text-5xl">{t('landing_paths_title')}</h2>
+              <p className="mt-4 text-base leading-7 text-foreground-700">{t('landing_paths_desc')}</p>
             </div>
-            <Link to={localized('/search')} className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-primary-700 hover:text-primary-800">
+            <Link
+              to={localized('/search')}
+              data-conversion-id="content-search"
+              onClick={() => trackLandingConversion('content_search', '/search')}
+              className="inline-flex min-h-11 items-center gap-2 text-sm font-bold text-primary-700 hover:text-primary-800"
+            >
               <i className="ri-search-2-line" aria-hidden="true" />
               {t('nav_search_button')}
             </Link>
@@ -238,6 +261,8 @@ export default function HomeSeriesGateway() {
               <Link
                 key={path.href}
                 to={localized(path.href)}
+                data-conversion-id={`content-path-${path.href.slice(1)}`}
+                onClick={() => trackLandingConversion('content_path', path.href)}
                 className="group rounded-2xl border border-background-300 bg-background-50 p-5 shadow-sm transition hover:-translate-y-1 hover:border-primary-300 hover:shadow-lg sm:p-6"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-100 text-2xl text-primary-700 transition group-hover:bg-primary-500 group-hover:text-background-50">
@@ -256,15 +281,17 @@ export default function HomeSeriesGateway() {
             <div className="absolute -right-16 -top-24 h-64 w-64 rounded-full border-[42px] border-background-50/10" aria-hidden="true" />
             <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-3xl">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary-200">{t('series_verified_content_note')}</p>
-                <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">{t('home_series_title')}</h2>
-                <p className="mt-3 text-sm leading-6 text-background-50/85 md:text-base">{t('home_series_desc')}</p>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-secondary-200">{t('landing_final_eyebrow')}</p>
+                <h2 className="mt-3 font-heading text-3xl font-semibold md:text-4xl">{t('landing_final_title')}</h2>
+                <p className="mt-3 text-sm leading-6 text-background-50/85 md:text-base">{t('landing_final_desc')}</p>
               </div>
               <a
                 href="#choose-your-series"
+                data-conversion-id="final-series-selector"
+                onClick={() => trackLandingConversion('final_series_selector', '#choose-your-series')}
                 className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-background-50 px-6 text-sm font-bold text-foreground-950 shadow-lg transition hover:-translate-y-0.5 hover:bg-secondary-100"
               >
-                {t('series_enter_hub')}
+                {t('landing_final_cta')}
                 <i className="ri-arrow-up-line" aria-hidden="true" />
               </a>
             </div>
