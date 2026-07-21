@@ -1,7 +1,9 @@
 import { hostname } from 'node:os';
 import process from 'node:process';
 import { randomUUID } from 'node:crypto';
+import path from 'node:path';
 import { runTranslationWorker } from './content/translation-worker.mjs';
+import { readTranslationGlossary } from './content/translation-quality.mjs';
 
 function optionValue(args, name, fallback = null) {
   const prefix = `${name}=`;
@@ -23,13 +25,17 @@ async function main() {
   if (!connectionString) throw new Error('LOCALIZATION_DATABASE_URL is required');
   if (!endpoint) throw new Error('LIBRETRANSLATE_API_URL is required');
   const workerId = `pilot-${hostname()}-${randomUUID()}`.slice(0, 160);
+  const glossary = await readTranslationGlossary(path.resolve(
+    optionValue(args, '--glossary', 'config/translation-glossary.json'),
+  ));
   const { Client } = await import('pg');
   const client = new Client({ connectionString });
   await client.connect();
   try {
-    const result = await runTranslationWorker({ client, workerId, limit, endpoint });
+    const result = await runTranslationWorker({ client, workerId, limit, endpoint, glossary });
     console.log('Translation worker pilot');
     console.log(`Worker: ${workerId}`);
+    console.log(`Glossary version: ${glossary.glossary_version}`);
     console.log(`Recovered: ${result.recovered}`);
     console.log(`Claimed: ${result.claimed}`);
     console.log(`Completed: ${result.completed.length}`);

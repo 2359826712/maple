@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "glossary_version": "1",
+  "locales": {
+    "zh": [
+      {
+        "source": "canonical Nexon thread and publication metadata are retained for source-backed verification",
+        "target": "Nexon 官方主题帖及发布元数据均已保留，以供基于来源的核验"
+      },
+      {
+        "source": "MapleStory Worlds Creator Center News",
+        "target": "MapleStory Worlds 创作者中心动态"
+      },
+      {
+        "source": "official creator announcement",
+        "target": "官方创作者公告"
+      },
+      {
+        "source": "Applications Closed",
+        "target": "申请已截止"
+      },
+      {
+        "source": "Creators Workshop",
+        "target": "创作者工作坊"
+      },
+      {
+        "source": "Creator Cashout",
+        "target": "创作者提现"
+      },
+      {
+        "source": "Creator Income",
+        "target": "创作者收入"
+      },
+      {
+        "source": "Applications Open",
+        "target": "开放申请"
+      },
+      {
+        "source": "MapleStory Worlds",
+        "target": "MapleStory Worlds"
+      },
+      {
+        "source": "Creator Circle",
+        "target": "Creator Circle"
+      },
+      {
+        "source": "MapleStory",
+        "target": "冒险岛"
+      },
+      {
+        "source": "MapleJam",
+        "target": "MapleJam"
+      },
+      {
+        "source": "Nexon",
+        "target": "Nexon"
+      }
+    ]
+  },
+  "locale_strategies": {
+    "zh": {
+      "status": "enabled",
+      "pipeline": ["libretranslate:zh-Hans"]
+    },
+    "zh-Hant": {
+      "status": "blocked",
+      "reason": "The current LibreTranslate image does not provide Traditional Chinese output."
+    }
+  }
+}

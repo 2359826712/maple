@@ -31,7 +31,9 @@ export type CurrentSeriesContentTranslation = {
   source_revision: string;
   provider: string;
   model: string;
-  review_status: 'automatic' | 'reviewed';
+  glossary_version: string;
+  quality_checks: Record<string, unknown>;
+  review_status: 'automatic' | 'approved';
   updated_at: string;
 };
 
@@ -44,14 +46,15 @@ export async function readCurrentSeriesContentTranslation(
   const result = await pool.query<CurrentSeriesContentTranslation>(`
     select translation.content_id, translation.locale, translation.title,
            translation.summary, translation.body_html, translation.source_revision,
-           translation.provider, translation.model, translation.review_status,
+           translation.provider, translation.model, translation.glossary_version,
+           translation.quality_checks, translation.review_status,
            translation.updated_at
     from public.series_content_translations as translation
     join public.series_content as content on content.id = translation.content_id
     where translation.content_id = $1
       and translation.locale = $2
       and translation.source_revision = content.source_revision
-      and translation.review_status in ('automatic', 'reviewed')
+      and translation.review_status in ('automatic', 'approved')
   `, [contentId, locale]);
   return result.rows[0] || null;
 }
