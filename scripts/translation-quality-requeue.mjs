@@ -29,7 +29,7 @@ async function main() {
       where job.status = 'completed'
         and job.target_language = 'zh'
         and translation.provider = 'libretranslate'
-        and translation.review_status = 'automatic'
+        and translation.review_status in ('automatic', 'needs_review')
       order by job.completed_at
       for update of job
       limit $1

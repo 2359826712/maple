@@ -67,7 +67,7 @@ describe('translation quality layer', () => {
       fieldNames: ['title'],
       source,
       protectedFields,
-      translated: { title: '__BROKEN__ 25' },
+      translated: { title: 'BROKEN 25' },
       glossary,
     });
     expect(quality.review_status).toBe('needs_review');

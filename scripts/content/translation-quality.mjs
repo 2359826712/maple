@@ -1,11 +1,21 @@
 import { readFile } from 'node:fs/promises';
 
 const versionPattern = /^[1-9][0-9]*$/;
-const placeholderPattern = /__MPG_[0-9]{4}__/g;
+const placeholderPattern = /ZXQMPGTERM[A-Z]+ZXQ/g;
 
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const occurrences = (text, value) => text.split(value).length - 1;
 const tokens = (text, pattern) => [...text.matchAll(pattern)].map((match) => match[0]).sort();
+
+function alphabeticSequence(sequence) {
+  let value = sequence;
+  let output = '';
+  do {
+    output = String.fromCharCode(65 + (value % 26)) + output;
+    value = Math.floor(value / 26) - 1;
+  } while (value >= 0);
+  return output;
+}
 
 export function validateTranslationGlossary(glossary) {
   const errors = [];
@@ -72,7 +82,9 @@ export function protectGlossaryFields({ fieldNames, source, targetLanguage, glos
     for (const entry of entries) {
       const expression = new RegExp(escapeRegExp(entry.source), 'g');
       value = value.replace(expression, () => {
-        const token = `__MPG_${String(sequence).padStart(4, '0')}__`;
+        // LibreTranslate preserves this letters-only sentinel. Underscores and
+        // numeric sentinels are rewritten by the current Argos zh-Hans model.
+        const token = `ZXQMPGTERM${alphabeticSequence(sequence)}ZXQ`;
         sequence += 1;
         replacements.push({ field, token, source: entry.source, target: entry.target });
         return token;
