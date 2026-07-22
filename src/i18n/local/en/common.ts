@@ -1624,6 +1624,7 @@ const common = {
   series_news_desc: 'Short briefings stay on MPStorys. Open the original source only when you need to verify the full notice.',
   series_verified_briefing: 'MPStorys verified briefing',
   series_verified_content_note: 'Only traceable first-party or official community sources are listed. Source review: July 18, 2026.',
+  series_scoped_module_desc: 'Browse {{name}} {{module}} with verified official sources. {{summary}}',
   series_verified_sources: 'Verified sources',
   series_no_verified_content: 'No verified official {{module}} content is currently available for {{name}}. Nothing has been added as a placeholder.',
   series_update_summary: 'A dedicated {{name}} update, kept separate from the news feeds for other MapleStory games.',

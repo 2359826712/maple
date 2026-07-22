@@ -34,7 +34,7 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Wiki' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'MapleStory N Wiki' })).toBeTruthy();
     await waitFor(() => {
       expect(screen.queryByText('MPStorys hit an unexpected error')).toBeNull();
     });
@@ -89,19 +89,19 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'News' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'MapleStory Classic World News' })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Rankings' })).toBeNull();
   });
 
   it('renders concrete module content for every other supported series', async () => {
     const cases = [
-      ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index'],
-      ['maplestory-n', '/events/en/GMS', 'V Tracker mission reference'],
-      ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference'],
-      ['maplestory-idle', '/wiki/en/GMS', 'Idle RPG system index'],
+      ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index', 'MapleStory M Guides'],
+      ['maplestory-n', '/events/en/GMS', 'V Tracker mission reference', 'MapleStory N Events'],
+      ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference', 'MapleStory Worlds Wiki'],
+      ['maplestory-idle', '/wiki/en/GMS', 'Idle RPG system index', 'MapleStory: Idle RPG Wiki'],
     ];
 
-    for (const [series, pathname, heading] of cases) {
+    for (const [series, pathname, heading, pageHeading] of cases) {
       window.history.replaceState({}, '', `${pathname}?series=${series}`);
       const view = render(
         <NextApplication
@@ -112,6 +112,7 @@ describe('series module routes', () => {
           translation={translation}
         />,
       );
+      expect(await screen.findByRole('heading', { level: 1, name: pageHeading })).toBeTruthy();
       expect(await screen.findByRole('heading', { name: heading })).toBeTruthy();
       view.unmount();
     }

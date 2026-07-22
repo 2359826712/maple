@@ -104,10 +104,14 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
                   <span>{getSeriesVersionShortLabel(product.id, version)}</span>
                 </div>
                 <h1 className="mt-1 font-heading text-3xl font-semibold md:text-4xl">
-                  {moduleLabel}
+                  {product.name} {moduleLabel}
                 </h1>
                 <p className="mt-2 max-w-3xl text-sm leading-6 text-foreground-600">
-                  {t('series_verified_content_note')}
+                  {t('series_scoped_module_desc', {
+                    name: product.name,
+                    module: moduleLabel,
+                    summary: t(product.descriptionKey),
+                  })}
                 </p>
               </div>
               <span className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary-100 text-xl text-primary-700 sm:flex">

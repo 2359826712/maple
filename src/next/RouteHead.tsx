@@ -16,7 +16,7 @@ import type { NextRoutePageProps } from './routeData';
 import { bosses } from '@/mocks/bosses';
 import { getSeriesProduct } from '@/pages/series/catalog';
 import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
-import { isSeriesModule } from '@/pages/series/scope';
+import { isSeriesModule, seriesModuleByBaseHref, type SeriesModule } from '@/pages/series/scope';
 
 type MetadataCopy = { description: string; title: string };
 type RouteEntry = {
@@ -42,6 +42,19 @@ const getMetadataEntry = (route: string) => {
 
 const plainText = (value = '') => value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const schemaBody = (value = '') => plainText(value).slice(0, 10_000);
+const seriesModuleLabelKeys: Record<SeriesModule, string> = {
+  news: 'nav_news',
+  upcoming: 'nav_upcoming',
+  guides: 'nav_guides',
+  events: 'nav_events',
+  tools: 'nav_tools',
+  checklist: 'nav_checklist',
+  wiki: 'nav_wiki',
+  rankings: 'nav_rankings',
+  shop: 'nav_shop',
+  community: 'nav_community',
+  feedback: 'nav_feedback',
+};
 
 export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const {
@@ -55,6 +68,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     initialWikiEntry,
     requestTitle,
     requestPath,
+    translation,
   } = page;
   const language = getPathLanguage(pathname) || 'en';
   const server = getPathServer(pathname) || 'gms';
@@ -73,6 +87,16 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     : getSeriesProduct(seriesId);
   const contentMatch = route.match(/^\/content\/([^/]+)\/([^/]+)$/);
   const contentModule = isSeriesModule(contentMatch?.[1]) ? contentMatch[1] : undefined;
+  const scopedRouteModule = seriesModuleByBaseHref[route as keyof typeof seriesModuleByBaseHref]
+    || (route === '/tools' ? 'tools' : undefined);
+  const seriesModule = scopedRouteModule || contentModule;
+  const seriesModuleLabel = seriesModule ? translation[seriesModuleLabelKeys[seriesModule]] : undefined;
+  const seriesPageTitle = seriesProduct
+    ? [seriesProduct.name, seriesModuleLabel].filter(Boolean).join(' ')
+    : undefined;
+  const seriesPageDescription = seriesProduct
+    ? plainText(`${seriesProduct.name}${seriesModuleLabel ? ` ${seriesModuleLabel}` : ''}: ${translation[seriesProduct.descriptionKey] || ''}`).slice(0, 180)
+    : undefined;
   const seriesResource = seriesProduct && contentModule && contentMatch?.[2]
     ? getVerifiedSeriesResource(seriesProduct.id, contentModule, decodeURIComponent(contentMatch[2]))
     : undefined;
@@ -85,7 +109,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialWikiEntry?.title
     || (routeBoss ? `${routeBoss.name} MapleStory Boss Guide` : undefined)
     || seriesResource?.title
-    || seriesProduct?.name
+    || seriesPageTitle
     || (route === '/source' || route.startsWith('/content/') ? requestTitle : undefined);
   const dynamicDescription = initialUpcomingArticle?.excerpt
     || initialGuide?.localizedCopy?.excerpt
@@ -93,14 +117,24 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialWikiEntry?.description
     || (routeBoss ? `MapleStory ${routeBoss.name} boss requirements, difficulties, mechanics, rewards, and strategy.` : undefined)
     || seriesResource?.description
-    || (seriesProduct ? `${seriesProduct.name} news, guides, tools, and verified official sources on MPStorys.` : undefined)
+    || seriesPageDescription
     || (initialOfficialArticle ? plainText(initialOfficialArticle.text || initialOfficialArticle.html).slice(0, 180) : undefined);
   const pageTitle = dynamicTitle || copy.title;
   const description = dynamicDescription || copy.description;
   const title = buildPageTitle(pageTitle);
   const canonicalRoute = entry?.canonicalRoute || route;
   const canonicalPath = withRouteSuffixes(canonicalRoute, language, server);
-  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const canonicalSeriesSearch = seriesProduct && seriesId && seriesProduct.id !== 'maplestory-pc'
+    ? `?series=${encodeURIComponent(seriesProduct.id)}`
+    : '';
+  const canonicalUrl = `${SITE_URL}${canonicalPath}${canonicalSeriesSearch}`;
+  const keywords = seriesProduct
+    ? [
+        seriesProduct.name,
+        seriesModuleLabel ? `${seriesProduct.name} ${seriesModuleLabel}` : undefined,
+        siteKeywords[language],
+      ].filter(Boolean).join(', ')
+    : siteKeywords[language];
   const imageUrl = `${SITE_URL}${SITE_SOCIAL_IMAGE}`;
   const index = Boolean(entry?.index);
   const follow = entry?.follow !== false;
@@ -237,7 +271,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
         name: SITE_NAME,
         url: `${SITE_URL}/`,
         inLanguage: languageConfig.htmlLang,
-        keywords: siteKeywords[language],
+        keywords,
         potentialAction: {
           '@type': 'SearchAction',
           target: `${SITE_URL}${withRouteSuffixes('/search', language, server)}?q={search_term_string}`,
@@ -262,7 +296,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
             '@id': `${canonicalUrl}#webpage`,
             name: pageTitle,
             description,
-            keywords: siteKeywords[language],
+            keywords,
             url: canonicalUrl,
             inLanguage: languageConfig.htmlLang,
             ...(articleEntity ? { mainEntity: { '@id': articleEntity['@id'] } } : {}),
@@ -278,7 +312,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={siteKeywords[language]} />
+      <meta name="keywords" content={keywords} />
       <meta name="robots" content={robots} />
       <meta name="googlebot" content={robots} />
       <meta property="og:type" content={articleEntity ? 'article' : 'website'} />
@@ -298,11 +332,11 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
           key={alternateLanguage}
           rel="alternate"
           hrefLang={metadataCatalog.languages[alternateLanguage].hreflang}
-          href={`${SITE_URL}${withRouteSuffixes(canonicalRoute, alternateLanguage, server)}`}
+          href={`${SITE_URL}${withRouteSuffixes(canonicalRoute, alternateLanguage, server)}${canonicalSeriesSearch}`}
         />
       ))}
       {index && (
-        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${withRouteSuffixes(canonicalRoute, 'en', server)}`} />
+        <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${withRouteSuffixes(canonicalRoute, 'en', server)}${canonicalSeriesSearch}`} />
       )}
       {schema && <script type="application/ld+json" data-seo-schema="route" dangerouslySetInnerHTML={{ __html: schema }} />}
     </Head>

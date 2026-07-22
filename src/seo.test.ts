@@ -60,7 +60,8 @@ describe('search and social metadata', () => {
     expect(document).toContain('rel="manifest" href="/site.webmanifest"');
     expect(routeHead).toContain('meta property="og:image"');
     expect(routeHead).toContain('application/ld+json');
-    expect(routeHead).toContain('keywords: siteKeywords[language]');
+    expect(routeHead).toContain('const keywords = seriesProduct');
+    expect(routeHead).toContain('keywords,');
     expect(sitemap).toContain('<changefreq>');
     expect(sitemap).toContain('<priority>');
   });
@@ -79,6 +80,18 @@ describe('search and social metadata', () => {
     });
     series.forEach((name) => expect(metadataCatalog.routes['/'].copy.en.description).toContain(name));
     expect(metadataCatalog.routes['/news'].copy.en.description).toContain('MapleStory Idle');
+  });
+
+  it('gives each scoped series page distinct metadata and canonical URLs', () => {
+    const routeHead = read('src/next/RouteHead.tsx');
+    const scopedRoute = read('src/pages/series/SeriesModuleRoute.tsx');
+
+    expect(routeHead).toContain('seriesPageTitle');
+    expect(routeHead).toContain('translation[seriesProduct.descriptionKey]');
+    expect(routeHead).toContain('?series=${encodeURIComponent(seriesProduct.id)}');
+    expect(routeHead).toContain('${canonicalSeriesSearch}`');
+    expect(scopedRoute).toContain('{product.name} {moduleLabel}');
+    expect(scopedRoute).toContain("t('series_scoped_module_desc'");
   });
 
   it('keeps private and duplicate-prone utility pages out of the sitemap', () => {
