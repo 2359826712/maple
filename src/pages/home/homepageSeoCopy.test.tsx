@@ -75,4 +75,17 @@ describe('homepage SEO copy', () => {
       'MapleStory: Idle RPG news and updates',
     ].forEach((phrase) => expect(copy).toContain(phrase.toLowerCase()));
   });
+
+  it('provides substantive series coverage instead of thin landing-page copy', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <HomeSeriesGateway />
+      </MemoryRouter>,
+    );
+    const words = (container.textContent || '').match(/[A-Za-z0-9:+-]+/g) || [];
+
+    expect(words.length).toBeGreaterThanOrEqual(1_250);
+    expect(words.length).toBeLessThanOrEqual(1_500);
+    expect(container.querySelectorAll('[data-testid="series-coverage-card"]').length).toBe(6);
+  });
 });

@@ -60,6 +60,15 @@ const seriesCardLinks = [
   { module: 'tools', labelKey: 'nav_tools', icon: 'ri-tools-line' },
 ] as const;
 
+const seriesCoverageKeys: Record<string, string> = {
+  'maplestory-pc': 'landing_series_detail_pc',
+  'maplestory-classic': 'landing_series_detail_classic',
+  'maplestory-m': 'landing_series_detail_m',
+  'maplestory-n': 'landing_series_detail_n',
+  'maplestory-worlds': 'landing_series_detail_worlds',
+  'maplestory-idle': 'landing_series_detail_idle',
+};
+
 const trackLandingConversion = (action: string, destination: string) => {
   if (typeof window === 'undefined') return;
   window.gtag?.('event', 'landing_cta_click', { action, destination });
@@ -400,6 +409,40 @@ export default function HomeSeriesGateway() {
                     ))}
                   </nav>
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="series-coverage" className="border-y border-[#d9d0c2] bg-[#fffaf2] py-16 md:py-24">
+        <div className="mx-auto max-w-[90rem] px-4 md:px-8">
+          <div className="grid gap-6 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_series_detail_eyebrow')}</p>
+              <h2 className="mt-3 font-heading text-4xl font-semibold tracking-[-0.035em] text-[#171411] md:text-5xl">{t('landing_series_detail_title')}</h2>
+            </div>
+            <p className="max-w-3xl text-base leading-7 text-[#6e665d]">{t('landing_series_detail_desc')}</p>
+          </div>
+
+          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-[#d9d0c2] bg-[#d9d0c2] lg:grid-cols-2">
+            {seriesProducts.map((product, index) => (
+              <article key={product.id} data-testid="series-coverage-card" className="flex flex-col bg-white p-6 md:p-8">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-mono text-xs font-extrabold tracking-[0.2em] text-[#a66500]">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="rounded-full bg-[#f5f0e7] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#6e665d]">{t(product.platformKey)}</span>
+                </div>
+                <h3 className="mt-5 font-heading text-2xl font-semibold text-[#171411]">{product.name}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-[#6e665d]">{t(seriesCoverageKeys[product.id])}</p>
+                <Link
+                  to={localized(getSeriesModuleHref(product.id, 'guides'))}
+                  data-conversion-id={`series-coverage-${product.id}`}
+                  onClick={() => trackLandingConversion('series_coverage', product.id)}
+                  className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 rounded-lg border border-[#d9d0c2] px-4 text-xs font-extrabold text-[#4f4840] transition hover:border-[#171411] hover:bg-[#171411] hover:text-white"
+                >
+                  {t('landing_series_detail_action', { name: product.name })}
+                  <i className="ri-arrow-right-line" aria-hidden="true" />
+                </Link>
               </article>
             ))}
           </div>
