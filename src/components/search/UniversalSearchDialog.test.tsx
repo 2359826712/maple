@@ -34,9 +34,9 @@ describe('universal search command palette', () => {
     renderNavbar();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
 
-    const dialog = screen.getByRole('dialog', { name: 'Search MPStorys' });
+    const dialog = await screen.findByRole('dialog', { name: 'Search MPStorys' });
     expect(dialog).toBeTruthy();
-    const input = screen.getByRole('textbox', { name: 'Search MPStorys' });
+    const input = await screen.findByRole('textbox', { name: 'Search MPStorys' });
     await waitFor(() => expect(document.activeElement).toBe(input));
     fireEvent.change(input, { target: { value: 'Lotus' } });
     expect(screen.getByRole('option', { name: /Lotus/ })).toBeTruthy();
@@ -52,7 +52,7 @@ describe('universal search command palette', () => {
     previous.focus();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
 
-    const input = screen.getByRole('textbox', { name: 'Search MPStorys' });
+    const input = await screen.findByRole('textbox', { name: 'Search MPStorys' });
     await waitFor(() => expect(document.activeElement).toBe(input));
     fireEvent.keyDown(input, { key: 'Escape' });
 
@@ -76,11 +76,11 @@ describe('universal search command palette', () => {
     await waitFor(() => expect(screen.getByLabelText('Current path').textContent).toBe(expected[1].href));
   });
 
-  it('keeps player lookup visually and semantically separate', () => {
+  it('keeps player lookup visually and semantically separate', async () => {
     renderNavbar();
     fireEvent.keyDown(document, { key: 'k', metaKey: true });
 
-    const characterLookup = screen.getByRole('link', {
+    const characterLookup = await screen.findByRole('link', {
       name: 'Looking for a player? Open Character Lookup',
     });
     expect(characterLookup.getAttribute('href')).toBe('/mapler-house#char-lookup');

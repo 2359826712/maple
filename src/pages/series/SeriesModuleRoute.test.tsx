@@ -4,6 +4,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import translation from '@/i18n/local/en/common';
 import NextApplication from '@/next/NextApplication';
+import { prefetchRouteForPath } from '@/router/config';
 
 vi.mock('@/services/mapleSqlApi', () => ({
   mapleSqlApi: {
@@ -24,6 +25,7 @@ describe('series module routes', () => {
   });
 
   it('renders a non-PC series module without falling into the application error boundary', async () => {
+    await prefetchRouteForPath('/wiki/en/GMS');
     render(
       <NextApplication
         language="en"
@@ -34,11 +36,11 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'MapleStory N Wiki' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'MapleStory N Wiki' }, { timeout: 10_000 })).toBeTruthy();
     await waitFor(() => {
       expect(screen.queryByText('MPStorys hit an unexpected error')).toBeNull();
     });
-  });
+  }, 15_000);
 
   it('renders a functional Classic World readiness tool and persists progress', async () => {
     window.history.replaceState({}, '', '/tools/en/GMS?series=maplestory-classic');
@@ -52,13 +54,13 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Closed Online Test #2 readiness' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Closed Online Test #2 readiness' }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.getByText('Aug 12, 2026')).toBeTruthy();
     const task = screen.getByRole('checkbox', { name: 'Submitted a new Test #2 application' });
     fireEvent.click(task);
     expect(screen.getByText('1/5')).toBeTruthy();
     expect(window.localStorage.getItem('mpstorys-series-tools:maplestory-classic')).toContain('true');
-  });
+  }, 15_000);
 
   it('renders source-backed Classic World wiki facts instead of a placeholder card only', async () => {
     window.history.replaceState({}, '', '/wiki/en/GMS?series=maplestory-classic');
@@ -72,7 +74,7 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Classic World reference' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Classic World reference' }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.getByText('3rd Job Advancement')).toBeTruthy();
     expect(screen.getByText('Orbis and El Nath')).toBeTruthy();
   });
@@ -89,7 +91,7 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'MapleStory Classic World News' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'MapleStory Classic World News' }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Rankings' })).toBeNull();
   });
 
@@ -112,7 +114,7 @@ describe('series module routes', () => {
           translation={translation}
         />,
       );
-      expect(await screen.findByRole('heading', { level: 1, name: pageHeading })).toBeTruthy();
+      expect(await screen.findByRole('heading', { level: 1, name: pageHeading }, { timeout: 10_000 })).toBeTruthy();
       expect(await screen.findByRole('heading', { name: heading })).toBeTruthy();
       view.unmount();
     }

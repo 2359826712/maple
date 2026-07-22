@@ -4,6 +4,8 @@ import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import translation from '@/i18n/local/en/common';
 import NextApplication from '@/next/NextApplication';
+import { createRoutePageProps } from '@/next/routeData';
+import SeriesResourceDetailPage from './SeriesResourceDetailPage';
 
 vi.mock('@/services/mapleSqlApi', () => ({
   mapleSqlApi: {
@@ -21,17 +23,23 @@ afterEach(cleanup);
 
 describe('series resource details', () => {
   it('renders structured first-party facts instead of only the resource summary', async () => {
-    const pathname = '/content/guides/welcome-to-maplestory-worlds-worlds-creator-center-welcome-to-msw';
+    const pathname = '/content/guides/welcome-to-maplestory-worlds-worlds-creator-center-welcome-to-msw/en/GMS';
     const requestPath = `${pathname}?series=maplestory-worlds`;
     window.history.replaceState({}, '', requestPath);
+    const routeProps = await createRoutePageProps(requestPath);
+    expect(routeProps?.initialSeriesResourceDetail).toBeTruthy();
 
     render(
       <NextApplication
-        language="en"
-        pathname={pathname}
-        requestPath={requestPath}
-        server="gms"
+        {...routeProps!}
         translation={translation}
+        initialRouteElement={(
+          <SeriesResourceDetailPage
+            initialContentModule="guides"
+            initialDetail={routeProps!.initialSeriesResourceDetail}
+            initialSlug="welcome-to-maplestory-worlds-worlds-creator-center-welcome-to-msw"
+          />
+        )}
       />,
     );
 
@@ -42,17 +50,23 @@ describe('series resource details', () => {
   });
 
   it('matches a content record through a related official URL', async () => {
-    const pathname = '/content/news/classic-world-closed-online-test-2-classic-world-test-2-campaign';
+    const pathname = '/content/news/classic-world-closed-online-test-2-classic-world-test-2-campaign/en/GMS';
     const requestPath = `${pathname}?series=maplestory-classic`;
     window.history.replaceState({}, '', requestPath);
+    const routeProps = await createRoutePageProps(requestPath);
+    expect(routeProps?.initialSeriesResourceDetail).toBeTruthy();
 
     render(
       <NextApplication
-        language="en"
-        pathname={pathname}
-        requestPath={requestPath}
-        server="gms"
+        {...routeProps!}
         translation={translation}
+        initialRouteElement={(
+          <SeriesResourceDetailPage
+            initialContentModule="news"
+            initialDetail={routeProps!.initialSeriesResourceDetail}
+            initialSlug="classic-world-closed-online-test-2-classic-world-test-2-campaign"
+          />
+        )}
       />,
     );
 

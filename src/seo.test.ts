@@ -188,7 +188,8 @@ describe('search and social metadata', () => {
 
     expect(packageJson.scripts.build).toBe('next build --webpack');
     expect(nextConfig).toContain("output: 'standalone'");
-    expect(catchAll).toContain('getServerSideProps = getServerSideRouteProps');
+    expect(catchAll).toContain('getServerSideProps: GetServerSideProps<NextRoutePageProps>');
+    expect(catchAll).toContain('getServerSideRouteProps(context)');
     expect(catchAll).not.toContain('getStaticProps');
     expect(catchAll).not.toContain('getStaticPaths');
     expect(serverRoute).toContain('GetServerSideProps');
