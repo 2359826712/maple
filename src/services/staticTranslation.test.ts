@@ -9,19 +9,9 @@ describe('static translation', () => {
     vi.restoreAllMocks();
   });
 
-  it('translates large HTML in bounded text batches while preserving markup', async () => {
-    const requests: Array<{ texts: string[]; format: string }> = [];
-    vi.stubGlobal('fetch', vi.fn().mockImplementation(async (_url: string, init: globalThis.RequestInit) => {
-      const request = JSON.parse(String(init.body)) as { texts: string[]; format: string };
-      requests.push(request);
-      return {
-        ok: true,
-        json: async () => ({
-          translations: request.texts.map((text) => `译文：${text}`),
-          cached: false,
-        }),
-      };
-    }));
+  it('keeps large HTML as source content without calling a realtime provider', async () => {
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
 
     const longText = 'A long guide sentence with useful details. '.repeat(5_000);
     const output = await translateStaticText(
@@ -30,26 +20,15 @@ describe('static translation', () => {
       { sourceLanguage: 'en', format: 'html' },
     );
 
-    expect(requests.length).toBeGreaterThan(1);
-    requests.forEach((request) => {
-      expect(request.format).toBe('text');
-      expect(request.texts.length).toBeLessThanOrEqual(40);
-      expect(new TextEncoder().encode(request.texts.join('')).byteLength).toBeLessThanOrEqual(95 * 1024);
-    });
+    expect(fetchMock).not.toHaveBeenCalled();
     expect(output).toContain('<article>');
-    expect(output).toContain('<h1>译文：Guide title</h1>');
+    expect(output).toContain('<h1>Guide title</h1>');
     expect(output).toContain('<code>doNotTranslate()</code>');
-    expect(output).toContain('译文：A long guide sentence');
+    expect(output).toContain('A long guide sentence');
   });
 
-  it('reuses the completed static document without parsing or requesting it again', async () => {
-    const fetchMock = vi.fn().mockImplementation(async (_url: string, init: globalThis.RequestInit) => {
-      const request = JSON.parse(String(init.body)) as { texts: string[] };
-      return {
-        ok: true,
-        json: async () => ({ translations: request.texts.map(() => '缓存译文'), cached: false }),
-      };
-    });
+  it('returns the same source document without making a request', async () => {
+    const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
     const source = '<article><p>Unique completed document cache source.</p></article>';
 
@@ -57,14 +36,11 @@ describe('static translation', () => {
     const second = await translateStaticText(source, 'zh', { sourceLanguage: 'en', format: 'html' });
 
     expect(second).toBe(first);
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('caches complete translations returned by the same-origin endpoint', async () => {
-    const fetchMock = vi.fn().mockImplementation(async () => ({
-      ok: true,
-      json: async () => ({ translations: ['已缓存标题', '已补全摘要'], cached: false }),
-    }));
+  it('marks source fallback indexes unavailable without calling the old endpoint', async () => {
+    const fetchMock = vi.fn();
     vi.stubGlobal('fetch', fetchMock);
 
     const first = await translateStaticTextsWithStatus(
@@ -79,10 +55,10 @@ describe('static translation', () => {
     );
 
     expect(first).toEqual({
-      translations: ['已缓存标题', '已补全摘要'],
-      unavailableIndexes: [],
+      translations: ['Cached title', 'New source excerpt'],
+      unavailableIndexes: [0, 1],
     });
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(fetchMock).not.toHaveBeenCalled();
     expect(second).toEqual(first);
   });
 });

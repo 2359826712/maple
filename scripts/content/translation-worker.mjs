@@ -1,4 +1,4 @@
-import { translateFieldsWithLibre } from './libretranslate-provider.mjs';
+import { invokeLocalizationProvider } from './localization-provider.mjs';
 import { protectGlossaryFields, restoreAndCheckTranslation } from './translation-quality.mjs';
 
 const lastErrorText = (error) => String(error instanceof Error ? error.message : error).slice(0, 4000);
@@ -113,12 +113,26 @@ async function completeJob(client, { job, workerId, translated }) {
           updated_at = now(),
           completed_at = now(),
           glossary_version = $3,
+          resolution_type = 'provider',
+          resolution_metadata = $4::jsonb,
           last_error = null
       where id = $1
         and status = 'processing'
         and worker_id = $2
       returning id
-    `, [job.id, workerId, translated.glossary_version]);
+    `, [
+      job.id,
+      workerId,
+      translated.glossary_version,
+      JSON.stringify({
+        provider: translated.provider,
+        transport: translated.transport,
+        model: translated.model,
+        model_version: translated.model_version,
+        latency_ms: translated.latency_ms,
+        usage: translated.usage,
+      }),
+    ]);
     if (completed.rowCount !== 1) throw new Error('translation job could not be completed');
     await client.query('commit');
     return stored.rows[0];
@@ -128,14 +142,99 @@ async function completeJob(client, { job, workerId, translated }) {
   }
 }
 
+async function localizeJob({ job, source, provider, glossary }) {
+  if (!source) throw new Error('source content does not exist');
+  if (source.source_revision !== job.source_revision) throw new Error('source revision is stale');
+  if (source.source_language !== job.source_language) throw new Error('source language changed');
+  const protectedFields = protectGlossaryFields({
+    fieldNames: job.field_names,
+    source,
+    targetLanguage: job.target_language,
+    glossary,
+  });
+  const translated = await invokeLocalizationProvider({
+    provider,
+    request: {
+      fieldNames: job.field_names,
+      source: protectedFields.fields,
+      sourceLanguage: job.source_language,
+      targetLanguage: job.target_language,
+      glossary: glossary.locales[job.target_language] || [],
+    },
+  });
+  const quality = restoreAndCheckTranslation({
+    fieldNames: job.field_names,
+    source,
+    translated: translated.fields,
+    protectedFields,
+    glossary,
+  });
+  return {
+    ...translated,
+    ...quality,
+    review_status: provider.publishable ? quality.review_status : 'needs_review',
+    quality_checks: {
+      ...quality.quality_checks,
+      provider: {
+        transport: translated.transport,
+        model_version: translated.model_version,
+        latency_ms: translated.latency_ms,
+        usage: translated.usage,
+        publishable: provider.publishable,
+      },
+    },
+  };
+}
+
+export async function previewTranslationWorker({
+  client,
+  provider,
+  glossary,
+  limit,
+  targetLanguage,
+}) {
+  const jobs = (await client.query(`
+    select job.*, content.title, content.summary, content.body_html,
+           content.source_revision as current_source_revision,
+           content.source_language as current_source_language
+    from public.translation_jobs as job
+    join public.series_content as content on content.id = job.content_id
+    where job.status in ('pending', 'retry')
+      and job.target_language = $1
+      and job.next_attempt_at <= now()
+    order by job.priority desc, job.next_attempt_at, job.created_at
+    limit $2
+  `, [targetLanguage, limit])).rows;
+  const previews = [];
+  for (const job of jobs) {
+    const source = {
+      id: job.content_id,
+      title: job.title,
+      summary: job.summary,
+      body_html: job.body_html,
+      source_revision: job.current_source_revision,
+      source_language: job.current_source_language,
+    };
+    previews.push({
+      job_id: job.id,
+      content_id: job.content_id,
+      target_language: job.target_language,
+      translated: await localizeJob({ job, source, provider, glossary }),
+    });
+  }
+  return previews;
+}
+
 export async function runTranslationWorker({
   client,
   workerId,
   limit,
-  endpoint,
   glossary,
-  translate = translateFieldsWithLibre,
+  provider,
 }) {
+  if (!provider?.publishable) {
+    throw new Error('non-publishable localization providers may only run in preview mode');
+  }
   const recovered = await recoverStaleTranslationJobs(client);
   const jobs = await claimTranslationJobs(client, workerId, limit);
   const completed = [];
@@ -144,33 +243,11 @@ export async function runTranslationWorker({
   for (const job of jobs) {
     try {
       const source = await readSource(client, job);
-      if (!source) throw new Error('source content does not exist');
-      if (source.source_revision !== job.source_revision) throw new Error('source revision is stale');
-      if (source.source_language !== job.source_language) throw new Error('source language changed');
-      const protectedFields = protectGlossaryFields({
-        fieldNames: job.field_names,
-        source,
-        targetLanguage: job.target_language,
-        glossary,
-      });
-      const translated = await translate({
-        fieldNames: job.field_names,
-        source: protectedFields.fields,
-        sourceLanguage: job.source_language,
-        targetLanguage: job.target_language,
-        endpoint,
-      });
-      const quality = restoreAndCheckTranslation({
-        fieldNames: job.field_names,
-        source,
-        translated: translated.fields,
-        protectedFields,
-        glossary,
-      });
+      const translated = await localizeJob({ job, source, provider, glossary });
       completed.push(await completeJob(client, {
         job,
         workerId,
-        translated: { ...translated, ...quality },
+        translated,
       }));
     } catch (error) {
       await failJob(client, job, workerId, error);

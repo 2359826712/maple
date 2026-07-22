@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { readCurrentSeriesContentTranslation } from '@/services/seriesContentTranslation';
+import { readLocalizedSeriesContent } from '@/services/seriesContentTranslation';
 import type { StaticContentLanguage } from '@/services/staticTranslation';
 
 const locales = new Set<StaticContentLanguage>(['en', 'zh', 'zh-Hant', 'ja', 'ko']);
@@ -20,13 +20,16 @@ export default async function contentTranslation(request: NextApiRequest, respon
     return;
   }
   try {
-    const translation = await readCurrentSeriesContentTranslation(contentId, locale);
-    if (!translation) {
-      response.status(404).json({ error: 'Translation not found' });
+    const content = await readLocalizedSeriesContent(contentId, locale);
+    if (!content) {
+      response.status(404).json({ error: 'Content not found' });
       return;
     }
     response.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=86400');
-    response.status(200).json({ translation });
+    response.status(200).json({
+      content,
+      fallback: content.localization_kind === 'source',
+    });
   } catch {
     response.status(503).json({ error: 'Translation database unavailable' });
   }

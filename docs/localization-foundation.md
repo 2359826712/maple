@@ -60,3 +60,6 @@ npm run localization:resolve-pilot -- `
 
 Assets live in `config/localization-assets.json`. Any semantic change requires a new
 `asset_version`; resolution behavior changes require a new translation `policy_version`.
+
+The provider-independent worker preparation is documented in
+`docs/localization-provider-interface.md`.
