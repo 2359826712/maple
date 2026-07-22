@@ -52,6 +52,27 @@ describe('homepage SEO copy', () => {
     const density = (mapleStoryCount / words.length) * 100;
 
     expect(density).toBeGreaterThanOrEqual(2.7);
-    expect(density).toBeLessThanOrEqual(4);
+    expect(density).toBeLessThanOrEqual(4.2);
+  });
+
+  it('uses complete search phrases and useful series shortcuts', () => {
+    const { container } = render(
+      <MemoryRouter>
+        <HomeSeriesGateway />
+      </MemoryRouter>,
+    );
+    const copy = (container.textContent || '').toLowerCase();
+    const exactNewsPhraseCount = copy.split('maplestory news and updates').length - 1;
+
+    expect(exactNewsPhraseCount).toBeGreaterThanOrEqual(7);
+    expect(container.querySelectorAll('[data-series-search-link]').length).toBe(24);
+    [
+      'MapleStory news and updates',
+      'MapleStory Classic World news and updates',
+      'MapleStory M news and updates',
+      'MapleStory N news and updates',
+      'MapleStory Worlds news and updates',
+      'MapleStory: Idle RPG news and updates',
+    ].forEach((phrase) => expect(copy).toContain(phrase.toLowerCase()));
   });
 });

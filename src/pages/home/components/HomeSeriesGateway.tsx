@@ -54,6 +54,12 @@ const playerVoices = [
   { quoteKey: 'landing_voice_03_quote', contextKey: 'landing_voice_03_context', icon: 'ri-tools-line' },
 ] as const;
 
+const seriesCardLinks = [
+  { module: 'guides', labelKey: 'nav_guides', icon: 'ri-book-open-line' },
+  { module: 'events', labelKey: 'nav_events', icon: 'ri-calendar-event-line' },
+  { module: 'tools', labelKey: 'nav_tools', icon: 'ri-tools-line' },
+] as const;
+
 const trackLandingConversion = (action: string, destination: string) => {
   if (typeof window === 'undefined') return;
   window.gtag?.('event', 'landing_cta_click', { action, destination });
@@ -365,15 +371,34 @@ export default function HomeSeriesGateway() {
                     <span className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-[#3c8756]">● {t(product.statusKey)}</span>
                   </div>
                   <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-[#746b61]">{t(product.descriptionKey)}</p>
-                  <Link
-                    to={localized(getSeriesModuleHref(product.id, 'news'))}
-                    data-conversion-id={`series-cta-${product.id}`}
-                    onClick={() => trackLandingConversion('series_select', product.id)}
-                    className="mt-5 inline-flex min-h-11 w-full items-center justify-between rounded-xl border border-[#d9d0c2] bg-white px-4 text-sm font-extrabold transition group-hover:border-[#171411] group-hover:bg-[#171411] group-hover:text-white"
+                  <nav
+                    aria-label={t('series_card_nav_label', { name: product.name })}
+                    className="mt-5 grid grid-cols-3 gap-2"
                   >
-                    {t('series_enter_hub')}
-                    <i className="ri-arrow-right-line" aria-hidden="true" />
-                  </Link>
+                    <Link
+                      to={localized(getSeriesModuleHref(product.id, 'news'))}
+                      data-conversion-id={`series-news-${product.id}`}
+                      data-series-search-link="news"
+                      onClick={() => trackLandingConversion('series_news', product.id)}
+                      className="col-span-3 inline-flex min-h-11 items-center justify-between rounded-xl bg-[#171411] px-4 text-xs font-extrabold text-white transition hover:bg-[#a66500]"
+                    >
+                      {t('series_card_news_updates', { name: product.name })}
+                      <i className="ri-arrow-right-line text-[#ffb000]" aria-hidden="true" />
+                    </Link>
+                    {seriesCardLinks.map((link) => (
+                      <Link
+                        key={link.module}
+                        to={localized(getSeriesModuleHref(product.id, link.module))}
+                        data-conversion-id={`series-${link.module}-${product.id}`}
+                        data-series-search-link={link.module}
+                        onClick={() => trackLandingConversion(`series_${link.module}`, product.id)}
+                        className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-lg border border-[#d9d0c2] bg-white px-2 text-[11px] font-extrabold text-[#4f4840] transition hover:border-[#171411] hover:text-[#171411]"
+                      >
+                        <i className={link.icon} aria-hidden="true" />
+                        {t(link.labelKey)}
+                      </Link>
+                    ))}
+                  </nav>
                 </div>
               </article>
             ))}
