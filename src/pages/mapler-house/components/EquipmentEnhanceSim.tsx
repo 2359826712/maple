@@ -1,11 +1,62 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { cubeTypes, cubeTierRates, starForceRates, flameTiers } from '@/mocks/mapler-house';
 import { getToolProvenance } from '@/domain/toolProvenance';
+import { readLocalStorage, writeLocalStorage } from '@/services/browserStorage';
 
 type TabType = 'cube' | 'starforce' | 'flame';
 const CUBE_TIERS = ['Rare', 'Epic', 'Unique', 'Legendary'];
+
+export const STAR_FORCE_PROGRESS_STORAGE_KEY = 'maplehub-star-force-simulator:v1';
+
+type StarForceProgress = {
+  currentStar: number;
+  attempts: number;
+  logs: string[];
+  destroyed: boolean;
+};
+
+const EMPTY_STAR_FORCE_PROGRESS: StarForceProgress = {
+  currentStar: 0,
+  attempts: 0,
+  logs: [],
+  destroyed: false,
+};
+
+const getStarForceProgressStorageKey = (version: string) => `${STAR_FORCE_PROGRESS_STORAGE_KEY}:${version}`;
+
+const getStarForceRates = (star: number) => {
+  const breakpoint = Object.keys(starForceRates)
+    .map(Number)
+    .sort((left, right) => right - left)
+    .find((candidate) => candidate <= star) ?? 0;
+  return starForceRates[breakpoint];
+};
+
+const readStarForceProgress = (version: string): StarForceProgress => {
+  const stored = readLocalStorage(getStarForceProgressStorageKey(version));
+  if (!stored) return { ...EMPTY_STAR_FORCE_PROGRESS };
+
+  try {
+    const parsed = JSON.parse(stored) as Partial<StarForceProgress>;
+    const validStar = Number.isInteger(parsed.currentStar) && Number(parsed.currentStar) >= 0 && Number(parsed.currentStar) <= 25;
+    const validAttempts = Number.isSafeInteger(parsed.attempts) && Number(parsed.attempts) >= 0;
+    const validLogs = Array.isArray(parsed.logs) && parsed.logs.every((log) => typeof log === 'string');
+    if (!validStar || !validAttempts || !validLogs || typeof parsed.destroyed !== 'boolean') {
+      return { ...EMPTY_STAR_FORCE_PROGRESS };
+    }
+
+    return {
+      currentStar: Number(parsed.currentStar),
+      attempts: Number(parsed.attempts),
+      logs: parsed.logs!.slice(-30),
+      destroyed: parsed.destroyed,
+    };
+  } catch {
+    return { ...EMPTY_STAR_FORCE_PROGRESS };
+  }
+};
 
 export default function EquipmentEnhanceSim() {
   const { t } = useTranslation();
@@ -223,11 +274,15 @@ function CubeSimulator() {
 function StarForceSimulator() {
   const { t } = useTranslation();
   const { version } = useVersion();
-  const [currentStar, setCurrentStar] = useState(0);
-  const [attempts, setAttempts] = useState(0);
-  const [logs, setLogs] = useState<string[]>([]);
-  const [destroyed, setDestroyed] = useState(false);
+  const [progress, setProgress] = useState<StarForceProgress>(() => readStarForceProgress(version));
+  const [storageAvailable, setStorageAvailable] = useState(true);
   const [rolling, setRolling] = useState(false);
+  const { currentStar, attempts, logs, destroyed } = progress;
+
+  useEffect(() => {
+    const saved = writeLocalStorage(getStarForceProgressStorageKey(version), JSON.stringify(progress));
+    setStorageAvailable(saved);
+  }, [progress, version]);
 
   const getVersionCost = (rates: typeof starForceRates[number]) => {
     if (version === 'kms' && rates.cost_kms) return rates.cost_kms;
@@ -237,22 +292,38 @@ function StarForceSimulator() {
   };
 
   const rollOnce = useCallback(() => {
-    if (destroyed || currentStar >= 25) return;
-    setAttempts((a) => a + 1);
-    const rates = starForceRates[currentStar];
-    const roll = Math.random() * 100;
-    if (roll < rates.success) {
-      setCurrentStar((s) => s + 1);
-      setLogs((prev) => [...prev.slice(-29), `Star ${currentStar}→${currentStar + 1}: ${t('mh_enhance_success_log')}`]);
-    } else if (roll < rates.success + rates.destroy) {
-      setDestroyed(true);
-      setLogs((prev) => [...prev.slice(-29), `Star ${currentStar}→${currentStar}: ${t('mh_enhance_destroy_log')}`]);
-    } else {
-      const newStar = currentStar > 15 ? currentStar - 1 : currentStar;
-      setCurrentStar(newStar);
-      setLogs((prev) => [...prev.slice(-29), `Star ${currentStar}→${newStar}: ${t('mh_enhance_fail_log')}`]);
-    }
-  }, [currentStar, destroyed, t]);
+    setProgress((previous) => {
+      if (previous.destroyed || previous.currentStar >= 25) return previous;
+
+      const rates = getStarForceRates(previous.currentStar);
+      const roll = Math.random() * 100;
+      if (roll < rates.success) {
+        const nextStar = previous.currentStar + 1;
+        return {
+          ...previous,
+          currentStar: nextStar,
+          attempts: previous.attempts + 1,
+          logs: [...previous.logs.slice(-29), `Star ${previous.currentStar}→${nextStar}: ${t('mh_enhance_success_log')}`],
+        };
+      }
+      if (roll < rates.success + rates.destroy) {
+        return {
+          ...previous,
+          attempts: previous.attempts + 1,
+          destroyed: true,
+          logs: [...previous.logs.slice(-29), `Star ${previous.currentStar}→${previous.currentStar}: ${t('mh_enhance_destroy_log')}`],
+        };
+      }
+
+      const nextStar = previous.currentStar > 15 ? previous.currentStar - 1 : previous.currentStar;
+      return {
+        ...previous,
+        currentStar: nextStar,
+        attempts: previous.attempts + 1,
+        logs: [...previous.logs.slice(-29), `Star ${previous.currentStar}→${nextStar}: ${t('mh_enhance_fail_log')}`],
+      };
+    });
+  }, [t]);
 
   const rollMany = async (count: number) => {
     setRolling(true);
@@ -264,16 +335,25 @@ function StarForceSimulator() {
   };
 
   const reset = () => {
-    setCurrentStar(0);
-    setAttempts(0);
-    setLogs([]);
-    setDestroyed(false);
+    setProgress({ ...EMPTY_STAR_FORCE_PROGRESS });
   };
 
-  const rates = starForceRates[currentStar] || { success: 0, fail: 0, destroy: 0, cost: '0' };
+  const rates = getStarForceRates(currentStar);
 
   return (
     <div className="space-y-4">
+      <div
+        role="status"
+        className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs ${
+          storageAvailable
+            ? 'border-accent-200 bg-accent-50 text-accent-800'
+            : 'border-amber-300 bg-amber-50 text-amber-900'
+        }`}
+      >
+        <i className={storageAvailable ? 'ri-save-3-line' : 'ri-alert-line'} aria-hidden="true" />
+        {t(storageAvailable ? 'mh_enhance_progress_saved_local' : 'mh_enhance_progress_save_unavailable')}
+      </div>
+
       <div className="bg-background-100 rounded-xl p-5 text-center">
         <div className="flex items-center justify-center gap-3">
           <div className={`text-4xl font-bold ${destroyed ? 'text-red-500' : currentStar >= 22 ? 'text-accent-600' : currentStar >= 15 ? 'text-primary-600' : 'text-foreground-900'}`}>

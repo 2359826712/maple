@@ -7,6 +7,10 @@ import { useVersion } from '@/hooks/VersionContext';
 import { getSeriesProduct } from '@/pages/series/catalog';
 import { getSeriesIdFromSearch, scopeModuleHref } from '@/pages/series/scope';
 
+const PRODUCT_HUNT_URL = 'https://www.producthunt.com/products/mpstorys?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-mpstorys';
+const PRODUCT_HUNT_BADGE_URL = 'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1197969&theme=light&t=1784682160254';
+const PRODUCT_HUNT_BADGE_ALT = 'MPStorys - MapleStory tools, MapleStory guides, MapleStory calculator | Product Hunt';
+
 const groups = [
   {
     titleKey: 'footer_group_explore',
@@ -138,6 +142,26 @@ export default function Footer() {
             <a href={communityLinks.privacy} target="_blank" rel="noreferrer" className="hover:text-primary-400 cursor-pointer whitespace-nowrap transition-colors">{t('footer_privacy')}</a>
             <a href={communityLinks.contact} target="_blank" rel="noreferrer" className="hover:text-primary-400 cursor-pointer whitespace-nowrap transition-colors">{t('footer_contact')}</a>
           </div>
+        </div>
+
+        <div className="mt-5 flex flex-wrap items-center gap-3" aria-label="Featured listings">
+          <a
+            href={PRODUCT_HUNT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys on Product Hunt"
+            className="inline-flex max-w-full rounded-md transition-opacity hover:opacity-90"
+          >
+            <img
+              alt={PRODUCT_HUNT_BADGE_ALT}
+              width="250"
+              height="54"
+              src={PRODUCT_HUNT_BADGE_URL}
+              loading="lazy"
+              decoding="async"
+              className="h-[54px] max-w-full object-contain"
+            />
+          </a>
         </div>
       </div>
     </footer>
