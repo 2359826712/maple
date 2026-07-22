@@ -76,7 +76,7 @@ describe('homepage SEO copy', () => {
     ].forEach((phrase) => expect(copy).toContain(phrase.toLowerCase()));
   });
 
-  it('provides substantive series coverage instead of thin landing-page copy', () => {
+  it('provides a substantive long-form landing page instead of thin SEO copy', () => {
     const { container } = render(
       <MemoryRouter>
         <HomeSeriesGateway />
@@ -84,8 +84,10 @@ describe('homepage SEO copy', () => {
     );
     const words = (container.textContent || '').match(/[A-Za-z0-9:+-]+/g) || [];
 
-    expect(words.length).toBeGreaterThanOrEqual(1_250);
-    expect(words.length).toBeLessThanOrEqual(1_500);
+    expect(words.length).toBeGreaterThanOrEqual(3_700);
+    expect(words.length).toBeLessThanOrEqual(4_300);
     expect(container.querySelectorAll('[data-testid="series-coverage-card"]').length).toBe(6);
+    expect(container.querySelectorAll('[data-testid="long-form-section"]').length).toBe(8);
+    expect(container.querySelectorAll('[data-testid="long-form-faq"]').length).toBe(10);
   });
 });

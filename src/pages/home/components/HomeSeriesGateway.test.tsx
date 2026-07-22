@@ -26,7 +26,7 @@ describe('HomeSeriesGateway landing page', () => {
     render(<MemoryRouter><HomeSeriesGateway /></MemoryRouter>);
 
     expect(screen.getByRole('heading', { level: 1, name: 'landing_title_line1—landing_title_line2' })).toBeTruthy();
-    expect(document.querySelectorAll('a[href="#choose-your-series"]')).toHaveLength(4);
+    expect(document.querySelectorAll('a[href="#choose-your-series"]')).toHaveLength(5);
     expect(document.getElementById('choose-your-series')).toBeTruthy();
   });
 

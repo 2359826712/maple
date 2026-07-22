@@ -5,6 +5,7 @@ import { useVersion } from '@/hooks/VersionContext';
 import { localizeHref } from '@/i18n/languageRouting';
 import { seriesProducts } from '@/pages/series/catalog';
 import { getSeriesModuleHref } from '@/pages/series/scope';
+import HomeLongFormGuide from './HomeLongFormGuide';
 
 const heroPaths = [
   { href: '/news', module: 'news', tabKey: 'nav_news', icon: 'ri-newspaper-line', titleKey: 'landing_point_04_title', descriptionKey: 'landing_point_04_desc', score: '24/7' },
@@ -493,6 +494,8 @@ export default function HomeSeriesGateway() {
           </div>
         </div>
       </section>
+
+      <HomeLongFormGuide />
 
       <section className="bg-[#0f0e0d] px-4 py-16 text-white md:px-8 md:py-24">
         <div className="relative mx-auto max-w-[90rem] overflow-hidden rounded-[2rem] border border-white/10 bg-[#171513] px-6 py-12 shadow-2xl md:px-12 md:py-16">
