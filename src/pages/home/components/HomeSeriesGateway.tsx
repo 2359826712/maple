@@ -139,7 +139,7 @@ export default function HomeSeriesGateway() {
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-white/45">
+            <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium text-white/65">
               <span className="inline-flex items-center gap-1.5"><i className="ri-check-line text-[#ffb000]" aria-hidden="true" />6 {t('landing_proof_series')}</span>
               <span aria-hidden="true">·</span>
               <span className="inline-flex items-center gap-1.5"><i className="ri-check-line text-[#ffb000]" aria-hidden="true" />5 {t('landing_proof_regions')}</span>
@@ -157,7 +157,7 @@ export default function HomeSeriesGateway() {
                   <span className="h-2.5 w-2.5 rounded-full bg-[#ffb000]" />
                   <span className="h-2.5 w-2.5 rounded-full bg-[#6ecf8d]" />
                 </div>
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/45">MPStorys / Live hub</span>
+                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/65">MPStorys / Live hub</span>
               </div>
 
               <div className="grid grid-cols-4 border-b border-white/10 p-2" role="tablist" aria-label={t('landing_paths_title')}>
@@ -201,7 +201,7 @@ export default function HomeSeriesGateway() {
                 <div className="flex flex-col justify-between p-5 sm:p-6">
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/35">{t('series_verified_sources')}</span>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-white/65">{t('series_verified_sources')}</span>
                       <span className="text-xs font-bold text-[#6ecf8d]">● {t(featuredSeries.statusKey)}</span>
                     </div>
                     <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-5">
@@ -209,7 +209,7 @@ export default function HomeSeriesGateway() {
                       <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-white/10">
                         <div className="h-full w-[88%] rounded-full bg-gradient-to-r from-[#ff8a00] to-[#ffce5c]" />
                       </div>
-                      <p className="mt-3 text-xs leading-5 text-white/45">{t('landing_trust_desc')}</p>
+                      <p className="mt-3 text-xs leading-5 text-white/65">{t('landing_trust_desc')}</p>
                     </div>
                   </div>
                   <Link
@@ -231,7 +231,7 @@ export default function HomeSeriesGateway() {
       <section className="landing-render-deferred border-b border-[#d9d0c2] bg-[#fffaf2] py-14 md:py-20">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_trust_eyebrow')}</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{t('landing_trust_eyebrow')}</p>
             <h2 className="mt-3 font-heading text-4xl font-semibold tracking-[-0.03em] text-[#171411] md:text-5xl">{t('landing_trust_title')}</h2>
             <p className="mt-4 text-base leading-7 text-[#6e665d]">{t('landing_trust_desc')}</p>
           </div>
@@ -240,7 +240,7 @@ export default function HomeSeriesGateway() {
               <article key={point.titleKey} className="rounded-2xl border border-[#e1d9ce] bg-white p-5 shadow-[0_8px_30px_rgba(44,35,25,.05)]">
                 <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#fff1c7] text-lg text-[#a66500]"><i className={point.icon} aria-hidden="true" /></span>
                 <h3 className="mt-4 font-heading text-xl font-semibold">{t(point.titleKey)}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#746b61]">{t(point.descriptionKey)}</p>
+                <p className="mt-2 text-sm leading-6 text-[#5f574f]">{t(point.descriptionKey)}</p>
               </article>
             ))}
           </div>
@@ -273,12 +273,12 @@ export default function HomeSeriesGateway() {
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="grid gap-6 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_compare_eyebrow')}</p>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{t('landing_compare_eyebrow')}</p>
               <h2 className="mt-3 font-heading text-4xl font-semibold tracking-[-0.035em] text-[#171411] md:text-5xl">{t('landing_compare_title')}</h2>
             </div>
             <div className="lg:pb-1">
               <p className="max-w-3xl text-base leading-7 text-[#6e665d]">{t('landing_compare_desc')}</p>
-              <p className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-[#8a8177]"><i className="ri-scales-3-line text-[#a66500]" aria-hidden="true" />{t('landing_compare_note')}</p>
+              <p className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-[#625b53]"><i className="ri-scales-3-line text-[#815000]" aria-hidden="true" />{t('landing_compare_note')}</p>
             </div>
           </div>
 
@@ -286,7 +286,7 @@ export default function HomeSeriesGateway() {
             <table className="w-full min-w-[58rem] border-collapse text-left">
               <thead>
                 <tr className="border-b border-[#d9d0c2] bg-[#f1ebe2]">
-                  <th scope="col" className="w-[18%] px-5 py-5 text-xs font-extrabold uppercase tracking-[0.16em] text-[#746b61]">{t('landing_compare_dimension')}</th>
+                  <th scope="col" className="w-[18%] px-5 py-5 text-xs font-extrabold uppercase tracking-[0.16em] text-[#5f574f]">{t('landing_compare_dimension')}</th>
                   {comparisonColumns.map((column, index) => (
                     <th
                       key={column.key}
@@ -306,7 +306,7 @@ export default function HomeSeriesGateway() {
                   <tr key={row.labelKey} data-testid="comparison-row" className="border-b border-[#e7e0d7] last:border-b-0">
                     <th scope="row" className="px-5 py-5 text-sm font-extrabold text-[#3f3933]">{t(row.labelKey)}</th>
                     {row.valueKeys.map((valueKey, index) => (
-                      <td key={valueKey} className={`px-5 py-5 text-sm leading-6 ${index === 0 ? 'bg-[#fff4d2] font-bold text-[#5f4100]' : 'text-[#746b61]'}`}>
+                      <td key={valueKey} className={`px-5 py-5 text-sm leading-6 ${index === 0 ? 'bg-[#fff4d2] font-bold text-[#5f4100]' : 'text-[#5f574f]'}`}>
                         {index === 0 && <i className="ri-check-line mr-2 text-[#a66500]" aria-hidden="true" />}
                         {t(valueKey)}
                       </td>
@@ -322,7 +322,7 @@ export default function HomeSeriesGateway() {
       <section id="player-voices" className="landing-render-deferred scroll-mt-24 border-b border-[#d9d0c2] bg-[#f5f0e7] py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_voice_eyebrow')}</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{t('landing_voice_eyebrow')}</p>
             <h2 className="mt-3 font-heading text-4xl font-semibold tracking-[-0.035em] text-[#171411] md:text-5xl">{t('landing_voice_title')}</h2>
             <p className="mt-4 text-base leading-7 text-[#6e665d]">{t('landing_voice_desc')}</p>
           </div>
@@ -335,13 +335,13 @@ export default function HomeSeriesGateway() {
                   <i className="ri-double-quotes-r font-heading text-4xl text-[#d7a13a]" aria-hidden="true" />
                 </div>
                 <blockquote className="mt-6 flex-1 font-heading text-xl font-semibold leading-8 text-[#2e2924]">{t(voice.quoteKey)}</blockquote>
-                <figcaption className="mt-6 border-t border-[#e1d9ce] pt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-[#8a8177]">{t(voice.contextKey)}</figcaption>
+                <figcaption className="mt-6 border-t border-[#e1d9ce] pt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-[#625b53]">{t(voice.contextKey)}</figcaption>
               </figure>
             ))}
           </div>
 
           <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-2xl border border-[#d9d0c2] bg-white px-5 py-4 sm:flex-row">
-            <p className="inline-flex items-start gap-2 text-xs leading-5 text-[#746b61]"><i className="ri-shield-check-line mt-0.5 text-[#a66500]" aria-hidden="true" />{t('landing_voice_note')}</p>
+            <p className="inline-flex items-start gap-2 text-xs leading-5 text-[#5f574f]"><i className="ri-shield-check-line mt-0.5 text-[#815000]" aria-hidden="true" />{t('landing_voice_note')}</p>
             <Link
               to={localized('/feedback')}
               data-conversion-id="player-voice-feedback"
@@ -359,7 +359,7 @@ export default function HomeSeriesGateway() {
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_series_eyebrow')}</p>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{t('landing_series_eyebrow')}</p>
               <h2 className="mt-3 font-heading text-4xl font-semibold tracking-[-0.035em] text-[#171411] md:text-6xl">{t('landing_series_title')}</h2>
               <p className="mt-4 max-w-2xl text-base leading-7 text-[#6e665d] md:text-lg">{t('landing_series_desc')}</p>
             </div>
@@ -395,9 +395,9 @@ export default function HomeSeriesGateway() {
                 <div className="p-5 sm:p-6">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="font-heading text-2xl font-semibold leading-tight">{product.name}</h3>
-                    <span className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-[#3c8756]">● {t(product.statusKey)}</span>
+                    <span className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-[#2f7046]">● {t(product.statusKey)}</span>
                   </div>
-                  <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-[#746b61]">{t(product.descriptionKey)}</p>
+                  <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-[#5f574f]">{t(product.descriptionKey)}</p>
                   <nav
                     aria-label={t('series_card_nav_label', { name: product.name })}
                     className="mt-5 grid grid-cols-3 gap-2"
@@ -419,7 +419,7 @@ export default function HomeSeriesGateway() {
                         data-conversion-id={`series-${link.module}-${product.id}`}
                         data-series-search-link={link.module}
                         onClick={() => trackLandingConversion(`series_${link.module}`, product.id)}
-                        className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-lg border border-[#d9d0c2] bg-white px-2 text-[11px] font-extrabold text-[#4f4840] transition hover:border-[#171411] hover:text-[#171411]"
+                        className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-lg border border-[#d9d0c2] bg-white px-2 text-[11px] font-extrabold text-[#4f4840] transition hover:border-[#171411] hover:text-[#171411]"
                       >
                         <i className={link.icon} aria-hidden="true" />
                         {t(link.labelKey)}
@@ -437,7 +437,7 @@ export default function HomeSeriesGateway() {
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="grid gap-6 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_series_detail_eyebrow')}</p>
+              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{t('landing_series_detail_eyebrow')}</p>
               <h2 className="mt-3 font-heading text-4xl font-semibold tracking-[-0.035em] text-[#171411] md:text-5xl">{t('landing_series_detail_title')}</h2>
             </div>
             <p className="max-w-3xl text-base leading-7 text-[#6e665d]">{t('landing_series_detail_desc')}</p>
@@ -447,7 +447,7 @@ export default function HomeSeriesGateway() {
             {seriesProducts.map((product, index) => (
               <article key={product.id} data-testid="series-coverage-card" className="flex flex-col bg-white p-6 md:p-8">
                 <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-xs font-extrabold tracking-[0.2em] text-[#a66500]">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="font-mono text-xs font-extrabold tracking-[0.2em] text-[#815000]">{String(index + 1).padStart(2, '0')}</span>
                   <span className="rounded-full bg-[#f5f0e7] px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#6e665d]">{t(product.platformKey)}</span>
                 </div>
                 <h3 className="mt-5 font-heading text-2xl font-semibold text-[#171411]">{product.name}</h3>
@@ -472,7 +472,7 @@ export default function HomeSeriesGateway() {
           <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
               <span className="inline-flex h-16 min-w-16 items-center justify-center rounded-2xl bg-[#171411] px-4 font-heading text-3xl font-semibold text-[#ffb000] shadow-xl">10</span>
-              <p className="mt-6 text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_ten_eyebrow')}</p>
+              <p className="mt-6 text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{t('landing_ten_eyebrow')}</p>
               <h2 className="mt-3 max-w-xl font-heading text-4xl font-semibold tracking-[-0.035em] md:text-5xl">{t('landing_ten_title')}</h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-[#6e665d] md:text-lg">{t('landing_ten_desc')}</p>
               <a
@@ -496,14 +496,14 @@ export default function HomeSeriesGateway() {
                     className="group flex min-h-52 flex-col p-5 transition hover:bg-[#fff3cd] sm:p-6"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <span className="font-mono text-xs font-extrabold tracking-[0.2em] text-[#a66500]">{String(index + 1).padStart(2, '0')}</span>
+                      <span className="font-mono text-xs font-extrabold tracking-[0.2em] text-[#815000]">{String(index + 1).padStart(2, '0')}</span>
                       <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#171411] text-lg text-[#ffb000] transition group-hover:-rotate-6 group-hover:scale-105"><i className={point.icon} aria-hidden="true" /></span>
                     </div>
                     <h3 className="mt-5 flex items-start justify-between gap-3 font-heading text-xl font-semibold">
                       {t(point.titleKey)}
                       <i className="ri-arrow-right-up-line mt-1 text-sm text-[#a49a8e] transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#a66500]" aria-hidden="true" />
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-[#746b61]">{t(point.descriptionKey)}</p>
+                    <p className="mt-2 text-sm leading-6 text-[#5f574f]">{t(point.descriptionKey)}</p>
                   </Link>
                 </li>
               ))}
@@ -524,9 +524,9 @@ export default function HomeSeriesGateway() {
               <h2 className="mt-4 font-heading text-4xl font-semibold tracking-[-0.035em] text-[#fffaf2] md:text-6xl">{t('landing_final_title')}</h2>
               <p className="mt-5 max-w-2xl text-base leading-7 text-white/60 md:text-lg">{t('landing_final_desc')}</p>
               <dl className="mt-9 flex flex-wrap gap-8">
-                <div><dt className="font-heading text-3xl font-semibold text-[#ffb000]">6</dt><dd className="mt-1 text-xs font-bold uppercase tracking-wider text-white/40">{t('landing_proof_series')}</dd></div>
-                <div><dt className="font-heading text-3xl font-semibold text-[#ffb000]">5</dt><dd className="mt-1 text-xs font-bold uppercase tracking-wider text-white/40">{t('landing_proof_regions')}</dd></div>
-                <div><dt className="font-heading text-3xl font-semibold text-[#ffb000]">10</dt><dd className="mt-1 text-xs font-bold uppercase tracking-wider text-white/40">{t('landing_paths_title')}</dd></div>
+                <div><dt className="font-heading text-3xl font-semibold text-[#ffb000]">6</dt><dd className="mt-1 text-xs font-bold uppercase tracking-wider text-white/65">{t('landing_proof_series')}</dd></div>
+                <div><dt className="font-heading text-3xl font-semibold text-[#ffb000]">5</dt><dd className="mt-1 text-xs font-bold uppercase tracking-wider text-white/65">{t('landing_proof_regions')}</dd></div>
+                <div><dt className="font-heading text-3xl font-semibold text-[#ffb000]">10</dt><dd className="mt-1 text-xs font-bold uppercase tracking-wider text-white/65">{t('landing_paths_title')}</dd></div>
               </dl>
             </div>
             <a

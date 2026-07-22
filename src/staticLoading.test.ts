@@ -56,6 +56,20 @@ describe('static application loading', () => {
     expect(nextApp).toContain("import '@/index.css'");
   });
 
+  it('keeps imported article styles out of the homepage critical stylesheet', () => {
+    const globalCss = source('index.css');
+    const articleCss = source('../public/article-content.css');
+    const routeHead = source('next/RouteHead.tsx');
+
+    expect(globalCss).not.toContain('.wiki-article-content');
+    expect(globalCss).not.toContain('.grandis-page-content');
+    expect(articleCss).toContain('.wiki-article-content');
+    expect(articleCss).toContain('.grandis-page-content');
+    expect(routeHead).toContain("route.startsWith('/wiki/')");
+    expect(routeHead).toContain("route.startsWith('/guides/')");
+    expect(routeHead).toContain('<link rel="stylesheet" href="/article-content.css" />');
+  });
+
   it('does not run the retired static-shell redirect from the analytics bootstrap', () => {
     const nextApp = source('pages/_app.next.tsx');
     const nextDocument = source('pages/_document.next.tsx');

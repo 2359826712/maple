@@ -735,7 +735,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 <button
                   type="button"
                   onClick={() => setPaletteOpen(true)}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-600 hover:border-primary-300/60 hover:text-primary-700"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-background-200 bg-background-100 text-foreground-600 hover:border-primary-300/60 hover:text-primary-700"
                   aria-label={t('search_palette_open')}
                   title={`${t('search_palette_open')} · ⌘/Ctrl K`}
                 >
@@ -746,7 +746,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   event.preventDefault();
                   submitSearch();
                 }}
-                className={`h-10 flex items-center gap-2 rounded-full px-3 md:px-4 transition-all cursor-pointer whitespace-nowrap ${
+                className={`flex h-11 items-center gap-2 whitespace-nowrap rounded-full px-3 transition-all md:px-4 ${
                   searchOpen
                     ? 'bg-background-50 border border-primary-400/50 w-44 2xl:w-72'
                     : 'bg-background-100 border border-background-200 w-32 2xl:w-56 hover:border-primary-300/60'
@@ -791,7 +791,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 }}
                 aria-haspopup="menu"
                 aria-expanded={seriesMenuOpen}
-                className="flex h-10 max-w-44 items-center gap-1.5 rounded-full border border-background-200 bg-background-100 px-2.5 text-sm font-semibold text-foreground-800 hover:border-primary-300/60"
+                className="flex h-11 max-w-44 items-center gap-1.5 rounded-full border border-background-200 bg-background-100 px-2.5 text-sm font-semibold text-foreground-800 hover:border-primary-300/60"
                 title={t('home_series_title')}
               >
                 {activeSeries ? (
@@ -857,7 +857,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   setSeriesMenuOpen(false);
                   setVersionMenuOpen((v) => !v);
                 }}
-                className="h-10 flex items-center gap-1.5 rounded-full px-3 bg-background-100 border border-background-200 hover:border-primary-300/60 text-sm font-semibold text-foreground-800 cursor-pointer whitespace-nowrap"
+                className="flex h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-background-200 bg-background-100 px-3 text-sm font-semibold text-foreground-800 hover:border-primary-300/60"
                 title={t('nav_version_label')}
               >
                 <span className="w-5 h-5 rounded-md bg-gradient-to-br from-primary-500 to-accent-600 text-background-50 text-[10px] font-bold flex items-center justify-center">
@@ -911,7 +911,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             <div ref={langRef} className="relative hidden sm:block">
               <button
                 onClick={() => setLangMenuOpen((v) => !v)}
-                className="h-10 flex items-center gap-1 rounded-full px-2.5 bg-background-100 border border-background-200 hover:border-primary-300/60 text-xs font-semibold text-foreground-800 cursor-pointer whitespace-nowrap"
+                className="flex h-11 items-center gap-1 whitespace-nowrap rounded-full border border-background-200 bg-background-100 px-2.5 text-xs font-semibold text-foreground-800 hover:border-primary-300/60"
                 title={t('nav_lang_label')}
               >
                 <i className="ri-global-line"></i>
@@ -1025,7 +1025,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   onClick={() => setAccountMenuOpen((open) => !open)}
                   aria-haspopup="menu"
                   aria-expanded={accountMenuOpen}
-                  className="flex h-10 max-w-32 2xl:max-w-44 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100"
+                  className="flex h-11 max-w-32 items-center gap-2 rounded-full border border-primary-200 bg-primary-50 px-3 text-sm font-semibold text-primary-800 transition hover:border-primary-300 hover:bg-primary-100 2xl:max-w-44"
                   title={t('nav_account_signed_in', { name: displayName })}
                 >
                   {session?.avatarUrl ? (
@@ -1075,7 +1075,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
             ) : (
               <Link
                 to="/auth/login"
-                className="hidden sm:flex items-center gap-2 h-10 px-4 rounded-full bg-gradient-to-r from-primary-500 to-accent-600 text-background-50 dark:text-foreground-950 text-sm font-semibold hover:from-primary-600 hover:to-accent-700 transition-all cursor-pointer whitespace-nowrap shadow-sm hover:shadow-md"
+                className="hidden h-11 items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-primary-500 to-accent-600 px-4 text-sm font-semibold text-background-50 shadow-sm transition-all hover:from-primary-600 hover:to-accent-700 hover:shadow-md dark:text-foreground-950 sm:flex"
               >
                 <i className="ri-login-circle-line"></i>
                 {t('nav_sign_in')}

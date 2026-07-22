@@ -73,6 +73,12 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const language = getPathLanguage(pathname) || 'en';
   const server = getPathServer(pathname) || 'gms';
   const route = stripRouteSuffixes(pathname);
+  const usesArticleContentStyles = route === '/wiki'
+    || route.startsWith('/wiki/')
+    || route === '/source'
+    || route === '/guides'
+    || route.startsWith('/guides/')
+    || route.startsWith('/upcoming/');
   const requestUrl = new URL(requestPath || pathname, SITE_URL);
   const seriesId = requestUrl.searchParams.get('series') || undefined;
   const seriesProduct = route.startsWith('/series/')
@@ -312,6 +318,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
       <link rel="canonical" href={canonicalUrl} />
+      {usesArticleContentStyles && <link rel="stylesheet" href="/article-content.css" />}
       {index && supportedLanguages.map((alternateLanguage) => (
         <link
           key={alternateLanguage}

@@ -96,7 +96,7 @@ export default function Footer() {
                   aria-label={item.label}
                   target="_blank"
                   rel="nofollow noreferrer"
-                  className="w-10 h-10 rounded-full bg-accent-900/40 border border-accent-700/30 hover:border-primary-400 hover:text-primary-400 text-accent-200/60 flex items-center justify-center cursor-pointer transition-colors"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-accent-700/30 bg-accent-900/40 text-accent-200/70 transition-colors hover:border-primary-400 hover:text-primary-400"
                 >
                   <i className={item.icon}></i>
                 </a>
@@ -120,7 +120,7 @@ export default function Footer() {
                       href={isExternal ? l.href : localizeHref(scopeModuleHref(activeSeriesId, l.href), i18n.language, version)}
                       target={isExternal ? '_blank' : undefined}
                       rel={isExternal ? 'noreferrer' : undefined}
-                      className="text-sm text-accent-200/60 hover:text-primary-400 cursor-pointer transition-colors"
+                      className="inline-flex min-h-11 items-center text-sm text-accent-200/70 transition-colors hover:text-primary-400"
                     >
                       {t(l.nameKey)}
                     </a>
@@ -138,9 +138,9 @@ export default function Footer() {
             {t('footer_copyright')}
           </p>
           <div className="flex flex-wrap gap-4">
-            <a href={communityLinks.terms} target="_blank" rel="noreferrer" className="hover:text-primary-400 cursor-pointer whitespace-nowrap transition-colors">{t('footer_terms')}</a>
-            <a href={communityLinks.privacy} target="_blank" rel="noreferrer" className="hover:text-primary-400 cursor-pointer whitespace-nowrap transition-colors">{t('footer_privacy')}</a>
-            <a href={communityLinks.contact} target="_blank" rel="noreferrer" className="hover:text-primary-400 cursor-pointer whitespace-nowrap transition-colors">{t('footer_contact')}</a>
+            <a href={communityLinks.terms} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center whitespace-nowrap transition-colors hover:text-primary-400">{t('footer_terms')}</a>
+            <a href={communityLinks.privacy} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center whitespace-nowrap transition-colors hover:text-primary-400">{t('footer_privacy')}</a>
+            <a href={communityLinks.contact} target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center whitespace-nowrap transition-colors hover:text-primary-400">{t('footer_contact')}</a>
           </div>
         </div>
 

@@ -31,14 +31,14 @@ export default function HomeLongFormGuide() {
       <div className="mx-auto max-w-[90rem] px-4 py-16 md:px-8 md:py-24">
         <div className="grid gap-10 lg:grid-cols-[.78fr_1.22fr] lg:items-end">
           <div>
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{landingGuideIntro.eyebrow}</p>
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{landingGuideIntro.eyebrow}</p>
             <h2 className="mt-4 max-w-3xl font-heading text-4xl font-semibold tracking-[-0.035em] md:text-6xl">{landingGuideIntro.title}</h2>
           </div>
           <div>
             <p className="max-w-3xl text-base leading-8 text-[#6e665d] md:text-lg">{landingGuideIntro.description}</p>
             <nav aria-label="MapleStory guide quick links" className="mt-6 flex flex-wrap gap-2">
               {quickLinks.map(([icon, href, label]) => (
-                <Link key={href} to={localized(href)} className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#d9d0c2] bg-white px-4 text-xs font-extrabold transition hover:border-[#171411] hover:bg-[#171411] hover:text-white">
+                <Link key={href} to={localized(href)} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#d9d0c2] bg-white px-4 text-xs font-extrabold transition hover:border-[#171411] hover:bg-[#171411] hover:text-white">
                   <i className={icon} aria-hidden="true" />
                   {label}
                 </Link>
@@ -50,7 +50,7 @@ export default function HomeLongFormGuide() {
         <nav aria-label="Complete MapleStory guide chapters" className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-[#d9d0c2] bg-[#d9d0c2] sm:grid-cols-2 lg:grid-cols-4">
           {landingGuideSections.map((section) => (
             <a key={section.id} href={`#${section.id}`} className="group flex min-h-28 flex-col justify-between bg-white p-5 transition hover:bg-[#fff3cd]">
-              <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#a66500]">{section.eyebrow}</span>
+              <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#815000]">{section.eyebrow}</span>
               <span className="mt-4 text-sm font-extrabold leading-5 text-[#3f3933] group-hover:text-[#171411]">{section.title}</span>
             </a>
           ))}
@@ -62,11 +62,11 @@ export default function HomeLongFormGuide() {
           <article key={section.id} id={section.id} data-testid="long-form-section" className={`landing-render-deferred scroll-mt-24 border-t border-[#d9d0c2] ${index % 2 === 0 ? 'bg-[#fffaf2]' : 'bg-[#f5f0e7]'}`}>
             <div className="mx-auto grid max-w-[90rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[.68fr_1.32fr] lg:gap-16">
               <header className="lg:sticky lg:top-28 lg:self-start">
-                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{section.eyebrow}</p>
+                <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#815000]">{section.eyebrow}</p>
                 <h2 className="mt-4 font-heading text-3xl font-semibold leading-tight tracking-[-0.03em] md:text-5xl">{section.title}</h2>
                 <div className="mt-7 flex flex-wrap gap-2">
                   {section.links.map((link) => (
-                    <Link key={link.href} to={localized(link.href)} className="inline-flex min-h-10 items-center gap-1.5 rounded-lg border border-[#d9d0c2] bg-white px-3 text-xs font-extrabold text-[#4f4840] transition hover:border-[#171411] hover:bg-[#171411] hover:text-white">
+                    <Link key={link.href} to={localized(link.href)} className="inline-flex min-h-11 items-center gap-1.5 rounded-lg border border-[#d9d0c2] bg-white px-3 text-xs font-extrabold text-[#4f4840] transition hover:border-[#171411] hover:bg-[#171411] hover:text-white">
                       {link.label}
                       <i className="ri-arrow-right-line" aria-hidden="true" />
                     </Link>
