@@ -9,7 +9,6 @@ const fetchLiveNews = vi.hoisted(() => vi.fn(async () => ({ items: [], replace: 
 const prefetchRealtimeCollection = vi.hoisted(() => vi.fn(async () => []));
 
 vi.mock('@/router/config', () => ({
-  idleRoutePrefetchPaths: [],
   prefetchRouteForPath,
 }));
 vi.mock('@/services/liveContent', () => ({

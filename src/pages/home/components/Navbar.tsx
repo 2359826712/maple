@@ -1,10 +1,8 @@
-import { useEffect, useMemo, useState, useRef } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useVersion, type GameVersion } from '@/hooks/VersionContext';
-import { getSiteSearchResults, getPopularSearchTerms } from '@/services/siteSearch';
 import SearchResultList from '@/components/search/SearchResultList';
-import UniversalSearchDialog from '@/components/search/UniversalSearchDialog';
 import { AUTO_LOGIN_ENABLED_KEY, clearAuthSession, useAuthSession } from '@/hooks/useAuthSession';
 import { mapleSqlApi } from '@/services/mapleSqlApi';
 import { clearAccountDataCache, collectAccountData } from '@/services/accountDataSync';
@@ -20,6 +18,8 @@ import {
   scopeModuleHref,
 } from '@/pages/series/scope';
 import { getSeriesVersions, getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
+
+const UniversalSearchDialog = lazy(() => import('@/components/search/UniversalSearchDialog'));
 
 const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
@@ -99,6 +99,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(unread);
+  const [searchModule, setSearchModule] = useState<typeof import('@/services/siteSearch') | null>(null);
   const [toolMenuTab, setToolMenuTab] = useState<'all' | 'favorites'>('all');
   const [defaultToolFavorites, setDefaultToolFavorites] = useState<string[]>(() => {
     try {
@@ -200,6 +201,15 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   useEffect(() => setNotificationCount(unread), [unread]);
 
   useEffect(() => {
+    if (!searchOpen && !mobileSearchOpen) return undefined;
+    let active = true;
+    void import('@/services/siteSearch').then((module) => {
+      if (active) setSearchModule(module);
+    });
+    return () => { active = false; };
+  }, [mobileSearchOpen, searchOpen]);
+
+  useEffect(() => {
     if (!isSignedIn) {
       setNotificationCount(0);
       return undefined;
@@ -243,12 +253,12 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   }, [defaultToolFavorites, toolMenu]);
 
   const searchResults = useMemo(
-    () => getSiteSearchResults(query, i18n.language, versionInfo.id).slice(0, 5),
-    [i18n.language, query, versionInfo.id],
+    () => searchModule?.getSiteSearchResults(query, i18n.language, versionInfo.id).slice(0, 5) || [],
+    [i18n.language, query, searchModule, versionInfo.id],
   );
   const popularSearches = useMemo(
-    () => getPopularSearchTerms(i18n.language, versionInfo.id, 5),
-    [i18n.language, versionInfo.id],
+    () => searchModule?.getPopularSearchTerms(i18n.language, versionInfo.id, 5) || [],
+    [i18n.language, searchModule, versionInfo.id],
   );
 
   const handleSignOut = () => {
@@ -1360,7 +1370,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
           </div>
         )}
       </header>
-      <UniversalSearchDialog open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+      {paletteOpen && (
+        <Suspense fallback={null}>
+          <UniversalSearchDialog open onClose={() => setPaletteOpen(false)} />
+        </Suspense>
+      )}
     </>
   );
 }

@@ -10,6 +10,7 @@ import NewsNextRoute from '@/pages/news/[...route].next';
 import CatchAllNextRoute from '@/pages/[[...route]].next';
 import type { GuideItem } from '@/services/liveContent';
 import { ensureServerDom } from '@/services/serverDom';
+import { createRoutePageProps } from './routeData';
 
 describe('Next application initial SSR', () => {
   it('renders a preloaded route without a pending Suspense fallback', async () => {
@@ -83,16 +84,13 @@ describe('Next application initial SSR', () => {
     expect(serverHtml).not.toContain('Loading page');
   });
 
-  it('renders indexed content instead of the catch-all home route', () => {
+  it('renders indexed content instead of the catch-all home route', async () => {
     const pathname = '/content/news/classic-world-closed-online-test-2-classic-world-test-2-campaign/en/GMS';
+    const routeProps = await createRoutePageProps(`${pathname}?series=maplestory-classic`);
+    expect(routeProps).toBeTruthy();
     const serverHtml = renderToString(
       <CatchAllNextRoute
-        language="en"
-        pathname={pathname}
-        requestPath={`${pathname}?series=maplestory-classic`}
-        requestTitle="Classic World Closed Online Test #2"
-        server="gms"
-        translation={translation}
+        {...routeProps!}
       />,
     );
 

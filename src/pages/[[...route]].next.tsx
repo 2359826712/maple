@@ -1,6 +1,6 @@
 import NextRoutePage from '@/next/NextRoutePage';
 import type { NextRoutePageProps } from '@/next/routeData';
-import { getServerSideRouteProps } from '@/next/serverRoute';
+import type { GetServerSideProps } from 'next';
 import { stripRouteSuffixes } from '@/i18n/languageRouting';
 import SeriesResourceDetailPage from './series/SeriesResourceDetailPage';
 import NotFound from './NotFound';
@@ -15,6 +15,7 @@ export default function HomeNextRoute(props: NextRoutePageProps) {
       ? (
         <SeriesResourceDetailPage
           initialContentModule={decodeURIComponent(contentMatch[1])}
+          initialDetail={props.initialSeriesResourceDetail}
           initialSlug={decodeURIComponent(contentMatch[2])}
         />
       )
@@ -22,4 +23,7 @@ export default function HomeNextRoute(props: NextRoutePageProps) {
   return <NextRoutePage {...props} initialRouteElement={initialRouteElement} />;
 }
 
-export const getServerSideProps = getServerSideRouteProps;
+export const getServerSideProps: GetServerSideProps<NextRoutePageProps> = async (context) => {
+  const { getServerSideRouteProps } = await import('@/next/serverRoute');
+  return getServerSideRouteProps(context);
+};

@@ -59,7 +59,7 @@ export default function HomeLongFormGuide() {
 
       <div>
         {landingGuideSections.map((section, index) => (
-          <article key={section.id} id={section.id} data-testid="long-form-section" className={`scroll-mt-24 border-t border-[#d9d0c2] ${index % 2 === 0 ? 'bg-[#fffaf2]' : 'bg-[#f5f0e7]'}`}>
+          <article key={section.id} id={section.id} data-testid="long-form-section" className={`landing-render-deferred scroll-mt-24 border-t border-[#d9d0c2] ${index % 2 === 0 ? 'bg-[#fffaf2]' : 'bg-[#f5f0e7]'}`}>
             <div className="mx-auto grid max-w-[90rem] gap-10 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[.68fr_1.32fr] lg:gap-16">
               <header className="lg:sticky lg:top-28 lg:self-start">
                 <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{section.eyebrow}</p>
@@ -92,7 +92,7 @@ export default function HomeLongFormGuide() {
         ))}
       </div>
 
-      <section id="maplestory-faq" className="border-t border-[#d9d0c2] bg-[#0f0e0d] text-white">
+      <section id="maplestory-faq" className="landing-render-deferred border-t border-[#d9d0c2] bg-[#0f0e0d] text-white">
         <div className="mx-auto grid max-w-[90rem] gap-12 px-4 py-16 md:px-8 md:py-24 lg:grid-cols-[.68fr_1.32fr]">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#ffb000]">MapleStory FAQ</p>
@@ -110,7 +110,7 @@ export default function HomeLongFormGuide() {
         </div>
       </section>
 
-      <section className="border-t border-[#d9d0c2] bg-[#ffb000]">
+      <section className="landing-render-deferred border-t border-[#d9d0c2] bg-[#ffb000]">
         <div className="mx-auto grid max-w-[90rem] gap-8 px-4 py-14 md:px-8 md:py-20 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#684400]">{landingGuideClosing.eyebrow}</p>

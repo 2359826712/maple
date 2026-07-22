@@ -1,13 +1,13 @@
 import { createElement, type ComponentType } from "react";
 import { createRoutes } from './routeFactory';
 
-type LazyRouteComponent = ComponentType & {
-  preload: () => Promise<{ default: ComponentType }>;
+type LazyRouteComponent<Props extends object> = ComponentType<Props> & {
+  preload: () => Promise<{ default: ComponentType<Props> }>;
 };
 
-export const lazyWithPreload = (loader: () => Promise<{ default: ComponentType }>) => {
-  let preloadPromise: Promise<{ default: ComponentType }> | undefined;
-  let LoadedComponent: ComponentType | undefined;
+export const lazyWithPreload = <Props extends object>(loader: () => Promise<{ default: ComponentType<Props> }>) => {
+  let preloadPromise: Promise<{ default: ComponentType<Props> }> | undefined;
+  let LoadedComponent: ComponentType<Props> | undefined;
   let preloadError: unknown;
   const preload = () => {
     preloadPromise ??= loader().then((module) => {
@@ -21,7 +21,7 @@ export const lazyWithPreload = (loader: () => Promise<{ default: ComponentType }
     });
     return preloadPromise;
   };
-  const Component = ((props: object) => {
+  const Component = ((props: Props) => {
     if (preloadError) {
       const error = preloadError;
       preloadError = undefined;
@@ -29,7 +29,7 @@ export const lazyWithPreload = (loader: () => Promise<{ default: ComponentType }
     }
     if (!LoadedComponent) throw preload();
     return createElement(LoadedComponent, props);
-  }) as LazyRouteComponent;
+  }) as LazyRouteComponent<Props>;
   Component.preload = preload;
   return Component;
 };
@@ -56,6 +56,7 @@ const LevelGuidePage = lazyWithPreload(() => import("../pages/guides/level/page"
 const ToolsPage = lazyWithPreload(() => import("../pages/tools/page"));
 const ShopPage = lazyWithPreload(() => import("../pages/shop/page"));
 const SeriesPage = lazyWithPreload(() => import("../pages/series/page"));
+const SeriesModuleRoute = lazyWithPreload(() => import("../pages/series/SeriesModuleRoute"));
 const SeriesResourceDetailPage = lazyWithPreload(() => import("../pages/series/SeriesResourceDetailPage"));
 const FeedbackPage = lazyWithPreload(() => import("../pages/feedback/page"));
 const AdminFeedbackPage = lazyWithPreload(() => import("../pages/admin/feedback/page"));
@@ -64,7 +65,7 @@ const WikiRedirectPage = lazyWithPreload(() =>
   import("../pages/wiki/redirect").then((module) => ({ default: module.WikiRedirectPage })),
 );
 
-const routePrefetchers: Array<[string, LazyRouteComponent]> = [
+const routePrefetchers: Array<[string, { preload: () => Promise<unknown> }]> = [
   ["/upcoming/", UpcomingUpdateDetailPage],
   ["/guides/level", LevelGuidePage],
   ["/guides/", GuideDetail],
@@ -92,20 +93,6 @@ const routePrefetchers: Array<[string, LazyRouteComponent]> = [
   ["/admin/feedback", AdminFeedbackPage],
   ["/", Home],
 ];
-
-export const idleRoutePrefetchPaths = [
-  '/news',
-  '/upcoming',
-  '/guides',
-  '/events',
-  '/mapler-house',
-  '/checklist',
-  '/wiki',
-  '/rankings',
-  '/shop',
-  '/series',
-  '/feedback',
-] as const;
 
 export function prefetchRouteForPath(pathname: string) {
   const normalizedPathname = pathname.split(/[?#]/, 1)[0].replace(/\/+$/, '') || '/';
@@ -138,6 +125,7 @@ export default createRoutes({
   SearchPage,
   SeriesResourceDetailPage,
   SeriesPage,
+  SeriesModuleRoute,
   ShopPage,
   ToolsPage,
   UpcomingUpdateDetailPage,

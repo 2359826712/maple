@@ -1,6 +1,27 @@
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/fredoka-latin-variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/fonts/nunito-latin-variable.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.landing-render-deferred {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 900px;
+}
 
 :root {
   --font-heading: 'Fredoka', system-ui, sans-serif;

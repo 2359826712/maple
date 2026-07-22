@@ -1,9 +1,9 @@
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import ExternalRedirect from '@/components/feature/ExternalRedirect';
 import InternalRedirect from '@/components/feature/InternalRedirect';
 import { communityLinks } from '@/constants/communityLinks';
-import SeriesModuleRoute from '@/pages/series/SeriesModuleRoute';
+import type { SeriesModule } from '@/pages/series/scope';
 import {
   languagePathSegments,
   serverPathSegments,
@@ -32,6 +32,7 @@ export type RouteComponents = {
   SearchPage: ComponentType;
   SeriesResourceDetailPage: ComponentType;
   SeriesPage: ComponentType;
+  SeriesModuleRoute: ComponentType<{ children: ReactNode; module: SeriesModule }>;
   ShopPage: ComponentType;
   ToolsPage: ComponentType;
   UpcomingUpdateDetailPage: ComponentType;
@@ -63,6 +64,7 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     SearchPage,
     SeriesResourceDetailPage,
     SeriesPage,
+    SeriesModuleRoute,
     ShopPage,
     ToolsPage,
     UpcomingUpdateDetailPage,

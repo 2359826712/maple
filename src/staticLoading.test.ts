@@ -11,10 +11,25 @@ describe('static application loading', () => {
     expect(router.match(/\blazyWithPreload\s*\(/g)?.length).toBeGreaterThan(10);
     expect(router).toMatch(/\bimport\s*\(/);
     expect(router).toContain('prefetchRouteForPath');
-    expect(router).toContain('idleRoutePrefetchPaths');
     expect(routePreloader).toContain('prefetchPathResources');
-    expect(routePreloader).toContain('allowsBackgroundPreloading');
+    expect(routePreloader).not.toContain('IntersectionObserver');
+    expect(routePreloader).not.toContain('requestIdleCallback');
     expect(routerRoot).toContain('Suspense');
+  });
+
+  it('keeps large search and series indexes out of the initial homepage bundle', () => {
+    const navbar = source('pages/home/components/Navbar.tsx');
+    const routeFactory = source('router/routeFactory.tsx');
+    const routeHead = source('next/RouteHead.tsx');
+    const catchAllRoute = source('pages/[[...route]].next.tsx');
+
+    expect(navbar).toContain("import('@/services/siteSearch')");
+    expect(navbar).not.toMatch(/^import .*services\/siteSearch/m);
+    expect(routeFactory).not.toMatch(/^import SeriesModuleRoute/m);
+    expect(routeHead).not.toContain("@/pages/series/verifiedContent");
+    expect(routeHead).not.toContain("@/mocks/bosses");
+    expect(catchAllRoute).toContain('initialDetail={props.initialSeriesResourceDetail}');
+    expect(source('pages/series/SeriesResourceDetailPage.tsx')).toContain("import('./verifiedContent')");
   });
 
   it('loads only the active locale before hydrating the app', () => {

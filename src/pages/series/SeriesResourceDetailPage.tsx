@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
@@ -10,12 +10,8 @@ import { useVersion } from '@/hooks/VersionContext';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services/staticTranslation';
 import { getSeriesProduct } from './catalog';
-import {
-  findIndexedContent,
-  getIndexedContentSections,
-  getIndexedResourceSections,
-  getSourceOverviewSections,
-} from './indexedContentDetail';
+import type { IndexedContentRecord } from '@/domain/contentIndex';
+import type { ContentSection } from './indexedContentDetail';
 import {
   getSeriesIdFromSearch,
   getSeriesModuleHref,
@@ -24,7 +20,7 @@ import {
   isSharedSeriesModule,
   type SeriesModule,
 } from './scope';
-import { getVerifiedSeriesResource, getVerifiedSeriesResourceSlug } from './verifiedContent';
+import type { VerifiedSeriesResource } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
 
 const moduleLabels: Record<SeriesModule, string> = {
@@ -42,12 +38,24 @@ const moduleLabels: Record<SeriesModule, string> = {
 };
 
 const relatedModules: SeriesModule[] = ['news', 'upcoming', 'guides', 'events', 'tools', 'wiki'];
+const emptyContentSections: ContentSection[] = [];
+
+export type SeriesResourceDetailData = {
+  contentModule?: string;
+  contentRecord?: IndexedContentRecord;
+  contentSections: ContentSection[];
+  hasStructuredContent: boolean;
+  resource?: VerifiedSeriesResource;
+  resourceSlug?: string;
+};
 
 export default function SeriesResourceDetailPage({
   initialContentModule,
+  initialDetail,
   initialSlug,
 }: {
   initialContentModule?: string;
+  initialDetail?: SeriesResourceDetailData;
   initialSlug?: string;
 } = {}) {
   const params = useParams();
@@ -60,24 +68,64 @@ export default function SeriesResourceDetailPage({
   const seriesId = getSeriesIdFromSearch(search);
   const product = getSeriesProduct(seriesId);
   const module = isSeriesModule(contentModule) ? contentModule : undefined;
-  const resource = product && module && slug
-    ? getVerifiedSeriesResource(product.id, module, decodeURIComponent(slug))
-    : undefined;
-  const contentRecord = useMemo(
-    () => findIndexedContent(resource?.contentId, resource?.resourceId, resource?.sourceUrl),
-    [resource],
-  );
-  const structuredSections = useMemo(() => getIndexedContentSections(contentRecord), [contentRecord]);
-  const contentSections = useMemo(() => (
-    structuredSections.length > 0
-      ? structuredSections
-      : getIndexedResourceSections(resource?.resourceRecord).length > 0
-        ? getIndexedResourceSections(resource?.resourceRecord)
-        : getSourceOverviewSections(resource)
-  ), [resource, structuredSections]);
-  const hasStructuredContent = structuredSections.length > 0;
+  const [detail, setDetail] = useState<SeriesResourceDetailData | undefined>(initialDetail);
+  const [resolving, setResolving] = useState(!initialDetail && Boolean(product && module && slug));
+  const resource = detail?.resource;
+  const contentRecord = detail?.contentRecord;
+  const contentSections = detail?.contentSections || emptyContentSections;
+  const hasStructuredContent = detail?.hasStructuredContent || false;
   const [localizedText, setLocalizedText] = useState<Record<string, string>>({});
   const localized = (href: string) => localizeHref(href, i18n.language, version);
+
+  useEffect(() => {
+    const decodedSlug = slug ? decodeURIComponent(slug) : '';
+    if (!product || !module || !decodedSlug) {
+      setDetail(undefined);
+      setResolving(false);
+      return undefined;
+    }
+    if (
+      initialDetail
+      && initialDetail.contentModule === module
+      && initialDetail.resourceSlug === decodedSlug
+    ) {
+      setDetail(initialDetail);
+      setResolving(false);
+      return undefined;
+    }
+
+    let active = true;
+    setResolving(true);
+    void Promise.all([
+      import('./verifiedContent'),
+      import('./indexedContentDetail'),
+    ]).then(([verifiedContent, indexedContent]) => {
+      if (!active) return;
+      const nextResource = verifiedContent.getVerifiedSeriesResource(product.id, module, decodedSlug);
+      const nextRecord = indexedContent.findIndexedContent(
+        nextResource?.contentId,
+        nextResource?.resourceId,
+        nextResource?.sourceUrl,
+      );
+      const structuredSections = indexedContent.getIndexedContentSections(nextRecord);
+      const resourceSections = indexedContent.getIndexedResourceSections(nextResource?.resourceRecord);
+      setDetail({
+        contentModule: module,
+        contentRecord: nextRecord,
+        contentSections: structuredSections.length > 0
+          ? structuredSections
+          : resourceSections.length > 0
+            ? resourceSections
+            : indexedContent.getSourceOverviewSections(nextResource),
+        hasStructuredContent: structuredSections.length > 0,
+        resource: nextResource,
+        resourceSlug: decodedSlug,
+      });
+    }).finally(() => {
+      if (active) setResolving(false);
+    });
+    return () => { active = false; };
+  }, [initialDetail, module, product, slug]);
 
   useEffect(() => {
     let active = true;
@@ -111,7 +159,7 @@ export default function SeriesResourceDetailPage({
     copy.description || t('series_verified_content_note'),
     {
       canonicalPath: product && module && resource
-        ? localized(getSeriesResourceHref(product.id, module, getVerifiedSeriesResourceSlug(resource)))
+        ? localized(getSeriesResourceHref(product.id, module, detail?.resourceSlug || decodeURIComponent(slug || '')))
         : undefined,
       datePublished: publishedAt,
       includeAlternates: false,
@@ -135,7 +183,12 @@ export default function SeriesResourceDetailPage({
       <NotificationDrawer open={notificationOpen} onClose={() => setNotificationOpen(false)} />
 
       <main id="main-content" tabIndex={-1} className="pb-16 pt-20 md:pt-24">
-        {!product || !module || !resource ? (
+        {resolving ? (
+          <section className="mx-auto max-w-4xl px-4 py-16 text-center md:px-8" role="status">
+            <span className="inline-flex h-10 w-10 animate-spin rounded-full border-4 border-background-300 border-t-primary-600" aria-hidden="true" />
+            <p className="mt-4 text-sm text-foreground-600">{t('wiki_article_loading')}</p>
+          </section>
+        ) : !product || !module || !resource ? (
           <section className="mx-auto max-w-4xl px-4 py-16 text-center md:px-8">
             <i className="ri-file-warning-line text-4xl text-primary-700" aria-hidden="true" />
             <h1 className="mt-5 font-heading text-3xl font-semibold">{t('series_content_not_found')}</h1>

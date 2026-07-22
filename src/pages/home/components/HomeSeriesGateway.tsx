@@ -177,7 +177,16 @@ export default function HomeSeriesGateway() {
 
               <div className="grid min-h-[30rem] gap-0 md:grid-cols-[1.07fr_.93fr]">
                 <div className="relative min-h-72 overflow-hidden border-b border-white/10 md:border-b-0 md:border-r">
-                  <img src={featuredSeries.image} alt={featuredSeries.name} className="absolute inset-0 h-full w-full object-cover opacity-60" />
+                  <img
+                    src={featuredSeries.image}
+                    alt={featuredSeries.name}
+                    width={960}
+                    height={478}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
+                    className="absolute inset-0 h-full w-full object-cover opacity-60"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-[#171513]" />
                   <div className="absolute inset-x-0 bottom-0 p-6">
                     <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[#ffb000] text-xl text-[#17110a] shadow-lg">
@@ -219,7 +228,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section className="border-b border-[#d9d0c2] bg-[#fffaf2] py-14 md:py-20">
+      <section className="landing-render-deferred border-b border-[#d9d0c2] bg-[#fffaf2] py-14 md:py-20">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_trust_eyebrow')}</p>
@@ -238,7 +247,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section className="border-b border-white/10 bg-[#0f0e0d] py-16 text-white md:py-24">
+      <section className="landing-render-deferred border-b border-white/10 bg-[#0f0e0d] py-16 text-white md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="mx-auto max-w-5xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-[#ffb000]">{t('landing_snapshot_eyebrow')}</p>
@@ -260,7 +269,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section id="comparison" className="scroll-mt-24 border-b border-[#d9d0c2] bg-[#fffaf2] py-16 md:py-24">
+      <section id="comparison" className="landing-render-deferred scroll-mt-24 border-b border-[#d9d0c2] bg-[#fffaf2] py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="grid gap-6 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
             <div>
@@ -310,7 +319,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section id="player-voices" className="scroll-mt-24 border-b border-[#d9d0c2] bg-[#f5f0e7] py-16 md:py-24">
+      <section id="player-voices" className="landing-render-deferred scroll-mt-24 border-b border-[#d9d0c2] bg-[#f5f0e7] py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#a66500]">{t('landing_voice_eyebrow')}</p>
@@ -346,7 +355,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section id="choose-your-series" className="scroll-mt-24 bg-[#f5f0e7] py-16 md:py-24">
+      <section id="choose-your-series" className="landing-render-deferred scroll-mt-24 bg-[#f5f0e7] py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
@@ -370,7 +379,15 @@ export default function HomeSeriesGateway() {
                   className="relative block aspect-[16/9] overflow-hidden bg-[#171411]"
                   aria-label={`${product.name} — ${t('series_enter_hub')}`}
                 >
-                  <img src={product.image} alt={product.name} className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    width={960}
+                    height={540}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#171411]/80 via-transparent to-transparent" />
                   <span className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/50 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white backdrop-blur">{String(index + 1).padStart(2, '0')} · {t(product.platformKey)}</span>
                   <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#ffb000] text-lg text-[#17110a] transition group-hover:rotate-[-8deg] group-hover:scale-110"><i className="ri-arrow-right-up-line" aria-hidden="true" /></span>
@@ -416,7 +433,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section id="series-coverage" className="border-y border-[#d9d0c2] bg-[#fffaf2] py-16 md:py-24">
+      <section id="series-coverage" className="landing-render-deferred border-y border-[#d9d0c2] bg-[#fffaf2] py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="grid gap-6 lg:grid-cols-[.72fr_1.28fr] lg:items-end">
             <div>
@@ -450,7 +467,7 @@ export default function HomeSeriesGateway() {
         </div>
       </section>
 
-      <section id="why-mpstorys" className="bg-[#fffaf2] py-16 md:py-24">
+      <section id="why-mpstorys" className="landing-render-deferred bg-[#fffaf2] py-16 md:py-24">
         <div className="mx-auto max-w-[90rem] px-4 md:px-8">
           <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-16">
             <div className="lg:sticky lg:top-28 lg:self-start">
@@ -497,7 +514,7 @@ export default function HomeSeriesGateway() {
 
       <HomeLongFormGuide />
 
-      <section className="bg-[#0f0e0d] px-4 py-16 text-white md:px-8 md:py-24">
+      <section className="landing-render-deferred bg-[#0f0e0d] px-4 py-16 text-white md:px-8 md:py-24">
         <div className="relative mx-auto max-w-[90rem] overflow-hidden rounded-[2rem] border border-white/10 bg-[#171513] px-6 py-12 shadow-2xl md:px-12 md:py-16">
           <div className="absolute -right-12 -top-28 h-80 w-80 rounded-full border-[52px] border-[#ffb000]/10" aria-hidden="true" />
           <div className="absolute -bottom-28 left-1/3 h-64 w-64 rounded-full bg-[#ff4f7b]/10 blur-3xl" aria-hidden="true" />

@@ -13,9 +13,7 @@ import metadataCatalog from '@/seo/routeMetadata.json';
 import siteKeywords from '@/seo/siteKeywords.json';
 import { getNewsCopy } from '@/pages/news/localizedNews';
 import type { NextRoutePageProps } from './routeData';
-import { bosses } from '@/mocks/bosses';
 import { getSeriesProduct } from '@/pages/series/catalog';
-import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
 import { isSeriesModule, seriesModuleByBaseHref, type SeriesModule } from '@/pages/series/scope';
 
 type MetadataCopy = { description: string; title: string };
@@ -66,20 +64,15 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     initialUpcomingArticle,
     initialUpcomingFeed,
     initialWikiEntry,
+    requestDescription,
     requestTitle,
     requestPath,
+    routeHeadBoss,
     translation,
   } = page;
   const language = getPathLanguage(pathname) || 'en';
   const server = getPathServer(pathname) || 'gms';
   const route = stripRouteSuffixes(pathname);
-  const bossSlug = route.startsWith('/wiki/boss/') ? route.slice('/wiki/boss/'.length) : '';
-  const bossName = (() => {
-    try { return decodeURIComponent(bossSlug).replace(/_/g, ' '); } catch { return bossSlug; }
-  })();
-  const routeBoss = bossName
-    ? bosses.find((boss) => boss.name.toLowerCase() === bossName.toLowerCase())
-    : undefined;
   const requestUrl = new URL(requestPath || pathname, SITE_URL);
   const seriesId = requestUrl.searchParams.get('series') || undefined;
   const seriesProduct = route.startsWith('/series/')
@@ -97,9 +90,6 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const seriesPageDescription = seriesProduct
     ? plainText(`${seriesProduct.name}${seriesModuleLabel ? ` ${seriesModuleLabel}` : ''}: ${translation[seriesProduct.descriptionKey] || ''}`).slice(0, 180)
     : undefined;
-  const seriesResource = seriesProduct && contentModule && contentMatch?.[2]
-    ? getVerifiedSeriesResource(seriesProduct.id, contentModule, decodeURIComponent(contentMatch[2]))
-    : undefined;
   const resolved = getMetadataEntry(route);
   const entry = resolved?.entry;
   const copy = entry?.copy[language] || entry?.copy.en || metadataCatalog.notFound[language];
@@ -107,16 +97,15 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.localizedCopy?.title
     || initialGuide?.title
     || initialWikiEntry?.title
-    || (routeBoss ? `${routeBoss.name} MapleStory Boss Guide` : undefined)
-    || seriesResource?.title
+    || (routeHeadBoss ? `${routeHeadBoss.name} MapleStory Boss Guide` : undefined)
     || seriesPageTitle
     || (route === '/source' || route.startsWith('/content/') ? requestTitle : undefined);
   const dynamicDescription = initialUpcomingArticle?.excerpt
     || initialGuide?.localizedCopy?.excerpt
     || initialGuide?.excerpt
     || initialWikiEntry?.description
-    || (routeBoss ? `MapleStory ${routeBoss.name} boss requirements, difficulties, mechanics, rewards, and strategy.` : undefined)
-    || seriesResource?.description
+    || (routeHeadBoss ? `MapleStory ${routeHeadBoss.name} boss requirements, difficulties, mechanics, rewards, and strategy.` : undefined)
+    || requestDescription
     || seriesPageDescription
     || (initialOfficialArticle ? plainText(initialOfficialArticle.text || initialOfficialArticle.html).slice(0, 180) : undefined);
   const pageTitle = dynamicTitle || copy.title;
@@ -238,18 +227,14 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
             author: { '@type': 'Organization', name: 'MapleStory Wiki contributors' },
             url: canonicalUrl,
           }
-        : routeBoss
+        : routeHeadBoss
           ? {
               '@type': 'Article',
               '@id': `${canonicalUrl}#article`,
               headline: pageTitle,
               description,
-              articleBody: [
-                ...routeBoss.phases.flatMap((phase) => [phase.name, ...phase.mechanics]),
-                ...routeBoss.tips,
-                ...routeBoss.drops.map((drop) => `${drop.name}: ${drop.description}`),
-              ].join(' '),
-              image: routeBoss.image || undefined,
+              articleBody: routeHeadBoss.articleBody,
+              image: routeHeadBoss.image || undefined,
               url: canonicalUrl,
             }
           : initialOfficialArticle

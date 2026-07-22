@@ -23,11 +23,12 @@ export default function Document(props: DocumentProps) {
         <link rel="icon" type="image/jpeg" sizes="128x128" href="/mpstorys-icon-128.jpg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+          rel="preload"
+          href="/fonts/fredoka-latin-variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
         />
       </Head>
       <body>

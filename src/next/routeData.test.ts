@@ -81,6 +81,12 @@ describe('Next route data', () => {
 
     const props = await createRoutePageProps('/');
     expect(props).toEqual(expect.objectContaining({ language: 'en', pathname: '/', server: 'gms' }));
+    expect(fetchLiveNews).not.toHaveBeenCalled();
+    expect(fetchLiveEvents).not.toHaveBeenCalled();
+    expect(fetchLiveGuides).not.toHaveBeenCalled();
+    expect(props?.initialNews).toBeUndefined();
+    expect(props?.initialEvents).toBeUndefined();
+    expect(props?.initialGuides).toBeUndefined();
   });
 
   it('redirects unsupported series ranking routes to series news', () => {

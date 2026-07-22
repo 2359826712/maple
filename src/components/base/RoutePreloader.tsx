@@ -1,22 +1,9 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { idleRoutePrefetchPaths, prefetchRouteForPath } from '@/router/config';
+import { prefetchRouteForPath } from '@/router/config';
 import { stripRouteSuffixes } from '@/i18n/languageRouting';
 import { useVersion, type GameVersion } from '@/hooks/VersionContext';
 import type { NewsItem } from '@/services/liveContent';
-
-type NetworkInformationLike = {
-  effectiveType?: string;
-  saveData?: boolean;
-};
-
-type IdleWindow = Window & typeof globalThis & {
-  requestIdleCallback?: (
-    callback: (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void,
-    options?: { timeout: number },
-  ) => number;
-  cancelIdleCallback?: (handle: number) => void;
-};
 
 const wikiTitleFromPath = (pathname: string) => {
   const routePath = stripRouteSuffixes(pathname);
@@ -166,11 +153,6 @@ function prefetchPathResources(pathname: string, language: string, version: Game
   return request;
 }
 
-const allowsBackgroundPreloading = () => {
-  const connection = (navigator as Navigator & { connection?: NetworkInformationLike }).connection;
-  return !connection?.saveData && connection?.effectiveType !== 'slow-2g' && connection?.effectiveType !== '2g';
-};
-
 export default function RoutePreloader() {
   const { i18n } = useTranslation();
   const { version } = useVersion();
@@ -198,67 +180,10 @@ export default function RoutePreloader() {
     document.addEventListener('focusin', onFocusIn);
     document.addEventListener('touchstart', onTouchStart, { passive: true });
 
-    let visibleLinkObserver: IntersectionObserver | undefined;
-    let linkMutationObserver: MutationObserver | undefined;
-    if (allowsBackgroundPreloading() && 'IntersectionObserver' in window) {
-      visibleLinkObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          visibleLinkObserver?.unobserve(entry.target);
-          prefetchEventTarget(entry.target);
-        });
-      }, { rootMargin: '180px' });
-
-      const observeLinks = (root: Document | Element) => {
-        root.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((anchor) => visibleLinkObserver?.observe(anchor));
-      };
-      observeLinks(document);
-      linkMutationObserver = new MutationObserver((records) => {
-        records.forEach((record) => record.addedNodes.forEach((node) => {
-          if (!(node instanceof Element)) return;
-          if (node.matches('a[href]')) visibleLinkObserver?.observe(node);
-          observeLinks(node);
-        }));
-      });
-      linkMutationObserver.observe(document.body, { childList: true, subtree: true });
-    }
-
-    let disposed = false;
-    let idleHandle: number | undefined;
-    let fallbackHandle: number | undefined;
-    let routeIndex = 0;
-    const idleWindow = window as IdleWindow;
-
-    const preloadNextRoute = () => {
-      if (disposed || routeIndex >= idleRoutePrefetchPaths.length) return;
-      const pathname = idleRoutePrefetchPaths[routeIndex];
-      routeIndex += 1;
-      void prefetchPathResources(pathname, i18n.language, version).finally(scheduleNextRoute);
-    };
-
-    const scheduleNextRoute = () => {
-      if (disposed || routeIndex >= idleRoutePrefetchPaths.length) return;
-      if (idleWindow.requestIdleCallback) {
-        idleHandle = idleWindow.requestIdleCallback(preloadNextRoute, { timeout: 2500 });
-      } else {
-        fallbackHandle = window.setTimeout(preloadNextRoute, 500);
-      }
-    };
-
-    const kickoffHandle = window.setTimeout(() => {
-      if (allowsBackgroundPreloading()) scheduleNextRoute();
-    }, 1200);
-
     return () => {
-      disposed = true;
-      window.clearTimeout(kickoffHandle);
-      if (fallbackHandle !== undefined) window.clearTimeout(fallbackHandle);
-      if (idleHandle !== undefined) idleWindow.cancelIdleCallback?.(idleHandle);
       document.removeEventListener('pointerover', onPointerOver);
       document.removeEventListener('focusin', onFocusIn);
       document.removeEventListener('touchstart', onTouchStart);
-      visibleLinkObserver?.disconnect();
-      linkMutationObserver?.disconnect();
     };
   }, [i18n.language, version]);
 

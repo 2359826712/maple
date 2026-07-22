@@ -49,6 +49,20 @@ import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolReso
 import { localizeUpcomingArticle, localizeUpcomingFeed } from '@/pages/upcoming/localizedUpcoming';
 import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
 import { isSeriesModule, isSeriesModuleAvailable } from '@/pages/series/scope';
+import { bosses } from '@/mocks/bosses';
+import {
+  findIndexedContent,
+  getIndexedContentSections,
+  getIndexedResourceSections,
+  getSourceOverviewSections,
+} from '@/pages/series/indexedContentDetail';
+import type { SeriesResourceDetailData } from '@/pages/series/SeriesResourceDetailPage';
+
+export type RouteHeadBoss = {
+  articleBody: string;
+  image?: string;
+  name: string;
+};
 
 export type NextRoutePageProps = {
   initialEvents?: EventItem[];
@@ -57,6 +71,7 @@ export type NextRoutePageProps = {
   initialGuideSection?: GrandisGuideSectionPage;
   initialNews?: NewsItem[];
   initialOfficialArticle?: OfficialArticleDocument;
+  initialSeriesResourceDetail?: SeriesResourceDetailData;
   initialTools?: ToolResourceItem[];
   initialUpcomingArticle?: UpcomingUpdateArticle;
   initialUpcomingFeed?: UpcomingUpdateFeed;
@@ -64,7 +79,9 @@ export type NextRoutePageProps = {
   language: SupportedLanguage;
   pathname: string;
   requestPath?: string;
+  requestDescription?: string;
   requestTitle?: string;
+  routeHeadBoss?: RouteHeadBoss;
   server: (typeof supportedServers)[number];
   translation: Record<string, string>;
 };
@@ -269,14 +286,14 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
   const guideSection: GrandisGuideSection = sectionParam === 'classes' || sectionParam === 'events'
     ? sectionParam
     : 'content';
-  const initialNewsPromise = routePath === '/news' || routePath === '/'
+  const initialNewsPromise = routePath === '/news'
     ? fetchLiveNews(server)
-        .then((payload) => payload.items.filter(isRenderableNewsItem).slice(0, routePath === '/' ? 8 : 30))
+        .then((payload) => payload.items.filter(isRenderableNewsItem).slice(0, 30))
         .catch(() => [] as NewsItem[])
     : Promise.resolve(undefined);
-  const initialEventsPromise = routePath === '/events' || routePath === '/'
+  const initialEventsPromise = routePath === '/events'
     ? fetchLiveEvents(server)
-        .then((payload) => payload.items.filter(isRenderableEventItem).slice(0, routePath === '/' ? 6 : 30))
+        .then((payload) => payload.items.filter(isRenderableEventItem).slice(0, 30))
         .catch(() => [] as EventItem[])
     : Promise.resolve(undefined);
   const eventNewsPromise = routePath === '/events'
@@ -309,9 +326,6 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
         })
         .catch(() => undefined)
     : Promise.resolve(undefined);
-  const homeGuidesPromise = routePath === '/'
-    ? fetchLiveGuides().then((payload) => payload.items.slice(0, 12)).catch(() => [] as GuideItem[])
-    : Promise.resolve(undefined);
   const wikiTitle = routePath.startsWith('/wiki/article/')
     ? safeDecode(routePath.slice('/wiki/article/'.length)).replace(/_/g, ' ')
     : '';
@@ -335,6 +349,43 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
       )
     : undefined;
   const requestTitle = request.searchParams.get('title')?.trim() || seriesResource?.title;
+  const requestDescription = seriesResource?.description;
+  const contentRecord = seriesResource
+    ? findIndexedContent(seriesResource.contentId, seriesResource.resourceId, seriesResource.sourceUrl)
+    : undefined;
+  const structuredContentSections = getIndexedContentSections(contentRecord);
+  const resourceContentSections = getIndexedResourceSections(seriesResource?.resourceRecord);
+  const initialSeriesResourceDetail: SeriesResourceDetailData | undefined = contentMatch
+    ? {
+        contentModule,
+        contentRecord,
+        contentSections: structuredContentSections.length > 0
+          ? structuredContentSections
+          : resourceContentSections.length > 0
+            ? resourceContentSections
+            : getSourceOverviewSections(seriesResource),
+        hasStructuredContent: structuredContentSections.length > 0,
+        resource: seriesResource,
+        resourceSlug: safeDecode(contentMatch[2]),
+      }
+    : undefined;
+  const bossSlug = routePath.startsWith('/wiki/boss/')
+    ? safeDecode(routePath.slice('/wiki/boss/'.length)).replace(/_/g, ' ')
+    : '';
+  const routeBoss = bossSlug
+    ? bosses.find((boss) => boss.name.toLowerCase() === bossSlug.toLowerCase())
+    : undefined;
+  const routeHeadBoss = routeBoss
+    ? {
+        name: routeBoss.name,
+        image: routeBoss.image || undefined,
+        articleBody: [
+          ...routeBoss.phases.flatMap((phase) => [phase.name, ...phase.mechanics]),
+          ...routeBoss.tips,
+          ...routeBoss.drops.map((drop) => `${drop.name}: ${drop.description}`),
+        ].join(' '),
+      }
+    : undefined;
   const initialOfficialArticlePromise = routePath === '/source' && sourceUrl
     ? fetchOfficialArticleDocument(sourceUrl, server).catch(() => undefined)
     : Promise.resolve(undefined);
@@ -351,13 +402,12 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialUpcomingArticle,
     initialGuideSection,
     initialGuideData,
-    homeGuides,
     initialWikiEntry,
     initialOfficialArticle,
     initialTools,
   ] = await Promise.all([
     loadLanguageResources(language),
-    prefetchRouteForPath(routePath),
+    routePath === '/' ? Promise.resolve() : prefetchRouteForPath(routePath),
     initialNewsPromise,
     withDeadline(initialEventsPromise, undefined),
     withDeadline(eventNewsPromise, undefined),
@@ -365,7 +415,6 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialUpcomingArticlePromise,
     initialGuideSectionPromise,
     initialGuideDataPromise,
-    homeGuidesPromise,
     initialWikiEntryPromise,
     initialOfficialArticlePromise,
     initialToolsPromise,
@@ -391,8 +440,8 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialUpcomingFeed ? localizeUpcomingFeed(initialUpcomingFeed, language) : undefined,
     initialUpcomingArticle ? localizeUpcomingArticle(initialUpcomingArticle, language) : undefined,
     initialGuideSection ? localizeGuideSection(initialGuideSection, language) : undefined,
-    initialGuideData?.guides || homeGuides
-      ? localizeGuideItems(initialGuideData?.guides || homeGuides || [], language)
+    initialGuideData?.guides
+      ? localizeGuideItems(initialGuideData.guides, language)
       : undefined,
     initialGuideData?.guide ? localizeGuideItem(initialGuideData.guide, language) : undefined,
     initialWikiEntry ? localizeWikiEntry(initialWikiEntry, language) : undefined,
@@ -409,6 +458,9 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     requestPath: `${request.pathname}${request.search}`,
     server,
     translation,
+    ...(requestDescription ? { requestDescription } : {}),
+    ...(routeHeadBoss ? { routeHeadBoss: jsonValue(routeHeadBoss) } : {}),
+    ...(initialSeriesResourceDetail ? { initialSeriesResourceDetail: jsonValue(initialSeriesResourceDetail) } : {}),
     ...(localizedNews ? { initialNews: jsonValue(localizedNews) } : {}),
     ...(localizedEvents ? { initialEvents: jsonValue(localizedEvents) } : {}),
     ...(localizedUpcomingFeed ? { initialUpcomingFeed: jsonValue(localizedUpcomingFeed) } : {}),

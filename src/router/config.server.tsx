@@ -16,6 +16,7 @@ import RankingsPage from '../pages/rankings/page';
 import SearchPage from '../pages/search/page';
 import ShopPage from '../pages/shop/page';
 import SeriesPage from '../pages/series/page';
+import SeriesModuleRoute from '../pages/series/SeriesModuleRoute';
 import SeriesResourceDetailPage from '../pages/series/SeriesResourceDetailPage';
 import OfficialSourcePage from '../pages/source/page';
 import ToolsPage from '../pages/tools/page';
@@ -48,6 +49,7 @@ export default createRoutes({
   SearchPage,
   SeriesResourceDetailPage,
   SeriesPage,
+  SeriesModuleRoute,
   ShopPage,
   ToolsPage,
   UpcomingUpdateDetailPage,
