@@ -7,7 +7,7 @@ import { levelRanges, type ContentItem } from '@/mocks/levelGuide';
 
 const typeIcons: Record<ContentItem['type'], string> = {
   boss: 'ri-skull-2-line',
-  quest: 'ri-scroll-line',
+  quest: 'ri-file-paper-line',
   dungeon: 'ri-building-line',
   'party-quest': 'ri-team-line',
   system: 'ri-settings-3-line',

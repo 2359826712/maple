@@ -95,7 +95,7 @@ export const popularWikiItems: PopularWikiItem[] = [
     description: 'Esfera boss and major Arcane River milestone.',
     descriptionZh: '埃斯佩拉 Boss 与奥术之河重要节点。',
     category: 'Bosses',
-    icon: 'ri-spider-line',
+    icon: 'ri-bug-line',
     i18nKey: 'will',
   },
   {

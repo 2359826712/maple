@@ -1767,7 +1767,7 @@ const iconForWikiCategory: Record<WikiCategory, string> = {
   monsters: 'ri-skull-2-line',
   bosses: 'ri-ghost-2-line',
   npcs: 'ri-chat-quote-line',
-  quests: 'ri-scroll-line',
+  quests: 'ri-file-paper-line',
   items: 'ri-shield-star-line',
   updates: 'ri-refresh-line',
   content: 'ri-book-2-line',

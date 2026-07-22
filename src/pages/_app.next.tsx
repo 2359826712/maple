@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import 'remixicon/fonts/remixicon.css';
+import '@/remixicon-subset.css';
 import '@/index.css';
 
 function DeferredAnalytics() {

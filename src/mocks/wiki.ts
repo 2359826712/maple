@@ -52,7 +52,7 @@ export const wikiCategoryInfos: WikiCategoryInfo[] = [
   { key: 'monsters', name: 'Monsters', nameZh: '怪物', icon: 'ri-skull-2-line', count: 1200, tint: 'secondary' },
   { key: 'bosses', name: 'Bosses', nameZh: 'Boss', icon: 'ri-ghost-2-line', count: 38, tint: 'accent' },
   { key: 'npcs', name: 'NPCs', nameZh: 'NPC', icon: 'ri-chat-quote-line', count: 900, tint: 'accent' },
-  { key: 'quests', name: 'Quests', nameZh: '任务', icon: 'ri-scroll-line', count: 790, tint: 'primary' },
+  { key: 'quests', name: 'Quests', nameZh: '任务', icon: 'ri-file-paper-line', count: 790, tint: 'primary' },
   { key: 'items', name: 'Items', nameZh: '物品', icon: 'ri-shield-star-line', count: 812, tint: 'secondary' },
   { key: 'updates', name: 'Updates', nameZh: '更新', icon: 'ri-refresh-line', count: 80, tint: 'accent' },
   { key: 'content', name: 'Content', nameZh: '内容', icon: 'ri-book-2-line', count: 92, tint: 'primary' },

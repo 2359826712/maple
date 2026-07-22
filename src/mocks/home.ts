@@ -338,7 +338,7 @@ export const wikiCategories = [
   { name: 'Monsters', count: 1200, icon: 'ri-skull-2-line' },
   { name: 'Bosses', count: 38, icon: 'ri-ghost-2-line' },
   { name: 'NPCs', count: 900, icon: 'ri-chat-quote-line' },
-  { name: 'Quests', count: 790, icon: 'ri-scroll-line' },
+  { name: 'Quests', count: 790, icon: 'ri-file-paper-line' },
   { name: 'Items', count: 812, icon: 'ri-shield-star-line' },
   { name: 'Updates', count: 80, icon: 'ri-refresh-line' },
   { name: 'Content', count: 92, icon: 'ri-book-2-line' },
