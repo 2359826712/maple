@@ -10,12 +10,15 @@ import { WikiRedirectPage } from './redirect';
 
 export default function WikiNextRoute(props: NextRoutePageProps) {
   const routePath = stripRouteSuffixes(props.pathname);
+  const bossName = routePath.startsWith('/wiki/boss/')
+    ? routePath.slice('/wiki/boss/'.length)
+    : undefined;
   const initialRouteElement = routePath === '/wiki/redirect'
     ? <WikiRedirectPage />
     : routePath.startsWith('/wiki/article/')
       ? <WikiArticlePage />
       : routePath === '/wiki/boss' || routePath.startsWith('/wiki/boss/')
-        ? <BossDetailPage />
+        ? <BossDetailPage initialBossName={bossName} />
         : <SeriesModuleRoute module="wiki"><WikiPage /></SeriesModuleRoute>;
   return <NextRoutePage {...props} initialRouteElement={initialRouteElement} />;
 }

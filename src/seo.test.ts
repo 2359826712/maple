@@ -134,6 +134,15 @@ describe('search and social metadata', () => {
     expect(routePage).toContain('<NextApplication {...props} initialRouteElement={initialRouteElement} />');
   });
 
+  it('preserves the boss identity when a detail page is rendered on the server', () => {
+    const wikiRoute = read('src/pages/wiki/[...route].next.tsx');
+    const bossPage = read('src/pages/wiki/boss.tsx');
+
+    expect(wikiRoute).toContain("routePath.slice('/wiki/boss/'.length)");
+    expect(wikiRoute).toContain('<BossDetailPage initialBossName={bossName} />');
+    expect(bossPage).toContain('localizedBossParam || legacyBossParam || initialBossName');
+  });
+
   it('serves the bare root as the canonical default homepage', () => {
     const routeData = read('src/next/routeData.ts');
     const serverRoute = read('src/next/serverRoute.ts');

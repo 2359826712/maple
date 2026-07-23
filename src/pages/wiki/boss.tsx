@@ -9,6 +9,8 @@ import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { normalizeLanguage } from '@/i18n/languageRouting';
+import { getBossPlanningContent } from './bossPlanningContent';
 
 const rarityColors: Record<string, string> = {
   Common: 'bg-background-100 text-foreground-950',
@@ -17,14 +19,18 @@ const rarityColors: Record<string, string> = {
   Legendary: 'bg-red-100 text-red-800',
 };
 
-export default function BossDetailPage() {
-  const { t } = useTranslation();
+export default function BossDetailPage({
+  initialBossName,
+}: {
+  initialBossName?: string;
+} = {}) {
+  const { t, i18n } = useTranslation();
   const { '*': legacyBossParam, bossName: localizedBossParam } = useParams<{ '*': string; bossName: string }>();
   const [notifOpen, setNotifOpen] = useState(false);
   const [activeDifficulty, setActiveDifficulty] = useState(0);
   const { version } = useVersion();
 
-  const bossParam = localizedBossParam || legacyBossParam;
+  const bossParam = localizedBossParam || legacyBossParam || initialBossName;
   const bossName = bossParam ? decodeURIComponent(bossParam).replace(/_/g, ' ') : '';
 
   const boss = useMemo(
@@ -38,9 +44,17 @@ export default function BossDetailPage() {
       ) || null,
     [bossName, version],
   );
+  const isPlanningOnly = Boolean(boss?.dataSource.startsWith('Planning only'));
+  const planningContent = boss
+    ? getBossPlanningContent(boss, normalizeLanguage(i18n.language))
+    : null;
   usePageMetadata(
     boss ? `${boss.name} Boss Guide` : 'MapleStory Boss Guides',
-    boss ? `Mechanics, requirements, rewards, and ${boss.difficulty.join('/')} strategies for ${boss.name}.` : 'MapleStory boss mechanics, requirements, and rewards.',
+    boss
+      ? isPlanningOnly
+        ? `${boss.name} GMS entry, difficulty, reset, source-verification, and challenge-planning guide.`
+        : `Mechanics, requirements, rewards, and ${boss.difficulty.join('/')} strategies for ${boss.name}.`
+      : 'MapleStory boss mechanics, requirements, and rewards.',
     {
       image: boss?.image || undefined,
       imageAlt: boss ? `${boss.name} Boss Guide` : 'MapleStory Boss Guides',
@@ -83,7 +97,6 @@ export default function BossDetailPage() {
   }
 
   const currentDiff = boss.difficulty[activeDifficulty];
-  const isPlanningOnly = boss.dataSource.startsWith('Planning only');
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
@@ -224,14 +237,14 @@ export default function BossDetailPage() {
             </div>
           </div>
 
-          {isPlanningOnly && (
+          {isPlanningOnly && planningContent && (
             <div className="mb-8 rounded-lg border border-amber-300 bg-amber-50 p-5 text-amber-950">
               <div className="flex items-start gap-3">
                 <i className="ri-information-line mt-0.5 text-xl text-amber-700" aria-hidden="true"></i>
                 <div>
-                  <h2 className="font-semibold">Verified details are not available yet</h2>
+                  <h2 className="font-semibold">{planningContent.noticeTitle}</h2>
                   <p className="mt-1 text-sm leading-6">
-                    MPStorys is showing entry and reset information only. Rewards, battle-power targets, mechanics, and strategies stay hidden until a trustworthy GMS source is connected.
+                    {planningContent.noticeBody}
                   </p>
                   {boss.sourceUrl && (
                     <a
@@ -240,12 +253,68 @@ export default function BossDetailPage() {
                       rel="noreferrer"
                       className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-md bg-amber-800 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-900"
                     >
-                      Open the official boss guide
+                      {planningContent.officialAction}
                       <i className="ri-external-link-line" aria-hidden="true"></i>
                     </a>
                   )}
                 </div>
               </div>
+            </div>
+          )}
+
+          {isPlanningOnly && planningContent && (
+            <div className="mb-10">
+              <section className="rounded-xl border border-background-200 bg-white p-5 shadow-sm md:p-8">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary-700">
+                  {planningContent.eyebrow}
+                </p>
+                <h2 className="mt-2 max-w-3xl font-heading text-2xl font-semibold leading-tight text-foreground-950 md:text-3xl">
+                  {planningContent.title}
+                </h2>
+                <p className="mt-4 max-w-4xl text-[0.95rem] leading-7 text-foreground-700">
+                  {planningContent.introduction}
+                </p>
+              </section>
+
+              <div className="mt-6 space-y-6">
+                {planningContent.sections.map((section) => (
+                  <section key={section.title} className="rounded-xl border border-background-200 bg-background-50 p-5 md:p-8">
+                    <h2 className="font-heading text-xl font-semibold text-foreground-950 md:text-2xl">
+                      {section.title}
+                    </h2>
+                    <div className="mt-4 space-y-4 text-[0.95rem] leading-7 text-foreground-700">
+                      {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    </div>
+                    {section.bullets && (
+                      <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+                        {section.bullets.map((bullet) => (
+                          <li key={bullet} className="flex gap-2 rounded-lg border border-background-200 bg-white p-3 text-sm leading-6 text-foreground-700">
+                            <i className="ri-checkbox-circle-line mt-1 shrink-0 text-primary-700" aria-hidden="true" />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </section>
+                ))}
+              </div>
+
+              <section className="mt-6 rounded-xl border border-background-200 bg-white p-5 md:p-8">
+                <h2 className="font-heading text-xl font-semibold text-foreground-950 md:text-2xl">
+                  {planningContent.faqTitle}
+                </h2>
+                <div className="mt-5 divide-y divide-background-200 border-y border-background-200">
+                  {planningContent.faq.map((item) => (
+                    <details key={item.question} className="group py-4">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-foreground-900">
+                        <span>{item.question}</span>
+                        <i className="ri-add-line shrink-0 text-lg text-primary-700 transition-transform group-open:rotate-45" aria-hidden="true" />
+                      </summary>
+                      <p className="mt-3 max-w-4xl text-sm leading-6 text-foreground-650">{item.answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
             </div>
           )}
 

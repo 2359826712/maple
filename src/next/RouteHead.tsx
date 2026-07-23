@@ -125,14 +125,14 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.localizedCopy?.title
     || initialGuide?.title
     || initialWikiEntry?.title
-    || (routeHeadBoss ? `${routeHeadBoss.name} MapleStory Boss Guide` : undefined)
+    || routeHeadBoss?.title
     || seriesPageTitle
     || (route === '/source' || route.startsWith('/content/') ? requestTitle : undefined);
   const dynamicDescription = initialUpcomingArticle?.excerpt
     || initialGuide?.localizedCopy?.excerpt
     || initialGuide?.excerpt
     || initialWikiEntry?.description
-    || (routeHeadBoss ? `MapleStory ${routeHeadBoss.name} boss requirements, difficulties, mechanics, rewards, and strategy.` : undefined)
+    || routeHeadBoss?.description
     || requestDescription
     || seriesPageDescription
     || (initialOfficialArticle ? plainText(initialOfficialArticle.text || initialOfficialArticle.html).slice(0, 180) : undefined);

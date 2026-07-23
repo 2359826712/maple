@@ -51,6 +51,7 @@ import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
 import { isSeriesModule, isSeriesModuleAvailable } from '@/pages/series/scope';
 import { getSeriesVersions } from '@/pages/series/versionConfig';
 import { bosses } from '@/mocks/bosses';
+import { getBossPlanningContent } from '@/pages/wiki/bossPlanningContent';
 import {
   findIndexedContent,
   getIndexedContentSections,
@@ -61,8 +62,10 @@ import type { SeriesResourceDetailData } from '@/pages/series/SeriesResourceDeta
 
 export type RouteHeadBoss = {
   articleBody: string;
+  description: string;
   image?: string;
   name: string;
+  title: string;
 };
 
 export type NextRoutePageProps = {
@@ -386,15 +389,31 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
   const routeBoss = bossSlug
     ? bosses.find((boss) => boss.name.toLowerCase() === bossSlug.toLowerCase())
     : undefined;
+  const bossPlanningContent = routeBoss?.dataSource.startsWith('Planning only')
+    ? getBossPlanningContent(routeBoss, language)
+    : undefined;
   const routeHeadBoss = routeBoss
     ? {
         name: routeBoss.name,
         image: routeBoss.image || undefined,
-        articleBody: [
-          ...routeBoss.phases.flatMap((phase) => [phase.name, ...phase.mechanics]),
-          ...routeBoss.tips,
-          ...routeBoss.drops.map((drop) => `${drop.name}: ${drop.description}`),
-        ].join(' '),
+        title: bossPlanningContent?.title || `${routeBoss.name} MapleStory Boss Guide`,
+        description: bossPlanningContent?.introduction
+          || `MapleStory ${routeBoss.name} boss requirements, difficulties, mechanics, rewards, and strategy.`,
+        articleBody: bossPlanningContent
+          ? [
+              bossPlanningContent.introduction,
+              ...bossPlanningContent.sections.flatMap((section) => [
+                section.title,
+                ...section.paragraphs,
+                ...(section.bullets || []),
+              ]),
+              ...bossPlanningContent.faq.flatMap((item) => [item.question, item.answer]),
+            ].join(' ')
+          : [
+              ...routeBoss.phases.flatMap((phase) => [phase.name, ...phase.mechanics]),
+              ...routeBoss.tips,
+              ...routeBoss.drops.map((drop) => `${drop.name}: ${drop.description}`),
+            ].join(' '),
       }
     : undefined;
   const initialOfficialArticlePromise = routePath === '/source' && sourceUrl
