@@ -94,4 +94,12 @@ describe('Next route data', () => {
       .toBe('/news/en/GMS?series=maplestory-idle');
     expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-pc')).toBeNull();
   });
+
+  it('redirects unsupported series editions to the product default', () => {
+    expect(getLocalizedRedirect('/series/maplestory-classic/en/KMS'))
+      .toBe('/series/maplestory-classic/en/GMS');
+    expect(getLocalizedRedirect('/series/maplestory-idle/zh-hant/TMS'))
+      .toBe('/series/maplestory-idle/zh-hant/GMS');
+    expect(getLocalizedRedirect('/series/maplestory-m/ja/JMS')).toBeNull();
+  });
 });

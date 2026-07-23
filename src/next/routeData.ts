@@ -49,6 +49,7 @@ import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolReso
 import { localizeUpcomingArticle, localizeUpcomingFeed } from '@/pages/upcoming/localizedUpcoming';
 import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
 import { isSeriesModule, isSeriesModuleAvailable } from '@/pages/series/scope';
+import { getSeriesVersions } from '@/pages/series/versionConfig';
 import { bosses } from '@/mocks/bosses';
 import {
   findIndexedContent,
@@ -123,6 +124,16 @@ export const getLocalizedRedirect = (pathname: string) => {
   const server = getPathServer(normalized);
   const routePath = stripRouteSuffixes(normalized);
   const seriesId = requestUrl.searchParams.get('series') || undefined;
+  const seriesLandingId = routePath.match(/^\/series\/([^/]+)$/)?.[1];
+  const seriesVersions = seriesLandingId ? getSeriesVersions(seriesLandingId) : [];
+  if (server && seriesVersions.length > 0 && !seriesVersions.some((version) => version.id === server)) {
+    const destination = withRouteSuffixes(
+      routePath,
+      language || 'en',
+      seriesVersions[0].id,
+    );
+    return `${destination}${requestUrl.search}${requestUrl.hash}`;
+  }
   if (routePath === '/rankings' && !isSeriesModuleAvailable(seriesId, 'rankings')) {
     const destination = withRouteSuffixes('/news', language || 'en', server || 'gms');
     return `${destination}${requestUrl.search}${requestUrl.hash}`;
@@ -525,7 +536,7 @@ export function getSitemapEntries() {
     'maplestory-idle',
   ].flatMap((seriesId) =>
     supportedLanguages.flatMap((language) =>
-      supportedServers.map((server) => ({
+      getSeriesVersions(seriesId).map(({ id: server }) => ({
         changefreq: 'weekly',
         language,
         pathname: withRouteSuffixes(`/series/${seriesId}`, language, server),

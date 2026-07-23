@@ -15,6 +15,11 @@ import { getNewsCopy } from '@/pages/news/localizedNews';
 import type { NextRoutePageProps } from './routeData';
 import { getSeriesProduct } from '@/pages/series/catalog';
 import { isSeriesModule, seriesModuleByBaseHref, type SeriesModule } from '@/pages/series/scope';
+import {
+  getSeriesLandingKeywords,
+  getSeriesLandingProfile,
+} from '@/pages/series/landingContent';
+import { getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
 
 type MetadataCopy = { description: string; title: string };
 type RouteEntry = {
@@ -90,11 +95,20 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || (route === '/tools' ? 'tools' : undefined);
   const seriesModule = scopedRouteModule || contentModule;
   const seriesModuleLabel = seriesModule ? translation[seriesModuleLabelKeys[seriesModule]] : undefined;
+  const seriesLandingProfile = seriesProduct
+    ? getSeriesLandingProfile(seriesProduct.id, server)
+    : undefined;
+  const seriesEditionLabel = seriesProduct
+    ? getSeriesVersionShortLabel(seriesProduct.id, server)
+    : undefined;
   const seriesPageTitle = seriesProduct
-    ? [seriesProduct.name, seriesModuleLabel].filter(Boolean).join(' ')
+    ? [seriesProduct.name, seriesEditionLabel, seriesModuleLabel || 'Guide & Updates'].filter(Boolean).join(' ')
     : undefined;
   const seriesPageDescription = seriesProduct
-    ? plainText(`${seriesProduct.name}${seriesModuleLabel ? ` ${seriesModuleLabel}` : ''}: ${translation[seriesProduct.descriptionKey] || ''}`).slice(0, 180)
+    ? plainText(
+        seriesLandingProfile?.deck
+        || `${seriesProduct.name} ${seriesEditionLabel || ''}${seriesModuleLabel ? ` ${seriesModuleLabel}` : ''}: ${translation[seriesProduct.descriptionKey] || ''}`,
+      ).slice(0, 180)
     : undefined;
   const resolved = getMetadataEntry(route);
   const entry = resolved?.entry;
@@ -125,7 +139,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const canonicalUrl = `${SITE_URL}${canonicalPath}${canonicalSeriesSearch}`;
   const keywords = seriesProduct
     ? [
-        seriesProduct.name,
+        ...(seriesLandingProfile ? getSeriesLandingKeywords(seriesLandingProfile) : [seriesProduct.name]),
         seriesModuleLabel ? `${seriesProduct.name} ${seriesModuleLabel}` : undefined,
         siteKeywords[language],
       ].filter(Boolean).join(', ')
@@ -255,6 +269,20 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
             }
           : null;
   const itemList = newsItemList || eventItemList || upcomingItemList;
+  const seriesFaqEntity = seriesLandingProfile && route === `/series/${seriesLandingProfile.seriesId}`
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}#faq`,
+        mainEntity: seriesLandingProfile.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
   const websiteEntity = route === '/'
     ? {
         '@type': 'WebSite',
@@ -292,9 +320,11 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
             inLanguage: languageConfig.htmlLang,
             ...(articleEntity ? { mainEntity: { '@id': articleEntity['@id'] } } : {}),
             ...(!articleEntity && itemList ? { mainEntity: { '@id': itemList['@id'] } } : {}),
+            ...(seriesFaqEntity ? { hasPart: { '@id': seriesFaqEntity['@id'] } } : {}),
           },
           ...(itemList ? [itemList] : []),
           ...(articleEntity ? [articleEntity] : []),
+          ...(seriesFaqEntity ? [seriesFaqEntity] : []),
         ],
       }).replaceAll('<', '\\u003c')
     : '';

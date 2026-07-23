@@ -6,6 +6,7 @@ import { seriesProducts, type SeriesProduct } from './catalog';
 import { getSeriesModuleHref, isSeriesModule, type SeriesModule } from './scope';
 import { getSeriesVersionShortLabel } from './versionConfig';
 import { getVerifiedSeriesResources } from './verifiedContent';
+import SeriesLandingGuide from './SeriesLandingGuide';
 
 type Props = {
   product: SeriesProduct;
@@ -52,7 +53,11 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
   return (
     <>
       <section className="relative min-h-[22rem] overflow-hidden bg-foreground-950">
-        <img src={product.image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-55" />
+        <img
+          src={product.image}
+          alt={`${product.name} ${getSeriesVersionShortLabel(product.id, version)} guide artwork`}
+          className="absolute inset-0 h-full w-full object-cover opacity-55"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground-950 via-foreground-950/80 to-foreground-950/30" />
         <div className="relative mx-auto flex min-h-[22rem] max-w-6xl flex-col justify-center px-4 py-12 text-background-50 md:px-8">
           <Link to={localized('/')} className="mb-5 inline-flex items-center gap-1 text-sm font-semibold text-primary-200 hover:text-background-50">
@@ -74,6 +79,8 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
           <p className="mt-4 max-w-2xl text-base leading-7 text-background-100 md:text-lg">{t(product.descriptionKey)}</p>
         </div>
       </section>
+
+      {!activeModule && <SeriesLandingGuide product={product} />}
 
       {displayedModules.map((module, index) => {
         const resources = getVerifiedSeriesResources(product.id, module);

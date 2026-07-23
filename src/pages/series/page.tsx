@@ -9,6 +9,7 @@ import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { getSeriesProduct, seriesProducts, type SeriesCategory } from './catalog';
 import { getSeriesModuleHref, isSeriesModule } from './scope';
+import SeriesDetailContent from './detail';
 
 type SeriesFilter = 'all' | SeriesCategory;
 
@@ -42,7 +43,19 @@ export default function SeriesPage({
   );
 
   if (selectedProduct) {
-    const module = isSeriesModule(seriesModule) ? seriesModule : 'news';
+    const module = isSeriesModule(seriesModule) ? seriesModule : undefined;
+    if (!module) {
+      return (
+        <div className="min-h-screen bg-background-50">
+          <Navbar onOpenNotifications={() => setNotificationOpen(true)} unread={0} />
+          <NotificationDrawer open={notificationOpen} onClose={() => setNotificationOpen(false)} />
+          <main id="main-content" tabIndex={-1} className="pt-20">
+            <SeriesDetailContent product={selectedProduct} />
+          </main>
+          <Footer />
+        </div>
+      );
+    }
     return (
       <InternalRedirect
         to={localizeHref(getSeriesModuleHref(selectedProduct.id, module), i18n.language, version)}

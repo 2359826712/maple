@@ -100,6 +100,19 @@ describe('search and social metadata', () => {
     expect(paths.some((path) => /\/(?:account|auth\/login|search|source|wiki\/redirect)\//.test(path))).toBe(false);
   });
 
+  it('publishes only real series and edition combinations in the sitemap', () => {
+    const seriesPaths = getSitemapEntries()
+      .map(({ pathname }) => pathname)
+      .filter((pathname) => /^\/series\/maplestory-/.test(pathname));
+
+    expect(seriesPaths).toHaveLength(75);
+    expect(seriesPaths).toContain('/series/maplestory-pc/en/KMS');
+    expect(seriesPaths).toContain('/series/maplestory-m/zh-hant/TMS');
+    expect(seriesPaths).toContain('/series/maplestory-worlds/ko/KMS');
+    expect(seriesPaths).not.toContain('/series/maplestory-classic/en/KMS');
+    expect(seriesPaths).not.toContain('/series/maplestory-idle/ja/JMS');
+  });
+
   it('ships a large social preview card with accessible metadata', () => {
     const index = read('index.html');
 
