@@ -20,6 +20,7 @@ import { ServerRouteDataProvider } from './ServerRouteDataContext';
 import HydrationSafeRouter from './HydrationSafeRouter';
 import RoutePreloader from '@/components/base/RoutePreloader';
 import RuntimeRecovery from '@/components/base/RuntimeRecovery';
+import RouteContentStylesheet from '@/components/base/RouteContentStylesheet';
 
 const createRouteI18n = ({ language, translation }: NextRoutePageProps) => {
   const instance = createInstance();
@@ -75,6 +76,7 @@ function ApplicationProviders({
               <PageTelemetry />
               <RouteMetadata />
               <SchemaOrgRoute />
+              <RouteContentStylesheet />
               <RoutePreloader />
               <AppRoutes initialPath={page.pathname} initialRouteElement={initialRouteElement} />
               <MobilePrimaryNav />

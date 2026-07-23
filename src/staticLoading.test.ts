@@ -60,14 +60,21 @@ describe('static application loading', () => {
     const globalCss = source('index.css');
     const articleCss = source('../public/article-content.css');
     const routeHead = source('next/RouteHead.tsx');
+    const routeContentStylesheet = source('components/base/RouteContentStylesheet.tsx');
+    const routeStyles = source('next/routeStyles.ts');
+    const nextApplication = source('next/NextApplication.tsx');
 
     expect(globalCss).not.toContain('.wiki-article-content');
     expect(globalCss).not.toContain('.grandis-page-content');
     expect(articleCss).toContain('.wiki-article-content');
     expect(articleCss).toContain('.grandis-page-content');
-    expect(routeHead).toContain("route.startsWith('/wiki/')");
-    expect(routeHead).toContain("route.startsWith('/guides/')");
+    expect(routeStyles).toContain("route.startsWith('/wiki/')");
+    expect(routeStyles).toContain("route.startsWith('/guides/')");
     expect(routeHead).toContain('<link rel="stylesheet" href="/article-content.css" />');
+    expect(routeHead).toContain('usesArticleContentStyles(route)');
+    expect(routeContentStylesheet).toContain('usesArticleContentStyles(pathname)');
+    expect(routeContentStylesheet).toContain('href="/article-content.css"');
+    expect(nextApplication).toContain('<RouteContentStylesheet />');
   });
 
   it('does not run the retired static-shell redirect from the analytics bootstrap', () => {
