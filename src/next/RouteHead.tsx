@@ -96,13 +96,25 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const seriesModule = scopedRouteModule || contentModule;
   const seriesModuleLabel = seriesModule ? translation[seriesModuleLabelKeys[seriesModule]] : undefined;
   const seriesLandingProfile = seriesProduct
-    ? getSeriesLandingProfile(seriesProduct.id, server)
+    ? getSeriesLandingProfile(seriesProduct.id, server, language)
     : undefined;
   const seriesEditionLabel = seriesProduct
     ? getSeriesVersionShortLabel(seriesProduct.id, server)
     : undefined;
   const seriesPageTitle = seriesProduct
-    ? [seriesProduct.name, seriesEditionLabel, seriesModuleLabel || 'Guide & Updates'].filter(Boolean).join(' ')
+    ? [
+        seriesLandingProfile?.seriesName || seriesProduct.name,
+        seriesEditionLabel,
+        seriesModuleLabel || (language === 'zh'
+          ? '攻略与更新'
+          : language === 'zh-Hant'
+            ? '攻略與更新'
+            : language === 'ja'
+              ? '攻略・更新'
+              : language === 'ko'
+                ? '가이드·업데이트'
+                : 'Guide & Updates'),
+      ].filter(Boolean).join(' ')
     : undefined;
   const seriesPageDescription = seriesProduct
     ? plainText(

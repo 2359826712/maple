@@ -1,10 +1,13 @@
 import { getVersionDefinition, type GameVersion } from '@/domain/regionModel';
+import type { SupportedLanguage } from '@/i18n/languageRouting';
 import { getSeriesProduct } from './catalog';
+import { localizeSeriesLandingProfile } from './landingLocalization';
 import { getSeriesVersions, getSeriesVersionShortLabel } from './versionConfig';
 
 export type LandingSearchIntent = {
+  locale?: SupportedLanguage;
   phrase: string;
-  signal: 'Google Trends rising' | 'Related search intent';
+  signal: 'Google Trends rising' | 'Localized search intent' | 'Related search intent';
   momentum?: string;
 };
 
@@ -21,7 +24,30 @@ export type LandingFaq = {
   question: string;
 };
 
+export type SeriesLandingUiCopy = {
+  benefitEyebrow: string;
+  benefitTitle: string;
+  continueEyebrow: string;
+  continueTitle: string;
+  demandMap: string;
+  eventsCta: string;
+  faqEyebrow: string;
+  faqTitle: string;
+  guidesCta: string;
+  localizedIntent: string;
+  newsCta: string;
+  processEyebrow: string;
+  processTitle: string;
+  quickNavigation: string;
+  relatedIntent: string;
+  risingIntent: string;
+  sources: string;
+  toolsCta: string;
+  trendsChecked: string;
+};
+
 export type SeriesLandingProfile = {
+  aliases: string[];
   benefits: Array<{ body: string; title: string }>;
   deck: string;
   editionLabel: string;
@@ -35,6 +61,7 @@ export type SeriesLandingProfile = {
   snapshotDate: string;
   timeZone: string;
   title: string;
+  ui: SeriesLandingUiCopy;
   version: GameVersion;
   workflow: Array<{ body: string; title: string }>;
 };
@@ -241,7 +268,7 @@ const buildSections = (
       eyebrow: 'Search demand with editorial control',
       title: `MapleStory search trends and rising questions`,
       paragraphs: [
-        `Google Trends is useful for detecting what players have begun asking, but a rising query is not automatically a trustworthy topic. The MapleStory snapshot checked on ${TRENDS_SNAPSHOT_DATE} highlighted product updates, Classic testing, and Idle RPG questions. MPStorys maps a phrase only to the series it can support with reliable sources. The private-server query “chronostory” and the unrelated comparison term “gpts” are deliberately excluded. This prevents trend chasing from weakening the lawful, official-series focus of the site.`,
+        `Google Trends is useful for detecting what players have begun asking, but a rising query is not automatically a trustworthy topic. The MapleStory snapshot checked on ${TRENDS_SNAPSHOT_DATE} highlighted product updates, Classic testing, and Idle RPG questions. The comparison of MapleStory, maplestory, MAPLESTORY, Maplestory, and maple story returned the same average interest, so case and spacing forms are normalized instead of repeated as separate SEO targets. Bare server abbreviations such as GMS, KMS, JMS, and TMS produced unrelated results; edition pages therefore use scoped forms such as “GMS MapleStory.” Unrelated and private-server queries such as “gpts” and “chronostory” remain excluded.`,
         `The phrases shown below are editorial prompts, not a block of text to repeat. A phrase such as “maplestory idle coupon” calls for an answer about official availability, expiration, and redemption safety. “maplestory classic beta” calls for the official test page, registration state, eligibility, and schedule. Update names such as “mystic frontier maplestory” call for a dated announcement, requirements, and a clear server label. Each resulting page should satisfy that intent once, use close variants naturally, and link to evidence.`,
       ],
     },
@@ -314,6 +341,7 @@ const buildWorkflow = (
 export const getSeriesLandingProfile = (
   seriesId: string | undefined,
   version: GameVersion,
+  language: SupportedLanguage = 'en',
 ): SeriesLandingProfile | undefined => {
   if (!seriesId) return undefined;
   const definition = seriesDefinitions[seriesId];
@@ -334,7 +362,8 @@ export const getSeriesLandingProfile = (
     })),
   ];
 
-  return {
+  const profile: SeriesLandingProfile = {
+    aliases: [product.name, `${editionLabel} ${product.name}`],
     benefits: [
       {
         title: 'Edition-aware answers',
@@ -377,14 +406,38 @@ export const getSeriesLandingProfile = (
     snapshotDate: TRENDS_SNAPSHOT_DATE,
     timeZone: versionDefinition.timeZone,
     title: `${product.name} ${editionLabel} guide, news, events, and tools`,
+    ui: {
+      benefitEyebrow: 'Why this hub is useful',
+      benefitTitle: 'One product, one edition, one reliable path',
+      continueEyebrow: `${editionLabel} content hub`,
+      continueTitle: `Continue with source-backed ${product.name} pages`,
+      demandMap: `Search topics for ${product.name}`,
+      eventsCta: 'Explore events',
+      faqEyebrow: 'FAQ',
+      faqTitle: `${product.name} ${editionLabel} questions`,
+      guidesCta: 'Browse verified guides',
+      localizedIntent: 'Local search',
+      newsCta: `Open ${product.name} news`,
+      processEyebrow: 'Four-step process',
+      processTitle: `Find the right ${product.name} answer without losing regional context`,
+      quickNavigation: 'Quick navigation',
+      relatedIntent: 'Intent',
+      risingIntent: 'Rising',
+      sources: 'Sources:',
+      toolsCta: 'Open tools',
+      trendsChecked: 'Trends checked',
+    },
     version,
     workflow: buildWorkflow(product.name, editionLabel),
   };
+
+  return localizeSeriesLandingProfile(profile, language);
 };
 
 export const getSeriesLandingPlainText = (profile: SeriesLandingProfile) => [
   profile.title,
   profile.deck,
+  ...profile.aliases,
   ...profile.benefits.flatMap((benefit) => [benefit.title, benefit.body]),
   ...profile.sections.flatMap((section) => [
     section.eyebrow,
@@ -397,12 +450,13 @@ export const getSeriesLandingPlainText = (profile: SeriesLandingProfile) => [
   ...profile.faq.flatMap((item) => [item.question, item.answer]),
 ].join(' ');
 
-export const getSeriesLandingKeywords = (profile: SeriesLandingProfile) => [
+export const getSeriesLandingKeywords = (profile: SeriesLandingProfile) => [...new Set([
   profile.seriesName,
+  ...profile.aliases,
   `${profile.seriesName} ${profile.editionLabel}`,
   `${profile.seriesName} guide`,
   `${profile.seriesName} news`,
   `${profile.seriesName} events`,
   `${profile.seriesName} tools`,
   ...profile.searchIntents.map((intent) => intent.phrase),
-];
+])];

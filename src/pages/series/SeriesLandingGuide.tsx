@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
-import { localizeHref } from '@/i18n/languageRouting';
+import { localizeHref, normalizeLanguage } from '@/i18n/languageRouting';
 import type { SeriesProduct } from './catalog';
 import { getSeriesLandingProfile } from './landingContent';
 import { getSeriesModuleHref } from './scope';
@@ -11,7 +11,7 @@ const benefitIcons = ['ri-global-line', 'ri-links-line', 'ri-line-chart-line'];
 export default function SeriesLandingGuide({ product }: { product: SeriesProduct }) {
   const { i18n } = useTranslation();
   const { version } = useVersion();
-  const profile = getSeriesLandingProfile(product.id, version);
+  const profile = getSeriesLandingProfile(product.id, version, normalizeLanguage(i18n.language));
   if (!profile) return null;
 
   const localized = (href: string) => localizeHref(href, i18n.language, version);
@@ -36,20 +36,20 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
                   to={localized(getSeriesModuleHref(product.id, 'news'))}
                   className="inline-flex h-11 items-center gap-2 rounded-md bg-primary-600 px-4 text-sm font-semibold text-background-50 transition hover:bg-primary-700"
                 >
-                  Open {profile.seriesName} news
+                  {profile.ui.newsCta}
                   <i className="ri-arrow-right-line" aria-hidden="true" />
                 </Link>
                 <Link
                   to={localized(getSeriesModuleHref(product.id, 'guides'))}
                   className="inline-flex h-11 items-center gap-2 rounded-md border border-background-400 bg-background-50 px-4 text-sm font-semibold text-foreground-900 transition hover:border-primary-400 hover:text-primary-800"
                 >
-                  Browse verified guides
+                  {profile.ui.guidesCta}
                 </Link>
               </div>
             </div>
 
             <aside className="rounded-xl border border-background-300 bg-background-50 p-5 shadow-sm">
-              <p className="text-xs font-semibold uppercase tracking-wide text-foreground-500">Quick navigation</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-foreground-500">{profile.ui.quickNavigation}</p>
               <nav className="mt-4 grid grid-cols-2 gap-2" aria-label={`${profile.seriesName} guide sections`}>
                 {profile.sections.map((section) => (
                   <a
@@ -64,7 +64,7 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
                   href="#series-faq"
                   className="rounded-md border border-background-250 px-3 py-2 text-xs font-semibold text-foreground-700 transition hover:border-primary-300 hover:bg-primary-50 hover:text-primary-800"
                 >
-                  FAQ
+                  {profile.ui.faqEyebrow}
                 </a>
               </nav>
             </aside>
@@ -74,9 +74,9 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
 
       <section className="mx-auto max-w-6xl px-4 py-12 md:px-8 md:py-16" aria-labelledby="series-benefits-heading">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">Why this hub is useful</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">{profile.ui.benefitEyebrow}</p>
           <h2 id="series-benefits-heading" className="mt-2 font-heading text-2xl font-semibold text-foreground-950 md:text-3xl">
-            One product, one edition, one reliable path
+            {profile.ui.benefitTitle}
           </h2>
         </div>
         <div className="mt-7 grid gap-4 md:grid-cols-3">
@@ -126,11 +126,10 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
                   <div className="border-b border-background-250 bg-foreground-950 px-5 py-4 text-background-50">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-wide text-primary-300">Demand map</p>
-                        <h3 className="mt-1 font-heading text-lg font-semibold">Search topics for {profile.seriesName}</h3>
+                        <h3 className="mt-1 font-heading text-lg font-semibold">{profile.ui.demandMap}</h3>
                       </div>
                       <time dateTime={profile.snapshotDate} className="text-xs text-background-200">
-                        Trends checked {profile.snapshotDate}
+                        {profile.ui.trendsChecked} {profile.snapshotDate}
                       </time>
                     </div>
                   </div>
@@ -139,14 +138,28 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
                       <div key={intent.phrase} className="grid gap-2 px-5 py-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
                         <div>
                           <p className="font-semibold text-foreground-900">{intent.phrase}</p>
-                          <p className="mt-1 text-xs text-foreground-500">{intent.signal}</p>
+                          <p className="mt-1 text-xs text-foreground-500">
+                            {intent.signal === 'Google Trends rising'
+                              ? `Google Trends · ${profile.ui.risingIntent}`
+                              : intent.signal === 'Localized search intent'
+                                ? profile.ui.localizedIntent
+                                : profile.ui.relatedIntent}
+                          </p>
                         </div>
                         <span className={`w-fit rounded-full px-2.5 py-1 text-xs font-semibold ${
                           intent.signal === 'Google Trends rising'
                             ? 'bg-primary-100 text-primary-800'
-                            : 'bg-background-200 text-foreground-650'
+                            : intent.signal === 'Localized search intent'
+                              ? 'bg-amber-100 text-amber-800'
+                              : 'bg-background-200 text-foreground-650'
                         }`}>
-                          {intent.momentum || (intent.signal === 'Google Trends rising' ? 'Rising' : 'Intent')}
+                          {intent.momentum || (
+                            intent.signal === 'Google Trends rising'
+                              ? profile.ui.risingIntent
+                              : intent.signal === 'Localized search intent'
+                                ? profile.ui.localizedIntent
+                                : profile.ui.relatedIntent
+                          )}
                         </span>
                       </div>
                     ))}
@@ -160,9 +173,9 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
 
       <section className="border-t border-background-200 bg-foreground-950 text-background-50">
         <div className="mx-auto max-w-6xl px-4 py-12 md:px-8 md:py-16">
-          <p className="text-xs font-semibold uppercase tracking-wide text-primary-300">Four-step process</p>
+          <p className="text-xs font-semibold uppercase tracking-wide text-primary-300">{profile.ui.processEyebrow}</p>
           <h2 className="mt-2 max-w-3xl font-heading text-2xl font-semibold md:text-3xl">
-            Find the right {profile.seriesName} answer without losing regional context
+            {profile.ui.processTitle}
           </h2>
           <ol className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {profile.workflow.map((step, index) => (
@@ -179,9 +192,9 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
       <section id="series-faq" className="scroll-mt-28 border-b border-background-200 bg-background-100">
         <div className="mx-auto max-w-4xl px-4 py-12 md:px-8 md:py-16">
           <div className="text-center">
-            <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">FAQ</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">{profile.ui.faqEyebrow}</p>
             <h2 className="mt-2 font-heading text-2xl font-semibold text-foreground-950 md:text-3xl">
-              {profile.seriesName} {profile.editionLabel} questions
+              {profile.ui.faqTitle}
             </h2>
           </div>
           <div className="mt-8 divide-y divide-background-300 overflow-hidden rounded-xl border border-background-300 bg-background-50">
@@ -196,7 +209,7 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
             ))}
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-xs text-foreground-500">
-            <span className="font-semibold text-foreground-700">Sources:</span>
+            <span className="font-semibold text-foreground-700">{profile.ui.sources}</span>
             {profile.officialSources.map((source) => (
               <a
                 key={source.url}
@@ -216,9 +229,9 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
       <section className="bg-primary-50">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between md:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">{profile.editionLabel} content hub</p>
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">{profile.ui.continueEyebrow}</p>
             <h2 className="mt-2 font-heading text-2xl font-semibold text-foreground-950">
-              Continue with source-backed {profile.seriesName} pages
+              {profile.ui.continueTitle}
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -226,13 +239,13 @@ export default function SeriesLandingGuide({ product }: { product: SeriesProduct
               to={localized(getSeriesModuleHref(product.id, 'events'))}
               className="inline-flex h-10 items-center rounded-md border border-primary-300 bg-background-50 px-4 text-sm font-semibold text-primary-800 hover:bg-primary-100"
             >
-              Explore events
+              {profile.ui.eventsCta}
             </Link>
             <Link
               to={localized(getSeriesModuleHref(product.id, 'tools'))}
               className="inline-flex h-10 items-center rounded-md bg-foreground-950 px-4 text-sm font-semibold text-background-50 hover:bg-foreground-800"
             >
-              Open tools
+              {profile.ui.toolsCta}
             </Link>
           </div>
         </div>

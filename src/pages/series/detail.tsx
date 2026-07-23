@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
-import { localizeHref } from '@/i18n/languageRouting';
+import { localizeHref, normalizeLanguage } from '@/i18n/languageRouting';
 import { seriesProducts, type SeriesProduct } from './catalog';
+import { getSeriesLandingProfile } from './landingContent';
 import { getSeriesModuleHref, isSeriesModule, type SeriesModule } from './scope';
 import { getSeriesVersionShortLabel } from './versionConfig';
 import { getVerifiedSeriesResources } from './verifiedContent';
@@ -45,6 +46,9 @@ const overviewModules = ['news', 'guides', 'tools'] as const;
 export default function SeriesDetailContent({ product, seriesModule }: Props) {
   const { t, i18n } = useTranslation();
   const { version } = useVersion();
+  const language = normalizeLanguage(i18n.language);
+  const landingProfile = getSeriesLandingProfile(product.id, version, language);
+  const displayName = landingProfile?.seriesName || product.name;
   const localized = (href: string) => localizeHref(href, i18n.language, version);
   const activeModule = isSeriesModule(seriesModule) ? seriesModule : undefined;
   const moduleLabel = activeModule ? t(moduleLabels[activeModule]) : undefined;
@@ -55,7 +59,7 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
       <section className="relative min-h-[22rem] overflow-hidden bg-foreground-950">
         <img
           src={product.image}
-          alt={`${product.name} ${getSeriesVersionShortLabel(product.id, version)} guide artwork`}
+          alt={`${displayName} ${getSeriesVersionShortLabel(product.id, version)} guide artwork`}
           className="absolute inset-0 h-full w-full object-cover opacity-55"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground-950 via-foreground-950/80 to-foreground-950/30" />
@@ -75,7 +79,7 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
               <span>{moduleLabel}</span>
             </>}
           </div>
-          <h1 className="mt-3 max-w-4xl font-heading text-4xl font-semibold md:text-6xl">{product.name}</h1>
+          <h1 className="mt-3 max-w-4xl font-heading text-4xl font-semibold md:text-6xl">{displayName}</h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-background-100 md:text-lg">{t(product.descriptionKey)}</p>
         </div>
       </section>
@@ -91,7 +95,7 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
                 <i className={`${moduleIcons[module]} text-xl`} aria-hidden="true" />
               </span>
               <div>
-                <p className="text-xs font-semibold uppercase text-primary-600">{product.name}</p>
+                <p className="text-xs font-semibold uppercase text-primary-600">{displayName}</p>
                 <h2 className="mt-1 font-heading text-2xl font-semibold text-foreground-950 md:text-3xl">{t(moduleLabels[module])}</h2>
                 <p className="mt-2 text-sm leading-6 text-foreground-600">{t('series_verified_content_note')}</p>
               </div>
@@ -119,7 +123,7 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
               </div>
             ) : (
               <div className="mt-7 border-l-2 border-background-300 py-2 pl-4 text-sm leading-6 text-foreground-600">
-                {t('series_no_verified_content', { name: product.name, module: t(moduleLabels[module]) })}
+                {t('series_no_verified_content', { name: displayName, module: t(moduleLabels[module]) })}
               </div>
             )}
           </div>
@@ -132,7 +136,7 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
           <div className="mt-5 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
             {seriesProducts.map((item) => (
               <Link key={item.id} to={localized(activeModule ? getSeriesModuleHref(item.id, activeModule) : `/series/${item.id}`)} className={`rounded-lg border p-3 text-sm font-semibold transition ${item.id === product.id ? 'border-primary-500 bg-primary-50 text-primary-800' : 'border-background-300 bg-background-50 text-foreground-800 hover:border-primary-300'}`}>
-                {item.name}
+                {getSeriesLandingProfile(item.id, version, language)?.seriesName || item.name}
               </Link>
             ))}
           </div>
