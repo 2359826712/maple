@@ -73,5 +73,9 @@ describe('series resource details', () => {
     expect(await screen.findByRole('heading', { name: 'Detailed content' })).toBeTruthy();
     expect(screen.getByRole('heading', { name: 'Key dates' })).toBeTruthy();
     expect(screen.getByText('Applications close Wednesday, July 29, 2026.')).toBeTruthy();
+    expect(screen.getByRole('heading', {
+      name: 'MapleStory Classic beta: Closed Online Test #2 dates and signup',
+    })).toBeTruthy();
+    expect(screen.getByTestId('article-search-intent')).toBeTruthy();
   });
 });

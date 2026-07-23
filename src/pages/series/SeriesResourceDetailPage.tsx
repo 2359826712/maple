@@ -5,7 +5,7 @@ import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import InternalRedirect from '@/components/feature/InternalRedirect';
-import { localizeHref } from '@/i18n/languageRouting';
+import { localizeHref, normalizeLanguage } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services/staticTranslation';
@@ -22,6 +22,7 @@ import {
 } from './scope';
 import type { VerifiedSeriesResource } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
+import { getArticleSearchIntentProfile } from './articleSearchIntent';
 
 const moduleLabels: Record<SeriesModule, string> = {
   news: 'nav_news',
@@ -152,11 +153,15 @@ export default function SeriesResourceDetailPage({
     title: translateContent(contentRecord?.title || resource?.title || ''),
     description: translateContent(contentRecord?.summary || resource?.description || ''),
   };
+  const articleIntent = getArticleSearchIntentProfile(
+    { contentId: contentRecord?.id, sourceUrl: resource?.sourceUrl },
+    normalizeLanguage(i18n.language),
+  );
   const publishedAt = contentRecord?.published_at || resource?.publishedAt;
 
   usePageMetadata(
-    copy.title || t('series_content_not_found'),
-    copy.description || t('series_verified_content_note'),
+    articleIntent?.title || copy.title || t('series_content_not_found'),
+    articleIntent?.description || copy.description || t('series_verified_content_note'),
     {
       canonicalPath: product && module && resource
         ? localized(getSeriesResourceHref(product.id, module, detail?.resourceSlug || decodeURIComponent(slug || '')))
@@ -236,6 +241,49 @@ export default function SeriesResourceDetailPage({
                 </h2>
                 <p className="mt-4 text-base leading-8 text-foreground-700">{copy.description}</p>
               </section>
+
+              {articleIntent && (
+                <section
+                  className="mt-12 overflow-hidden rounded-xl border border-background-300 bg-background-50 shadow-sm"
+                  aria-labelledby="article-search-intent-heading"
+                  data-testid="article-search-intent"
+                >
+                  <div className="border-b border-background-250 bg-foreground-950 px-5 py-7 text-background-50 md:px-8">
+                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-300">
+                      {articleIntent.eyebrow}
+                    </p>
+                    <h2 id="article-search-intent-heading" className="mt-2 max-w-3xl font-heading text-2xl font-semibold leading-tight md:text-3xl">
+                      {articleIntent.title}
+                    </h2>
+                    <p className="mt-4 max-w-3xl text-sm leading-7 text-background-200">
+                      {articleIntent.description}
+                    </p>
+                  </div>
+                  <div className="divide-y divide-background-250 px-5 md:px-8">
+                    {articleIntent.sections.map((section) => (
+                      <section key={section.title} className="py-7">
+                        <h3 className="font-heading text-xl font-semibold text-foreground-950">{section.title}</h3>
+                        <div className="mt-4 space-y-4 text-sm leading-7 text-foreground-700">
+                          {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                        </div>
+                      </section>
+                    ))}
+                  </div>
+                  <div className="border-t border-background-250 bg-background-100 px-5 py-7 md:px-8">
+                    <div className="divide-y divide-background-300 border-y border-background-300">
+                      {articleIntent.faq.map((item) => (
+                        <details key={item.question} className="group py-4">
+                          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-foreground-900">
+                            <span>{item.question}</span>
+                            <i className="ri-add-line text-lg text-primary-700 transition-transform group-open:rotate-45" aria-hidden="true" />
+                          </summary>
+                          <p className="mt-3 max-w-3xl text-sm leading-6 text-foreground-650">{item.answer}</p>
+                        </details>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
 
               {contentSections.length > 0 && (
                 <section className="mt-12 border-t border-background-300 pt-8" aria-labelledby="resource-details-heading">

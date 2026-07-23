@@ -1,6 +1,7 @@
 import type { SeriesModule } from './scope';
 import { indexedContent, indexedContentSources } from '@/domain/contentIndex';
 import type { ContentType } from '@/domain/contentIndexTypes';
+import { hasArticleSearchIntentProfile, IDLE_SUMMER_COUPON_URL } from './articleSearchIntent';
 import {
   getIndexedResourceModule,
   getIndexedResourceSeriesId,
@@ -99,6 +100,14 @@ const editorialSeriesContent: Record<string, SeriesContent> = {
   },
   'maplestory-idle': {
     news: [
+      {
+        title: 'MapleStory: Idle RPG Summertime Surprise Coupon Gift',
+        description: 'Official coupon notice for COOLSUMMER, published June 11, 2026 and expired July 1, 2026. Includes the official iOS/Android redemption routes and account-mailbox cautions.',
+        sourceLabel: 'MapleStory: Idle RPG Official Forum',
+        sourceUrl: IDLE_SUMMER_COUPON_URL,
+        publishedAt: '2026-06-11',
+        status: 'expired',
+      },
       { title: 'June 11 Patch Notes', description: 'Official patch notes introducing Hero\'s Journey, summer events, new guild seasons, and control improvements.', sourceLabel: 'MapleStory: Idle RPG Forum', sourceUrl: 'https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001', publishedAt: '2026-06-11' },
       { title: 'May 21 Patch Notes', description: 'Official patch notes covering Party Quest Chaos difficulty, combat changes, artifacts, balance changes, and events.', sourceLabel: 'MapleStory: Idle RPG Forum', sourceUrl: 'https://forum.nexon.com/maplestoryidle/board_view?thread=3449161', publishedAt: '2026-05-21' },
     ],
@@ -158,6 +167,7 @@ const contentSeriesIds: Record<(typeof indexedContent)[number]['series'], string
 
 const sourceNames = new Map(indexedContentSources.map((source) => [source.id, source.name]));
 const hasReadableIndexedDetail = (content: (typeof indexedContent)[number]) => {
+  if (hasArticleSearchIntentProfile({ contentId: content.id, sourceUrl: content.canonical_url })) return true;
   if (content.metadata.editorial_reviewed === true) return true;
   const sections = Array.isArray(content.metadata.sections) ? content.metadata.sections : [];
   return sections.some((section) => {

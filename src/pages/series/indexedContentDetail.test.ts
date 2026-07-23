@@ -14,6 +14,28 @@ describe('indexed series content details', () => {
     expect(findIndexedContentIn([record], undefined, undefined, 'https://EXAMPLE.com/campaign')).toBe(record);
   });
 
+  it('prefers an exact content id when multiple records share one canonical article', () => {
+    const sharedUrl = 'https://example.com/news/ren';
+    const first = {
+      id: 'ren-overview',
+      canonical_url: sharedUrl,
+      source_url: sharedUrl,
+      related_urls: [],
+      metadata: {},
+    } as IndexedContentRecord;
+    const target = {
+      ...first,
+      id: 'tracks-of-the-wanderer',
+    } as IndexedContentRecord;
+
+    expect(findIndexedContentIn(
+      [first, target],
+      'tracks-of-the-wanderer',
+      undefined,
+      sharedUrl,
+    )).toBe(target);
+  });
+
   it('builds factual sections for resource directories without article bodies', () => {
     const sections = getIndexedResourceSections({
       website: 'Nexon MapleStory',

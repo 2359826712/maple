@@ -80,7 +80,6 @@ type SeriesDefinition = {
 };
 
 const TRENDS_SNAPSHOT_DATE = '2026-07-23';
-export const MAPLESTORY_TRENDS_URL = 'https://trends.google.com/trends/explore?q=MapleStory&date=today%2012-m';
 
 const seriesDefinitions: Record<string, SeriesDefinition> = {
   'maplestory-pc': {
@@ -374,11 +373,11 @@ export const getSeriesLandingProfile = (
         body: `News, guides, events, and tools lead to independently useful records and their canonical sources instead of sending every question to a generic homepage.`,
       },
       {
-        title: 'Trend-led, source-backed',
-        body: 'Rising search demand helps prioritize explanations, while official evidence and editorial exclusions determine what can actually be published.',
+        title: 'Question-led, source-backed',
+        body: 'Player questions help prioritize detailed articles, while official evidence and editorial review determine what can actually be published.',
       },
     ],
-    deck: `A server-specific ${product.name} landing guide for ${versionDefinition.region}: official sources, update checks, useful tools, regional cautions, and rising player questions in one SSR page.`,
+    deck: `A server-specific ${product.name} landing guide for ${versionDefinition.region}: official sources, update checks, useful tools, and regional cautions in one SSR page.`,
     editionLabel,
     faq: buildFaq(
       product.name,
@@ -389,7 +388,6 @@ export const getSeriesLandingProfile = (
     ),
     officialSources: [
       { label: definition.officialSourceLabel, url: definition.officialSourceUrl },
-      { label: 'Google Trends: MapleStory', url: MAPLESTORY_TRENDS_URL },
     ],
     region: versionDefinition.region,
     searchIntents,
@@ -431,7 +429,14 @@ export const getSeriesLandingProfile = (
     workflow: buildWorkflow(product.name, editionLabel),
   };
 
-  return localizeSeriesLandingProfile(profile, language);
+  const localizedProfile = localizeSeriesLandingProfile(profile, language);
+  return {
+    ...localizedProfile,
+    faq: localizedProfile.faq.filter((item) => !/Google Trends|谷歌趋势|Google トレンド|구글 트렌드/i.test(item.question)),
+    officialSources: localizedProfile.officialSources.filter((source) => !source.url.includes('trends.google.com')),
+    searchIntents: [],
+    sections: localizedProfile.sections.filter((section) => section.id !== 'trends'),
+  };
 };
 
 export const getSeriesLandingPlainText = (profile: SeriesLandingProfile) => [
@@ -446,7 +451,6 @@ export const getSeriesLandingPlainText = (profile: SeriesLandingProfile) => [
     ...(section.bullets || []),
   ]),
   ...profile.workflow.flatMap((step) => [step.title, step.body]),
-  ...profile.searchIntents.flatMap((intent) => [intent.phrase, intent.signal, intent.momentum || '']),
   ...profile.faq.flatMap((item) => [item.question, item.answer]),
 ].join(' ');
 
@@ -458,5 +462,4 @@ export const getSeriesLandingKeywords = (profile: SeriesLandingProfile) => [...n
   `${profile.seriesName} news`,
   `${profile.seriesName} events`,
   `${profile.seriesName} tools`,
-  ...profile.searchIntents.map((intent) => intent.phrase),
 ])];

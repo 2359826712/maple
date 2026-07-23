@@ -97,12 +97,18 @@ export const findIndexedContentIn = (
   resourceId?: string,
   sourceUrl?: string,
 ) => {
+  if (contentId) {
+    const exactContent = records.find((record) => record.id === contentId);
+    if (exactContent) return exactContent;
+  }
+  if (resourceId) {
+    const exactResource = records.find((record) => record.metadata.resource_id === resourceId);
+    if (exactResource) return exactResource;
+  }
   const targetUrl = sourceUrl ? normalizedUrl(sourceUrl) : undefined;
-  return records.find((record) => (
-    (contentId && record.id === contentId)
-    || (resourceId && record.metadata.resource_id === resourceId)
-    || (targetUrl && recordUrls(record).includes(targetUrl))
-  ));
+  return targetUrl
+    ? records.find((record) => recordUrls(record).includes(targetUrl))
+    : undefined;
 };
 
 export const findIndexedContent = (contentId?: string, resourceId?: string, sourceUrl?: string) => (

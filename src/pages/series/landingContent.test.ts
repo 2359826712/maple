@@ -20,10 +20,10 @@ describe('series edition landing content', () => {
     profiles.forEach((profile) => {
       expect(profile).toBeDefined();
       const words = countWords(getSeriesLandingPlainText(profile!));
-      expect(words, `${profile!.seriesName} ${profile!.editionLabel}`).toBeGreaterThanOrEqual(1_400);
+      expect(words, `${profile!.seriesName} ${profile!.editionLabel}`).toBeGreaterThanOrEqual(1_300);
       expect(words, `${profile!.seriesName} ${profile!.editionLabel}`).toBeLessThanOrEqual(1_900);
-      expect(profile!.sections).toHaveLength(6);
-      expect(profile!.faq).toHaveLength(6);
+      expect(profile!.sections).toHaveLength(5);
+      expect(profile!.faq).toHaveLength(5);
     });
   });
 
@@ -32,7 +32,7 @@ describe('series edition landing content', () => {
     expect(getSeriesLandingProfile('maplestory-idle', 'tms')).toBeUndefined();
   });
 
-  it('uses verified MapleStory demand without importing unrelated or private-server terms', () => {
+  it('keeps rising-query phrases out of series and server landing metadata', () => {
     const validVersions: GameVersion[] = ['gms', 'kms', 'jms', 'tms', 'msea'];
     const searchableCopy = seriesProducts.flatMap((product) => (
       validVersions
@@ -41,9 +41,9 @@ describe('series edition landing content', () => {
         .flatMap((profile) => getSeriesLandingKeywords(profile!))
     )).join(' ').toLowerCase();
 
-    expect(searchableCopy).toContain('mystic frontier maplestory');
-    expect(searchableCopy).toContain('maplestory classic beta');
-    expect(searchableCopy).toContain('maplestory idle coupon');
+    expect(searchableCopy).not.toContain('mystic frontier maplestory');
+    expect(searchableCopy).not.toContain('maplestory classic beta');
+    expect(searchableCopy).not.toContain('maplestory idle coupon');
     expect(searchableCopy).not.toContain('chronostory');
     expect(searchableCopy).not.toContain('ai news today');
     expect(searchableCopy).not.toContain('gpts');
@@ -66,7 +66,8 @@ describe('series edition landing content', () => {
     expect(simplified.seriesName).toBe('冒险岛');
     expect(simplified.sections.map((section) => section.title).join(' ')).toContain('服务器');
     expect(traditional.aliases).toContain('楓之谷放置冒險記');
-    expect(traditional.searchIntents.map((intent) => intent.phrase)).toContain('楓之谷放置冒險記序號');
+    expect(traditional.searchIntents).toHaveLength(0);
+    expect(traditional.sections.some((section) => section.id === 'trends')).toBe(false);
     expect(japanese.seriesName).toBe('メイプルストーリーM');
     expect(korean.seriesName).toBe('메이플 키우기');
     expect(korean.sections.map((section) => section.paragraphs.join(' ')).join(' ')).toContain('한국 공식');

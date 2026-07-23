@@ -21,6 +21,7 @@ import {
   getSeriesLandingProfile,
 } from '@/pages/series/landingContent';
 import { getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
+import { getArticleSearchIntentProfile } from '@/pages/series/articleSearchIntent';
 
 type MetadataCopy = { description: string; title: string };
 type RouteEntry = {
@@ -67,6 +68,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     initialGuide,
     initialNews = [],
     initialOfficialArticle,
+    initialSeriesResourceDetail,
     initialUpcomingArticle,
     initialUpcomingFeed,
     initialWikiEntry,
@@ -93,6 +95,15 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const seriesModuleLabel = seriesModule ? translation[seriesModuleLabelKeys[seriesModule]] : undefined;
   const seriesLandingProfile = seriesProduct
     ? getSeriesLandingProfile(seriesProduct.id, server, language)
+    : undefined;
+  const articleIntent = initialSeriesResourceDetail?.resource
+    ? getArticleSearchIntentProfile(
+        {
+          contentId: initialSeriesResourceDetail.contentRecord?.id,
+          sourceUrl: initialSeriesResourceDetail.resource.sourceUrl,
+        },
+        language,
+      )
     : undefined;
   const seriesEditionLabel = seriesProduct
     ? getSeriesVersionShortLabel(seriesProduct.id, server)
@@ -126,13 +137,17 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.title
     || initialWikiEntry?.title
     || routeHeadBoss?.title
+    || articleIntent?.title
+    || (route.startsWith('/content/') ? requestTitle : undefined)
     || seriesPageTitle
-    || (route === '/source' || route.startsWith('/content/') ? requestTitle : undefined);
+    || (route === '/source' ? requestTitle : undefined);
   const dynamicDescription = initialUpcomingArticle?.excerpt
     || initialGuide?.localizedCopy?.excerpt
     || initialGuide?.excerpt
     || initialWikiEntry?.description
     || routeHeadBoss?.description
+    || articleIntent?.description
+    || (route.startsWith('/content/') ? requestDescription : undefined)
     || requestDescription
     || seriesPageDescription
     || (initialOfficialArticle ? plainText(initialOfficialArticle.text || initialOfficialArticle.html).slice(0, 180) : undefined);
@@ -147,7 +162,11 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const canonicalUrl = `${SITE_URL}${canonicalPath}${canonicalSeriesSearch}`;
   const keywords = seriesProduct
     ? [
-        ...(seriesLandingProfile ? getSeriesLandingKeywords(seriesLandingProfile) : [seriesProduct.name]),
+        ...(articleIntent
+          ? articleIntent.keywords
+          : seriesLandingProfile
+            ? getSeriesLandingKeywords(seriesLandingProfile)
+            : [seriesProduct.name]),
         seriesModuleLabel ? `${seriesProduct.name} ${seriesModuleLabel}` : undefined,
         siteKeywords[language],
       ].filter(Boolean).join(', ')
@@ -265,6 +284,36 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
               image: routeHeadBoss.image || undefined,
               url: canonicalUrl,
             }
+          : initialSeriesResourceDetail?.resource
+          ? {
+              '@type': 'Article',
+              '@id': `${canonicalUrl}#article`,
+              headline: pageTitle,
+              description,
+              articleBody: schemaBody([
+                initialSeriesResourceDetail.contentRecord?.summary
+                  || initialSeriesResourceDetail.resource.description,
+                articleIntent?.description,
+                ...(articleIntent?.sections.flatMap((section) => [
+                  section.title,
+                  ...section.paragraphs,
+                ]) || []),
+                ...initialSeriesResourceDetail.contentSections.flatMap((section) => [
+                  section.title,
+                  ...section.items,
+                ]),
+              ].filter(Boolean).join(' ')),
+              datePublished: initialSeriesResourceDetail.contentRecord?.published_at
+                || initialSeriesResourceDetail.resource.publishedAt,
+              image: initialSeriesResourceDetail.contentRecord?.images[0]?.url || undefined,
+              author: {
+                '@type': 'Organization',
+                name: initialSeriesResourceDetail.contentRecord?.author
+                  || initialSeriesResourceDetail.resource.sourceLabel,
+              },
+              url: canonicalUrl,
+              sameAs: initialSeriesResourceDetail.resource.sourceUrl,
+            }
           : initialOfficialArticle
           ? {
               '@type': 'Article',
@@ -291,6 +340,21 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
         })),
       }
     : null;
+  const articleFaqEntity = articleIntent
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}#faq`,
+        mainEntity: articleIntent.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
+  const faqEntity = articleFaqEntity || seriesFaqEntity;
   const websiteEntity = route === '/'
     ? {
         '@type': 'WebSite',
@@ -328,11 +392,11 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
             inLanguage: languageConfig.htmlLang,
             ...(articleEntity ? { mainEntity: { '@id': articleEntity['@id'] } } : {}),
             ...(!articleEntity && itemList ? { mainEntity: { '@id': itemList['@id'] } } : {}),
-            ...(seriesFaqEntity ? { hasPart: { '@id': seriesFaqEntity['@id'] } } : {}),
+            ...(faqEntity ? { hasPart: { '@id': faqEntity['@id'] } } : {}),
           },
           ...(itemList ? [itemList] : []),
           ...(articleEntity ? [articleEntity] : []),
-          ...(seriesFaqEntity ? [seriesFaqEntity] : []),
+          ...(faqEntity ? [faqEntity] : []),
         ],
       }).replaceAll('<', '\\u003c')
     : '';

@@ -47,7 +47,11 @@ import { localizeEvents } from '@/pages/events/useLocalizedEvents';
 import { localizeGuideItem, localizeGuideItems } from '@/pages/guides/localizedGuides';
 import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolResources';
 import { localizeUpcomingArticle, localizeUpcomingFeed } from '@/pages/upcoming/localizedUpcoming';
-import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
+import {
+  getVerifiedSeriesResource,
+  getVerifiedSeriesResourceSlug,
+  verifiedSeriesContent,
+} from '@/pages/series/verifiedContent';
 import { isSeriesModule, isSeriesModuleAvailable } from '@/pages/series/scope';
 import { getSeriesVersions } from '@/pages/series/versionConfig';
 import { bosses } from '@/mocks/bosses';
@@ -59,6 +63,7 @@ import {
   getSourceOverviewSections,
 } from '@/pages/series/indexedContentDetail';
 import type { SeriesResourceDetailData } from '@/pages/series/SeriesResourceDetailPage';
+import { hasArticleSearchIntentProfile } from '@/pages/series/articleSearchIntent';
 
 export type RouteHeadBoss = {
   articleBody: string;
@@ -566,5 +571,29 @@ export function getSitemapEntries() {
     ),
   );
 
-  return [...catalogEntries, ...seriesEntries];
+  const articleEntries = Object.entries(verifiedSeriesContent).flatMap(([seriesId, modules]) =>
+    Object.entries(modules).flatMap(([module, resources]) =>
+      (resources || [])
+        .filter((resource) => hasArticleSearchIntentProfile({
+          contentId: resource.contentId,
+          sourceUrl: resource.sourceUrl,
+        }))
+        .flatMap((resource) =>
+          supportedLanguages.map((language) => ({
+            changefreq: 'weekly',
+            language,
+            pathname: `${withRouteSuffixes(
+              `/content/${module}/${getVerifiedSeriesResourceSlug(resource)}`,
+              language,
+              'gms',
+            )}?series=${encodeURIComponent(seriesId)}`,
+            priority: '0.8',
+            server: serverPathSegments.gms,
+            segment: languagePathSegments[language],
+          })),
+        ),
+    ),
+  );
+
+  return [...catalogEntries, ...seriesEntries, ...articleEntries];
 }

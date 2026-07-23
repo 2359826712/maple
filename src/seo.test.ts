@@ -113,6 +113,17 @@ describe('search and social metadata', () => {
     expect(seriesPaths).not.toContain('/series/maplestory-idle/ja/JMS');
   });
 
+  it('publishes source-backed search-intent articles instead of landing-page keyword lists', () => {
+    const sitemapPaths = getSitemapEntries().map(({ pathname }) => pathname);
+
+    expect(sitemapPaths).toEqual(expect.arrayContaining([
+      expect.stringContaining('/content/events/undying-purpose-event-'),
+      expect.stringContaining('/content/news/sign-up-for-global-maplestory-classic-world-'),
+      expect.stringContaining('/content/news/maplestory-idle-rpg-summertime-surprise-coupon-gift/'),
+    ]));
+    expect(sitemapPaths.join(' ')).not.toContain('chronostory');
+  });
+
   it('ships a large social preview card with accessible metadata', () => {
     const index = read('index.html');
 
