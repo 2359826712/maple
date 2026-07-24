@@ -1,7 +1,7 @@
 {
-  "total_content": 1540,
-  "total_sources": 9,
-  "enabled_sources": 9,
+  "total_content": 1541,
+  "total_sources": 10,
+  "enabled_sources": 10,
   "content_types": {
     "cash-shop": 233,
     "creator-announcement": 134,
@@ -9,11 +9,11 @@
     "event": 316,
     "guide": 15,
     "maintenance": 384,
-    "news": 356,
+    "news": 357,
     "patch-note": 95
   },
   "statuses": {
-    "expired": 2,
+    "expired": 3,
     "published": 1536,
     "updated": 2
   }

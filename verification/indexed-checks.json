@@ -1,6 +1,15 @@
 {
   "checks": [
     {
+      "resource_id": "maplestory-idle-summertime-surprise-coupon-gift",
+      "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3474590",
+      "checked_at": "2026-07-24",
+      "method": "official-search-index",
+      "result": "verified",
+      "page_title": "[Coupon] Summertime Surprise Coupon Gift",
+      "evidence": "The indexed official Nexon Forum article identifies the June 11, 2026 COOLSUMMER coupon, its July 1, 2026 14:59 UTC expiration, the Android and iOS redemption routes, mailbox delivery, and the one-use-per-account restriction."
+    },
+    {
       "resource_id": "idle-may-21-update-preview",
       "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3445096",
       "checked_at": "2026-07-18",

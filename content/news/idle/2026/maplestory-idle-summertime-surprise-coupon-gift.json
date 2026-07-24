@@ -1,0 +1,65 @@
+{
+  "id": "maplestory-idle-summertime-surprise-coupon-gift",
+  "source_id": "idle-nexon-official-coupons",
+  "canonical_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3474590",
+  "source_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3474590",
+  "external_id": "3474590",
+  "title": "MapleStory: Idle RPG Summertime Surprise Coupon Gift",
+  "original_title": "[Coupon] Summertime Surprise Coupon Gift",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "news",
+  "subcategory": "coupon",
+  "official": true,
+  "author": "MapleStory: Idle RPG",
+  "published_at": "2026-06-11T10:00:00Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-24T00:00:00.000Z",
+  "last_checked": "2026-07-24T00:00:00.000Z",
+  "summary": "Nexon's official Summertime Surprise notice published the COOLSUMMER coupon for MapleStory: Idle RPG. The coupon expired on July 1, 2026 at 14:59 UTC; the article preserves the official Android and iOS redemption routes, account-mailbox delivery, and one-use-per-account cautions without presenting the expired code as active.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["coupon", "coupon-code", "expired", "summer"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-idle-june-11-2026-patch-notes"],
+  "related_urls": [],
+  "content_hash": "d0a698b8ed78ac0c73a390bdda47e3410d83cc7e8a114b5d34d5528154e3114e",
+  "status": "expired",
+  "translation_status": "not-requested",
+  "metadata": {
+    "editorial_reviewed": true,
+    "source_board": "coupon",
+    "coupon_code": "COOLSUMMER",
+    "coupon_expired_at": "2026-07-01T14:59:00Z",
+    "sections": [
+      {
+        "title": "Coupon status",
+        "items": [
+          "The official coupon code was COOLSUMMER.",
+          "The official expiration was July 1, 2026 at 14:59 UTC.",
+          "The coupon is retained as historical coverage and is not presented as currently active."
+        ]
+      },
+      {
+        "title": "Official redemption routes",
+        "items": [
+          "Android players could use Menu, Settings, Other, and Enter Coupon in the game.",
+          "The official coupon page supported both iOS and Android.",
+          "Successful rewards were delivered to the account mailbox."
+        ]
+      },
+      {
+        "title": "Account safety",
+        "items": [
+          "The coupon was limited to one use per account.",
+          "Players were instructed to confirm the correct character and UID before redemption.",
+          "The official notice warned that successfully redeemed rewards could not be restored or transferred to another character."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against Nexon's official coupon notice on 2026-07-24. No full source text is stored."
+}

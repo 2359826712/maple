@@ -27892,6 +27892,36 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-idle-summertime-surprise-coupon-gift",
+    "title": "MapleStory: Idle RPG Summertime Surprise Coupon Gift",
+    "summary": "Nexon's official Summertime Surprise notice published the COOLSUMMER coupon for MapleStory: Idle RPG. The coupon expired on July 1, 2026 at 14:59 UTC; the article preserves the official Android and iOS redemption routes, account-mailbox delivery, and one-use-per-account cautions without presenting the expired code as active.",
+    "tags": [
+      "coupon",
+      "coupon-code",
+      "expired",
+      "summer"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-coupons",
+    "content_type": "news",
+    "published_at": "2026-06-11T10:00:00Z",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3474590"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-m-guide-for-new-maplers",
     "title": "MapleStory M Guide for New Maplers",
     "summary": "An official beginner reference for configuring the interface, using Auto-Battle, growing a character, handling equipment, trading through the Trade Station, and using convenience features.",

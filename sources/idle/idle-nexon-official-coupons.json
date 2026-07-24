@@ -1,0 +1,33 @@
+{
+  "id": "idle-nexon-official-coupons",
+  "name": "MapleStory: Idle RPG Official Coupons",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "source_type": "forum",
+  "content_types": ["news"],
+  "base_url": "https://forum.nexon.com/maplestoryidle/main",
+  "discovery_urls": ["https://forum.nexon.com/maplestoryidle/board_list?board=6676&pageNo=1"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "browser",
+  "parser": "maplestory-idle-nexon-forum",
+  "adapter_config": {
+    "default_content_type": "news",
+    "include_patterns": ["/maplestoryidle/board_view"],
+    "render_delay_ms": 3000
+  },
+  "official": true,
+  "enabled": true,
+  "crawl_frequency": "6h",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": true,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": "2026-07-24T00:00:00.000Z",
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified against the public official MapleStory: Idle RPG forum coupon article on 2026-07-24. The source uses summary-and-metadata storage and retains the canonical Nexon Forum URL."
+}

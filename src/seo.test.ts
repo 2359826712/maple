@@ -119,7 +119,7 @@ describe('search and social metadata', () => {
     expect(sitemapPaths).toEqual(expect.arrayContaining([
       expect.stringContaining('/content/events/undying-purpose-event-'),
       expect.stringContaining('/content/news/sign-up-for-global-maplestory-classic-world-'),
-      expect.stringContaining('/content/news/maplestory-idle-rpg-summertime-surprise-coupon-gift/'),
+      expect.stringContaining('/content/news/maplestory-idle-rpg-summertime-surprise-coupon-gift-'),
     ]));
     expect(sitemapPaths.join(' ')).not.toContain('chronostory');
   });

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T02:16:54.787Z",
-  "file_count": 1540,
-  "source_count": 9,
-  "root_sha256": "3f640f7f9eb466843b22cc789d646da43d3e8b05428181c53813b3f1e18a1f67",
+  "generated_at": "2026-07-24T00:00:00.000Z",
+  "file_count": 1541,
+  "source_count": 10,
+  "root_sha256": "82c18c4ba86043edfa0596f7a92eddce4a4e18eaccaf177fd00e070836596708",
   "content": [
     {
       "path": "content/cash-shop/maplestory/2022/maplestory-europe-gms-official-news-2022-09-27-4885.json",
@@ -5456,6 +5456,11 @@
       "file_sha256": "221fc910d3c91cb3d96b630ec42c08af58f301fdf009834d91402d160fbc32f8"
     },
     {
+      "path": "content/news/idle/2026/maplestory-idle-summertime-surprise-coupon-gift.json",
+      "id": "maplestory-idle-summertime-surprise-coupon-gift",
+      "file_sha256": "dc97cc9e4973530c615c40f13c36fa7d9ec067273fda0476cc5e38e5e32b8e49"
+    },
+    {
       "path": "content/news/maplestory/2022/maplestory-europe-gms-official-news-2022-09-26-4882.json",
       "id": "maplestory-europe-gms-official-news-2022-09-26-4882",
       "file_sha256": "1f3d3171d0aa6a368edfdccba00a91a7330f40060005c8bb958332fbb116af8a"
@@ -7711,6 +7716,11 @@
       "path": "sources/classic/classic-gms-official-news.json",
       "id": "classic-gms-official-news",
       "file_sha256": "1a545d26601c1f2361788f283fa105dd78c8681a5d2bd87e2b925f65253cd63b"
+    },
+    {
+      "path": "sources/idle/idle-nexon-official-coupons.json",
+      "id": "idle-nexon-official-coupons",
+      "file_sha256": "c52316ea6f9fff565c824e154f3fef4950ed0279546ebb776301577b399e88ac"
     },
     {
       "path": "sources/idle/idle-nexon-official-patch-notes.json",
