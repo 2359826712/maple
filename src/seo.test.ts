@@ -124,6 +124,24 @@ describe('search and social metadata', () => {
     expect(sitemapPaths.join(' ')).not.toContain('chronostory');
   });
 
+  it('publishes canonical localized Wiki articles and boss detail pages', () => {
+    const sitemapPaths = getSitemapEntries().map(({ pathname }) => pathname);
+    const wikiArticlePaths = sitemapPaths.filter((pathname) => pathname.startsWith('/wiki/article/'));
+    const wikiBossPaths = sitemapPaths.filter((pathname) =>
+      /^\/wiki\/boss\/[^/]+\/(?:en|zh|ja|ko|zh-hant)\/GMS$/.test(pathname),
+    );
+
+    expect(wikiArticlePaths).toContain('/wiki/article/First%20Adversary/en/GMS');
+    expect(wikiArticlePaths).toContain('/wiki/article/Root%20Abyss/zh-hant/GMS');
+    expect(wikiBossPaths).toContain('/wiki/boss/Zakum/zh/GMS');
+    expect(wikiBossPaths).toContain('/wiki/boss/Black%20Mage/ko/GMS');
+    expect(wikiArticlePaths.length).toBeGreaterThanOrEqual(200);
+    expect(wikiBossPaths).toHaveLength(100);
+    expect(wikiArticlePaths.some((pathname) => pathname.endsWith('/KMS'))).toBe(false);
+    expect(wikiBossPaths.some((pathname) => pathname.endsWith('/KMS'))).toBe(false);
+    expect(new Set(sitemapPaths).size).toBe(sitemapPaths.length);
+  });
+
   it('ships a large social preview card with accessible metadata', () => {
     const index = read('index.html');
 

@@ -105,6 +105,52 @@ const catalogRoutes = metadataCatalog.routes as Record<string, RouteEntry>;
 
 export const runtimeRouteRoots = ['/news', '/upcoming', '/source', '/guides', '/events', '/wiki'] as const;
 
+export const wikiSitemapArticleTitles = [
+  'Classes',
+  'Link Skill',
+  'Legion System',
+  'Arcane River',
+  'Grandis',
+  'Bosses',
+  'Black Mage',
+  'Lucid',
+  'Will',
+  'Lotus',
+  'Gloom',
+  'Guardian Angel Slime',
+  'Magnus',
+  'Damien',
+  'Star Force',
+  'Potential',
+  'Hexa Matrix',
+  'Equipment',
+  'Locations',
+  'Maple World',
+  'Victoria Island',
+  'Orbis',
+  'Leafre',
+  'Temple of Time',
+  'Edelstein',
+  'Root Abyss',
+  'Vanishing Journey',
+  'Chu Chu Island',
+  'Lachelein',
+  'Arcana (region)',
+  'Morass of the Forest',
+  'Esfera',
+  'Sellas',
+  'Cernium',
+  'Hotel Arcus',
+  'Monster Park',
+  'Yum Yum Island',
+  'Medal',
+  'Bellalis',
+  'Adversary',
+  'First Adversary',
+  'Twilight Mark',
+  'Meso',
+] as const;
+
 const dynamicRoutePatterns = [
   /^\/series\/[^/]+(?:\/[^/]+)?$/,
   /^\/content\/[^/]+\/[^/]+$/,
@@ -595,5 +641,41 @@ export function getSitemapEntries() {
     ),
   );
 
-  return [...catalogEntries, ...seriesEntries, ...articleEntries];
+  const wikiArticleEntries = wikiSitemapArticleTitles.flatMap((title) =>
+    supportedLanguages.map((language) => ({
+      changefreq: 'weekly',
+      language,
+      pathname: withRouteSuffixes(
+        `/wiki/article/${encodeURIComponent(title)}`,
+        language,
+        'gms',
+      ),
+      priority: '0.7',
+      server: serverPathSegments.gms,
+      segment: languagePathSegments[language],
+    })),
+  );
+
+  const wikiBossEntries = bosses.flatMap((boss) =>
+    supportedLanguages.map((language) => ({
+      changefreq: 'weekly',
+      language,
+      pathname: withRouteSuffixes(
+        `/wiki/boss/${encodeURIComponent(boss.name)}`,
+        language,
+        'gms',
+      ),
+      priority: '0.8',
+      server: serverPathSegments.gms,
+      segment: languagePathSegments[language],
+    })),
+  );
+
+  return [
+    ...catalogEntries,
+    ...seriesEntries,
+    ...articleEntries,
+    ...wikiArticleEntries,
+    ...wikiBossEntries,
+  ];
 }
