@@ -43,6 +43,7 @@ import {
 import { ensureServerDom } from '@/services/serverDom';
 import { normalizeStaticContentLanguage, translateStaticText, translateStaticTexts } from '@/services/staticTranslation';
 import { getNewsCopy, getNewsSourceLanguage, getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
+import { getHelpTopicIds } from '@/pages/help/helpContent';
 import { localizeEvents } from '@/pages/events/useLocalizedEvents';
 import { localizeGuideItem, localizeGuideItems } from '@/pages/guides/localizedGuides';
 import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolResources';
@@ -155,6 +156,7 @@ const dynamicRoutePatterns = [
   /^\/series\/[^/]+(?:\/[^/]+)?$/,
   /^\/content\/[^/]+\/[^/]+$/,
   /^\/guides\/(?!level(?:\/|$))[^/]+$/,
+  /^\/help\/[^/]+$/,
   /^\/upcoming\/[^/]+$/,
   /^\/wiki\/article\/.+$/,
   /^\/wiki\/boss(?:\/[^/]+)?$/,
@@ -641,6 +643,17 @@ export function getSitemapEntries() {
     ),
   );
 
+  const helpTopicEntries = getHelpTopicIds().flatMap((topicId) =>
+    supportedLanguages.map((language) => ({
+      changefreq: 'weekly',
+      language,
+      pathname: withRouteSuffixes(`/help/${topicId}`, language, 'gms'),
+      priority: '0.8',
+      server: serverPathSegments.gms,
+      segment: languagePathSegments[language],
+    })),
+  );
+
   const wikiArticleEntries = wikiSitemapArticleTitles.flatMap((title) =>
     supportedLanguages.map((language) => ({
       changefreq: 'weekly',
@@ -675,6 +688,7 @@ export function getSitemapEntries() {
     ...catalogEntries,
     ...seriesEntries,
     ...articleEntries,
+    ...helpTopicEntries,
     ...wikiArticleEntries,
     ...wikiBossEntries,
   ];

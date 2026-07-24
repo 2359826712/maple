@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { supportedLanguages } from '@/i18n/languageRouting';
-import { getHelpCenterKeywords, getHelpCenterProfile } from './helpContent';
+import {
+  getHelpCenterKeywords,
+  getHelpCenterProfile,
+  getHelpTopicArticleProfile,
+  getHelpTopicIds,
+} from './helpContent';
 
 describe('localized help center content', () => {
   it('ships a substantial, source-routed problem guide in every language', () => {
@@ -32,5 +37,14 @@ describe('localized help center content', () => {
     expect(searchable).not.toContain('gamepass');
     expect(searchable).not.toContain('instagram');
     expect(searchable).not.toContain('private server download');
+  });
+
+  it('provides indexable detail routes and full source-backed copy for verified topics', () => {
+    expect(getHelpTopicIds()).toHaveLength(12);
+    supportedLanguages.forEach((language) => {
+      const coupon = getHelpTopicArticleProfile(language, 'idle-coupon');
+      expect(coupon?.sections).toHaveLength(4);
+      expect(coupon?.faq.length).toBeGreaterThanOrEqual(3);
+    });
   });
 });

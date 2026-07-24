@@ -204,10 +204,10 @@ export default function HelpCenterPage() {
                       </div>
 
                       <Link
-                        to={localizeHref(topic.href, language, topic.server || versionInfo.id)}
+                        to={localizeHref(`/help/${topic.id}`, language, topic.server || versionInfo.id)}
                         className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-primary-700"
                       >
-                        {topic.cta}
+                        {profile.readAnswer}
                         <i className="ri-arrow-right-line" aria-hidden="true"></i>
                       </Link>
                     </article>

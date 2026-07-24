@@ -1,5 +1,10 @@
 import type { SupportedLanguage } from '@/i18n/languageRouting';
 import type { GameVersion } from '@/hooks/VersionContext';
+import {
+  getArticleSearchIntentProfile,
+  IDLE_SUMMER_COUPON_URL,
+  type ArticleSearchIntentProfile,
+} from '@/pages/series/articleSearchIntent';
 
 export type HelpCategory = 'codes' | 'access' | 'events' | 'progression' | 'sources';
 
@@ -17,14 +22,20 @@ export type HelpTopic = {
 };
 
 export type HelpCenterProfile = {
+  answerTitle: string;
+  backToHelp: string;
   categories: Record<HelpCategory, string>;
   description: string;
   eyebrow: string;
   faqTitle: string;
   noResults: string;
+  readAnswer: string;
+  relatedTitle: string;
   searchLabel: string;
   searchPlaceholder: string;
   sourceNote: string;
+  sourceTitle: string;
+  stepsTitle: string;
   title: string;
   topics: readonly HelpTopic[];
   trendLabel: string;
@@ -588,61 +599,91 @@ const ko: Record<string, TopicCopy> = {
 
 const profileCopy: Record<SupportedLanguage, Omit<HelpCenterProfile, 'topics'>> = {
   en: {
+    answerTitle: 'Complete answer',
+    backToHelp: 'Back to all questions',
     eyebrow: 'MapleStory problem solver',
     title: 'Find the right answer before you follow a search result',
     description: 'A localized question hub for MapleStory classes, events, codes, launch problems, character searches, and official editions. Each answer keeps its game, region, date, and source visible.',
     searchLabel: 'Search MapleStory questions',
     searchPlaceholder: 'Try “Idle coupon”, “character search”, or “will not open”',
     noResults: 'No matching answer yet. Try a game name, event, class, code, or error.',
+    readAnswer: 'Read the full answer',
+    relatedTitle: 'Related player questions',
     sourceNote: 'Google Trends identifies questions; it does not prove game facts. MPStorys answers only with an official or clearly labeled community source.',
+    sourceTitle: 'Verified source and next step',
+    stepsTitle: 'What to do',
     trendLabel: 'Common player searches',
     faqTitle: 'Problem-solving guides',
     categories: { codes: 'Codes & rewards', access: 'Access & client', events: 'Events & worlds', progression: 'Classes & progression', sources: 'Sources & safety' },
   },
   zh: {
+    answerTitle: '完整解答',
+    backToHelp: '返回全部问题',
     eyebrow: '冒险岛问题导航',
     title: '先找到正确问题，再进入对应来源',
     description: '按中文玩家的实际搜索习惯整理职业、活动、兑换码、启动问题、角色查询和官方版本。每个答案都保留游戏、地区、日期与来源。',
     searchLabel: '搜索冒险岛问题',
     searchPlaceholder: '例如“放置兑换码”“角色查询”或“打不开”',
     noResults: '暂时没有对应答案，请尝试游戏名、活动、职业、兑换码或错误信息。',
+    readAnswer: '阅读完整解答',
+    relatedTitle: '相关玩家问题',
     sourceNote: 'Google Trends 只能发现玩家正在问什么，不能证明游戏事实；本站只使用官方来源或明确标记的社区参考回答。',
+    sourceTitle: '已核验来源与下一步',
+    stepsTitle: '处理步骤',
     trendLabel: '玩家常用搜索词',
     faqTitle: '问题解决指南',
     categories: { codes: '兑换码与奖励', access: '登录、平台与客户端', events: '活动与世界', progression: '职业与成长', sources: '来源与安全' },
   },
   'zh-Hant': {
+    answerTitle: '完整解答',
+    backToHelp: '返回全部問題',
     eyebrow: '楓之谷問題導航',
     title: '先確認真正的問題，再進入正確來源',
     description: '依繁中玩家的搜尋語境整理職業、活動、序號、啟動問題、角色查詢與官方版本；每個答案保留遊戲、地區、日期及來源。',
     searchLabel: '搜尋楓之谷問題',
     searchPlaceholder: '例如「放置冒險記序號」「角色查詢」或「開不起來」',
     noResults: '目前沒有相符答案，請改用遊戲名、活動、職業、序號或錯誤訊息。',
+    readAnswer: '閱讀完整解答',
+    relatedTitle: '相關玩家問題',
     sourceNote: 'Google Trends 只能發現玩家正在詢問什麼，不能證明遊戲事實；本站只用官方來源或清楚標示的社群參考回答。',
+    sourceTitle: '已核驗來源與下一步',
+    stepsTitle: '處理步驟',
     trendLabel: '玩家常用搜尋詞',
     faqTitle: '問題解決指南',
     categories: { codes: '序號與獎勵', access: '登入、平台與客戶端', events: '活動與世界', progression: '職業與成長', sources: '來源與安全' },
   },
   ja: {
+    answerTitle: '詳しい回答',
+    backToHelp: '質問一覧へ戻る',
     eyebrow: 'メイプルストーリー問題ナビ',
     title: '検索結果を開く前に、質問と対象地域を確認',
     description: '職業、イベント、クーポン、起動問題、キャラクター検索、公式エディションを日本語の検索意図に合わせて整理します。',
     searchLabel: 'メイプルストーリーの質問を検索',
     searchPlaceholder: '「職業」「Idle coupon」「起動しない」など',
     noResults: '一致する回答がありません。ゲーム名、イベント、職業、コード、エラーで検索してください。',
+    readAnswer: '詳しい回答を読む',
+    relatedTitle: '関連する質問',
     sourceNote: 'Google Trendsは質問の発見に使い、事実の根拠にはしません。公式または明確に表示したコミュニティ出典で回答します。',
+    sourceTitle: '確認済みの出典と次の手順',
+    stepsTitle: '対処手順',
     trendLabel: 'よく使われる検索語',
     faqTitle: '問題解決ガイド',
     categories: { codes: 'コード・報酬', access: 'アクセス・起動', events: 'イベント・ワールド', progression: '職業・育成', sources: '出典・安全' },
   },
   ko: {
+    answerTitle: '전체 답변',
+    backToHelp: '모든 질문으로 돌아가기',
     eyebrow: '메이플스토리 문제 해결',
     title: '검색 결과를 열기 전에 질문과 지역부터 확인하세요',
     description: '직업, 이벤트, 쿠폰, 실행 문제, 캐릭터 검색, 공식 에디션을 한국어 검색 의도와 지역 맥락에 맞춰 정리합니다.',
     searchLabel: '메이플스토리 질문 검색',
     searchPlaceholder: '“쿠폰”, “닉네임 검색”, “실행 안됨” 등',
     noResults: '일치하는 답변이 없습니다. 게임명, 이벤트, 직업, 코드 또는 오류로 검색하세요.',
+    readAnswer: '전체 답변 보기',
+    relatedTitle: '관련 질문',
     sourceNote: 'Google Trends는 질문을 찾는 신호일 뿐 사실의 근거가 아닙니다. 공식 또는 명확히 표시한 커뮤니티 출처로만 답합니다.',
+    sourceTitle: '확인된 출처와 다음 단계',
+    stepsTitle: '해결 순서',
     trendLabel: '자주 검색하는 표현',
     faqTitle: '문제 해결 가이드',
     categories: { codes: '쿠폰·보상', access: '접속·클라이언트', events: '이벤트·월드', progression: '직업·성장', sources: '출처·안전' },
@@ -668,3 +709,24 @@ export const getHelpCenterProfile = (language: SupportedLanguage): HelpCenterPro
 export const getHelpCenterKeywords = (language: SupportedLanguage) => (
   getHelpCenterProfile(language).topics.flatMap((topic) => topic.keywords)
 );
+
+export const getHelpTopicIds = () => definitions.map(({ id }) => id);
+
+export const getHelpTopic = (language: SupportedLanguage, topicId: string) => (
+  getHelpCenterProfile(language).topics.find(({ id }) => id === topicId)
+);
+
+const articleTargetByTopicId: Record<string, { contentId?: string; sourceUrl?: string }> = {
+  'idle-coupon': { sourceUrl: IDLE_SUMMER_COUPON_URL },
+  'classic-official': { contentId: 'classic-world-closed-online-test-2-registration' },
+  'first-adversary': { contentId: 'maplestory-europe-gms-official-news-2026-01-14-34997' },
+  'ren-guide': { contentId: 'maplestory-europe-gms-official-news-2025-11-12-32586-tracks-of-the-wanderer' },
+};
+
+export const getHelpTopicArticleProfile = (
+  language: SupportedLanguage,
+  topicId: string,
+): ArticleSearchIntentProfile | undefined => {
+  const target = articleTargetByTopicId[topicId];
+  return target ? getArticleSearchIntentProfile(target, language) : undefined;
+};

@@ -25,6 +25,8 @@ import { getArticleSearchIntentProfile } from '@/pages/series/articleSearchInten
 import {
   getHelpCenterKeywords,
   getHelpCenterProfile,
+  getHelpTopic,
+  getHelpTopicArticleProfile,
 } from '@/pages/help/helpContent';
 
 type MetadataCopy = { description: string; title: string };
@@ -41,6 +43,7 @@ const routes = metadataCatalog.routes as Record<string, RouteEntry>;
 const getMetadataEntry = (route: string) => {
   if (routes[route]) return { entry: routes[route], route };
   if (route.startsWith('/guides/')) return { entry: routes['/guides'], route };
+  if (route.startsWith('/help/')) return { entry: routes['/help'], route };
   if (route.startsWith('/upcoming/')) return { entry: routes['/upcoming'], route };
   if (route.startsWith('/wiki/boss/')) return { entry: routes['/wiki/boss'], route };
   if (route.startsWith('/wiki/article/')) return { entry: routes['/wiki'], route };
@@ -107,7 +110,15 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
           sourceUrl: initialSeriesResourceDetail.resource.sourceUrl,
         },
         language,
-      )
+    )
+    : undefined;
+  const helpTopicId = route.startsWith('/help/')
+    ? route.slice('/help/'.length)
+    : undefined;
+  const helpProfile = route === '/help' ? getHelpCenterProfile(language) : undefined;
+  const helpTopic = helpTopicId ? getHelpTopic(language, helpTopicId) : undefined;
+  const helpArticleIntent = helpTopicId
+    ? getHelpTopicArticleProfile(language, helpTopicId)
     : undefined;
   const seriesEditionLabel = seriesProduct
     ? getSeriesVersionShortLabel(seriesProduct.id, server)
@@ -141,6 +152,8 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.title
     || initialWikiEntry?.title
     || routeHeadBoss?.title
+    || helpArticleIntent?.title
+    || helpTopic?.question
     || articleIntent?.title
     || (route.startsWith('/content/') ? requestTitle : undefined)
     || seriesPageTitle
@@ -150,6 +163,8 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.excerpt
     || initialWikiEntry?.description
     || routeHeadBoss?.description
+    || helpArticleIntent?.description
+    || helpTopic?.answer[0]
     || articleIntent?.description
     || (route.startsWith('/content/') ? requestDescription : undefined)
     || requestDescription
@@ -164,9 +179,13 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     ? `?series=${encodeURIComponent(seriesProduct.id)}`
     : '';
   const canonicalUrl = `${SITE_URL}${canonicalPath}${canonicalSeriesSearch}`;
-  const helpProfile = route === '/help' ? getHelpCenterProfile(language) : undefined;
   const keywords = helpProfile
     ? [getHelpCenterKeywords(language), siteKeywords[language]].join(', ')
+    : helpTopic
+      ? [
+          ...(helpArticleIntent?.keywords || helpTopic.keywords),
+          siteKeywords[language],
+        ].join(', ')
     : seriesProduct
     ? [
         ...(articleIntent
@@ -374,6 +393,22 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
           },
         })),
       }
+    : helpTopic
+      ? {
+          '@type': 'FAQPage',
+          '@id': `${canonicalUrl}#faq`,
+          mainEntity: (helpArticleIntent?.faq || [{
+            question: helpTopic.question,
+            answer: helpTopic.answer.join(' '),
+          }]).map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: item.answer,
+            },
+          })),
+        }
     : null;
   const faqEntity = articleFaqEntity || seriesFaqEntity || helpFaqEntity;
   const websiteEntity = route === '/'
