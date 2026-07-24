@@ -479,6 +479,16 @@ h1, h2, h3, h4, h5, h6 {
   animation: marquee 40s linear infinite;
 }
 
+@keyframes featured-listings-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(calc(-1 * var(--featured-listings-distance)), 0, 0); }
+}
+
+.featured-listings-marquee[data-marquee-ready='true'] > * {
+  animation: featured-listings-scroll var(--featured-listings-duration) linear infinite;
+  will-change: transform;
+}
+
 /* ── Accessibility: focus-visible ring for interactive elements ── */
 button:focus-visible,
 a:focus-visible,
@@ -524,6 +534,11 @@ textarea:focus-visible,
 
   .animate-marquee .ticker-duplicate {
     display: none !important;
+  }
+
+  .featured-listings-marquee[data-marquee-ready='true'] > * {
+    animation-duration: var(--featured-listings-duration) !important;
+    animation-iteration-count: infinite !important;
   }
 
   /* Version badge pulse */
