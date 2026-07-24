@@ -332,6 +332,12 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   }, [activeSeries?.id, availableVersions, setVersion, version]);
 
   const handleSeriesChange = (seriesId?: string) => {
+    if (routePathname === '/help' || routePathname.startsWith('/help/')) {
+      const href = seriesId ? `/help/series/${seriesId}` : '/help';
+      setSeriesMenuOpen(false);
+      navigate(localizeHref(href, i18n.language, versionInfo.id));
+      return;
+    }
     const requestedModule = seriesRoute.module || 'news';
     const destinationModule = isSeriesModuleAvailable(seriesId, requestedModule) ? requestedModule : 'news';
     const href = seriesId
@@ -341,7 +347,9 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     navigate(localizeHref(href, i18n.language, versionInfo.id));
   };
 
-  const getNavHref = (href: string) => scopeModuleHref(activeSeries?.id, href);
+  const getNavHref = (href: string) => href === '/help'
+    ? `/help/series/${activeSeries?.id || 'maplestory-pc'}`
+    : scopeModuleHref(activeSeries?.id, href);
   const visibleNavLinkKeys = navLinkKeys.filter((link) => (
     isSeriesModuleAvailable(activeSeries?.id, getSeriesRouteState(link.href).module)
   ));

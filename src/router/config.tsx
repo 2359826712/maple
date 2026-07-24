@@ -71,6 +71,10 @@ const preloadSeriesModuleRoute = (page: { preload: () => Promise<unknown> }) => 
   preload: () => Promise.all([SeriesModuleRoute.preload(), page.preload()]),
 });
 
+const preloadHelpRoute = {
+  preload: () => Promise.all([HelpCenterPage.preload(), HelpTopicPage.preload()]),
+};
+
 const routePrefetchers: Array<[string, { preload: () => Promise<unknown> }]> = [
   ["/upcoming/", UpcomingUpdateDetailPage],
   ["/guides/level", LevelGuidePage],
@@ -82,7 +86,7 @@ const routePrefetchers: Array<[string, { preload: () => Promise<unknown> }]> = [
   ["/search", SearchPage],
   ["/source", OfficialSourcePage],
   ["/guides", preloadSeriesModuleRoute(GuidesPage)],
-  ["/help/", HelpTopicPage],
+  ["/help/", preloadHelpRoute],
   ["/help", HelpCenterPage],
   ["/events", preloadSeriesModuleRoute(EventsPage)],
   ["/auth/login", LoginPage],

@@ -58,6 +58,12 @@ export const withSeriesScope = (href: string, seriesId?: string) => {
 
 export const getSeriesRouteState = (pathname: string, search = '') => {
   const segments = pathname.split('/').filter(Boolean);
+  if (segments[0] === 'help' && segments[1] === 'series') {
+    return {
+      seriesId: segments[2] || getSeriesIdFromSearch(search),
+      module: undefined,
+    };
+  }
   if (segments[0] !== 'series') {
     return {
       seriesId: getSeriesIdFromSearch(search),

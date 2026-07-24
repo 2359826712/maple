@@ -20,8 +20,8 @@ export type RouteComponents = {
   FeedbackPage: ComponentType;
   GuideDetail: ComponentType;
   GuidesPage: ComponentType;
-  HelpCenterPage: ComponentType;
-  HelpTopicPage: ComponentType<{ initialTopicId?: string }>;
+  HelpCenterPage: ComponentType<{ initialSeriesId?: string }>;
+  HelpTopicPage: ComponentType<{ initialSeriesId?: string; initialTopicId?: string }>;
   Home: ComponentType;
   LevelGuidePage: ComponentType;
   LoginPage: ComponentType;
@@ -91,6 +91,8 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     { path: '/content/:contentModule/:slug', element: <SeriesResourceDetailPage /> },
     { path: '/guides', element: <SeriesModuleRoute module="guides"><GuidesPage /></SeriesModuleRoute> },
     { path: '/guides/:id', element: <GuideDetail /> },
+    { path: '/help/series/:seriesId/:topicId', element: <HelpTopicPage /> },
+    { path: '/help/series/:seriesId', element: <HelpCenterPage /> },
     { path: '/help/:topicId', element: <HelpTopicPage /> },
     { path: '/help', element: <HelpCenterPage /> },
     { path: '/events', element: <SeriesModuleRoute module="events"><EventsPage /></SeriesModuleRoute> },

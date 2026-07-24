@@ -12,8 +12,14 @@ import {
   getHelpTopicArticleProfile,
 } from './helpContent';
 
-export default function HelpTopicPage({ initialTopicId = '' }: { initialTopicId?: string } = {}) {
-  const params = useParams<{ topicId: string }>();
+export default function HelpTopicPage({
+  initialSeriesId = '',
+  initialTopicId = '',
+}: {
+  initialSeriesId?: string;
+  initialTopicId?: string;
+} = {}) {
+  const params = useParams<{ seriesId?: string; topicId: string }>();
   const topicId = params.topicId || initialTopicId;
   const { i18n } = useTranslation();
   const { versionInfo } = useVersion();
@@ -22,7 +28,8 @@ export default function HelpTopicPage({ initialTopicId = '' }: { initialTopicId?
   const profile = getHelpCenterProfile(language);
   const topic = getHelpTopic(language, topicId);
   const articleProfile = getHelpTopicArticleProfile(language, topicId);
-  const helpHref = localizeHref('/help', language, versionInfo.id);
+  const seriesId = topic?.seriesId || params.seriesId || initialSeriesId || 'maplestory-pc';
+  const helpHref = localizeHref(`/help/series/${seriesId}`, language, versionInfo.id);
 
   if (!topic) {
     return (
@@ -51,7 +58,7 @@ export default function HelpTopicPage({ initialTopicId = '' }: { initialTopicId?
     paragraphs: topic.answer,
   }];
   const relatedTopics = profile.topics
-    .filter((candidate) => candidate.id !== topic.id && candidate.category === topic.category)
+    .filter((candidate) => candidate.id !== topic.id && candidate.seriesId === topic.seriesId)
     .slice(0, 3);
 
   return (
@@ -169,7 +176,7 @@ export default function HelpTopicPage({ initialTopicId = '' }: { initialTopicId?
                   {relatedTopics.map((related) => (
                     <Link
                       key={related.id}
-                      to={localizeHref(`/help/${related.id}`, language, related.server || versionInfo.id)}
+                      to={localizeHref(`/help/series/${related.seriesId}/${related.id}`, language, related.server || versionInfo.id)}
                       className="rounded-2xl border border-background-200 bg-background-50 p-5 font-semibold leading-7 text-foreground-900 transition hover:border-primary-300 hover:text-primary-700 hover:shadow-sm"
                     >
                       {related.question}

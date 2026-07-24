@@ -106,10 +106,11 @@ describe('search and social metadata', () => {
 
     expect(metadataCatalog.routes['/help'].index).toBe(true);
     expect(metadataCatalog.routes['/help'].schema?.types).toContain('FAQPage');
-    expect(paths).toContain('/help/en/GMS');
-    expect(paths).toContain('/help/zh-hant/TMS');
-    expect(paths).toContain('/help/idle-coupon/en/GMS');
-    expect(paths).toContain('/help/first-adversary/zh-hant/GMS');
+    expect(paths).not.toContain('/help/en/GMS');
+    expect(paths).toContain('/help/series/maplestory-pc/zh-hant/TMS');
+    expect(paths).toContain('/help/series/maplestory-m/en/GMS');
+    expect(paths).toContain('/help/series/maplestory-idle/idle-coupon/en/GMS');
+    expect(paths).toContain('/help/series/maplestory-pc/first-adversary/zh-hant/GMS');
     expect(routeHead).toContain('getHelpCenterKeywords');
     expect(routeHead).toContain('const helpFaqEntity = helpProfile');
   });

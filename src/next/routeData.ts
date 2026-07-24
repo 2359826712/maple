@@ -43,7 +43,7 @@ import {
 import { ensureServerDom } from '@/services/serverDom';
 import { normalizeStaticContentLanguage, translateStaticText, translateStaticTexts } from '@/services/staticTranslation';
 import { getNewsCopy, getNewsSourceLanguage, getNewsSourceLanguageForVersion } from '@/pages/news/localizedNews';
-import { getHelpTopicIds } from '@/pages/help/helpContent';
+import { getHelpCenterProfile } from '@/pages/help/helpContent';
 import { localizeEvents } from '@/pages/events/useLocalizedEvents';
 import { localizeGuideItem, localizeGuideItems } from '@/pages/guides/localizedGuides';
 import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolResources';
@@ -157,6 +157,7 @@ const dynamicRoutePatterns = [
   /^\/content\/[^/]+\/[^/]+$/,
   /^\/guides\/(?!level(?:\/|$))[^/]+$/,
   /^\/help\/[^/]+$/,
+  /^\/help\/series\/[^/]+(?:\/[^/]+)?$/,
   /^\/upcoming\/[^/]+$/,
   /^\/wiki\/article\/.+$/,
   /^\/wiki\/boss(?:\/[^/]+)?$/,
@@ -585,7 +586,7 @@ export function getStaticRoutePaths() {
 
 export function getSitemapEntries() {
   const catalogEntries = Object.entries(metadataCatalog.routes as Record<string, RouteEntry>)
-    .filter(([, entry]) => entry.index)
+    .filter(([route, entry]) => entry.index && route !== '/help')
     .flatMap(([route, entry]) =>
       supportedLanguages.flatMap((language) =>
         supportedServers.map((server) => ({
@@ -643,11 +644,31 @@ export function getSitemapEntries() {
     ),
   );
 
-  const helpTopicEntries = getHelpTopicIds().flatMap((topicId) =>
+  const helpSeriesEntries = [
+    'maplestory-pc',
+    'maplestory-classic',
+    'maplestory-m',
+    'maplestory-n',
+    'maplestory-worlds',
+    'maplestory-idle',
+  ].flatMap((seriesId) =>
+    supportedLanguages.flatMap((language) =>
+      getSeriesVersions(seriesId).map(({ id: server }) => ({
+        changefreq: 'weekly',
+        language,
+        pathname: withRouteSuffixes(`/help/series/${seriesId}`, language, server),
+        priority: '0.8',
+        server: serverPathSegments[server],
+        segment: languagePathSegments[language],
+      })),
+    ),
+  );
+
+  const helpTopicEntries = getHelpCenterProfile('en').topics.flatMap((topic) =>
     supportedLanguages.map((language) => ({
       changefreq: 'weekly',
       language,
-      pathname: withRouteSuffixes(`/help/${topicId}`, language, 'gms'),
+      pathname: withRouteSuffixes(`/help/series/${topic.seriesId}/${topic.id}`, language, 'gms'),
       priority: '0.8',
       server: serverPathSegments.gms,
       segment: languagePathSegments[language],
@@ -688,6 +709,7 @@ export function getSitemapEntries() {
     ...catalogEntries,
     ...seriesEntries,
     ...articleEntries,
+    ...helpSeriesEntries,
     ...helpTopicEntries,
     ...wikiArticleEntries,
     ...wikiBossEntries,

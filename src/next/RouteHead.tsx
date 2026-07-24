@@ -112,10 +112,18 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
         language,
     )
     : undefined;
-  const helpTopicId = route.startsWith('/help/')
-    ? route.slice('/help/'.length)
+  const helpSegments = route.split('/').filter(Boolean);
+  const isSeriesHelp = helpSegments[0] === 'help' && helpSegments[1] === 'series';
+  const helpSeriesId = isSeriesHelp ? helpSegments[2] : undefined;
+  const effectiveHelpSeriesId = helpSeriesId || (route === '/help' ? 'maplestory-pc' : undefined);
+  const helpTopicId = isSeriesHelp ? helpSegments[3] : helpSegments[1];
+  const helpProfile = route === '/help' || (isSeriesHelp && !helpTopicId)
+    ? getHelpCenterProfile(language)
     : undefined;
-  const helpProfile = route === '/help' ? getHelpCenterProfile(language) : undefined;
+  const helpSeriesProduct = getSeriesProduct(effectiveHelpSeriesId);
+  const helpTopics = helpProfile
+    ? helpProfile.topics.filter((topic) => !effectiveHelpSeriesId || topic.seriesId === effectiveHelpSeriesId)
+    : [];
   const helpTopic = helpTopicId ? getHelpTopic(language, helpTopicId) : undefined;
   const helpArticleIntent = helpTopicId
     ? getHelpTopicArticleProfile(language, helpTopicId)
@@ -152,6 +160,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.title
     || initialWikiEntry?.title
     || routeHeadBoss?.title
+    || (helpSeriesProduct ? `${helpSeriesProduct.name} ${copy.title}` : undefined)
     || helpArticleIntent?.title
     || helpTopic?.question
     || articleIntent?.title
@@ -173,14 +182,21 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const pageTitle = dynamicTitle || copy.title;
   const description = dynamicDescription || copy.description;
   const title = buildPageTitle(pageTitle);
-  const canonicalRoute = entry?.canonicalRoute || route;
+  const canonicalRoute = route === '/help'
+    ? '/help/series/maplestory-pc'
+    : entry?.canonicalRoute || route;
   const canonicalPath = withRouteSuffixes(canonicalRoute, language, server);
   const canonicalSeriesSearch = seriesProduct && seriesId && seriesProduct.id !== 'maplestory-pc'
     ? `?series=${encodeURIComponent(seriesProduct.id)}`
     : '';
   const canonicalUrl = `${SITE_URL}${canonicalPath}${canonicalSeriesSearch}`;
   const keywords = helpProfile
-    ? [getHelpCenterKeywords(language), siteKeywords[language]].join(', ')
+    ? [
+        effectiveHelpSeriesId
+          ? helpTopics.flatMap((topic) => topic.keywords)
+          : getHelpCenterKeywords(language),
+        siteKeywords[language],
+      ].join(', ')
     : helpTopic
       ? [
           ...(helpArticleIntent?.keywords || helpTopic.keywords),
@@ -384,7 +400,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     ? {
         '@type': 'FAQPage',
         '@id': `${canonicalUrl}#faq`,
-        mainEntity: helpProfile.topics.map((topic) => ({
+        mainEntity: helpTopics.map((topic) => ({
           '@type': 'Question',
           name: topic.question,
           acceptedAnswer: {

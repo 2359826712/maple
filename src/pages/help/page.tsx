@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
@@ -11,6 +11,7 @@ import {
   type HelpCategory,
   type HelpTopic,
 } from './helpContent';
+import { getSeriesProduct } from '@/pages/series/catalog';
 
 const categoryOrder: readonly HelpCategory[] = ['codes', 'access', 'events', 'progression', 'sources'];
 
@@ -22,19 +23,23 @@ const searchableText = (topic: HelpTopic) => [
   ...topic.keywords,
 ].join(' ').toLocaleLowerCase();
 
-export default function HelpCenterPage() {
+export default function HelpCenterPage({ initialSeriesId = '' }: { initialSeriesId?: string } = {}) {
+  const params = useParams<{ seriesId?: string }>();
   const { i18n } = useTranslation();
   const { versionInfo } = useVersion();
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const language = normalizeLanguage(i18n.language);
   const profile = getHelpCenterProfile(language);
+  const activeSeries = getSeriesProduct(params.seriesId || initialSeriesId)
+    || getSeriesProduct('maplestory-pc')!;
+  const seriesTopics = profile.topics.filter((topic) => topic.seriesId === activeSeries.id);
   const normalizedQuery = query.trim().toLocaleLowerCase();
   const filteredTopics = useMemo(
     () => normalizedQuery
-      ? profile.topics.filter((topic) => searchableText(topic).includes(normalizedQuery))
-      : profile.topics,
-    [normalizedQuery, profile.topics],
+      ? seriesTopics.filter((topic) => searchableText(topic).includes(normalizedQuery))
+      : seriesTopics,
+    [normalizedQuery, seriesTopics],
   );
   const groupedTopics = categoryOrder
     .map((category) => ({
@@ -54,7 +59,7 @@ export default function HelpCenterPage() {
             <div className="max-w-4xl">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-700">{profile.eyebrow}</p>
               <h1 className="mt-3 font-heading text-3xl font-semibold leading-tight text-foreground-950 md:text-5xl">
-                {profile.title}
+                {activeSeries.name}: {profile.title}
               </h1>
               <p className="mt-4 max-w-3xl text-sm leading-7 text-foreground-700 md:text-base">
                 {profile.description}
@@ -204,7 +209,7 @@ export default function HelpCenterPage() {
                       </div>
 
                       <Link
-                        to={localizeHref(`/help/${topic.id}`, language, topic.server || versionInfo.id)}
+                        to={localizeHref(`/help/series/${activeSeries.id}/${topic.id}`, language, topic.server || versionInfo.id)}
                         className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary-600 px-5 text-sm font-semibold text-white transition-colors hover:bg-primary-700"
                       >
                         {profile.readAnswer}

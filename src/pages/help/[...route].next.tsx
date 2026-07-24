@@ -7,12 +7,13 @@ import HelpTopicPage from './topic';
 
 export default function HelpNextRoute(props: NextRoutePageProps) {
   const routePath = stripRouteSuffixes(props.pathname);
-  const topicId = routePath.startsWith('/help/')
-    ? routePath.slice('/help/'.length)
-    : undefined;
-  const initialRouteElement = routePath.startsWith('/help/')
-    ? <HelpTopicPage initialTopicId={topicId} />
-    : <HelpCenterPage />;
+  const segments = routePath.split('/').filter(Boolean);
+  const isSeriesHelp = segments[1] === 'series';
+  const seriesId = isSeriesHelp ? segments[2] : undefined;
+  const topicId = isSeriesHelp ? segments[3] : segments[1];
+  const initialRouteElement = topicId
+    ? <HelpTopicPage initialSeriesId={seriesId} initialTopicId={topicId} />
+    : <HelpCenterPage initialSeriesId={seriesId} />;
   return <NextRoutePage {...props} initialRouteElement={initialRouteElement} />;
 }
 

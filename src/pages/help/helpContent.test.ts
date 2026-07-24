@@ -11,8 +11,8 @@ describe('localized help center content', () => {
   it('ships a substantial, source-routed problem guide in every language', () => {
     supportedLanguages.forEach((language) => {
       const profile = getHelpCenterProfile(language);
-      expect(profile.topics).toHaveLength(12);
-      expect(new Set(profile.topics.map((topic) => topic.id)).size).toBe(12);
+      expect(profile.topics).toHaveLength(24);
+      expect(new Set(profile.topics.map((topic) => topic.id)).size).toBe(24);
       expect(profile.topics.every((topic) => topic.answer.length >= 2)).toBe(true);
       expect(profile.topics.every((topic) => topic.steps.length >= 3)).toBe(true);
       expect(profile.topics.every((topic) => topic.href.startsWith('/'))).toBe(true);
@@ -40,11 +40,30 @@ describe('localized help center content', () => {
   });
 
   it('provides indexable detail routes and full source-backed copy for verified topics', () => {
-    expect(getHelpTopicIds()).toHaveLength(12);
+    expect(getHelpTopicIds()).toHaveLength(24);
     supportedLanguages.forEach((language) => {
       const coupon = getHelpTopicArticleProfile(language, 'idle-coupon');
       expect(coupon?.sections).toHaveLength(4);
       expect(coupon?.faq.length).toBeGreaterThanOrEqual(3);
     });
+  });
+
+  it('gives every MapleStory series its own question set', () => {
+    const topics = getHelpCenterProfile('en').topics;
+    const seriesIds = [
+      'maplestory-pc',
+      'maplestory-classic',
+      'maplestory-m',
+      'maplestory-n',
+      'maplestory-worlds',
+      'maplestory-idle',
+    ];
+
+    seriesIds.forEach((seriesId) => {
+      expect(topics.filter((topic) => topic.seriesId === seriesId).length, seriesId).toBeGreaterThanOrEqual(3);
+    });
+    expect(topics.find((topic) => topic.id === 'm-start')?.question).toContain('MapleStory M');
+    expect(topics.find((topic) => topic.id === 'n-v-tracker')?.question).toContain('V Tracker');
+    expect(topics.find((topic) => topic.id === 'worlds-performance')?.question).toContain('performance');
   });
 });
