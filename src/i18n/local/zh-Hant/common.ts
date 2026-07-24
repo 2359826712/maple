@@ -616,6 +616,7 @@ const common = {
   footer_creators: '內容創作者',
   footer_party_finder: '組隊招募',
   footer_about_maplehub: '關於 MPStorys',
+  footer_listed_aibesttop: 'Listed on AIBestTop',
 
   footer_content_policy: 'GMS 內容政策',
   footer_careers: '招募',
