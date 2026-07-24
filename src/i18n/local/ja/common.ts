@@ -2,6 +2,7 @@ const common = {
   nav_news: 'ニュース',
   nav_upcoming: '今後のアップデート',
   nav_guides: 'ガイド',
+  nav_help: '困りごと',
   nav_events: 'イベント',
   nav_tools: 'ツール',
   nav_wiki: 'ウィキ',

@@ -2,6 +2,7 @@ const common = {
   nav_news: 'News',
   nav_upcoming: 'Upcoming Updates',
   nav_guides: 'Guides',
+  nav_help: 'Help',
   nav_events: 'Events',
   nav_tools: 'Tools',
   nav_checklist: 'Checklist',

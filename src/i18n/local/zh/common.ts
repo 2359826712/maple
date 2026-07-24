@@ -2,6 +2,7 @@ const common = {
   nav_news: '资讯',
   nav_upcoming: '未来版本',
   nav_guides: '攻略',
+  nav_help: '问题解答',
   nav_events: '活动',
   nav_tools: '工具',
   nav_checklist: '每日任务',

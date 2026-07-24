@@ -60,7 +60,7 @@ describe('search and social metadata', () => {
     expect(document).toContain('rel="manifest" href="/site.webmanifest"');
     expect(routeHead).toContain('meta property="og:image"');
     expect(routeHead).toContain('application/ld+json');
-    expect(routeHead).toContain('const keywords = seriesProduct');
+    expect(routeHead).toContain('const keywords = helpProfile');
     expect(routeHead).toContain('keywords,');
     expect(sitemap).toContain('<changefreq>');
     expect(sitemap).toContain('<priority>');
@@ -98,6 +98,18 @@ describe('search and social metadata', () => {
     const paths = getSitemapEntries().map(({ pathname }) => pathname);
 
     expect(paths.some((path) => /\/(?:account|auth\/login|search|source|wiki\/redirect)\//.test(path))).toBe(false);
+  });
+
+  it('publishes the localized problem solver with search terms and FAQ schema', () => {
+    const paths = getSitemapEntries().map(({ pathname }) => pathname);
+    const routeHead = read('src/next/RouteHead.tsx');
+
+    expect(metadataCatalog.routes['/help'].index).toBe(true);
+    expect(metadataCatalog.routes['/help'].schema?.types).toContain('FAQPage');
+    expect(paths).toContain('/help/en/GMS');
+    expect(paths).toContain('/help/zh-hant/TMS');
+    expect(routeHead).toContain('getHelpCenterKeywords');
+    expect(routeHead).toContain('const helpFaqEntity = helpProfile');
   });
 
   it('publishes only real series and edition combinations in the sitemap', () => {
@@ -193,7 +205,7 @@ describe('search and social metadata', () => {
 
   it('defines unique localized metadata for every static route', () => {
     const expectedRoutes = [
-      '/', '/account', '/admin/feedback', '/auth/login', '/checklist', '/community', '/events', '/feedback', '/guides',
+      '/', '/account', '/admin/feedback', '/auth/login', '/checklist', '/community', '/events', '/feedback', '/guides', '/help',
       '/guides/level', '/mapler-house', '/maps', '/news', '/rankings', '/rankings/classes',
       '/search', '/series', '/source', '/tools', '/upcoming', '/wiki', '/wiki/boss', '/wiki/redirect',
       '/shop',

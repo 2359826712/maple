@@ -25,6 +25,7 @@ const navLinkKeys = [
   { key: 'nav_news', href: '/news' },
   { key: 'nav_upcoming', href: '/upcoming' },
   { key: 'nav_guides', href: '/guides' },
+  { key: 'nav_help', href: '/help' },
   { key: 'nav_events', href: '/events' },
   { key: 'nav_tools', href: '/mapler-house' },
   { key: 'nav_checklist', href: '/checklist' },

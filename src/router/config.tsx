@@ -43,6 +43,7 @@ const NewsPage = lazyWithPreload(() => import("../pages/news/page"));
 const UpcomingUpdatesPage = lazyWithPreload(() => import("../pages/upcoming/page"));
 const UpcomingUpdateDetailPage = lazyWithPreload(() => import("../pages/upcoming/detail/page"));
 const GuidesPage = lazyWithPreload(() => import("../pages/guides/page"));
+const HelpCenterPage = lazyWithPreload(() => import("../pages/help/page"));
 const EventsPage = lazyWithPreload(() => import("../pages/events/page"));
 const MapsPage = lazyWithPreload(() => import("../pages/maps/page"));
 const WikiPage = lazyWithPreload(() => import("../pages/wiki/page"));
@@ -80,6 +81,7 @@ const routePrefetchers: Array<[string, { preload: () => Promise<unknown> }]> = [
   ["/search", SearchPage],
   ["/source", OfficialSourcePage],
   ["/guides", preloadSeriesModuleRoute(GuidesPage)],
+  ["/help", HelpCenterPage],
   ["/events", preloadSeriesModuleRoute(EventsPage)],
   ["/auth/login", LoginPage],
   ["/account", AccountPage],
@@ -117,6 +119,7 @@ export default createRoutes({
   FeedbackPage,
   GuideDetail,
   GuidesPage,
+  HelpCenterPage,
   Home,
   LevelGuidePage,
   LoginPage,

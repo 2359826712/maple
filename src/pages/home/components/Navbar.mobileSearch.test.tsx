@@ -122,6 +122,7 @@ describe('Navbar mobile site search', () => {
 
     expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('href')).toBe('/news/en/GMS?series=maplestory-m');
     expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('href')).toBe('/guides/en/GMS?series=maplestory-m');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_help' }).getAttribute('href')).toBe('/help/en/GMS');
     expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop/en/GMS?series=maplestory-m');
     expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback/en/GMS?series=maplestory-m');
     expect(scopedNavigation.queryByRole('link', { name: 'nav_rankings' })).toBeNull();
@@ -146,6 +147,7 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.queryByRole('link', { name: 'nav_series' })).toBeNull();
     expect(screen.getByRole('button', { name: 'nav_series' })).toBeTruthy();
     expect(scopedNavigation.getByRole('link', { name: 'nav_upcoming' }).getAttribute('href')).toBe('/upcoming/en/GMS');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_help' }).getAttribute('href')).toBe('/help/en/GMS');
     expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('href')).toBe('/wiki/en/GMS');
     expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings/en/GMS');
     expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community/en/GMS');

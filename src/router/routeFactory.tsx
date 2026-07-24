@@ -20,6 +20,7 @@ export type RouteComponents = {
   FeedbackPage: ComponentType;
   GuideDetail: ComponentType;
   GuidesPage: ComponentType;
+  HelpCenterPage: ComponentType;
   Home: ComponentType;
   LevelGuidePage: ComponentType;
   LoginPage: ComponentType;
@@ -52,6 +53,7 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     FeedbackPage,
     GuideDetail,
     GuidesPage,
+    HelpCenterPage,
     Home,
     LevelGuidePage,
     LoginPage,
@@ -87,6 +89,7 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     { path: '/content/:contentModule/:slug', element: <SeriesResourceDetailPage /> },
     { path: '/guides', element: <SeriesModuleRoute module="guides"><GuidesPage /></SeriesModuleRoute> },
     { path: '/guides/:id', element: <GuideDetail /> },
+    { path: '/help', element: <HelpCenterPage /> },
     { path: '/events', element: <SeriesModuleRoute module="events"><EventsPage /></SeriesModuleRoute> },
     {
       path: '/community',

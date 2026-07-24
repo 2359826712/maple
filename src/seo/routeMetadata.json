@@ -27,6 +27,19 @@
         "zh-Hant": { "title": "MPStorys · 楓之谷攻略、工具與社群", "description": "彙整楓之谷、MapleStory Classic、MapleStory M、MapleStory Worlds、MapleStory N 與 MapleStory Idle 的新聞、更新、活動、攻略、工具、Wiki 和排行。" }
       }
     },
+    "/help": {
+      "index": true,
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "schema": { "types": ["WebPage", "FAQPage"] },
+      "copy": {
+        "en": { "title": "MapleStory Help & Problem Solver", "description": "Find source-backed answers for MapleStory codes, client errors, events, classes, leveling, character lookup, Classic World, Ren, and MapleStory Idle RPG." },
+        "zh": { "title": "冒险岛问题解答与攻略导航", "description": "查找冒险岛兑换码、客户端报错、活动、职业、练级、角色查询、Classic World、Ren 与 MapleStory Idle RPG 的有来源解答。" },
+        "ja": { "title": "メイプルストーリー困りごと・問題解決ガイド", "description": "クーポン、起動エラー、イベント、職業、レベル上げ、キャラクター検索、Classic World、レン、Idle RPG を出典付きで解決します。" },
+        "ko": { "title": "메이플스토리 문제 해결 및 도움말", "description": "쿠폰, 실행 오류, 이벤트, 직업, 레벨업, 캐릭터 검색, Classic World, 렌, Idle RPG 질문을 출처와 함께 해결하세요." },
+        "zh-Hant": { "title": "楓之谷問題解答與攻略導覽", "description": "查找楓之谷序號、啟動錯誤、活動、職業、練等、角色查詢、Classic World、蓮與放置冒險記的可靠解答。" }
+      }
+    },
     "/news": {
       "index": true,
       "changefreq": "daily",

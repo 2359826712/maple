@@ -7,6 +7,7 @@ import FeedbackPage from '../pages/feedback/page';
 import GuideDetail from '../pages/guides/detail/page';
 import LevelGuidePage from '../pages/guides/level/page';
 import GuidesPage from '../pages/guides/page';
+import HelpCenterPage from '../pages/help/page';
 import Home from '../pages/home/page';
 import MaplerHouse from '../pages/mapler-house/page';
 import MapsPage from '../pages/maps/page';
@@ -37,6 +38,7 @@ export default createRoutes({
   FeedbackPage,
   GuideDetail,
   GuidesPage,
+  HelpCenterPage,
   Home,
   LevelGuidePage,
   LoginPage,

@@ -10,6 +10,7 @@ const common = {
   nav_news: '뉴스',
   nav_upcoming: '향후 업데이트',
   nav_guides: '가이드',
+  nav_help: '문제 해결',
   nav_events: '이벤트',
   nav_tools: '도구',
   nav_checklist: '체크리스트',

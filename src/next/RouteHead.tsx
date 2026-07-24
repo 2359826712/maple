@@ -22,6 +22,10 @@ import {
 } from '@/pages/series/landingContent';
 import { getSeriesVersionShortLabel } from '@/pages/series/versionConfig';
 import { getArticleSearchIntentProfile } from '@/pages/series/articleSearchIntent';
+import {
+  getHelpCenterKeywords,
+  getHelpCenterProfile,
+} from '@/pages/help/helpContent';
 
 type MetadataCopy = { description: string; title: string };
 type RouteEntry = {
@@ -160,7 +164,10 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     ? `?series=${encodeURIComponent(seriesProduct.id)}`
     : '';
   const canonicalUrl = `${SITE_URL}${canonicalPath}${canonicalSeriesSearch}`;
-  const keywords = seriesProduct
+  const helpProfile = route === '/help' ? getHelpCenterProfile(language) : undefined;
+  const keywords = helpProfile
+    ? [getHelpCenterKeywords(language), siteKeywords[language]].join(', ')
+    : seriesProduct
     ? [
         ...(articleIntent
           ? articleIntent.keywords
@@ -354,7 +361,21 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
         })),
       }
     : null;
-  const faqEntity = articleFaqEntity || seriesFaqEntity;
+  const helpFaqEntity = helpProfile
+    ? {
+        '@type': 'FAQPage',
+        '@id': `${canonicalUrl}#faq`,
+        mainEntity: helpProfile.topics.map((topic) => ({
+          '@type': 'Question',
+          name: topic.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: topic.answer.join(' '),
+          },
+        })),
+      }
+    : null;
+  const faqEntity = articleFaqEntity || seriesFaqEntity || helpFaqEntity;
   const websiteEntity = route === '/'
     ? {
         '@type': 'WebSite',
