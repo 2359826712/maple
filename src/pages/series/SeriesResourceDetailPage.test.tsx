@@ -105,8 +105,10 @@ describe('series resource details', () => {
     expect(await screen.findByRole('heading', { name: 'Detailed content' })).toBeTruthy();
     expect(screen.getByRole('heading', { name: 'Key dates' })).toBeTruthy();
     expect(screen.getByText('Applications close Wednesday, July 29, 2026.')).toBeTruthy();
-    expect(screen.getByRole('img', { name: 'Classic World Closed Online Test #2' }).getAttribute('src'))
-      .toBe('https://g.nexonstatic.com/mscw/static/classic-world-closed-online-test2/share_fb.jpg');
+    const heroImage = screen.getByRole('img', { name: 'Classic World Closed Online Test #2' });
+    expect(heroImage.getAttribute('src'))
+      .toContain(encodeURIComponent('https://g.nexonstatic.com/mscw/static/classic-world-closed-online-test2/share_fb.jpg'));
+    expect(heroImage.getAttribute('fetchpriority')).toBe('high');
   });
 
   it('renders community resources on this site before offering the original source', async () => {

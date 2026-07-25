@@ -7,6 +7,7 @@ import {
   indexedResources,
   type ResourceIndexRecord,
 } from '@/domain/resourceIndex';
+import { getIndexedContentDisplayTitle } from './contentDisplay';
 
 export type VerifiedSeriesResource = {
   contentId?: string;
@@ -167,15 +168,6 @@ const contentSeriesIds: Record<(typeof indexedContent)[number]['series'], string
 };
 
 const sourceNames = new Map(indexedContentSources.map((source) => [source.id, source.name]));
-export const getIndexedContentDisplayTitle = (
-  content: Pick<(typeof indexedContent)[number], 'title' | 'original_title' | 'summary'>,
-) => {
-  const original = content.original_title.replace(/\s*\|\s*NiaMeowDB\s*$/i, '').trim();
-  const scrapedChrome = content.title.length > 180
-    || Boolean(content.summary && content.title.includes(content.summary.slice(0, 80)));
-  return scrapedChrome && original ? original : content.title;
-};
-
 const indexedArticleContent = indexedContent.reduce<Record<string, SeriesContent>>((seriesContent, content) => {
   if (content.status === 'removed') return seriesContent;
   const seriesId = contentSeriesIds[content.series];

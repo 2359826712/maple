@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
@@ -20,7 +21,7 @@ import {
   type SeriesModule,
 } from './scope';
 import type { VerifiedSeriesResource } from './verifiedContent';
-import { getIndexedContentDisplayTitle, getSeriesModuleArtwork } from './verifiedContent';
+import { getIndexedContentDisplayTitle } from './contentDisplay';
 import { getSeriesVersionShortLabel } from './versionConfig';
 import ResourceDetailExperience, { hasResourceDetailExperience } from './ResourceDetailExperience';
 
@@ -40,6 +41,30 @@ const moduleLabels: Record<SeriesModule, string> = {
 
 const relatedModules: SeriesModule[] = ['news', 'upcoming', 'guides', 'events', 'tools', 'wiki'];
 const emptyContentSections: ContentSection[] = [];
+const optimizedImageHosts = new Set([
+  'cdn.discordapp.com',
+  'dszw1qtcnsa5e.cloudfront.net',
+  'g.nexonstatic.com',
+  'lh7-rt.googleusercontent.com',
+  'maplestoryworlds-creators.nexon.com',
+  'nxcache.nexon.net',
+  'og.meowdb.com',
+  'test.g.nexonstatic.com',
+  'web.nxfs.nexon.com',
+  'www.nexon.com',
+]);
+
+const canOptimizeRemoteImage = (src: string) => {
+  if (src.startsWith('/')) return true;
+  try {
+    const url = new URL(src);
+    return url.protocol === 'https:'
+      && optimizedImageHosts.has(url.hostname)
+      && !url.pathname.toLowerCase().endsWith('.svg');
+  } catch {
+    return false;
+  }
+};
 
 export type SeriesResourceDetailData = {
   contentModule?: string;
@@ -159,11 +184,7 @@ export default function SeriesResourceDetailPage({
     description: translateContent(contentRecord?.summary || resource?.description || ''),
   };
   const publishedAt = contentRecord?.published_at || resource?.publishedAt;
-  const heroImage = resource?.imageUrl || (
-    product && module
-      ? getSeriesModuleArtwork(product.id, module, product.image)
-      : product?.image
-  );
+  const heroImage = resource?.imageUrl || product?.image;
   const heroImageAlt = resource?.imageAlt || copy.title;
   const hasOnSiteExperience = hasResourceDetailExperience(resource);
 
@@ -212,7 +233,14 @@ export default function SeriesResourceDetailPage({
                   {t('series_back_to_module', { module: t(moduleLabels[module]) })}
                 </Link>
                 <div className="mt-7 flex items-center gap-3 text-xs font-semibold uppercase text-foreground-600">
-                  <img src={product.image} alt="" className="h-9 w-9 rounded-md object-cover" />
+                  <Image
+                    src={product.image}
+                    alt=""
+                    width={36}
+                    height={36}
+                    sizes="36px"
+                    className="h-9 w-9 rounded-md object-cover"
+                  />
                   <span>{product.name}</span>
                   <span aria-hidden="true">·</span>
                   <span>{getSeriesVersionShortLabel(product.id, version)}</span>
@@ -235,13 +263,26 @@ export default function SeriesResourceDetailPage({
 
             <div className="mx-auto max-w-4xl px-4 py-10 md:px-8 md:py-14">
               {heroImage && (
-                <figure className="mb-10 overflow-hidden rounded-2xl border border-background-300 bg-background-100 shadow-sm">
-                  <img
-                    src={heroImage}
-                    alt={heroImageAlt}
-                    className="aspect-[16/7] w-full object-cover"
-                    decoding="async"
-                  />
+                <figure className="relative mb-10 aspect-[16/7] overflow-hidden rounded-2xl border border-background-300 bg-background-100 shadow-sm">
+                  {canOptimizeRemoteImage(heroImage) ? (
+                    <Image
+                      src={heroImage}
+                      alt={heroImageAlt}
+                      fill
+                      sizes="(max-width: 768px) calc(100vw - 2rem), 832px"
+                      preload
+                      fetchPriority="high"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={heroImage}
+                      alt={heroImageAlt}
+                      className="h-full w-full object-cover"
+                      decoding="async"
+                      fetchPriority="high"
+                    />
+                  )}
                 </figure>
               )}
               <ResourceDetailExperience resource={resource} />

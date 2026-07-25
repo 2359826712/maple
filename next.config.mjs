@@ -24,6 +24,25 @@ const nextConfig = {
   pageExtensions: ['next.tsx', 'next.ts'],
   reactStrictMode: true,
   poweredByHeader: false,
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 2_592_000,
+    remotePatterns: [
+      'cdn.discordapp.com',
+      'dszw1qtcnsa5e.cloudfront.net',
+      'g.nexonstatic.com',
+      'lh7-rt.googleusercontent.com',
+      'maplestoryworlds-creators.nexon.com',
+      'nxcache.nexon.net',
+      'og.meowdb.com',
+      'test.g.nexonstatic.com',
+      'web.nxfs.nexon.com',
+      'www.nexon.com',
+    ].map((hostname) => ({
+      protocol: 'https',
+      hostname,
+    })),
+  },
   env: {
     NEXT_PUBLIC_MAPLE_SQL_API_BASE_URL:
       process.env.NEXT_PUBLIC_MAPLE_SQL_API_BASE_URL || process.env.VITE_MAPLE_SQL_API_BASE_URL || '',

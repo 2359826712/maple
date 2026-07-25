@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { communityLinks } from '@/constants/communityLinks';
@@ -123,11 +123,36 @@ export default function Footer() {
   const { search } = useLocation();
   const activeSeriesId = getSeriesProduct(getSeriesIdFromSearch(search))?.id;
   const featuredListingsRef = useRef<HTMLDivElement>(null);
+  const [featuredListingsReady, setFeaturedListingsReady] = useState(false);
 
   useEffect(() => {
     const listings = featuredListingsRef.current;
 
-    if (!listings) {
+    if (!listings || featuredListingsReady) {
+      return undefined;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      setFeaturedListingsReady(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        setFeaturedListingsReady(true);
+        observer.disconnect();
+      },
+      { rootMargin: '400px 0px' },
+    );
+    observer.observe(listings);
+    return () => observer.disconnect();
+  }, [featuredListingsReady]);
+
+  useEffect(() => {
+    const listings = featuredListingsRef.current;
+
+    if (!listings || !featuredListingsReady) {
       return undefined;
     }
 
@@ -162,7 +187,7 @@ export default function Footer() {
       listings.style.removeProperty('--featured-listings-duration');
       clonedItems.forEach((item) => item.remove());
     };
-  }, []);
+  }, [featuredListingsReady]);
 
   return (
     <footer className="bg-gradient-to-b from-accent-950 to-foreground-950 dark:to-[#120e0b] border-t border-accent-800/30">
@@ -274,7 +299,7 @@ export default function Footer() {
               alt="OpenHunts Club Member"
               width="111"
               height="24"
-              src={OPENHUNTS_BADGE_URL}
+              src={featuredListingsReady ? OPENHUNTS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -291,7 +316,7 @@ export default function Footer() {
               alt="MPStorys - MapleStory news and guide hub | Aidirs"
               width="86"
               height="24"
-              src={AIDIRS_BADGE_URL}
+              src={featuredListingsReady ? AIDIRS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -308,7 +333,7 @@ export default function Footer() {
               alt="Listed on AIDirs"
               width="72"
               height="24"
-              src={AIDIRS_ORG_BADGE_URL}
+              src={featuredListingsReady ? AIDIRS_ORG_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -326,7 +351,7 @@ export default function Footer() {
               alt="Featured on AI Agents Directory"
               width="96"
               height="24"
-              src={AI_AGENTS_DIRECTORY_BADGE_URL}
+              src={featuredListingsReady ? AI_AGENTS_DIRECTORY_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -343,7 +368,7 @@ export default function Footer() {
               alt={PRODUCT_HUNT_BADGE_ALT}
               width="111"
               height="24"
-              src={PRODUCT_HUNT_BADGE_URL}
+              src={featuredListingsReady ? PRODUCT_HUNT_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -360,7 +385,7 @@ export default function Footer() {
               alt="Featured on aitoolfame.com"
               width="84"
               height="24"
-              src={AI_TOOL_FAME_BADGE_URL}
+              src={featuredListingsReady ? AI_TOOL_FAME_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -377,7 +402,7 @@ export default function Footer() {
               alt="Featured on Artificin"
               width="84"
               height="24"
-              src={ARTIFICIN_BADGE_URL}
+              src={featuredListingsReady ? ARTIFICIN_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -394,7 +419,7 @@ export default function Footer() {
               alt="Featured on BestskyTools"
               width="74"
               height="24"
-              src={BESTSKY_TOOLS_BADGE_URL}
+              src={featuredListingsReady ? BESTSKY_TOOLS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -411,7 +436,7 @@ export default function Footer() {
               alt="Verified on DANG!"
               width="66"
               height="24"
-              src={DANG_BADGE_URL}
+              src={featuredListingsReady ? DANG_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -428,7 +453,7 @@ export default function Footer() {
               alt="Featured on DeepLaunch.io"
               width="89"
               height="24"
-              src={DEEP_LAUNCH_BADGE_URL}
+              src={featuredListingsReady ? DEEP_LAUNCH_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -445,7 +470,7 @@ export default function Footer() {
               alt="Featured on Dofollow.Tools"
               width="89"
               height="24"
-              src={DOFOLLOW_TOOLS_BADGE_URL}
+              src={featuredListingsReady ? DOFOLLOW_TOOLS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -462,7 +487,7 @@ export default function Footer() {
               alt="mpstorys.com Domain Rating"
               width="149"
               height="24"
-              src={DOMAINRANK_BADGE_URL}
+              src={featuredListingsReady ? DOMAINRANK_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -479,7 +504,7 @@ export default function Footer() {
               alt="Featured on Findly.tools"
               width="76"
               height="24"
-              src={FINDLY_BADGE_URL}
+              src={featuredListingsReady ? FINDLY_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -496,7 +521,7 @@ export default function Footer() {
               alt="Lovable App Badge"
               width="80"
               height="24"
-              src={LOVABLE_APP_BADGE_URL}
+              src={featuredListingsReady ? LOVABLE_APP_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -523,7 +548,7 @@ export default function Footer() {
               alt="Featured on ShowMeBestAI"
               width="96"
               height="24"
-              src={SHOW_ME_BEST_AI_BADGE_URL}
+              src={featuredListingsReady ? SHOW_ME_BEST_AI_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -540,7 +565,7 @@ export default function Footer() {
               alt="Featured on saasfame.com"
               width="76"
               height="24"
-              src={SAAS_FAME_BADGE_URL}
+              src={featuredListingsReady ? SAAS_FAME_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -558,7 +583,7 @@ export default function Footer() {
               alt="Powered by Startup Fast"
               width="57"
               height="24"
-              src={STARTUP_FAST_BADGE_URL}
+              src={featuredListingsReady ? STARTUP_FAST_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -585,7 +610,7 @@ export default function Footer() {
               alt="Submit AI Tools"
               width="72"
               height="24"
-              src={SUBMIT_AI_TOOLS_BADGE_URL}
+              src={featuredListingsReady ? SUBMIT_AI_TOOLS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none rounded object-contain"
@@ -603,7 +628,7 @@ export default function Footer() {
               alt="Listed on Submito"
               width="84"
               height="24"
-              src={SUBMITO_BADGE_URL}
+              src={featuredListingsReady ? SUBMITO_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -620,7 +645,7 @@ export default function Footer() {
               alt="Featured on toolfame.com"
               width="71"
               height="24"
-              src={TOOL_FAME_BADGE_URL}
+              src={featuredListingsReady ? TOOL_FAME_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -637,7 +662,7 @@ export default function Footer() {
               alt="Listed on Turbo0"
               width="72"
               height="24"
-              src={TURBO0_BADGE_URL}
+              src={featuredListingsReady ? TURBO0_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -654,7 +679,7 @@ export default function Footer() {
               alt="Featured on Wired Business"
               width="89"
               height="24"
-              src={WIRED_BUSINESS_BADGE_URL}
+              src={featuredListingsReady ? WIRED_BUSINESS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -671,7 +696,7 @@ export default function Footer() {
               alt="Verified DR - Verified Domain Rating for mpstorys.com"
               width="85"
               height="24"
-              src={VERIFIED_DR_BADGE_URL}
+              src={featuredListingsReady ? VERIFIED_DR_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -688,7 +713,7 @@ export default function Footer() {
               alt="Listed on BuildWay"
               width="24"
               height="24"
-              src={BUILDWAY_LOGO_URL}
+              src={featuredListingsReady ? BUILDWAY_LOGO_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-6 max-w-none rounded object-contain"
@@ -705,7 +730,7 @@ export default function Footer() {
               alt="Monitor your Domain Rating with FrogDR"
               width="111"
               height="24"
-              src={FROG_DR_BADGE_URL}
+              src={featuredListingsReady ? FROG_DR_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -722,7 +747,7 @@ export default function Footer() {
               alt="Fazier badge"
               width="111"
               height="24"
-              src={FAZIER_BADGE_URL}
+              src={featuredListingsReady ? FAZIER_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -739,7 +764,7 @@ export default function Footer() {
               alt="Featured on Twelve Tools"
               width="89"
               height="24"
-              src={TWELVE_TOOLS_BADGE_URL}
+              src={featuredListingsReady ? TWELVE_TOOLS_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -756,7 +781,7 @@ export default function Footer() {
               alt="Featured on LaunchIgniter"
               width="93"
               height="24"
-              src={LAUNCHIGNITER_BADGE_URL}
+              src={featuredListingsReady ? LAUNCHIGNITER_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -773,7 +798,7 @@ export default function Footer() {
               alt="MPStorys - Featured on Startup Fame"
               width="76"
               height="24"
-              src={STARTUP_FAME_BADGE_URL}
+              src={featuredListingsReady ? STARTUP_FAME_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -790,7 +815,7 @@ export default function Footer() {
               alt="MPStorys on SaaSGrow"
               width="107"
               height="24"
-              src={SAASGROW_BADGE_URL}
+              src={featuredListingsReady ? SAASGROW_BADGE_URL : undefined}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
