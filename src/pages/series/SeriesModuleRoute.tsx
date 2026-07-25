@@ -6,7 +6,8 @@ import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
-import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services/staticTranslation';
+import { normalizeStaticContentLanguage } from '@/services/staticTranslation';
+import { fetchPublishedSeriesTranslations } from '@/services/publishedSeriesContent';
 import { getSeriesProduct, type SeriesProduct } from './catalog';
 import {
   getSeriesIdFromSearch,
@@ -123,15 +124,16 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
     setLocalizedResources(visibleResources);
     const targetLanguage = normalizeStaticContentLanguage(i18n.language);
     if (targetLanguage === 'en' || visibleResources.length === 0) return () => { active = false; };
-    const sourceTexts = visibleResources.flatMap((resource) => [resource.title, resource.description]);
-    void translateStaticTexts(sourceTexts, targetLanguage, { sourceLanguage: 'en' })
+    const contentIds = visibleResources.flatMap((resource) => resource.contentId ? [resource.contentId] : []);
+    void fetchPublishedSeriesTranslations(contentIds, targetLanguage)
       .then((translations) => {
         if (!active) return;
-        setLocalizedResources(visibleResources.map((resource, index) => ({
-          ...resource,
-          title: translations[index * 2] || resource.title,
-          description: translations[index * 2 + 1] || resource.description,
-        })));
+        setLocalizedResources(visibleResources.map((resource) => {
+          const translation = resource.contentId ? translations[resource.contentId] : undefined;
+          return translation
+            ? { ...resource, title: translation.title, description: translation.summary }
+            : resource;
+        }));
       })
       .catch(() => undefined);
     return () => { active = false; };

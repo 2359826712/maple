@@ -37,6 +37,10 @@ export type CurrentSeriesContentTranslation = {
   updated_at: string;
 };
 
+export type PublishedSeriesContentTranslation = CurrentSeriesContentTranslation & {
+  slug: string;
+};
+
 export type LocalizedSeriesContent = {
   content_id: string;
   requested_locale: StaticContentLanguage;
@@ -116,6 +120,30 @@ export async function readCurrentSeriesContentTranslation(
       and translation.review_status in ('automatic', 'approved')
   `, [contentId, locale]);
   return result.rows[0] || null;
+}
+
+export async function readPublishedSeriesContentTranslationsBySlugs(
+  slugs: string[],
+  locale: StaticContentLanguage,
+) {
+  const pool = getPool();
+  if (!pool) throw new Error('translation database is unavailable');
+  if (slugs.length === 0 || locale === 'en') return {};
+  const result = await pool.query<PublishedSeriesContentTranslation>(`
+    select content.slug, translation.content_id, translation.locale,
+           translation.title, translation.summary, translation.body_html,
+           translation.source_revision, translation.provider, translation.model,
+           translation.glossary_version, translation.quality_checks,
+           translation.review_status, translation.updated_at
+    from public.series_content_translations as translation
+    join public.series_content as content on content.id = translation.content_id
+    where content.slug = any($1::text[])
+      and content.status = 'published'
+      and translation.locale = $2
+      and translation.source_revision = content.source_revision
+      and translation.review_status in ('automatic', 'approved')
+  `, [slugs, locale]);
+  return Object.fromEntries(result.rows.map((row) => [row.slug, row]));
 }
 
 export async function readLocalizedSeriesContent(

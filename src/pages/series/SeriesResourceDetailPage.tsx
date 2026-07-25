@@ -7,7 +7,8 @@ import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
-import { normalizeStaticContentLanguage, translateStaticTexts } from '@/services/staticTranslation';
+import { normalizeStaticContentLanguage } from '@/services/staticTranslation';
+import { fetchPublishedSeriesTranslations } from '@/services/publishedSeriesContent';
 import { getSeriesProduct } from './catalog';
 import type { IndexedContentRecord } from '@/domain/contentIndex';
 import type { ContentSection } from './indexedContentDetail';
@@ -135,15 +136,18 @@ export default function SeriesResourceDetailPage({
     if (!resource) return () => { active = false; };
     const targetLanguage = normalizeStaticContentLanguage(i18n.language);
     if (targetLanguage === 'en') return () => { active = false; };
-    const sourceTexts = [...new Set([
-      contentRecord ? getIndexedContentDisplayTitle(contentRecord) : resource.title,
-      contentRecord?.summary || resource.description,
-      ...contentSections.flatMap((section) => [section.title, ...section.items]),
-    ])];
-    void translateStaticTexts(sourceTexts, targetLanguage, { sourceLanguage: 'en' })
+    if (!contentRecord) return () => { active = false; };
+    const sourceTitle = getIndexedContentDisplayTitle(contentRecord);
+    const sourceSummary = contentRecord.summary || resource.description;
+    void fetchPublishedSeriesTranslations([contentRecord.id], targetLanguage)
       .then((translations) => {
         if (!active) return;
-        setLocalizedText(Object.fromEntries(sourceTexts.map((text, index) => [text, translations[index] || text])));
+        const translation = translations[contentRecord.id];
+        if (!translation) return;
+        setLocalizedText({
+          [sourceTitle]: translation.title,
+          [sourceSummary]: translation.summary,
+        });
       })
       .catch(() => undefined);
     return () => { active = false; };
