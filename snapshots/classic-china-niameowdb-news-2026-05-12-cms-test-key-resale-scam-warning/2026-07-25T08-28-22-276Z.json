@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "953ce7e3efd20bc7b77b1f1c2fc2e05db07d83d702eeee4f5b7d64d4fdb8fd66",
+  "new_hash": "7319c745d956c93cf0f00117be88a2d8f421d4487230e86f28a0dc9329b4afce",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-test-key-resale-scam-warning",
+    "source_url": "https://meowdb.com/msclassic/news/cms-test-key-resale-scam-warning",
+    "external_id": "cms-test-key-resale-scam-warning",
+    "title": "May 12, 2026·China·ShengquShengqu warns of test-key resale scams on Xianyu and XiaohongshuSome people are selling fake test access keys on Xianyu (the Chinese second-hand shopping app) and Xiaohongshu (the Chinese Instagram). Shengqu warned players that the real keys have not been given out yet. Anyone selling test access right now is a scammer.Closed Test",
+    "original_title": "Shengqu warns of test-key resale scams on Xianyu and Xiaohongshu | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-05-12",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Some people are selling fake test access keys on Xianyu (the Chinese second-hand shopping app) and Xiaohongshu (the Chinese Instagram). Shengqu warned players that the real keys have not been given out yet. Anyone selling test access right now is a scammer.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=y5C69zjm2_o7kq5gMBvuHffKkEe6o24uZz9j0e5PAcM&subtitle=Some+people+are+selling+fake+test+access+keys+on+Xianyu+%28the+Chinese+second-hand+shopping+app%29+and+Xiaohongshu+%28the+Chinese+Instagram%29.+She%E2%80%A6&title=Shengqu+warns+of+test-key+resale+scams+on+Xianyu+and+Xiaohongshu",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "953ce7e3efd20bc7b77b1f1c2fc2e05db07d83d702eeee4f5b7d64d4fdb8fd66",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:50:34.159Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-test-key-resale-scam-warning",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "b201edd5102da72b6980695d5d8b489b089ad8d2bd3bc705a0946eebb96f85ba",
+  "new_hash": "3721d7bf0da914ae3ef9f1a666a3893987b51568c98c9708754d4e87e6409b8f",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt2-opening-details",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt2-opening-details",
+    "external_id": "cms-cbt2-opening-details",
+    "title": "Jul 2, 2026·China·ShengquCMS second test opens with unbound gold, face-to-face trading, and 5% feesThe second Chinese Classic test opened on July 2 at 2 PM China time. The big changes fix the economy rules that made players angry in May. Gold is no longer locked to your character. Face-to-face trading is back. The auction house takes regular gold now. Free Market personal shops and hired-merchant shops are back too. The trading fee dropped from 10% to 5%. Shengqu also rolled some maps back to their older look, removed the mini-dungeon system, and restored old details like potion colors and skill effects. The Cash Shop stays closed during the test.Closed TestPatch",
+    "original_title": "CMS second test opens with unbound gold, face-to-face trading, and 5% fees | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-07-02",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "The second Chinese Classic test opened on July 2 at 2 PM China time. The big changes fix the economy rules that made players angry in May. Gold is no longer locked to your character. Face-to-face trading is back. The auction house takes regular gold now. Free Market personal shops and hired-merchant shops are back too. The trading fee dropped from 10% to 5%. Shengqu also rolled some maps back to their older look, removed the mini-dungeon system, and restored old details like potion colors and skill effects. The Cash Shop stays closed during the test.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=6YCMO7TBFpdahelYT-14UkPcqy_Oz1Pw9AeOfx0giIg&subtitle=The+second+Chinese+Classic+test+opened+on+July+2+at+2+PM+China+time.+The+big+changes+fix+the+economy+rules+that+made+players+angry+in+May.%E2%80%A6&title=CMS+second+test+opens+with+unbound+gold%2C+face-to-face+trading%2C+and+5%25+fees",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "b201edd5102da72b6980695d5d8b489b089ad8d2bd3bc705a0946eebb96f85ba",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:35.109Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt2-opening-details",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

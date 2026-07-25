@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "ecd6ba3dac9dcc3a7d1d5553ee31060956a81a6196bcf87caedc324588943385",
+  "new_hash": "5e2d77141b97f902e3666b95e4754771a67c17c3f5585dfd8359d1eabfab48c2",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt-may-20-confirmed",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt-may-20-confirmed",
+    "external_id": "cms-cbt-may-20-confirmed",
+    "title": "May 11, 2026·China·ShengquCMS Return Island Test confirmed for May 20 with 2000 slotsThe Chinese Classic test is set for May 20, 2026. The Chinese name is 'Return Island Test' (归岛测试). There are 2,000 spots. Shengqu will pick winners from the sign-up list on May 15. The test is free, and your characters will be deleted at the end. Players will get a special launch reward to keep.Closed Test",
+    "original_title": "CMS Return Island Test confirmed for May 20 with 2000 slots | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-05-11",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "The Chinese Classic test is set for May 20, 2026. The Chinese name is 'Return Island Test' (归岛测试). There are 2,000 spots. Shengqu will pick winners from the sign-up list on May 15. The test is free, and your characters will be deleted at the end. Players will get a special launch reward to keep.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=9JzjaoAzW-aTtQrddghiJrRXaaNdIL73Qg49a1QrgoQ&subtitle=The+Chinese+Classic+test+is+set+for+May+20%2C+2026.+The+Chinese+name+is+%27Return+Island+Test%27+%28%E5%BD%92%E5%B2%9B%E6%B5%8B%E8%AF%95%29.+There+are+2%2C000+spots.+Shengqu+will+pick%E2%80%A6&title=CMS+Return+Island+Test+confirmed+for+May+20+with+2000+slots",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "ecd6ba3dac9dcc3a7d1d5553ee31060956a81a6196bcf87caedc324588943385",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:50:39.901Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt-may-20-confirmed",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "deb7b6e33a21ba348b5e3d1b4ba4e948781dc9b601ef59da6057645d9e153c18",
+  "new_hash": "7638a466727d96bf50ddb2a3ec059aa447da93133848c731967d9cb79737f6e4",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt-cut-short-economy-walked-back",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt-cut-short-economy-walked-back",
+    "external_id": "cms-cbt-cut-short-economy-walked-back",
+    "title": "May 30, 2026·China·ShengquShengqu apologizes, walks back gold-binding, ends Return Island Test earlyShengqu (the company that runs MapleStory in China) said sorry and ended the China Classic test on May 31, a few days early. They are changing big things for next time. The auction house will accept regular gold, not just special points. They are also removing equipment from the random reward boxes (Mushroom Pass and Sky Pig Egg). They still want to stop bot farmers, just in a different way.Closed TestPatch",
+    "original_title": "Shengqu apologizes, walks back gold-binding, ends Return Island Test early | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-05-30",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Shengqu (the company that runs MapleStory in China) said sorry and ended the China Classic test on May 31, a few days early. They are changing big things for next time. The auction house will accept regular gold, not just special points. They are also removing equipment from the random reward boxes (Mushroom Pass and Sky Pig Egg). They still want to stop bot farmers, just in a different way.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=QcLAdmD79Si7mtJMTtBdOc7_la9cHDm52OdVW38XLos&subtitle=Shengqu+%28the+company+that+runs+MapleStory+in+China%29+said+sorry+and+ended+the+China+Classic+test+on+May+31%2C+a+few+days+early.+They+are+chang%E2%80%A6&title=Shengqu+apologizes%2C+walks+back+gold-binding%2C+ends+Return+Island+Test+early",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "deb7b6e33a21ba348b5e3d1b4ba4e948781dc9b601ef59da6057645d9e153c18",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:59.196Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt-cut-short-economy-walked-back",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

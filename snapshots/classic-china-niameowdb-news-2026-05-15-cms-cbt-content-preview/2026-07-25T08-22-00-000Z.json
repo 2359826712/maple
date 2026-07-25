@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview",
+  "detected_at": "2026-07-25T08:22:00.000Z",
+  "old_hash": "6a15e53112ffcca82177c44256d4763b0c307c49725d11b453a007f6f57b399c",
+  "new_hash": "0ea03923d3c90871a3008543cedeba7d2e22ab3bfd2f2a96849ad110a54d7361",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt-content-preview",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt-content-preview",
+    "external_id": "cms-cbt-content-preview",
+    "title": "May 15, 2026·China·ShengquCMS Classic CBT preview: 5 classes, level 100 cap, auction-house economyShengqu told players what is in the May 20 test. There are five first jobs: Warrior, Mage, Bowman, Thief, and Pirate. Classic maps are back, like Florina Beach and Sleepywood. The level cap is 100, and you can do your second job change. The big change is the economy: monsters do not drop equipment for trading like before. Instead, all equipment goes to a single auction house, and you buy it with points instead of gold. Gold is locked to your account, and you cannot drop or trade it. Face-to-face trading and street shops are gone.Closed TestPatch",
+    "original_title": "CMS Classic CBT preview: 5 classes, level 100 cap, auction-house economy | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-05-15",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Shengqu told players what is in the May 20 test. There are five first jobs: Warrior, Mage, Bowman, Thief, and Pirate. Classic maps are back, like Florina Beach and Sleepywood. The level cap is 100, and you can do your second job change. The big change is the economy: monsters do not drop equipment for trading like before. Instead, all equipment goes to a single auction house, and you buy it with points instead of gold. Gold is locked to your account, and you cannot drop or trade it. Face-to-face trading and street shops are gone.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=6YM-5wbmlPBRXrPifYNVbY-EwcZqH7Y786nDOXhGTAI&subtitle=Shengqu+told+players+what+is+in+the+May+20+test.+There+are+five+first+jobs%3A+Warrior%2C+Mage%2C+Bowman%2C+Thief%2C+and+Pirate.+Classic+maps+are+back%E2%80%A6&title=CMS+Classic+CBT+preview%3A+5+classes%2C+level+100+cap%2C+auction-house+economy",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "6a15e53112ffcca82177c44256d4763b0c307c49725d11b453a007f6f57b399c",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:50:24.420Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt-content-preview",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

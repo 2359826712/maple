@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "2faa535a9a95a33596b773e5e5b3d545a489786293dcfa6978828fbce9c7a166",
+  "new_hash": "fbf493683d85c858d5b6c34bf13d41fbaae1cbffec044e3b2d670acea69dd398",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/pc-cafe-event-sign-up",
+    "source_url": "https://meowdb.com/msclassic/news/pc-cafe-event-sign-up",
+    "external_id": "pc-cafe-event-sign-up",
+    "title": "Dec 16, 2025·Global·NexonClassic World PC Cafe event opens for LA-area playersYou can sign up for free to try Classic World in person in Los Angeles. The test sessions run from January 15 to February 13, 2026. You need a MapleStory character that is at least 60 days old. You also need to be able to travel to the event.Real-world Events",
+    "original_title": "Classic World PC Cafe event opens for LA-area players | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2025-12-16",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "You can sign up for free to try Classic World in person in Los Angeles. The test sessions run from January 15 to February 13, 2026. You need a MapleStory character that is at least 60 days old. You also need to be able to travel to the event.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowWave&eyebrow=MapleStory+Classic+%2F+Global&sig=mv8XMCcxbk_wyLxt_fGU8HgsBfy51pnI0iRCwIWT_o4&subtitle=You+can+sign+up+for+free+to+try+Classic+World+in+person+in+Los+Angeles.+The+test+sessions+run+from+January+15+to+February+13%2C+2026.+You+nee%E2%80%A6&title=Classic+World+PC+Cafe+event+opens+for+LA-area+players",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "2faa535a9a95a33596b773e5e5b3d545a489786293dcfa6978828fbce9c7a166",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:51:30.039Z",
+      "final_url": "https://meowdb.com/msclassic/news/pc-cafe-event-sign-up",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "c87d04f6861f43b67b51b6e8b5724769970ad7cac4a66eb9cac4378cc77f5e5c",
+  "new_hash": "54976413b5f333bed41c75f5529a73fc9115b24d4d12e61fb38cbe2f231671d8",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt2-eligibility-download-portal",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt2-eligibility-download-portal",
+    "external_id": "cms-cbt2-eligibility-download-portal",
+    "title": "Jul 2, 2026·China·ShengquCMS second test portal opens: check your spot and download the clientShengqu opened the official portal page for the second Chinese Classic test. On it, you can check if you have a test spot and download the test client. The page is the doorway for everything in this test.Closed Test",
+    "original_title": "CMS second test portal opens: check your spot and download the client | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-07-02",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Shengqu opened the official portal page for the second Chinese Classic test. On it, you can check if you have a test spot and download the test client. The page is the doorway for everything in this test.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=UTMBhQRIINNbU11yVnTnIF9eed9CR7zSWQBK80Vjs4c&subtitle=Shengqu+opened+the+official+portal+page+for+the+second+Chinese+Classic+test.+On+it%2C+you+can+check+if+you+have+a+test+spot+and+download+the%E2%80%A6&title=CMS+second+test+portal+opens%3A+check+your+spot+and+download+the+client",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "c87d04f6861f43b67b51b6e8b5724769970ad7cac4a66eb9cac4378cc77f5e5c",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:45.226Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt2-eligibility-download-portal",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

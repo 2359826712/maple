@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "51f2b5dc5840dd41c9c5dc410ecd262ae95ac5a20b7ede63d899d0856710e866",
+  "new_hash": "ac59b15f3912d994b4905d1cc4b0069309120efab3552f4c9e5106baea48232c",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/ign-live-2026-special-trailer",
+    "source_url": "https://meowdb.com/msclassic/news/ign-live-2026-special-trailer",
+    "external_id": "ign-live-2026-special-trailer",
+    "title": "Jun 6, 2026·Global·IGNGlobal MapleStory Classic gets a special trailer at IGN Live 2026Global MapleStory Classic World got a special trailer at IGN Live 2026. IGN Live is a big online gaming show that a lot of people watch. The trailer showed the game off to a large new audience.Real-world Events",
+    "original_title": "Global MapleStory Classic gets a special trailer at IGN Live 2026 | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-06-06",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Global MapleStory Classic World got a special trailer at IGN Live 2026. IGN Live is a big online gaming show that a lot of people watch. The trailer showed the game off to a large new audience.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowWave&eyebrow=MapleStory+Classic+%2F+Global&sig=okf8INhfh4-udYBe_INb5ybIy4ta1nJuW7pPc1fimzA&subtitle=Global+MapleStory+Classic+World+got+a+special+trailer+at+IGN+Live+2026.+IGN+Live+is+a+big+online+gaming+show+that+a+lot+of+people+watch.+Th%E2%80%A6&title=Global+MapleStory+Classic+gets+a+special+trailer+at+IGN+Live+2026",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "51f2b5dc5840dd41c9c5dc410ecd262ae95ac5a20b7ede63d899d0856710e866",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:55.322Z",
+      "final_url": "https://meowdb.com/msclassic/news/ign-live-2026-special-trailer",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

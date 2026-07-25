@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-07-06-second-cot-announced",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "64a55d341dc17c7d44958cdb1b50452f5d6157e35430079d023a7b94f140ed71",
+  "new_hash": "bbdc5fcd991b5b3d4375323d1069f42506e18798ccd0179459eecf05b2119796",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-07-06-second-cot-announced",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/second-cot-announced",
+    "source_url": "https://meowdb.com/msclassic/news/second-cot-announced",
+    "external_id": "second-cot-announced",
+    "title": "Jul 6, 2026·Global·NexonSecond Closed Online Test announced: sign-ups July 16, test runs Aug 4 to 12Nexon announced a second Closed Online Test for Global MapleStory Classic World. Sign-ups open on July 16. The test runs from August 4 to August 12. If you played in the first test, you still have to sign up again for a chance to join. You need a Nexon account to sign up, so make one now if you do not have one yet. Nexon says the official sign-up details are coming in the next week. The announcement went out on the official Facebook group and Instagram, along with a recap video of the first test.Closed Test",
+    "original_title": "Second Closed Online Test announced: sign-ups July 16, test runs Aug 4 to 12 | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-07-06",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Nexon announced a second Closed Online Test for Global MapleStory Classic World. Sign-ups open on July 16. The test runs from August 4 to August 12. If you played in the first test, you still have to sign up again for a chance to join. You need a Nexon account to sign up, so make one now if you do not have one yet. Nexon says the official sign-up details are coming in the next week. The announcement went out on the official Facebook group and Instagram, along with a recap video of the first test.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+Global&sig=f_V3MyHcRHcuZWmA-A5JZF0FysLVANIqwaNjwdyrYRU&subtitle=Nexon+announced+a+second+Closed+Online+Test+for+Global+MapleStory+Classic+World.+Sign-ups+open+on+July+16.+The+test+runs+from+August+4+to+A%E2%80%A6&title=Second+Closed+Online+Test+announced%3A+sign-ups+July+16%2C+test+runs+Aug+4+to+12",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "64a55d341dc17c7d44958cdb1b50452f5d6157e35430079d023a7b94f140ed71",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:29.022Z",
+      "final_url": "https://meowdb.com/msclassic/news/second-cot-announced",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

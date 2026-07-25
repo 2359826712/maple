@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "1e95d19010de7946061f147f5cd7d610b4481582b01c5d76dacd7eec3f7698f3",
+  "new_hash": "673171aa798e458be895902ecb695a5f4fa230bc6d48080f6416f6dcf1ef57c0",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/closed-online-test-content-update",
+    "source_url": "https://meowdb.com/msclassic/news/closed-online-test-content-update",
+    "external_id": "closed-online-test-content-update",
+    "title": "Apr 21, 2026·Global·NexonMid-COT content drop adds event quests, chat ring reward, and testing-priced Cash ShopTwo new event quests were added during the test. 'Beyond the Unknown' from Arwen the Fairy gives you a Classic Beginnings Chat Ring that lasts forever. 'The One Who Sealed the Darkness' from Manji gives you three Leaf Point coupons worth 1,000 points each. All Cash Shop items cost only 100 Leaf Points during the test. The event ran from April 21 to April 23.Closed TestEvent",
+    "original_title": "Mid-COT content drop adds event quests, chat ring reward, and testing-priced Cash Shop | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-04-21",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Two new event quests were added during the test. 'Beyond the Unknown' from Arwen the Fairy gives you a Classic Beginnings Chat Ring that lasts forever. 'The One Who Sealed the Darkness' from Manji gives you three Leaf Point coupons worth 1,000 points each. All Cash Shop items cost only 100 Leaf Points during the test. The event ran from April 21 to April 23.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+Global&sig=GKHBDFVD5UyI8CpRTSplcK7XKMo4umjTum-xYxkB3Tk&subtitle=Two+new+event+quests+were+added+during+the+test.+%27Beyond+the+Unknown%27+from+Arwen+the+Fairy+gives+you+a+Classic+Beginnings+Chat+Ring+that+la%E2%80%A6&title=Mid-COT+content+drop+adds+event+quests%2C+chat+ring+reward%2C+and+testing-priced+Ca%E2%80%A6",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "1e95d19010de7946061f147f5cd7d610b4481582b01c5d76dacd7eec3f7698f3",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:50:54.264Z",
+      "final_url": "https://meowdb.com/msclassic/news/closed-online-test-content-update",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

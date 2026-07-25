@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "26fe77a72fb119afcccef94a4626cd9acd8c928dbe3795f07bfa5848a0b873b7",
+  "new_hash": "814c5f3031618384efa8f058c18888e1d2f2a3ae0956c9213c23a8e45cbb7af9",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/closed-online-test-release-notes",
+    "source_url": "https://meowdb.com/msclassic/news/closed-online-test-release-notes",
+    "external_id": "closed-online-test-release-notes",
+    "title": "Apr 14, 2026·Global·NexonCOT release notes: April 16 to 24, Maple plus Victoria Islands, four first-job pathsThe Closed Online Test runs from April 16 to April 24, 2026. Some testers (MapleCon, PC Cafe, and in-house) start two days early on April 14. You can play on Maple Island and Victoria Island. You pick your first job at level 10. The four classic first jobs are in the test: Warrior, Magician, Bowman, and Thief. To give feedback, go to the Nexon MapleStory Discord. Bug reports go in their own channel. Use Player Support tickets only for account or computer problems.Closed TestPatch",
+    "original_title": "COT release notes: April 16 to 24, Maple plus Victoria Islands, four first-job paths | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-04-14",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "The Closed Online Test runs from April 16 to April 24, 2026. Some testers (MapleCon, PC Cafe, and in-house) start two days early on April 14. You can play on Maple Island and Victoria Island. You pick your first job at level 10. The four classic first jobs are in the test: Warrior, Magician, Bowman, and Thief. To give feedback, go to the Nexon MapleStory Discord. Bug reports go in their own channel. Use Player Support tickets only for account or computer problems.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+Global&sig=L1ShbTP035hjDEpRHornFK1B-518GEUHTrAnzKphuPs&subtitle=The+Closed+Online+Test+runs+from+April+16+to+April+24%2C+2026.+Some+testers+%28MapleCon%2C+PC+Cafe%2C+and+in-house%29+start+two+days+early+on+April+1%E2%80%A6&title=COT+release+notes%3A+April+16+to+24%2C+Maple+plus+Victoria+Islands%2C+four+first-job%E2%80%A6",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "26fe77a72fb119afcccef94a4626cd9acd8c928dbe3795f07bfa5848a0b873b7",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:51:04.956Z",
+      "final_url": "https://meowdb.com/msclassic/news/closed-online-test-release-notes",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

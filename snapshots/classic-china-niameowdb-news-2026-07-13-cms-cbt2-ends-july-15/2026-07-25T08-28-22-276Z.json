@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "be19439ed44b35c5d11aa92657b182728e5e4bda0af9ac9a1702bbd5c91ba4c0",
+  "new_hash": "22ab24cd86776be32e8824b0fe8c80c18afef4caaff5d9df2dfcea346b69d9d1",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt2-ends-july-15",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt2-ends-july-15",
+    "external_id": "cms-cbt2-ends-july-15",
+    "title": "Jul 13, 2026·China·ShengquCMS second test ends July 15 with a full character wipeThe second Chinese Classic test closes on July 15 at 11:39 PM China time. The test server shuts down all the way, and every test character gets deleted as planned. Shengqu thanked players for their feedback and said the team keeps tuning the game for launch.Closed Test",
+    "original_title": "CMS second test ends July 15 with a full character wipe | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-07-13",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "The second Chinese Classic test closes on July 15 at 11:39 PM China time. The test server shuts down all the way, and every test character gets deleted as planned. Shengqu thanked players for their feedback and said the team keeps tuning the game for launch.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=AvVhPhPg7PWK9CkyvrFTCKgvtFJorgPGbSL3QsNV2xk&subtitle=The+second+Chinese+Classic+test+closes+on+July+15+at+11%3A39+PM+China+time.+The+test+server+shuts+down+all+the+way%2C+and+every+test+character%E2%80%A6&title=CMS+second+test+ends+July+15+with+a+full+character+wipe",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "be19439ed44b35c5d11aa92657b182728e5e4bda0af9ac9a1702bbd5c91ba4c0",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:18.368Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt2-ends-july-15",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

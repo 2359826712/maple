@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "0b121a9bd28396308cf7197cb12c747094fd2b538f88037b24b2ba9f0acaaedc",
+  "new_hash": "cbc0b6edc82291fac8f3adfabb25dd26431866285483bd834ff139026d4923c6",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt2-confirmed-july-2",
+    "source_url": "https://meowdb.com/msclassic/news/cms-cbt2-confirmed-july-2",
+    "external_id": "cms-cbt2-confirmed-july-2",
+    "title": "Jun 24, 2026·China·ShengquCMS second test locked for July 2: first-test players auto-qualify, 2,000 new spotsShengqu set the second Chinese Classic test for July 2. If you played in the first test in May, you are in automatically. On top of that, Shengqu will draw 2,000 new testers from the pre-registration list and post the results on June 25. You can check if you got in on the official eligibility page. The client download opens later.Closed Test",
+    "original_title": "CMS second test locked for July 2: first-test players auto-qualify, 2,000 new spots | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-06-24",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Shengqu set the second Chinese Classic test for July 2. If you played in the first test in May, you are in automatically. On top of that, Shengqu will draw 2,000 new testers from the pre-registration list and post the results on June 25. You can check if you got in on the official eligibility page. The client download opens later.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=JH8CnUdAFN0bxI5YDQAUT5dXu_DXK3AwdXyb97Hx2Jk&subtitle=Shengqu+set+the+second+Chinese+Classic+test+for+July+2.+If+you+played+in+the+first+test+in+May%2C+you+are+in+automatically.+On+top+of+that%2C+S%E2%80%A6&title=CMS+second+test+locked+for+July+2%3A+first-test+players+auto-qualify%2C+2%2C000+new+s%E2%80%A6",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "0b121a9bd28396308cf7197cb12c747094fd2b538f88037b24b2ba9f0acaaedc",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:49.083Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-cbt2-confirmed-july-2",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

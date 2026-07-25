@@ -1,0 +1,62 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans",
+  "detected_at": "2026-07-25T08:28:22.276Z",
+  "old_hash": "7f290581f1fe084cfa6e0f126281990b8410a42bde77bbb87171078d70f831d2",
+  "new_hash": "fd46a5529ad9e5939dc9032af3e1a048c931cc57a68c3765e4b02eac2466078a",
+  "changed_fields": [
+    "content_hash",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/unauthorized-access-bans",
+    "source_url": "https://meowdb.com/msclassic/news/unauthorized-access-bans",
+    "external_id": "unauthorized-access-bans",
+    "title": "Apr 22, 2026·Global·NexonNexon bans unauthorized Closed Online Test accessNexon caught people who got into the test without permission. Those accounts are now banned forever. Nexon is still looking into how it happened.Closed Test",
+    "original_title": "Nexon bans unauthorized Closed Online Test access | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-04-22",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Nexon caught people who got into the test without permission. Those accounts are now banned forever. Nexon is still looking into how it happened.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+Global&sig=fGd18gGBM-MdyEQ_Z_JTCzlfqbOF97zlRxxQLwBm6lE&subtitle=Nexon+caught+people+who+got+into+the+test+without+permission.+Those+accounts+are+now+banned+forever.+Nexon+is+still+looking+into+how+it+hap%E2%80%A6&title=Nexon+bans+unauthorized+Closed+Online+Test+access",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "7f290581f1fe084cfa6e0f126281990b8410a42bde77bbb87171078d70f831d2",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:50:49.916Z",
+      "final_url": "https://meowdb.com/msclassic/news/unauthorized-access-bans",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

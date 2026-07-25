@@ -3,7 +3,7 @@
   "generated_at": "2026-07-25T01:49:05.727Z",
   "file_count": 1574,
   "source_count": 12,
-  "root_sha256": "16d4df73b758b2e0ebff716a01c4abed27560478e46a2b89c3bf1a32d08c1ded",
+  "root_sha256": "8a33920c6295464225d648741786e224bb79ab9c3ee331bdb811f0dd96d6dcb3",
   "content": [
     {
       "path": "content/cash-shop/maplestory/2022/maplestory-europe-gms-official-news-2022-09-27-4885.json",
@@ -5463,137 +5463,137 @@
     {
       "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-05-15-playtest-sign-up.json",
       "id": "classic-china-niameowdb-news-2025-05-15-playtest-sign-up",
-      "file_sha256": "58d791a1892598826bef57f2939a6a29ff66ca5c61fafd1179c68458fc02142f"
+      "file_sha256": "8b333b0856bb1df7ec30786379cb6fea4f685cc5d32c5219eacbc96e3a859364"
     },
     {
       "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-08-15-playtest-sneak-peek.json",
       "id": "classic-china-niameowdb-news-2025-08-15-playtest-sneak-peek",
-      "file_sha256": "6a1ee663740477b299b15a7adff72056946d4a2f38052298272ee7c675b2a02c"
+      "file_sha256": "b19a0136db1bc3a39d3348d66d24707a8a62c4838db52ca148bf47ddb243ef72"
     },
     {
       "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up.json",
       "id": "classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up",
-      "file_sha256": "cc6f6e6fb89b239d94ff68ad6d158bd40b3f89634d37d8a3f41d7afae9882fba"
+      "file_sha256": "8a7c21eb1d3116466d72465e509dc69738efdcb175a1e53934850a44c5ea66cd"
     },
     {
       "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-12-22-pc-cafe-perks-revealed.json",
       "id": "classic-china-niameowdb-news-2025-12-22-pc-cafe-perks-revealed",
-      "file_sha256": "81f6dc7cc38eb15de0a259fc05ff5649abe596d5dbf3c7e0eccb0687678e4ada"
+      "file_sha256": "ec44d94e4da25105bfda1ef7896b9018168f1ea659635195baf2f368749683fe"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-02-27-pc-cafe-giveaway-winners.json",
       "id": "classic-china-niameowdb-news-2026-02-27-pc-cafe-giveaway-winners",
-      "file_sha256": "38a38bde59ae175dc670600e2a614dd0c7b8abe383e197af0bda6ef352c8f32f"
+      "file_sha256": "998fb2c8dbfa33bccf0665bbf94370a5e7fe2335bcbc9695b36cc1b9fd13c962"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-03-10-cot-sign-ups-open.json",
       "id": "classic-china-niameowdb-news-2026-03-10-cot-sign-ups-open",
-      "file_sha256": "baea4c76532bdc45f0cc7a37674697ab4948565a00f938be3c0cc3b076ae2197"
+      "file_sha256": "44b2974c2f08ac09534f0efd0f44eb0a6017e153e511289b39f4ced0f4ca0ef7"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-08-cot-sign-ups-closed.json",
       "id": "classic-china-niameowdb-news-2026-04-08-cot-sign-ups-closed",
-      "file_sha256": "662866e8c2af5bf136af1fb0423ff3637eec38947c4a05a89458c4edfe7ac84e"
+      "file_sha256": "b7c4e017b4bc93ae5e73e76ad229d44af92b5cb9540ad50e84efdfcf711bad55"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes.json",
       "id": "classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes",
-      "file_sha256": "512ba6395a1a0cf82bdb3514abcf5d1008d0f54de777c599bed9b6f54d0936ba"
+      "file_sha256": "8de1227a35b620977f0ab2a6e485ee6146a24083d150c29c045a354de623d449"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-16-unscheduled-maintenance-april-17.json",
       "id": "classic-china-niameowdb-news-2026-04-16-unscheduled-maintenance-april-17",
-      "file_sha256": "2c5f0b5e6b07b33e284f1485fa1350255ee39c4654465f98bf68760c1ef8e1e5"
+      "file_sha256": "472841a87c59a62bb42563394b2e4c3a3e9b22710c9cc1491302377b339a7c37"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update.json",
       "id": "classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update",
-      "file_sha256": "f800ec974931d0d8a1f36d7597bf80b7a227a9ce2447b8fd7a23509796dde821"
+      "file_sha256": "9d8e9344ccf551b2c5306136546a6b7ab604518520f79d45bcc7e0c0948d20df"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans.json",
       "id": "classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans",
-      "file_sha256": "126c6307b55fb42eeb38425910323920a992687f43771d22ea5caded760d197f"
+      "file_sha256": "6a25912a2e49bf0d1a073ae4309efe31dd82291fa4e53275535d4310f4963161"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-29-cms-classic-site-launch.json",
       "id": "classic-china-niameowdb-news-2026-04-29-cms-classic-site-launch",
-      "file_sha256": "d8c185950d6099b7097cf99c38b3a44fc42167c6e699c7161f15d027ceef5256"
+      "file_sha256": "3d49478d9b45ad5c1138f8cbf7e26bb750ca7e148b9c2a7c222e7da775e20632"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed.json",
       "id": "classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed",
-      "file_sha256": "0b8da7ea956f827f53830d94dd861577ae3128e6e22f44f46aeed6570991d080"
+      "file_sha256": "7f6486828c60155bb64b9db478d24fb47bd80a3b469cc22f0a67b6abd53ab4e9"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning.json",
       "id": "classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning",
-      "file_sha256": "14c9fa160d8b06e475eb5a4dd2679e449f0fd00c4168f864e44451095c8be68c"
+      "file_sha256": "40ffbcb5192faf01ef4496ccda9f44c4d80100873abdb84f4304e80c83dc9f17"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview.json",
       "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview",
-      "file_sha256": "ebff745cdf67022bee9017ae57dec447c5c34f3e6cec8ad11f72d447ac7f0210"
+      "file_sha256": "1a92b86c56f5437d940d55b75140d9a90f3f9f7228902cfeeb3f7a85fab622dd"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-15-cms-cbt-qualification-rules.json",
       "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-qualification-rules",
-      "file_sha256": "ea9fbb4d66d92e91257a0ff6cc67cb6a20cc4d8179c38dec3b76f5dd67257e83"
+      "file_sha256": "49aa5d5737f35d947f6770e1c1a657e31cdf85c86ddf381d47ef2db472868a6f"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-17-cms-economy-changes-response.json",
       "id": "classic-china-niameowdb-news-2026-05-17-cms-economy-changes-response",
-      "file_sha256": "59b69725d3dbc8a704dd0c24c63578cc020104e016d0e3fd1d4064d158a8647f"
+      "file_sha256": "78e0cf93df40489cdbe521e604738460f6196184378c21c550cd6a7bd8158edc"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-19-cms-cbt-opens-may-20.json",
       "id": "classic-china-niameowdb-news-2026-05-19-cms-cbt-opens-may-20",
-      "file_sha256": "e37b7a165cd9b6a1d5d997fcf9a90a589ba4936274036df6d0403606992d5e35"
+      "file_sha256": "d9e09dbcc25544a5a22e0c3c3fa2a2cd6f20be4587b55fb0c858e6c76f138c10"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-20-cms-letter-to-players-anti-farm.json",
       "id": "classic-china-niameowdb-news-2026-05-20-cms-letter-to-players-anti-farm",
-      "file_sha256": "822f6dd6037e4cafb9b3d52aa18a6a8105ffb35a36ed83ec00224fc5e0fee449"
+      "file_sha256": "f3370660ded5db4dd2c772d1379841cfc6899f5c48d135adba337ee2875e2c5d"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-22-victoria-island-exploration-report.json",
       "id": "classic-china-niameowdb-news-2026-05-22-victoria-island-exploration-report",
-      "file_sha256": "87c77d0f955a86c1a98a3710e900d530a401c9892975f33661f17a258f190c1a"
+      "file_sha256": "644ed0580d2baf0222f989e930b9aa562551ec06a5d7e609e38a9670afeb1f07"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back.json",
       "id": "classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back",
-      "file_sha256": "93322d515a929093457e6bf2d5b34b41b84bbd6aad34953e87bc24b72e9cfa72"
+      "file_sha256": "72c8aa89f604bb139c47f293b0231517cbbd4ade0e4ad3f41dd9ef9c91023a34"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer.json",
       "id": "classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer",
-      "file_sha256": "6a997241908487754de48b3f6565b370533f2bc9b9ba98ccaf338bb4246b9ba7"
+      "file_sha256": "b00e8d3363fad12e0ab83ff5bd557606a209be6cb6e46e5ca19270f2f36b8032"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2.json",
       "id": "classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2",
-      "file_sha256": "1336e9817a53cee8ca78c7d5fdf5378bd5a72f80b62e3f1d5ca7e4335b2539fa"
+      "file_sha256": "bfaad81409f35bdaf951e2c4e830ccb929363b1828c490a971bf3b1305d41c79"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal.json",
       "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal",
-      "file_sha256": "eb189eab4bc3eaf55b002c07947d1d74cf9dd936ecbf0c8ff221ed375240e22d"
+      "file_sha256": "e9a4f0541c29f8bf2a5c881f8fddd6ede65af649feffcd5b681e9215e2cba437"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details.json",
       "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details",
-      "file_sha256": "6a559f11f0b8a9576045f24310d789f97c898527da83f2d23cff5f915123d307"
+      "file_sha256": "9e9504c541437e8588447475a887d8e43f10c14bdd3cdd7c2021f0dec39b561d"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-02-cms-team-video-letter.json",
       "id": "classic-china-niameowdb-news-2026-07-02-cms-team-video-letter",
-      "file_sha256": "052c77856c6a7215031cd4c7090f8e7eb4a0605bb65a58382e51b3b976b6ffc5"
+      "file_sha256": "fdb8fad47558423617e399b0fa41fa718701e168f9591ca7a6af41fc7920b26f"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-06-second-cot-announced.json",
       "id": "classic-china-niameowdb-news-2026-07-06-second-cot-announced",
-      "file_sha256": "cf4f9a00cef86b93ff31477a4094e7000a84a0b334a44b613c1d4db934d507f3"
+      "file_sha256": "a10604970eb7634ce7e94288fc1132125a617c56bc07022ac97e22756b8b6d5d"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3.json",
@@ -5603,12 +5603,12 @@
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15.json",
       "id": "classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15",
-      "file_sha256": "b3bdb8fe71b65c75fe0061d3094974b70fedce88d9f99d35c32c43d359194096"
+      "file_sha256": "cbcdfe68318ebceb74066903f0fa49be14db79f8c642d7c94dc3030b5b998896"
     },
     {
       "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-16-second-cot-signups-open.json",
       "id": "classic-china-niameowdb-news-2026-07-16-second-cot-signups-open",
-      "file_sha256": "c783abc7ababf18fa47ff9013a2b07b431fc21ff902c235fb9ff3dd915d49bcb"
+      "file_sha256": "96d494de7012a817b6827238c121730aa4eb6b8840789d1a96ff8947772aa04f"
     },
     {
       "path": "content/news/classic/2026/classic-world-closed-online-test-2-registration.json",
