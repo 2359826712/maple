@@ -45,6 +45,53 @@ const metadataSections = (record: IndexedContentRecord): ContentSection[] => {
   });
 };
 
+const summarySentences = (summary: string) => summary
+  .split(/(?<=[.!?])\s+/)
+  .map((sentence) => sentence.trim())
+  .filter(Boolean);
+
+const summaryDetailSections = (record: IndexedContentRecord): ContentSection[] => {
+  if (!record.summary) return [];
+
+  const buckets = new Map<string, string[]>();
+  const add = (title: string, sentence: string) => {
+    const items = buckets.get(title) || [];
+    items.push(sentence);
+    buckets.set(title, items);
+  };
+
+  summarySentences(record.summary).forEach((sentence) => {
+    if (/\b(?:scam|unauthorized|ban(?:ned|s)?|bot(?:s|ting)?|abuse|warning)\b/i.test(sentence)) {
+      add('Safety, enforcement, and restrictions', sentence);
+    } else if (/\b(?:sign[- ]?up|register|registration|eligible|eligibility|selected|selection|invite|account|testers?|spots?|keys?|ID|phone number|travel)\b/i.test(sentence)) {
+      add('Eligibility and access', sentence);
+    } else if (/\b(?:20\d{2}|jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june|july|aug(?:ust)?|sept(?:ember)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?|starts?|opens?|closes?|ends?|until|daily|hours?|days?|AM|PM)\b/i.test(sentence)) {
+      add('Dates and schedule', sentence);
+    } else if (/\b(?:class(?:es)?|jobs?|level|maps?|areas?|islands?|quests?|skills?|monsters?|crafting|equipment|auction|economy|trad(?:e|ing)|gold|shops?|market|currency|points?|launcher|macOS|Windows|controller|language)\b/i.test(sentence)) {
+      add('Gameplay, content, and systems', sentence);
+    } else if (/\b(?:reward|prize|rings?|coupons?|gift cards?|NX Cash|medal|vinyl|giveaway|perks?)\b/i.test(sentence)) {
+      add('Rewards and benefits', sentence);
+    } else if (/\b(?:maintenance|fix(?:es|ed)?|change(?:s|d)?|remove(?:s|d)?|restore(?:s|d)?|wipe|deleted|shut(?:s)? down|fee|cost)\b/i.test(sentence)) {
+      add('Operational changes', sentence);
+    } else if (/\b(?:video|trailer|survey|feedback|Discord|Facebook|Instagram|Douyin|Xianyu|Xiaohongshu)\b/i.test(sentence)) {
+      add('Media and community context', sentence);
+    } else {
+      add('Confirmed report', sentence);
+    }
+  });
+
+  const sourceName = record.author || record.source_id.replaceAll('-', ' ');
+  buckets.set('Source and regional scope', [
+    `${sourceName} is the indexed source for this ${record.content_type.replaceAll('-', ' ')} record.`,
+    `The record applies to ${record.regions.map(label).join(', ')} and was last checked on ${record.last_checked.slice(0, 10)}.`,
+    record.official
+      ? 'The indexed publication is marked as an official first-party source.'
+      : 'The indexed publication is not marked first-party; MPStorys keeps its reporting separate from official publisher statements.',
+  ]);
+
+  return [...buckets.entries()].map(([title, items]) => ({ title, items }));
+};
+
 export const getIndexedContentSections = (record?: IndexedContentRecord): ContentSection[] => {
   if (!record) return [];
   const sections = metadataSections(record);
@@ -66,7 +113,7 @@ export const getIndexedContentSections = (record?: IndexedContentRecord): Conten
     if (record.resolved_issues.length > 0) sections.push({ title: 'Resolved issues', items: record.resolved_issues });
   }
 
-  return sections;
+  return sections.length > 0 ? sections : summaryDetailSections(record);
 };
 
 const normalizedUrl = (value: string) => {

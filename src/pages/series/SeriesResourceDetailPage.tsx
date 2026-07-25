@@ -19,7 +19,7 @@ import {
   type SeriesModule,
 } from './scope';
 import type { VerifiedSeriesResource } from './verifiedContent';
-import { getSeriesModuleArtwork } from './verifiedContent';
+import { getIndexedContentDisplayTitle, getSeriesModuleArtwork } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
 import ResourceDetailExperience, { hasResourceDetailExperience } from './ResourceDetailExperience';
 
@@ -136,7 +136,7 @@ export default function SeriesResourceDetailPage({
     const targetLanguage = normalizeStaticContentLanguage(i18n.language);
     if (targetLanguage === 'en') return () => { active = false; };
     const sourceTexts = [...new Set([
-      contentRecord?.title || resource.title,
+      contentRecord ? getIndexedContentDisplayTitle(contentRecord) : resource.title,
       contentRecord?.summary || resource.description,
       ...contentSections.flatMap((section) => [section.title, ...section.items]),
     ])];
@@ -151,7 +151,7 @@ export default function SeriesResourceDetailPage({
 
   const translateContent = (value: string) => localizedText[value] || value;
   const copy = {
-    title: translateContent(contentRecord?.title || resource?.title || ''),
+    title: translateContent(contentRecord ? getIndexedContentDisplayTitle(contentRecord) : resource?.title || ''),
     description: translateContent(contentRecord?.summary || resource?.description || ''),
   };
   const publishedAt = contentRecord?.published_at || resource?.publishedAt;

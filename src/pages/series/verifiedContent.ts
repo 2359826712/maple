@@ -167,20 +167,30 @@ const contentSeriesIds: Record<(typeof indexedContent)[number]['series'], string
 };
 
 const sourceNames = new Map(indexedContentSources.map((source) => [source.id, source.name]));
+export const getIndexedContentDisplayTitle = (
+  content: Pick<(typeof indexedContent)[number], 'title' | 'original_title' | 'summary'>,
+) => {
+  const original = content.original_title.replace(/\s*\|\s*NiaMeowDB\s*$/i, '').trim();
+  const scrapedChrome = content.title.length > 180
+    || Boolean(content.summary && content.title.includes(content.summary.slice(0, 80)));
+  return scrapedChrome && original ? original : content.title;
+};
+
 const indexedArticleContent = indexedContent.reduce<Record<string, SeriesContent>>((seriesContent, content) => {
   if (content.status === 'removed') return seriesContent;
   const seriesId = contentSeriesIds[content.series];
   const module = contentTypeModules[content.content_type];
   const modules = seriesContent[seriesId] || {};
   const moduleResources = modules[module] || [];
+  const displayTitle = getIndexedContentDisplayTitle(content);
   moduleResources.push({
     contentId: content.id,
-    title: content.title,
+    title: displayTitle,
     description: content.summary || `Verified ${content.content_type.replaceAll('-', ' ')} from ${sourceNames.get(content.source_id) || 'an official source'}.`,
     sourceLabel: sourceNames.get(content.source_id) || 'Official source',
     sourceUrl: content.canonical_url,
     imageUrl: content.images[0]?.url,
-    imageAlt: content.images[0]?.alt || content.title,
+    imageAlt: content.images[0]?.alt || displayTitle,
     publishedAt: content.published_at || undefined,
     category: content.content_type,
     status: content.status,
