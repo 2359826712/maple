@@ -11,50 +11,64 @@ variables:
 
 ```text
 LOCAL_MODEL_PROVIDER
-LOCAL_MODEL_TRANSPORT=mock|http
+LOCAL_MODEL_TRANSPORT=mock|openai
 LOCAL_MODEL_API_URL
 LOCAL_MODEL_API_KEY
 MODEL_NAME
 MODEL_VERSION
 LOCAL_MODEL_TIMEOUT_MS
-LOCAL_MODEL_PUBLISHABLE=false|true
+LOCAL_MODEL_PUBLISHABLE=false
 ```
 
-Mock is the default transport. It is deterministic, makes no network request, cannot
-claim queue jobs, and can only run the read-only Worker preview.
+Mock is the default transport. It is deterministic and makes no network request.
 
-The future HTTP request contract is:
+Production queue ownership remains with `LocalizationWorker-repair.exe`. The website
+Node CLI rejects every `--apply` invocation before connecting to PostgreSQL, regardless
+of environment variables. This prevents duplicate claims, lock contention, duplicate
+translation, and model-version drift.
+
+## llama.cpp OpenAI-compatible adapter
+
+The adapter calls `/v1/chat/completions`. It does not use the former custom top-level
+`translated_fields` HTTP protocol. The HTTP request follows the OpenAI-compatible shape:
 
 ```json
 {
-  "provider": "local",
   "model": "configured-at-runtime",
-  "source_language": "en",
-  "target_language": "zh",
-  "fields": {
-    "title": "Source title",
-    "summary": "Source summary"
+  "temperature": 0,
+  "stream": false,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "maplestory_localization",
+      "strict": true,
+      "schema": {}
+    }
   },
-  "glossary": [
-    { "source": "MapleStory", "target": "冒险岛" }
+  "messages": [
+    { "role": "system", "content": "Translation and preservation rules" },
+    {
+      "role": "user",
+      "content": "{\"fields\":{...},\"glossary\":[...]}"
+    }
   ]
 }
 ```
 
-Expected response:
+The localized fields are strict JSON inside `choices[0].message.content`:
 
 ```json
 {
-  "translated_fields": {
-    "title": "Localized title",
-    "summary": "Localized summary"
-  },
   "model": "configured-at-runtime",
-  "version": "server-version",
-  "usage": {
-    "input_tokens": 0,
-    "output_tokens": 0
-  }
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "{\"translated_fields\":{\"title\":\"Localized title\",\"summary\":\"Localized summary\"}}"
+      }
+    }
+  ],
+  "usage": { "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0 }
 }
 ```
 
@@ -62,20 +76,30 @@ The adapter records provider, transport, model, model version, latency, usage, g
 version, and quality checks in existing Worker metadata columns. No model-specific
 database schema is required.
 
-## Commands
+Current verified model-server identity:
 
-Read-only mock preview:
-
-```powershell
-npm run localization:worker -- --limit=5 --target=zh
+```text
+protocol: OpenAI-compatible llama.cpp server
+local URL: http://127.0.0.1:8990/v1/chat/completions
+LAN URL: http://192.168.3.43:8990/v1/chat/completions
+model: maplestory-qwen2.5-7b-q4_k_m
+version: Qwen2.5-7B-Instruct-GGUF-Q4_K_M
 ```
 
-The preview reads pending jobs but does not claim or update them. Real execution remains
-blocked unless all three conditions are explicit:
+The API key remains outside this repository. Its operator-managed source is
+`D:\LocalizationAI\secrets\api-key.txt`; inject the value through a secret environment
+variable for a future isolated adapter test. Never commit the key.
 
-1. `LOCAL_MODEL_TRANSPORT=http`;
-2. `LOCAL_MODEL_PUBLISHABLE=true`;
-3. `--apply --confirm=local-model-worker`.
+Do not run `npm run localization:worker` against the production queue while the EXE
+Worker is active. Adapter development is limited to mocked HTTP unit tests until a
+separate isolated preview is scheduled.
+
+The production model process remains:
+
+```powershell
+cd C:\Users\Administrator\Desktop\maple_localization
+.\LocalizationWorker-repair.exe run
+```
 
 ## Website boundary
 

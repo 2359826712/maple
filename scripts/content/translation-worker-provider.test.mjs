@@ -1,4 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
 import { createLocalModelProvider } from './local-model-provider.mjs';
 import { previewTranslationWorker, runTranslationWorker } from './translation-worker.mjs';
 
@@ -9,6 +11,26 @@ const glossary = {
 };
 
 describe('translation worker provider boundary', () => {
+  it('blocks the Node apply path before any queue or database access', () => {
+    const result = spawnSync(
+      process.execPath,
+      [path.resolve('scripts/translation-worker.mjs'), '--apply'],
+      {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          LOCALIZATION_DATABASE_URL: '',
+          LOCAL_MODEL_PUBLISHABLE: 'true',
+        },
+      },
+    );
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain(
+      'Node Worker apply is disabled while LocalizationWorker-repair.exe owns translation_jobs',
+    );
+    expect(result.stderr).not.toContain('LOCALIZATION_DATABASE_URL is required');
+  });
+
   it('refuses to claim jobs with a mock provider', async () => {
     const client = { query: vi.fn() };
     await expect(runTranslationWorker({

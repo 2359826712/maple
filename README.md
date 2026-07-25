@@ -68,19 +68,21 @@ The frontend runs on Next.js. Set `MAPLE_SQL_API_ORIGIN=http://127.0.0.1:8080` t
 Published content localization is read from PostgreSQL. A missing approved localization
 falls back to the original source; website requests never invoke a translation provider.
 
-The Phase 2E worker uses a mock local-model transport by default. When the separate model
-server is ready, configure its adapter at runtime:
+The Phase 2E website adapter uses a mock transport by default. Its optional llama.cpp
+integration uses the OpenAI-compatible chat-completions protocol:
 
 ```env
 LOCAL_MODEL_PROVIDER=local
-LOCAL_MODEL_TRANSPORT=http
-LOCAL_MODEL_API_URL=http://model-host:PORT/v1/localize
+LOCAL_MODEL_TRANSPORT=openai
+LOCAL_MODEL_API_URL=http://model-host:PORT/v1/chat/completions
+LOCAL_MODEL_API_KEY=server-secret
 MODEL_NAME=runtime-model-name
 MODEL_VERSION=runtime-model-version
 LOCAL_MODEL_PUBLISHABLE=false
 ```
 
-Model names and versions are configuration, not application constants. Keep
-`LOCAL_MODEL_PUBLISHABLE=false` until the model and quality policy have been approved.
+`LocalizationWorker-repair.exe` currently owns production `translation_jobs`. The Node
+Worker apply path is disabled to prevent two consumers from claiming the same queue.
+Model names and versions remain runtime configuration rather than application constants.
 
 Production uses hybrid rendering: stable localized routes are generated with SSG and refreshed with ISR, while news, events, guides, wiki, source, and upcoming-update routes render on request. Client-side navigation and route prefetching remain enabled after hydration. Remote news, rankings, maps, wiki, guide, tool, and upcoming-update data is requested only through the backend's database-backed static snapshot endpoint. The backend stores the first successful response in PostgreSQL and refreshes stored snapshots every 12 hours; browsers never contact those upstream data APIs directly.
