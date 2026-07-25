@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-02-27-pc-cafe-giveaway-winners",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/pc-cafe-giveaway-winners",
+  "source_url": "https://meowdb.com/msclassic/news/pc-cafe-giveaway-winners",
+  "external_id": "pc-cafe-giveaway-winners",
+  "title": "Feb 27, 2026·Global·NexonPC Cafe survey giveaway winners announcedNexon picked winners for the PC Cafe giveaway. One person won a 20th Anniversary Pure Silver Medal. Ten people won Vinyl Records. Winners have seven days to claim their prize.Real-world Events",
+  "original_title": "PC Cafe survey giveaway winners announced | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-02-27",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Nexon picked winners for the PC Cafe giveaway. One person won a 20th Anniversary Pure Silver Medal. Ten people won Vinyl Records. Winners have seven days to claim their prize.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowWave&eyebrow=MapleStory+Classic+%2F+Global&sig=C6b1Shk6v3hoSqOyR8H4jrsnY4vqay7y8yPeVPx_12M&subtitle=Nexon+picked+winners+for+the+PC+Cafe+giveaway.+One+person+won+a+20th+Anniversary+Pure+Silver+Medal.+Ten+people+won+Vinyl+Records.+Winners+h%E2%80%A6&title=PC+Cafe+survey+giveaway+winners+announced",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e0a77622391e788bbf01261fcb72981b765ff9063487f47601fe6cf7c1ed921c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:51:19.750Z",
+    "final_url": "https://meowdb.com/msclassic/news/pc-cafe-giveaway-winners",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

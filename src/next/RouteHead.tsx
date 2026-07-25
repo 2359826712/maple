@@ -84,8 +84,11 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const seriesProduct = route.startsWith('/series/')
     ? getSeriesProduct(route.slice('/series/'.length).split('/')[0])
     : getSeriesProduct(seriesId);
-  const contentMatch = route.match(/^\/content\/([^/]+)\/([^/]+)$/);
-  const contentModule = isSeriesModule(contentMatch?.[1]) ? contentMatch[1] : undefined;
+  const legacyContentMatch = route.match(/^\/content\/([^/]+)\/([^/]+)$/);
+  const scopedContentMatch = route.match(/^\/series\/([^/]+)\/([^/]+)\/([^/]+)$/);
+  const contentModuleValue = scopedContentMatch?.[2] || legacyContentMatch?.[1];
+  const contentModule = isSeriesModule(contentModuleValue) ? contentModuleValue : undefined;
+  const isSeriesResourceDetail = Boolean(scopedContentMatch || legacyContentMatch);
   const scopedRouteModule = seriesModuleByBaseHref[route as keyof typeof seriesModuleByBaseHref]
     || (route === '/tools' ? 'tools' : undefined);
   const seriesModule = scopedRouteModule || contentModule;
@@ -104,8 +107,8 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     || initialGuide?.title
     || initialWikiEntry?.title
     || (routeHeadBoss ? `${routeHeadBoss.name} MapleStory Boss Guide` : undefined)
-    || seriesPageTitle
-    || (route === '/source' || route.startsWith('/content/') ? requestTitle : undefined);
+    || (route === '/source' || isSeriesResourceDetail ? requestTitle : undefined)
+    || seriesPageTitle;
   const dynamicDescription = initialUpcomingArticle?.excerpt
     || initialGuide?.localizedCopy?.excerpt
     || initialGuide?.excerpt

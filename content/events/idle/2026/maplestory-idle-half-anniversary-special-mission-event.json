@@ -1,0 +1,86 @@
+{
+  "id": "maplestory-idle-half-anniversary-special-mission-event",
+  "source_id": "idle-nexon-official-events",
+  "canonical_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3434719",
+  "source_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3434719",
+  "external_id": "3434719",
+  "title": "MapleStory: Idle RPG Half Anniversary Special Mission Event",
+  "original_title": "Half Anniversary Festival Special Mission Event & Festival Special Shop",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "event",
+  "subcategory": "anniversary",
+  "official": true,
+  "author": "Grendel",
+  "published_at": "2026-04-30T00:00:00+00:00",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T00:00:00.000Z",
+  "last_checked": "2026-07-25T00:00:00.000Z",
+  "summary": "The half-anniversary event offered daily and achievement missions, cumulative rewards, Festival Coins and Points, and a time-limited Festival Shop for players who had cleared Chapter 3-4.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["anniversary", "event-shop", "festival-coin", "missions"],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250507/60766e9d-1802-4a07-8cef-e40264bdb018/MIAppicof512512.png",
+      "alt": "MapleStory: Idle RPG"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0644bc3eed19452d38be47990a1f041911e5bc7d7e7d3ccf40ac03cb01f5964f",
+  "status": "expired",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Mission structure",
+        "items": [
+          "Daily missions reset at midnight server time and included connection, summoning, Arena, Flag Race, Quick Hunt, and Growth Dungeon goals.",
+          "Achievement missions covered Quick Hunt, Arena, Companion Summons, Festival Coins, Boss Raids, and Potential rerolls.",
+          "Cumulative milestones ended with a Half Anniversary Festival medal providing Main Stat +30."
+        ]
+      },
+      {
+        "title": "Festival Shop",
+        "items": [
+          "Festival Coins could be exchanged for summoning tickets, enhancement materials, cubes, Hero Tokens, Spell Traces, and other rewards.",
+          "Several shop items used weekly, per-character, or date-specific purchase limits."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against the official Nexon Forum event notice on 2026-07-25. The record is retained as ended event history.",
+  "event_name": "Half Anniversary Festival Special Mission Event",
+  "registration_start": null,
+  "registration_end": null,
+  "event_start": "2026-04-30",
+  "event_end": "2026-06-10T23:59:00+00:00",
+  "claim_start": null,
+  "claim_end": "2026-06-10T23:59:00+00:00",
+  "shop_start": "2026-04-30",
+  "shop_end": "2026-06-12T23:59:00+00:00",
+  "timezone": "UTC",
+  "eligibility": ["Players who cleared Chapter 3-4"],
+  "requirements": ["Complete daily, achievement, or cumulative missions to earn event currency and rewards."],
+  "rewards": [
+    "Half Anniversary Festival medal with Main Stat +30",
+    "Regular and Bonus Potential Cubes",
+    "Star Force Enhancement Scrolls",
+    "Elite Summoning Points"
+  ],
+  "event_currency": ["Festival Coin", "Festival Point"],
+  "event_shop": "Festival Special Shop",
+  "participation_steps": [
+    "Clear Chapter 3-4 to unlock the event.",
+    "Complete daily and achievement missions.",
+    "Claim cumulative mission rewards.",
+    "Spend Festival Coins in the Festival Special Shop before it closes."
+  ],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "ended"
+}

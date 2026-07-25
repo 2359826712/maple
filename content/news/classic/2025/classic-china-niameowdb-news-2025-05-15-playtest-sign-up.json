@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2025-05-15-playtest-sign-up",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/playtest-sign-up",
+  "source_url": "https://meowdb.com/msclassic/news/playtest-sign-up",
+  "external_id": "playtest-sign-up",
+  "title": "May 15, 2025·Global·NexonNexon opens in-person playtest signups for Global Classic WorldNexon said Classic World is a real project. They asked players in Southern California to come to their El Segundo office to test the game. Testers get gift cards and NX Cash.Real-world Events",
+  "original_title": "Nexon opens in-person playtest signups for Global Classic World | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2025-05-15",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Nexon said Classic World is a real project. They asked players in Southern California to come to their El Segundo office to test the game. Testers get gift cards and NX Cash.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowWave&eyebrow=MapleStory+Classic+%2F+Global&sig=KpVstGOZ0AHi6cAkXMvYOH5UAMY9Ga9DiIoiTHuvGXg&subtitle=Nexon+said+Classic+World+is+a+real+project.+They+asked+players+in+Southern+California+to+come+to+their+El+Segundo+office+to+test+the+game.%E2%80%A6&title=Nexon+opens+in-person+playtest+signups+for+Global+Classic+World",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6a76a2aa8b7cff817a39dd488b5696c1da8fb0e41ad08e61ba45d26f9f57bab4",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:51:39.243Z",
+    "final_url": "https://meowdb.com/msclassic/news/playtest-sign-up",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

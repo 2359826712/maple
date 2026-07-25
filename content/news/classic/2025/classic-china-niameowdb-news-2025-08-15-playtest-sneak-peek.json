@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2025-08-15-playtest-sneak-peek",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/playtest-sneak-peek",
+  "source_url": "https://meowdb.com/msclassic/news/playtest-sneak-peek",
+  "external_id": "playtest-sneak-peek",
+  "title": "Aug 15, 2025·Global·NexonNexon shares Classic World playtest recap videoNexon posted a video showing what the summer 2025 playtest in their office looked like. The video has fun footage but no real game details or patch notes.Real-world Events",
+  "original_title": "Nexon shares Classic World playtest recap video | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2025-08-15",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Nexon posted a video showing what the summer 2025 playtest in their office looked like. The video has fun footage but no real game details or patch notes.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowWave&eyebrow=MapleStory+Classic+%2F+Global&sig=ox0COhfmxzM08y0vYx9rSKvbpoIIUQqiXRkUXSiRip8&subtitle=Nexon+posted+a+video+showing+what+the+summer+2025+playtest+in+their+office+looked+like.+The+video+has+fun+footage+but+no+real+game+details%E2%80%A6&title=Nexon+shares+Classic+World+playtest+recap+video",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "e2c069c0a50d66ecdaf273222fe03d7f3758fa237e4c8b7b0f54ca8fe866378c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:51:34.423Z",
+    "final_url": "https://meowdb.com/msclassic/news/playtest-sneak-peek",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

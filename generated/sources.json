@@ -47,6 +47,101 @@
     "notes": "Verified on 2026-07-18. Classic World announcements share Nexon's public Global MapleStory CMS and are separated by CMS flags plus title classification."
   },
   {
+    "id": "classic-niameowdb-news",
+    "name": "NiaMeowDB MapleStory Classic News",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "community-site",
+    "content_types": [
+      "news"
+    ],
+    "base_url": "https://meowdb.com/msclassic",
+    "discovery_urls": [
+      "https://meowdb.com/msclassic/news"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "html",
+    "parser": "classic-niameowdb-news",
+    "adapter_config": {
+      "default_content_type": "news",
+      "link_selector": "a[href*=\"/msclassic/news/\"]",
+      "include_patterns": [
+        "/msclassic/news/[^/?#]+$"
+      ],
+      "external_id_pattern": "/msclassic/news/([^/?#]+)$",
+      "body_selector": "article"
+    },
+    "official": false,
+    "enabled": true,
+    "crawl_frequency": "6h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 5
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": "2026-07-25T00:00:00.000Z",
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-25 as a fan-run editorial index that summarizes Global Nexon, China Shengqu, and relevant third-party Classic World developments and links each entry to its original source. Crawl stores metadata and summaries only; individual claims remain non-official until checked against the linked primary source."
+  },
+  {
+    "id": "idle-nexon-official-events",
+    "name": "MapleStory: Idle RPG Official Events",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "forum",
+    "content_types": [
+      "event"
+    ],
+    "base_url": "https://forum.nexon.com/maplestoryidle/main",
+    "discovery_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_list?board=6676&pageNo=1"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "browser",
+    "parser": "maplestory-idle-nexon-forum",
+    "adapter_config": {
+      "default_content_type": "event",
+      "include_patterns": [
+        "/maplestoryidle/board_view"
+      ],
+      "render_delay_ms": 3000
+    },
+    "official": true,
+    "enabled": true,
+    "crawl_frequency": "3h",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": true,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-25 as the public official MapleStory: Idle RPG Event board. Uses the browser adapter for the JavaScript-rendered Nexon Forum and does not retain cookies or session data."
+  },
+  {
     "id": "idle-nexon-official-patch-notes",
     "name": "MapleStory: Idle RPG Official Patch Notes",
     "series": "idle",
@@ -58,7 +153,8 @@
     ],
     "source_type": "forum",
     "content_types": [
-      "patch-note"
+      "patch-note",
+      "roadmap"
     ],
     "base_url": "https://forum.nexon.com/maplestoryidle/main",
     "discovery_urls": [
@@ -678,6 +774,51 @@
     "last_success": null,
     "last_error": null,
     "notes": "Verified on 2026-07-20 against the public MapleStory N Update route and official public read API. Board 5290 has no useful headline split, so explicit developer/director-note and patch-note evidence is applied before conservative news fallback. Mentioning maintenance inside patch notes does not reclassify them. Full source text is not retained."
+  },
+  {
+    "id": "worlds-creator-center-api-reference",
+    "name": "MapleStory Worlds Creator Center API Reference",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "guide"
+    ],
+    "base_url": "https://maplestoryworlds-creators.nexon.com/en/apiReference",
+    "discovery_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/apiReference/How-to-use-API-Reference"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "html",
+    "parser": "worlds-creator-api-reference",
+    "adapter_config": {
+      "include_patterns": [
+        "/en/apiReference/"
+      ],
+      "default_content_type": "guide"
+    },
+    "official": true,
+    "enabled": false,
+    "crawl_frequency": "1w",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": null,
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-25 against the server-rendered official API Reference Guidelines page. The source is indexed manually until a dedicated reference parser is added."
   },
   {
     "id": "worlds-creator-center-news",

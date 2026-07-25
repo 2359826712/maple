@@ -32,13 +32,18 @@
     "registration",
     "third-job"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "https://g.nexonstatic.com/media/u1wjqi0x/540x304-maplestory-classic-world-closed-online-test-2.png",
+      "alt": "Global MapleStory Classic World Closed Online Test #2"
+    }
+  ],
   "attachments": [],
   "related_content_ids": [],
   "related_urls": [
     "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
   ],
-  "content_hash": "fbfa24185def5f0a7584692288cc324dda39de01aa0e4b9b973a4920c73c5655",
+  "content_hash": "6d8a4e4c9873148bcdbd4a1092813ba85fd7bbaade1ab9985acf1cfdcd0916db",
   "status": "published",
   "translation_status": "not-requested",
   "metadata": {

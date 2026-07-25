@@ -521,13 +521,8 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   const isNavActive = (href: string) => {
     if (href.startsWith('http')) return false;
-    const destination = getNavHref(href);
-    if (destination !== href) return routePathname === destination;
-    if (href === '/') return routePathname === '/';
-    if (href === '/mapler-house') {
-      return routePathname === '/mapler-house' || routePathname === '/maps';
-    }
-    return routePathname === href || routePathname.startsWith(`${href}/`);
+    const navModule = getSeriesRouteState(href).module;
+    return Boolean(navModule && seriesRoute.module === navModule);
   };
 
   const prefetchNav = (href: string) => {

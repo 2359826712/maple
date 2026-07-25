@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-qualification-rules",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt-qualification-rules",
+  "source_url": "https://meowdb.com/msclassic/news/cms-cbt-qualification-rules",
+  "external_id": "cms-cbt-qualification-rules",
+  "title": "May 15, 2026·China·ShengquCMS Return Island Test rules: random draw, one account per ID, Douyin streamer carve-outShengqu will pick test players at random from the sign-up pool. Each Chinese ID or phone number can only have one account in the test. Once an account logs in, it is stuck to that ID. You cannot move it to another account. Streamers from Douyin get extra spots that do not take up any of the 2,000 player spots.Closed Test",
+  "original_title": "CMS Return Island Test rules: random draw, one account per ID, Douyin streamer carve-out | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-05-15",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Shengqu will pick test players at random from the sign-up pool. Each Chinese ID or phone number can only have one account in the test. Once an account logs in, it is stuck to that ID. You cannot move it to another account. Streamers from Douyin get extra spots that do not take up any of the 2,000 player spots.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=S2jsty2caVjm9aCn8EfZCWMwj8wEzrcW6E2ND-tLShg&subtitle=Shengqu+will+pick+test+players+at+random+from+the+sign-up+pool.+Each+Chinese+ID+or+phone+number+can+only+have+one+account+in+the+test.+Once%E2%80%A6&title=CMS+Return+Island+Test+rules%3A+random+draw%2C+one+account+per+ID%2C+Douyin+streamer%E2%80%A6",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b17a68335abc96560c0ffa228a0e326052ad792b6a8668bca7c4db54f6a3a4f6",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:50:30.494Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-cbt-qualification-rules",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

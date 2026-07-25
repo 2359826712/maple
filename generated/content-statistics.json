@@ -1,20 +1,21 @@
 {
-  "total_content": 1540,
-  "total_sources": 9,
-  "enabled_sources": 9,
+  "total_content": 1574,
+  "total_sources": 12,
+  "enabled_sources": 11,
   "content_types": {
     "cash-shop": 233,
     "creator-announcement": 134,
     "developer-note": 7,
-    "event": 316,
-    "guide": 15,
+    "event": 317,
+    "guide": 16,
     "maintenance": 384,
-    "news": 356,
-    "patch-note": 95
+    "news": 386,
+    "patch-note": 96,
+    "roadmap": 1
   },
   "statuses": {
-    "expired": 2,
-    "published": 1536,
+    "expired": 3,
+    "published": 1569,
     "updated": 2
   }
 }

@@ -16,6 +16,8 @@ const OPENHUNTS_URL = 'https://openhunts.com';
 const OPENHUNTS_BADGE_URL = 'https://cdn.openhunts.com/badges/club.webp';
 const AIDIRS_URL = 'https://aidirs.best/item/mp-storys';
 const AIDIRS_BADGE_URL = 'https://aidirs.best/light.svg';
+const AIDIRS_ORG_URL = 'https://aidirs.org/item/mpstorys';
+const AIDIRS_ORG_BADGE_URL = 'https://aidirs.org/badges/badge-listed-dark.svg';
 const AI_AGENTS_DIRECTORY_URL = 'https://aiagentsdirectory.com';
 const AI_AGENTS_DIRECTORY_BADGE_URL = 'https://aiagentsdirectory.com/featured-badge.svg?v=2024';
 const AI_TOOL_FAME_URL = 'https://aitoolfame.com/item/mpstorys';
@@ -62,6 +64,14 @@ const FROG_DR_URL = 'https://frogdr.com/mpstorys.com?utm_source=mpstorys.com';
 const FROG_DR_BADGE_URL = 'https://frogdr.com/mpstorys.com/badge-white.svg';
 const FAZIER_URL = 'https://fazier.com/launches/mpstorys.com';
 const FAZIER_BADGE_URL = 'https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light';
+const TWELVE_TOOLS_URL = 'https://twelve.tools';
+const TWELVE_TOOLS_BADGE_URL = 'https://twelve.tools/badge0-white.svg';
+const LAUNCHIGNITER_URL = 'https://launchigniter.com/product/mpstorys?ref=badge-mpstorys';
+const LAUNCHIGNITER_BADGE_URL = 'https://launchigniter.com/api/badge/mpstorys?theme=light';
+const STARTUP_FAME_URL = 'https://startupfa.me/s/mpstorys?utm_source=mpstorys.com';
+const STARTUP_FAME_BADGE_URL = 'https://startupfa.me/badges/featured-badge.webp';
+const SAASGROW_URL = 'https://saasgrow.app?ref=mpstorys.com';
+const SAASGROW_BADGE_URL = 'https://saasgrow.app/api/badge?type=featured&style=light';
 
 const groups = [
   {
@@ -282,6 +292,23 @@ export default function Footer() {
               width="86"
               height="24"
               src={AIDIRS_BADGE_URL}
+              loading="lazy"
+              decoding="async"
+              className="h-6 w-auto max-w-none object-contain"
+            />
+          </a>
+          <a
+            href={AIDIRS_ORG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys listed on AIDirs.org"
+            className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
+          >
+            <img
+              alt="Listed on AIDirs"
+              width="72"
+              height="24"
+              src={AIDIRS_ORG_BADGE_URL}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"
@@ -696,6 +723,74 @@ export default function Footer() {
               width="111"
               height="24"
               src={FAZIER_BADGE_URL}
+              loading="lazy"
+              decoding="async"
+              className="h-6 w-auto max-w-none object-contain"
+            />
+          </a>
+          <a
+            href={TWELVE_TOOLS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys featured on Twelve Tools"
+            className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
+          >
+            <img
+              alt="Featured on Twelve Tools"
+              width="89"
+              height="24"
+              src={TWELVE_TOOLS_BADGE_URL}
+              loading="lazy"
+              decoding="async"
+              className="h-6 w-auto max-w-none object-contain"
+            />
+          </a>
+          <a
+            href={LAUNCHIGNITER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys featured on LaunchIgniter"
+            className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
+          >
+            <img
+              alt="Featured on LaunchIgniter"
+              width="93"
+              height="24"
+              src={LAUNCHIGNITER_BADGE_URL}
+              loading="lazy"
+              decoding="async"
+              className="h-6 w-auto max-w-none object-contain"
+            />
+          </a>
+          <a
+            href={STARTUP_FAME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys featured on Startup Fame"
+            className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
+          >
+            <img
+              alt="MPStorys - Featured on Startup Fame"
+              width="76"
+              height="24"
+              src={STARTUP_FAME_BADGE_URL}
+              loading="lazy"
+              decoding="async"
+              className="h-6 w-auto max-w-none object-contain"
+            />
+          </a>
+          <a
+            href={SAASGROW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys featured on SaaSGrow"
+            className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
+          >
+            <img
+              alt="MPStorys on SaaSGrow"
+              width="107"
+              height="24"
+              src={SAASGROW_BADGE_URL}
               loading="lazy"
               decoding="async"
               className="h-6 w-auto max-w-none object-contain"

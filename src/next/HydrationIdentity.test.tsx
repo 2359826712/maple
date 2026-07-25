@@ -7,7 +7,7 @@ import { prefetchRouteForPath } from '@/router/config';
 import NextApplication from './NextApplication';
 import GuidesNextRoute from '@/pages/guides/[...route].next';
 import NewsNextRoute from '@/pages/news/[...route].next';
-import CatchAllNextRoute from '@/pages/[[...route]].next';
+import SeriesNextRoute from '@/pages/series/[...route].next';
 import type { GuideItem } from '@/services/liveContent';
 import { ensureServerDom } from '@/services/serverDom';
 import { createRoutePageProps } from './routeData';
@@ -85,11 +85,11 @@ describe('Next application initial SSR', () => {
   });
 
   it('renders indexed content instead of the catch-all home route', async () => {
-    const pathname = '/content/news/classic-world-closed-online-test-2-classic-world-test-2-campaign/en/GMS';
-    const routeProps = await createRoutePageProps(`${pathname}?series=maplestory-classic`);
+    const pathname = '/series/maplestory-classic/news/classic-world-closed-online-test-2-classic-world-test-2-campaign/en/GMS';
+    const routeProps = await createRoutePageProps(pathname);
     expect(routeProps).toBeTruthy();
     const serverHtml = renderToString(
-      <CatchAllNextRoute
+      <SeriesNextRoute
         {...routeProps!}
       />,
     );

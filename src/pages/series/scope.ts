@@ -20,7 +20,7 @@ export const isSharedSeriesModule = (module?: SeriesModule): module is (typeof s
   Boolean(module && sharedSeriesModules.includes(module as (typeof sharedSeriesModules)[number]))
 );
 
-const seriesWithRankings = new Set(['maplestory-pc']);
+const seriesWithRankings = new Set(['maplestory-pc', 'maplestory-n', 'maplestory-idle']);
 
 export const isSeriesModuleAvailable = (seriesId?: string, module?: SeriesModule) => (
   !module || module !== 'rankings' || !seriesId || seriesWithRankings.has(seriesId)
@@ -39,6 +39,18 @@ export const isSeriesModule = (value?: string): value is SeriesModule => (
 export const getSeriesIdFromSearch = (search = '') => {
   const seriesId = new URLSearchParams(search).get(SERIES_QUERY_PARAM) || undefined;
   return seriesId;
+};
+
+const getSeriesModuleFromPathname = (pathname: string): SeriesModule | undefined => {
+  const contentMatch = pathname.match(/^\/content\/([^/]+)(?:\/|$)/);
+  if (contentMatch && isSeriesModule(contentMatch[1])) return contentMatch[1];
+
+  if (pathname === '/maps' || pathname.startsWith('/maps/')) return 'tools';
+
+  const matchingEntry = Object.entries(seriesModuleByBaseHref).find(([baseHref]) => (
+    pathname === baseHref || pathname.startsWith(`${baseHref}/`)
+  ));
+  return matchingEntry?.[1];
 };
 
 export const withSeriesScope = (href: string, seriesId?: string) => {
@@ -61,7 +73,7 @@ export const getSeriesRouteState = (pathname: string, search = '') => {
   if (segments[0] !== 'series') {
     return {
       seriesId: getSeriesIdFromSearch(search),
-      module: seriesModuleByBaseHref[pathname as keyof typeof seriesModuleByBaseHref],
+      module: getSeriesModuleFromPathname(pathname),
     };
   }
   return {
@@ -75,9 +87,7 @@ export const getSeriesModuleHref = (seriesId: string, module: SeriesModule) => (
 );
 
 export const getSeriesResourceHref = (seriesId: string, module: SeriesModule, slug: string) => (
-  isSharedSeriesModule(module)
-    ? withSeriesScope(baseHrefBySeriesModule[module], seriesId)
-    : withSeriesScope(`/content/${module}/${encodeURIComponent(slug)}`, seriesId)
+  `/series/${encodeURIComponent(seriesId)}/${module}/${encodeURIComponent(slug)}`
 );
 
 export const scopeModuleHref = (seriesId: string | undefined, baseHref: string) => {

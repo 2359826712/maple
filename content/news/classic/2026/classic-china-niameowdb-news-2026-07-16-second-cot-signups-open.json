@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-07-16-second-cot-signups-open",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/second-cot-signups-open",
+  "source_url": "https://meowdb.com/msclassic/news/second-cot-signups-open",
+  "external_id": "second-cot-signups-open",
+  "title": "Jul 16, 2026·Global·NexonSecond test sign-ups open: 3rd job, Ossyria, and macOS confirmedSign-ups for the second Closed Online Test are open on Nexon's site. They close July 29. Everyone must sign up again, even players from the first test. Nexon picks the testers and emails the invites. There are no beta keys. The test runs August 4 to 12 on Nexon Launcher. Characters are wiped when it ends. The big new addition is 3rd job. The test also adds Ossyria (Orbis and El Nath), play on macOS as well as Windows, controller support, more language choices, and extra GM events. You can also earn two rings for launch day. Reach level 10 and level 15 and finish the two event quests. That earns the Classic Beginnings Label Ring and Chat Ring. Do it in both tests and you get 2 of each ring.Closed Test",
+  "original_title": "Second test sign-ups open: 3rd job, Ossyria, and macOS confirmed | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-07-16",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Sign-ups for the second Closed Online Test are open on Nexon's site. They close July 29. Everyone must sign up again, even players from the first test. Nexon picks the testers and emails the invites. There are no beta keys. The test runs August 4 to 12 on Nexon Launcher. Characters are wiped when it ends. The big new addition is 3rd job. The test also adds Ossyria (Orbis and El Nath), play on macOS as well as Windows, controller support, more language choices, and extra GM events. You can also earn two rings for launch day. Reach level 10 and level 15 and finish the two event quests. That earns the Classic Beginnings Label Ring and Chat Ring. Do it in both tests and you get 2 of each ring.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+Global&sig=5G-iggFLZzvznMB2U5hgPG1m4nUakjkscWJWFKxMO2M&subtitle=Sign-ups+for+the+second+Closed+Online+Test+are+open+on+Nexon%27s+site.+They+close+July+29.+Everyone+must+sign+up+again%2C+even+players+from+the%E2%80%A6&title=Second+test+sign-ups+open%3A+3rd+job%2C+Ossyria%2C+and+macOS+confirmed",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "24a44d562237e350a6097ea2883a5f8cc35d74066ca4299dc5a62cd77deef239",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:49:12.225Z",
+    "final_url": "https://meowdb.com/msclassic/news/second-cot-signups-open",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

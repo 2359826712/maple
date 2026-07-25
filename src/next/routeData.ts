@@ -97,7 +97,7 @@ const catalogRoutes = metadataCatalog.routes as Record<string, RouteEntry>;
 export const runtimeRouteRoots = ['/news', '/upcoming', '/source', '/guides', '/events', '/wiki'] as const;
 
 const dynamicRoutePatterns = [
-  /^\/series\/[^/]+(?:\/[^/]+)?$/,
+  /^\/series\/[^/]+(?:\/[^/]+(?:\/[^/]+)?)?$/,
   /^\/content\/[^/]+\/[^/]+$/,
   /^\/guides\/(?!level(?:\/|$))[^/]+$/,
   /^\/upcoming\/[^/]+$/,
@@ -339,13 +339,17 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
         .catch(() => undefined)
     : Promise.resolve(undefined);
   const sourceUrl = request.searchParams.get('url') || '';
-  const contentMatch = routePath.match(/^\/content\/([^/]+)\/([^/]+)$/);
-  const contentModule = isSeriesModule(contentMatch?.[1]) ? contentMatch[1] : undefined;
-  const seriesResource = contentModule && contentMatch?.[2]
+  const legacyContentMatch = routePath.match(/^\/content\/([^/]+)\/([^/]+)$/);
+  const scopedContentMatch = routePath.match(/^\/series\/([^/]+)\/([^/]+)\/([^/]+)$/);
+  const contentModuleValue = scopedContentMatch?.[2] || legacyContentMatch?.[1];
+  const contentSlug = scopedContentMatch?.[3] || legacyContentMatch?.[2];
+  const contentSeriesId = scopedContentMatch?.[1] || request.searchParams.get('series') || '';
+  const contentModule = isSeriesModule(contentModuleValue) ? contentModuleValue : undefined;
+  const seriesResource = contentModule && contentSlug
     ? getVerifiedSeriesResource(
-        request.searchParams.get('series') || '',
+        contentSeriesId,
         contentModule,
-        safeDecode(contentMatch[2]),
+        safeDecode(contentSlug),
       )
     : undefined;
   const requestTitle = request.searchParams.get('title')?.trim() || seriesResource?.title;
@@ -355,7 +359,7 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     : undefined;
   const structuredContentSections = getIndexedContentSections(contentRecord);
   const resourceContentSections = getIndexedResourceSections(seriesResource?.resourceRecord);
-  const initialSeriesResourceDetail: SeriesResourceDetailData | undefined = contentMatch
+  const initialSeriesResourceDetail: SeriesResourceDetailData | undefined = contentSlug
     ? {
         contentModule,
         contentRecord,
@@ -366,7 +370,7 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
             : getSourceOverviewSections(seriesResource),
         hasStructuredContent: structuredContentSections.length > 0,
         resource: seriesResource,
-        resourceSlug: safeDecode(contentMatch[2]),
+        resourceSlug: safeDecode(contentSlug),
       }
     : undefined;
   const bossSlug = routePath.startsWith('/wiki/boss/')

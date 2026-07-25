@@ -118,6 +118,18 @@ describe('content index infrastructure', () => {
       .toEqual([expect.objectContaining({ publishedAt: '2026-07-18', url: 'https://example.com/news/42' })]);
     expect(await htmlAdapter.discover(source({ adapter_config: { link_selector: 'a.article', title_selector: 'span', include_patterns: ['/news/'] } }), context))
       .toEqual([expect.objectContaining({ title: 'Fixture Patch Notes', url: 'https://example.com/news/42' })]);
+    expect(await htmlAdapter.discover(source({
+      adapter_config: {
+        link_selector: 'a.article',
+        title_selector: 'span',
+        include_patterns: ['/news/'],
+        external_id_pattern: '/news/([^/?#]+)$',
+        body_selector: 'article',
+      },
+    }), context)).toEqual([expect.objectContaining({
+      externalId: '42',
+      metadata: expect.objectContaining({ body_selector: 'article' }),
+    })]);
     expect(await jsonApiAdapter.discover(source({ adapter: 'json-api', api_url: 'https://example.com/news.json', adapter_config: { items_path: 'items' } }), context))
       .toEqual([expect.objectContaining({ externalId: '42', url: 'https://example.com/news/42' })]);
   });

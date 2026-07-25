@@ -1,8 +1,6 @@
 import type { ComponentType, ReactNode } from 'react';
 import type { RouteObject } from 'react-router-dom';
-import ExternalRedirect from '@/components/feature/ExternalRedirect';
 import InternalRedirect from '@/components/feature/InternalRedirect';
-import { communityLinks } from '@/constants/communityLinks';
 import type { SeriesModule } from '@/pages/series/scope';
 import {
   languagePathSegments,
@@ -16,6 +14,7 @@ export type RouteComponents = {
   AdminFeedbackPage: ComponentType;
   BossDetailPage: ComponentType;
   ChecklistPage: ComponentType;
+  CommunityLandingPage: ComponentType;
   EventsPage: ComponentType;
   FeedbackPage: ComponentType;
   GuideDetail: ComponentType;
@@ -48,6 +47,7 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     AdminFeedbackPage,
     BossDetailPage,
     ChecklistPage,
+    CommunityLandingPage,
     EventsPage,
     FeedbackPage,
     GuideDetail,
@@ -84,19 +84,14 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     { path: '/series', element: <SeriesPage /> },
     { path: '/series/:seriesId', element: <SeriesPage /> },
     { path: '/series/:seriesId/:seriesModule', element: <SeriesPage /> },
+    { path: '/series/:seriesId/:seriesModule/:slug', element: <SeriesResourceDetailPage /> },
     { path: '/content/:contentModule/:slug', element: <SeriesResourceDetailPage /> },
     { path: '/guides', element: <SeriesModuleRoute module="guides"><GuidesPage /></SeriesModuleRoute> },
     { path: '/guides/:id', element: <GuideDetail /> },
     { path: '/events', element: <SeriesModuleRoute module="events"><EventsPage /></SeriesModuleRoute> },
     {
       path: '/community',
-      element: <SeriesModuleRoute module="community">
-        <ExternalRedirect
-          to={communityLinks.reddit}
-          message="Entering MapleStory Community"
-          targetLabel="MapleStory Community"
-        />
-      </SeriesModuleRoute>,
+      element: <SeriesModuleRoute module="community"><CommunityLandingPage /></SeriesModuleRoute>,
     },
     { path: '/auth/login', element: <LoginPage /> },
     { path: '/account', element: <AccountPage /> },

@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-07-02-cms-team-video-letter",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-team-video-letter",
+  "source_url": "https://meowdb.com/msclassic/news/cms-team-video-letter",
+  "external_id": "cms-team-video-letter",
+  "title": "Jul 2, 2026·China·ShengquShengqu posts a video letter from the ops and dev teamsOn the day the second test opened, Shengqu posted a message to players from the operations and development teams. The message is a video, not a written post. It sits on the official news page next to the test opening notes.Closed Test",
+  "original_title": "Shengqu posts a video letter from the ops and dev teams | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-07-02",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "On the day the second test opened, Shengqu posted a message to players from the operations and development teams. The message is a video, not a written post. It sits on the official news page next to the test opening notes.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=7K4N6cIihuB-oYUolUhfaXFy83KqnxB6Oz0RRf4k_7Y&subtitle=On+the+day+the+second+test+opened%2C+Shengqu+posted+a+message+to+players+from+the+operations+and+development+teams.+The+message+is+a+video%2C+n%E2%80%A6&title=Shengqu+posts+a+video+letter+from+the+ops+and+dev+teams",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "b1e4c64d857ce71fabe958de645d9e3b43a0d2cce4fad37ef6179777da396aec",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:49:39.436Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-team-video-letter",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

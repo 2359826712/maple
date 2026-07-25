@@ -1,0 +1,80 @@
+{
+  "id": "maplestory-m-july-8-9-2026-patch-notes",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?allBoard=1&board=2690&thread=3496419",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?allBoard=1&board=2690&thread=3496419",
+  "external_id": "3496419",
+  "title": "MapleStory M July 8/9, 2026 Patch Notes",
+  "original_title": "07.08/09 Patch Notes (Tutorial & Adventure Mission, Main UI Improvements, Star Force Field Improvements, Crystal Treasure Box Secondary Weapon x3 Event)",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "patch-note",
+  "subcategory": null,
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2026-07-08T11:00:00+00:00",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T00:00:00.000Z",
+  "last_checked": "2026-07-25T00:00:00.000Z",
+  "summary": "The July 8/9 update revised the main UI and quest tabs, improved tutorial and Adventure Mission flows, corrected Sol Erda party drops, adjusted Star Force Field party play, and introduced account-link, treasure-box, and package events.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["account-link", "patch-notes", "sol-erda", "star-force-field", "ui"],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260709/b094bba7-bd62-46b2-ab37-a64c7a7ee612/512.png",
+      "alt": "MapleStory M"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "1cf7b8b627d1237666deba967c5b2f721dfd7b2b2d621167da46d9da8d96a562",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Interface and quest changes",
+        "items": [
+          "Character, combat power, location, party, and map information were reorganized in the main interface.",
+          "Quest access was split into To Do, Event, and Miyo's Boost Mission tabs.",
+          "Content and Auto-Battle progress can replace quest information while those activities are running."
+        ]
+      },
+      {
+        "title": "Hunting and progression",
+        "items": [
+          "Sol Erda Fragments and Sol Erda Energy can drop from monsters defeated by party members using the player's own Item Drop Rate.",
+          "The update includes party-hunting and Star Force Field improvements.",
+          "Tutorial and Adventure Mission presentation and guidance were revised."
+        ]
+      },
+      {
+        "title": "Events and sales",
+        "items": [
+          "A PC MapleStory and MapleStory M account-link event runs after the July 9 update through August 26, 2026.",
+          "A Crystal Treasure Box event raises the secondary-weapon rate during its stated event window.",
+          "The notice includes several time-limited ticket, crystal, enhancement, and custom packages."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against the official Nexon Forum patch note on 2026-07-25.",
+  "game_version": null,
+  "patch_date": "2026-07-09",
+  "maintenance_start": null,
+  "maintenance_end": null,
+  "changes": [
+    "Reorganized the main UI and introduced To Do, Event, and Miyo's Boost Mission quest tabs.",
+    "Made Sol Erda drops available from party-member kills using the player's own Item Drop Rate.",
+    "Improved tutorial, Adventure Mission, party hunting, and Star Force Field flows.",
+    "Added the Maple M Account Link Event and Crystal Treasure Box Secondary Weapon x3 Event."
+  ],
+  "known_issues": [],
+  "resolved_issues": [
+    "Fixed Sol Erda Fragments and Sol Erda Energy not dropping from monsters defeated by party members."
+  ]
+}

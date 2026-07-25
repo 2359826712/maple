@@ -1,0 +1,107 @@
+{
+  "id": "classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3",
+  "source_url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3",
+  "external_id": "cms-launch-date-august-3",
+  "title": "China gets a launch date: CMS Classic opens August 3",
+  "original_title": "China gets a launch date: CMS Classic opens August 3 | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-07-11",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Shengqu announced that the Chinese Classic server launches for real on August 3, 2026. This is a full launch, not a test, and Shengqu says it is built to run long term. At launch you get five classes (Warrior, Mage, Bowman, Thief, and Pirate), a level cap of 100 with the second job change, classic areas like Victoria Island and the Nautilus, and Free Market personal and hired-merchant shops. Pre-registration is open on the official site.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowHype&eyebrow=MapleStory+Classic+%2F+China&sig=0t-j2l-ELl2R8EjkLkC2RsUioNZr7fOscJeYeSL6BPI&subtitle=Shengqu+announced+that+the+Chinese+Classic+server+launches+for+real+on+August+3%2C+2026.+This+is+a+full+launch%2C+not+a+test%2C+and+Shengqu+says%E2%80%A6&title=China+gets+a+launch+date%3A+CMS+Classic+opens+August+3",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [
+    "classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15",
+    "classic-china-niameowdb-news-2026-07-16-second-cot-signups-open"
+  ],
+  "related_urls": [
+    "https://mxdc.web.sdo.com/web1/news/newsContent.html?CategoryID=8469&id=390654"
+  ],
+  "content_hash": "069ae898a25e42e0bbb22dfacd85bceb3499edc39b2c059c88c3ca3801966272",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:49:24.271Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article",
+    "sections": [
+      {
+        "title": "Launch date and server status",
+        "items": [
+          "China MapleStory Classic is scheduled to open on August 3, 2026.",
+          "Shengqu describes this as the full, permanent service launch rather than another closed or time-limited test.",
+          "The official wording emphasizes long-term operation, so launch characters and progress are intended for the live service rather than a test wipe."
+        ]
+      },
+      {
+        "title": "Content available at launch",
+        "items": [
+          "The initial class selection covers the five classic Adventurer branches: Warrior, Magician, Bowman, Thief, and Pirate.",
+          "The opening level cap is 100, with progression through the second job advancement included in the announced launch scope.",
+          "Confirmed explorable areas include classic Victoria Island locations and the Nautilus, the Pirate starting hub."
+        ]
+      },
+      {
+        "title": "Trading and the Free Market",
+        "items": [
+          "The Free Market is part of the launch version rather than a feature deferred to a later update.",
+          "Both player-operated personal shops and hired-merchant shops are named, establishing player-to-player trading as a launch-day system.",
+          "Prices, shop restrictions, currency rules, and anti-abuse measures were not specified in the indexed announcement and should not be inferred."
+        ]
+      },
+      {
+        "title": "Registration and timing",
+        "items": [
+          "Pre-registration is open through the official Shengqu China MapleStory Classic website.",
+          "The second Chinese closed test is scheduled to end on July 15, leaving 19 days between that test ending and the August 3 live launch.",
+          "No unconfirmed registration deadline, launch-hour timestamp, reward list, or account requirement has been added by MPStorys."
+        ]
+      },
+      {
+        "title": "What this means for Global MapleStory Classic",
+        "items": [
+          "The August 3 date applies to the Chinese service operated by Shengqu; it is not a Global MapleStory Classic release date.",
+          "Global Closed Online Test #2 is scheduled for August 4–12, after the Chinese live service opens.",
+          "Because the Chinese and Global versions have different operators, test schedules, and service rules, the China date should not be used to predict the Global launch."
+        ]
+      },
+      {
+        "title": "Source distinction",
+        "items": [
+          "The launch facts originate from Shengqu's official Chinese announcement, linked below as the first-party reference.",
+          "NiaMeowDB is an independent fan site; its comparison with the Global test schedule is commentary, not a Nexon or Shengqu statement.",
+          "MPStorys preserves this distinction so confirmed launch facts are not mixed with regional-release speculation."
+        ]
+      }
+    ]
+  },
+  "notes": null
+}

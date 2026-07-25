@@ -1,0 +1,69 @@
+{
+  "id": "maplestory-idle-july-23-2026-update-preview",
+  "source_id": "idle-nexon-official-patch-notes",
+  "canonical_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3501940",
+  "source_url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3501940",
+  "external_id": "3501940",
+  "title": "MapleStory: Idle RPG July 23 Update Preview",
+  "original_title": "July 23 Update Preview",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "roadmap",
+  "subcategory": "update-preview",
+  "official": true,
+  "author": "Grendel",
+  "published_at": "2026-07-16T08:00:00+00:00",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T00:00:00.000Z",
+  "last_checked": "2026-07-25T00:00:00.000Z",
+  "summary": "The official July 23 preview announces Night Walker and Wind Archer, chapters 42-44, higher-chapter EXP improvements, Burning Field Boosters, Chaos Horntail, monthly attendance, new Colosseum seasons, and several growth and reward events.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["burning-field", "horntail", "night-walker", "update-preview", "wind-archer"],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250507/60766e9d-1802-4a07-8cef-e40264bdb018/MIAppicof512512.png",
+      "alt": "MapleStory: Idle RPG"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0f6914999541254f391747c2c5438c5beae14281264714615e842182203fc111",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "target_update_date": "2026-07-23",
+    "development_status": "Content was still in development when announced and was subject to change.",
+    "sections": [
+      {
+        "title": "Classes and companions",
+        "items": [
+          "Night Walker and Wind Archer are planned as new playable classes.",
+          "Matching companions and a higher 60% featured rate in their Rate-Up Summon are planned.",
+          "The maximum level of Legendary Companions is planned to increase to 16."
+        ]
+      },
+      {
+        "title": "Progression and bosses",
+        "items": [
+          "Chapters 42-44 add Ereve, Rien, and Riena Strait.",
+          "EXP gains improve progressively from Chapter 20, with roughly double or more EXP from Chapter 38 onward.",
+          "Burning Field Boosters add special monsters that grant bonus EXP.",
+          "Chaos difficulty is planned for the Horntail Boss Raid."
+        ]
+      },
+      {
+        "title": "Schedules and events",
+        "items": [
+          "Monthly Attendance is planned to begin August 1 and reset on the first of each month.",
+          "Three Colosseum rounds are listed from July 28 through August 15, 2026.",
+          "The preview lists cube, pendant, attendance, new-character, Burning Field, Journey Token, Party Quest, and Boss Raid events."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured facts verified against the official Nexon Forum update preview on 2026-07-25."
+}

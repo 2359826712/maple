@@ -1,9 +1,71 @@
 [
   {
-    "id": "database",
+    "id": "api",
     "count": 1,
     "resource_ids": [
+      "worlds-official-api-reference"
+    ]
+  },
+  {
+    "id": "calculator",
+    "count": 15,
+    "resource_ids": [
+      "classicworld-stat-equivalence-calculator",
+      "classicworld-xp-farming-calculator",
+      "idle-hero-token-calculator",
+      "idle-mirpg-damage-calculator",
+      "idle-wiki-companion-summon-calculator",
+      "idle-wiki-elite-summon-calculator",
+      "idle-wiki-experience-calculator",
+      "idle-wiki-weapon-summon-calculator",
+      "m-community-powder-cost-calculator",
+      "n-maplehub-cube-cost-calculator",
+      "n-maplehub-flame-score-calculator",
+      "n-maplehub-raffle-reward-calculator",
+      "n-maplehub-star-force-calculator",
+      "n-maplehub-stat-equivalent-calculator",
+      "n-maplehub-v-matrix-calculator"
+    ]
+  },
+  {
+    "id": "community",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-telegram"
+    ]
+  },
+  {
+    "id": "database",
+    "count": 11,
+    "resource_ids": [
+      "classic-niameowdb-database-toolkit",
+      "classic-sleepywood-game-database",
+      "classicworld-search-library",
+      "idle-game-data-library",
+      "idle-monster-stat-lookup",
+      "m-hyper-stats-table",
+      "m-jewel-table",
+      "m-link-skills-table",
+      "m-star-force-rate-table",
+      "m-weapon-pba-table",
       "worlds-creator-resources"
+    ]
+  },
+  {
+    "id": "developer-tool",
+    "count": 1,
+    "resource_ids": [
+      "worlds-ai-coding-plugins"
+    ]
+  },
+  {
+    "id": "discord",
+    "count": 4,
+    "resource_ids": [
+      "idle-official-discord",
+      "m-official-discord",
+      "n-official-universe-discord",
+      "worlds-official-discord"
     ]
   },
   {
@@ -23,6 +85,13 @@
     ]
   },
   {
+    "id": "github",
+    "count": 1,
+    "resource_ids": [
+      "worlds-msw-examples-repository"
+    ]
+  },
+  {
     "id": "guide",
     "count": 7,
     "resource_ids": [
@@ -33,6 +102,13 @@
       "worlds-creator-center-welcome-to-msw",
       "worlds-ip-use-scope",
       "worlds-managing-resources-guide"
+    ]
+  },
+  {
+    "id": "media",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-medium"
     ]
   },
   {
@@ -57,6 +133,19 @@
     ]
   },
   {
+    "id": "optimizer",
+    "count": 7,
+    "resource_ids": [
+      "idle-advanced-equipment-compare",
+      "idle-character-analysis",
+      "idle-item-quality-checker",
+      "idle-mirpg-dps-projections",
+      "idle-simple-equipment-compare",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-hyper-stat-optimizer"
+    ]
+  },
+  {
     "id": "patch-notes",
     "count": 5,
     "resource_ids": [
@@ -68,20 +157,65 @@
     ]
   },
   {
-    "id": "rankings",
-    "count": 1,
+    "id": "planner",
+    "count": 6,
     "resource_ids": [
-      "maplestory-official-rankings"
+      "classic-mapleclassic-route-planner",
+      "classic-niameowdb-character-builder",
+      "classic-niameowdb-grind-tracker",
+      "classic-niameowdb-quest-tracker",
+      "classicworld-progression-table",
+      "n-maplehub-arcane-symbol-tracker"
+    ]
+  },
+  {
+    "id": "rankings",
+    "count": 3,
+    "resource_ids": [
+      "idle-msidle-rankings",
+      "maplestory-official-rankings",
+      "n-official-character-rankings"
+    ]
+  },
+  {
+    "id": "reddit",
+    "count": 5,
+    "resource_ids": [
+      "classic-world-subreddit",
+      "idle-rpg-subreddit",
+      "m-subreddit",
+      "n-maplestory-n-subreddit",
+      "worlds-subreddit"
+    ]
+  },
+  {
+    "id": "simulator",
+    "count": 6,
+    "resource_ids": [
+      "classic-niameowdb-accuracy-simulator",
+      "classic-niameowdb-avoidability-simulator",
+      "classic-niameowdb-damage-simulator",
+      "classic-niameowdb-scroll-simulator",
+      "classicworld-scroll-cost-simulator",
+      "n-maplehub-equipment-simulator"
     ]
   },
   {
     "id": "wiki",
-    "count": 4,
+    "count": 5,
     "resource_ids": [
+      "classic-sleepywood-jobs-and-skills",
       "idle-official-faq",
       "maplestory-official-game-reference",
       "n-classes-and-jobs",
       "worlds-creator-documents"
+    ]
+  },
+  {
+    "id": "youtube",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-youtube"
     ]
   }
 ]

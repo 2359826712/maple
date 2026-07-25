@@ -1288,7 +1288,7 @@ describe('F-05 Accessibility Tests', () => {
     });
 
     it('wiki data-access strategy document exists', () => {
-      const docPath = resolve(__dirname, '../../maple_doc_1/wiki-data-access-strategy.md');
+      const docPath = resolve(__dirname, '../docs/wiki-data-access-strategy.md');
       const docText = readFileSync(docPath, 'utf-8');
 
       expect(docText).toContain('TRUST-12');

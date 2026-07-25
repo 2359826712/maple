@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-04-29-cms-classic-site-launch",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-classic-site-launch",
+  "source_url": "https://meowdb.com/msclassic/news/cms-classic-site-launch",
+  "external_id": "cms-classic-site-launch",
+  "title": "Apr 29, 2026·China·ShengquShengqu launches Classic MapleStory site for China, 500k+ pre-registered in two weeksShengqu Games opened the official Chinese Classic MapleStory website at mxdc.sdo.com on April 29. The Chinese name is 冒险岛怀旧服, which means MapleStory Classic Server. In just two weeks, almost 500,000 players signed up. The first test will have five jobs: Warrior, Mage, Bowman, Thief, and Pirate. There are also two classic team quests: Moon Miao's Rice Cake and First Journey Together.Closed Test",
+  "original_title": "Shengqu launches Classic MapleStory site for China, 500k+ pre-registered in two weeks | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-04-29",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Shengqu Games opened the official Chinese Classic MapleStory website at mxdc.sdo.com on April 29. The Chinese name is 冒险岛怀旧服, which means MapleStory Classic Server. In just two weeks, almost 500,000 players signed up. The first test will have five jobs: Warrior, Mage, Bowman, Thief, and Pirate. There are also two classic team quests: Moon Miao's Rice Cake and First Journey Together.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=6dWvqDZOMpWMxzwGpZpnrqGC95xOfkVX1yLB6FFIaFs&subtitle=Shengqu+Games+opened+the+official+Chinese+Classic+MapleStory+website+at+mxdc.sdo.com+on+April+29.+The+Chinese+name+is+%E5%86%92%E9%99%A9%E5%B2%9B%E6%80%80%E6%97%A7%E6%9C%8D%2C+which+means+M%E2%80%A6&title=Shengqu+launches+Classic+MapleStory+site+for+China%2C+500k%2B+pre-registered+in+two%E2%80%A6",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "8f7f154ce6dd31effe7e3e178c569bae6bb23ebdd7b314557e60a6894c3f4bf6",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:50:44.105Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-classic-site-launch",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

@@ -2,9 +2,12 @@ import { describe, expect, it } from 'vitest';
 import { seriesProducts } from './catalog';
 import {
   getVerifiedSeriesResource,
+  getVerifiedSeriesResources,
   getVerifiedSeriesResourceSlug,
+  getSeriesModuleArtwork,
   verifiedSeriesContent,
 } from './verifiedContent';
+import { indexedContent } from '@/domain/contentIndex';
 import { indexedResources } from '@/domain/resourceIndex';
 
 describe('verified series content', () => {
@@ -40,6 +43,37 @@ describe('verified series content', () => {
     });
   });
 
+  it('assigns indexed resources to the matching module inside their own series', () => {
+    const assignments = [
+      ['maplestory-classic', 'tools', 'classic-niameowdb-damage-simulator'],
+      ['maplestory-classic', 'wiki', 'classic-niameowdb-database-toolkit'],
+      ['maplestory-m', 'community', 'm-subreddit'],
+      ['maplestory-m', 'wiki', 'm-star-force-rate-table'],
+      ['maplestory-n', 'tools', 'n-maplehub-star-force-calculator'],
+      ['maplestory-n', 'rankings', 'n-official-character-rankings'],
+      ['maplestory-worlds', 'tools', 'worlds-ai-coding-plugins'],
+      ['maplestory-worlds', 'community', 'worlds-official-discord'],
+      ['maplestory-idle', 'tools', 'idle-hero-token-calculator'],
+      ['maplestory-idle', 'rankings', 'idle-msidle-rankings'],
+    ] as const;
+
+    assignments.forEach(([seriesId, module, resourceId]) => {
+      expect(getVerifiedSeriesResources(seriesId, module)).toEqual(expect.arrayContaining([
+        expect.objectContaining({ resourceId }),
+      ]));
+    });
+  });
+
+  it('keeps metadata-only official publications visible in the series archives', () => {
+    const visibleContentIds = new Set(Object.values(verifiedSeriesContent)
+      .flatMap((modules) => Object.values(modules).flatMap((items) => items || []))
+      .map((resource) => resource.contentId)
+      .filter(Boolean));
+    indexedContent
+      .filter((content) => content.status !== 'removed')
+      .forEach((content) => expect(visibleContentIds.has(content.id), content.id).toBe(true));
+  });
+
   it('keeps the core editorial modules populated and addressable on this site', () => {
     const coreModules = ['news', 'upcoming', 'guides', 'events', 'tools', 'wiki'] as const;
     seriesProducts.forEach((product) => {
@@ -55,9 +89,45 @@ describe('verified series content', () => {
     });
   });
 
+  it('provides verified artwork for every MapleStory series', () => {
+    seriesProducts.forEach((product) => {
+      const resources = Object.values(verifiedSeriesContent[product.id])
+        .flatMap((items) => items || []);
+      expect(
+        resources.some((resource) => Boolean(resource.imageUrl)),
+        `${product.id} should have at least one source-backed image`,
+      ).toBe(true);
+    });
+  });
+
+  it('resolves artwork for every module in every series', () => {
+    const modules = [
+      'news',
+      'upcoming',
+      'guides',
+      'events',
+      'tools',
+      'checklist',
+      'wiki',
+      'rankings',
+      'shop',
+      'community',
+      'feedback',
+    ] as const;
+
+    seriesProducts.forEach((product) => {
+      modules.forEach((module) => {
+        expect(getSeriesModuleArtwork(product.id, module, product.image))
+          .toMatch(/^(?:https:\/\/|\/)/);
+      });
+    });
+  });
+
   it('leaves unsupported modules empty instead of inventing content', () => {
-    ['maplestory-classic', 'maplestory-m', 'maplestory-n', 'maplestory-worlds', 'maplestory-idle']
+    ['maplestory-classic', 'maplestory-m', 'maplestory-worlds']
       .forEach((seriesId) => expect(verifiedSeriesContent[seriesId].rankings).toBeUndefined());
+    expect(verifiedSeriesContent['maplestory-n'].rankings?.length).toBeGreaterThan(0);
+    expect(verifiedSeriesContent['maplestory-idle'].rankings?.length).toBeGreaterThan(0);
     expect(verifiedSeriesContent['maplestory-classic'].shop).toBeUndefined();
   });
 });

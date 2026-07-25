@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-05-20-cms-letter-to-players-anti-farm",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-letter-to-players-anti-farm",
+  "source_url": "https://meowdb.com/msclassic/news/cms-letter-to-players-anti-farm",
+  "external_id": "cms-letter-to-players-anti-farm",
+  "title": "May 20, 2026·China·ShengquShengqu publishes open letter to players on the script-farm fightOn the same day the test opened, Shengqu wrote a long letter to players. They defended their gold-binding rule and trading limits. They said normal players who farm gold are fine. The real target is huge bot farms with thousands or millions of fake accounts. They are thinking about letting friends trade with each other again.Closed Test",
+  "original_title": "Shengqu publishes open letter to players on the script-farm fight | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-05-20",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "On the same day the test opened, Shengqu wrote a long letter to players. They defended their gold-binding rule and trading limits. They said normal players who farm gold are fine. The real target is huge bot farms with thousands or millions of fake accounts. They are thinking about letting friends trade with each other again.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=xcIbxCQJX-I951bT9Mh6gvv9YQ8F0nzzyLtaefUTv-Y&subtitle=On+the+same+day+the+test+opened%2C+Shengqu+wrote+a+long+letter+to+players.+They+defended+their+gold-binding+rule+and+trading+limits.+They+sai%E2%80%A6&title=Shengqu+publishes+open+letter+to+players+on+the+script-farm+fight",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0fb4b9ef506e1502372919d7f032af2f3224c7c85e47f2e2d418190c1bc679ed",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:50:10.749Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-letter-to-players-anti-farm",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

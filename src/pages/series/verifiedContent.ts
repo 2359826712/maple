@@ -16,6 +16,8 @@ export type VerifiedSeriesResource = {
   description: string;
   sourceLabel: string;
   sourceUrl: string;
+  imageUrl?: string;
+  imageAlt?: string;
   publishedAt?: string;
   category?: string;
   status?: string;
@@ -43,7 +45,13 @@ const editorialSeriesContent: Record<string, SeriesContent> = {
     wiki: [officialIndex('Official MapleStory game reference', 'Nexon-maintained reference material for the main PC game.', 'Nexon MapleStory', 'https://www.nexon.com/maplestory/game')],
     rankings: [officialIndex('Global MapleStory Rankings', 'Official character and game ranking pages for Global MapleStory.', 'Nexon MapleStory', 'https://www.nexon.com/maplestory/rankings')],
     shop: [officialIndex('Official Cash Shop notices', 'Cash Shop rotations, sales, and package details are published in the official news center.', 'Nexon MapleStory', 'https://www.nexon.com/maplestory/news')],
-    community: [officialIndex('Official MapleStory Discord', 'The official Global MapleStory Discord community.', 'Nexon MapleStory', 'https://discord.gg/maplestory')],
+    community: [
+      officialIndex('Official MapleStory Discord', 'The official Global MapleStory Discord for announcements, real-time discussion, help, events, and finding other Maplers.', 'Nexon MapleStory', 'https://discord.com/invite/maplestory'),
+      officialIndex('r/MapleStory', 'A large player-run Reddit community for questions, update discussion, guides, achievements, artwork, and community posts.', 'Reddit', 'https://www.reddit.com/r/Maplestory/'),
+      officialIndex('MapleStory Forums', 'The official forum destination for longer discussions, announcements, technical topics, player feedback, guilds, and fan creations.', 'Nexon MapleStory', 'https://forums.maplestory.nexon.net/'),
+      officialIndex('MapleStory YouTube', 'The official video channel for update previews, event videos, trailers, class showcases, and livestream highlights.', 'Nexon MapleStory', 'https://www.youtube.com/@MapleStory'),
+      officialIndex('MapleStory on X', 'Short official updates, maintenance reminders, event highlights, and links to newly published announcements.', 'Nexon MapleStory', 'https://x.com/MapleStory'),
+    ],
   },
   'maplestory-classic': {
     news: [officialIndex('MapleStory Classic World Closed Online Test #2', 'Nexon registration and product information for the second Global MapleStory Classic World closed online test.', 'Nexon Classic World', 'https://www.nexon.com/mscw/classic-world-closed-online-test-2')],
@@ -125,6 +133,8 @@ const indexedSeriesContent = indexedResources.reduce<Record<string, SeriesConten
     description: resource.description,
     sourceLabel: resource.website,
     sourceUrl: resource.url,
+    imageUrl: resource.image_url || undefined,
+    imageAlt: resource.name,
     category: resource.category,
     status: resource.status,
     lastChecked: resource.last_checked,
@@ -157,17 +167,8 @@ const contentSeriesIds: Record<(typeof indexedContent)[number]['series'], string
 };
 
 const sourceNames = new Map(indexedContentSources.map((source) => [source.id, source.name]));
-const hasReadableIndexedDetail = (content: (typeof indexedContent)[number]) => {
-  if (content.metadata.editorial_reviewed === true) return true;
-  const sections = Array.isArray(content.metadata.sections) ? content.metadata.sections : [];
-  return sections.some((section) => {
-    if (!section || typeof section !== 'object') return false;
-    const title = 'title' in section ? String(section.title || '').trim().toLowerCase() : '';
-    return title.length > 0 && title !== 'official publication record';
-  });
-};
 const indexedArticleContent = indexedContent.reduce<Record<string, SeriesContent>>((seriesContent, content) => {
-  if (content.status === 'removed' || !hasReadableIndexedDetail(content)) return seriesContent;
+  if (content.status === 'removed') return seriesContent;
   const seriesId = contentSeriesIds[content.series];
   const module = contentTypeModules[content.content_type];
   const modules = seriesContent[seriesId] || {};
@@ -178,6 +179,8 @@ const indexedArticleContent = indexedContent.reduce<Record<string, SeriesContent
     description: content.summary || `Verified ${content.content_type.replaceAll('-', ' ')} from ${sourceNames.get(content.source_id) || 'an official source'}.`,
     sourceLabel: sourceNames.get(content.source_id) || 'Official source',
     sourceUrl: content.canonical_url,
+    imageUrl: content.images[0]?.url,
+    imageAlt: content.images[0]?.alt || content.title,
     publishedAt: content.published_at || undefined,
     category: content.content_type,
     status: content.status,
@@ -211,7 +214,11 @@ export const verifiedSeriesContent: Record<string, SeriesContent> = Object.fromE
           !indexedUrls.has(resource.sourceUrl)
           && !indexedTitles.has(resource.title.trim().toLocaleLowerCase('en'))
         ));
-        return [typedModule, [...indexed, ...editorial]];
+        return [typedModule, [...indexed, ...editorial].sort((left, right) => {
+          const dateOrder = String(right.publishedAt || '').localeCompare(String(left.publishedAt || ''));
+          if (dateOrder !== 0) return dateOrder;
+          return left.title.localeCompare(right.title, 'en');
+        })];
       }),
     ) as SeriesContent;
     return [seriesId, modules];
@@ -220,6 +227,17 @@ export const verifiedSeriesContent: Record<string, SeriesContent> = Object.fromE
 
 export const getVerifiedSeriesResources = (seriesId: string, module: SeriesModule) => (
   verifiedSeriesContent[seriesId]?.[module] || emptyResources
+);
+
+export const getSeriesModuleArtwork = (
+  seriesId: string,
+  module: SeriesModule,
+  fallbackImage: string,
+) => (
+  getVerifiedSeriesResources(seriesId, module)
+    .find((resource) => Boolean(resource.imageUrl))
+    ?.imageUrl
+  || fallbackImage
 );
 
 export const getVerifiedSeriesResourceSlug = (resource: VerifiedSeriesResource) => {
@@ -238,6 +256,12 @@ export const getVerifiedSeriesResource = (
   seriesId: string,
   module: SeriesModule,
   slug: string,
-) => getVerifiedSeriesResources(seriesId, module).find(
-  (resource) => getVerifiedSeriesResourceSlug(resource) === slug,
-);
+) => {
+  const resources = getVerifiedSeriesResources(seriesId, module);
+  const exact = resources.find((resource) => getVerifiedSeriesResourceSlug(resource) === slug);
+  if (exact) return exact;
+  return resources.find((resource) => {
+    const stableId = resource.contentId || resource.resourceId;
+    return Boolean(stableId && slug.includes(stableId.slice(0, Math.min(56, stableId.length))));
+  });
+};

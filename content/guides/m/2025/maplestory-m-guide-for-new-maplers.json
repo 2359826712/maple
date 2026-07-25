@@ -31,11 +31,16 @@
     "equipment",
     "trade-station"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260709/b094bba7-bd62-46b2-ab37-a64c7a7ee612/512.png",
+      "alt": "MapleStory M"
+    }
+  ],
   "attachments": [],
   "related_content_ids": [],
   "related_urls": [],
-  "content_hash": "11a4d14f9d1c8b4a76acb6f41f063a6a208fcc51ae0065b16a1cf46ceb88ba65",
+  "content_hash": "8f97c4f8f96553ae1569423120ee0e1d0b3070db038cde6d20494c8d8897c811",
   "status": "published",
   "translation_status": "not-requested",
   "metadata": {

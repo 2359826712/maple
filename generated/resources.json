@@ -1,5 +1,41 @@
 [
   {
+    "id": "classic-mapleclassic-route-planner",
+    "name": "MapleClassic Wiki Route Planner",
+    "website": "MapleClassic Wiki",
+    "page": "MapleStory Classic World Route Planner",
+    "url": "https://mapleclassic.wiki/wiki/Special:MyLanguage/MapleStory_Classic_World_Route_Planner",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "ko"
+    ],
+    "category": "planner",
+    "subcategory": "map-route",
+    "description": "Finds the shortest walking route between two Classic World maps and shows each portal crossing.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "maps",
+      "navigation",
+      "route",
+      "wiki"
+    ],
+    "source_urls": [
+      "https://mapleclassic.wiki/wiki/Special:MyLanguage/MapleStory_Classic_World_Route_Planner"
+    ],
+    "notes": null
+  },
+  {
     "id": "classic-nexon-closed-online-test-2",
     "name": "Classic World Closed Online Test #2 Registration",
     "website": "Global MapleStory",
@@ -16,6 +52,7 @@
     "category": "news",
     "subcategory": "announcements",
     "description": "Provides Nexon's registration announcement and participation details for the second Global MapleStory Classic World closed online test.",
+    "image_url": "https://g.nexonstatic.com/media/u1wjqi0x/540x304-maplestory-classic-world-closed-online-test-2.png",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -35,6 +72,394 @@
     "notes": null
   },
   {
+    "id": "classic-niameowdb-accuracy-simulator",
+    "name": "NiaMeowDB Classic Accuracy Simulator",
+    "website": "NiaMeowDB",
+    "page": "Accuracy Simulator",
+    "url": "https://meowdb.com/msclassic/accuracy-sim",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "simulator",
+    "subcategory": "combat-accuracy",
+    "description": "Estimates Classic World hit accuracy against selected monsters using character and target inputs.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "accuracy",
+      "combat",
+      "monsters",
+      "niameowdb"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/accuracy-sim"
+    ],
+    "notes": "This is a community model; use current in-game testing when an exact result matters."
+  },
+  {
+    "id": "classic-niameowdb-avoidability-simulator",
+    "name": "NiaMeowDB Classic Avoidability Simulator",
+    "website": "NiaMeowDB",
+    "page": "Avoidability Simulator",
+    "url": "https://meowdb.com/msclassic/avoidability-sim",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "simulator",
+    "subcategory": "combat-avoidability",
+    "description": "Estimates Classic World avoidability and enemy hit outcomes using character and monster inputs.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "avoidability",
+      "combat",
+      "monsters",
+      "niameowdb"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/avoidability-sim"
+    ],
+    "notes": "This is a community model; use current in-game testing when an exact result matters."
+  },
+  {
+    "id": "classic-niameowdb-character-builder",
+    "name": "NiaMeowDB Classic Character Builder",
+    "website": "NiaMeowDB",
+    "page": "Character Builder",
+    "url": "https://meowdb.com/msclassic/character-builder",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "planner",
+    "subcategory": "character-build",
+    "description": "Plans Classic World AP, skills, equipment, stats, and damage previews on one shareable character loadout.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "ap",
+      "build",
+      "equipment",
+      "niameowdb",
+      "skills"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/character-builder"
+    ],
+    "notes": "The builder currently states that it supports levels up to 70. An account is optional for basic use but is used for saved builds."
+  },
+  {
+    "id": "classic-niameowdb-damage-simulator",
+    "name": "NiaMeowDB Classic Damage Simulator",
+    "website": "NiaMeowDB",
+    "page": "Damage Simulator",
+    "url": "https://meowdb.com/msclassic/dmg-simulator",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "simulator",
+    "subcategory": "combat-damage",
+    "description": "Calculates and compares Classic World damage and DPS for a selected class, build, skill, and target.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "combat",
+      "damage",
+      "dps",
+      "niameowdb"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/dmg-simulator"
+    ],
+    "notes": "This is a community model; use current in-game testing when an exact result matters."
+  },
+  {
+    "id": "classic-niameowdb-database-toolkit",
+    "name": "NiaMeowDB Classic Database and Toolkit",
+    "website": "NiaMeowDB",
+    "page": "MapleStory Classic",
+    "url": "https://meowdb.com/msclassic",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "game-data",
+    "description": "Fan-built Classic World database and toolkit with items, monsters, maps, skills, NPCs, crafting, guides, news, simulators, and planners.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "database",
+      "guides",
+      "niameowdb",
+      "tools"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic"
+    ],
+    "notes": "The site clearly identifies itself as a fan project and links its news summaries to original publisher sources."
+  },
+  {
+    "id": "classic-niameowdb-grind-tracker",
+    "name": "NiaMeowDB Classic Grind Tracker",
+    "website": "NiaMeowDB",
+    "page": "Grind Tracker",
+    "url": "https://meowdb.com/msclassic/grind-tracker",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "planner",
+    "subcategory": "training-tracker",
+    "description": "Tracks Classic World grinding sessions and progression metrics for training comparisons.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "grinding",
+      "niameowdb",
+      "progress",
+      "training"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/grind-tracker"
+    ],
+    "notes": null
+  },
+  {
+    "id": "classic-niameowdb-quest-tracker",
+    "name": "NiaMeowDB Classic Quest Tracker",
+    "website": "NiaMeowDB",
+    "page": "Quest Tracker",
+    "url": "https://meowdb.com/msclassic/quest-tracker",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "planner",
+    "subcategory": "quest-tracker",
+    "description": "Filters and tracks Classic World quests by class, area, level, repeatability, events, rewards, and quest chain.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "niameowdb",
+      "progress",
+      "quests",
+      "tracker"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/quest-tracker"
+    ],
+    "notes": "Browsing does not require an account; cross-device progress saving does."
+  },
+  {
+    "id": "classic-niameowdb-scroll-simulator",
+    "name": "NiaMeowDB Classic Scroll Simulator",
+    "website": "NiaMeowDB",
+    "page": "Scroll Simulator",
+    "url": "https://meowdb.com/msclassic/scroll-sim",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "simulator",
+    "subcategory": "equipment-scroll",
+    "description": "Simulates Classic World equipment scrolling outcomes without consuming in-game items.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "equipment",
+      "niameowdb",
+      "scrolling",
+      "simulation"
+    ],
+    "source_urls": [
+      "https://meowdb.com/msclassic/scroll-sim"
+    ],
+    "notes": null
+  },
+  {
+    "id": "classic-sleepywood-game-database",
+    "name": "Sleepywood Classic Game Database",
+    "website": "Sleepywood",
+    "page": "Game Database",
+    "url": "https://www.sleepywood.io/database",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "game-data",
+    "description": "A community-maintained searchable database for Classic World items, monsters, maps, quests, and NPCs.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "items",
+      "maps",
+      "monsters",
+      "npcs",
+      "quests"
+    ],
+    "source_urls": [
+      "https://www.sleepywood.io/database",
+      "https://www.sleepywood.io/about"
+    ],
+    "notes": "Sleepywood describes the data as sourced from historical game files with targeted community corrections."
+  },
+  {
+    "id": "classic-sleepywood-jobs-and-skills",
+    "name": "Sleepywood Classic Jobs and Skills",
+    "website": "Sleepywood",
+    "page": "Job Classes",
+    "url": "https://www.sleepywood.io/jobs",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "wiki",
+    "subcategory": "classes",
+    "description": "Browses Classic World job classes, skill trees, and advancement paths for Warriors, Magicians, Bowmen, and Thieves.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "classes",
+      "jobs",
+      "skills"
+    ],
+    "source_urls": [
+      "https://www.sleepywood.io/jobs",
+      "https://www.sleepywood.io/about"
+    ],
+    "notes": null
+  },
+  {
+    "id": "classic-world-subreddit",
+    "name": "r/MSClassicWorld",
+    "website": "Reddit",
+    "page": "MapleStory Classic World Community",
+    "url": "https://www.reddit.com/r/MSClassicWorld",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "reddit",
+    "subcategory": "player-community",
+    "description": "Player-run Classic World community for test findings, questions, tools, launch discussion, and update reactions.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discussion",
+      "reddit"
+    ],
+    "source_urls": [
+      "https://www.reddit.com/r/MSClassicWorld"
+    ],
+    "notes": "Community posts are user-generated and should be verified against primary evidence before being treated as factual."
+  },
+  {
     "id": "classic-world-test-2-campaign",
     "name": "Classic World Closed Online Test #2",
     "website": "Global MapleStory Classic World",
@@ -51,6 +476,7 @@
     "category": "official",
     "subcategory": "closed-test",
     "description": "Provides Nexon's official campaign page for registration and access information for Classic World Closed Online Test #2.",
+    "image_url": "https://g.nexonstatic.com/mscw/static/classic-world-closed-online-test2/share_fb.jpg",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -68,6 +494,216 @@
       "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
     ],
     "notes": null
+  },
+  {
+    "id": "classicworld-progression-table",
+    "name": "Classic World Equipment Progression Table",
+    "website": "MapleStory Classic World",
+    "page": "Progression Table",
+    "url": "https://www.classicworldmaplestory.com/calculators/progression-table.html",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "planner",
+    "subcategory": "equipment-progression",
+    "description": "Tracks current equipment and planned upgrades, then compares item score, stat gain, price, and cost per stat.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "equipment",
+      "planner",
+      "progression"
+    ],
+    "source_urls": [
+      "https://www.classicworldmaplestory.com/calculators/progression-table.html"
+    ],
+    "notes": "Verified against the live current-equipment, planned-upgrade, and comparison controls."
+  },
+  {
+    "id": "classicworld-scroll-cost-simulator",
+    "name": "Classic World 60% Scroll Cost Simulator",
+    "website": "MapleStory Classic World",
+    "page": "60% Attempt Cost",
+    "url": "https://www.classicworldmaplestory.com/calculators/scroll-simulator.html",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "simulator",
+    "subcategory": "scroll-cost",
+    "description": "Calculates scrolling cost from item replacement price, upgrade slots, and the price of 60% scrolls.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "equipment",
+      "scroll",
+      "simulation"
+    ],
+    "source_urls": [
+      "https://www.classicworldmaplestory.com/calculators/scroll-simulator.html"
+    ],
+    "notes": "Verified against the live replacement-cost, slot-count, and scroll-price inputs."
+  },
+  {
+    "id": "classicworld-search-library",
+    "name": "Classic World Monster, Item, and Map Library",
+    "website": "MapleStory Classic World",
+    "page": "Library",
+    "url": "https://www.classicworldmaplestory.com/search.html",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "game-data",
+    "description": "Searches Classic World monsters, items, and maps with level, category, job, and equipment-type filters.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "items",
+      "maps",
+      "monsters",
+      "search"
+    ],
+    "source_urls": [
+      "https://www.classicworldmaplestory.com/search.html"
+    ],
+    "notes": null
+  },
+  {
+    "id": "classicworld-stat-equivalence-calculator",
+    "name": "Classic World Stat Equivalence Calculator",
+    "website": "MapleStory Classic World",
+    "page": "Stat Equivalence Calculator",
+    "url": "https://www.classicworldmaplestory.com/calculators/stat-equivalence-calculator.html",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "stat-equivalence",
+    "description": "Compares weapon attack, main stat, and secondary stat equivalence by weapon category and swing type.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "attack",
+      "equipment",
+      "stat-equivalence",
+      "weapon"
+    ],
+    "source_urls": [
+      "https://www.classicworldmaplestory.com/calculators/stat-equivalence-calculator.html"
+    ],
+    "notes": "Verified against the live calculator inputs and result controls."
+  },
+  {
+    "id": "classicworld-xp-farming-calculator",
+    "name": "Classic World XP Farming Calculator",
+    "website": "MapleStory Classic World",
+    "page": "XP Farming Calculator",
+    "url": "https://www.classicworldmaplestory.com/calculators/xp-farming.html",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "experience",
+    "description": "Estimates XP per hour, percentage per hour, kills remaining, and time to the next level from a selected monster and kill rate.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "experience",
+      "farming",
+      "leveling",
+      "time"
+    ],
+    "source_urls": [
+      "https://www.classicworldmaplestory.com/calculators/xp-farming.html"
+    ],
+    "notes": "The page states that estimates use selected monster XP and a classic XP growth curve approximation."
+  },
+  {
+    "id": "idle-advanced-equipment-compare",
+    "name": "Idle RPG Advanced Equipment Compare",
+    "website": "maplestoryidle.info",
+    "page": "Advanced Equipment Compare",
+    "url": "https://maplestoryidle.info/advanced-equipment-compare.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "optimizer",
+    "subcategory": "equipment-comparison",
+    "description": "Compares final character-stat panels after an equipment swap for close, expensive, or complex item decisions.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "comparison",
+      "equipment",
+      "ocr",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/advanced-equipment-compare.html"
+    ],
+    "notes": "This workflow asks the game to apply the candidate item first, then scores the two visible final-stat states."
   },
   {
     "id": "idle-april-9-2026-patch-notes",
@@ -103,6 +739,149 @@
       "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649"
     ],
     "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "idle-character-analysis",
+    "name": "MapleStory Idle RPG Character Analysis",
+    "website": "maplestoryidle.info",
+    "page": "Character Analysis",
+    "url": "https://maplestoryidle.info/character-analysis.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "optimizer",
+    "subcategory": "stat-value",
+    "description": "Ranks marginal stat gains from entered or OCR-extracted character stats, selected job, target, caps, and visible stat buckets.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "character",
+      "ocr",
+      "stats",
+      "targets"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/character-analysis.html"
+    ],
+    "notes": "The tool explicitly presents directional stat value rather than claiming an exact hidden DPS formula."
+  },
+  {
+    "id": "idle-game-data-library",
+    "name": "MapleStory Idle RPG Game Data Library",
+    "website": "maplestoryidle.info",
+    "page": "Game Data Library",
+    "url": "https://maplestoryidle.info/game-data.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "game-data",
+    "description": "Searches stage targets, monster stats, rewards, equipment roll ranges, skill effects, and visible stat context.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "equipment",
+      "monsters",
+      "skills",
+      "stages",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/game-data.html"
+    ],
+    "notes": "The page explicitly distinguishes lookup data from validated final-damage formulas."
+  },
+  {
+    "id": "idle-hero-token-calculator",
+    "name": "MapleStory Idle RPG Hero Token Calculator",
+    "website": "maplestoryidle.info",
+    "page": "Hero Token Calculator",
+    "url": "https://maplestoryidle.info/hero-token-calculator.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "hero-power",
+    "description": "Plans Hero Power Stage 1-8 token costs and estimates completion time from editable Hero Training income.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "hero-power",
+      "hero-token",
+      "progression",
+      "time"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/hero-token-calculator.html"
+    ],
+    "notes": "The page states that Stage 8 costs are game-table-backed and community-validated."
+  },
+  {
+    "id": "idle-item-quality-checker",
+    "name": "MapleStory Idle RPG Item Quality Checker",
+    "website": "maplestoryidle.info",
+    "page": "Item Quality Checker",
+    "url": "https://maplestoryidle.info/item-quality-checker.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "optimizer",
+    "subcategory": "equipment-roll-quality",
+    "description": "Scores entered or OCR-extracted equipment stat lines from low to maximum roll within known item ranges.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "equipment",
+      "item-ranges",
+      "ocr",
+      "rolls",
+      "score"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/item-quality-checker.html"
+    ],
+    "notes": "The tool scores roll quality only and does not claim which stat is best for a class."
   },
   {
     "id": "idle-may-21-2026-patch-notes",
@@ -174,6 +953,152 @@
     "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
   },
   {
+    "id": "idle-mirpg-damage-calculator",
+    "name": "MIRPG Damage Calculator",
+    "website": "MIRPG Optimizer",
+    "page": "Damage Calculator",
+    "url": "https://mirpg-optimizer.netlify.app/damage-calculator",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "combat-damage",
+    "description": "Predicts Idle RPG DPS and per-passive contribution for a selected target, class, stats, and fired skill.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "damage",
+      "dps",
+      "mirpg",
+      "skills",
+      "targets"
+    ],
+    "source_urls": [
+      "https://mirpg-optimizer.netlify.app/damage-calculator"
+    ],
+    "notes": "This is a community calculation model and not an official Nexon formula."
+  },
+  {
+    "id": "idle-mirpg-dps-projections",
+    "name": "MIRPG DPS Projections",
+    "website": "MIRPG Optimizer",
+    "page": "DPS Projections",
+    "url": "https://mirpg-optimizer.netlify.app/predictions",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "zh-hant"
+    ],
+    "category": "optimizer",
+    "subcategory": "stat-weights",
+    "description": "Analyzes Idle RPG stat weights and compares stat equivalencies for damage-planning decisions.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "damage",
+      "dps",
+      "mirpg",
+      "stat-equivalence",
+      "stat-weights"
+    ],
+    "source_urls": [
+      "https://mirpg-optimizer.netlify.app/predictions"
+    ],
+    "notes": "This is a community calculation model and not an official Nexon formula."
+  },
+  {
+    "id": "idle-monster-stat-lookup",
+    "name": "MapleStory Idle RPG Monster Stat Lookup",
+    "website": "maplestoryidle.info",
+    "page": "Monster Stat Lookup",
+    "url": "https://maplestoryidle.info/monster-stat-lookup.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "monster-stats",
+    "description": "Looks up monster rounds, Defense, Evasion, HP, and minimum Accuracy by Idle RPG content type and target.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "accuracy",
+      "defense",
+      "evasion",
+      "hp",
+      "monsters"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/monster-stat-lookup.html"
+    ],
+    "notes": "The page documents its current target coverage and avoids claiming unverified unlock requirements."
+  },
+  {
+    "id": "idle-msidle-rankings",
+    "name": "msidle.gg Rankings and Character Tracker",
+    "website": "msidle.gg",
+    "page": "Rankings",
+    "url": "https://www.msidle.gg/",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "rankings",
+    "subcategory": "characters-and-guilds",
+    "description": "Tracks character, guild, server, and class rankings with searchable profiles, progression history, active events, and coupons.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "characters",
+      "classes",
+      "guilds",
+      "rankings",
+      "servers"
+    ],
+    "source_urls": [
+      "https://www.msidle.gg/"
+    ],
+    "notes": "The site identifies itself as an unofficial MapleStory: Idle RPG compendium."
+  },
+  {
     "id": "idle-nexon-june-11-patch-notes",
     "name": "MapleStory: Idle RPG June 11 Patch Notes",
     "website": "MapleStory: Idle RPG Forum",
@@ -189,6 +1114,7 @@
     "category": "patch-notes",
     "subcategory": null,
     "description": "Documents the Hero's Journey system, new chapters, growth content, summer events, guild seasons, controls, and fixes added on June 11, 2026.",
+    "image_url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250507/60766e9d-1802-4a07-8cef-e40264bdb018/MIAppicof512512.png",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -208,6 +1134,43 @@
       "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
     ],
     "notes": null
+  },
+  {
+    "id": "idle-official-discord",
+    "name": "MapleStory: Idle RPG Official Discord",
+    "website": "Discord",
+    "page": "MapleStory: Idle RPG",
+    "url": "https://discord.com/invite/maplestoryidle",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "other"
+    ],
+    "category": "discord",
+    "subcategory": "official-community",
+    "description": "Official global Discord for MapleStory: Idle RPG discussion, multilingual channels, update notifications, and job roles.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": true,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discord",
+      "multilingual",
+      "updates"
+    ],
+    "source_urls": [
+      "https://discord.com/invite/maplestoryidle",
+      "https://forum.nexon.com/maplestoryidle/board_view?board=6653&thread=3213165"
+    ],
+    "notes": "Verified from Nexon's official Discord and customer-support notice."
   },
   {
     "id": "idle-official-faq",
@@ -280,6 +1243,252 @@
     "notes": "The official forum may return HTTP 403 to automated requests while remaining available in a normal browser."
   },
   {
+    "id": "idle-rpg-subreddit",
+    "name": "r/MaplestoryIdleRPG",
+    "website": "Reddit",
+    "page": "MapleStory Idle RPG Community",
+    "url": "https://www.reddit.com/r/MaplestoryIdleRPG",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "reddit",
+    "subcategory": "player-community",
+    "description": "Player-run Idle RPG community for current questions, build discussion, update reactions, and shared discoveries.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discussion",
+      "reddit"
+    ],
+    "source_urls": [
+      "https://www.reddit.com/r/MaplestoryIdleRPG"
+    ],
+    "notes": "Community posts are user-generated and should be verified against primary evidence before being treated as factual."
+  },
+  {
+    "id": "idle-simple-equipment-compare",
+    "name": "Idle RPG Simple Equipment Compare",
+    "website": "maplestoryidle.info",
+    "page": "Simple Equipment Compare",
+    "url": "https://maplestoryidle.info/simple-equipment-compare.html",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "optimizer",
+    "subcategory": "equipment-comparison",
+    "description": "Uses current stats and one item-comparison screenshot to estimate the direction of a straightforward equipment swap.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "comparison",
+      "equipment",
+      "ocr",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplestoryidle.info/simple-equipment-compare.html"
+    ],
+    "notes": "The page recommends its Advanced Compare for close, expensive, or information-limited swaps."
+  },
+  {
+    "id": "idle-wiki-companion-summon-calculator",
+    "name": "Idle RPG Companion Summoning Chance Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Companion Summoning Chance",
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3ACompanion_Summoning_Chance",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "summoning-chance",
+    "description": "Calculates companion-tier acquisition probability by summon level and rolls, plus ticket counts for target confidence levels.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "companions",
+      "probability",
+      "summoning",
+      "tickets"
+    ],
+    "source_urls": [
+      "https://idle.maplestorywiki.net/w/Calculator%3ACompanion_Summoning_Chance"
+    ],
+    "notes": null
+  },
+  {
+    "id": "idle-wiki-elite-summon-calculator",
+    "name": "Idle RPG Elite Summoning Chance Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Elite Summoning Chance",
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3AElite_Summoning_Chance",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "summoning-chance",
+    "description": "Calculates the chance of obtaining an equipment tier from Elite summons and estimates summons needed for confidence targets.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "elite-monsters",
+      "equipment",
+      "probability",
+      "summoning"
+    ],
+    "source_urls": [
+      "https://idle.maplestorywiki.net/w/Calculator%3AElite_Summoning_Chance"
+    ],
+    "notes": null
+  },
+  {
+    "id": "idle-wiki-experience-calculator",
+    "name": "Idle RPG Wiki Experience Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Experience",
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3AExperience_by_map",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "experience",
+    "description": "Estimates online and offline leveling time from kills per minute, current level and EXP, bonus EXP, and the selected map.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "experience",
+      "leveling",
+      "maps",
+      "time"
+    ],
+    "source_urls": [
+      "https://idle.maplestorywiki.net/w/Calculator%3AExperience_by_map"
+    ],
+    "notes": "The page documents its offline kill-rate assumptions and exposes map-specific calculations."
+  },
+  {
+    "id": "idle-wiki-weapon-summon-calculator",
+    "name": "Idle RPG Weapon Summoning Chance Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Weapon Summoning Chance",
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3AWeapon_Summoning_Chance",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "summoning-chance",
+    "description": "Calculates weapon-tier acquisition probability by summon level and rolls, plus ticket counts for target confidence levels.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "probability",
+      "summoning",
+      "tickets",
+      "weapons"
+    ],
+    "source_urls": [
+      "https://idle.maplestorywiki.net/w/Calculator%3AWeapon_Summoning_Chance"
+    ],
+    "notes": null
+  },
+  {
+    "id": "m-community-powder-cost-calculator",
+    "name": "MapleStory M Powder Cost Calculator",
+    "website": "MapleStory M Resources",
+    "page": "Powder Cost",
+    "url": "https://maplestorym.netlify.app/tables/powder",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "calculator",
+    "subcategory": "equipment-leveling",
+    "description": "Calculates refining powder and meso requirements for leveling MapleStory M weapons and armor across equipment ranks.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "armor",
+      "cost",
+      "equipment",
+      "mesos",
+      "powder",
+      "weapons"
+    ],
+    "source_urls": [
+      "https://maplestorym.netlify.app/tables/powder"
+    ],
+    "notes": "The page is reachable and functional, but its current-patch data freshness is not stated; compare figures with the live game before committing resources."
+  },
+  {
     "id": "m-global-official-forum",
     "name": "MapleStory M Global Forum",
     "website": "MapleStory M Global Forum",
@@ -317,6 +1526,75 @@
     "notes": "The official forum may return HTTP 403 to automated requests while remaining available in a normal browser."
   },
   {
+    "id": "m-hyper-stats-table",
+    "name": "MapleStory M Hyper Stats Table",
+    "website": "MapleStory M Tools",
+    "page": "Hyper Stats",
+    "url": "https://maplestorym.netlify.app/tables/hypers",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "hyper-stats",
+    "description": "Reference table for MapleStory M Hyper Stat levels, stat gains, and point or meso costs.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "hyper-stats",
+      "progression",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplestorym.netlify.app/tables/hypers"
+    ],
+    "notes": null
+  },
+  {
+    "id": "m-jewel-table",
+    "name": "MapleStory M Jewel Table",
+    "website": "MapleStory M Tools",
+    "page": "Jewels",
+    "url": "https://maplestorym.netlify.app/tables/jewel",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "jewels",
+    "description": "Reference table for MapleStory M jewel types, ranks, set effects, and associated stat values.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "equipment",
+      "jewels",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplestorym.netlify.app/tables/jewel"
+    ],
+    "notes": null
+  },
+  {
     "id": "m-june-24-2026-patch-notice",
     "name": "06.24 Patch Notice",
     "website": "MapleStory M Global Forum",
@@ -351,6 +1629,40 @@
       "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431"
     ],
     "notes": "Verified from the indexed official forum page; direct automated requests may return HTTP 403."
+  },
+  {
+    "id": "m-link-skills-table",
+    "name": "MapleStory M Link Skills Table",
+    "website": "MapleStory M Tools",
+    "page": "Link Skills",
+    "url": "https://maplestorym.netlify.app/tables/linkskills",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "link-skills",
+    "description": "Compares Link Skill effects and level 70 and level 120 values across MapleStory M classes.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "classes",
+      "link-skills",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplestorym.netlify.app/tables/linkskills"
+    ],
+    "notes": null
   },
   {
     "id": "m-may-2026-known-issues",
@@ -441,6 +1753,7 @@
     "category": "guide",
     "subcategory": "beginner",
     "description": "Explains MapleStory M settings, auto-battle, early growth, equipment, the Trade Station, and convenience features for new players.",
+    "image_url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260709/b094bba7-bd62-46b2-ab37-a64c7a7ee612/512.png",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -461,6 +1774,146 @@
     "notes": null
   },
   {
+    "id": "m-official-discord",
+    "name": "MapleStory M Official Discord",
+    "website": "Discord",
+    "page": "MapleStory M",
+    "url": "https://discord.com/servers/413046906638565395",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "discord",
+    "subcategory": "official-community",
+    "description": "Official MapleStory M community server for discussion, guild recruitment, news, events, feedback, and bug reports.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": true,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discord",
+      "feedback",
+      "guilds"
+    ],
+    "source_urls": [
+      "https://discord.com/servers/413046906638565395"
+    ],
+    "notes": "Discord's server directory identifies this as the official server for MapleStory M."
+  },
+  {
+    "id": "m-star-force-rate-table",
+    "name": "MapleStory M Star Force Rate Table",
+    "website": "MapleStory M Tools",
+    "page": "Star Force",
+    "url": "https://maplestorym.netlify.app/tables/sf",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "star-force",
+    "description": "Lists Star Force costs and success, maintenance, degradation, and break rates for each enhancement step.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "enhancement",
+      "rates",
+      "star-force"
+    ],
+    "source_urls": [
+      "https://maplestorym.netlify.app/tables/sf"
+    ],
+    "notes": "The page attributes its numeric data to the MSM Infosheets."
+  },
+  {
+    "id": "m-subreddit",
+    "name": "r/MapleStoryM",
+    "website": "Reddit",
+    "page": "MapleStory M Community",
+    "url": "https://www.reddit.com/r/MapleStoryM",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "reddit",
+    "subcategory": "player-community",
+    "description": "Active player-run MapleStory M community with help megathreads, progression discussions, calculations, update reactions, and current questions.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discussion",
+      "guides",
+      "reddit"
+    ],
+    "source_urls": [
+      "https://www.reddit.com/r/MapleStoryM"
+    ],
+    "notes": "Community posts are user-generated and should be verified against primary evidence before being treated as factual."
+  },
+  {
+    "id": "m-weapon-pba-table",
+    "name": "MapleStory M Weapon PBA Table",
+    "website": "MapleStory M Tools",
+    "page": "Weapon PBA",
+    "url": "https://maplestorym.netlify.app/tables/weapons",
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "database",
+    "subcategory": "weapons",
+    "description": "Lists perfect base attack values and weapon-type stats across equipment ranks and weapon categories.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "unknown",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "equipment",
+      "pba",
+      "stats",
+      "weapons"
+    ],
+    "source_urls": [
+      "https://maplestorym.netlify.app/tables/weapons"
+    ],
+    "notes": "The page attributes its numeric data to the MSM Infosheets."
+  },
+  {
     "id": "maplestory-miracle-summer-2026",
     "name": "Miracle Summer 2026",
     "website": "Global MapleStory",
@@ -477,6 +1930,7 @@
     "category": "events",
     "subcategory": "seasonal-event",
     "description": "Publishes the official Global MapleStory Miracle Summer 2026 event announcement and participation details.",
+    "image_url": "https://g.nexonstatic.com/media/n4bnds5t/newspost_540x304-miracle-summer-june-26-july-1-2026-maplestory.jpg",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -690,6 +2144,7 @@
     "category": "guide",
     "subcategory": "beginner-guide",
     "description": "Organizes official getting-started, character progression, item, equipment, content, and gameplay guidance for MapleStory N.",
+    "image_url": "https://docs.maplestoryn.io/~gitbook/ogimage/j6Zl2OnYnpdn8qB0xwvJ",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -778,6 +2233,500 @@
     "notes": null
   },
   {
+    "id": "n-maplehub-arcane-symbol-tracker",
+    "name": "MapleHub Arcane Symbol Tracker",
+    "website": "MapleHub",
+    "page": "Arcane Symbol Tracker",
+    "url": "https://maplehub.io/arcane",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "planner",
+    "subcategory": "arcane-symbol",
+    "description": "Tracks remaining Arcane Symbols, NESO requirements, and estimated completion date in MapleStory N.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "arcane-symbol",
+      "completion",
+      "maplehub",
+      "neso",
+      "tracker"
+    ],
+    "source_urls": [
+      "https://maplehub.io/arcane"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-cube-cost-calculator",
+    "name": "MapleHub Cube Cost Calculator",
+    "website": "MapleHub",
+    "page": "Cube Cost Calculator",
+    "url": "https://maplehub.io/cube",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "cube-cost",
+    "description": "Calculates expected MapleStory N potential-cube enhancement costs for equipment planning.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "cube",
+      "equipment",
+      "maplehub",
+      "potential"
+    ],
+    "source_urls": [
+      "https://maplehub.io/cube"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-enhancement-analyzer",
+    "name": "MapleHub Enhancement Analyzer",
+    "website": "MapleHub",
+    "page": "Enhancement Analyzer",
+    "url": "https://maplehub.io/enhancement",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "optimizer",
+    "subcategory": "equipment-enhancement",
+    "description": "Analyzes current MapleStory N enhancement costs and compares which item is the best next enhancement target.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "enhancement",
+      "equipment",
+      "maplehub",
+      "optimizer"
+    ],
+    "source_urls": [
+      "https://maplehub.io/enhancement"
+    ],
+    "notes": "Community planning estimates should be checked against the current in-game rules before spending resources."
+  },
+  {
+    "id": "n-maplehub-equipment-simulator",
+    "name": "MapleHub Equipment Simulator",
+    "website": "MapleHub",
+    "page": "Equipment Simulator",
+    "url": "https://maplehub.io/simulator",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "simulator",
+    "subcategory": "equipment-damage",
+    "description": "Simulates how equipping an item changes damage range and boss damage in MapleStory N.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "boss-damage",
+      "damage-range",
+      "equipment",
+      "maplehub"
+    ],
+    "source_urls": [
+      "https://maplehub.io/simulator"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-flame-score-calculator",
+    "name": "MapleHub Flame Score Calculator",
+    "website": "MapleHub",
+    "page": "Flame Score Calculator",
+    "url": "https://maplehub.io/flame",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "flame-score",
+    "description": "Calculates MapleStory N flame scores and compares candidate items for flame upgrades.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "equipment",
+      "flame",
+      "maplehub",
+      "score"
+    ],
+    "source_urls": [
+      "https://maplehub.io/flame"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-hyper-stat-optimizer",
+    "name": "MapleHub Hyper Stat Optimizer",
+    "website": "MapleHub",
+    "page": "Hyper Stat Optimizer",
+    "url": "https://maplehub.io/hyper",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "optimizer",
+    "subcategory": "hyper-stat",
+    "description": "Optimizes MapleStory N Hyper Stat point distribution for damage output.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "damage",
+      "hyper-stat",
+      "maplehub",
+      "optimizer"
+    ],
+    "source_urls": [
+      "https://maplehub.io/hyper"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-raffle-reward-calculator",
+    "name": "MapleHub Raffle Reward Calculator",
+    "website": "MapleHub",
+    "page": "Raffle Reward Calculator",
+    "url": "https://maplehub.io/raffle",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "party-rewards",
+    "description": "Searches MapleStory N party raffle rewards and calculates the NESO amount owed to each party member.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "maplehub",
+      "neso",
+      "party",
+      "raffle",
+      "rewards"
+    ],
+    "source_urls": [
+      "https://maplehub.io/raffle"
+    ],
+    "notes": "MapleHub identifies itself as a fan project and an MSU Builder program member; it is not a Nexon-operated service."
+  },
+  {
+    "id": "n-maplehub-star-force-calculator",
+    "name": "MapleHub Star Force Calculator",
+    "website": "MapleHub",
+    "page": "Star Force Calculator",
+    "url": "https://maplehub.io/starforce",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "star-force",
+    "description": "Calculates the expected cost of Star Force enhancement under MapleStory N rules.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "enhancement",
+      "maplehub",
+      "star-force"
+    ],
+    "source_urls": [
+      "https://maplehub.io/starforce"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-stat-equivalent-calculator",
+    "name": "MapleHub Stat Equivalent Comparison",
+    "website": "MapleHub",
+    "page": "Stat Equivalent Comparison",
+    "url": "https://maplehub.io/stat",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "stat-equivalence",
+    "description": "Calculates stat equivalents and compares their relative effectiveness for a MapleStory N build.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "build",
+      "comparison",
+      "maplehub",
+      "stats"
+    ],
+    "source_urls": [
+      "https://maplehub.io/stat"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplehub-v-matrix-calculator",
+    "name": "MapleHub V Matrix Calculator",
+    "website": "MapleHub",
+    "page": "V Matrix Calculator",
+    "url": "https://maplehub.io/vmatrix",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "category": "calculator",
+    "subcategory": "v-matrix",
+    "description": "Calculates V Matrix upgrade requirements and estimates Nodestone costs for MapleStory N.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "cost",
+      "maplehub",
+      "nodestone",
+      "v-matrix"
+    ],
+    "source_urls": [
+      "https://maplehub.io/vmatrix"
+    ],
+    "notes": null
+  },
+  {
+    "id": "n-maplestory-n-subreddit",
+    "name": "r/MaplestoryN",
+    "website": "Reddit",
+    "page": "MaplestoryN Community",
+    "url": "https://www.reddit.com/r/MaplestoryN",
+    "series": "n",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "reddit",
+    "subcategory": "player-community",
+    "description": "Player-run MapleStory N community for current discussions, questions, update reactions, and shared discoveries.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discussion",
+      "reddit"
+    ],
+    "source_urls": [
+      "https://www.reddit.com/r/MaplestoryN"
+    ],
+    "notes": "Community posts are user-generated and should be verified against primary evidence before being treated as factual."
+  },
+  {
+    "id": "n-official-character-rankings",
+    "name": "MapleStory N Official Character Rankings",
+    "website": "MapleStory N",
+    "page": "Ranking",
+    "url": "https://msu.io/maplestoryn/gamestatus/ranking",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "rankings",
+    "subcategory": "characters",
+    "description": "Official daily character rankings with level, EXP, fame, job, and guild information for level 10 and higher characters.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "characters",
+      "experience",
+      "guilds",
+      "levels",
+      "rankings"
+    ],
+    "source_urls": [
+      "https://msu.io/maplestoryn/gamestatus/ranking"
+    ],
+    "notes": "The page states that rankings update daily at midnight UTC."
+  },
+  {
     "id": "n-official-events",
     "name": "MapleStory N Events",
     "website": "MapleStory N Documentation",
@@ -856,6 +2805,149 @@
     "notes": "The official document moved from its former /announcement/ path and notes that access may be restricted in some regions."
   },
   {
+    "id": "n-official-universe-discord",
+    "name": "MapleStory Universe Official Discord",
+    "website": "Discord",
+    "page": "MapleStory Universe",
+    "url": "https://discord.gg/maplestoryuniverse",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "discord",
+    "subcategory": "official-community",
+    "description": "Official MapleStory Universe and MapleStory N Discord channel for community discussion and official updates.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": true,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "discord",
+      "maplestory-universe"
+    ],
+    "source_urls": [
+      "https://discord.gg/maplestoryuniverse",
+      "https://www.msu.io/news/notices/2904244"
+    ],
+    "notes": "Verified from MapleStory Universe's official-channel notice."
+  },
+  {
+    "id": "n-official-universe-medium",
+    "name": "MapleStory Universe Official Medium",
+    "website": "Medium",
+    "page": "MapleStory Universe",
+    "url": "https://medium.com/@MaplestoryU",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "media",
+    "subcategory": "official-publication",
+    "description": "Official MapleStory Universe publication channel for ecosystem articles, product explanations, and MapleStory N updates.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "articles",
+      "maplestory-universe",
+      "media",
+      "updates"
+    ],
+    "source_urls": [
+      "https://medium.com/@MaplestoryU",
+      "https://www.msu.io/news/notices/2904244"
+    ],
+    "notes": "Verified from MapleStory Universe's official-channel notice."
+  },
+  {
+    "id": "n-official-universe-telegram",
+    "name": "MapleStory Universe Official Telegram",
+    "website": "Telegram",
+    "page": "OfficialMaplestoryU",
+    "url": "https://t.me/OfficialMaplestoryU",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "community",
+    "subcategory": "official-channel",
+    "description": "Official MapleStory Universe Telegram channel for ecosystem and MapleStory N announcements.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "announcements",
+      "community",
+      "maplestory-universe",
+      "telegram"
+    ],
+    "source_urls": [
+      "https://t.me/OfficialMaplestoryU",
+      "https://www.msu.io/news/notices/2904244"
+    ],
+    "notes": "Verified from MapleStory Universe's official-channel notice."
+  },
+  {
+    "id": "n-official-universe-youtube",
+    "name": "MapleStory Universe Official YouTube",
+    "website": "YouTube",
+    "page": "MapleStory Universe",
+    "url": "https://www.youtube.com/@MapleStoryU",
+    "series": "n",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "youtube",
+    "subcategory": "official-channel",
+    "description": "Official MapleStory Universe video channel carrying MapleStory N trailers, updates, campaigns, and related media.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "media",
+      "trailers",
+      "updates",
+      "video"
+    ],
+    "source_urls": [
+      "https://www.youtube.com/@MapleStoryU",
+      "https://www.msu.io/news/notices/2904244"
+    ],
+    "notes": "Verified from MapleStory Universe's official-channel notice."
+  },
+  {
     "id": "n-official-updates",
     "name": "MapleStory N Updates",
     "website": "MapleStory N Documentation",
@@ -888,6 +2980,42 @@
       "https://docs.maplestoryn.io/archives/updates"
     ],
     "notes": null
+  },
+  {
+    "id": "worlds-ai-coding-plugins",
+    "name": "MSW AI Coding Plugins",
+    "website": "GitHub",
+    "page": "msw-ai-coding-plugins-official",
+    "url": "https://github.com/MSW-Git/msw-ai-coding-plugins-official",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "developer-tool",
+    "subcategory": "ai-coding",
+    "description": "Public AI-assisted MapleStory Worlds authoring guidance for .mlua scripting, entities, models, UI, avatars, packages, combat, validation, and debugging.",
+    "official": false,
+    "opensource": false,
+    "github_url": "https://github.com/MSW-Git/msw-ai-coding-plugins-official",
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "ai-coding",
+      "creator",
+      "developer-tool",
+      "github",
+      "mlua"
+    ],
+    "source_urls": [
+      "https://github.com/MSW-Git/msw-ai-coding-plugins-official"
+    ],
+    "notes": "The repository calls itself the public release mirror for the MSW maker base skill set, but no software license was visible and the organization ownership was not independently verified as Nexon-operated."
   },
   {
     "id": "worlds-creator-center-news",
@@ -939,6 +3067,7 @@
     "category": "guide",
     "subcategory": "creator",
     "description": "Introduces the MapleStory Worlds editor, LuaScript concepts, networking, world creation, publishing, and monetization for creators.",
+    "image_url": "https://maplestoryworlds-creators.nexon.com/msw_creators.jpg",
     "official": true,
     "opensource": false,
     "github_url": null,
@@ -1096,5 +3225,148 @@
       "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
     ],
     "notes": null
+  },
+  {
+    "id": "worlds-msw-examples-repository",
+    "name": "MSWExamples",
+    "website": "GitHub",
+    "page": "MSW-Git/MSWExamples",
+    "url": "https://github.com/MSW-Git/MSWExamples",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "github",
+    "subcategory": "creator-examples",
+    "description": "MIT-licensed MapleStory Worlds example projects for inventory, equipment, idle games, physics games, and multiplayer Omok.",
+    "official": false,
+    "opensource": true,
+    "github_url": "https://github.com/MSW-Git/MSWExamples",
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "creator",
+      "examples",
+      "github",
+      "maker",
+      "source-code"
+    ],
+    "source_urls": [
+      "https://github.com/MSW-Git/MSWExamples"
+    ],
+    "notes": "The repository says its examples accompany the MapleStory Worlds Creators YouTube channel. The GitHub organization ownership was not independently verified as Nexon-operated, so the record is not marked official."
+  },
+  {
+    "id": "worlds-official-api-reference",
+    "name": "MapleStory Worlds API Reference",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "API Reference",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/apiReference",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "api",
+    "subcategory": "creator-api",
+    "description": "Official reference for MapleStory Worlds components, events, services, logics, data types, enums, Lua, and log messages.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": "https://maplestoryworlds-creators.nexon.com/en/apiReference",
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "api",
+      "components",
+      "creator",
+      "lua",
+      "services"
+    ],
+    "source_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/apiReference"
+    ],
+    "notes": null
+  },
+  {
+    "id": "worlds-official-discord",
+    "name": "MapleStory Worlds Official Discord",
+    "website": "Discord",
+    "page": "MapleStory Worlds",
+    "url": "https://discord.gg/YansfK5gwC",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "discord",
+    "subcategory": "official-community",
+    "description": "Official MapleStory Worlds Discord referenced by the Creator Center for platform notices and creator communication.",
+    "official": true,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": true,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "creator",
+      "discord",
+      "notices"
+    ],
+    "source_urls": [
+      "https://discord.gg/YansfK5gwC",
+      "https://maplestoryworlds-creators.nexon.com/en/maintenance"
+    ],
+    "notes": "The exact invitation is linked from the official Creator Center maintenance page."
+  },
+  {
+    "id": "worlds-subreddit",
+    "name": "r/MaplestoryWorlds",
+    "website": "Reddit",
+    "page": "MapleStory Worlds Community",
+    "url": "https://www.reddit.com/r/MaplestoryWorlds",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "category": "reddit",
+    "subcategory": "creator-community",
+    "description": "MapleStory Worlds player and creator community for platform updates, creator questions, released worlds, feedback, and shared resources.",
+    "official": false,
+    "opensource": false,
+    "github_url": null,
+    "api_url": null,
+    "mobile_support": "responsive",
+    "login_required": false,
+    "status": "active",
+    "last_checked": "2026-07-25",
+    "tags": [
+      "community",
+      "creator",
+      "discussion",
+      "reddit"
+    ],
+    "source_urls": [
+      "https://www.reddit.com/r/MaplestoryWorlds"
+    ],
+    "notes": "Community posts are user-generated and should be verified against primary evidence before being treated as factual."
   }
 ]

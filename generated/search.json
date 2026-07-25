@@ -1,5 +1,820 @@
 [
   {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2025-05-15-playtest-sign-up",
+    "title": "May 15, 2025·Global·NexonNexon opens in-person playtest signups for Global Classic WorldNexon said Classic World is a real project. They asked players in Southern California to come to their El Segundo office to test the game. Testers get gift cards and NX Cash.Real-world Events",
+    "summary": "Nexon said Classic World is a real project. They asked players in Southern California to come to their El Segundo office to test the game. Testers get gift cards and NX Cash.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2025-05-15",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/playtest-sign-up"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2025-08-15-playtest-sneak-peek",
+    "title": "Aug 15, 2025·Global·NexonNexon shares Classic World playtest recap videoNexon posted a video showing what the summer 2025 playtest in their office looked like. The video has fun footage but no real game details or patch notes.Real-world Events",
+    "summary": "Nexon posted a video showing what the summer 2025 playtest in their office looked like. The video has fun footage but no real game details or patch notes.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2025-08-15",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/playtest-sneak-peek"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up",
+    "title": "Dec 16, 2025·Global·NexonClassic World PC Cafe event opens for LA-area playersYou can sign up for free to try Classic World in person in Los Angeles. The test sessions run from January 15 to February 13, 2026. You need a MapleStory character that is at least 60 days old. You also need to be able to travel to the event.Real-world Events",
+    "summary": "You can sign up for free to try Classic World in person in Los Angeles. The test sessions run from January 15 to February 13, 2026. You need a MapleStory character that is at least 60 days old. You also need to be able to travel to the event.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2025-12-16",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/pc-cafe-event-sign-up"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2025-12-22-pc-cafe-perks-revealed",
+    "title": "Dec 22, 2025·Global·NexonPC Cafe event details: 2-hour sessions, Forgotten Hollow preview, automatic COT accessPC Cafe event details: each person gets to play for two hours. You can try Forgotten Hollow, a new area that is only in Global Classic World. Top survey answers win prizes. If you fill out the survey at the event, you get into the Closed Online Test for free.Real-world Events",
+    "summary": "PC Cafe event details: each person gets to play for two hours. You can try Forgotten Hollow, a new area that is only in Global Classic World. Top survey answers win prizes. If you fill out the survey at the event, you get into the Closed Online Test for free.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2025-12-22",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/pc-cafe-perks-revealed"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-02-27-pc-cafe-giveaway-winners",
+    "title": "Feb 27, 2026·Global·NexonPC Cafe survey giveaway winners announcedNexon picked winners for the PC Cafe giveaway. One person won a 20th Anniversary Pure Silver Medal. Ten people won Vinyl Records. Winners have seven days to claim their prize.Real-world Events",
+    "summary": "Nexon picked winners for the PC Cafe giveaway. One person won a 20th Anniversary Pure Silver Medal. Ten people won Vinyl Records. Winners have seven days to claim their prize.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-02-27",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/pc-cafe-giveaway-winners"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-03-10-cot-sign-ups-open",
+    "title": "Mar 10, 2026·Global·NexonClosed Online Test sign-ups open with April 16 start dateSign-ups are open until April 7, 2026. The test starts April 16. If you went to MapleCon LA 2025 or a PC Cafe event, you get in automatically with two extra days of early access. When the test ends, all your test characters will be deleted.Closed Test",
+    "summary": "Sign-ups are open until April 7, 2026. The test starts April 16. If you went to MapleCon LA 2025 or a PC Cafe event, you get in automatically with two extra days of early access. When the test ends, all your test characters will be deleted.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-03-10",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cot-sign-ups-open"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-04-08-cot-sign-ups-closed",
+    "title": "Apr 8, 2026·Global·NexonCOT signups close, selection emails going out before launchSign-ups closed on April 7. People who went to MapleCon, PC Cafe events, or who tested at Nexon already got their emails. Everyone else is still being picked. The final test keys go out to selected players on April 16.Closed Test",
+    "summary": "Sign-ups closed on April 7. People who went to MapleCon, PC Cafe events, or who tested at Nexon already got their emails. Everyone else is still being picked. The final test keys go out to selected players on April 16.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-04-08",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cot-sign-ups-closed"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes",
+    "title": "Apr 14, 2026·Global·NexonCOT release notes: April 16 to 24, Maple plus Victoria Islands, four first-job pathsThe Closed Online Test runs from April 16 to April 24, 2026. Some testers (MapleCon, PC Cafe, and in-house) start two days early on April 14. You can play on Maple Island and Victoria Island. You pick your first job at level 10. The four classic first jobs are in the test: Warrior, Magician, Bowman, and Thief. To give feedback, go to the Nexon MapleStory Discord. Bug reports go in their own channel. Use Player Support tickets only for account or computer problems.Closed TestPatch",
+    "summary": "The Closed Online Test runs from April 16 to April 24, 2026. Some testers (MapleCon, PC Cafe, and in-house) start two days early on April 14. You can play on Maple Island and Victoria Island. You pick your first job at level 10. The four classic first jobs are in the test: Warrior, Magician, Bowman, and Thief. To give feedback, go to the Nexon MapleStory Discord. Bug reports go in their own channel. Use Player Support tickets only for account or computer problems.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-04-14",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/closed-online-test-release-notes"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-04-16-unscheduled-maintenance-april-17",
+    "title": "Apr 16, 2026·Global·NexonUnscheduled COT maintenance ships hotfixes for crafting UI, mob stats, and quality-of-lifeNexon shut the servers down on April 17 for two hours (5 AM to 7 AM PDT). They were going to wait until April 21, but pushed the fixes out earlier. The fixes: the crafting menu now opens when you click on crafting tools, monsters in the Kerning City Party Quest and 2nd job quests are easier to hit, you can close Player Shops with the ESC key, Iron Hogs on Pig Beach spawn at a new rate, gem processing at the Arcforge costs different now, your character plays an animation when you use HP or MP potions, and damage numbers show up even when a monster is on top of you.Closed TestPatchMaintenance",
+    "summary": "Nexon shut the servers down on April 17 for two hours (5 AM to 7 AM PDT). They were going to wait until April 21, but pushed the fixes out earlier. The fixes: the crafting menu now opens when you click on crafting tools, monsters in the Kerning City Party Quest and 2nd job quests are easier to hit, you can close Player Shops with the ESC key, Iron Hogs on Pig Beach spawn at a new rate, gem processing at the Arcforge costs different now, your character plays an animation when you use HP or MP potions, and damage numbers show up even when a monster is on top of you.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-04-16",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/unscheduled-maintenance-april-17"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update",
+    "title": "Apr 21, 2026·Global·NexonMid-COT content drop adds event quests, chat ring reward, and testing-priced Cash ShopTwo new event quests were added during the test. 'Beyond the Unknown' from Arwen the Fairy gives you a Classic Beginnings Chat Ring that lasts forever. 'The One Who Sealed the Darkness' from Manji gives you three Leaf Point coupons worth 1,000 points each. All Cash Shop items cost only 100 Leaf Points during the test. The event ran from April 21 to April 23.Closed TestEvent",
+    "summary": "Two new event quests were added during the test. 'Beyond the Unknown' from Arwen the Fairy gives you a Classic Beginnings Chat Ring that lasts forever. 'The One Who Sealed the Darkness' from Manji gives you three Leaf Point coupons worth 1,000 points each. All Cash Shop items cost only 100 Leaf Points during the test. The event ran from April 21 to April 23.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-04-21",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/closed-online-test-content-update"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans",
+    "title": "Apr 22, 2026·Global·NexonNexon bans unauthorized Closed Online Test accessNexon caught people who got into the test without permission. Those accounts are now banned forever. Nexon is still looking into how it happened.Closed Test",
+    "summary": "Nexon caught people who got into the test without permission. Those accounts are now banned forever. Nexon is still looking into how it happened.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-04-22",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/unauthorized-access-bans"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-04-29-cms-classic-site-launch",
+    "title": "Apr 29, 2026·China·ShengquShengqu launches Classic MapleStory site for China, 500k+ pre-registered in two weeksShengqu Games opened the official Chinese Classic MapleStory website at mxdc.sdo.com on April 29. The Chinese name is 冒险岛怀旧服, which means MapleStory Classic Server. In just two weeks, almost 500,000 players signed up. The first test will have five jobs: Warrior, Mage, Bowman, Thief, and Pirate. There are also two classic team quests: Moon Miao's Rice Cake and First Journey Together.Closed Test",
+    "summary": "Shengqu Games opened the official Chinese Classic MapleStory website at mxdc.sdo.com on April 29. The Chinese name is 冒险岛怀旧服, which means MapleStory Classic Server. In just two weeks, almost 500,000 players signed up. The first test will have five jobs: Warrior, Mage, Bowman, Thief, and Pirate. There are also two classic team quests: Moon Miao's Rice Cake and First Journey Together.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-04-29",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-classic-site-launch"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed",
+    "title": "May 11, 2026·China·ShengquCMS Return Island Test confirmed for May 20 with 2000 slotsThe Chinese Classic test is set for May 20, 2026. The Chinese name is 'Return Island Test' (归岛测试). There are 2,000 spots. Shengqu will pick winners from the sign-up list on May 15. The test is free, and your characters will be deleted at the end. Players will get a special launch reward to keep.Closed Test",
+    "summary": "The Chinese Classic test is set for May 20, 2026. The Chinese name is 'Return Island Test' (归岛测试). There are 2,000 spots. Shengqu will pick winners from the sign-up list on May 15. The test is free, and your characters will be deleted at the end. Players will get a special launch reward to keep.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-11",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt-may-20-confirmed"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning",
+    "title": "May 12, 2026·China·ShengquShengqu warns of test-key resale scams on Xianyu and XiaohongshuSome people are selling fake test access keys on Xianyu (the Chinese second-hand shopping app) and Xiaohongshu (the Chinese Instagram). Shengqu warned players that the real keys have not been given out yet. Anyone selling test access right now is a scammer.Closed Test",
+    "summary": "Some people are selling fake test access keys on Xianyu (the Chinese second-hand shopping app) and Xiaohongshu (the Chinese Instagram). Shengqu warned players that the real keys have not been given out yet. Anyone selling test access right now is a scammer.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-12",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-test-key-resale-scam-warning"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview",
+    "title": "May 15, 2026·China·ShengquCMS Classic CBT preview: 5 classes, level 100 cap, auction-house economyShengqu told players what is in the May 20 test. There are five first jobs: Warrior, Mage, Bowman, Thief, and Pirate. Classic maps are back, like Florina Beach and Sleepywood. The level cap is 100, and you can do your second job change. The big change is the economy: monsters do not drop equipment for trading like before. Instead, all equipment goes to a single auction house, and you buy it with points instead of gold. Gold is locked to your account, and you cannot drop or trade it. Face-to-face trading and street shops are gone.Closed TestPatch",
+    "summary": "Shengqu told players what is in the May 20 test. There are five first jobs: Warrior, Mage, Bowman, Thief, and Pirate. Classic maps are back, like Florina Beach and Sleepywood. The level cap is 100, and you can do your second job change. The big change is the economy: monsters do not drop equipment for trading like before. Instead, all equipment goes to a single auction house, and you buy it with points instead of gold. Gold is locked to your account, and you cannot drop or trade it. Face-to-face trading and street shops are gone.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-15",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt-content-preview"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-qualification-rules",
+    "title": "May 15, 2026·China·ShengquCMS Return Island Test rules: random draw, one account per ID, Douyin streamer carve-outShengqu will pick test players at random from the sign-up pool. Each Chinese ID or phone number can only have one account in the test. Once an account logs in, it is stuck to that ID. You cannot move it to another account. Streamers from Douyin get extra spots that do not take up any of the 2,000 player spots.Closed Test",
+    "summary": "Shengqu will pick test players at random from the sign-up pool. Each Chinese ID or phone number can only have one account in the test. Once an account logs in, it is stuck to that ID. You cannot move it to another account. Streamers from Douyin get extra spots that do not take up any of the 2,000 player spots.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-15",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt-qualification-rules"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-17-cms-economy-changes-response",
+    "title": "May 17, 2026·China·ShengquShengqu defends auction-house economy after backlash, cites 20 million Q1 script-farm bansTwo days after the May 15 reveal, Shengqu wrote a long reply to angry players. They said the test will only use auction houses for trading. To prove they have a bot problem, Shengqu shared a number: they banned almost 20 million bot accounts on the regular server in just three months (January through March 2026). They said gold-binding and the one-ID one-account rule are needed to stop bots. They are still thinking about letting friends trade.Closed Test",
+    "summary": "Two days after the May 15 reveal, Shengqu wrote a long reply to angry players. They said the test will only use auction houses for trading. To prove they have a bot problem, Shengqu shared a number: they banned almost 20 million bot accounts on the regular server in just three months (January through March 2026). They said gold-binding and the one-ID one-account rule are needed to stop bots. They are still thinking about letting friends trade.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-17",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-economy-changes-response"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-19-cms-cbt-opens-may-20",
+    "title": "May 19, 2026·China·ShengquCMS Return Island Test opens May 20 with daily test-currency stipendThe Chinese test starts May 20. It is free, and your characters will be deleted at the end. There are 2,000 spots. Streamers from Douyin (the Chinese version of TikTok) get extra spots that do not count against that 2,000. Every day you log in, you get test-only money (called 'adventure coupons'). By the end of the test, you can get up to 1.88 million points, worth about 18,888 yuan in real game money. The first 2,000 players also get a special coin with their own number on it.Closed TestEvent",
+    "summary": "The Chinese test starts May 20. It is free, and your characters will be deleted at the end. There are 2,000 spots. Streamers from Douyin (the Chinese version of TikTok) get extra spots that do not count against that 2,000. Every day you log in, you get test-only money (called 'adventure coupons'). By the end of the test, you can get up to 1.88 million points, worth about 18,888 yuan in real game money. The first 2,000 players also get a special coin with their own number on it.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-19",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt-opens-may-20"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-20-cms-letter-to-players-anti-farm",
+    "title": "May 20, 2026·China·ShengquShengqu publishes open letter to players on the script-farm fightOn the same day the test opened, Shengqu wrote a long letter to players. They defended their gold-binding rule and trading limits. They said normal players who farm gold are fine. The real target is huge bot farms with thousands or millions of fake accounts. They are thinking about letting friends trade with each other again.Closed Test",
+    "summary": "On the same day the test opened, Shengqu wrote a long letter to players. They defended their gold-binding rule and trading limits. They said normal players who farm gold are fine. The real target is huge bot farms with thousands or millions of fake accounts. They are thinking about letting friends trade with each other again.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-20",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-letter-to-players-anti-farm"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-22-victoria-island-exploration-report",
+    "title": "May 22, 2026·Global·NexonNexon posts post-COT Victoria Island recap with message from InkwellNexon posted a wrap-up about the Closed Online Test. The post includes a message from Inkwell, the MapleStory mascot who 'writes' the books in the game.Closed Test",
+    "summary": "Nexon posted a wrap-up about the Closed Online Test. The post includes a message from Inkwell, the MapleStory mascot who 'writes' the books in the game.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-22",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/victoria-island-exploration-report"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back",
+    "title": "May 30, 2026·China·ShengquShengqu apologizes, walks back gold-binding, ends Return Island Test earlyShengqu (the company that runs MapleStory in China) said sorry and ended the China Classic test on May 31, a few days early. They are changing big things for next time. The auction house will accept regular gold, not just special points. They are also removing equipment from the random reward boxes (Mushroom Pass and Sky Pig Egg). They still want to stop bot farmers, just in a different way.Closed TestPatch",
+    "summary": "Shengqu (the company that runs MapleStory in China) said sorry and ended the China Classic test on May 31, a few days early. They are changing big things for next time. The auction house will accept regular gold, not just special points. They are also removing equipment from the random reward boxes (Mushroom Pass and Sky Pig Egg). They still want to stop bot farmers, just in a different way.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-05-30",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt-cut-short-economy-walked-back"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer",
+    "title": "Jun 6, 2026·Global·IGNGlobal MapleStory Classic gets a special trailer at IGN Live 2026Global MapleStory Classic World got a special trailer at IGN Live 2026. IGN Live is a big online gaming show that a lot of people watch. The trailer showed the game off to a large new audience.Real-world Events",
+    "summary": "Global MapleStory Classic World got a special trailer at IGN Live 2026. IGN Live is a big online gaming show that a lot of people watch. The trailer showed the game off to a large new audience.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-06-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/ign-live-2026-special-trailer"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2",
+    "title": "Jun 24, 2026·China·ShengquCMS second test locked for July 2: first-test players auto-qualify, 2,000 new spotsShengqu set the second Chinese Classic test for July 2. If you played in the first test in May, you are in automatically. On top of that, Shengqu will draw 2,000 new testers from the pre-registration list and post the results on June 25. You can check if you got in on the official eligibility page. The client download opens later.Closed Test",
+    "summary": "Shengqu set the second Chinese Classic test for July 2. If you played in the first test in May, you are in automatically. On top of that, Shengqu will draw 2,000 new testers from the pre-registration list and post the results on June 25. You can check if you got in on the official eligibility page. The client download opens later.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-06-24",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt2-confirmed-july-2"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal",
+    "title": "Jul 2, 2026·China·ShengquCMS second test portal opens: check your spot and download the clientShengqu opened the official portal page for the second Chinese Classic test. On it, you can check if you have a test spot and download the test client. The page is the doorway for everything in this test.Closed Test",
+    "summary": "Shengqu opened the official portal page for the second Chinese Classic test. On it, you can check if you have a test spot and download the test client. The page is the doorway for everything in this test.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt2-eligibility-download-portal"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details",
+    "title": "Jul 2, 2026·China·ShengquCMS second test opens with unbound gold, face-to-face trading, and 5% feesThe second Chinese Classic test opened on July 2 at 2 PM China time. The big changes fix the economy rules that made players angry in May. Gold is no longer locked to your character. Face-to-face trading is back. The auction house takes regular gold now. Free Market personal shops and hired-merchant shops are back too. The trading fee dropped from 10% to 5%. Shengqu also rolled some maps back to their older look, removed the mini-dungeon system, and restored old details like potion colors and skill effects. The Cash Shop stays closed during the test.Closed TestPatch",
+    "summary": "The second Chinese Classic test opened on July 2 at 2 PM China time. The big changes fix the economy rules that made players angry in May. Gold is no longer locked to your character. Face-to-face trading is back. The auction house takes regular gold now. Free Market personal shops and hired-merchant shops are back too. The trading fee dropped from 10% to 5%. Shengqu also rolled some maps back to their older look, removed the mini-dungeon system, and restored old details like potion colors and skill effects. The Cash Shop stays closed during the test.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt2-opening-details"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-02-cms-team-video-letter",
+    "title": "Jul 2, 2026·China·ShengquShengqu posts a video letter from the ops and dev teamsOn the day the second test opened, Shengqu posted a message to players from the operations and development teams. The message is a video, not a written post. It sits on the official news page next to the test opening notes.Closed Test",
+    "summary": "On the day the second test opened, Shengqu posted a message to players from the operations and development teams. The message is a video, not a written post. It sits on the official news page next to the test opening notes.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-team-video-letter"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-06-second-cot-announced",
+    "title": "Jul 6, 2026·Global·NexonSecond Closed Online Test announced: sign-ups July 16, test runs Aug 4 to 12Nexon announced a second Closed Online Test for Global MapleStory Classic World. Sign-ups open on July 16. The test runs from August 4 to August 12. If you played in the first test, you still have to sign up again for a chance to join. You need a Nexon account to sign up, so make one now if you do not have one yet. Nexon says the official sign-up details are coming in the next week. The announcement went out on the official Facebook group and Instagram, along with a recap video of the first test.Closed Test",
+    "summary": "Nexon announced a second Closed Online Test for Global MapleStory Classic World. Sign-ups open on July 16. The test runs from August 4 to August 12. If you played in the first test, you still have to sign up again for a chance to join. You need a Nexon account to sign up, so make one now if you do not have one yet. Nexon says the official sign-up details are coming in the next week. The announcement went out on the official Facebook group and Instagram, along with a recap video of the first test.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/second-cot-announced"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3",
+    "title": "China gets a launch date: CMS Classic opens August 3",
+    "summary": "Shengqu announced that the Chinese Classic server launches for real on August 3, 2026. This is a full launch, not a test, and Shengqu says it is built to run long term. At launch you get five classes (Warrior, Mage, Bowman, Thief, and Pirate), a level cap of 100 with the second job change, classic areas like Victoria Island and the Nautilus, and Free Market personal and hired-merchant shops. Pre-registration is open on the official site.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-11",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15",
+    "title": "Jul 13, 2026·China·ShengquCMS second test ends July 15 with a full character wipeThe second Chinese Classic test closes on July 15 at 11:39 PM China time. The test server shuts down all the way, and every test character gets deleted as planned. Shengqu thanked players for their feedback and said the team keeps tuning the game for launch.Closed Test",
+    "summary": "The second Chinese Classic test closes on July 15 at 11:39 PM China time. The test server shuts down all the way, and every test character gets deleted as planned. Shengqu thanked players for their feedback and said the team keeps tuning the game for launch.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-13",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/cms-cbt2-ends-july-15"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-china-niameowdb-news-2026-07-16-second-cot-signups-open",
+    "title": "Jul 16, 2026·Global·NexonSecond test sign-ups open: 3rd job, Ossyria, and macOS confirmedSign-ups for the second Closed Online Test are open on Nexon's site. They close July 29. Everyone must sign up again, even players from the first test. Nexon picks the testers and emails the invites. There are no beta keys. The test runs August 4 to 12 on Nexon Launcher. Characters are wiped when it ends. The big new addition is 3rd job. The test also adds Ossyria (Orbis and El Nath), play on macOS as well as Windows, controller support, more language choices, and extra GM events. You can also earn two rings for launch day. Reach level 10 and level 15 and finish the two event quests. That earns the Classic Beginnings Label Ring and Chat Ring. Do it in both tests and you get 2 of each ring.Closed Test",
+    "summary": "Sign-ups for the second Closed Online Test are open on Nexon's site. They close July 29. Everyone must sign up again, even players from the first test. Nexon picks the testers and emails the invites. There are no beta keys. The test runs August 4 to 12 on Nexon Launcher. Characters are wiped when it ends. The big new addition is 3rd job. The test also adds Ossyria (Orbis and El Nath), play on macOS as well as Windows, controller support, more language choices, and extra GM events. You can also earn two rings for launch day. Reach level 10 and level 15 and finish the two event quests. That earns the Classic Beginnings Label Ring and Chat Ring. Do it in both tests and you get 2 of each ring.",
+    "tags": [],
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-news",
+    "content_type": "news",
+    "published_at": "2026-07-16",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/news/second-cot-signups-open"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-mapleclassic-route-planner",
+    "title": "MapleClassic Wiki Route Planner",
+    "summary": "Finds the shortest walking route between two Classic World maps and shows each portal crossing.",
+    "name": "MapleClassic Wiki Route Planner",
+    "website": "MapleClassic Wiki",
+    "page": "MapleStory Classic World Route Planner",
+    "description": "Finds the shortest walking route between two Classic World maps and shows each portal crossing.",
+    "series": "classic",
+    "category": "planner",
+    "subcategory": "map-route",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "ko"
+    ],
+    "tags": [
+      "maps",
+      "navigation",
+      "route",
+      "wiki"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://mapleclassic.wiki/wiki/Special:MyLanguage/MapleStory_Classic_World_Route_Planner"
+  },
+  {
     "record_type": "resource",
     "id": "classic-nexon-closed-online-test-2",
     "title": "Classic World Closed Online Test #2 Registration",
@@ -34,6 +849,348 @@
     "url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2"
   },
   {
+    "record_type": "resource",
+    "id": "classic-niameowdb-accuracy-simulator",
+    "title": "NiaMeowDB Classic Accuracy Simulator",
+    "summary": "Estimates Classic World hit accuracy against selected monsters using character and target inputs.",
+    "name": "NiaMeowDB Classic Accuracy Simulator",
+    "website": "NiaMeowDB",
+    "page": "Accuracy Simulator",
+    "description": "Estimates Classic World hit accuracy against selected monsters using character and target inputs.",
+    "series": "classic",
+    "category": "simulator",
+    "subcategory": "combat-accuracy",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "accuracy",
+      "combat",
+      "monsters",
+      "niameowdb"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/accuracy-sim"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-avoidability-simulator",
+    "title": "NiaMeowDB Classic Avoidability Simulator",
+    "summary": "Estimates Classic World avoidability and enemy hit outcomes using character and monster inputs.",
+    "name": "NiaMeowDB Classic Avoidability Simulator",
+    "website": "NiaMeowDB",
+    "page": "Avoidability Simulator",
+    "description": "Estimates Classic World avoidability and enemy hit outcomes using character and monster inputs.",
+    "series": "classic",
+    "category": "simulator",
+    "subcategory": "combat-avoidability",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "avoidability",
+      "combat",
+      "monsters",
+      "niameowdb"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/avoidability-sim"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-character-builder",
+    "title": "NiaMeowDB Classic Character Builder",
+    "summary": "Plans Classic World AP, skills, equipment, stats, and damage previews on one shareable character loadout.",
+    "name": "NiaMeowDB Classic Character Builder",
+    "website": "NiaMeowDB",
+    "page": "Character Builder",
+    "description": "Plans Classic World AP, skills, equipment, stats, and damage previews on one shareable character loadout.",
+    "series": "classic",
+    "category": "planner",
+    "subcategory": "character-build",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "ap",
+      "build",
+      "equipment",
+      "niameowdb",
+      "skills"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/character-builder"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-damage-simulator",
+    "title": "NiaMeowDB Classic Damage Simulator",
+    "summary": "Calculates and compares Classic World damage and DPS for a selected class, build, skill, and target.",
+    "name": "NiaMeowDB Classic Damage Simulator",
+    "website": "NiaMeowDB",
+    "page": "Damage Simulator",
+    "description": "Calculates and compares Classic World damage and DPS for a selected class, build, skill, and target.",
+    "series": "classic",
+    "category": "simulator",
+    "subcategory": "combat-damage",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "combat",
+      "damage",
+      "dps",
+      "niameowdb"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/dmg-simulator"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-database-toolkit",
+    "title": "NiaMeowDB Classic Database and Toolkit",
+    "summary": "Fan-built Classic World database and toolkit with items, monsters, maps, skills, NPCs, crafting, guides, news, simulators, and planners.",
+    "name": "NiaMeowDB Classic Database and Toolkit",
+    "website": "NiaMeowDB",
+    "page": "MapleStory Classic",
+    "description": "Fan-built Classic World database and toolkit with items, monsters, maps, skills, NPCs, crafting, guides, news, simulators, and planners.",
+    "series": "classic",
+    "category": "database",
+    "subcategory": "game-data",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "database",
+      "guides",
+      "niameowdb",
+      "tools"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-grind-tracker",
+    "title": "NiaMeowDB Classic Grind Tracker",
+    "summary": "Tracks Classic World grinding sessions and progression metrics for training comparisons.",
+    "name": "NiaMeowDB Classic Grind Tracker",
+    "website": "NiaMeowDB",
+    "page": "Grind Tracker",
+    "description": "Tracks Classic World grinding sessions and progression metrics for training comparisons.",
+    "series": "classic",
+    "category": "planner",
+    "subcategory": "training-tracker",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "grinding",
+      "niameowdb",
+      "progress",
+      "training"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/grind-tracker"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-quest-tracker",
+    "title": "NiaMeowDB Classic Quest Tracker",
+    "summary": "Filters and tracks Classic World quests by class, area, level, repeatability, events, rewards, and quest chain.",
+    "name": "NiaMeowDB Classic Quest Tracker",
+    "website": "NiaMeowDB",
+    "page": "Quest Tracker",
+    "description": "Filters and tracks Classic World quests by class, area, level, repeatability, events, rewards, and quest chain.",
+    "series": "classic",
+    "category": "planner",
+    "subcategory": "quest-tracker",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "niameowdb",
+      "progress",
+      "quests",
+      "tracker"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/quest-tracker"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-niameowdb-scroll-simulator",
+    "title": "NiaMeowDB Classic Scroll Simulator",
+    "summary": "Simulates Classic World equipment scrolling outcomes without consuming in-game items.",
+    "name": "NiaMeowDB Classic Scroll Simulator",
+    "website": "NiaMeowDB",
+    "page": "Scroll Simulator",
+    "description": "Simulates Classic World equipment scrolling outcomes without consuming in-game items.",
+    "series": "classic",
+    "category": "simulator",
+    "subcategory": "equipment-scroll",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "equipment",
+      "niameowdb",
+      "scrolling",
+      "simulation"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://meowdb.com/msclassic/scroll-sim"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-sleepywood-game-database",
+    "title": "Sleepywood Classic Game Database",
+    "summary": "A community-maintained searchable database for Classic World items, monsters, maps, quests, and NPCs.",
+    "name": "Sleepywood Classic Game Database",
+    "website": "Sleepywood",
+    "page": "Game Database",
+    "description": "A community-maintained searchable database for Classic World items, monsters, maps, quests, and NPCs.",
+    "series": "classic",
+    "category": "database",
+    "subcategory": "game-data",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "items",
+      "maps",
+      "monsters",
+      "npcs",
+      "quests"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.sleepywood.io/database"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-sleepywood-jobs-and-skills",
+    "title": "Sleepywood Classic Jobs and Skills",
+    "summary": "Browses Classic World job classes, skill trees, and advancement paths for Warriors, Magicians, Bowmen, and Thieves.",
+    "name": "Sleepywood Classic Jobs and Skills",
+    "website": "Sleepywood",
+    "page": "Job Classes",
+    "description": "Browses Classic World job classes, skill trees, and advancement paths for Warriors, Magicians, Bowmen, and Thieves.",
+    "series": "classic",
+    "category": "wiki",
+    "subcategory": "classes",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "classes",
+      "jobs",
+      "skills"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.sleepywood.io/jobs"
+  },
+  {
     "record_type": "content",
     "id": "classic-world-closed-online-test-2-registration",
     "title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
@@ -63,6 +1220,39 @@
     "official": true,
     "status": "published",
     "url": "https://www.nexon.com/maplestory/news/general/42364/sign-up-for-global-maple-story-classic-world-closed-online-test-2"
+  },
+  {
+    "record_type": "resource",
+    "id": "classic-world-subreddit",
+    "title": "r/MSClassicWorld",
+    "summary": "Player-run Classic World community for test findings, questions, tools, launch discussion, and update reactions.",
+    "name": "r/MSClassicWorld",
+    "website": "Reddit",
+    "page": "MapleStory Classic World Community",
+    "description": "Player-run Classic World community for test findings, questions, tools, launch discussion, and update reactions.",
+    "series": "classic",
+    "category": "reddit",
+    "subcategory": "player-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "discussion",
+      "reddit"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.reddit.com/r/MSClassicWorld"
   },
   {
     "record_type": "resource",
@@ -100,6 +1290,210 @@
   },
   {
     "record_type": "resource",
+    "id": "classicworld-progression-table",
+    "title": "Classic World Equipment Progression Table",
+    "summary": "Tracks current equipment and planned upgrades, then compares item score, stat gain, price, and cost per stat.",
+    "name": "Classic World Equipment Progression Table",
+    "website": "MapleStory Classic World",
+    "page": "Progression Table",
+    "description": "Tracks current equipment and planned upgrades, then compares item score, stat gain, price, and cost per stat.",
+    "series": "classic",
+    "category": "planner",
+    "subcategory": "equipment-progression",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "cost",
+      "equipment",
+      "planner",
+      "progression"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.classicworldmaplestory.com/calculators/progression-table.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "classicworld-scroll-cost-simulator",
+    "title": "Classic World 60% Scroll Cost Simulator",
+    "summary": "Calculates scrolling cost from item replacement price, upgrade slots, and the price of 60% scrolls.",
+    "name": "Classic World 60% Scroll Cost Simulator",
+    "website": "MapleStory Classic World",
+    "page": "60% Attempt Cost",
+    "description": "Calculates scrolling cost from item replacement price, upgrade slots, and the price of 60% scrolls.",
+    "series": "classic",
+    "category": "simulator",
+    "subcategory": "scroll-cost",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "cost",
+      "equipment",
+      "scroll",
+      "simulation"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.classicworldmaplestory.com/calculators/scroll-simulator.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "classicworld-search-library",
+    "title": "Classic World Monster, Item, and Map Library",
+    "summary": "Searches Classic World monsters, items, and maps with level, category, job, and equipment-type filters.",
+    "name": "Classic World Monster, Item, and Map Library",
+    "website": "MapleStory Classic World",
+    "page": "Library",
+    "description": "Searches Classic World monsters, items, and maps with level, category, job, and equipment-type filters.",
+    "series": "classic",
+    "category": "database",
+    "subcategory": "game-data",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "items",
+      "maps",
+      "monsters",
+      "search"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.classicworldmaplestory.com/search.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "classicworld-stat-equivalence-calculator",
+    "title": "Classic World Stat Equivalence Calculator",
+    "summary": "Compares weapon attack, main stat, and secondary stat equivalence by weapon category and swing type.",
+    "name": "Classic World Stat Equivalence Calculator",
+    "website": "MapleStory Classic World",
+    "page": "Stat Equivalence Calculator",
+    "description": "Compares weapon attack, main stat, and secondary stat equivalence by weapon category and swing type.",
+    "series": "classic",
+    "category": "calculator",
+    "subcategory": "stat-equivalence",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "attack",
+      "equipment",
+      "stat-equivalence",
+      "weapon"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.classicworldmaplestory.com/calculators/stat-equivalence-calculator.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "classicworld-xp-farming-calculator",
+    "title": "Classic World XP Farming Calculator",
+    "summary": "Estimates XP per hour, percentage per hour, kills remaining, and time to the next level from a selected monster and kill rate.",
+    "name": "Classic World XP Farming Calculator",
+    "website": "MapleStory Classic World",
+    "page": "XP Farming Calculator",
+    "description": "Estimates XP per hour, percentage per hour, kills remaining, and time to the next level from a selected monster and kill rate.",
+    "series": "classic",
+    "category": "calculator",
+    "subcategory": "experience",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "experience",
+      "farming",
+      "leveling",
+      "time"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.classicworldmaplestory.com/calculators/xp-farming.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-advanced-equipment-compare",
+    "title": "Idle RPG Advanced Equipment Compare",
+    "summary": "Compares final character-stat panels after an equipment swap for close, expensive, or complex item decisions.",
+    "name": "Idle RPG Advanced Equipment Compare",
+    "website": "maplestoryidle.info",
+    "page": "Advanced Equipment Compare",
+    "description": "Compares final character-stat panels after an equipment swap for close, expensive, or complex item decisions.",
+    "series": "idle",
+    "category": "optimizer",
+    "subcategory": "equipment-comparison",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "comparison",
+      "equipment",
+      "ocr",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/advanced-equipment-compare.html"
+  },
+  {
+    "record_type": "resource",
     "id": "idle-april-9-2026-patch-notes",
     "title": "April 9 Patch Notes",
     "summary": "Documents the official April 9, 2026 collaboration, new weapons, chapters, events, and progression changes.",
@@ -131,6 +1525,145 @@
     "game_version": null,
     "official": true,
     "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-character-analysis",
+    "title": "MapleStory Idle RPG Character Analysis",
+    "summary": "Ranks marginal stat gains from entered or OCR-extracted character stats, selected job, target, caps, and visible stat buckets.",
+    "name": "MapleStory Idle RPG Character Analysis",
+    "website": "maplestoryidle.info",
+    "page": "Character Analysis",
+    "description": "Ranks marginal stat gains from entered or OCR-extracted character stats, selected job, target, caps, and visible stat buckets.",
+    "series": "idle",
+    "category": "optimizer",
+    "subcategory": "stat-value",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "character",
+      "ocr",
+      "stats",
+      "targets"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/character-analysis.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-game-data-library",
+    "title": "MapleStory Idle RPG Game Data Library",
+    "summary": "Searches stage targets, monster stats, rewards, equipment roll ranges, skill effects, and visible stat context.",
+    "name": "MapleStory Idle RPG Game Data Library",
+    "website": "maplestoryidle.info",
+    "page": "Game Data Library",
+    "description": "Searches stage targets, monster stats, rewards, equipment roll ranges, skill effects, and visible stat context.",
+    "series": "idle",
+    "category": "database",
+    "subcategory": "game-data",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "equipment",
+      "monsters",
+      "skills",
+      "stages",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/game-data.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-hero-token-calculator",
+    "title": "MapleStory Idle RPG Hero Token Calculator",
+    "summary": "Plans Hero Power Stage 1-8 token costs and estimates completion time from editable Hero Training income.",
+    "name": "MapleStory Idle RPG Hero Token Calculator",
+    "website": "maplestoryidle.info",
+    "page": "Hero Token Calculator",
+    "description": "Plans Hero Power Stage 1-8 token costs and estimates completion time from editable Hero Training income.",
+    "series": "idle",
+    "category": "calculator",
+    "subcategory": "hero-power",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "cost",
+      "hero-power",
+      "hero-token",
+      "progression",
+      "time"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/hero-token-calculator.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-item-quality-checker",
+    "title": "MapleStory Idle RPG Item Quality Checker",
+    "summary": "Scores entered or OCR-extracted equipment stat lines from low to maximum roll within known item ranges.",
+    "name": "MapleStory Idle RPG Item Quality Checker",
+    "website": "maplestoryidle.info",
+    "page": "Item Quality Checker",
+    "description": "Scores entered or OCR-extracted equipment stat lines from low to maximum roll within known item ranges.",
+    "series": "idle",
+    "category": "optimizer",
+    "subcategory": "equipment-roll-quality",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "equipment",
+      "item-ranges",
+      "ocr",
+      "rolls",
+      "score"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/item-quality-checker.html"
   },
   {
     "record_type": "resource",
@@ -201,6 +1734,148 @@
   },
   {
     "record_type": "resource",
+    "id": "idle-mirpg-damage-calculator",
+    "title": "MIRPG Damage Calculator",
+    "summary": "Predicts Idle RPG DPS and per-passive contribution for a selected target, class, stats, and fired skill.",
+    "name": "MIRPG Damage Calculator",
+    "website": "MIRPG Optimizer",
+    "page": "Damage Calculator",
+    "description": "Predicts Idle RPG DPS and per-passive contribution for a selected target, class, stats, and fired skill.",
+    "series": "idle",
+    "category": "calculator",
+    "subcategory": "combat-damage",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "zh-hant"
+    ],
+    "tags": [
+      "damage",
+      "dps",
+      "mirpg",
+      "skills",
+      "targets"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://mirpg-optimizer.netlify.app/damage-calculator"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-mirpg-dps-projections",
+    "title": "MIRPG DPS Projections",
+    "summary": "Analyzes Idle RPG stat weights and compares stat equivalencies for damage-planning decisions.",
+    "name": "MIRPG DPS Projections",
+    "website": "MIRPG Optimizer",
+    "page": "DPS Projections",
+    "description": "Analyzes Idle RPG stat weights and compares stat equivalencies for damage-planning decisions.",
+    "series": "idle",
+    "category": "optimizer",
+    "subcategory": "stat-weights",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "zh-hant"
+    ],
+    "tags": [
+      "damage",
+      "dps",
+      "mirpg",
+      "stat-equivalence",
+      "stat-weights"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://mirpg-optimizer.netlify.app/predictions"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-monster-stat-lookup",
+    "title": "MapleStory Idle RPG Monster Stat Lookup",
+    "summary": "Looks up monster rounds, Defense, Evasion, HP, and minimum Accuracy by Idle RPG content type and target.",
+    "name": "MapleStory Idle RPG Monster Stat Lookup",
+    "website": "maplestoryidle.info",
+    "page": "Monster Stat Lookup",
+    "description": "Looks up monster rounds, Defense, Evasion, HP, and minimum Accuracy by Idle RPG content type and target.",
+    "series": "idle",
+    "category": "database",
+    "subcategory": "monster-stats",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "accuracy",
+      "defense",
+      "evasion",
+      "hp",
+      "monsters"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/monster-stat-lookup.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-msidle-rankings",
+    "title": "msidle.gg Rankings and Character Tracker",
+    "summary": "Tracks character, guild, server, and class rankings with searchable profiles, progression history, active events, and coupons.",
+    "name": "msidle.gg Rankings and Character Tracker",
+    "website": "msidle.gg",
+    "page": "Rankings",
+    "description": "Tracks character, guild, server, and class rankings with searchable profiles, progression history, active events, and coupons.",
+    "series": "idle",
+    "category": "rankings",
+    "subcategory": "characters-and-guilds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "characters",
+      "classes",
+      "guilds",
+      "rankings",
+      "servers"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.msidle.gg/"
+  },
+  {
+    "record_type": "resource",
     "id": "idle-nexon-june-11-patch-notes",
     "title": "MapleStory: Idle RPG June 11 Patch Notes",
     "summary": "Documents the Hero's Journey system, new chapters, growth content, summer events, guild seasons, controls, and fixes added on June 11, 2026.",
@@ -233,6 +1908,41 @@
     "game_version": null,
     "official": true,
     "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-official-discord",
+    "title": "MapleStory: Idle RPG Official Discord",
+    "summary": "Official global Discord for MapleStory: Idle RPG discussion, multilingual channels, update notifications, and job roles.",
+    "name": "MapleStory: Idle RPG Official Discord",
+    "website": "Discord",
+    "page": "MapleStory: Idle RPG",
+    "description": "Official global Discord for MapleStory: Idle RPG discussion, multilingual channels, update notifications, and job roles.",
+    "series": "idle",
+    "category": "discord",
+    "subcategory": "official-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en",
+      "other"
+    ],
+    "tags": [
+      "community",
+      "discord",
+      "multilingual",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://discord.com/invite/maplestoryidle"
   },
   {
     "record_type": "resource",
@@ -304,6 +2014,245 @@
   },
   {
     "record_type": "resource",
+    "id": "idle-rpg-subreddit",
+    "title": "r/MaplestoryIdleRPG",
+    "summary": "Player-run Idle RPG community for current questions, build discussion, update reactions, and shared discoveries.",
+    "name": "r/MaplestoryIdleRPG",
+    "website": "Reddit",
+    "page": "MapleStory Idle RPG Community",
+    "description": "Player-run Idle RPG community for current questions, build discussion, update reactions, and shared discoveries.",
+    "series": "idle",
+    "category": "reddit",
+    "subcategory": "player-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "discussion",
+      "reddit"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.reddit.com/r/MaplestoryIdleRPG"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-simple-equipment-compare",
+    "title": "Idle RPG Simple Equipment Compare",
+    "summary": "Uses current stats and one item-comparison screenshot to estimate the direction of a straightforward equipment swap.",
+    "name": "Idle RPG Simple Equipment Compare",
+    "website": "maplestoryidle.info",
+    "page": "Simple Equipment Compare",
+    "description": "Uses current stats and one item-comparison screenshot to estimate the direction of a straightforward equipment swap.",
+    "series": "idle",
+    "category": "optimizer",
+    "subcategory": "equipment-comparison",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "comparison",
+      "equipment",
+      "ocr",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestoryidle.info/simple-equipment-compare.html"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-wiki-companion-summon-calculator",
+    "title": "Idle RPG Companion Summoning Chance Calculator",
+    "summary": "Calculates companion-tier acquisition probability by summon level and rolls, plus ticket counts for target confidence levels.",
+    "name": "Idle RPG Companion Summoning Chance Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Companion Summoning Chance",
+    "description": "Calculates companion-tier acquisition probability by summon level and rolls, plus ticket counts for target confidence levels.",
+    "series": "idle",
+    "category": "calculator",
+    "subcategory": "summoning-chance",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "companions",
+      "probability",
+      "summoning",
+      "tickets"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3ACompanion_Summoning_Chance"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-wiki-elite-summon-calculator",
+    "title": "Idle RPG Elite Summoning Chance Calculator",
+    "summary": "Calculates the chance of obtaining an equipment tier from Elite summons and estimates summons needed for confidence targets.",
+    "name": "Idle RPG Elite Summoning Chance Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Elite Summoning Chance",
+    "description": "Calculates the chance of obtaining an equipment tier from Elite summons and estimates summons needed for confidence targets.",
+    "series": "idle",
+    "category": "calculator",
+    "subcategory": "summoning-chance",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "elite-monsters",
+      "equipment",
+      "probability",
+      "summoning"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3AElite_Summoning_Chance"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-wiki-experience-calculator",
+    "title": "Idle RPG Wiki Experience Calculator",
+    "summary": "Estimates online and offline leveling time from kills per minute, current level and EXP, bonus EXP, and the selected map.",
+    "name": "Idle RPG Wiki Experience Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Experience",
+    "description": "Estimates online and offline leveling time from kills per minute, current level and EXP, bonus EXP, and the selected map.",
+    "series": "idle",
+    "category": "calculator",
+    "subcategory": "experience",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "experience",
+      "leveling",
+      "maps",
+      "time"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3AExperience_by_map"
+  },
+  {
+    "record_type": "resource",
+    "id": "idle-wiki-weapon-summon-calculator",
+    "title": "Idle RPG Weapon Summoning Chance Calculator",
+    "summary": "Calculates weapon-tier acquisition probability by summon level and rolls, plus ticket counts for target confidence levels.",
+    "name": "Idle RPG Weapon Summoning Chance Calculator",
+    "website": "MapleStory Idle RPG Wiki",
+    "page": "Calculator: Weapon Summoning Chance",
+    "description": "Calculates weapon-tier acquisition probability by summon level and rolls, plus ticket counts for target confidence levels.",
+    "series": "idle",
+    "category": "calculator",
+    "subcategory": "summoning-chance",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "probability",
+      "summoning",
+      "tickets",
+      "weapons"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://idle.maplestorywiki.net/w/Calculator%3AWeapon_Summoning_Chance"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-community-powder-cost-calculator",
+    "title": "MapleStory M Powder Cost Calculator",
+    "summary": "Calculates refining powder and meso requirements for leveling MapleStory M weapons and armor across equipment ranks.",
+    "name": "MapleStory M Powder Cost Calculator",
+    "website": "MapleStory M Resources",
+    "page": "Powder Cost",
+    "description": "Calculates refining powder and meso requirements for leveling MapleStory M weapons and armor across equipment ranks.",
+    "series": "m",
+    "category": "calculator",
+    "subcategory": "equipment-leveling",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "armor",
+      "cost",
+      "equipment",
+      "mesos",
+      "powder",
+      "weapons"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestorym.netlify.app/tables/powder"
+  },
+  {
+    "record_type": "resource",
     "id": "m-global-official-forum",
     "title": "MapleStory M Global Forum",
     "summary": "Publishes official MapleStory M announcements, update previews, patch notes, known issues, market notices, guides, and support links.",
@@ -340,6 +2289,73 @@
   },
   {
     "record_type": "resource",
+    "id": "m-hyper-stats-table",
+    "title": "MapleStory M Hyper Stats Table",
+    "summary": "Reference table for MapleStory M Hyper Stat levels, stat gains, and point or meso costs.",
+    "name": "MapleStory M Hyper Stats Table",
+    "website": "MapleStory M Tools",
+    "page": "Hyper Stats",
+    "description": "Reference table for MapleStory M Hyper Stat levels, stat gains, and point or meso costs.",
+    "series": "m",
+    "category": "database",
+    "subcategory": "hyper-stats",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "cost",
+      "hyper-stats",
+      "progression",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestorym.netlify.app/tables/hypers"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-jewel-table",
+    "title": "MapleStory M Jewel Table",
+    "summary": "Reference table for MapleStory M jewel types, ranks, set effects, and associated stat values.",
+    "name": "MapleStory M Jewel Table",
+    "website": "MapleStory M Tools",
+    "page": "Jewels",
+    "description": "Reference table for MapleStory M jewel types, ranks, set effects, and associated stat values.",
+    "series": "m",
+    "category": "database",
+    "subcategory": "jewels",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "equipment",
+      "jewels",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestorym.netlify.app/tables/jewel"
+  },
+  {
+    "record_type": "resource",
     "id": "m-june-24-2026-patch-notice",
     "title": "06.24 Patch Notice",
     "summary": "Records the official June 24, 2026 MapleStory M quick-patch schedule, language corrections, bug fixes, and server stabilization.",
@@ -372,6 +2388,39 @@
     "game_version": null,
     "official": true,
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-link-skills-table",
+    "title": "MapleStory M Link Skills Table",
+    "summary": "Compares Link Skill effects and level 70 and level 120 values across MapleStory M classes.",
+    "name": "MapleStory M Link Skills Table",
+    "website": "MapleStory M Tools",
+    "page": "Link Skills",
+    "description": "Compares Link Skill effects and level 70 and level 120 values across MapleStory M classes.",
+    "series": "m",
+    "category": "database",
+    "subcategory": "link-skills",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "classes",
+      "link-skills",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestorym.netlify.app/tables/linkskills"
   },
   {
     "record_type": "resource",
@@ -477,6 +2526,142 @@
     "game_version": null,
     "official": true,
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-official-discord",
+    "title": "MapleStory M Official Discord",
+    "summary": "Official MapleStory M community server for discussion, guild recruitment, news, events, feedback, and bug reports.",
+    "name": "MapleStory M Official Discord",
+    "website": "Discord",
+    "page": "MapleStory M",
+    "description": "Official MapleStory M community server for discussion, guild recruitment, news, events, feedback, and bug reports.",
+    "series": "m",
+    "category": "discord",
+    "subcategory": "official-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "discord",
+      "feedback",
+      "guilds"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://discord.com/servers/413046906638565395"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-star-force-rate-table",
+    "title": "MapleStory M Star Force Rate Table",
+    "summary": "Lists Star Force costs and success, maintenance, degradation, and break rates for each enhancement step.",
+    "name": "MapleStory M Star Force Rate Table",
+    "website": "MapleStory M Tools",
+    "page": "Star Force",
+    "description": "Lists Star Force costs and success, maintenance, degradation, and break rates for each enhancement step.",
+    "series": "m",
+    "category": "database",
+    "subcategory": "star-force",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "cost",
+      "enhancement",
+      "rates",
+      "star-force"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestorym.netlify.app/tables/sf"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-subreddit",
+    "title": "r/MapleStoryM",
+    "summary": "Active player-run MapleStory M community with help megathreads, progression discussions, calculations, update reactions, and current questions.",
+    "name": "r/MapleStoryM",
+    "website": "Reddit",
+    "page": "MapleStory M Community",
+    "description": "Active player-run MapleStory M community with help megathreads, progression discussions, calculations, update reactions, and current questions.",
+    "series": "m",
+    "category": "reddit",
+    "subcategory": "player-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "discussion",
+      "guides",
+      "reddit"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.reddit.com/r/MapleStoryM"
+  },
+  {
+    "record_type": "resource",
+    "id": "m-weapon-pba-table",
+    "title": "MapleStory M Weapon PBA Table",
+    "summary": "Lists perfect base attack values and weapon-type stats across equipment ranks and weapon categories.",
+    "name": "MapleStory M Weapon PBA Table",
+    "website": "MapleStory M Tools",
+    "page": "Weapon PBA",
+    "description": "Lists perfect base attack values and weapon-type stats across equipment ranks and weapon categories.",
+    "series": "m",
+    "category": "database",
+    "subcategory": "weapons",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "equipment",
+      "pba",
+      "stats",
+      "weapons"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplestorym.netlify.app/tables/weapons"
   },
   {
     "record_type": "content",
@@ -27861,6 +30046,67 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-idle-half-anniversary-special-mission-event",
+    "title": "MapleStory: Idle RPG Half Anniversary Special Mission Event",
+    "summary": "The half-anniversary event offered daily and achievement missions, cumulative rewards, Festival Coins and Points, and a time-limited Festival Shop for players who had cleared Chapter 3-4.",
+    "tags": [
+      "anniversary",
+      "event-shop",
+      "festival-coin",
+      "missions"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-events",
+    "content_type": "event",
+    "published_at": "2026-04-30T00:00:00+00:00",
+    "event_start": "2026-04-30",
+    "event_end": "2026-06-10T23:59:00+00:00",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3434719"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-july-23-2026-update-preview",
+    "title": "MapleStory: Idle RPG July 23 Update Preview",
+    "summary": "The official July 23 preview announces Night Walker and Wind Archer, chapters 42-44, higher-chapter EXP improvements, Burning Field Boosters, Chaos Horntail, monthly attendance, new Colosseum seasons, and several growth and reward events.",
+    "tags": [
+      "burning-field",
+      "horntail",
+      "night-walker",
+      "update-preview",
+      "wind-archer"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-patch-notes",
+    "content_type": "roadmap",
+    "published_at": "2026-07-16T08:00:00+00:00",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3501940"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-idle-june-11-2026-patch-notes",
     "title": "MapleStory: Idle RPG June 11 Patch Notes",
     "summary": "The June 11 update added Hero's Journey, Guild Raid Horntail, chapters 39-41, Growth Dungeon stages, Hero Power Stage 8, costume search, summer events, new guild seasons, movement improvements, and a broad set of fixes.",
@@ -27919,6 +30165,37 @@
     "official": true,
     "status": "published",
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2694&thread=2715388"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-july-8-9-2026-patch-notes",
+    "title": "MapleStory M July 8/9, 2026 Patch Notes",
+    "summary": "The July 8/9 update revised the main UI and quest tabs, improved tutorial and Adventure Mission flows, corrected Sol Erda party drops, adjusted Star Force Field party play, and introduced account-link, treasure-box, and package events.",
+    "tags": [
+      "account-link",
+      "patch-notes",
+      "sol-erda",
+      "star-force-field",
+      "ui"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "patch-note",
+    "published_at": "2026-07-08T11:00:00+00:00",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?allBoard=1&board=2690&thread=3496419"
   },
   {
     "record_type": "resource",
@@ -28193,6 +30470,37 @@
     "url": "https://support-maplestory.nexon.com/hc/en-us/articles/43855651499284-How-to-install-MapleStory"
   },
   {
+    "record_type": "content",
+    "id": "maplestory-worlds-api-reference-guide",
+    "title": "How to Use the MapleStory Worlds API Reference",
+    "summary": "A detailed guide to the official MapleStory Worlds API Reference, including its eight reference families, entry format, execution-space badges, synchronization markers, API state badges, and log-message levels.",
+    "tags": [
+      "api-reference",
+      "creator",
+      "lua",
+      "maker",
+      "scripting"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-api-reference",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/apiReference/How-to-use-API-Reference"
+  },
+  {
     "record_type": "resource",
     "id": "n-beginners-guide",
     "title": "MapleStory N Beginner's Guide",
@@ -28291,6 +30599,453 @@
     "game_version": null,
     "official": true,
     "url": "https://docs.maplestoryn.io/msn-101/download-guide"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-arcane-symbol-tracker",
+    "title": "MapleHub Arcane Symbol Tracker",
+    "summary": "Tracks remaining Arcane Symbols, NESO requirements, and estimated completion date in MapleStory N.",
+    "name": "MapleHub Arcane Symbol Tracker",
+    "website": "MapleHub",
+    "page": "Arcane Symbol Tracker",
+    "description": "Tracks remaining Arcane Symbols, NESO requirements, and estimated completion date in MapleStory N.",
+    "series": "n",
+    "category": "planner",
+    "subcategory": "arcane-symbol",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "arcane-symbol",
+      "completion",
+      "maplehub",
+      "neso",
+      "tracker"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/arcane"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-cube-cost-calculator",
+    "title": "MapleHub Cube Cost Calculator",
+    "summary": "Calculates expected MapleStory N potential-cube enhancement costs for equipment planning.",
+    "name": "MapleHub Cube Cost Calculator",
+    "website": "MapleHub",
+    "page": "Cube Cost Calculator",
+    "description": "Calculates expected MapleStory N potential-cube enhancement costs for equipment planning.",
+    "series": "n",
+    "category": "calculator",
+    "subcategory": "cube-cost",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "cost",
+      "cube",
+      "equipment",
+      "maplehub",
+      "potential"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/cube"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-enhancement-analyzer",
+    "title": "MapleHub Enhancement Analyzer",
+    "summary": "Analyzes current MapleStory N enhancement costs and compares which item is the best next enhancement target.",
+    "name": "MapleHub Enhancement Analyzer",
+    "website": "MapleHub",
+    "page": "Enhancement Analyzer",
+    "description": "Analyzes current MapleStory N enhancement costs and compares which item is the best next enhancement target.",
+    "series": "n",
+    "category": "optimizer",
+    "subcategory": "equipment-enhancement",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "cost",
+      "enhancement",
+      "equipment",
+      "maplehub",
+      "optimizer"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/enhancement"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-equipment-simulator",
+    "title": "MapleHub Equipment Simulator",
+    "summary": "Simulates how equipping an item changes damage range and boss damage in MapleStory N.",
+    "name": "MapleHub Equipment Simulator",
+    "website": "MapleHub",
+    "page": "Equipment Simulator",
+    "description": "Simulates how equipping an item changes damage range and boss damage in MapleStory N.",
+    "series": "n",
+    "category": "simulator",
+    "subcategory": "equipment-damage",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "boss-damage",
+      "damage-range",
+      "equipment",
+      "maplehub"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/simulator"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-flame-score-calculator",
+    "title": "MapleHub Flame Score Calculator",
+    "summary": "Calculates MapleStory N flame scores and compares candidate items for flame upgrades.",
+    "name": "MapleHub Flame Score Calculator",
+    "website": "MapleHub",
+    "page": "Flame Score Calculator",
+    "description": "Calculates MapleStory N flame scores and compares candidate items for flame upgrades.",
+    "series": "n",
+    "category": "calculator",
+    "subcategory": "flame-score",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "equipment",
+      "flame",
+      "maplehub",
+      "score"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/flame"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-hyper-stat-optimizer",
+    "title": "MapleHub Hyper Stat Optimizer",
+    "summary": "Optimizes MapleStory N Hyper Stat point distribution for damage output.",
+    "name": "MapleHub Hyper Stat Optimizer",
+    "website": "MapleHub",
+    "page": "Hyper Stat Optimizer",
+    "description": "Optimizes MapleStory N Hyper Stat point distribution for damage output.",
+    "series": "n",
+    "category": "optimizer",
+    "subcategory": "hyper-stat",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "damage",
+      "hyper-stat",
+      "maplehub",
+      "optimizer"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/hyper"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-raffle-reward-calculator",
+    "title": "MapleHub Raffle Reward Calculator",
+    "summary": "Searches MapleStory N party raffle rewards and calculates the NESO amount owed to each party member.",
+    "name": "MapleHub Raffle Reward Calculator",
+    "website": "MapleHub",
+    "page": "Raffle Reward Calculator",
+    "description": "Searches MapleStory N party raffle rewards and calculates the NESO amount owed to each party member.",
+    "series": "n",
+    "category": "calculator",
+    "subcategory": "party-rewards",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "maplehub",
+      "neso",
+      "party",
+      "raffle",
+      "rewards"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/raffle"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-star-force-calculator",
+    "title": "MapleHub Star Force Calculator",
+    "summary": "Calculates the expected cost of Star Force enhancement under MapleStory N rules.",
+    "name": "MapleHub Star Force Calculator",
+    "website": "MapleHub",
+    "page": "Star Force Calculator",
+    "description": "Calculates the expected cost of Star Force enhancement under MapleStory N rules.",
+    "series": "n",
+    "category": "calculator",
+    "subcategory": "star-force",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "cost",
+      "enhancement",
+      "maplehub",
+      "star-force"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/starforce"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-stat-equivalent-calculator",
+    "title": "MapleHub Stat Equivalent Comparison",
+    "summary": "Calculates stat equivalents and compares their relative effectiveness for a MapleStory N build.",
+    "name": "MapleHub Stat Equivalent Comparison",
+    "website": "MapleHub",
+    "page": "Stat Equivalent Comparison",
+    "description": "Calculates stat equivalents and compares their relative effectiveness for a MapleStory N build.",
+    "series": "n",
+    "category": "calculator",
+    "subcategory": "stat-equivalence",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "build",
+      "comparison",
+      "maplehub",
+      "stats"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/stat"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplehub-v-matrix-calculator",
+    "title": "MapleHub V Matrix Calculator",
+    "summary": "Calculates V Matrix upgrade requirements and estimates Nodestone costs for MapleStory N.",
+    "name": "MapleHub V Matrix Calculator",
+    "website": "MapleHub",
+    "page": "V Matrix Calculator",
+    "description": "Calculates V Matrix upgrade requirements and estimates Nodestone costs for MapleStory N.",
+    "series": "n",
+    "category": "calculator",
+    "subcategory": "v-matrix",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en",
+      "id",
+      "ja",
+      "ko",
+      "other",
+      "th",
+      "zh-hans",
+      "zh-hant"
+    ],
+    "tags": [
+      "cost",
+      "maplehub",
+      "nodestone",
+      "v-matrix"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://maplehub.io/vmatrix"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-maplestory-n-subreddit",
+    "title": "r/MaplestoryN",
+    "summary": "Player-run MapleStory N community for current discussions, questions, update reactions, and shared discoveries.",
+    "name": "r/MaplestoryN",
+    "website": "Reddit",
+    "page": "MaplestoryN Community",
+    "description": "Player-run MapleStory N community for current discussions, questions, update reactions, and shared discoveries.",
+    "series": "n",
+    "category": "reddit",
+    "subcategory": "player-community",
+    "regions": [
+      "multi-region"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "discussion",
+      "reddit"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.reddit.com/r/MaplestoryN"
   },
   {
     "record_type": "content",
@@ -38000,6 +40755,41 @@
   },
   {
     "record_type": "resource",
+    "id": "n-official-character-rankings",
+    "title": "MapleStory N Official Character Rankings",
+    "summary": "Official daily character rankings with level, EXP, fame, job, and guild information for level 10 and higher characters.",
+    "name": "MapleStory N Official Character Rankings",
+    "website": "MapleStory N",
+    "page": "Ranking",
+    "description": "Official daily character rankings with level, EXP, fame, job, and guild information for level 10 and higher characters.",
+    "series": "n",
+    "category": "rankings",
+    "subcategory": "characters",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "characters",
+      "experience",
+      "guilds",
+      "levels",
+      "rankings"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://msu.io/maplestoryn/gamestatus/ranking"
+  },
+  {
+    "record_type": "resource",
     "id": "n-official-events",
     "title": "MapleStory N Events",
     "summary": "Lists current official MapleStory N events and provides access to the official past-event archive.",
@@ -38075,6 +40865,141 @@
   },
   {
     "record_type": "resource",
+    "id": "n-official-universe-discord",
+    "title": "MapleStory Universe Official Discord",
+    "summary": "Official MapleStory Universe and MapleStory N Discord channel for community discussion and official updates.",
+    "name": "MapleStory Universe Official Discord",
+    "website": "Discord",
+    "page": "MapleStory Universe",
+    "description": "Official MapleStory Universe and MapleStory N Discord channel for community discussion and official updates.",
+    "series": "n",
+    "category": "discord",
+    "subcategory": "official-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "discord",
+      "maplestory-universe"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://discord.gg/maplestoryuniverse"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-official-universe-medium",
+    "title": "MapleStory Universe Official Medium",
+    "summary": "Official MapleStory Universe publication channel for ecosystem articles, product explanations, and MapleStory N updates.",
+    "name": "MapleStory Universe Official Medium",
+    "website": "Medium",
+    "page": "MapleStory Universe",
+    "description": "Official MapleStory Universe publication channel for ecosystem articles, product explanations, and MapleStory N updates.",
+    "series": "n",
+    "category": "media",
+    "subcategory": "official-publication",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "articles",
+      "maplestory-universe",
+      "media",
+      "updates"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://medium.com/@MaplestoryU"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-official-universe-telegram",
+    "title": "MapleStory Universe Official Telegram",
+    "summary": "Official MapleStory Universe Telegram channel for ecosystem and MapleStory N announcements.",
+    "name": "MapleStory Universe Official Telegram",
+    "website": "Telegram",
+    "page": "OfficialMaplestoryU",
+    "description": "Official MapleStory Universe Telegram channel for ecosystem and MapleStory N announcements.",
+    "series": "n",
+    "category": "community",
+    "subcategory": "official-channel",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "announcements",
+      "community",
+      "maplestory-universe",
+      "telegram"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://t.me/OfficialMaplestoryU"
+  },
+  {
+    "record_type": "resource",
+    "id": "n-official-universe-youtube",
+    "title": "MapleStory Universe Official YouTube",
+    "summary": "Official MapleStory Universe video channel carrying MapleStory N trailers, updates, campaigns, and related media.",
+    "name": "MapleStory Universe Official YouTube",
+    "website": "YouTube",
+    "page": "MapleStory Universe",
+    "description": "Official MapleStory Universe video channel carrying MapleStory N trailers, updates, campaigns, and related media.",
+    "series": "n",
+    "category": "youtube",
+    "subcategory": "official-channel",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "media",
+      "trailers",
+      "updates",
+      "video"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://www.youtube.com/@MapleStoryU"
+  },
+  {
+    "record_type": "resource",
     "id": "n-official-updates",
     "title": "MapleStory N Updates",
     "summary": "Indexes official MapleStory N notices, game patches, service changes, and update announcements.",
@@ -38136,6 +41061,41 @@
     "official": true,
     "status": "published",
     "url": "https://maplestoryworlds-creators.nexon.com/en/resource?postId=987"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-ai-coding-plugins",
+    "title": "MSW AI Coding Plugins",
+    "summary": "Public AI-assisted MapleStory Worlds authoring guidance for .mlua scripting, entities, models, UI, avatars, packages, combat, validation, and debugging.",
+    "name": "MSW AI Coding Plugins",
+    "website": "GitHub",
+    "page": "msw-ai-coding-plugins-official",
+    "description": "Public AI-assisted MapleStory Worlds authoring guidance for .mlua scripting, entities, models, UI, avatars, packages, combat, validation, and debugging.",
+    "series": "worlds",
+    "category": "developer-tool",
+    "subcategory": "ai-coding",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "ai-coding",
+      "creator",
+      "developer-tool",
+      "github",
+      "mlua"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://github.com/MSW-Git/msw-ai-coding-plugins-official"
   },
   {
     "record_type": "resource",
@@ -44628,5 +47588,143 @@
     "game_version": null,
     "official": true,
     "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-msw-examples-repository",
+    "title": "MSWExamples",
+    "summary": "MIT-licensed MapleStory Worlds example projects for inventory, equipment, idle games, physics games, and multiplayer Omok.",
+    "name": "MSWExamples",
+    "website": "GitHub",
+    "page": "MSW-Git/MSWExamples",
+    "description": "MIT-licensed MapleStory Worlds example projects for inventory, equipment, idle games, physics games, and multiplayer Omok.",
+    "series": "worlds",
+    "category": "github",
+    "subcategory": "creator-examples",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "creator",
+      "examples",
+      "github",
+      "maker",
+      "source-code"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://github.com/MSW-Git/MSWExamples"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-official-api-reference",
+    "title": "MapleStory Worlds API Reference",
+    "summary": "Official reference for MapleStory Worlds components, events, services, logics, data types, enums, Lua, and log messages.",
+    "name": "MapleStory Worlds API Reference",
+    "website": "MapleStory Worlds Creator Center",
+    "page": "API Reference",
+    "description": "Official reference for MapleStory Worlds components, events, services, logics, data types, enums, Lua, and log messages.",
+    "series": "worlds",
+    "category": "api",
+    "subcategory": "creator-api",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "api",
+      "components",
+      "creator",
+      "lua",
+      "services"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/apiReference"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-official-discord",
+    "title": "MapleStory Worlds Official Discord",
+    "summary": "Official MapleStory Worlds Discord referenced by the Creator Center for platform notices and creator communication.",
+    "name": "MapleStory Worlds Official Discord",
+    "website": "Discord",
+    "page": "MapleStory Worlds",
+    "description": "Official MapleStory Worlds Discord referenced by the Creator Center for platform notices and creator communication.",
+    "series": "worlds",
+    "category": "discord",
+    "subcategory": "official-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "creator",
+      "discord",
+      "notices"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "url": "https://discord.gg/YansfK5gwC"
+  },
+  {
+    "record_type": "resource",
+    "id": "worlds-subreddit",
+    "title": "r/MaplestoryWorlds",
+    "summary": "MapleStory Worlds player and creator community for platform updates, creator questions, released worlds, feedback, and shared resources.",
+    "name": "r/MaplestoryWorlds",
+    "website": "Reddit",
+    "page": "MapleStory Worlds Community",
+    "description": "MapleStory Worlds player and creator community for platform updates, creator questions, released worlds, feedback, and shared resources.",
+    "series": "worlds",
+    "category": "reddit",
+    "subcategory": "creator-community",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "tags": [
+      "community",
+      "creator",
+      "discussion",
+      "reddit"
+    ],
+    "status": "active",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "url": "https://www.reddit.com/r/MaplestoryWorlds"
   }
 ]

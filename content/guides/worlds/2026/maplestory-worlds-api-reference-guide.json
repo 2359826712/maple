@@ -1,0 +1,105 @@
+{
+  "id": "maplestory-worlds-api-reference-guide",
+  "source_id": "worlds-creator-center-api-reference",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/apiReference/How-to-use-API-Reference",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/apiReference/How-to-use-API-Reference",
+  "external_id": "api-reference-guidelines",
+  "title": "How to Use the MapleStory Worlds API Reference",
+  "original_title": "API Reference Guidelines",
+  "series": "worlds",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "api-reference",
+  "official": true,
+  "author": "MapleStory Worlds Creator Center",
+  "published_at": null,
+  "updated_at": null,
+  "discovered_at": "2026-07-25T00:00:00.000Z",
+  "last_checked": "2026-07-25T00:00:00.000Z",
+  "summary": "A detailed guide to the official MapleStory Worlds API Reference, including its eight reference families, entry format, execution-space badges, synchronization markers, API state badges, and log-message levels.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["api-reference", "creator", "lua", "maker", "scripting"],
+  "images": [
+    {
+      "url": "https://maplestoryworlds-creators.nexon.com/msw_creators.jpg",
+      "alt": "MapleStory Worlds Creator Center"
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": ["https://www.lua.org/manual/5.3"],
+  "content_hash": "b63b57a80a594006170fd294b52632fb49f9541ff65fd9ad6cdaa07674a64318",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "resource_id": "worlds-official-api-reference",
+    "sections": [
+      {
+        "title": "Reference families",
+        "items": [
+          "Components are functional units added to entities and expose properties and functions.",
+          "Events describe occurrences in World APIs and can include properties and spatial information.",
+          "Services provide core features used to build systems in a World.",
+          "Logics contain game logic with properties and functions.",
+          "Misc contains MapleStory Worlds-specific data types, constructors, properties, and functions.",
+          "Enums group related values; Lua documents the platform's Lua 5.3 basis; LogMessages explains runtime messages."
+        ]
+      },
+      {
+        "title": "How each API entry is organized",
+        "items": [
+          "The top of an entry identifies the API name and gives an overall description.",
+          "Properties and functions are listed separately, including inherited members where applicable.",
+          "Examples demonstrate ways to use the API.",
+          "Signatures identify return type, member name, parameter type, and parameter name.",
+          "Optional parameters use a =nil notation, while variable parameters use an any... args notation."
+        ]
+      },
+      {
+        "title": "Execution and synchronization badges",
+        "items": [
+          "Sync marks values normally synchronized from server to client; ReadOnly marks values that cannot be overwritten.",
+          "ControlOnly, MakerOnly, and ReleaseOnly restrict where a member can be used.",
+          "ServerOnly and ClientOnly restrict calls to one execution space.",
+          "Server and Client describe cross-space execution behavior.",
+          "Space badges on events identify whether an event occurs on the server, client, editor, or all applicable spaces."
+        ]
+      },
+      {
+        "title": "State, behavior, and log markers",
+        "items": [
+          "Yield indicates that script execution is suspended while the API runs; Static marks a globally accessible API.",
+          "ScriptOverridable identifies a function that can be redefined, while Abstract identifies an API that cannot create a component by itself.",
+          "Deprecated marks an API that should no longer be used; Preview marks an API that may change before final release.",
+          "LIA identifies informational log messages, LWA identifies warnings, and LEA identifies errors that prevent normal results."
+        ]
+      }
+    ]
+  },
+  "notes": "Original MPStorys summary and structured guide verified against the official API Reference Guidelines page on 2026-07-25.",
+  "guide_type": "creator",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "MapleStory Worlds API Reference",
+  "level_range": null,
+  "difficulty": "intermediate",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": [
+    "Access to MapleStory Worlds Maker",
+    "Basic familiarity with Lua scripting"
+  ],
+  "steps": [
+    "Choose the reference family that matches the feature you are building.",
+    "Read the entry description and check inherited properties and functions.",
+    "Confirm return types, parameter types, optional parameters, and variable parameters before calling a member.",
+    "Check every execution-space, synchronization, state, and behavior badge.",
+    "Use the provided example as a starting point and interpret any LIA, LWA, or LEA log prefix before debugging further."
+  ],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

@@ -32,11 +32,16 @@
     "publishing",
     "world-editor"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "https://maplestoryworlds-creators.nexon.com/msw_creators.jpg",
+      "alt": "MapleStory Worlds Creator Center"
+    }
+  ],
   "attachments": [],
   "related_content_ids": [],
   "related_urls": [],
-  "content_hash": "9903bea8a2ec7bd2a23b9e966515746e175f1cf4f1f811a61bd11cfb8dd0a71d",
+  "content_hash": "45608e2518320ffda60612ea0f3107d5ab612dcef304647ef6b2203b7b8ec48a",
   "status": "published",
   "translation_status": "not-requested",
   "metadata": {

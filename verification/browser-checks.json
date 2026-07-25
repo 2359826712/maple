@@ -17,6 +17,15 @@
       "result": "verified",
       "page_title": "(Updated) June 11 Patch Notes",
       "evidence": "The official MapleStory: Idle RPG Forum page loaded in Chrome. The page showed the June 11, 2026 patch notes and the Hero's Journey update details."
+    },
+    {
+      "resource_id": "footer-aidirs-org-listing",
+      "url": "https://aidirs.org/item/mpstorys",
+      "checked_at": "2026-07-24",
+      "method": "chrome",
+      "result": "verified",
+      "page_title": "MPStorys",
+      "evidence": "The AIDirs listing loaded in Chrome despite an automated Cloudflare 403 response. It displayed the MPStorys name, description, publisher Larry Charles, published date 2026/07/24, and a visit link to https://mpstorys.com/."
     }
   ]
 }

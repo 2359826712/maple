@@ -32,11 +32,16 @@
     "patch-notes",
     "summer-events"
   ],
-  "images": [],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20250507/60766e9d-1802-4a07-8cef-e40264bdb018/MIAppicof512512.png",
+      "alt": "MapleStory: Idle RPG"
+    }
+  ],
   "attachments": [],
   "related_content_ids": [],
   "related_urls": [],
-  "content_hash": "90c39339758d7e85a2a100c7b2d640a70a1846acb5a6aae26c7843b331aa6bc1",
+  "content_hash": "114660db3f7c2acb83351414895fd954e3deb7ddf213c5d8b80ea82611a6f071",
   "status": "updated",
   "translation_status": "not-requested",
   "metadata": {

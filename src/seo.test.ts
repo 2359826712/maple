@@ -66,6 +66,23 @@ describe('search and social metadata', () => {
     expect(sitemap).toContain('<priority>');
   });
 
+  it('exposes the Linkhouse site-verification token', () => {
+    const documentSource = read('src/pages/_document.next.tsx');
+
+    expect(documentSource).toContain(
+      '<meta name="lh-site-verification" content="c17542410116faab8a52" />',
+    );
+  });
+
+  it('exposes the Blogarama site-verification token', () => {
+    const documentSource = read('src/pages/_document.next.tsx');
+
+    expect(documentSource).toContain('name="blogarama-site-verification"');
+    expect(documentSource).toContain(
+      'content="blogarama-81194899-1d28-4b91-90c8-7bbc01876839"',
+    );
+  });
+
   it('includes every supported MapleStory series in localized search metadata', () => {
     const keywords = JSON.parse(read('src/seo/siteKeywords.json')) as Record<string, string>;
     const series = [

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-21T02:16:54.787Z",
-  "file_count": 1540,
-  "source_count": 9,
-  "root_sha256": "3f640f7f9eb466843b22cc789d646da43d3e8b05428181c53813b3f1e18a1f67",
+  "generated_at": "2026-07-25T01:49:05.727Z",
+  "file_count": 1574,
+  "source_count": 12,
+  "root_sha256": "16d4df73b758b2e0ebff716a01c4abed27560478e46a2b89c3bf1a32d08c1ded",
   "content": [
     {
       "path": "content/cash-shop/maplestory/2022/maplestory-europe-gms-official-news-2022-09-27-4885.json",
@@ -1876,6 +1876,11 @@
       "file_sha256": "1ffe76af0a463da4df7f52622ab1c13a58e2407c0de05c86bd9e6525251c5501"
     },
     {
+      "path": "content/events/idle/2026/maplestory-idle-half-anniversary-special-mission-event.json",
+      "id": "maplestory-idle-half-anniversary-special-mission-event",
+      "file_sha256": "30acc6fde4ccb8450ebeea6dedef9807803542158956db2219fab62908156729"
+    },
+    {
       "path": "content/events/maplestory/2022/maplestory-europe-gms-official-news-2022-10-18-16205-halloween-candy-party.json",
       "id": "maplestory-europe-gms-official-news-2022-10-18-16205-halloween-candy-party",
       "file_sha256": "1ab22d2391afa672bb701688514f89087981d6cb61ac3583a1c37d360d64391b"
@@ -3458,7 +3463,7 @@
     {
       "path": "content/guides/m/2025/maplestory-m-guide-for-new-maplers.json",
       "id": "maplestory-m-guide-for-new-maplers",
-      "file_sha256": "52df13a2dcd53d62294ada632d5371c22f6b1ee07dcb421f84acf6ad748c3b67"
+      "file_sha256": "ac591c7ae08a60fc087a73b53ad568c5d281ff5cde442042fec8b2ecdcee933e"
     },
     {
       "path": "content/guides/n/2024/n-multi-region-official-guides-2024-11-05-2677808.json",
@@ -3528,7 +3533,12 @@
     {
       "path": "content/guides/worlds/2023/welcome-to-maplestory-worlds-creator-guide.json",
       "id": "welcome-to-maplestory-worlds-creator-guide",
-      "file_sha256": "06ed918efad512956abf030089578b5b29745ab09630ba17a5a071a2af368ae7"
+      "file_sha256": "f59eaa93cc78be6f2da125eeef66ad5c5ec15da9cb42c4ea5103a94eec948d54"
+    },
+    {
+      "path": "content/guides/worlds/2026/maplestory-worlds-api-reference-guide.json",
+      "id": "maplestory-worlds-api-reference-guide",
+      "file_sha256": "860587c75b6cf672fba8fc90dffbe04ec0e4624609f32be0e9378b8b8f68d187"
     },
     {
       "path": "content/maintenance/maplestory/2022/maplestory-europe-gms-official-news-2022-09-28-16799.json",
@@ -5451,9 +5461,159 @@
       "file_sha256": "0696e4a2ca02a9d1b08d21c22f6736935cf1733ce5661ab161f7c083a4a7a1a0"
     },
     {
+      "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-05-15-playtest-sign-up.json",
+      "id": "classic-china-niameowdb-news-2025-05-15-playtest-sign-up",
+      "file_sha256": "58d791a1892598826bef57f2939a6a29ff66ca5c61fafd1179c68458fc02142f"
+    },
+    {
+      "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-08-15-playtest-sneak-peek.json",
+      "id": "classic-china-niameowdb-news-2025-08-15-playtest-sneak-peek",
+      "file_sha256": "6a1ee663740477b299b15a7adff72056946d4a2f38052298272ee7c675b2a02c"
+    },
+    {
+      "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up.json",
+      "id": "classic-china-niameowdb-news-2025-12-16-pc-cafe-event-sign-up",
+      "file_sha256": "cc6f6e6fb89b239d94ff68ad6d158bd40b3f89634d37d8a3f41d7afae9882fba"
+    },
+    {
+      "path": "content/news/classic/2025/classic-china-niameowdb-news-2025-12-22-pc-cafe-perks-revealed.json",
+      "id": "classic-china-niameowdb-news-2025-12-22-pc-cafe-perks-revealed",
+      "file_sha256": "81f6dc7cc38eb15de0a259fc05ff5649abe596d5dbf3c7e0eccb0687678e4ada"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-02-27-pc-cafe-giveaway-winners.json",
+      "id": "classic-china-niameowdb-news-2026-02-27-pc-cafe-giveaway-winners",
+      "file_sha256": "38a38bde59ae175dc670600e2a614dd0c7b8abe383e197af0bda6ef352c8f32f"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-03-10-cot-sign-ups-open.json",
+      "id": "classic-china-niameowdb-news-2026-03-10-cot-sign-ups-open",
+      "file_sha256": "baea4c76532bdc45f0cc7a37674697ab4948565a00f938be3c0cc3b076ae2197"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-08-cot-sign-ups-closed.json",
+      "id": "classic-china-niameowdb-news-2026-04-08-cot-sign-ups-closed",
+      "file_sha256": "662866e8c2af5bf136af1fb0423ff3637eec38947c4a05a89458c4edfe7ac84e"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes.json",
+      "id": "classic-china-niameowdb-news-2026-04-14-closed-online-test-release-notes",
+      "file_sha256": "512ba6395a1a0cf82bdb3514abcf5d1008d0f54de777c599bed9b6f54d0936ba"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-16-unscheduled-maintenance-april-17.json",
+      "id": "classic-china-niameowdb-news-2026-04-16-unscheduled-maintenance-april-17",
+      "file_sha256": "2c5f0b5e6b07b33e284f1485fa1350255ee39c4654465f98bf68760c1ef8e1e5"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update.json",
+      "id": "classic-china-niameowdb-news-2026-04-21-closed-online-test-content-update",
+      "file_sha256": "f800ec974931d0d8a1f36d7597bf80b7a227a9ce2447b8fd7a23509796dde821"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans.json",
+      "id": "classic-china-niameowdb-news-2026-04-22-unauthorized-access-bans",
+      "file_sha256": "126c6307b55fb42eeb38425910323920a992687f43771d22ea5caded760d197f"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-04-29-cms-classic-site-launch.json",
+      "id": "classic-china-niameowdb-news-2026-04-29-cms-classic-site-launch",
+      "file_sha256": "d8c185950d6099b7097cf99c38b3a44fc42167c6e699c7161f15d027ceef5256"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed.json",
+      "id": "classic-china-niameowdb-news-2026-05-11-cms-cbt-may-20-confirmed",
+      "file_sha256": "0b8da7ea956f827f53830d94dd861577ae3128e6e22f44f46aeed6570991d080"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning.json",
+      "id": "classic-china-niameowdb-news-2026-05-12-cms-test-key-resale-scam-warning",
+      "file_sha256": "14c9fa160d8b06e475eb5a4dd2679e449f0fd00c4168f864e44451095c8be68c"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview.json",
+      "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-content-preview",
+      "file_sha256": "ebff745cdf67022bee9017ae57dec447c5c34f3e6cec8ad11f72d447ac7f0210"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-15-cms-cbt-qualification-rules.json",
+      "id": "classic-china-niameowdb-news-2026-05-15-cms-cbt-qualification-rules",
+      "file_sha256": "ea9fbb4d66d92e91257a0ff6cc67cb6a20cc4d8179c38dec3b76f5dd67257e83"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-17-cms-economy-changes-response.json",
+      "id": "classic-china-niameowdb-news-2026-05-17-cms-economy-changes-response",
+      "file_sha256": "59b69725d3dbc8a704dd0c24c63578cc020104e016d0e3fd1d4064d158a8647f"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-19-cms-cbt-opens-may-20.json",
+      "id": "classic-china-niameowdb-news-2026-05-19-cms-cbt-opens-may-20",
+      "file_sha256": "e37b7a165cd9b6a1d5d997fcf9a90a589ba4936274036df6d0403606992d5e35"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-20-cms-letter-to-players-anti-farm.json",
+      "id": "classic-china-niameowdb-news-2026-05-20-cms-letter-to-players-anti-farm",
+      "file_sha256": "822f6dd6037e4cafb9b3d52aa18a6a8105ffb35a36ed83ec00224fc5e0fee449"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-22-victoria-island-exploration-report.json",
+      "id": "classic-china-niameowdb-news-2026-05-22-victoria-island-exploration-report",
+      "file_sha256": "87c77d0f955a86c1a98a3710e900d530a401c9892975f33661f17a258f190c1a"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back.json",
+      "id": "classic-china-niameowdb-news-2026-05-30-cms-cbt-cut-short-economy-walked-back",
+      "file_sha256": "93322d515a929093457e6bf2d5b34b41b84bbd6aad34953e87bc24b72e9cfa72"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer.json",
+      "id": "classic-china-niameowdb-news-2026-06-06-ign-live-2026-special-trailer",
+      "file_sha256": "6a997241908487754de48b3f6565b370533f2bc9b9ba98ccaf338bb4246b9ba7"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2.json",
+      "id": "classic-china-niameowdb-news-2026-06-24-cms-cbt2-confirmed-july-2",
+      "file_sha256": "1336e9817a53cee8ca78c7d5fdf5378bd5a72f80b62e3f1d5ca7e4335b2539fa"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal.json",
+      "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-eligibility-download-portal",
+      "file_sha256": "eb189eab4bc3eaf55b002c07947d1d74cf9dd936ecbf0c8ff221ed375240e22d"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details.json",
+      "id": "classic-china-niameowdb-news-2026-07-02-cms-cbt2-opening-details",
+      "file_sha256": "6a559f11f0b8a9576045f24310d789f97c898527da83f2d23cff5f915123d307"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-02-cms-team-video-letter.json",
+      "id": "classic-china-niameowdb-news-2026-07-02-cms-team-video-letter",
+      "file_sha256": "052c77856c6a7215031cd4c7090f8e7eb4a0605bb65a58382e51b3b976b6ffc5"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-06-second-cot-announced.json",
+      "id": "classic-china-niameowdb-news-2026-07-06-second-cot-announced",
+      "file_sha256": "cf4f9a00cef86b93ff31477a4094e7000a84a0b334a44b613c1d4db934d507f3"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3.json",
+      "id": "classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3",
+      "file_sha256": "b4cdbf477e5daad86005e8689f24a37bd26b65317e1c49b333eb4e75e727154b"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15.json",
+      "id": "classic-china-niameowdb-news-2026-07-13-cms-cbt2-ends-july-15",
+      "file_sha256": "b3bdb8fe71b65c75fe0061d3094974b70fedce88d9f99d35c32c43d359194096"
+    },
+    {
+      "path": "content/news/classic/2026/classic-china-niameowdb-news-2026-07-16-second-cot-signups-open.json",
+      "id": "classic-china-niameowdb-news-2026-07-16-second-cot-signups-open",
+      "file_sha256": "c783abc7ababf18fa47ff9013a2b07b431fc21ff902c235fb9ff3dd915d49bcb"
+    },
+    {
       "path": "content/news/classic/2026/classic-world-closed-online-test-2-registration.json",
       "id": "classic-world-closed-online-test-2-registration",
-      "file_sha256": "221fc910d3c91cb3d96b630ec42c08af58f301fdf009834d91402d160fbc32f8"
+      "file_sha256": "0fee613a587991a1d0dd2e053cee16adfbd0e8521088514d887425de29dd1d88"
     },
     {
       "path": "content/news/maplestory/2022/maplestory-europe-gms-official-news-2022-09-26-4882.json",
@@ -7233,7 +7393,12 @@
     {
       "path": "content/patch-notes/idle/2026/maplestory-idle-june-11-2026-patch-notes.json",
       "id": "maplestory-idle-june-11-2026-patch-notes",
-      "file_sha256": "44e7e58b31e74a4f6d36072056b8ceccd3d2d9f51ec290a92bcd27bd513c4b7e"
+      "file_sha256": "5f584f69c0c86b3d65992615660844da3ffd232015a0411e584fe635fdfd6ee1"
+    },
+    {
+      "path": "content/patch-notes/m/2026/maplestory-m-july-8-9-2026-patch-notes.json",
+      "id": "maplestory-m-july-8-9-2026-patch-notes",
+      "file_sha256": "811d8c16937849221e36bf37b36a55eafc9269b58560816ff3ef3d17c65d929e"
     },
     {
       "path": "content/patch-notes/maplestory/2022/maplestory-europe-gms-official-news-2022-10-04-4894.json",
@@ -7704,6 +7869,11 @@
       "path": "content/patch-notes/n/2026/n-multi-region-official-updates-2026-07-16-3501581.json",
       "id": "n-multi-region-official-updates-2026-07-16-3501581",
       "file_sha256": "83a75f228065c27f3028713ff72188b5b9a3932dcef2101937900121556dab23"
+    },
+    {
+      "path": "content/roadmaps/idle/2026/maplestory-idle-july-23-2026-update-preview.json",
+      "id": "maplestory-idle-july-23-2026-update-preview",
+      "file_sha256": "a7caa6bbeae5f2a39c38f5d8b825153fb58539e727aa20c16961c801f54f2d4c"
     }
   ],
   "sources": [
@@ -7713,9 +7883,19 @@
       "file_sha256": "1a545d26601c1f2361788f283fa105dd78c8681a5d2bd87e2b925f65253cd63b"
     },
     {
+      "path": "sources/classic/classic-niameowdb-news.json",
+      "id": "classic-niameowdb-news",
+      "file_sha256": "2197d880382bf6d3c4391d961e98ebda01106b4e9302656f6a831b6e888a3806"
+    },
+    {
+      "path": "sources/idle/idle-nexon-official-events.json",
+      "id": "idle-nexon-official-events",
+      "file_sha256": "ac0919767d51da6241945ed76dd872a2b9a44976a0e5d5af87f4cb89c35b0afb"
+    },
+    {
       "path": "sources/idle/idle-nexon-official-patch-notes.json",
       "id": "idle-nexon-official-patch-notes",
-      "file_sha256": "2ef7458a931eb6b1f4c0958906c3bc632f3d860603dab9cb01a636852a337d53"
+      "file_sha256": "f3c7b00f9294879f95d4b00865fc22724426925a52def75b3b30af28645ac127"
     },
     {
       "path": "sources/m/m-nexon-official-news.json",
@@ -7746,6 +7926,11 @@
       "path": "sources/n/n-official-updates.json",
       "id": "n-official-updates",
       "file_sha256": "0019c48f48616023f514d0d4f66ab5d274d51a4c7c0fe5ec385fdde23adf4983"
+    },
+    {
+      "path": "sources/worlds/worlds-creator-center-api-reference.json",
+      "id": "worlds-creator-center-api-reference",
+      "file_sha256": "316a53ba2cb99785cd2fb9ce29cd9dc332dc2b121277f9435514fe4677ed0d25"
     },
     {
       "path": "sources/worlds/worlds-creator-center-news.json",

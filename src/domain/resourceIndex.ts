@@ -13,6 +13,7 @@ export type ResourceIndexRecord = {
   category: string;
   subcategory: string | null;
   description: string;
+  image_url?: string | null;
   official: boolean;
   opensource: boolean;
   github_url: string | null;

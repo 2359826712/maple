@@ -1,27 +1,39 @@
 {
-  "total_resources": 31,
-  "total_websites": 8,
+  "total_resources": 93,
+  "total_websites": 26,
   "series": {
-    "classic": 2,
-    "idle": 6,
-    "m": 5,
+    "classic": 19,
+    "idle": 22,
+    "m": 13,
     "maplestory": 6,
-    "n": 6,
-    "worlds": 6
+    "n": 22,
+    "worlds": 11
   },
   "categories": {
-    "database": 1,
+    "api": 1,
+    "calculator": 15,
+    "community": 1,
+    "database": 11,
+    "developer-tool": 1,
+    "discord": 4,
     "downloads": 2,
     "events": 2,
+    "github": 1,
     "guide": 7,
+    "media": 1,
     "news": 8,
     "official": 1,
+    "optimizer": 7,
     "patch-notes": 5,
-    "rankings": 1,
-    "wiki": 4
+    "planner": 6,
+    "rankings": 3,
+    "reddit": 5,
+    "simulator": 6,
+    "wiki": 5,
+    "youtube": 1
   },
   "statuses": {
-    "active": 31
+    "active": 93
   },
-  "latest_verification_date": "2026-07-18"
+  "latest_verification_date": "2026-07-25"
 }

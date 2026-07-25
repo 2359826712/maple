@@ -84,14 +84,16 @@ describe('resource index', () => {
 
   it('keeps a verified official batch for every supported series', async () => {
     const records = await readResourceRecords();
+    const officialRecords = records.filter((record) => record.data.official);
     const counts = Object.fromEntries(supportedSeries.map((series) => [
       series,
-      records.filter((record) => record.data.series === series && record.data.official).length,
+      officialRecords.filter((record) => record.data.series === series).length,
     ]));
 
     expect(Math.min(...Object.values(counts))).toBeGreaterThanOrEqual(2);
-    expect(records).toHaveLength(31);
-    expect(records.every((record) => record.data.official)).toBe(true);
+    expect(officialRecords.length).toBeGreaterThanOrEqual(31);
+    expect(records.length).toBeGreaterThan(officialRecords.length);
+    expect(officialRecords.every((record) => record.data.official)).toBe(true);
   });
 
   it('keeps generated output reproducible from source resources', async () => {

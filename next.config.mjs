@@ -7,7 +7,7 @@ const contentSecurityPolicy = [
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'self'",
-  "script-src 'self' https://accounts.google.com https://www.googletagmanager.com",
+  `script-src 'self'${process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''} https://accounts.google.com https://www.googletagmanager.com`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com",
   "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
   "img-src 'self' data: https:",
@@ -55,6 +55,7 @@ const nextConfig = {
     return {
       beforeFiles: [
         { source: '/health', destination: '/api/health' },
+        { source: '/rss.xml', destination: '/api/rss' },
         ...(apiOrigin
           ? [{ source: '/api/:path*', destination: `${apiOrigin}/api/:path*` }]
           : []),

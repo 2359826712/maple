@@ -158,6 +158,7 @@ export function getSiteSearchResults(query: string, language: string, version: s
       const seriesId = getIndexedResourceSeriesId(resource);
       const content = indexedContentByResourceId.get(resource.id);
       const slug = getVerifiedSeriesResourceSlug({
+        resourceId: resource.id,
         title: resource.name,
         description: resource.description,
         sourceLabel: resource.website,

@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-05-17-cms-economy-changes-response",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-economy-changes-response",
+  "source_url": "https://meowdb.com/msclassic/news/cms-economy-changes-response",
+  "external_id": "cms-economy-changes-response",
+  "title": "May 17, 2026·China·ShengquShengqu defends auction-house economy after backlash, cites 20 million Q1 script-farm bansTwo days after the May 15 reveal, Shengqu wrote a long reply to angry players. They said the test will only use auction houses for trading. To prove they have a bot problem, Shengqu shared a number: they banned almost 20 million bot accounts on the regular server in just three months (January through March 2026). They said gold-binding and the one-ID one-account rule are needed to stop bots. They are still thinking about letting friends trade.Closed Test",
+  "original_title": "Shengqu defends auction-house economy after backlash, cites 20 million Q1 script-farm bans | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-05-17",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Two days after the May 15 reveal, Shengqu wrote a long reply to angry players. They said the test will only use auction houses for trading. To prove they have a bot problem, Shengqu shared a number: they banned almost 20 million bot accounts on the regular server in just three months (January through March 2026). They said gold-binding and the one-ID one-account rule are needed to stop bots. They are still thinking about letting friends trade.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=kQbyUt5hwwlnWD72swBpxoTotlrvJeHh8hDxCqfS1O8&subtitle=Two+days+after+the+May+15+reveal%2C+Shengqu+wrote+a+long+reply+to+angry+players.+They+said+the+test+will+only+use+auction+houses+for+trading.%E2%80%A6&title=Shengqu+defends+auction-house+economy+after+backlash%2C+cites+20+million+Q1+scrip%E2%80%A6",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "0c811d54cb1536556e6ed695872016624113ed14c905f99736feb1379d892043",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:50:19.928Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-economy-changes-response",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

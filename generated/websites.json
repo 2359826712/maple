@@ -1,5 +1,23 @@
 [
   {
+    "name": "Discord",
+    "count": 4,
+    "resource_ids": [
+      "idle-official-discord",
+      "m-official-discord",
+      "n-official-universe-discord",
+      "worlds-official-discord"
+    ]
+  },
+  {
+    "name": "GitHub",
+    "count": 2,
+    "resource_ids": [
+      "worlds-ai-coding-plugins",
+      "worlds-msw-examples-repository"
+    ]
+  },
+  {
     "name": "Global MapleStory",
     "count": 5,
     "resource_ids": [
@@ -18,6 +36,48 @@
     ]
   },
   {
+    "name": "MIRPG Optimizer",
+    "count": 2,
+    "resource_ids": [
+      "idle-mirpg-damage-calculator",
+      "idle-mirpg-dps-projections"
+    ]
+  },
+  {
+    "name": "MapleClassic Wiki",
+    "count": 1,
+    "resource_ids": [
+      "classic-mapleclassic-route-planner"
+    ]
+  },
+  {
+    "name": "MapleHub",
+    "count": 10,
+    "resource_ids": [
+      "n-maplehub-arcane-symbol-tracker",
+      "n-maplehub-cube-cost-calculator",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-equipment-simulator",
+      "n-maplehub-flame-score-calculator",
+      "n-maplehub-hyper-stat-optimizer",
+      "n-maplehub-raffle-reward-calculator",
+      "n-maplehub-star-force-calculator",
+      "n-maplehub-stat-equivalent-calculator",
+      "n-maplehub-v-matrix-calculator"
+    ]
+  },
+  {
+    "name": "MapleStory Classic World",
+    "count": 5,
+    "resource_ids": [
+      "classicworld-progression-table",
+      "classicworld-scroll-cost-simulator",
+      "classicworld-search-library",
+      "classicworld-stat-equivalence-calculator",
+      "classicworld-xp-farming-calculator"
+    ]
+  },
+  {
     "name": "MapleStory Idle RPG Forum",
     "count": 5,
     "resource_ids": [
@@ -29,6 +89,16 @@
     ]
   },
   {
+    "name": "MapleStory Idle RPG Wiki",
+    "count": 4,
+    "resource_ids": [
+      "idle-wiki-companion-summon-calculator",
+      "idle-wiki-elite-summon-calculator",
+      "idle-wiki-experience-calculator",
+      "idle-wiki-weapon-summon-calculator"
+    ]
+  },
+  {
     "name": "MapleStory M Global Forum",
     "count": 5,
     "resource_ids": [
@@ -37,6 +107,31 @@
       "m-may-2026-known-issues",
       "m-may-2026-patch-notes-part-2",
       "m-nexon-guide-for-new-maplers"
+    ]
+  },
+  {
+    "name": "MapleStory M Resources",
+    "count": 1,
+    "resource_ids": [
+      "m-community-powder-cost-calculator"
+    ]
+  },
+  {
+    "name": "MapleStory M Tools",
+    "count": 5,
+    "resource_ids": [
+      "m-hyper-stats-table",
+      "m-jewel-table",
+      "m-link-skills-table",
+      "m-star-force-rate-table",
+      "m-weapon-pba-table"
+    ]
+  },
+  {
+    "name": "MapleStory N",
+    "count": 1,
+    "resource_ids": [
+      "n-official-character-rankings"
     ]
   },
   {
@@ -53,14 +148,15 @@
   },
   {
     "name": "MapleStory Worlds Creator Center",
-    "count": 6,
+    "count": 7,
     "resource_ids": [
       "worlds-creator-center-news",
       "worlds-creator-center-welcome-to-msw",
       "worlds-creator-documents",
       "worlds-creator-resources",
       "worlds-ip-use-scope",
-      "worlds-managing-resources-guide"
+      "worlds-managing-resources-guide",
+      "worlds-official-api-reference"
     ]
   },
   {
@@ -71,11 +167,85 @@
     ]
   },
   {
+    "name": "Medium",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-medium"
+    ]
+  },
+  {
     "name": "Nexon MapleStory Support",
     "count": 2,
     "resource_ids": [
       "maplestory-support-gameplay",
       "maplestory-support-installation-guide"
+    ]
+  },
+  {
+    "name": "NiaMeowDB",
+    "count": 8,
+    "resource_ids": [
+      "classic-niameowdb-accuracy-simulator",
+      "classic-niameowdb-avoidability-simulator",
+      "classic-niameowdb-character-builder",
+      "classic-niameowdb-damage-simulator",
+      "classic-niameowdb-database-toolkit",
+      "classic-niameowdb-grind-tracker",
+      "classic-niameowdb-quest-tracker",
+      "classic-niameowdb-scroll-simulator"
+    ]
+  },
+  {
+    "name": "Reddit",
+    "count": 5,
+    "resource_ids": [
+      "classic-world-subreddit",
+      "idle-rpg-subreddit",
+      "m-subreddit",
+      "n-maplestory-n-subreddit",
+      "worlds-subreddit"
+    ]
+  },
+  {
+    "name": "Sleepywood",
+    "count": 2,
+    "resource_ids": [
+      "classic-sleepywood-game-database",
+      "classic-sleepywood-jobs-and-skills"
+    ]
+  },
+  {
+    "name": "Telegram",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-telegram"
+    ]
+  },
+  {
+    "name": "YouTube",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-youtube"
+    ]
+  },
+  {
+    "name": "maplestoryidle.info",
+    "count": 7,
+    "resource_ids": [
+      "idle-advanced-equipment-compare",
+      "idle-character-analysis",
+      "idle-game-data-library",
+      "idle-hero-token-calculator",
+      "idle-item-quality-checker",
+      "idle-monster-stat-lookup",
+      "idle-simple-equipment-compare"
+    ]
+  },
+  {
+    "name": "msidle.gg",
+    "count": 1,
+    "resource_ids": [
+      "idle-msidle-rankings"
     ]
   }
 ]

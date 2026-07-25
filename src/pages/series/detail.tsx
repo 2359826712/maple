@@ -3,9 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
 import { localizeHref } from '@/i18n/languageRouting';
 import { seriesProducts, type SeriesProduct } from './catalog';
-import { getSeriesModuleHref, isSeriesModule, type SeriesModule } from './scope';
+import { getSeriesModuleHref, getSeriesResourceHref, isSeriesModule, type SeriesModule } from './scope';
 import { getSeriesVersionShortLabel } from './versionConfig';
-import { getVerifiedSeriesResources } from './verifiedContent';
+import {
+  getSeriesModuleArtwork,
+  getVerifiedSeriesResources,
+  getVerifiedSeriesResourceSlug,
+} from './verifiedContent';
 
 type Props = {
   product: SeriesProduct;
@@ -77,6 +81,7 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
 
       {displayedModules.map((module, index) => {
         const resources = getVerifiedSeriesResources(product.id, module);
+        const moduleArtwork = getSeriesModuleArtwork(product.id, module, product.image);
         return <section key={module} id={module} className={`scroll-mt-36 border-b border-background-200 ${index % 2 === 0 ? 'bg-background-50' : 'bg-background-100'}`}>
           <div className="mx-auto max-w-6xl px-4 py-12 md:px-8 md:py-16">
             <div className="flex max-w-3xl items-start gap-3">
@@ -93,20 +98,34 @@ export default function SeriesDetailContent({ product, seriesModule }: Props) {
             {resources.length > 0 ? (
               <div className="mt-7 grid gap-4 md:grid-cols-2">
                 {resources.map((resource) => (
-                  <article key={`${module}-${resource.title}`} className="flex min-h-56 flex-col rounded-lg border border-background-300 bg-background-50 p-5">
-                    <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-foreground-500">
-                      <span className="inline-flex items-center gap-1 font-semibold text-primary-700">
-                        <i className="ri-verified-badge-line" aria-hidden="true" />
-                        {resource.sourceLabel}
-                      </span>
-                      {resource.publishedAt && <time dateTime={resource.publishedAt}>{resource.publishedAt}</time>}
+                  <article key={`${module}-${resource.title}`} className="group flex min-h-56 flex-col overflow-hidden rounded-xl border border-background-300 bg-background-50 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md">
+                    <div className="aspect-[16/7] overflow-hidden bg-background-200">
+                      <img
+                        src={resource.imageUrl || moduleArtwork}
+                        alt={resource.imageAlt || `${resource.title} · ${product.name}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                      />
                     </div>
-                    <h3 className="mt-4 font-heading text-lg font-semibold leading-snug text-foreground-950">{resource.title}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-6 text-foreground-600">{resource.description}</p>
-                    <a href={resource.sourceUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-primary-700 hover:text-primary-800">
-                      {t('series_check_source')}
-                      <i className="ri-external-link-line" aria-hidden="true" />
-                    </a>
+                    <div className="flex flex-1 flex-col p-5">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-foreground-500">
+                        <span className="inline-flex items-center gap-1 font-semibold text-primary-700">
+                          <i className="ri-verified-badge-line" aria-hidden="true" />
+                          {resource.sourceLabel}
+                        </span>
+                        {resource.publishedAt && <time dateTime={resource.publishedAt}>{resource.publishedAt}</time>}
+                      </div>
+                      <h3 className="mt-4 font-heading text-lg font-semibold leading-snug text-foreground-950">{resource.title}</h3>
+                      <p className="mt-2 flex-1 text-sm leading-6 text-foreground-600">{resource.description}</p>
+                      <Link
+                        to={localized(getSeriesResourceHref(product.id, module, getVerifiedSeriesResourceSlug(resource)))}
+                        className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-primary-700 hover:text-primary-800"
+                      >
+                        {t('series_read_on_site')}
+                        <i className="ri-arrow-right-line" aria-hidden="true" />
+                      </Link>
+                    </div>
                   </article>
                 ))}
               </div>

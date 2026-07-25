@@ -5,7 +5,7 @@
   "regions": ["global"],
   "languages": ["en"],
   "source_type": "forum",
-  "content_types": ["patch-note"],
+  "content_types": ["patch-note", "roadmap"],
   "base_url": "https://forum.nexon.com/maplestoryidle/main",
   "discovery_urls": ["https://forum.nexon.com/maplestoryidle/board_list?board=6675&pageNo=1"],
   "feed_url": null,

@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
-import InternalRedirect from '@/components/feature/InternalRedirect';
 import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
@@ -17,11 +16,12 @@ import {
   getSeriesModuleHref,
   getSeriesResourceHref,
   isSeriesModule,
-  isSharedSeriesModule,
   type SeriesModule,
 } from './scope';
 import type { VerifiedSeriesResource } from './verifiedContent';
+import { getSeriesModuleArtwork } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
+import ResourceDetailExperience, { hasResourceDetailExperience } from './ResourceDetailExperience';
 
 const moduleLabels: Record<SeriesModule, string> = {
   news: 'nav_news',
@@ -52,20 +52,22 @@ export type SeriesResourceDetailData = {
 export default function SeriesResourceDetailPage({
   initialContentModule,
   initialDetail,
+  initialSeriesId,
   initialSlug,
 }: {
   initialContentModule?: string;
   initialDetail?: SeriesResourceDetailData;
+  initialSeriesId?: string;
   initialSlug?: string;
 } = {}) {
   const params = useParams();
-  const contentModule = params.contentModule || initialContentModule;
+  const contentModule = params.seriesModule || params.contentModule || initialContentModule;
   const slug = params.slug || initialSlug;
   const { search } = useLocation();
   const { t, i18n } = useTranslation();
   const { version } = useVersion();
   const [notificationOpen, setNotificationOpen] = useState(false);
-  const seriesId = getSeriesIdFromSearch(search);
+  const seriesId = params.seriesId || initialSeriesId || getSeriesIdFromSearch(search);
   const product = getSeriesProduct(seriesId);
   const module = isSeriesModule(contentModule) ? contentModule : undefined;
   const [detail, setDetail] = useState<SeriesResourceDetailData | undefined>(initialDetail);
@@ -153,6 +155,13 @@ export default function SeriesResourceDetailPage({
     description: translateContent(contentRecord?.summary || resource?.description || ''),
   };
   const publishedAt = contentRecord?.published_at || resource?.publishedAt;
+  const heroImage = resource?.imageUrl || (
+    product && module
+      ? getSeriesModuleArtwork(product.id, module, product.image)
+      : product?.image
+  );
+  const heroImageAlt = resource?.imageAlt || copy.title;
+  const hasOnSiteExperience = hasResourceDetailExperience(resource);
 
   usePageMetadata(
     copy.title || t('series_content_not_found'),
@@ -167,15 +176,6 @@ export default function SeriesResourceDetailPage({
       type: resource ? 'article' : 'website',
     },
   );
-
-  if (module && isSharedSeriesModule(module)) {
-    return (
-      <InternalRedirect
-        to={localized(getSeriesModuleHref(seriesId || 'maplestory-pc', module))}
-        label={t('series_back_to_module', { module: t(moduleLabels[module]) })}
-      />
-    );
-  }
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
@@ -230,9 +230,24 @@ export default function SeriesResourceDetailPage({
             </header>
 
             <div className="mx-auto max-w-4xl px-4 py-10 md:px-8 md:py-14">
+              {heroImage && (
+                <figure className="mb-10 overflow-hidden rounded-2xl border border-background-300 bg-background-100 shadow-sm">
+                  <img
+                    src={heroImage}
+                    alt={heroImageAlt}
+                    className="aspect-[16/7] w-full object-cover"
+                    decoding="async"
+                  />
+                </figure>
+              )}
+              <ResourceDetailExperience resource={resource} />
               <section aria-labelledby="resource-summary-heading">
                 <h2 id="resource-summary-heading" className="font-heading text-2xl font-semibold">
-                  {t('series_content_summary')}
+                  {t(hasOnSiteExperience
+                    ? 'series_content_explanation'
+                    : hasStructuredContent
+                      ? 'series_content_key_takeaway'
+                      : 'series_content_summary')}
                 </h2>
                 <p className="mt-4 text-base leading-8 text-foreground-700">{copy.description}</p>
               </section>

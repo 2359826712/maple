@@ -1,0 +1,32 @@
+{
+  "id": "worlds-creator-center-api-reference",
+  "name": "MapleStory Worlds Creator Center API Reference",
+  "series": "worlds",
+  "regions": ["global"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["guide"],
+  "base_url": "https://maplestoryworlds-creators.nexon.com/en/apiReference",
+  "discovery_urls": ["https://maplestoryworlds-creators.nexon.com/en/apiReference/How-to-use-API-Reference"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "html",
+  "parser": "worlds-creator-api-reference",
+  "adapter_config": {
+    "include_patterns": ["/en/apiReference/"],
+    "default_content_type": "guide"
+  },
+  "official": true,
+  "enabled": false,
+  "crawl_frequency": "1w",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": null,
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-25 against the server-rendered official API Reference Guidelines page. The source is indexed manually until a dedicated reference parser is added."
+}

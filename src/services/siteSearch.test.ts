@@ -25,20 +25,29 @@ describe('universal site search index', () => {
     expect(results).toEqual(expect.arrayContaining([
       expect.objectContaining({
         id: 'resource-m-nexon-guide-for-new-maplers',
-        href: expect.stringMatching(/^\/content\/guides\/.+\?series=maplestory-m$/),
+        href: expect.stringMatching(/^\/series\/maplestory-m\/guides\/.+$/),
       }),
     ]));
   });
 
   it.each([
-    ['Miracle Summer 2026', /^\/content\/events\/.+\?series=maplestory-pc$/],
-    ['MapleStory N Beginner', /^\/content\/guides\/.+\?series=maplestory-n$/],
-    ['Managing Resources', /^\/content\/guides\/.+\?series=maplestory-worlds$/],
-    ['MapleStory Idle RPG FAQ', /^\/content\/wiki\/.+\?series=maplestory-idle$/],
+    ['Miracle Summer 2026', /^\/series\/maplestory-pc\/events\/.+$/],
+    ['MapleStory N Beginner', /^\/series\/maplestory-n\/guides\/.+$/],
+    ['Managing Resources', /^\/series\/maplestory-worlds\/guides\/.+$/],
+    ['MapleStory Idle RPG FAQ', /^\/series\/maplestory-idle\/wiki\/.+$/],
   ])('routes generated resource search for %s through an internal detail page', (query, href) => {
     const result = getSiteSearchResults(query, 'en', 'gms')
       .find((entry) => entry.id.startsWith('resource-'));
     expect(result?.href).toMatch(href);
+  });
+
+  it('uses the permanent resource ID in internal search-result links', () => {
+    const result = getSiteSearchResults('r/MSClassicWorld', 'en', 'gms')
+      .find((entry) => entry.id === 'resource-classic-world-subreddit');
+
+    expect(result?.href).toBe(
+      '/series/maplestory-classic/community/r-msclassicworld-classic-world-subreddit',
+    );
   });
 
   it.each([

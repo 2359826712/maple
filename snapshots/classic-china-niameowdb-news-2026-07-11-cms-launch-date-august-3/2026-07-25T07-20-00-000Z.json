@@ -1,0 +1,65 @@
+{
+  "content_id": "classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3",
+  "detected_at": "2026-07-25T07:20:00.000Z",
+  "old_hash": "7b514f683ede60cb3e31d4d1c8f17aee70df8cf7bd0a9a7297e228b78154bd01",
+  "new_hash": "069ae898a25e42e0bbb22dfacd85bceb3499edc39b2c059c88c3ca3801966272",
+  "changed_fields": [
+    "content_hash",
+    "metadata",
+    "related_content_ids",
+    "related_urls",
+    "title"
+  ],
+  "record": {
+    "id": "classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-3",
+    "source_id": "classic-niameowdb-news",
+    "canonical_url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3",
+    "source_url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3",
+    "external_id": "cms-launch-date-august-3",
+    "title": "Jul 11, 2026·China·ShengquChina gets a launch date: CMS Classic opens August 3Shengqu announced that the Chinese Classic server launches for real on August 3, 2026. This is a full launch, not a test, and Shengqu says it is built to run long term. At launch you get five classes (Warrior, Mage, Bowman, Thief, and Pirate), a level cap of 100 with the second job change, classic areas like Victoria Island and the Nautilus, and Free Market personal and hired-merchant shops. Pre-registration is open on the official site.Event",
+    "original_title": "China gets a launch date: CMS Classic opens August 3 | NiaMeowDB",
+    "series": "classic",
+    "regions": [
+      "china",
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "content_type": "news",
+    "subcategory": null,
+    "official": false,
+    "author": "NiaMeowDB",
+    "published_at": "2026-07-11",
+    "updated_at": null,
+    "discovered_at": "2026-07-25T01:49:05.727Z",
+    "last_checked": "2026-07-25T01:49:05.727Z",
+    "summary": "Shengqu announced that the Chinese Classic server launches for real on August 3, 2026. This is a full launch, not a test, and Shengqu says it is built to run long term. At launch you get five classes (Warrior, Mage, Bowman, Thief, and Pirate), a level cap of 100 with the second job change, classic areas like Victoria Island and the Nautilus, and Free Market personal and hired-merchant shops. Pre-registration is open on the official site.",
+    "body_text": null,
+    "body_markdown": null,
+    "storage_mode": "summary-and-metadata",
+    "tags": [],
+    "images": [
+      {
+        "url": "https://og.meowdb.com/og?emoji=MeowHype&eyebrow=MapleStory+Classic+%2F+China&sig=0t-j2l-ELl2R8EjkLkC2RsUioNZr7fOscJeYeSL6BPI&subtitle=Shengqu+announced+that+the+Chinese+Classic+server+launches+for+real+on+August+3%2C+2026.+This+is+a+full+launch%2C+not+a+test%2C+and+Shengqu+says%E2%80%A6&title=China+gets+a+launch+date%3A+CMS+Classic+opens+August+3",
+        "alt": null
+      }
+    ],
+    "attachments": [],
+    "related_content_ids": [],
+    "related_urls": [],
+    "content_hash": "7b514f683ede60cb3e31d4d1c8f17aee70df8cf7bd0a9a7297e228b78154bd01",
+    "status": "published",
+    "translation_status": "not-requested",
+    "metadata": {
+      "parser": "classic-niameowdb-news",
+      "content_type": "text/html; charset=utf-8",
+      "fetched_at": "2026-07-25T01:49:24.271Z",
+      "final_url": "https://meowdb.com/msclassic/news/cms-launch-date-august-3",
+      "body_extractable": true,
+      "discovery_url": "https://meowdb.com/msclassic/news",
+      "body_selector": "article"
+    },
+    "notes": null
+  }
+}

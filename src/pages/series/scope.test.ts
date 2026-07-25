@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   getSeriesModuleHref,
+  getSeriesResourceHref,
   getSeriesRouteState,
   isSeriesModuleAvailable,
   isSharedSeriesModule,
@@ -33,6 +34,8 @@ describe('series module scope', () => {
       .toBe('/shop?ref=nav&series=maplestory-idle#offers');
     expect(scopeModuleHref('maplestory-worlds', '/feedback'))
       .toBe('/feedback?series=maplestory-worlds');
+    expect(getSeriesResourceHref('maplestory-classic', 'community', 'classic-world-subreddit'))
+      .toBe('/series/maplestory-classic/community/classic-world-subreddit');
   });
 
   it('reads both current and legacy series routes', () => {
@@ -46,9 +49,30 @@ describe('series module scope', () => {
     });
   });
 
-  it('only exposes rankings for a series with real ranking rows', () => {
+  it('keeps the owning module on article and nested detail routes', () => {
+    expect(getSeriesRouteState('/content/news/patch-note', '?series=maplestory-classic')).toEqual({
+      seriesId: 'maplestory-classic',
+      module: 'news',
+    });
+    expect(getSeriesRouteState('/wiki/boss/lotus')).toEqual({
+      seriesId: undefined,
+      module: 'wiki',
+    });
+    expect(getSeriesRouteState('/maps/arcane-river')).toEqual({
+      seriesId: undefined,
+      module: 'tools',
+    });
+    expect(getSeriesRouteState('/series/maplestory-idle/tools/hero-token-calculator')).toEqual({
+      seriesId: 'maplestory-idle',
+      module: 'tools',
+    });
+  });
+
+  it('only exposes rankings for series with verified ranking resources', () => {
     expect(isSeriesModuleAvailable('maplestory-pc', 'rankings')).toBe(true);
-    ['maplestory-classic', 'maplestory-m', 'maplestory-n', 'maplestory-worlds', 'maplestory-idle']
+    expect(isSeriesModuleAvailable('maplestory-n', 'rankings')).toBe(true);
+    expect(isSeriesModuleAvailable('maplestory-idle', 'rankings')).toBe(true);
+    ['maplestory-classic', 'maplestory-m', 'maplestory-worlds']
       .forEach((seriesId) => expect(isSeriesModuleAvailable(seriesId, 'rankings')).toBe(false));
     expect(isSeriesModuleAvailable('maplestory-idle', 'news')).toBe(true);
   });

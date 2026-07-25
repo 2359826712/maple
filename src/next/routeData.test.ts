@@ -72,6 +72,8 @@ describe('Next route data', () => {
   it('preserves series scope while redirecting to a localized route', () => {
     expect(getLocalizedRedirect('/content/news/example?series=maplestory-classic'))
       .toBe('/content/news/example/en/GMS?series=maplestory-classic');
+    expect(getLocalizedRedirect('/series/maplestory-classic/news/example'))
+      .toBe('/series/maplestory-classic/news/example/en/GMS');
   });
 
   it('serves the default homepage at the bare domain and retires the legacy suffix', async () => {
@@ -90,8 +92,9 @@ describe('Next route data', () => {
   });
 
   it('redirects unsupported series ranking routes to series news', () => {
-    expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-idle'))
-      .toBe('/news/en/GMS?series=maplestory-idle');
+    expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-classic'))
+      .toBe('/news/en/GMS?series=maplestory-classic');
+    expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-idle')).toBeNull();
     expect(getLocalizedRedirect('/rankings/en/GMS?series=maplestory-pc')).toBeNull();
   });
 });

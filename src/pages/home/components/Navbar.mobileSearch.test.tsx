@@ -121,19 +121,41 @@ describe('Navbar mobile site search', () => {
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
     expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('href')).toBe('/news/en/GMS?series=maplestory-m');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('aria-current')).toBe('page');
     expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('href')).toBe('/guides/en/GMS?series=maplestory-m');
     expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop/en/GMS?series=maplestory-m');
     expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback/en/GMS?series=maplestory-m');
     expect(scopedNavigation.queryByRole('link', { name: 'nav_rankings' })).toBeNull();
   });
 
-  it('falls back to series news when rankings are unavailable after switching series', () => {
+  it('marks the owning navigation module active on article detail pages', () => {
+    renderNavbar('/series/maplestory-classic/news/classic-patch-note/en/GMS');
+
+    const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
+    expect(desktopNavigation).toBeTruthy();
+    const scopedNavigation = within(desktopNavigation as HTMLElement);
+
+    expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('aria-current')).toBeNull();
+  });
+
+  it('marks nested module pages active in the navigation', () => {
+    renderNavbar('/wiki/boss/lotus/en/GMS');
+
+    const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
+    expect(desktopNavigation).toBeTruthy();
+    const scopedNavigation = within(desktopNavigation as HTMLElement);
+
+    expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('aria-current')).toBe('page');
+  });
+
+  it('keeps rankings selected when the destination series supports them', () => {
     renderNavbar('/rankings/en/GMS');
 
     fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
     fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory N' }));
 
-    expect(screen.getByLabelText('Current path').textContent).toBe('/news/en/GMS?series=maplestory-n');
+    expect(screen.getByLabelText('Current path').textContent).toBe('/rankings/en/GMS?series=maplestory-n');
   });
 
   it('shows the former More destinations directly in the desktop navigation', () => {

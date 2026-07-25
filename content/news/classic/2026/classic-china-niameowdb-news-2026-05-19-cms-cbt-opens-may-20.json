@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-05-19-cms-cbt-opens-may-20",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cms-cbt-opens-may-20",
+  "source_url": "https://meowdb.com/msclassic/news/cms-cbt-opens-may-20",
+  "external_id": "cms-cbt-opens-may-20",
+  "title": "May 19, 2026·China·ShengquCMS Return Island Test opens May 20 with daily test-currency stipendThe Chinese test starts May 20. It is free, and your characters will be deleted at the end. There are 2,000 spots. Streamers from Douyin (the Chinese version of TikTok) get extra spots that do not count against that 2,000. Every day you log in, you get test-only money (called 'adventure coupons'). By the end of the test, you can get up to 1.88 million points, worth about 18,888 yuan in real game money. The first 2,000 players also get a special coin with their own number on it.Closed TestEvent",
+  "original_title": "CMS Return Island Test opens May 20 with daily test-currency stipend | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-05-19",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "The Chinese test starts May 20. It is free, and your characters will be deleted at the end. There are 2,000 spots. Streamers from Douyin (the Chinese version of TikTok) get extra spots that do not count against that 2,000. Every day you log in, you get test-only money (called 'adventure coupons'). By the end of the test, you can get up to 1.88 million points, worth about 18,888 yuan in real game money. The first 2,000 players also get a special coin with their own number on it.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+China&sig=AY7aB7Hy-HXNTMhib3SmfnY26RLIcUVymRvrtzO1_do&subtitle=The+Chinese+test+starts+May+20.+It+is+free%2C+and+your+characters+will+be+deleted+at+the+end.+There+are+2%2C000+spots.+Streamers+from+Douyin+%28t%E2%80%A6&title=CMS+Return+Island+Test+opens+May+20+with+daily+test-currency+stipend",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "da9189c195992061ea6e58c7e095ba6c678c340bb424e55ba1020952fba7ef31",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:50:14.227Z",
+    "final_url": "https://meowdb.com/msclassic/news/cms-cbt-opens-may-20",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

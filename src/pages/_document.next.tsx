@@ -15,6 +15,11 @@ export default function Document(props: DocumentProps) {
     <Html lang={htmlLanguages[pageProps?.language || 'en'] || 'en'}>
       <Head>
         <meta name="mpstorys-build" content="next-ssr-v1" />
+        <meta name="lh-site-verification" content="c17542410116faab8a52" />
+        <meta
+          name="blogarama-site-verification"
+          content="blogarama-81194899-1d28-4b91-90c8-7bbc01876839"
+        />
         <meta name="theme-color" content="#2f8f5b" />
         <meta name="application-name" content="MPStorys" />
         <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
@@ -23,6 +28,7 @@ export default function Document(props: DocumentProps) {
         <link rel="icon" type="image/jpeg" sizes="128x128" href="/mpstorys-icon-128.jpg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="alternate" type="application/rss+xml" title="MPStorys Updates" href="/rss.xml" />
         <link
           rel="preload"
           href="/fonts/fredoka-latin-variable.woff2"

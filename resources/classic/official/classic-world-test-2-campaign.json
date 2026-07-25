@@ -15,6 +15,7 @@
   "category": "official",
   "subcategory": "closed-test",
   "description": "Provides Nexon's official campaign page for registration and access information for Classic World Closed Online Test #2.",
+  "image_url": "https://g.nexonstatic.com/mscw/static/classic-world-closed-online-test2/share_fb.jpg",
   "official": true,
   "opensource": false,
   "github_url": null,

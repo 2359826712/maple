@@ -1,0 +1,52 @@
+{
+  "id": "classic-china-niameowdb-news-2026-04-08-cot-sign-ups-closed",
+  "source_id": "classic-niameowdb-news",
+  "canonical_url": "https://meowdb.com/msclassic/news/cot-sign-ups-closed",
+  "source_url": "https://meowdb.com/msclassic/news/cot-sign-ups-closed",
+  "external_id": "cot-sign-ups-closed",
+  "title": "Apr 8, 2026·Global·NexonCOT signups close, selection emails going out before launchSign-ups closed on April 7. People who went to MapleCon, PC Cafe events, or who tested at Nexon already got their emails. Everyone else is still being picked. The final test keys go out to selected players on April 16.Closed Test",
+  "original_title": "COT signups close, selection emails going out before launch | NiaMeowDB",
+  "series": "classic",
+  "regions": [
+    "china",
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "news",
+  "subcategory": null,
+  "official": false,
+  "author": "NiaMeowDB",
+  "published_at": "2026-04-08",
+  "updated_at": null,
+  "discovered_at": "2026-07-25T01:49:05.727Z",
+  "last_checked": "2026-07-25T01:49:05.727Z",
+  "summary": "Sign-ups closed on April 7. People who went to MapleCon, PC Cafe events, or who tested at Nexon already got their emails. Everyone else is still being picked. The final test keys go out to selected players on April 16.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": [],
+  "images": [
+    {
+      "url": "https://og.meowdb.com/og?emoji=MeowSmart&eyebrow=MapleStory+Classic+%2F+Global&sig=K8gNNUnFBsWGQ3wyr5eNCZq-v_e0b86KKaYfipQm_IA&subtitle=Sign-ups+closed+on+April+7.+People+who+went+to+MapleCon%2C+PC+Cafe+events%2C+or+who+tested+at+Nexon+already+got+their+emails.+Everyone+else+is%E2%80%A6&title=COT+signups+close%2C+selection+emails+going+out+before+launch",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "6226ad0fee6c96161ae37f076d17f6818c84a0cf03fc6724e40e55979872eb2c",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "classic-niameowdb-news",
+    "content_type": "text/html; charset=utf-8",
+    "fetched_at": "2026-07-25T01:51:09.143Z",
+    "final_url": "https://meowdb.com/msclassic/news/cot-sign-ups-closed",
+    "body_extractable": true,
+    "discovery_url": "https://meowdb.com/msclassic/news",
+    "body_selector": "article"
+  },
+  "notes": null
+}

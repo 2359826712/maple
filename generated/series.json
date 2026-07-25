@@ -1,33 +1,74 @@
 [
   {
     "id": "classic",
-    "count": 2,
+    "count": 19,
     "resource_ids": [
+      "classic-mapleclassic-route-planner",
       "classic-nexon-closed-online-test-2",
-      "classic-world-test-2-campaign"
+      "classic-niameowdb-accuracy-simulator",
+      "classic-niameowdb-avoidability-simulator",
+      "classic-niameowdb-character-builder",
+      "classic-niameowdb-damage-simulator",
+      "classic-niameowdb-database-toolkit",
+      "classic-niameowdb-grind-tracker",
+      "classic-niameowdb-quest-tracker",
+      "classic-niameowdb-scroll-simulator",
+      "classic-sleepywood-game-database",
+      "classic-sleepywood-jobs-and-skills",
+      "classic-world-subreddit",
+      "classic-world-test-2-campaign",
+      "classicworld-progression-table",
+      "classicworld-scroll-cost-simulator",
+      "classicworld-search-library",
+      "classicworld-stat-equivalence-calculator",
+      "classicworld-xp-farming-calculator"
     ]
   },
   {
     "id": "idle",
-    "count": 6,
+    "count": 22,
     "resource_ids": [
+      "idle-advanced-equipment-compare",
       "idle-april-9-2026-patch-notes",
+      "idle-character-analysis",
+      "idle-game-data-library",
+      "idle-hero-token-calculator",
+      "idle-item-quality-checker",
       "idle-may-21-2026-patch-notes",
       "idle-may-21-update-preview",
+      "idle-mirpg-damage-calculator",
+      "idle-mirpg-dps-projections",
+      "idle-monster-stat-lookup",
+      "idle-msidle-rankings",
       "idle-nexon-june-11-patch-notes",
+      "idle-official-discord",
       "idle-official-faq",
-      "idle-official-forum"
+      "idle-official-forum",
+      "idle-rpg-subreddit",
+      "idle-simple-equipment-compare",
+      "idle-wiki-companion-summon-calculator",
+      "idle-wiki-elite-summon-calculator",
+      "idle-wiki-experience-calculator",
+      "idle-wiki-weapon-summon-calculator"
     ]
   },
   {
     "id": "m",
-    "count": 5,
+    "count": 13,
     "resource_ids": [
+      "m-community-powder-cost-calculator",
       "m-global-official-forum",
+      "m-hyper-stats-table",
+      "m-jewel-table",
       "m-june-24-2026-patch-notice",
+      "m-link-skills-table",
       "m-may-2026-known-issues",
       "m-may-2026-patch-notes-part-2",
-      "m-nexon-guide-for-new-maplers"
+      "m-nexon-guide-for-new-maplers",
+      "m-official-discord",
+      "m-star-force-rate-table",
+      "m-subreddit",
+      "m-weapon-pba-table"
     ]
   },
   {
@@ -44,26 +85,47 @@
   },
   {
     "id": "n",
-    "count": 6,
+    "count": 22,
     "resource_ids": [
       "n-beginners-guide",
       "n-classes-and-jobs",
       "n-download-guide",
+      "n-maplehub-arcane-symbol-tracker",
+      "n-maplehub-cube-cost-calculator",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-equipment-simulator",
+      "n-maplehub-flame-score-calculator",
+      "n-maplehub-hyper-stat-optimizer",
+      "n-maplehub-raffle-reward-calculator",
+      "n-maplehub-star-force-calculator",
+      "n-maplehub-stat-equivalent-calculator",
+      "n-maplehub-v-matrix-calculator",
+      "n-maplestory-n-subreddit",
+      "n-official-character-rankings",
       "n-official-events",
       "n-official-launch-guide",
+      "n-official-universe-discord",
+      "n-official-universe-medium",
+      "n-official-universe-telegram",
+      "n-official-universe-youtube",
       "n-official-updates"
     ]
   },
   {
     "id": "worlds",
-    "count": 6,
+    "count": 11,
     "resource_ids": [
+      "worlds-ai-coding-plugins",
       "worlds-creator-center-news",
       "worlds-creator-center-welcome-to-msw",
       "worlds-creator-documents",
       "worlds-creator-resources",
       "worlds-ip-use-scope",
-      "worlds-managing-resources-guide"
+      "worlds-managing-resources-guide",
+      "worlds-msw-examples-repository",
+      "worlds-official-api-reference",
+      "worlds-official-discord",
+      "worlds-subreddit"
     ]
   }
 ]

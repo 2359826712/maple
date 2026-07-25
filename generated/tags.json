@@ -8,13 +8,71 @@
     ]
   },
   {
+    "id": "accuracy",
+    "count": 2,
+    "resource_ids": [
+      "classic-niameowdb-accuracy-simulator",
+      "idle-monster-stat-lookup"
+    ]
+  },
+  {
+    "id": "ai-coding",
+    "count": 1,
+    "resource_ids": [
+      "worlds-ai-coding-plugins"
+    ]
+  },
+  {
     "id": "announcements",
-    "count": 4,
+    "count": 5,
     "resource_ids": [
       "idle-official-forum",
       "m-global-official-forum",
       "maplestory-nexon-official-news",
+      "n-official-universe-telegram",
       "n-official-updates"
+    ]
+  },
+  {
+    "id": "ap",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-character-builder"
+    ]
+  },
+  {
+    "id": "api",
+    "count": 1,
+    "resource_ids": [
+      "worlds-official-api-reference"
+    ]
+  },
+  {
+    "id": "arcane-symbol",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-arcane-symbol-tracker"
+    ]
+  },
+  {
+    "id": "armor",
+    "count": 1,
+    "resource_ids": [
+      "m-community-powder-cost-calculator"
+    ]
+  },
+  {
+    "id": "articles",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-medium"
+    ]
+  },
+  {
+    "id": "attack",
+    "count": 1,
+    "resource_ids": [
+      "classicworld-stat-equivalence-calculator"
     ]
   },
   {
@@ -22,6 +80,13 @@
     "count": 1,
     "resource_ids": [
       "m-nexon-guide-for-new-maplers"
+    ]
+  },
+  {
+    "id": "avoidability",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-avoidability-simulator"
     ]
   },
   {
@@ -40,11 +105,26 @@
     ]
   },
   {
+    "id": "boss-damage",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-equipment-simulator"
+    ]
+  },
+  {
     "id": "bug-fixes",
     "count": 2,
     "resource_ids": [
       "m-june-24-2026-patch-notice",
       "m-may-2026-known-issues"
+    ]
+  },
+  {
+    "id": "build",
+    "count": 2,
+    "resource_ids": [
+      "classic-niameowdb-character-builder",
+      "n-maplehub-stat-equivalent-calculator"
     ]
   },
   {
@@ -55,16 +135,28 @@
     ]
   },
   {
-    "id": "characters",
+    "id": "character",
     "count": 1,
     "resource_ids": [
-      "maplestory-official-rankings"
+      "idle-character-analysis"
+    ]
+  },
+  {
+    "id": "characters",
+    "count": 3,
+    "resource_ids": [
+      "idle-msidle-rankings",
+      "maplestory-official-rankings",
+      "n-official-character-rankings"
     ]
   },
   {
     "id": "classes",
-    "count": 3,
+    "count": 6,
     "resource_ids": [
+      "classic-sleepywood-jobs-and-skills",
+      "idle-msidle-rankings",
+      "m-link-skills-table",
       "maplestory-official-game-reference",
       "n-classes-and-jobs",
       "worlds-creator-resources"
@@ -87,16 +179,86 @@
   },
   {
     "id": "combat",
-    "count": 1,
+    "count": 4,
     "resource_ids": [
+      "classic-niameowdb-accuracy-simulator",
+      "classic-niameowdb-avoidability-simulator",
+      "classic-niameowdb-damage-simulator",
       "idle-may-21-2026-patch-notes"
     ]
   },
   {
-    "id": "creator",
+    "id": "community",
+    "count": 10,
+    "resource_ids": [
+      "classic-world-subreddit",
+      "idle-official-discord",
+      "idle-rpg-subreddit",
+      "m-official-discord",
+      "m-subreddit",
+      "n-maplestory-n-subreddit",
+      "n-official-universe-discord",
+      "n-official-universe-telegram",
+      "worlds-official-discord",
+      "worlds-subreddit"
+    ]
+  },
+  {
+    "id": "companions",
     "count": 1,
     "resource_ids": [
-      "worlds-creator-center-welcome-to-msw"
+      "idle-wiki-companion-summon-calculator"
+    ]
+  },
+  {
+    "id": "comparison",
+    "count": 3,
+    "resource_ids": [
+      "idle-advanced-equipment-compare",
+      "idle-simple-equipment-compare",
+      "n-maplehub-stat-equivalent-calculator"
+    ]
+  },
+  {
+    "id": "completion",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-arcane-symbol-tracker"
+    ]
+  },
+  {
+    "id": "components",
+    "count": 1,
+    "resource_ids": [
+      "worlds-official-api-reference"
+    ]
+  },
+  {
+    "id": "cost",
+    "count": 10,
+    "resource_ids": [
+      "classicworld-progression-table",
+      "classicworld-scroll-cost-simulator",
+      "idle-hero-token-calculator",
+      "m-community-powder-cost-calculator",
+      "m-hyper-stats-table",
+      "m-star-force-rate-table",
+      "n-maplehub-cube-cost-calculator",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-star-force-calculator",
+      "n-maplehub-v-matrix-calculator"
+    ]
+  },
+  {
+    "id": "creator",
+    "count": 6,
+    "resource_ids": [
+      "worlds-ai-coding-plugins",
+      "worlds-creator-center-welcome-to-msw",
+      "worlds-msw-examples-repository",
+      "worlds-official-api-reference",
+      "worlds-official-discord",
+      "worlds-subreddit"
     ]
   },
   {
@@ -128,10 +290,76 @@
     ]
   },
   {
+    "id": "cube",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-cube-cost-calculator"
+    ]
+  },
+  {
+    "id": "damage",
+    "count": 4,
+    "resource_ids": [
+      "classic-niameowdb-damage-simulator",
+      "idle-mirpg-damage-calculator",
+      "idle-mirpg-dps-projections",
+      "n-maplehub-hyper-stat-optimizer"
+    ]
+  },
+  {
+    "id": "damage-range",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-equipment-simulator"
+    ]
+  },
+  {
+    "id": "database",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-database-toolkit"
+    ]
+  },
+  {
+    "id": "defense",
+    "count": 1,
+    "resource_ids": [
+      "idle-monster-stat-lookup"
+    ]
+  },
+  {
     "id": "design-mode",
     "count": 1,
     "resource_ids": [
       "worlds-creator-resources"
+    ]
+  },
+  {
+    "id": "developer-tool",
+    "count": 1,
+    "resource_ids": [
+      "worlds-ai-coding-plugins"
+    ]
+  },
+  {
+    "id": "discord",
+    "count": 4,
+    "resource_ids": [
+      "idle-official-discord",
+      "m-official-discord",
+      "n-official-universe-discord",
+      "worlds-official-discord"
+    ]
+  },
+  {
+    "id": "discussion",
+    "count": 5,
+    "resource_ids": [
+      "classic-world-subreddit",
+      "idle-rpg-subreddit",
+      "m-subreddit",
+      "n-maplestory-n-subreddit",
+      "worlds-subreddit"
     ]
   },
   {
@@ -150,6 +378,15 @@
     ]
   },
   {
+    "id": "dps",
+    "count": 3,
+    "resource_ids": [
+      "classic-niameowdb-damage-simulator",
+      "idle-mirpg-damage-calculator",
+      "idle-mirpg-dps-projections"
+    ]
+  },
+  {
     "id": "dynamic-pricing",
     "count": 1,
     "resource_ids": [
@@ -157,10 +394,50 @@
     ]
   },
   {
-    "id": "equipment",
+    "id": "elite-monsters",
     "count": 1,
     "resource_ids": [
-      "m-nexon-guide-for-new-maplers"
+      "idle-wiki-elite-summon-calculator"
+    ]
+  },
+  {
+    "id": "enhancement",
+    "count": 3,
+    "resource_ids": [
+      "m-star-force-rate-table",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-star-force-calculator"
+    ]
+  },
+  {
+    "id": "equipment",
+    "count": 18,
+    "resource_ids": [
+      "classic-niameowdb-character-builder",
+      "classic-niameowdb-scroll-simulator",
+      "classicworld-progression-table",
+      "classicworld-scroll-cost-simulator",
+      "classicworld-stat-equivalence-calculator",
+      "idle-advanced-equipment-compare",
+      "idle-game-data-library",
+      "idle-item-quality-checker",
+      "idle-simple-equipment-compare",
+      "idle-wiki-elite-summon-calculator",
+      "m-community-powder-cost-calculator",
+      "m-jewel-table",
+      "m-nexon-guide-for-new-maplers",
+      "m-weapon-pba-table",
+      "n-maplehub-cube-cost-calculator",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-equipment-simulator",
+      "n-maplehub-flame-score-calculator"
+    ]
+  },
+  {
+    "id": "evasion",
+    "count": 1,
+    "resource_ids": [
+      "idle-monster-stat-lookup"
     ]
   },
   {
@@ -183,10 +460,47 @@
     ]
   },
   {
+    "id": "examples",
+    "count": 1,
+    "resource_ids": [
+      "worlds-msw-examples-repository"
+    ]
+  },
+  {
+    "id": "experience",
+    "count": 3,
+    "resource_ids": [
+      "classicworld-xp-farming-calculator",
+      "idle-wiki-experience-calculator",
+      "n-official-character-rankings"
+    ]
+  },
+  {
     "id": "faq",
     "count": 1,
     "resource_ids": [
       "idle-official-faq"
+    ]
+  },
+  {
+    "id": "farming",
+    "count": 1,
+    "resource_ids": [
+      "classicworld-xp-farming-calculator"
+    ]
+  },
+  {
+    "id": "feedback",
+    "count": 1,
+    "resource_ids": [
+      "m-official-discord"
+    ]
+  },
+  {
+    "id": "flame",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-flame-score-calculator"
     ]
   },
   {
@@ -222,10 +536,42 @@
     ]
   },
   {
+    "id": "github",
+    "count": 2,
+    "resource_ids": [
+      "worlds-ai-coding-plugins",
+      "worlds-msw-examples-repository"
+    ]
+  },
+  {
+    "id": "grinding",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-grind-tracker"
+    ]
+  },
+  {
+    "id": "guides",
+    "count": 2,
+    "resource_ids": [
+      "classic-niameowdb-database-toolkit",
+      "m-subreddit"
+    ]
+  },
+  {
     "id": "guild",
     "count": 1,
     "resource_ids": [
       "idle-nexon-june-11-patch-notes"
+    ]
+  },
+  {
+    "id": "guilds",
+    "count": 3,
+    "resource_ids": [
+      "idle-msidle-rankings",
+      "m-official-discord",
+      "n-official-character-rankings"
     ]
   },
   {
@@ -236,10 +582,45 @@
     ]
   },
   {
+    "id": "hero-power",
+    "count": 1,
+    "resource_ids": [
+      "idle-hero-token-calculator"
+    ]
+  },
+  {
+    "id": "hero-token",
+    "count": 1,
+    "resource_ids": [
+      "idle-hero-token-calculator"
+    ]
+  },
+  {
     "id": "heros-journey",
     "count": 1,
     "resource_ids": [
       "idle-nexon-june-11-patch-notes"
+    ]
+  },
+  {
+    "id": "hp",
+    "count": 1,
+    "resource_ids": [
+      "idle-monster-stat-lookup"
+    ]
+  },
+  {
+    "id": "hyper-stat",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-hyper-stat-optimizer"
+    ]
+  },
+  {
+    "id": "hyper-stats",
+    "count": 1,
+    "resource_ids": [
+      "m-hyper-stats-table"
     ]
   },
   {
@@ -258,9 +639,32 @@
     ]
   },
   {
-    "id": "jobs",
+    "id": "item-ranges",
     "count": 1,
     "resource_ids": [
+      "idle-item-quality-checker"
+    ]
+  },
+  {
+    "id": "items",
+    "count": 2,
+    "resource_ids": [
+      "classic-sleepywood-game-database",
+      "classicworld-search-library"
+    ]
+  },
+  {
+    "id": "jewels",
+    "count": 1,
+    "resource_ids": [
+      "m-jewel-table"
+    ]
+  },
+  {
+    "id": "jobs",
+    "count": 2,
+    "resource_ids": [
+      "classic-sleepywood-jobs-and-skills",
       "n-classes-and-jobs"
     ]
   },
@@ -293,6 +697,35 @@
     ]
   },
   {
+    "id": "leveling",
+    "count": 2,
+    "resource_ids": [
+      "classicworld-xp-farming-calculator",
+      "idle-wiki-experience-calculator"
+    ]
+  },
+  {
+    "id": "levels",
+    "count": 1,
+    "resource_ids": [
+      "n-official-character-rankings"
+    ]
+  },
+  {
+    "id": "link-skills",
+    "count": 1,
+    "resource_ids": [
+      "m-link-skills-table"
+    ]
+  },
+  {
+    "id": "lua",
+    "count": 1,
+    "resource_ids": [
+      "worlds-official-api-reference"
+    ]
+  },
+  {
     "id": "lua-script",
     "count": 1,
     "resource_ids": [
@@ -316,10 +749,46 @@
   },
   {
     "id": "maker",
-    "count": 2,
+    "count": 3,
     "resource_ids": [
       "worlds-creator-documents",
-      "worlds-managing-resources-guide"
+      "worlds-managing-resources-guide",
+      "worlds-msw-examples-repository"
+    ]
+  },
+  {
+    "id": "maplehub",
+    "count": 10,
+    "resource_ids": [
+      "n-maplehub-arcane-symbol-tracker",
+      "n-maplehub-cube-cost-calculator",
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-equipment-simulator",
+      "n-maplehub-flame-score-calculator",
+      "n-maplehub-hyper-stat-optimizer",
+      "n-maplehub-raffle-reward-calculator",
+      "n-maplehub-star-force-calculator",
+      "n-maplehub-stat-equivalent-calculator",
+      "n-maplehub-v-matrix-calculator"
+    ]
+  },
+  {
+    "id": "maplestory-universe",
+    "count": 3,
+    "resource_ids": [
+      "n-official-universe-discord",
+      "n-official-universe-medium",
+      "n-official-universe-telegram"
+    ]
+  },
+  {
+    "id": "maps",
+    "count": 4,
+    "resource_ids": [
+      "classic-mapleclassic-route-planner",
+      "classic-sleepywood-game-database",
+      "classicworld-search-library",
+      "idle-wiki-experience-calculator"
     ]
   },
   {
@@ -330,10 +799,134 @@
     ]
   },
   {
+    "id": "media",
+    "count": 2,
+    "resource_ids": [
+      "n-official-universe-medium",
+      "n-official-universe-youtube"
+    ]
+  },
+  {
+    "id": "mesos",
+    "count": 1,
+    "resource_ids": [
+      "m-community-powder-cost-calculator"
+    ]
+  },
+  {
     "id": "miracle-summer",
     "count": 1,
     "resource_ids": [
       "maplestory-miracle-summer-2026"
+    ]
+  },
+  {
+    "id": "mirpg",
+    "count": 2,
+    "resource_ids": [
+      "idle-mirpg-damage-calculator",
+      "idle-mirpg-dps-projections"
+    ]
+  },
+  {
+    "id": "mlua",
+    "count": 1,
+    "resource_ids": [
+      "worlds-ai-coding-plugins"
+    ]
+  },
+  {
+    "id": "monsters",
+    "count": 6,
+    "resource_ids": [
+      "classic-niameowdb-accuracy-simulator",
+      "classic-niameowdb-avoidability-simulator",
+      "classic-sleepywood-game-database",
+      "classicworld-search-library",
+      "idle-game-data-library",
+      "idle-monster-stat-lookup"
+    ]
+  },
+  {
+    "id": "multilingual",
+    "count": 1,
+    "resource_ids": [
+      "idle-official-discord"
+    ]
+  },
+  {
+    "id": "navigation",
+    "count": 1,
+    "resource_ids": [
+      "classic-mapleclassic-route-planner"
+    ]
+  },
+  {
+    "id": "neso",
+    "count": 2,
+    "resource_ids": [
+      "n-maplehub-arcane-symbol-tracker",
+      "n-maplehub-raffle-reward-calculator"
+    ]
+  },
+  {
+    "id": "niameowdb",
+    "count": 8,
+    "resource_ids": [
+      "classic-niameowdb-accuracy-simulator",
+      "classic-niameowdb-avoidability-simulator",
+      "classic-niameowdb-character-builder",
+      "classic-niameowdb-damage-simulator",
+      "classic-niameowdb-database-toolkit",
+      "classic-niameowdb-grind-tracker",
+      "classic-niameowdb-quest-tracker",
+      "classic-niameowdb-scroll-simulator"
+    ]
+  },
+  {
+    "id": "nodestone",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-v-matrix-calculator"
+    ]
+  },
+  {
+    "id": "notices",
+    "count": 1,
+    "resource_ids": [
+      "worlds-official-discord"
+    ]
+  },
+  {
+    "id": "npcs",
+    "count": 1,
+    "resource_ids": [
+      "classic-sleepywood-game-database"
+    ]
+  },
+  {
+    "id": "ocr",
+    "count": 4,
+    "resource_ids": [
+      "idle-advanced-equipment-compare",
+      "idle-character-analysis",
+      "idle-item-quality-checker",
+      "idle-simple-equipment-compare"
+    ]
+  },
+  {
+    "id": "optimizer",
+    "count": 2,
+    "resource_ids": [
+      "n-maplehub-enhancement-analyzer",
+      "n-maplehub-hyper-stat-optimizer"
+    ]
+  },
+  {
+    "id": "party",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-raffle-reward-calculator"
     ]
   },
   {
@@ -359,10 +952,24 @@
     ]
   },
   {
+    "id": "pba",
+    "count": 1,
+    "resource_ids": [
+      "m-weapon-pba-table"
+    ]
+  },
+  {
     "id": "permissions",
     "count": 1,
     "resource_ids": [
       "worlds-managing-resources-guide"
+    ]
+  },
+  {
+    "id": "planner",
+    "count": 1,
+    "resource_ids": [
+      "classicworld-progression-table"
     ]
   },
   {
@@ -380,6 +987,20 @@
     ]
   },
   {
+    "id": "potential",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-cube-cost-calculator"
+    ]
+  },
+  {
+    "id": "powder",
+    "count": 1,
+    "resource_ids": [
+      "m-community-powder-cost-calculator"
+    ]
+  },
+  {
     "id": "preview",
     "count": 1,
     "resource_ids": [
@@ -387,11 +1008,31 @@
     ]
   },
   {
-    "id": "progression",
-    "count": 4,
+    "id": "probability",
+    "count": 3,
     "resource_ids": [
+      "idle-wiki-companion-summon-calculator",
+      "idle-wiki-elite-summon-calculator",
+      "idle-wiki-weapon-summon-calculator"
+    ]
+  },
+  {
+    "id": "progress",
+    "count": 2,
+    "resource_ids": [
+      "classic-niameowdb-grind-tracker",
+      "classic-niameowdb-quest-tracker"
+    ]
+  },
+  {
+    "id": "progression",
+    "count": 7,
+    "resource_ids": [
+      "classicworld-progression-table",
       "idle-april-9-2026-patch-notes",
+      "idle-hero-token-calculator",
       "idle-nexon-june-11-patch-notes",
+      "m-hyper-stats-table",
       "m-nexon-guide-for-new-maplers",
       "n-beginners-guide"
     ]
@@ -404,11 +1045,46 @@
     ]
   },
   {
-    "id": "rankings",
+    "id": "quests",
     "count": 2,
     "resource_ids": [
+      "classic-niameowdb-quest-tracker",
+      "classic-sleepywood-game-database"
+    ]
+  },
+  {
+    "id": "raffle",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-raffle-reward-calculator"
+    ]
+  },
+  {
+    "id": "rankings",
+    "count": 4,
+    "resource_ids": [
+      "idle-msidle-rankings",
       "maplestory-official-rankings",
+      "n-official-character-rankings",
       "n-official-launch-guide"
+    ]
+  },
+  {
+    "id": "rates",
+    "count": 1,
+    "resource_ids": [
+      "m-star-force-rate-table"
+    ]
+  },
+  {
+    "id": "reddit",
+    "count": 5,
+    "resource_ids": [
+      "classic-world-subreddit",
+      "idle-rpg-subreddit",
+      "m-subreddit",
+      "n-maplestory-n-subreddit",
+      "worlds-subreddit"
     ]
   },
   {
@@ -442,9 +1118,32 @@
   },
   {
     "id": "rewards",
+    "count": 2,
+    "resource_ids": [
+      "n-maplehub-raffle-reward-calculator",
+      "n-official-events"
+    ]
+  },
+  {
+    "id": "rolls",
     "count": 1,
     "resource_ids": [
-      "n-official-events"
+      "idle-item-quality-checker"
+    ]
+  },
+  {
+    "id": "route",
+    "count": 1,
+    "resource_ids": [
+      "classic-mapleclassic-route-planner"
+    ]
+  },
+  {
+    "id": "score",
+    "count": 2,
+    "resource_ids": [
+      "idle-item-quality-checker",
+      "n-maplehub-flame-score-calculator"
     ]
   },
   {
@@ -455,6 +1154,41 @@
     ]
   },
   {
+    "id": "scroll",
+    "count": 1,
+    "resource_ids": [
+      "classicworld-scroll-cost-simulator"
+    ]
+  },
+  {
+    "id": "scrolling",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-scroll-simulator"
+    ]
+  },
+  {
+    "id": "search",
+    "count": 1,
+    "resource_ids": [
+      "classicworld-search-library"
+    ]
+  },
+  {
+    "id": "servers",
+    "count": 1,
+    "resource_ids": [
+      "idle-msidle-rankings"
+    ]
+  },
+  {
+    "id": "services",
+    "count": 1,
+    "resource_ids": [
+      "worlds-official-api-reference"
+    ]
+  },
+  {
     "id": "shops",
     "count": 1,
     "resource_ids": [
@@ -462,10 +1196,74 @@
     ]
   },
   {
-    "id": "star-force",
+    "id": "simulation",
+    "count": 2,
+    "resource_ids": [
+      "classic-niameowdb-scroll-simulator",
+      "classicworld-scroll-cost-simulator"
+    ]
+  },
+  {
+    "id": "skills",
+    "count": 4,
+    "resource_ids": [
+      "classic-niameowdb-character-builder",
+      "classic-sleepywood-jobs-and-skills",
+      "idle-game-data-library",
+      "idle-mirpg-damage-calculator"
+    ]
+  },
+  {
+    "id": "source-code",
     "count": 1,
     "resource_ids": [
-      "maplestory-support-gameplay"
+      "worlds-msw-examples-repository"
+    ]
+  },
+  {
+    "id": "stages",
+    "count": 1,
+    "resource_ids": [
+      "idle-game-data-library"
+    ]
+  },
+  {
+    "id": "star-force",
+    "count": 3,
+    "resource_ids": [
+      "m-star-force-rate-table",
+      "maplestory-support-gameplay",
+      "n-maplehub-star-force-calculator"
+    ]
+  },
+  {
+    "id": "stat-equivalence",
+    "count": 2,
+    "resource_ids": [
+      "classicworld-stat-equivalence-calculator",
+      "idle-mirpg-dps-projections"
+    ]
+  },
+  {
+    "id": "stat-weights",
+    "count": 1,
+    "resource_ids": [
+      "idle-mirpg-dps-projections"
+    ]
+  },
+  {
+    "id": "stats",
+    "count": 9,
+    "resource_ids": [
+      "idle-advanced-equipment-compare",
+      "idle-character-analysis",
+      "idle-game-data-library",
+      "idle-simple-equipment-compare",
+      "m-hyper-stats-table",
+      "m-jewel-table",
+      "m-link-skills-table",
+      "m-weapon-pba-table",
+      "n-maplehub-stat-equivalent-calculator"
     ]
   },
   {
@@ -484,6 +1282,30 @@
     ]
   },
   {
+    "id": "summoning",
+    "count": 3,
+    "resource_ids": [
+      "idle-wiki-companion-summon-calculator",
+      "idle-wiki-elite-summon-calculator",
+      "idle-wiki-weapon-summon-calculator"
+    ]
+  },
+  {
+    "id": "targets",
+    "count": 2,
+    "resource_ids": [
+      "idle-character-analysis",
+      "idle-mirpg-damage-calculator"
+    ]
+  },
+  {
+    "id": "telegram",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-telegram"
+    ]
+  },
+  {
     "id": "test-schedule",
     "count": 2,
     "resource_ids": [
@@ -492,14 +1314,77 @@
     ]
   },
   {
+    "id": "tickets",
+    "count": 2,
+    "resource_ids": [
+      "idle-wiki-companion-summon-calculator",
+      "idle-wiki-weapon-summon-calculator"
+    ]
+  },
+  {
+    "id": "time",
+    "count": 3,
+    "resource_ids": [
+      "classicworld-xp-farming-calculator",
+      "idle-hero-token-calculator",
+      "idle-wiki-experience-calculator"
+    ]
+  },
+  {
+    "id": "tools",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-database-toolkit"
+    ]
+  },
+  {
+    "id": "tracker",
+    "count": 2,
+    "resource_ids": [
+      "classic-niameowdb-quest-tracker",
+      "n-maplehub-arcane-symbol-tracker"
+    ]
+  },
+  {
+    "id": "trailers",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-youtube"
+    ]
+  },
+  {
+    "id": "training",
+    "count": 1,
+    "resource_ids": [
+      "classic-niameowdb-grind-tracker"
+    ]
+  },
+  {
     "id": "updates",
-    "count": 5,
+    "count": 8,
     "resource_ids": [
       "idle-may-21-update-preview",
+      "idle-official-discord",
       "idle-official-forum",
       "m-global-official-forum",
       "m-may-2026-known-issues",
+      "n-official-universe-medium",
+      "n-official-universe-youtube",
       "n-official-updates"
+    ]
+  },
+  {
+    "id": "v-matrix",
+    "count": 1,
+    "resource_ids": [
+      "n-maplehub-v-matrix-calculator"
+    ]
+  },
+  {
+    "id": "video",
+    "count": 1,
+    "resource_ids": [
+      "n-official-universe-youtube"
     ]
   },
   {
@@ -514,6 +1399,29 @@
     "count": 1,
     "resource_ids": [
       "n-download-guide"
+    ]
+  },
+  {
+    "id": "weapon",
+    "count": 1,
+    "resource_ids": [
+      "classicworld-stat-equivalence-calculator"
+    ]
+  },
+  {
+    "id": "weapons",
+    "count": 3,
+    "resource_ids": [
+      "idle-wiki-weapon-summon-calculator",
+      "m-community-powder-cost-calculator",
+      "m-weapon-pba-table"
+    ]
+  },
+  {
+    "id": "wiki",
+    "count": 1,
+    "resource_ids": [
+      "classic-mapleclassic-route-planner"
     ]
   },
   {

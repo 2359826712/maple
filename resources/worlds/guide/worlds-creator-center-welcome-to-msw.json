@@ -14,6 +14,7 @@
   "category": "guide",
   "subcategory": "creator",
   "description": "Introduces the MapleStory Worlds editor, LuaScript concepts, networking, world creation, publishing, and monetization for creators.",
+  "image_url": "https://maplestoryworlds-creators.nexon.com/msw_creators.jpg",
   "official": true,
   "opensource": false,
   "github_url": null,

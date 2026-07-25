@@ -84,6 +84,18 @@ describe('Footer featured listings', () => {
     expect(aidirsBadge.getAttribute('width')).toBe('86');
     expect(aidirsBadge.getAttribute('height')).toBe('24');
 
+    const aidirsOrgLink = screen.getByRole('link', { name: 'MPStorys listed on AIDirs.org' });
+    expect(aidirsOrgLink.getAttribute('href')).toBe('https://aidirs.org/item/mpstorys');
+    expect(aidirsOrgLink.getAttribute('target')).toBe('_blank');
+    expect(aidirsOrgLink.getAttribute('rel')).toBe('noopener noreferrer');
+
+    const aidirsOrgBadge = screen.getByRole('img', { name: 'Listed on AIDirs' });
+    expect(aidirsOrgBadge.getAttribute('src')).toBe(
+      'https://aidirs.org/badges/badge-listed-dark.svg',
+    );
+    expect(aidirsOrgBadge.getAttribute('width')).toBe('72');
+    expect(aidirsOrgBadge.getAttribute('height')).toBe('24');
+
     const aiAgentsDirectoryLink = screen.getByRole('link', {
       name: 'MPStorys on AI Agents Directory',
     });
@@ -402,5 +414,71 @@ describe('Footer featured listings', () => {
     );
     expect(fazierBadge.getAttribute('width')).toBe('111');
     expect(fazierBadge.getAttribute('height')).toBe('24');
+
+    const twelveToolsLink = screen.getByRole('link', {
+      name: 'MPStorys featured on Twelve Tools',
+    });
+    expect(twelveToolsLink.getAttribute('href')).toBe('https://twelve.tools');
+    expect(twelveToolsLink.getAttribute('target')).toBe('_blank');
+    expect(twelveToolsLink.getAttribute('rel')).toBe('noopener noreferrer');
+
+    const twelveToolsBadge = screen.getByRole('img', { name: 'Featured on Twelve Tools' });
+    expect(twelveToolsBadge.getAttribute('src')).toBe('https://twelve.tools/badge0-white.svg');
+    expect(twelveToolsBadge.getAttribute('width')).toBe('89');
+    expect(twelveToolsBadge.getAttribute('height')).toBe('24');
+
+    const launchIgniterLink = screen.getByRole('link', {
+      name: 'MPStorys featured on LaunchIgniter',
+    });
+    expect(launchIgniterLink.getAttribute('href')).toBe(
+      'https://launchigniter.com/product/mpstorys?ref=badge-mpstorys',
+    );
+    expect(launchIgniterLink.getAttribute('target')).toBe('_blank');
+    expect(launchIgniterLink.getAttribute('rel')).toBe('noopener noreferrer');
+
+    const launchIgniterBadge = screen.getByRole('img', {
+      name: 'Featured on LaunchIgniter',
+    });
+    expect(launchIgniterBadge.getAttribute('src')).toBe(
+      'https://launchigniter.com/api/badge/mpstorys?theme=light',
+    );
+    expect(launchIgniterBadge.getAttribute('width')).toBe('93');
+    expect(launchIgniterBadge.getAttribute('height')).toBe('24');
+
+    const startupFameLink = screen.getByRole('link', {
+      name: 'MPStorys featured on Startup Fame',
+    });
+    expect(startupFameLink.getAttribute('href')).toBe(
+      'https://startupfa.me/s/mpstorys?utm_source=mpstorys.com',
+    );
+    expect(startupFameLink.getAttribute('target')).toBe('_blank');
+    expect(startupFameLink.getAttribute('rel')).toBe('noopener noreferrer');
+
+    const startupFameBadge = screen.getByRole('img', {
+      name: 'MPStorys - Featured on Startup Fame',
+    });
+    expect(startupFameBadge.getAttribute('src')).toBe(
+      'https://startupfa.me/badges/featured-badge.webp',
+    );
+    expect(startupFameBadge.getAttribute('width')).toBe('76');
+    expect(startupFameBadge.getAttribute('height')).toBe('24');
+
+    const saasGrowLink = screen.getByRole('link', {
+      name: 'MPStorys featured on SaaSGrow',
+    });
+    expect(saasGrowLink.getAttribute('href')).toBe(
+      'https://saasgrow.app?ref=mpstorys.com',
+    );
+    expect(saasGrowLink.getAttribute('target')).toBe('_blank');
+    expect(saasGrowLink.getAttribute('rel')).toBe('noopener noreferrer');
+
+    const saasGrowBadge = screen.getByRole('img', {
+      name: 'MPStorys on SaaSGrow',
+    });
+    expect(saasGrowBadge.getAttribute('src')).toBe(
+      'https://saasgrow.app/api/badge?type=featured&style=light',
+    );
+    expect(saasGrowBadge.getAttribute('width')).toBe('107');
+    expect(saasGrowBadge.getAttribute('height')).toBe('24');
   });
 });

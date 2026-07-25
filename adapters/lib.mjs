@@ -23,6 +23,7 @@ function meta(document, selector) {
 
 export function parseHtmlPage(result) {
   const document = parseDocument(result.body, 'text/html');
+  const bodySelector = result.discoveredItem?.metadata?.body_selector;
   const title = meta(document, 'meta[property="og:title"]') || text(document.querySelector('h1')) || text(document.querySelector('title'));
   const summary = meta(document, 'meta[name="description"]') || meta(document, 'meta[property="og:description"]');
   const publishedAt = meta(document, 'meta[property="article:published_time"]') || document.querySelector('time[datetime]')?.getAttribute('datetime') || null;
@@ -44,6 +45,7 @@ export function parseHtmlPage(result) {
       content_type: result.contentType,
       fetched_at: result.fetchedAt,
       final_url: result.finalUrl,
+      body_extractable: bodySelector ? Boolean(text(document.querySelector(bodySelector))) : false,
       ...(result.discoveredItem?.metadata || {}),
     },
   };

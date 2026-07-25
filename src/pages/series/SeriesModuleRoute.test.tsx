@@ -1,10 +1,11 @@
 // @vitest-environment jsdom
 
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import translation from '@/i18n/local/en/common';
 import NextApplication from '@/next/NextApplication';
 import { prefetchRouteForPath } from '@/router/config';
+import { getVerifiedSeriesResources } from './verifiedContent';
 
 vi.mock('@/services/mapleSqlApi', () => ({
   mapleSqlApi: {
@@ -19,6 +20,8 @@ vi.mock('@/services/mapleSqlApi', () => ({
 }));
 
 describe('series module routes', () => {
+  afterEach(cleanup);
+
   beforeEach(() => {
     window.history.replaceState({}, '', '/wiki/en/GMS?series=maplestory-n');
     window.localStorage.setItem('maplehub-tool-favorites', JSON.stringify({ legacy: [] }));
@@ -79,6 +82,27 @@ describe('series module routes', () => {
     expect(screen.getByText('Orbis and El Nath')).toBeTruthy();
   });
 
+  it('shows the official article artwork on resource cards', async () => {
+    window.history.replaceState({}, '', '/news/en/GMS?series=maplestory-classic');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/news/en/GMS"
+        requestPath="/news/en/GMS?series=maplestory-classic"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    const articleHeading = await screen.findByRole('heading', {
+      name: 'Sign Up for Global MapleStory Classic World Closed Online Test #2',
+    }, { timeout: 10_000 });
+    const articleCard = articleHeading.closest('article');
+    expect(articleCard).toBeTruthy();
+    expect(within(articleCard as HTMLElement).getByRole('img').getAttribute('src'))
+      .toBe('https://g.nexonstatic.com/media/u1wjqi0x/540x304-maplestory-classic-world-closed-online-test-2.png');
+  });
+
   it('redirects an unavailable series ranking route to that series news', async () => {
     window.history.replaceState({}, '', '/rankings/en/GMS?series=maplestory-classic');
     render(
@@ -93,7 +117,7 @@ describe('series module routes', () => {
 
     expect(await screen.findByRole('heading', { name: 'MapleStory Classic World News' }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Rankings' })).toBeNull();
-  });
+  }, 15_000);
 
   it('renders concrete module content for every other supported series', async () => {
     const cases = [
@@ -118,5 +142,98 @@ describe('series module routes', () => {
       expect(await screen.findByRole('heading', { name: heading })).toBeTruthy();
       view.unmount();
     }
+  });
+
+  it('paginates the complete official archive instead of hiding metadata-only records', async () => {
+    const resources = getVerifiedSeriesResources('maplestory-n', 'events');
+    expect(resources.length).toBeGreaterThan(12);
+    window.history.replaceState({}, '', '/events/en/GMS?series=maplestory-n');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/events/en/GMS"
+        requestPath="/events/en/GMS?series=maplestory-n"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByText(`Showing 18 of ${resources.length} verified records`, {}, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getByText(`${resources.length} verified records in this module`)).toBeTruthy();
+    expect(screen.getByRole('searchbox', { name: 'Search this module' })).toBeTruthy();
+    const archiveHeading = screen.getByRole('heading', { name: 'Verified sources' });
+    const workspaceHeading = screen.getByRole('heading', { name: 'V Tracker mission reference' });
+    expect(archiveHeading.compareDocumentPosition(workspaceHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    const archiveButtons = screen.getAllByRole('button', { name: 'Show 18 more' });
+    fireEvent.click(archiveButtons[archiveButtons.length - 1]);
+    expect(await screen.findByText(`Showing 36 of ${resources.length} verified records`)).toBeTruthy();
+  });
+
+  it('keeps newly indexed community resources inside MPStorys', async () => {
+    window.history.replaceState({}, '', '/community/en/GMS?series=maplestory-classic');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/community/en/GMS"
+        requestPath="/community/en/GMS?series=maplestory-classic"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', {
+      level: 1,
+      name: 'MapleStory Classic World Community',
+    }, { timeout: 10_000 })).toBeTruthy();
+    const preview = screen.getByRole('tabpanel');
+    expect(within(preview).getByRole('heading', { name: 'r/MSClassicWorld' })).toBeTruthy();
+    expect(within(preview).getByRole('link', { name: /View details on MPStorys/ }).getAttribute('href'))
+      .toBe('/series/maplestory-classic/community/r-msclassicworld-classic-world-subreddit/en/GMS');
+  });
+
+  it('lets visitors choose a community and preview it instead of redirecting automatically', async () => {
+    window.history.replaceState({}, '', '/community/en/GMS');
+    await prefetchRouteForPath('/community/en/GMS');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/community/en/GMS"
+        requestPath="/community/en/GMS"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', {
+      level: 1,
+      name: 'Choose your MapleStory community',
+    }, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getAllByRole('tab')).toHaveLength(5);
+    fireEvent.click(screen.getByRole('tab', { name: /r\/MapleStory/ }));
+
+    const preview = screen.getByRole('tabpanel');
+    expect(within(preview).getByRole('heading', { name: 'r/MapleStory' })).toBeTruthy();
+    expect(within(preview).getByText('Player-run community')).toBeTruthy();
+    expect(within(preview).getByText('New player questions')).toBeTruthy();
+    expect(within(preview).getByText(/pinned New Players & General Questions thread/)).toBeTruthy();
+    expect(within(preview).getByText('Verified content snapshot')).toBeTruthy();
+    expect(within(preview).getByText('[Megathread] New Players & General Questions Thread')).toBeTruthy();
+    expect(within(preview).getByText('Verified external destination')).toBeTruthy();
+    expect(within(preview).getByText(/Exact link checked on 2026-07-25/)).toBeTruthy();
+    expect(within(preview).getByRole('link', { name: /Visit selected community/ }).getAttribute('href'))
+      .toBe('https://www.reddit.com/r/Maplestory/');
+
+    const verifiedDestinations = [
+      ['MapleStory Forums', 'https://forums.maplestory.nexon.net/categories'],
+      ['MapleStory on X', 'https://x.com/MapleStory'],
+      ['MapleStory YouTube', 'https://www.youtube.com/@MapleStory'],
+      ['Official MapleStory Discord', 'https://discord.com/invite/maplestory'],
+    ];
+    for (const [name, href] of verifiedDestinations) {
+      fireEvent.click(screen.getByRole('tab', { name: new RegExp(name) }));
+      expect(within(preview).getByRole('link', { name: /Visit selected community/ }).getAttribute('href'))
+        .toBe(href);
+    }
+    expect(window.location.pathname).toBe('/community/en/GMS');
   });
 });

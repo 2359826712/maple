@@ -2,6 +2,7 @@ import AccountPage from '../pages/account/page';
 import AdminFeedbackPage from '../pages/admin/feedback/page';
 import LoginPage from '../pages/auth/login/page';
 import ChecklistPage from '../pages/checklist/page';
+import CommunityLandingPage from '../pages/community/CommunityLandingPage';
 import EventsPage from '../pages/events/page';
 import FeedbackPage from '../pages/feedback/page';
 import GuideDetail from '../pages/guides/detail/page';
@@ -33,6 +34,7 @@ export default createRoutes({
   AdminFeedbackPage,
   BossDetailPage,
   ChecklistPage,
+  CommunityLandingPage,
   EventsPage,
   FeedbackPage,
   GuideDetail,
