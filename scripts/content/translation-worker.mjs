@@ -3,6 +3,12 @@ import { protectGlossaryFields, restoreAndCheckTranslation } from './translation
 
 const lastErrorText = (error) => String(error instanceof Error ? error.message : error).slice(0, 4000);
 
+export function assertNativeLocalizationQuality(policyVersion, reviewStatus) {
+  if (policyVersion?.startsWith('native-') && reviewStatus !== 'automatic') {
+    throw new Error('native localization quality gate failed; source fallback remains active');
+  }
+}
+
 export async function recoverStaleTranslationJobs(client, staleMinutes = 30) {
   const result = await client.query(`
     update public.translation_jobs
@@ -177,6 +183,7 @@ async function localizeJob({ job, source, provider, glossary }) {
     protectedFields,
     glossary,
   });
+  assertNativeLocalizationQuality(job.policy_version, quality.review_status);
   return {
     ...translated,
     ...quality,

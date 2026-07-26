@@ -10,6 +10,8 @@ an HTTP request.
   and complete `translation_jobs`.
 - The website reads only `automatic`, `approved`, or legacy `reviewed` rows and
   falls back to the current source text.
+- Native rows that fail the automatic quality gate are failed and retried; they
+  never enter a human-review queue or replace the source fallback.
 - The Node content Worker remains preview-only.
 - `wiki_localization_jobs` is isolated from the legacy EXE queue.
 - The migration does not enqueue native content or Wiki work.

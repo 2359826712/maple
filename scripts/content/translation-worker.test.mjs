@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import { translateFieldsWithLibre } from './libretranslate-provider.mjs';
+import { assertNativeLocalizationQuality } from './translation-worker.mjs';
 
 describe('translation worker MVP', () => {
   it('sends structured fields as a batch and reconstructs a field object', async () => {
@@ -52,5 +53,12 @@ describe('translation worker MVP', () => {
     );
     expect(migration).toContain("add column if not exists model");
     expect(migration).not.toMatch(/drop constraint|drop primary key/i);
+  });
+
+  it('publishes native localization automatically or keeps the source fallback', () => {
+    expect(() => assertNativeLocalizationQuality('native-localization-v1', 'automatic')).not.toThrow();
+    expect(() => assertNativeLocalizationQuality('native-localization-v1', 'needs_review'))
+      .toThrow(/source fallback/);
+    expect(() => assertNativeLocalizationQuality('series-title-summary-v2', 'needs_review')).not.toThrow();
   });
 });
