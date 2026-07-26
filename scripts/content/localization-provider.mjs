@@ -1,5 +1,7 @@
 const supportedLanguages = new Set(['en', 'zh', 'zh-Hant', 'ja', 'ko']);
-const supportedFields = new Set(['title', 'summary']);
+const supportedFields = new Set(['title', 'summary', 'body_html', 'translated_text']);
+const supportedModes = new Set(['faithful', 'native']);
+const supportedDomains = new Set(['dynamic_content', 'ui', 'wiki']);
 
 function nonEmptyText(value) {
   return typeof value === 'string' && Boolean(value.trim());
@@ -23,6 +25,11 @@ export function validateLocalizationRequest(request) {
     }
   }
   if (!Array.isArray(request.glossary)) errors.push('glossary must be an array');
+  if (request.mode !== undefined && !supportedModes.has(request.mode)) errors.push('unsupported localization mode');
+  if (request.domain !== undefined && !supportedDomains.has(request.domain)) errors.push('unsupported localization domain');
+  if (request.policyVersion !== undefined && !nonEmptyText(request.policyVersion)) {
+    errors.push('policyVersion must be a non-empty string');
+  }
   return errors;
 }
 

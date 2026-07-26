@@ -8,6 +8,7 @@ import {
   type SupportedLanguage,
 } from './languageRouting';
 import { readLocalStorage } from '@/services/browserStorage';
+import { fetchPublishedUiTranslationBundle } from '@/services/uiTranslationClient';
 
 type TranslationModule = { default: Record<string, string> };
 
@@ -32,7 +33,11 @@ let initializing = false;
 export async function ensureLanguageResources(language: SupportedLanguage, target: I18nInstance = i18n) {
   if (!loadedResources[language]) {
     const module = await languageLoaders[language]();
-    loadedResources[language] = module.default;
+    const publishedTranslations = await fetchPublishedUiTranslationBundle(language);
+    loadedResources[language] = {
+      ...module.default,
+      ...publishedTranslations,
+    };
   }
 
   if (target.isInitialized && !target.hasResourceBundle(language, 'translation')) {

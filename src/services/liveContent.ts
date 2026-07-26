@@ -943,6 +943,18 @@ export async function fetchLocalizedWikiEntry(entry: WikiEntry, language: string
   const targetLanguage = normalizeWikiContentLanguage(language);
   if (targetLanguage === 'en' || entry.contentLanguage === targetLanguage) return entry;
 
+  const [{ fetchPublishedWikiTranslationFromApi }, { applyPublishedWikiTranslation }] = await Promise.all([
+    import('@/services/wikiTranslationClient'),
+    import('@/services/wikiTranslation'),
+  ]);
+  const publishedTranslation = await fetchPublishedWikiTranslationFromApi(
+    entry.sourcePageTitle || entry.title,
+    targetLanguage,
+  );
+  if (publishedTranslation) {
+    return applyPublishedWikiTranslation(entry, targetLanguage, publishedTranslation);
+  }
+
   const nativeEdition = await fetchNativeWikiPageEdition(entry, targetLanguage).catch(() => entry);
   if (nativeEdition.contentLanguage === targetLanguage) return nativeEdition;
 

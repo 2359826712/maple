@@ -42,6 +42,8 @@
     "translation:evaluate-providers": "node scripts/provider-evaluation.mjs",
     "localization:sync-memory": "node scripts/localization-memory-sync.mjs",
     "localization:resolve-pilot": "node scripts/localization-resolve-pilot.mjs",
+    "localization:export-ui": "node scripts/ui-translation-export.mjs",
+    "localization:ui": "node scripts/ui-localization.mjs",
     "update:event-status": "node scripts/update-event-status.mjs",
     "generate:site-data": "node scripts/generate-site-data.mjs",
     "db:migrate": "node scripts/migrate-supabase.mjs",

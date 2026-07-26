@@ -52,7 +52,7 @@ async function completeJob(client, { job, workerId, translated }) {
   await client.query('begin');
   try {
     const source = (await client.query(`
-      select id, title, summary, source_revision, source_language
+      select id, title, summary, body_html, source_revision, source_language
       from public.series_content
       where id = $1
       for update
@@ -73,11 +73,13 @@ async function completeJob(client, { job, workerId, translated }) {
     const title = translated.fields.title;
     if (typeof title !== 'string' || !title.trim()) throw new Error('translated title is required');
     const summary = typeof translated.fields.summary === 'string' ? translated.fields.summary : '';
+    const bodyHtml = typeof translated.fields.body_html === 'string' ? translated.fields.body_html : '';
     const stored = await client.query(`
       insert into public.series_content_translations (
         content_id, locale, title, summary, body_html, source_revision,
-        provider, model, glossary_version, quality_checks, review_status
-      ) values ($1, $2, $3, $4, '', $5, $6, $7, $8, $9::jsonb, $10)
+        provider, model, glossary_version, quality_checks, review_status,
+        prompt_version
+      ) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb, $11, $12)
       on conflict (content_id, locale) do update set
         title = excluded.title,
         summary = excluded.summary,
@@ -88,6 +90,7 @@ async function completeJob(client, { job, workerId, translated }) {
         glossary_version = excluded.glossary_version,
         quality_checks = excluded.quality_checks,
         review_status = excluded.review_status,
+        prompt_version = excluded.prompt_version,
         updated_at = now()
       where public.series_content_translations.review_status <> 'approved'
       returning content_id, locale, source_revision, provider, model,
@@ -97,12 +100,14 @@ async function completeJob(client, { job, workerId, translated }) {
       job.target_language,
       title,
       summary,
+      bodyHtml,
       job.source_revision,
       translated.provider,
       translated.model,
       translated.glossary_version,
       JSON.stringify(translated.quality_checks),
       translated.review_status,
+      job.policy_version,
     ]);
     if (stored.rowCount !== 1) throw new Error('approved translation cannot be overwritten automatically');
     const completed = await client.query(`
@@ -160,6 +165,9 @@ async function localizeJob({ job, source, provider, glossary }) {
       sourceLanguage: job.source_language,
       targetLanguage: job.target_language,
       glossary: glossary.locales[job.target_language] || [],
+      mode: job.policy_version?.startsWith('native-') ? 'native' : 'faithful',
+      domain: 'dynamic_content',
+      policyVersion: job.policy_version,
     },
   });
   const quality = restoreAndCheckTranslation({

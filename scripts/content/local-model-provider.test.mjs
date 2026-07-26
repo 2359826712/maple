@@ -8,6 +8,9 @@ const request = {
   sourceLanguage: 'en',
   targetLanguage: 'zh',
   glossary: [{ source: 'MapleStory', target: '冒险岛' }],
+  mode: 'native',
+  domain: 'dynamic_content',
+  policyVersion: 'native-localization-v1',
 };
 
 describe('local model localization provider', () => {
@@ -52,8 +55,12 @@ describe('local model localization provider', () => {
       expect(JSON.parse(body.messages[1].content)).toEqual({
         fields: request.source,
         glossary: request.glossary,
+        domain: 'dynamic_content',
+        policy_version: 'native-localization-v1',
       });
-      expect(body.messages[0].content).toContain('Translate from English to Simplified Chinese');
+      expect(body.messages[0].content).toContain('Localize from English to Simplified Chinese');
+      expect(body.messages[0].content).toContain('native editor');
+      expect(body.messages[0].content).toContain('native editorial copy');
       expect(init.headers.Authorization).toBe('Bearer secret');
       return new Response(JSON.stringify({
         id: 'chatcmpl-test',

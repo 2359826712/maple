@@ -10,6 +10,19 @@ const languageNames = {
   ko: 'Korean',
 };
 
+const nativeLanguageInstructions = {
+  zh: 'Use natural Mainland Chinese written by a native editor. Prefer established MapleStory terminology and concise Chinese phrasing.',
+  'zh-Hant': 'Use natural Traditional Chinese for a Taiwan-facing game site. Do not output Simplified Chinese forms.',
+  ja: 'Use natural Japanese suitable for an official game website. Avoid translationese and unnatural literal word order.',
+  ko: 'Use natural Korean suitable for an official game website. Use established MapleStory terminology and idiomatic Korean.',
+};
+
+const domainInstructions = {
+  dynamic_content: 'Rewrite titles and article prose as native editorial copy while preserving every fact, date, number, URL, and gameplay meaning.',
+  ui: 'Rewrite interface labels as short, clear native product copy. Preserve every interpolation variable and control token exactly.',
+  wiki: 'Rewrite as precise, neutral native-language reference prose. Preserve mechanics, conditions, names, numbers, links, and document structure.',
+};
+
 function configuredValue(environment, name, fallback = '') {
   return environment[name]?.trim() || fallback;
 }
@@ -91,6 +104,31 @@ function parseOpenAIFields(payload) {
   return parsed?.translated_fields;
 }
 
+export function buildLocalizationSystemPrompt(request) {
+  const nativeMode = request.mode === 'native' || request.policyVersion?.startsWith('native-');
+  const common = [
+    `Localize from ${languageNames[request.sourceLanguage]} to ${languageNames[request.targetLanguage]}.`,
+    'Apply the supplied MapleStory glossary exactly.',
+    'Return only strict JSON matching the supplied response schema.',
+  ];
+
+  if (!nativeMode) {
+    return [
+      ...common,
+      'Translate faithfully. Do not summarize, explain, omit, or add information.',
+      'Preserve every number, URL, placeholder, proper name, punctuation mark, and field boundary.',
+    ].join(' ');
+  }
+
+  return [
+    ...common,
+    nativeLanguageInstructions[request.targetLanguage],
+    domainInstructions[request.domain || 'dynamic_content'],
+    'This is localization, not a literal translation: rewrite sentences idiomatically, but never invent, remove, soften, or reinterpret source facts.',
+    'Preserve field boundaries and all machine-readable markup, placeholders, HTML tags, Markdown links, and URLs.',
+  ].join(' ');
+}
+
 export function createOpenAICompatibleTransport({ runtime, environment, fetchImpl }) {
   return async (request) => {
     const apiKey = configuredValue(environment, 'LOCAL_MODEL_API_KEY');
@@ -116,19 +154,15 @@ export function createOpenAICompatibleTransport({ runtime, environment, fetchImp
         messages: [
           {
             role: 'system',
-            content: [
-              `Translate from ${languageNames[request.sourceLanguage]} to ${languageNames[request.targetLanguage]}.`,
-              'Translate only. Do not summarize, explain, omit, or add information.',
-              'Preserve every number, URL, placeholder, proper name, punctuation mark, and field boundary.',
-              'Apply the supplied MapleStory glossary exactly.',
-              'Return only strict JSON matching the supplied response schema.',
-            ].join(' '),
+            content: buildLocalizationSystemPrompt(request),
           },
           {
             role: 'user',
             content: JSON.stringify({
               fields: Object.fromEntries(request.fieldNames.map((field) => [field, request.source[field]])),
               glossary: request.glossary,
+              domain: request.domain || 'dynamic_content',
+              policy_version: request.policyVersion || null,
             }),
           },
         ],

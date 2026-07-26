@@ -57,6 +57,7 @@ import {
   getSourceOverviewSections,
 } from '@/pages/series/indexedContentDetail';
 import type { SeriesResourceDetailData } from '@/pages/series/SeriesResourceDetailPage';
+import { applyPublishedWikiTranslation } from '@/services/wikiTranslation';
 
 export type RouteHeadBoss = {
   articleBody: string;
@@ -84,6 +85,22 @@ export type NextRoutePageProps = {
   routeHeadBoss?: RouteHeadBoss;
   server: (typeof supportedServers)[number];
   translation: Record<string, string>;
+};
+
+const loadRouteTranslations = async (language: SupportedLanguage) => {
+  const localizedMessages = await loadLanguageResources(language);
+  if (language === 'en') return localizedMessages;
+
+  const [{ default: sourceMessages }, uiTranslations] = await Promise.all([
+    import('@/i18n/local/en/common'),
+    import('@/services/uiTranslation'),
+  ]);
+  try {
+    const rows = await uiTranslations.fetchPublishedUiTranslations(language);
+    return uiTranslations.mergePublishedUiTranslations(sourceMessages, localizedMessages, rows);
+  } catch {
+    return localizedMessages;
+  }
 };
 
 type RouteEntry = {
@@ -204,6 +221,14 @@ const localizeGuideSection = async (page: GrandisGuideSectionPage, language: Sup
 const localizeWikiEntry = async (entry: WikiEntry, language: SupportedLanguage) => {
   const targetLanguage = normalizeStaticContentLanguage(language);
   if (targetLanguage === 'en' || entry.contentLanguage === targetLanguage) return entry;
+  const { fetchPublishedWikiTranslation } = await import('@/services/wikiTranslationServer');
+  const publishedTranslation = await fetchPublishedWikiTranslation(
+    entry.sourcePageTitle || entry.title,
+    targetLanguage,
+  ).catch(() => null);
+  if (publishedTranslation) {
+    return applyPublishedWikiTranslation(entry, targetLanguage, publishedTranslation);
+  }
   const sourceHtml = entry.htmlContent?.trim();
   const [title, description, body] = await Promise.all([
     translateStaticText(entry.title, targetLanguage, { sourceLanguage: 'en' }).catch(() => entry.title),
@@ -410,7 +435,7 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialOfficialArticle,
     initialTools,
   ] = await Promise.all([
-    loadLanguageResources(language),
+    loadRouteTranslations(language),
     routePath === '/' ? Promise.resolve() : prefetchRouteForPath(routePath),
     initialNewsPromise,
     withDeadline(initialEventsPromise, undefined),
