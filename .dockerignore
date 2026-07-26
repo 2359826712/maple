@@ -12,6 +12,8 @@ maple.zip
 .railway-cli-tmp
 .railway-cli-bin.tar.gz
 railway-cli-*.tgz
+.codex
+output
 public/launch-assets/pulled-from-site/
 public/launch-assets/og-style-new/mpstorys-og-style-archer-board.png
 public/launch-assets/og-style-new/mpstorys-og-style-lara-route.png
