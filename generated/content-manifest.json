@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "generated_at": "2026-07-27T00:00:00.000Z",
-  "file_count": 1580,
-  "source_count": 12,
-  "root_sha256": "4bde2adeacd650bfa33dfb8e8350be04af163b6a24aaa8433d7fa8958f9dee0f",
+  "file_count": 1600,
+  "source_count": 17,
+  "root_sha256": "f599e7bc8b1ab7fbe126737f7b52fcfbfce72b82ad1a2fc1d81ecfb1a02eddde",
   "content": [
     {
       "path": "content/cash-shop/maplestory/2022/maplestory-europe-gms-official-news-2022-09-27-4885.json",
@@ -3461,6 +3461,66 @@
       "file_sha256": "b87304f4cad0184ef2cd5c1c590c65edeffa765be5ec93c814f0267c7fa9b521"
     },
     {
+      "path": "content/guides/classic/2026/classic-beginners-first-steps-guide.json",
+      "id": "classic-beginners-first-steps-guide",
+      "file_sha256": "a0f009c292b29ba44a7da2cc758d0a040c3c6f690281614952fe91f11b01fc36"
+    },
+    {
+      "path": "content/guides/classic/2026/classic-best-grind-maps-1-50-guide.json",
+      "id": "classic-best-grind-maps-1-50-guide",
+      "file_sha256": "c39c60bc53e04707a9c7ec7c40e67d65c95540af47c41414e45d362506d7598b"
+    },
+    {
+      "path": "content/guides/classic/2026/classic-bowman-leveling-10-30-guide.json",
+      "id": "classic-bowman-leveling-10-30-guide",
+      "file_sha256": "10a344f13a480abdcbf26ac4ab4e14efcb5c72aee1873995abc07451eb0cdd04"
+    },
+    {
+      "path": "content/guides/classic/2026/classic-magician-leveling-10-30-guide.json",
+      "id": "classic-magician-leveling-10-30-guide",
+      "file_sha256": "a7de36d1a37bb19da8e709795973c96f1cd6775cf576f14dcb498f86ff0a418e"
+    },
+    {
+      "path": "content/guides/classic/2026/classic-thief-leveling-10-30-guide.json",
+      "id": "classic-thief-leveling-10-30-guide",
+      "file_sha256": "e2b2550eb07e18f2579437c7d7360698e7c28977a4cad0b4f6ff4549dbb26da8"
+    },
+    {
+      "path": "content/guides/classic/2026/classic-warrior-leveling-10-30-guide.json",
+      "id": "classic-warrior-leveling-10-30-guide",
+      "file_sha256": "01f4abba6ffadb6300c7960b4178efd64fbe4c5390d79b2505cd60f51a915169"
+    },
+    {
+      "path": "content/guides/idle/2025/idle-official-gameplay-faq-guide.json",
+      "id": "idle-official-gameplay-faq-guide",
+      "file_sha256": "7d38eed4e8a5cbe6c460f95fd343eb3cf458969cabfcadaece53dbaba7f2c4bd"
+    },
+    {
+      "path": "content/guides/idle/2026/idle-artifacts-guide.json",
+      "id": "idle-artifacts-guide",
+      "file_sha256": "5a5cb8bdec273e586ffe33a92d97b48fc80ad6f124ef930c37514476f2cefcd9"
+    },
+    {
+      "path": "content/guides/idle/2026/idle-classes-and-job-advancement-guide.json",
+      "id": "idle-classes-and-job-advancement-guide",
+      "file_sha256": "dc2f97d0ed03eb285b7bb327360a71e1b5dab57891f16b4992baaf64db18fcfb"
+    },
+    {
+      "path": "content/guides/idle/2026/idle-companions-guide.json",
+      "id": "idle-companions-guide",
+      "file_sha256": "fd104c28a2728d02c98b12276745ce2d19c1c32a79e5c2f7647e875ff463f774"
+    },
+    {
+      "path": "content/guides/idle/2026/idle-experience-progression-guide.json",
+      "id": "idle-experience-progression-guide",
+      "file_sha256": "7951df6e0740f9551f6357b44d4cae8179d651c14bc97aa7e4e1702969af3d80"
+    },
+    {
+      "path": "content/guides/idle/2026/idle-guide-quest-progression-guide.json",
+      "id": "idle-guide-quest-progression-guide",
+      "file_sha256": "e05e58de90d08ba24236db08fc2758b725c03b8347587d1f4e83ab1cb8683bf1"
+    },
+    {
       "path": "content/guides/m/2023/maplestory-m-basic-ui-guide.json",
       "id": "maplestory-m-basic-ui-guide",
       "file_sha256": "8949ad3cd1ca2f7343b8d3d21d4974c7414f1c2cdb09d628102077d4c78317a0"
@@ -3494,6 +3554,26 @@
       "path": "content/guides/m/2026/maplestory-m-scrolls-guide.json",
       "id": "maplestory-m-scrolls-guide",
       "file_sha256": "fb3f54b4c9625a830b66d9fbc82e67091313c811233e632d206810f3420b1d3c"
+    },
+    {
+      "path": "content/guides/maplestory/2026/maplestory-familiar-system-guide.json",
+      "id": "maplestory-familiar-system-guide",
+      "file_sha256": "f00ea45edbe5c5bdd637c8f14998c55cd87515bb5dbbeffd1f097935620b9212"
+    },
+    {
+      "path": "content/guides/maplestory/2026/maplestory-guild-creation-guide.json",
+      "id": "maplestory-guild-creation-guide",
+      "file_sha256": "2d65e7173fe037804f2ac607116d155aaa0ca4f6dad09ce8429136c62467b8ef"
+    },
+    {
+      "path": "content/guides/maplestory/2026/maplestory-maple-guide-system-guide.json",
+      "id": "maplestory-maple-guide-system-guide",
+      "file_sha256": "9b9e3630c1feb255956b91c3e7d98f24dafca4bdd2c4dcd0c0f2890aca334ef9"
+    },
+    {
+      "path": "content/guides/maplestory/2026/maplestory-star-force-enhancement-guide.json",
+      "id": "maplestory-star-force-enhancement-guide",
+      "file_sha256": "1a14c2fb1d853478f5ecb9b87551df3c813e33100b43929fdb6bf4ce86a9b7d8"
     },
     {
       "path": "content/guides/n/2024/n-multi-region-official-guides-2024-11-05-2677808.json",
@@ -3569,6 +3649,26 @@
       "path": "content/guides/worlds/2026/maplestory-worlds-api-reference-guide.json",
       "id": "maplestory-worlds-api-reference-guide",
       "file_sha256": "860587c75b6cf672fba8fc90dffbe04ec0e4624609f32be0e9378b8b8f68d187"
+    },
+    {
+      "path": "content/guides/worlds/2026/worlds-basic-creation-guide.json",
+      "id": "worlds-basic-creation-guide",
+      "file_sha256": "b6ac35ffa8882dfd0c17af360e55f8a68ad84a6b2774ab6d902b5355231f0a00"
+    },
+    {
+      "path": "content/guides/worlds/2026/worlds-localizing-formats-guide.json",
+      "id": "worlds-localizing-formats-guide",
+      "file_sha256": "c15b05745a1aa3d234f47018c0432299bb40f2ee279df024958a41af2782cf5d"
+    },
+    {
+      "path": "content/guides/worlds/2026/worlds-managing-resources-guide-article.json",
+      "id": "worlds-managing-resources-guide-article",
+      "file_sha256": "0d9bcc84a34f7767931ef4295d24fbd078eb956351f776e8f28dc376ccd1faa1"
+    },
+    {
+      "path": "content/guides/worlds/2026/worlds-understanding-localization-guide.json",
+      "id": "worlds-understanding-localization-guide",
+      "file_sha256": "b7954d05bbc716d241d670d6f344a3c6d372f64df82a3cd3ac01e137aec481ec"
     },
     {
       "path": "content/maintenance/maplestory/2022/maplestory-europe-gms-official-news-2022-09-28-16799.json",
@@ -7913,6 +8013,11 @@
       "file_sha256": "1a545d26601c1f2361788f283fa105dd78c8681a5d2bd87e2b925f65253cd63b"
     },
     {
+      "path": "sources/classic/classic-niameowdb-guides.json",
+      "id": "classic-niameowdb-guides",
+      "file_sha256": "3014c413f4c8fe6564cad55e8f3a18c5f025702d20e13c9c55ffc11739703d50"
+    },
+    {
       "path": "sources/classic/classic-niameowdb-news.json",
       "id": "classic-niameowdb-news",
       "file_sha256": "2197d880382bf6d3c4391d961e98ebda01106b4e9302656f6a831b6e888a3806"
@@ -7923,9 +8028,19 @@
       "file_sha256": "ac0919767d51da6241945ed76dd872a2b9a44976a0e5d5af87f4cb89c35b0afb"
     },
     {
+      "path": "sources/idle/idle-nexon-official-faq.json",
+      "id": "idle-nexon-official-faq",
+      "file_sha256": "0f43cd45f7fec7b34e92f940dbebef376e78b7723f56db3bf30ca76720ffcb8e"
+    },
+    {
       "path": "sources/idle/idle-nexon-official-patch-notes.json",
       "id": "idle-nexon-official-patch-notes",
       "file_sha256": "f3c7b00f9294879f95d4b00865fc22724426925a52def75b3b30af28645ac127"
+    },
+    {
+      "path": "sources/idle/idle-rpg-wiki-guides.json",
+      "id": "idle-rpg-wiki-guides",
+      "file_sha256": "09821c70fadaf8ec1e6e0c58317923f4d2777ea3871c46e671077b1cb92ad523"
     },
     {
       "path": "sources/m/m-nexon-official-news.json",
@@ -7936,6 +8051,11 @@
       "path": "sources/maplestory/maplestory-gms-official-news.json",
       "id": "maplestory-gms-official-news",
       "file_sha256": "2fb77ba959044c6bb88e399876e7a4494e7b4f45a3aa2330579ff0d6d84cb272"
+    },
+    {
+      "path": "sources/maplestory/maplestory-support-guides.json",
+      "id": "maplestory-support-guides",
+      "file_sha256": "f188ff7c8468e3c8564264adb04ed418fc9a323bdd34b2460783a7c2638c9614"
     },
     {
       "path": "sources/n/n-official-documentation-announcements.json",
@@ -7961,6 +8081,11 @@
       "path": "sources/worlds/worlds-creator-center-api-reference.json",
       "id": "worlds-creator-center-api-reference",
       "file_sha256": "316a53ba2cb99785cd2fb9ce29cd9dc332dc2b121277f9435514fe4677ed0d25"
+    },
+    {
+      "path": "sources/worlds/worlds-creator-center-guides.json",
+      "id": "worlds-creator-center-guides",
+      "file_sha256": "a184ddf8ba6e6440f76ea38dce6642d1504e3c63ed11656a54a97b220a75703f"
     },
     {
       "path": "sources/worlds/worlds-creator-center-news.json",

@@ -1,0 +1,32 @@
+{
+  "id": "idle-nexon-official-faq",
+  "name": "MapleStory: Idle RPG Official FAQ",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "source_type": "forum",
+  "content_types": ["guide"],
+  "base_url": "https://forum.nexon.com/maplestoryidle/main",
+  "discovery_urls": ["https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "browser",
+  "parser": "maplestory-idle-official-faq",
+  "adapter_config": {
+    "default_content_type": "guide",
+    "include_patterns": ["/maplestoryidle/board_view"]
+  },
+  "official": true,
+  "enabled": false,
+  "crawl_frequency": "1d",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": true,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-27 as the maintained official gameplay, account, purchase, and technical FAQ."
+}

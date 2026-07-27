@@ -47,6 +47,54 @@
     "notes": "Verified on 2026-07-18. Classic World announcements share Nexon's public Global MapleStory CMS and are separated by CMS flags plus title classification."
   },
   {
+    "id": "classic-niameowdb-guides",
+    "name": "NiaMeowDB MapleStory Classic Guides",
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "community-site",
+    "content_types": [
+      "guide"
+    ],
+    "base_url": "https://meowdb.com/msclassic",
+    "discovery_urls": [
+      "https://meowdb.com/msclassic/guides"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "html",
+    "parser": "classic-niameowdb-guides",
+    "adapter_config": {
+      "default_content_type": "guide",
+      "link_selector": "a[href*=\"/msclassic/guides/\"]",
+      "include_patterns": [
+        "/msclassic/guides/[^/?#]+$"
+      ],
+      "external_id_pattern": "/msclassic/guides/([^/?#]+)$",
+      "body_selector": "article"
+    },
+    "official": false,
+    "enabled": false,
+    "crawl_frequency": "1d",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 5
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": "2026-07-27T00:00:00.000Z",
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified in Chrome on 2026-07-27. The maintained specialist guide library is indexed manually until a dedicated guide parser is enabled."
+  },
+  {
     "id": "classic-niameowdb-news",
     "name": "NiaMeowDB MapleStory Classic News",
     "series": "classic",
@@ -142,6 +190,51 @@
     "notes": "Verified on 2026-07-25 as the public official MapleStory: Idle RPG Event board. Uses the browser adapter for the JavaScript-rendered Nexon Forum and does not retain cookies or session data."
   },
   {
+    "id": "idle-nexon-official-faq",
+    "name": "MapleStory: Idle RPG Official FAQ",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "forum",
+    "content_types": [
+      "guide"
+    ],
+    "base_url": "https://forum.nexon.com/maplestoryidle/main",
+    "discovery_urls": [
+      "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "browser",
+    "parser": "maplestory-idle-official-faq",
+    "adapter_config": {
+      "default_content_type": "guide",
+      "include_patterns": [
+        "/maplestoryidle/board_view"
+      ]
+    },
+    "official": true,
+    "enabled": false,
+    "crawl_frequency": "1d",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": true,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": "2026-07-27T00:00:00.000Z",
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-27 as the maintained official gameplay, account, purchase, and technical FAQ."
+  },
+  {
     "id": "idle-nexon-official-patch-notes",
     "name": "MapleStory: Idle RPG Official Patch Notes",
     "series": "idle",
@@ -187,6 +280,52 @@
     "last_success": null,
     "last_error": null,
     "notes": "Verified on 2026-07-18 as the public official MapleStory: Idle RPG Patch Note board. Uses the browser adapter (Chrome CDP) to render the JS-protected Nexon Forum. Requires Chrome running with --remote-debugging-port=9222 and an active WAF session (manually navigate to forum.nexon.com once before crawling)."
+  },
+  {
+    "id": "idle-rpg-wiki-guides",
+    "name": "MapleStory Idle RPG Wiki Guides",
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "wiki",
+    "content_types": [
+      "guide"
+    ],
+    "base_url": "https://idle.maplestorywiki.net/",
+    "discovery_urls": [
+      "https://idle.maplestorywiki.net/w/Guides"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "html",
+    "parser": "idle-rpg-wiki-guides",
+    "adapter_config": {
+      "default_content_type": "guide",
+      "include_patterns": [
+        "/w/"
+      ],
+      "body_selector": "#mw-content-text"
+    },
+    "official": false,
+    "enabled": false,
+    "crawl_frequency": "1d",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 5
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": "2026-07-27T00:00:00.000Z",
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-27 against exact wiki guide and system pages. Manual indexing preserves editorial review of rapidly changing game values."
   },
   {
     "id": "m-nexon-official-news",
@@ -344,6 +483,53 @@
     "last_success": null,
     "last_error": null,
     "notes": "Verified on 2026-07-20 against Nexon's public Global MapleStory CMS. The official client concatenates /news and /archived, filters by game version, and paginates the resulting array in source order at 18 items per page. Event-date overrides 36565-36572 were transcribed from the explicit periods displayed in their official image-only article bodies. Classic World titles are excluded and indexed by the separate Classic source."
+  },
+  {
+    "id": "maplestory-support-guides",
+    "name": "Global MapleStory Support Guides",
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "guide"
+    ],
+    "base_url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay",
+    "discovery_urls": [
+      "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "html",
+    "parser": "maplestory-support-guides",
+    "adapter_config": {
+      "default_content_type": "guide",
+      "include_patterns": [
+        "/hc/en-us/articles/"
+      ],
+      "body_selector": "article"
+    },
+    "official": true,
+    "enabled": false,
+    "crawl_frequency": "1w",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": "2026-07-27T00:00:00.000Z",
+    "last_success": null,
+    "last_error": null,
+    "notes": "Exact official support articles were verified in Chrome on 2026-07-27 because automated requests returned HTTP 403."
   },
   {
     "id": "n-official-documentation-announcements",
@@ -820,6 +1006,52 @@
     "last_success": null,
     "last_error": null,
     "notes": "Verified on 2026-07-25 against the server-rendered official API Reference Guidelines page. The source is indexed manually until a dedicated reference parser is added."
+  },
+  {
+    "id": "worlds-creator-center-guides",
+    "name": "MapleStory Worlds Creator Center Guides",
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source_type": "official-site",
+    "content_types": [
+      "guide"
+    ],
+    "base_url": "https://maplestoryworlds-creators.nexon.com/en/docs",
+    "discovery_urls": [
+      "https://maplestoryworlds-creators.nexon.com/en/docs"
+    ],
+    "feed_url": null,
+    "api_url": null,
+    "sitemap_urls": [],
+    "adapter": "html",
+    "parser": "worlds-creator-center-guides",
+    "adapter_config": {
+      "default_content_type": "guide",
+      "include_patterns": [
+        "/en/docs"
+      ],
+      "body_selector": "main"
+    },
+    "official": true,
+    "enabled": false,
+    "crawl_frequency": "1w",
+    "rate_limit": {
+      "requests": 1,
+      "per_seconds": 3
+    },
+    "requires_javascript": false,
+    "requires_login": false,
+    "storage_mode": "summary-and-metadata",
+    "robots_policy": "respect",
+    "last_checked": "2026-07-27T00:00:00.000Z",
+    "last_success": null,
+    "last_error": null,
+    "notes": "Verified on 2026-07-27 against exact official Creator Center document pages and indexed manually."
   },
   {
     "id": "worlds-creator-center-news",

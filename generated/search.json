@@ -1,6 +1,96 @@
 [
   {
     "record_type": "content",
+    "id": "classic-beginners-first-steps-guide",
+    "title": "MapleStory Classic Beginner's First Steps",
+    "summary": "A first-hours route from Maple Island to the level 10 job choice, including beginner quests, safe AP allocation, early travel, and survival priorities.",
+    "tags": [
+      "ability-points",
+      "beginner",
+      "jobs",
+      "maple-island"
+    ],
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-guides",
+    "content_type": "guide",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": "Beginner",
+    "boss_name": null,
+    "game_version": "Classic World pre-launch test era",
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/guides/beginners-guide-first-steps-in-maple-world"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-best-grind-maps-1-50-guide",
+    "title": "MapleStory Classic Best Grind Maps by Level",
+    "summary": "A level-bracket training reference for levels 1-50, ranking candidate maps by theoretical EXP per hour and identifying the dominant monsters and party considerations.",
+    "tags": [
+      "experience",
+      "grinding",
+      "leveling",
+      "maps"
+    ],
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-guides",
+    "content_type": "guide",
+    "published_at": "2026-07-21",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": "Classic World pre-launch test era",
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/guides/best-grind-maps-every-level"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-bowman-leveling-10-30-guide",
+    "title": "MapleStory Classic Bowman Leveling Guide",
+    "summary": "A level 10-30 Bowman route covering DEX and STR allocation, Double Shot, bow and crossbow equipment tables, scrolling priorities, and Hunter or Crossbowman preparation.",
+    "tags": [
+      "bowman",
+      "double-shot",
+      "equipment",
+      "leveling"
+    ],
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-guides",
+    "content_type": "guide",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": "Bowman",
+    "boss_name": null,
+    "game_version": "Classic World pre-launch test era",
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/guides/bowman-leveling-guide-1-30"
+  },
+  {
+    "record_type": "content",
     "id": "classic-china-niameowdb-news-2025-05-15-playtest-sign-up",
     "title": "Nexon opens in-person playtest signups for Global Classic World",
     "summary": "Nexon said Classic World is a real project. They asked players in Southern California to come to their El Segundo office to test the game. Testers get gift cards and NX Cash.",
@@ -780,6 +870,36 @@
     "url": "https://meowdb.com/msclassic/news/second-cot-signups-open"
   },
   {
+    "record_type": "content",
+    "id": "classic-magician-leveling-10-30-guide",
+    "title": "MapleStory Classic Magician Leveling Guide",
+    "summary": "A level 10-30 Magician route covering INT and LUK allocation, Magic Claw progression, mage damage scaling, wand and staff choices, armor, and branch preparation.",
+    "tags": [
+      "equipment",
+      "leveling",
+      "magic-claw",
+      "magician"
+    ],
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-guides",
+    "content_type": "guide",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": "Magician",
+    "boss_name": null,
+    "game_version": "Classic World pre-launch test era",
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/guides/magician-leveling-guide-1-30"
+  },
+  {
     "record_type": "resource",
     "id": "classic-mapleclassic-route-planner",
     "title": "MapleClassic Wiki Route Planner",
@@ -1192,6 +1312,66 @@
   },
   {
     "record_type": "content",
+    "id": "classic-thief-leveling-10-30-guide",
+    "title": "MapleStory Classic Thief Leveling Guide",
+    "summary": "A level 10-30 Thief route covering Assassin and Bandit commitment, LUK and DEX allocation, Lucky Seven or Double Stab SP orders, claws, daggers, and armor.",
+    "tags": [
+      "assassin",
+      "bandit",
+      "leveling",
+      "thief"
+    ],
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-guides",
+    "content_type": "guide",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": "Thief",
+    "boss_name": null,
+    "game_version": "Classic World pre-launch test era",
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/guides/thief-leveling-guide-1-30"
+  },
+  {
+    "record_type": "content",
+    "id": "classic-warrior-leveling-10-30-guide",
+    "title": "MapleStory Classic Warrior Leveling Guide",
+    "summary": "A level 10-30 Warrior route covering STR and DEX allocation, Power Strike and Slash Blast order, weapon multipliers, equipment choices, and second-job preparation.",
+    "tags": [
+      "equipment",
+      "leveling",
+      "skills",
+      "warrior"
+    ],
+    "series": "classic",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "classic-niameowdb-guides",
+    "content_type": "guide",
+    "published_at": "2026-07-02",
+    "event_start": null,
+    "event_end": null,
+    "class_name": "Warrior",
+    "boss_name": null,
+    "game_version": "Classic World pre-launch test era",
+    "official": false,
+    "status": "published",
+    "url": "https://meowdb.com/msclassic/guides/warrior-leveling-guide-1-30"
+  },
+  {
+    "record_type": "content",
     "id": "classic-world-closed-online-test-2-registration",
     "title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
     "summary": "Registration for the second Global MapleStory Classic World closed online test is open through July 29, 2026. The test is scheduled for August 4-12 and all interested players, including previous testers, must apply again.",
@@ -1527,6 +1707,36 @@
     "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649"
   },
   {
+    "record_type": "content",
+    "id": "idle-artifacts-guide",
+    "title": "MapleStory Idle RPG Artifacts Guide",
+    "summary": "An artifact reference covering the Guide Quest unlock, Artifact Chests, rarity and upgrade values, equipped special effects, and content-specific selection.",
+    "tags": [
+      "artifacts",
+      "equipment",
+      "guide-quest",
+      "special-effects"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-rpg-wiki-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://idle.maplestorywiki.net/w/Artifacts"
+  },
+  {
     "record_type": "resource",
     "id": "idle-character-analysis",
     "title": "MapleStory Idle RPG Character Analysis",
@@ -1559,6 +1769,96 @@
     "game_version": null,
     "official": false,
     "url": "https://maplestoryidle.info/character-analysis.html"
+  },
+  {
+    "record_type": "content",
+    "id": "idle-classes-and-job-advancement-guide",
+    "title": "MapleStory Idle RPG Classes and Job Advancement",
+    "summary": "A class index explaining playable jobs, their skill and mastery trees, advancement milestones, and the relationship between class choice and character progression.",
+    "tags": [
+      "advancement",
+      "classes",
+      "jobs",
+      "skills"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-rpg-wiki-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://idle.maplestorywiki.net/w/Classes"
+  },
+  {
+    "record_type": "content",
+    "id": "idle-companions-guide",
+    "title": "MapleStory Idle RPG Companions Guide",
+    "summary": "A companion-system guide covering rarity, active and passive bonuses, main and sub slots, cooldown behavior, leveling, and content-specific selection.",
+    "tags": [
+      "bonuses",
+      "companions",
+      "presets",
+      "summoning"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-rpg-wiki-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://idle.maplestorywiki.net/w/Companions"
+  },
+  {
+    "record_type": "content",
+    "id": "idle-experience-progression-guide",
+    "title": "MapleStory Idle RPG Experience Guide",
+    "summary": "A leveling reference comparing online, sleep-mode, and offline progression, with experience requirements and a practical kill-rate test for choosing a farming method.",
+    "tags": [
+      "experience",
+      "farming",
+      "leveling",
+      "offline"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-rpg-wiki-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://idle.maplestorywiki.net/w/Experience"
   },
   {
     "record_type": "resource",
@@ -1594,6 +1894,36 @@
     "game_version": null,
     "official": false,
     "url": "https://maplestoryidle.info/game-data.html"
+  },
+  {
+    "record_type": "content",
+    "id": "idle-guide-quest-progression-guide",
+    "title": "MapleStory Idle RPG Guide Quest Progression",
+    "summary": "A progression reference for the Guide Quest chain, which unlocks major systems, equipment slots, content, and account conveniences as the character advances.",
+    "tags": [
+      "guide-quest",
+      "progression",
+      "systems",
+      "unlocks"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-rpg-wiki-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": false,
+    "status": "published",
+    "url": "https://idle.maplestorywiki.net/w/Guide_Quest"
   },
   {
     "record_type": "resource",
@@ -2011,6 +2341,36 @@
     "game_version": null,
     "official": true,
     "url": "https://forum.nexon.com/maplestoryidle/main"
+  },
+  {
+    "record_type": "content",
+    "id": "idle-official-gameplay-faq-guide",
+    "title": "MapleStory: Idle RPG Official Gameplay FAQ",
+    "summary": "The maintained official reference for job changes, reset schedules, boosters, idle earnings, currencies, equipment slots, account access, purchases, and technical recovery.",
+    "tags": [
+      "account",
+      "faq",
+      "progression",
+      "reset-times"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-faq",
+    "content_type": "guide",
+    "published_at": "2025-11-03",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": "2026-07-23",
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6679&thread=3209008"
   },
   {
     "record_type": "resource",
@@ -30046,6 +30406,68 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-familiar-system-guide",
+    "title": "MapleStory Familiar System Guide",
+    "summary": "The official end-to-end Familiar reference covering cards, collection slots, summoning, gauge management, levels, ranks, potentials, badges, extraction, and the Familiar Shop.",
+    "tags": [
+      "badges",
+      "collection",
+      "familiars",
+      "potentials"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-support-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://support-maplestory.nexon.com/hc/en-us/articles/360049046512-What-is-a-Familiar"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-guild-creation-guide",
+    "title": "How to Create a MapleStory Guild",
+    "summary": "The official guild-creation route from the guild menu to the Guild Base, NPC Lea and Heracle, selecting a name and description, and beginning recruitment.",
+    "tags": [
+      "community",
+      "guild",
+      "guild-base",
+      "recruitment"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-support-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://support-maplestory.nexon.com/hc/en-us/articles/204080489-How-do-I-create-a-guild"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-idle-half-anniversary-special-mission-event",
     "title": "MapleStory: Idle RPG Half Anniversary Special Mission Event",
     "summary": "The half-anniversary event offered daily and achievement missions, cumulative rewards, Festival Coins and Points, and a time-limited Festival Shop for players who had cleared Chapter 3-4.",
@@ -30374,6 +30796,37 @@
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=3367170"
   },
   {
+    "record_type": "content",
+    "id": "maplestory-maple-guide-system-guide",
+    "title": "How the Maple Guide Works",
+    "summary": "The official explanation of Maple Guide recommendations, level-based hunting fields, prerequisite quests, teleporting, and persistent job-advancement prompts.",
+    "tags": [
+      "job-advancement",
+      "leveling",
+      "maple-guide",
+      "quests"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-support-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://support-maplestory.nexon.com/hc/en-us/articles/204744405-How-does-Maple-Guide-work"
+  },
+  {
     "record_type": "resource",
     "id": "maplestory-miracle-summer-2026",
     "title": "Miracle Summer 2026",
@@ -30573,6 +31026,37 @@
     "game_version": null,
     "official": true,
     "url": "https://www.nexon.com/maplestory/rankings"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-star-force-enhancement-guide",
+    "title": "How to Enhance Equipment with Star Force",
+    "summary": "The official Star Force workflow covering equipment eligibility, meso cost, Star Catching, Safeguard, success and failure outcomes, Chance Time, and Equipment Traces.",
+    "tags": [
+      "enhancement",
+      "equipment",
+      "mesos",
+      "star-force"
+    ],
+    "series": "maplestory",
+    "regions": [
+      "europe",
+      "north-america"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "maplestory-support-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://support-maplestory.nexon.com/hc/en-us/articles/204088639-How-do-I-enhance-equips-with-Star-Force"
   },
   {
     "record_type": "resource",
@@ -41274,6 +41758,36 @@
     "url": "https://github.com/MSW-Git/msw-ai-coding-plugins-official"
   },
   {
+    "record_type": "content",
+    "id": "worlds-basic-creation-guide",
+    "title": "MapleStory Worlds Basic Creation Guide",
+    "summary": "The official curriculum from Maker interface fundamentals through entities, components, scripts, terrain, UI, data, resources, optimization, services, and publishing-related features.",
+    "tags": [
+      "creator",
+      "maker",
+      "scripting",
+      "world-building"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=19"
+  },
+  {
     "record_type": "resource",
     "id": "worlds-creator-center-news",
     "title": "MapleStory Worlds Creator Center",
@@ -47732,6 +48246,36 @@
     "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1161"
   },
   {
+    "record_type": "content",
+    "id": "worlds-localizing-formats-guide",
+    "title": "Localizing Dynamic Text Formats in MapleStory Worlds",
+    "summary": "An official implementation guide for dynamic localized strings using argument holes, GetTextFormat, SmartFormat, Korean postpositions, plural rules, and validation of malformed formats.",
+    "tags": [
+      "formatting",
+      "localization",
+      "pluralization",
+      "scripting"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=968"
+  },
+  {
     "record_type": "resource",
     "id": "worlds-managing-resources-guide",
     "title": "Managing Resources",
@@ -47763,6 +48307,36 @@
     "boss_name": null,
     "game_version": null,
     "official": true,
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-managing-resources-guide-article",
+    "title": "Managing Resources in MapleStory Worlds",
+    "summary": "Official guidance for classifying, storing, sharing, migrating, and versioning Maker resources while preserving the permissions needed by a world.",
+    "tags": [
+      "maker",
+      "permissions",
+      "resources",
+      "storage"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
     "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=690"
   },
   {
@@ -47902,5 +48476,35 @@
     "game_version": null,
     "official": false,
     "url": "https://www.reddit.com/r/MaplestoryWorlds"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-understanding-localization-guide",
+    "title": "Understanding Localization in MapleStory Worlds",
+    "summary": "An official hands-on lesson for LocaleDataSet, LocalizationService, text keys, client language behavior, translators, and localized image or resource selection.",
+    "tags": [
+      "creator",
+      "locale-data-set",
+      "localization",
+      "translation"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=951"
   }
 ]

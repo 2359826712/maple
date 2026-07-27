@@ -1,13 +1,13 @@
 {
-  "total_content": 1580,
-  "total_sources": 12,
+  "total_content": 1600,
+  "total_sources": 17,
   "enabled_sources": 11,
   "content_types": {
     "cash-shop": 233,
     "creator-announcement": 134,
     "developer-note": 7,
     "event": 317,
-    "guide": 22,
+    "guide": 42,
     "maintenance": 384,
     "news": 386,
     "patch-note": 96,
@@ -15,7 +15,7 @@
   },
   "statuses": {
     "expired": 3,
-    "published": 1575,
+    "published": 1595,
     "updated": 2
   }
 }

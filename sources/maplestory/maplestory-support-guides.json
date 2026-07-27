@@ -1,0 +1,33 @@
+{
+  "id": "maplestory-support-guides",
+  "name": "Global MapleStory Support Guides",
+  "series": "maplestory",
+  "regions": ["europe", "north-america"],
+  "languages": ["en"],
+  "source_type": "official-site",
+  "content_types": ["guide"],
+  "base_url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay",
+  "discovery_urls": ["https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "html",
+  "parser": "maplestory-support-guides",
+  "adapter_config": {
+    "default_content_type": "guide",
+    "include_patterns": ["/hc/en-us/articles/"],
+    "body_selector": "article"
+  },
+  "official": true,
+  "enabled": false,
+  "crawl_frequency": "1w",
+  "rate_limit": { "requests": 1, "per_seconds": 3 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "last_success": null,
+  "last_error": null,
+  "notes": "Exact official support articles were verified in Chrome on 2026-07-27 because automated requests returned HTTP 403."
+}

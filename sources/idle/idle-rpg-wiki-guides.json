@@ -1,0 +1,33 @@
+{
+  "id": "idle-rpg-wiki-guides",
+  "name": "MapleStory Idle RPG Wiki Guides",
+  "series": "idle",
+  "regions": ["global"],
+  "languages": ["en"],
+  "source_type": "wiki",
+  "content_types": ["guide"],
+  "base_url": "https://idle.maplestorywiki.net/",
+  "discovery_urls": ["https://idle.maplestorywiki.net/w/Guides"],
+  "feed_url": null,
+  "api_url": null,
+  "sitemap_urls": [],
+  "adapter": "html",
+  "parser": "idle-rpg-wiki-guides",
+  "adapter_config": {
+    "default_content_type": "guide",
+    "include_patterns": ["/w/"],
+    "body_selector": "#mw-content-text"
+  },
+  "official": false,
+  "enabled": false,
+  "crawl_frequency": "1d",
+  "rate_limit": { "requests": 1, "per_seconds": 5 },
+  "requires_javascript": false,
+  "requires_login": false,
+  "storage_mode": "summary-and-metadata",
+  "robots_policy": "respect",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "last_success": null,
+  "last_error": null,
+  "notes": "Verified on 2026-07-27 against exact wiki guide and system pages. Manual indexing preserves editorial review of rapidly changing game values."
+}

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "release_id": "content-4bde2adeacd650bf",
+  "release_id": "content-f599e7bc8b1ab7fb",
   "manifest_uri": "content-manifest.json",
-  "manifest_hash": "4bde2adeacd650bfa33dfb8e8350be04af163b6a24aaa8433d7fa8958f9dee0f",
+  "manifest_hash": "f599e7bc8b1ab7fbe126737f7b52fcfbfce72b82ad1a2fc1d81ecfb1a02eddde",
   "generated_at": "2026-07-27T00:00:00.000Z",
   "source": "repository-content",
-  "files": 1580
+  "files": 1600
 }

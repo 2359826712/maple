@@ -26,6 +26,24 @@
       "result": "verified",
       "page_title": "MPStorys",
       "evidence": "The AIDirs listing loaded in Chrome despite an automated Cloudflare 403 response. It displayed the MPStorys name, description, publisher Larry Charles, published date 2026/07/24, and a visit link to https://mpstorys.com/."
+    },
+    {
+      "resource_id": "classic-niameowdb-guide-library",
+      "url": "https://meowdb.com/msclassic/guides",
+      "checked_at": "2026-07-27",
+      "method": "chrome",
+      "result": "verified",
+      "page_title": "MapleStory Classic Leveling & Class Guides | NiaMeowDB",
+      "evidence": "Chrome loaded the exact beginner, Warrior, Magician, Bowman, Thief, and level 1-50 grinding-map guide pages after automated requests returned HTTP 403. Their titles and canonical URLs matched the indexed records."
+    },
+    {
+      "resource_id": "maplestory-support-guides",
+      "url": "https://support-maplestory.nexon.com/hc/en-us/categories/200377735-Gameplay",
+      "checked_at": "2026-07-27",
+      "method": "chrome",
+      "result": "verified",
+      "page_title": "Gameplay – MapleStory",
+      "evidence": "Chrome loaded the exact official Star Force, Maple Guide, guild creation, and Familiar support articles after automated requests returned HTTP 403. Their titles and canonical URLs matched the indexed records."
     }
   ]
 }

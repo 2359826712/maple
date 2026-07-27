@@ -234,6 +234,51 @@ describe('series module routes', () => {
     expect(screen.getByRole('heading', { name: 'MapleStory M Scrolls Guide' })).toBeTruthy();
   }, 15_000);
 
+  it('provides equally readable guide libraries for Classic, Worlds, and Idle', async () => {
+    const cases = [
+      {
+        series: 'maplestory-classic',
+        expectedCount: 6,
+        expectedHeading: 'MapleStory Classic Beginner\'s First Steps',
+      },
+      {
+        series: 'maplestory-worlds',
+        expectedCount: 6,
+        expectedHeading: 'MapleStory Worlds Basic Creation Guide',
+      },
+      {
+        series: 'maplestory-idle',
+        expectedCount: 6,
+        expectedHeading: 'MapleStory: Idle RPG Official Gameplay FAQ',
+      },
+    ];
+
+    for (const { series, expectedCount, expectedHeading } of cases) {
+      const guides = getVerifiedSeriesResources(series, 'guides')
+        .filter((resource) => resource.contentId);
+      expect(guides).toHaveLength(expectedCount);
+
+      window.history.replaceState({}, '', `/guides/en/GMS?series=${series}`);
+      const view = render(
+        <NextApplication
+          language="en"
+          pathname="/guides/en/GMS"
+          requestPath={`/guides/en/GMS?series=${series}`}
+          server="gms"
+          translation={translation}
+        />,
+      );
+
+      expect(await screen.findByText(
+        `Showing ${expectedCount} of ${expectedCount} verified records`,
+        {},
+        { timeout: 10_000 },
+      )).toBeTruthy();
+      expect(screen.getByRole('heading', { name: expectedHeading })).toBeTruthy();
+      view.unmount();
+    }
+  }, 30_000);
+
   it('paginates the complete readable archive without presenting metadata indexes as articles', async () => {
     const resources = getVerifiedSeriesResources('maplestory-n', 'events')
       .filter((resource) => resource.contentId || hasResourceDetailExperience(resource));
