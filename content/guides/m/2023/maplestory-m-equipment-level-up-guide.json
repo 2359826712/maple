@@ -1,0 +1,88 @@
+{
+  "id": "maplestory-m-equipment-level-up-guide",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008227",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008227",
+  "external_id": "2008227",
+  "title": "MapleStory M Equipment Level Up Guide",
+  "original_title": "01 Level Up",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "system",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2023-02-06",
+  "updated_at": null,
+  "discovered_at": "2026-07-27T00:00:00.000Z",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "summary": "Official equipment-leveling instructions explaining Forge access, material EXP, Meso costs, rank-dependent maximum levels, Exalt expansion, and the progression paths unlocked at maximum level.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["equipment", "forge", "level-up", "progression"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-m-guide-for-new-maplers"],
+  "related_urls": [],
+  "content_hash": "33f937f2efeb6e0fa5141d47c4c95d8054897c5d930274e35a9e09fe71efe1e5",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "What equipment leveling changes",
+        "items": [
+          "Weapon levels increase attack and secondary options, while armor levels increase defense and secondary options.",
+          "Equipment of Legendary rank or lower can unlock Rank Up or Fuse after reaching maximum level.",
+          "Mythic or higher equipment can unlock Mastercraft after reaching maximum level."
+        ]
+      },
+      {
+        "title": "Access and material rules",
+        "items": [
+          "Open Level Up from Bag > Equipment > Forge or Main Menu > Forge > Level Up.",
+          "Weapons and armor can use matching equipment, Whetstones, or Refining Powders as material.",
+          "Higher-rank material contributes more equipment EXP, and the process consumes Mesos."
+        ]
+      },
+      {
+        "title": "Maximum-level structure",
+        "items": [
+          "Base maximum level rises by rank from Normal through Chaos equipment.",
+          "Mythic and higher equipment can expand its maximum level through Exalt.",
+          "The official table lists Chaos equipment at level 40 by default and up to level 60 or 70 with Exalt, depending on equipment."
+        ]
+      },
+      {
+        "title": "Level-up process and safeguards",
+        "items": [
+          "Register the weapon or armor that will receive EXP, then register material items.",
+          "Equipped or locked equipment can be a base item but cannot be consumed as material.",
+          "Unlock a locked item only when it is intentionally being used as material."
+        ]
+      }
+    ]
+  },
+  "notes": "Structured summary verified from Nexon's official MapleStory M forum guide on 2026-07-27.",
+  "guide_type": "system",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Equipment Level Up",
+  "level_range": null,
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": ["A weapon or armor item", "Compatible equipment, Whetstones, or Refining Powders", "Sufficient Mesos"],
+  "steps": [
+    "Open Forge and select Level Up.",
+    "Register the base weapon or armor.",
+    "Register compatible material items or Refining Powders.",
+    "Review the resulting EXP and Meso cost.",
+    "Confirm the level-up operation and repeat until the intended level."
+  ],
+  "recommended_items": ["Refining Powder", "Whetstone"],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

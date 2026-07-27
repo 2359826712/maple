@@ -202,6 +202,7 @@
     "content_types": [
       "cash-shop",
       "event",
+      "guide",
       "maintenance",
       "news",
       "patch-note"

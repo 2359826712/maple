@@ -212,6 +212,28 @@ describe('series module routes', () => {
     }
   });
 
+  it('shows the expanded MapleStory M guide library as separate readable records', async () => {
+    const guides = getVerifiedSeriesResources('maplestory-m', 'guides')
+      .filter((resource) => resource.contentId);
+    expect(guides).toHaveLength(7);
+
+    window.history.replaceState({}, '', '/guides/en/GMS?series=maplestory-m');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/guides/en/GMS"
+        requestPath="/guides/en/GMS?series=maplestory-m"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByText('Showing 7 of 7 verified records', {}, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MapleStory M Maple Guide' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MapleStory M Basic UI Guide' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MapleStory M Scrolls Guide' })).toBeTruthy();
+  }, 15_000);
+
   it('paginates the complete readable archive without presenting metadata indexes as articles', async () => {
     const resources = getVerifiedSeriesResources('maplestory-n', 'events')
       .filter((resource) => resource.contentId || hasResourceDetailExperience(resource));

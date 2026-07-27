@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-25T01:49:05.727Z",
-  "file_count": 1574,
+  "generated_at": "2026-07-27T00:00:00.000Z",
+  "file_count": 1580,
   "source_count": 12,
-  "root_sha256": "8a33920c6295464225d648741786e224bb79ab9c3ee331bdb811f0dd96d6dcb3",
+  "root_sha256": "4bde2adeacd650bfa33dfb8e8350be04af163b6a24aaa8433d7fa8958f9dee0f",
   "content": [
     {
       "path": "content/cash-shop/maplestory/2022/maplestory-europe-gms-official-news-2022-09-27-4885.json",
@@ -3461,9 +3461,39 @@
       "file_sha256": "b87304f4cad0184ef2cd5c1c590c65edeffa765be5ec93c814f0267c7fa9b521"
     },
     {
+      "path": "content/guides/m/2023/maplestory-m-basic-ui-guide.json",
+      "id": "maplestory-m-basic-ui-guide",
+      "file_sha256": "8949ad3cd1ca2f7343b8d3d21d4974c7414f1c2cdb09d628102077d4c78317a0"
+    },
+    {
+      "path": "content/guides/m/2023/maplestory-m-change-options-guide.json",
+      "id": "maplestory-m-change-options-guide",
+      "file_sha256": "3d183e80e9572326f2cb0b3cdabe27c7329c68f93466cd0f7227736ef11eed2b"
+    },
+    {
+      "path": "content/guides/m/2023/maplestory-m-equipment-level-up-guide.json",
+      "id": "maplestory-m-equipment-level-up-guide",
+      "file_sha256": "795b026e8ff0684648863b4c80174f6a1a49438babf8c4ccbaf455515fe8f2df"
+    },
+    {
+      "path": "content/guides/m/2023/maplestory-m-maple-guide.json",
+      "id": "maplestory-m-maple-guide",
+      "file_sha256": "e3b48239e3a936334ee93173f9e37ada01b3157d017ddf4bc5a3f7556ba84108"
+    },
+    {
+      "path": "content/guides/m/2023/maplestory-m-refinement-guide.json",
+      "id": "maplestory-m-refinement-guide",
+      "file_sha256": "9acf1f6cd2e4a93c91484f94267e664d411366747a1c40b6c8ca5f8d1c64431b"
+    },
+    {
       "path": "content/guides/m/2025/maplestory-m-guide-for-new-maplers.json",
       "id": "maplestory-m-guide-for-new-maplers",
       "file_sha256": "ac591c7ae08a60fc087a73b53ad568c5d281ff5cde442042fec8b2ecdcee933e"
+    },
+    {
+      "path": "content/guides/m/2026/maplestory-m-scrolls-guide.json",
+      "id": "maplestory-m-scrolls-guide",
+      "file_sha256": "fb3f54b4c9625a830b66d9fbc82e67091313c811233e632d206810f3420b1d3c"
     },
     {
       "path": "content/guides/n/2024/n-multi-region-official-guides-2024-11-05-2677808.json",
@@ -7900,7 +7930,7 @@
     {
       "path": "sources/m/m-nexon-official-news.json",
       "id": "m-nexon-official-news",
-      "file_sha256": "2dcd3436659e33692f2dc7f89ab25960807f1811e3199ae95294892220bde3a3"
+      "file_sha256": "7ef3fdcd254fafa35029486b44bcfd4db9d5b0257ac59761b5a97868c60cdcf9"
     },
     {
       "path": "sources/maplestory/maplestory-gms-official-news.json",

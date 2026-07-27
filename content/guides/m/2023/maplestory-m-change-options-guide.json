@@ -1,0 +1,88 @@
+{
+  "id": "maplestory-m-change-options-guide",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008236",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008236",
+  "external_id": "2008236",
+  "title": "MapleStory M Change Options Guide",
+  "original_title": "09 Change Options",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "system",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2023-02-06",
+  "updated_at": null,
+  "discovered_at": "2026-07-27T00:00:00.000Z",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "summary": "Official potential-option guidance explaining appraisal, cubes and scrolls, option grades, equipment restrictions, Meso costs, manual rerolls, and the automatic option-change function.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["cubes", "equipment", "forge", "potential"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-m-equipment-level-up-guide", "maplestory-m-scrolls-guide"],
+  "related_urls": [],
+  "content_hash": "355c39ee420727f708be062ae04892f96944645d5e2cda2ddfd6556dec1053a0",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Potential and option basics",
+        "items": [
+          "Appraised equipment can use cubes or scrolls to change potential abilities.",
+          "Available options and values differ by equipment piece.",
+          "Some cube types can raise potential grade at a low probability."
+        ]
+      },
+      {
+        "title": "Access and costs",
+        "items": [
+          "Open Change Options from Bag > Equipment > Forge or Main Menu > Forge > Change Options.",
+          "Changing options consumes Mesos and the selected Cube.",
+          "Potential Scrolls can replace previous options, so the current state must be checked before use."
+        ]
+      },
+      {
+        "title": "Manual change process",
+        "items": [
+          "Select equipment whose potential has already been appraised.",
+          "Select a compatible Cube and review the change interface.",
+          "Locked equipment cannot have its options changed."
+        ]
+      },
+      {
+        "title": "Cube and automatic-change limits",
+        "items": [
+          "Occult Cubes cannot be used when potential is Unique rank or higher.",
+          "Unique and Legendary Potential Scrolls follow equipment-rank and current-potential requirements.",
+          "Automatic change can repeatedly use owned cubes until the selected rank or option condition is reached."
+        ]
+      }
+    ]
+  },
+  "notes": "Structured summary verified from Nexon's official MapleStory M forum guide on 2026-07-27.",
+  "guide_type": "system",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Potential Options",
+  "level_range": null,
+  "difficulty": "intermediate",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": ["Appraised equipment", "A compatible Cube or Potential Scroll", "Sufficient Mesos"],
+  "steps": [
+    "Open Forge and select Change Options.",
+    "Select an appraised, unlocked equipment item.",
+    "Choose a compatible Cube or scroll.",
+    "Review the current options, target, cost, and restrictions.",
+    "Change options manually or configure the automatic-change condition."
+  ],
+  "recommended_items": ["Cube", "Potential Scroll"],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

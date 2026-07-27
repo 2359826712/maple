@@ -30138,6 +30138,95 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-m-basic-ui-guide",
+    "title": "MapleStory M Basic UI Guide",
+    "summary": "A first-party map of the MapleStory M in-game interface, covering character and map information, quests and parties, progression menus, Maple Viewer modes, inventory, mail, settings, and shops.",
+    "tags": [
+      "beginner",
+      "interface",
+      "menu"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2023-02-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2007960"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-change-options-guide",
+    "title": "MapleStory M Change Options Guide",
+    "summary": "Official potential-option guidance explaining appraisal, cubes and scrolls, option grades, equipment restrictions, Meso costs, manual rerolls, and the automatic option-change function.",
+    "tags": [
+      "cubes",
+      "equipment",
+      "forge",
+      "potential"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2023-02-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008236"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-equipment-level-up-guide",
+    "title": "MapleStory M Equipment Level Up Guide",
+    "summary": "Official equipment-leveling instructions explaining Forge access, material EXP, Meso costs, rank-dependent maximum levels, Exalt expansion, and the progression paths unlocked at maximum level.",
+    "tags": [
+      "equipment",
+      "forge",
+      "level-up",
+      "progression"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2023-02-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008227"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-m-guide-for-new-maplers",
     "title": "MapleStory M Guide for New Maplers",
     "summary": "An official beginner reference for configuring the interface, using Auto-Battle, growing a character, handling equipment, trading through the Trade Station, and using convenience features.",
@@ -30196,6 +30285,93 @@
     "official": true,
     "status": "published",
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?allBoard=1&board=2690&thread=3496419"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-maple-guide",
+    "title": "MapleStory M Maple Guide",
+    "summary": "Official instructions for opening Maple Guide at level 50, browsing level-based hunting grounds and content, filtering by type or reward, and checking difficulty and obtainable rewards.",
+    "tags": [
+      "beginner",
+      "maple-guide",
+      "progression"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2023-02-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2008054"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-refinement-guide",
+    "title": "MapleStory M Equipment Refinement Guide",
+    "summary": "Official Refinement guidance covering Empress, Longinus, and Genesis refinement, eligible base equipment, material sources, inherited attributes, ability growth, and resulting attack or defense changes.",
+    "tags": [
+      "equipment",
+      "forge",
+      "refinement"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2023-02-06",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008231"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-scrolls-guide",
+    "title": "MapleStory M Scrolls Guide",
+    "summary": "Official instructions for applying equipment scrolls and seals through Forge, including registration order, effect preview, supported scroll categories, equipment restrictions, and probabilistic-result warnings.",
+    "tags": [
+      "equipment",
+      "forge",
+      "scrolls"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "guide",
+    "published_at": "2026-02-03",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=3367170"
   },
   {
     "record_type": "resource",

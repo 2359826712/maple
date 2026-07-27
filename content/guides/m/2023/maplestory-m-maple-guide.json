@@ -1,0 +1,88 @@
+{
+  "id": "maplestory-m-maple-guide",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2008054",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2008054",
+  "external_id": "2008054",
+  "title": "MapleStory M Maple Guide",
+  "original_title": "16 Maple Guide",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "system",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2023-02-06",
+  "updated_at": null,
+  "discovered_at": "2026-07-27T00:00:00.000Z",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "summary": "Official instructions for opening Maple Guide at level 50, browsing level-based hunting grounds and content, filtering by type or reward, and checking difficulty and obtainable rewards.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["beginner", "maple-guide", "progression"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-m-guide-for-new-maplers"],
+  "related_urls": [],
+  "content_hash": "25bba50eca2714620ab40ff09c49977d2eded3a26419297c3fbd8e2b83da1ab3",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Access and recommendations",
+        "items": [
+          "Maple Guide becomes available at level 50 and opens from the main Menu.",
+          "Recommendations can follow the current character level or a level selected on the level bar.",
+          "Recommended hunting grounds and content use a dedicated guide icon."
+        ]
+      },
+      {
+        "title": "Recommended hunting grounds",
+        "items": [
+          "The hunting-ground view lists locations appropriate for the selected level and above.",
+          "Selecting a recommended hunting ground opens that hunting ground's interface.",
+          "Move the level bar left or right to compare recommendations across levels."
+        ]
+      },
+      {
+        "title": "Recommended and level-based content",
+        "items": [
+          "Content entries show type, difficulty, level requirements, and obtainable rewards.",
+          "Selecting a content entry opens the corresponding content interface.",
+          "The level-based list can be reviewed independently from the recommended-content list."
+        ]
+      },
+      {
+        "title": "Filters and rewards",
+        "items": [
+          "The Content by Level filter narrows entries by content type or reward.",
+          "Reward tooltips show the obtainable rewards attached to a content entry.",
+          "Recheck the current interface after major UI updates because menu placement can change."
+        ]
+      }
+    ]
+  },
+  "notes": "Structured summary verified from Nexon's official MapleStory M forum guide on 2026-07-27.",
+  "guide_type": "system",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Maple Guide",
+  "level_range": "50+",
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": ["A MapleStory M character at level 50 or above"],
+  "steps": [
+    "Open Maple Guide from the main Menu.",
+    "Choose the current level or move the level bar to another level.",
+    "Review recommended hunting grounds and content.",
+    "Use the content-type or reward filter to narrow the level-based list.",
+    "Open an entry to view its content interface and reward details."
+  ],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

@@ -1,0 +1,88 @@
+{
+  "id": "maplestory-m-basic-ui-guide",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2007960",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2007960",
+  "external_id": "2007960",
+  "title": "MapleStory M Basic UI Guide",
+  "original_title": "01 Introduction to Basic UI",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "beginner",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2023-02-06",
+  "updated_at": null,
+  "discovered_at": "2026-07-27T00:00:00.000Z",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "summary": "A first-party map of the MapleStory M in-game interface, covering character and map information, quests and parties, progression menus, Maple Viewer modes, inventory, mail, settings, and shops.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["beginner", "interface", "menu"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-m-guide-for-new-maplers", "maplestory-m-maple-guide"],
+  "related_urls": [],
+  "content_hash": "77535cb112a3b2f1c512e8e179e31c0f41235f956b7fe6322ed28d2f1252ebcb",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Character, maps, and movement",
+        "items": [
+          "The main screen exposes character name, level, HP, MP, and combat power.",
+          "Road Map describes the current town, while World Map describes the current continent.",
+          "The on-screen controller supports forward, backward, horizontal, and diagonal movement."
+        ]
+      },
+      {
+        "title": "Quests, parties, and guide missions",
+        "items": [
+          "The Mini Quest Window displays current quest information and achievement progress.",
+          "The Mini Party Window can create, invite, recruit, search, and auto-join parties.",
+          "Guide Missions introduce game features and provide rewards based on mission type."
+        ]
+      },
+      {
+        "title": "Progression menus",
+        "items": [
+          "Legion shows World character count, cumulative-level effects, and grid synergy.",
+          "V Matrix manages, enhances, extracts, and crafts V Cores.",
+          "Arcane Symbol manages owned symbols, while Monster Collection tracks discovered areas and exploration."
+        ]
+      },
+      {
+        "title": "Utilities and account-wide screens",
+        "items": [
+          "Maple Viewer switches between Auto-Battle, Manual Battle, Boss Battle, Screenshot, and Sleep Screen modes.",
+          "Bag separates owned items by type, and Mail distinguishes account-visible Default mail from character-specific Personal mail.",
+          "Options, Cash Shop, Package, Styling, Android, and Change Character remain separate interface destinations."
+        ]
+      }
+    ]
+  },
+  "notes": "Structured summary verified from Nexon's official MapleStory M forum guide on 2026-07-27.",
+  "guide_type": "beginner",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Basic interface",
+  "level_range": "1+",
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": ["Access to the MapleStory M in-game interface"],
+  "steps": [
+    "Identify the character, map, quest, and party areas on the main screen.",
+    "Open Menu and locate progression systems such as Legion, V Matrix, and Arcane Symbol.",
+    "Review Bag and both Mail categories before claiming or moving items.",
+    "Select the appropriate Maple Viewer mode for the current activity.",
+    "Use Options to confirm account and gameplay settings."
+  ],
+  "recommended_items": [],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

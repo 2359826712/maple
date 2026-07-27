@@ -1,5 +1,5 @@
 {
-  "total_content": 1574,
+  "total_content": 1580,
   "total_sources": 12,
   "enabled_sources": 11,
   "content_types": {
@@ -7,7 +7,7 @@
     "creator-announcement": 134,
     "developer-note": 7,
     "event": 317,
-    "guide": 16,
+    "guide": 22,
     "maintenance": 384,
     "news": 386,
     "patch-note": 96,
@@ -15,7 +15,7 @@
   },
   "statuses": {
     "expired": 3,
-    "published": 1569,
+    "published": 1575,
     "updated": 2
   }
 }

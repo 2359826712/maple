@@ -1,0 +1,88 @@
+{
+  "id": "maplestory-m-refinement-guide",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008231",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=2008231",
+  "external_id": "2008231",
+  "title": "MapleStory M Equipment Refinement Guide",
+  "original_title": "04 Refinement",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "system",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2023-02-06",
+  "updated_at": null,
+  "discovered_at": "2026-07-27T00:00:00.000Z",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "summary": "Official Refinement guidance covering Empress, Longinus, and Genesis refinement, eligible base equipment, material sources, inherited attributes, ability growth, and resulting attack or defense changes.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["equipment", "forge", "refinement"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-m-equipment-level-up-guide"],
+  "related_urls": [],
+  "content_hash": "266b431275e7a3bc02cf134b0caa2979754064c8ebcaf637a78a797fdf40584d",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Refinement types",
+        "items": [
+          "Empress Refinement applies to eligible Mythic or Inherited Ancient equipment.",
+          "Longinus Refinement applies to eligible secondary weapons and adds Sharenian Ability.",
+          "Genesis Refinement depends on the applicable base equipment and Genesis Weapon Liberation Quest requirement."
+        ]
+      },
+      {
+        "title": "Access and eligibility",
+        "items": [
+          "Open Refine from Bag > Equipment > Forge or Main Menu > Forge > Refine.",
+          "The available refinement type depends on the attributes and rank of the registered base item.",
+          "The official requirements table distinguishes weapons, armor, cape, shoulder, and secondary-weapon materials."
+        ]
+      },
+      {
+        "title": "Materials and sources",
+        "items": [
+          "Empress weapon and armor refinements use Dream Stones associated with Corrupted Empress Cygnus content.",
+          "Cape and shoulder refinement uses Life Dream Stones.",
+          "Eligible secondary weapons use Rubian from Sharenian's Culvert Elite Dungeon Chaos Mode."
+        ]
+      },
+      {
+        "title": "Results and inherited properties",
+        "items": [
+          "Base-item options and trade attributes are inherited through refinement.",
+          "Physical weapons gain physical attack, magic weapons gain magic attack, and armor gains physical and magic defense.",
+          "Refinement effects reset when crafting eligible Necro or Chaos equipment, so the next crafting step must be planned separately."
+        ]
+      }
+    ]
+  },
+  "notes": "Structured summary verified from Nexon's official MapleStory M forum guide on 2026-07-27.",
+  "guide_type": "system",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Equipment Refinement",
+  "level_range": null,
+  "difficulty": "intermediate",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": ["Eligible equipment for the selected refinement type", "The materials listed for that base item and refinement level"],
+  "steps": [
+    "Open Forge and select Refine.",
+    "Register the intended base equipment.",
+    "Confirm which refinement type is available.",
+    "Review material requirements and inherited properties.",
+    "Apply the refinement only after confirming the following Necro or Chaos crafting plan."
+  ],
+  "recommended_items": ["Dream Stone", "Rubian"],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

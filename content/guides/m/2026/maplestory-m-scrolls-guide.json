@@ -1,0 +1,88 @@
+{
+  "id": "maplestory-m-scrolls-guide",
+  "source_id": "m-nexon-official-news",
+  "canonical_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=3367170",
+  "source_url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=3367170",
+  "external_id": "3367170",
+  "title": "MapleStory M Scrolls Guide",
+  "original_title": "15. Scrolls",
+  "series": "m",
+  "regions": ["global"],
+  "languages": ["en"],
+  "content_type": "guide",
+  "subcategory": "system",
+  "official": true,
+  "author": "MapleStory M GM",
+  "published_at": "2026-02-03",
+  "updated_at": null,
+  "discovered_at": "2026-07-27T00:00:00.000Z",
+  "last_checked": "2026-07-27T00:00:00.000Z",
+  "summary": "Official instructions for applying equipment scrolls and seals through Forge, including registration order, effect preview, supported scroll categories, equipment restrictions, and probabilistic-result warnings.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["equipment", "forge", "scrolls"],
+  "images": [],
+  "attachments": [],
+  "related_content_ids": ["maplestory-m-equipment-level-up-guide", "maplestory-m-refinement-guide"],
+  "related_urls": [],
+  "content_hash": "1e17107ce801815904dee9712ea218489c0dcf46a357bd1f0eb48c807667b32a",
+  "status": "published",
+  "translation_status": "not-requested",
+  "metadata": {
+    "sections": [
+      {
+        "title": "Supported scroll purposes",
+        "items": [
+          "Forge supports scrolls for Star Force, basic options, potential, emblem potential, equipment options, Exaltation, and Mastercraft.",
+          "The applicable effect depends on both the scroll type and the registered equipment.",
+          "Some scrolls determine their result probabilistically."
+        ]
+      },
+      {
+        "title": "How to open Scrolls",
+        "items": [
+          "Open a scroll or stamp from Inventory and select Forge.",
+          "Alternatively, open Main Menu > Forge > Scrolls.",
+          "The interface accepts either equipment-first or scroll-first registration."
+        ]
+      },
+      {
+        "title": "Application process",
+        "items": [
+          "Register the target equipment or the scroll that will be used.",
+          "Select a compatible scroll or compatible equipment from the filtered list.",
+          "Review the displayed effect, then press Apply."
+        ]
+      },
+      {
+        "title": "Restrictions and confirmation",
+        "items": [
+          "Equipment conditions can prevent a scroll from being used.",
+          "Check the displayed applied effect before consuming the scroll.",
+          "Treat a chance-based scroll as a probability, not a guaranteed upgrade."
+        ]
+      }
+    ]
+  },
+  "notes": "Structured summary verified from Nexon's official MapleStory M forum guide on 2026-07-27.",
+  "guide_type": "system",
+  "class_name": null,
+  "boss_name": null,
+  "system_name": "Scrolls",
+  "level_range": null,
+  "difficulty": "beginner",
+  "game_version": null,
+  "applicable_regions": ["global"],
+  "prerequisites": ["Eligible equipment", "A compatible scroll or seal"],
+  "steps": [
+    "Open Forge > Scrolls.",
+    "Register either the equipment or the scroll.",
+    "Select the matching scroll or equipment from the compatible list.",
+    "Review the effect and any probability or equipment restriction.",
+    "Press Apply to consume the scroll."
+  ],
+  "recommended_items": ["A compatible equipment scroll or seal"],
+  "recommended_stats": [],
+  "outdated_warning": false
+}

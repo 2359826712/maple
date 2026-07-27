@@ -5,7 +5,7 @@
   "regions": ["global"],
   "languages": ["en"],
   "source_type": "forum",
-  "content_types": ["cash-shop", "event", "maintenance", "news", "patch-note"],
+  "content_types": ["cash-shop", "event", "guide", "maintenance", "news", "patch-note"],
   "base_url": "https://forum.nexon.com/MapleStoryMGlobal/main",
   "discovery_urls": ["https://forum.nexon.com/MapleStoryMGlobal/board_list?board=2680&pageNo=1"],
   "feed_url": null,
