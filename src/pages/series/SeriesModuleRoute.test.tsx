@@ -126,6 +126,27 @@ describe('series module routes', () => {
     expect(await screen.findByRole('heading', { name: 'Classic World reference' }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.getByText('3rd Job Advancement')).toBeTruthy();
     expect(screen.getByText('Orbis and El Nath')).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Application and access' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Platforms and controls' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Test #2 content' })).toBeTruthy();
+  });
+
+  it('expands the Classic World schedule into a complete preparation brief', async () => {
+    window.history.replaceState({}, '', '/upcoming/en/GMS?series=maplestory-classic');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/upcoming/en/GMS"
+        requestPath="/upcoming/en/GMS?series=maplestory-classic"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'Official Test #2 schedule' }, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'What the announced schedule includes' })).toBeTruthy();
+    expect(screen.getByText(/Every player must submit a new Test #2 application/)).toBeTruthy();
+    expect(screen.getByText(/Characters and progress are wiped after the test/)).toBeTruthy();
   });
 
   it('shows the official article artwork on resource cards', async () => {
@@ -167,13 +188,13 @@ describe('series module routes', () => {
 
   it('renders concrete module content for every other supported series', async () => {
     const cases = [
-      ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index', 'MapleStory M Guides'],
-      ['maplestory-n', '/events/en/GMS', 'V Tracker mission reference', 'MapleStory N Events'],
-      ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference', 'MapleStory Worlds Wiki'],
-      ['maplestory-idle', '/wiki/en/GMS', 'Idle RPG system index', 'MapleStory: Idle RPG Wiki'],
+      ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index', 'MapleStory M Guides', 'Trade Station and inventory'],
+      ['maplestory-n', '/wiki/en/GMS', 'MapleStory N documentation map', 'MapleStory N Wiki', 'Web and economy services'],
+      ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference', 'MapleStory Worlds Wiki', 'API and debugging'],
+      ['maplestory-idle', '/wiki/en/GMS', 'Idle RPG system index', 'MapleStory: Idle RPG Wiki', 'Group and seasonal content'],
     ];
 
-    for (const [series, pathname, heading, pageHeading] of cases) {
+    for (const [series, pathname, heading, pageHeading, expandedHeading] of cases) {
       window.history.replaceState({}, '', `${pathname}?series=${series}`);
       const view = render(
         <NextApplication
@@ -186,6 +207,7 @@ describe('series module routes', () => {
       );
       expect(await screen.findByRole('heading', { level: 1, name: pageHeading }, { timeout: 10_000 })).toBeTruthy();
       expect(await screen.findByRole('heading', { name: heading })).toBeTruthy();
+      expect(screen.getByRole('heading', { name: expandedHeading })).toBeTruthy();
       view.unmount();
     }
   });

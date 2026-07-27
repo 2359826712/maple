@@ -38,6 +38,14 @@ const guideSections: Section[] = [
   },
 ];
 
+const preparationSteps = [
+  'Submit a fresh Test #2 application before the July 29 deadline, even if you joined the first test.',
+  'Check the email address registered to the Nexon account because selected players receive access instructions there.',
+  'Prepare a supported Windows or macOS computer and decide whether to use keyboard controls or a customizable controller layout.',
+  'Use the limited test window to examine 3rd Job Advancement, Orbis, El Nath, language options, and the changes made after the first test.',
+  'Treat every character and item as temporary because all test progress is wiped after August 12.',
+];
+
 const wikiFacts = [
   ['Product', 'Global MapleStory Classic World'],
   ['Current phase', 'Closed Online Test #2'],
@@ -51,6 +59,7 @@ const wikiFacts = [
 const workspaceText = [
   ...schedule.flatMap((item) => [item.label]),
   ...guideSections.flatMap((section) => [section.title, ...section.items]),
+  ...preparationSteps,
   ...wikiFacts.flat(),
   'Official Test #2 schedule',
   'Dates announced by Global MapleStory for the second closed online test.',
@@ -60,7 +69,35 @@ const workspaceText = [
   'The current announced Classic World event is the second closed online test.',
   'Classic World reference',
   'Verified product facts from the Test #2 announcement.',
+  'What the announced schedule includes',
+  'Preparation order',
 ];
+
+function SectionGrid({ sections, copy }: { sections: Section[]; copy: (value: string) => string }) {
+  return (
+    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {sections.map((section) => (
+        <section
+          key={section.title}
+          className="rounded-xl border border-background-300 bg-background-100 p-5"
+          aria-labelledby={`classic-${section.title.replaceAll(' ', '-').toLowerCase()}`}
+        >
+          <h3 id={`classic-${section.title.replaceAll(' ', '-').toLowerCase()}`} className="font-heading text-lg font-semibold">
+            {copy(section.title)}
+          </h3>
+          <ul className="mt-4 space-y-3 text-sm leading-6 text-foreground-600">
+            {section.items.map((item) => (
+              <li key={item} className="flex gap-2.5">
+                <i className="ri-checkbox-circle-line mt-0.5 shrink-0 text-primary-600" aria-hidden="true" />
+                <span>{copy(item)}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+  );
+}
 
 export default function ClassicModuleWorkspace({ module }: { module: SeriesModule }) {
   const { i18n } = useTranslation();
@@ -105,6 +142,8 @@ export default function ClassicModuleWorkspace({ module }: { module: SeriesModul
             </div>
           ))}
         </div>
+        <h3 className="mt-9 font-heading text-xl font-semibold">{copy('What the announced schedule includes')}</h3>
+        <SectionGrid sections={guideSections} copy={copy} />
       </section>
     );
   }
@@ -114,18 +153,20 @@ export default function ClassicModuleWorkspace({ module }: { module: SeriesModul
       <section className="border-b border-background-300 pb-10" aria-labelledby="classic-guide-heading">
         <h2 id="classic-guide-heading" className="font-heading text-2xl font-semibold">{copy('Test preparation guide')}</h2>
         <p className="mt-2 text-sm leading-6 text-foreground-600">{copy('Source-backed participation, platform, and content information.')}</p>
-        <div className="mt-7 grid gap-8 md:grid-cols-3">
-          {guideSections.map((section) => (
-            <section key={section.title} aria-labelledby={`classic-${section.title.replaceAll(' ', '-').toLowerCase()}`}>
-              <h3 id={`classic-${section.title.replaceAll(' ', '-').toLowerCase()}`} className="font-heading text-lg font-semibold">
-                {copy(section.title)}
-              </h3>
-              <ul className="mt-3 space-y-3 text-sm leading-6 text-foreground-600">
-                {section.items.map((item) => <li key={item} className="border-l-2 border-primary-300 pl-3">{copy(item)}</li>)}
-              </ul>
-            </section>
-          ))}
-        </div>
+        <SectionGrid sections={guideSections} copy={copy} />
+        <section className="mt-8 rounded-xl border border-primary-200 bg-primary-50 p-5" aria-labelledby="classic-preparation-order">
+          <h3 id="classic-preparation-order" className="font-heading text-xl font-semibold">{copy('Preparation order')}</h3>
+          <ol className="mt-4 grid gap-4 md:grid-cols-2">
+            {preparationSteps.map((step, index) => (
+              <li key={step} className="flex gap-3 text-sm leading-6 text-foreground-700">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">
+                  {index + 1}
+                </span>
+                <span>{copy(step)}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
       </section>
     );
   }
@@ -143,6 +184,7 @@ export default function ClassicModuleWorkspace({ module }: { module: SeriesModul
             </div>
           ))}
         </dl>
+        <SectionGrid sections={guideSections} copy={copy} />
       </section>
     );
   }
