@@ -1,0 +1,12 @@
+.codex/
+.env
+.env.*
+.git/
+.next/
+.npm-cache/
+node_modules/
+output/
+raw/
+*.log
+*.pid
+*.tsbuildinfo
