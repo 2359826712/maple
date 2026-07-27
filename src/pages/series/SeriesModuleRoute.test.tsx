@@ -65,6 +65,51 @@ describe('series module routes', () => {
     expect(window.localStorage.getItem('mpstorys-series-tools:maplestory-classic')).toContain('true');
   }, 15_000);
 
+  it('shows the categorized Tools and Favorites menu for non-PC series', async () => {
+    window.history.replaceState({}, '', '/tools/en/GMS?series=maplestory-n');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/tools/en/GMS"
+        requestPath="/tools/en/GMS?series=maplestory-n"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'MapleStory N Tools' }, { timeout: 10_000 })).toBeTruthy();
+    const toolsButton = screen.getAllByRole('button', { name: 'Tools' })
+      .find((button) => button.getAttribute('aria-haspopup') === 'menu');
+    expect(toolsButton).toBeTruthy();
+    fireEvent.focus(toolsButton!);
+
+    const toolOption = screen.getByRole('button', { name: 'MapleHub Star Force Calculator' });
+    const optionRow = toolOption.parentElement;
+    expect(optionRow).toBeTruthy();
+    fireEvent.click(within(optionRow!).getByRole('button', { name: 'Add to favorites' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Favorites' }));
+
+    expect(screen.getByRole('button', { name: 'MapleHub Star Force Calculator' })).toBeTruthy();
+    expect(window.localStorage.getItem('mpstorys-series-tool-favorites:maplestory-n'))
+      .toContain('n-maplehub-star-force-calculator');
+  }, 15_000);
+
+  it('keeps a usable workspace entry in the Tools menu when a series has no indexed calculators', async () => {
+    window.history.replaceState({}, '', '/tools/en/GMS?series=maplestory-worlds');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/tools/en/GMS"
+        requestPath="/tools/en/GMS?series=maplestory-worlds"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'MapleStory Worlds Tools' }, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'MapleStory Worlds Checklist' })).toBeTruthy();
+  }, 15_000);
+
   it('renders source-backed Classic World wiki facts instead of a placeholder card only', async () => {
     window.history.replaceState({}, '', '/wiki/en/GMS?series=maplestory-classic');
     render(

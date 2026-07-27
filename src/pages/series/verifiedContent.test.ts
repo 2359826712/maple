@@ -51,7 +51,7 @@ describe('verified series content', () => {
       ['maplestory-m', 'wiki', 'm-star-force-rate-table'],
       ['maplestory-n', 'tools', 'n-maplehub-star-force-calculator'],
       ['maplestory-n', 'rankings', 'n-official-character-rankings'],
-      ['maplestory-worlds', 'tools', 'worlds-ai-coding-plugins'],
+      ['maplestory-worlds', 'guides', 'worlds-ai-coding-plugins'],
       ['maplestory-worlds', 'community', 'worlds-official-discord'],
       ['maplestory-idle', 'tools', 'idle-hero-token-calculator'],
       ['maplestory-idle', 'rankings', 'idle-msidle-rankings'],
@@ -75,7 +75,7 @@ describe('verified series content', () => {
   });
 
   it('keeps the core editorial modules populated and addressable on this site', () => {
-    const coreModules = ['news', 'upcoming', 'guides', 'events', 'tools', 'wiki'] as const;
+    const coreModules = ['news', 'upcoming', 'guides', 'events', 'wiki'] as const;
     seriesProducts.forEach((product) => {
       coreModules.forEach((module) => {
         const resources = verifiedSeriesContent[product.id]?.[module] || [];
@@ -85,6 +85,25 @@ describe('verified series content', () => {
           expect(slug).not.toBe('');
           expect(getVerifiedSeriesResource(product.id, module, slug)).toEqual(resource);
         });
+      });
+    });
+  });
+
+  it('keeps the tools archive limited to resources that run as interactive tools on MPStorys', () => {
+    const interactiveCategories = new Set([
+      'builder',
+      'calculator',
+      'character-lookup',
+      'guild-lookup',
+      'optimizer',
+      'planner',
+      'simulator',
+    ]);
+
+    seriesProducts.forEach((product) => {
+      getVerifiedSeriesResources(product.id, 'tools').forEach((resource) => {
+        expect(resource.resourceRecord, resource.title).toBeTruthy();
+        expect(interactiveCategories.has(resource.resourceRecord!.category), resource.title).toBe(true);
       });
     });
   });

@@ -1,6 +1,12 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { VerifiedSeriesResource } from './verifiedContent';
+import UniversalResourceTool from './UniversalResourceTool';
+import {
+  costPlannerIds,
+  getResourceToolKind,
+  probabilityPlannerIds,
+} from './resourceToolRegistry';
 
 type CostRow = {
   target: number;
@@ -8,19 +14,6 @@ type CostRow = {
   attempts: number;
   totalCost: number;
 };
-
-const probabilityPlannerIds = new Set([
-  'idle-wiki-companion-summon-calculator',
-  'idle-wiki-elite-summon-calculator',
-  'idle-wiki-weapon-summon-calculator',
-  'n-maplehub-cube-cost-calculator',
-  'n-maplehub-raffle-reward-calculator',
-  'n-maplehub-star-force-calculator',
-]);
-
-const costPlannerIds = new Set([
-  'm-community-powder-cost-calculator',
-]);
 
 type GuideGroup = 'tool' | 'reference' | 'community' | 'developer' | 'ranking' | 'content';
 
@@ -432,16 +425,11 @@ function ResourcePracticalGuide({ resource }: { resource: VerifiedSeriesResource
   );
 }
 
-export const hasResourceDetailExperience = (resource?: VerifiedSeriesResource) => Boolean(
-  resource?.resourceId
-  && (
-    resource.resourceId === 'classicworld-scroll-cost-simulator'
-    || probabilityPlannerIds.has(resource.resourceId)
-    || costPlannerIds.has(resource.resourceId)
-  )
-);
-
-export default function ResourceDetailExperience({ resource }: { resource: VerifiedSeriesResource }) {
+export default function ResourceDetailExperience({
+  resource,
+}: {
+  resource: VerifiedSeriesResource;
+}) {
   if (resource.resourceId === 'classicworld-scroll-cost-simulator') {
     return <ClassicScrollCostCalculator />;
   }
@@ -450,6 +438,9 @@ export default function ResourceDetailExperience({ resource }: { resource: Verif
   }
   if (resource.resourceId && costPlannerIds.has(resource.resourceId)) {
     return <MaterialCostPlanner resource={resource} />;
+  }
+  if (getResourceToolKind(resource)) {
+    return <UniversalResourceTool resource={resource} />;
   }
   return <ResourcePracticalGuide resource={resource} />;
 }

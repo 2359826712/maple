@@ -57,13 +57,13 @@ const categoryModules: Record<string, SeriesModule> = {
   optimizer: 'tools',
   'character-lookup': 'tools',
   'guild-lookup': 'tools',
-  api: 'tools',
-  sdk: 'tools',
-  library: 'tools',
-  'developer-tool': 'tools',
-  github: 'tools',
-  downloads: 'tools',
-  other: 'tools',
+  api: 'guides',
+  sdk: 'guides',
+  library: 'guides',
+  'developer-tool': 'guides',
+  github: 'guides',
+  downloads: 'guides',
+  other: 'guides',
 };
 
 export const indexedResources = generatedResources as ResourceIndexRecord[];
@@ -71,5 +71,5 @@ export const indexedResources = generatedResources as ResourceIndexRecord[];
 export const getIndexedResourceSeriesId = (resource: ResourceIndexRecord) => appSeriesIds[resource.series];
 
 export const getIndexedResourceModule = (resource: ResourceIndexRecord): SeriesModule => (
-  categoryModules[resource.category] || 'tools'
+  categoryModules[resource.category] || 'guides'
 );

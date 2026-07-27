@@ -22,7 +22,9 @@ import {
 import type { VerifiedSeriesResource } from './verifiedContent';
 import { getIndexedContentDisplayTitle, getSeriesModuleArtwork } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
-import ResourceDetailExperience, { hasResourceDetailExperience } from './ResourceDetailExperience';
+import ResourceDetailExperience from './ResourceDetailExperience';
+import { hasResourceDetailExperience } from './resourceToolRegistry';
+import { useSeriesToolMenu } from './useSeriesToolMenu';
 
 const moduleLabels: Record<SeriesModule, string> = {
   news: 'nav_news',
@@ -166,6 +168,11 @@ export default function SeriesResourceDetailPage({
   );
   const heroImageAlt = resource?.imageAlt || copy.title;
   const hasOnSiteExperience = hasResourceDetailExperience(resource);
+  const seriesToolMenu = useSeriesToolMenu(
+    product?.id,
+    module === 'tools' ? resource?.resourceId : undefined,
+    module === 'tools',
+  );
 
   usePageMetadata(
     copy.title || t('series_content_not_found'),
@@ -183,7 +190,11 @@ export default function SeriesResourceDetailPage({
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
-      <Navbar onOpenNotifications={() => setNotificationOpen(true)} unread={0} />
+      <Navbar
+        onOpenNotifications={() => setNotificationOpen(true)}
+        unread={0}
+        toolMenu={seriesToolMenu}
+      />
       <NotificationDrawer open={notificationOpen} onClose={() => setNotificationOpen(false)} />
 
       <main id="main-content" tabIndex={-1} className="pb-16 pt-20 md:pt-24">

@@ -27,7 +27,8 @@ import SeriesToolsWorkspace from './SeriesToolsWorkspace';
 import ClassicModuleWorkspace from './ClassicModuleWorkspace';
 import SeriesContentWorkspace from './SeriesContentWorkspace';
 import CommunitySelector from '@/pages/community/CommunitySelector';
-import { hasResourceDetailExperience } from './ResourceDetailExperience';
+import { hasResourceDetailExperience } from './resourceToolRegistry';
+import { useSeriesToolMenu } from './useSeriesToolMenu';
 
 type Props = {
   module: SeriesModule;
@@ -69,6 +70,7 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
   const resources = getVerifiedSeriesResources(product.id, module);
   const [visibleCount, setVisibleCount] = useState(18);
   const [resourceQuery, setResourceQuery] = useState('');
+  const seriesToolMenu = useSeriesToolMenu(product.id, undefined, module === 'tools');
   const filteredResources = useMemo(() => {
     const query = resourceQuery.trim().toLocaleLowerCase(i18n.language);
     if (!query) return resources;
@@ -141,7 +143,11 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
 
   return (
     <div className="min-h-screen bg-background-50 text-foreground-950">
-      <Navbar onOpenNotifications={() => setNotificationOpen(true)} unread={0} />
+      <Navbar
+        onOpenNotifications={() => setNotificationOpen(true)}
+        unread={0}
+        toolMenu={seriesToolMenu}
+      />
       <NotificationDrawer open={notificationOpen} onClose={() => setNotificationOpen(false)} />
 
       <main id="main-content" tabIndex={-1} className="pb-16 pt-20 md:pt-24">
@@ -298,13 +304,13 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
                 </div>
               )}
             </>
-          ) : (
+          ) : !workspaceFirst ? (
             <div className="border-l-2 border-background-300 py-2 pl-4">
               <p className="text-sm leading-6 text-foreground-600">
                 {t('series_no_verified_content', { name: product.name, module: moduleLabel })}
               </p>
             </div>
-          )}
+          ) : null}
           {!workspaceFirst && <div className={resources.length > 0 ? 'mt-12' : ''}>{workspace}</div>}
         </section>
       </main>

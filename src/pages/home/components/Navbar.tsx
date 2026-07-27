@@ -49,13 +49,25 @@ const defaultToolSections = [
   { value: 'fashion', labelKey: 'mh_section_fashion', icon: 'ri-t-shirt-line', groupLabelKey: 'mh_tool_group_cosmetic' },
 ];
 
-type ToolMenuOption = {
+export type ToolMenuOption = {
   value: string;
   label: string;
   icon: string;
   favorite?: boolean;
   externalHref?: string;
   groupLabel?: string;
+};
+
+export type NavbarToolMenu = {
+  label: string;
+  value: string;
+  allLabel: string;
+  favoritesLabel: string;
+  emptyFavoritesLabel: string;
+  options: ToolMenuOption[];
+  favoriteOptions: ToolMenuOption[];
+  onSelect: (value: string) => void;
+  onToggleFavorite: (value: string) => void;
 };
 
 interface NavbarProps {
@@ -66,17 +78,7 @@ interface NavbarProps {
     options: Array<{ value: string; label: string; icon: string }>;
     onSelect: (value: string) => void;
   };
-  toolMenu?: {
-    label: string;
-    value: string;
-    allLabel: string;
-    favoritesLabel: string;
-    emptyFavoritesLabel: string;
-    options: ToolMenuOption[];
-    favoriteOptions: ToolMenuOption[];
-    onSelect: (value: string) => void;
-    onToggleFavorite: (value: string) => void;
-  };
+  toolMenu?: NavbarToolMenu;
 }
 
 export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMenu }: NavbarProps) {
@@ -626,7 +628,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 );
               }
 
-              if (l.key === 'nav_tools' && (!activeSeries || activeSeries.id === 'maplestory-pc')) {
+              if (
+                l.key === 'nav_tools'
+                && (toolMenu || !activeSeries || activeSeries.id === 'maplestory-pc')
+              ) {
                 return (
                   <div
                     key={l.href}
@@ -681,7 +686,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                           </button>
                         </div>
 
-                        <div className="py-2">
+                        <div className="max-h-[calc(100vh-9rem)] overflow-y-auto py-2">
                           {renderToolMenuList(visibleToolOptions, effectiveToolMenu.emptyFavoritesLabel)}
                         </div>
                       </div>
@@ -1179,7 +1184,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   );
                 }
 
-                if (l.key === 'nav_tools' && (!activeSeries || activeSeries.id === 'maplestory-pc')) {
+                if (
+                  l.key === 'nav_tools'
+                  && (toolMenu || !activeSeries || activeSeries.id === 'maplestory-pc')
+                ) {
                   return (
                     <div key={l.href} ref={mobileToolMenuRef} className="py-1">
                       <button
@@ -1215,7 +1223,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                               {effectiveToolMenu.favoritesLabel}
                             </button>
                           </div>
-                          <div className="py-1">
+                          <div className="max-h-[60vh] overflow-y-auto py-1">
                             {renderToolMenuList(visibleToolOptions, effectiveToolMenu.emptyFavoritesLabel, true)}
                           </div>
                         </div>

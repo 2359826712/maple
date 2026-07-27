@@ -15,7 +15,7 @@ const contentTypeModules: Record<ContentType, SeriesModule> = {
   'cash-shop': 'shop',
   'developer-note': 'news',
   roadmap: 'upcoming',
-  'api-announcement': 'tools',
+  'api-announcement': 'guides',
   'creator-announcement': 'news',
 };
 

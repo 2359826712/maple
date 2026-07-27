@@ -221,7 +221,7 @@ describe('series resource details', () => {
 
   it('renders the complete official API reference guide for MapleStory Worlds', async () => {
     const slug = 'maplestory-worlds-api-reference-worlds-official-api-reference';
-    const pathname = `/series/maplestory-worlds/tools/${slug}/en/GMS`;
+    const pathname = `/series/maplestory-worlds/guides/${slug}/en/GMS`;
     window.history.replaceState({}, '', pathname);
     const routeProps = await createRoutePageProps(pathname);
 
@@ -231,7 +231,7 @@ describe('series resource details', () => {
         translation={translation}
         initialRouteElement={(
           <SeriesResourceDetailPage
-            initialContentModule="tools"
+            initialContentModule="guides"
             initialDetail={routeProps!.initialSeriesResourceDetail}
             initialSeriesId="maplestory-worlds"
             initialSlug={slug}
