@@ -8,7 +8,6 @@ import { fetchGrandisGuideSectionPage, type GrandisGuideSection } from '@/servic
 import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 import GuideScrollTopButton from './components/GuideScrollTopButton';
 import GuideFreshnessBar from './components/GuideFreshnessBar';
-import { useVersion } from '@/hooks/VersionContext';
 import {
   clearGuideReadingProgress,
   readGuideReadingProgress,
@@ -32,7 +31,6 @@ const guideNavSections: Array<{
 
 export default function GuidesPage() {
   const { t, i18n } = useTranslation();
-  const { version, versionInfo } = useVersion();
   const { initialGuideSection } = useServerRouteData();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,7 +40,6 @@ export default function GuidesPage() {
   const [sectionError, setSectionError] = useState(false);
   const [sectionLoading, setSectionLoading] = useState(!initialGuideSection);
   const [sourceSyncedAt, setSourceSyncedAt] = useState<string | undefined>(initialGuideSection?.sourceSyncedAt);
-  const [applicableOnly, setApplicableOnly] = useState(true);
   const deferBrowserState = isStaticHydration();
   const [continueReading, setContinueReading] = useState<GuideReadingProgress | null>(() => (
     deferBrowserState ? null : readGuideReadingProgress()
@@ -120,8 +117,6 @@ export default function GuidesPage() {
     };
   }, [deferBrowserState]);
 
-  const sourceAppliesToCurrentVersion = version === 'gms';
-  const showSourceContent = Boolean(sectionHtml) && (!applicableOnly || sourceAppliesToCurrentVersion);
   const renderedSectionHtml = useMemo(
     () => sectionHtml ? prepareStaticHtmlForRender(sectionHtml) : '',
     [sectionHtml],
@@ -170,29 +165,7 @@ export default function GuidesPage() {
             <p className="mt-3 max-w-3xl text-sm leading-6 text-foreground-600">{t('guides_player_guides_desc')}</p>
 
             <div className="mt-5">
-              <GuideFreshnessBar sourceSyncedAt={sourceSyncedAt} versions={['gms']} />
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex rounded-lg border border-background-300 bg-background-50 p-1" role="group" aria-label={t('guides_applicability_filter')}>
-                <button
-                  type="button"
-                  aria-pressed={applicableOnly}
-                  onClick={() => setApplicableOnly(true)}
-                  className={`min-h-10 rounded-md px-4 text-sm font-semibold ${applicableOnly ? 'bg-primary-600 text-white' : 'text-foreground-700 hover:bg-background-100'}`}
-                >
-                  {t('guides_for_current_version', { version: versionInfo.shortLabel })}
-                </button>
-                <button
-                  type="button"
-                  aria-pressed={!applicableOnly}
-                  onClick={() => setApplicableOnly(false)}
-                  className={`min-h-10 rounded-md px-4 text-sm font-semibold ${!applicableOnly ? 'bg-primary-600 text-white' : 'text-foreground-700 hover:bg-background-100'}`}
-                >
-                  {t('guides_all_sources')}
-                </button>
-              </div>
-              <span className="text-xs text-foreground-600">{t('guides_filter_truth_note')}</span>
+              <GuideFreshnessBar sourceSyncedAt={sourceSyncedAt} />
             </div>
 
             {continueReading && (
@@ -225,21 +198,12 @@ export default function GuidesPage() {
           </div>
         </section>
 
-        {showSourceContent ? (
+        {sectionHtml ? (
           <article
             className="grandis-page-content static-article-content"
             onClick={handleGrandisPageClick}
             dangerouslySetInnerHTML={{ __html: renderedSectionHtml }}
           />
-        ) : sectionHtml && applicableOnly && !sourceAppliesToCurrentVersion ? (
-          <section className="mx-auto flex min-h-[50vh] max-w-2xl flex-col items-center justify-center px-4 py-16 text-center">
-            <i className="ri-filter-off-line mb-4 text-5xl text-primary-500" aria-hidden="true"></i>
-            <h2 className="font-heading text-2xl font-semibold text-foreground-950">{t('guides_no_applicable_title', { version: versionInfo.shortLabel })}</h2>
-            <p className="mt-3 text-sm leading-6 text-foreground-600">{t('guides_no_applicable_desc')}</p>
-            <button type="button" onClick={() => setApplicableOnly(false)} className="mt-5 min-h-11 rounded-full bg-primary-600 px-5 text-sm font-semibold text-white hover:bg-primary-700">
-              {t('guides_show_gms_source')}
-            </button>
-          </section>
         ) : (
           <section className="mx-auto flex min-h-[60vh] max-w-3xl flex-col items-center justify-center px-4 py-20 text-center">
             <i className={`${sectionLoading ? 'ri-loader-4-line animate-spin' : 'ri-book-open-line'} mb-4 text-5xl text-primary-500`}></i>

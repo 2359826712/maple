@@ -9,8 +9,6 @@ import { getGuideCardCopy, guideLocale, localizeGuideItem, useLocalizedGuideItem
 import { fetchLiveGuideContent, fetchLiveGuides, liveStorageKeys, type GuideItem } from '@/services/liveContent';
 import { prepareStaticHtmlForRender, sanitizeMirroredHtml } from '@/services/sanitizeHtml';
 import GuideScrollTopButton from '../components/GuideScrollTopButton';
-import { useVersion } from '@/hooks/VersionContext';
-import { isAvailableInVersion } from '@/domain/regionModel';
 import GuideFreshnessBar from '../components/GuideFreshnessBar';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
@@ -192,7 +190,6 @@ export default function GuideDetail({ initialId }: { initialId?: string }) {
   const id = routeId || initialId;
   const navigate = useNavigate();
   const location = useLocation();
-  const { version } = useVersion();
   const { initialGuide, initialGuides } = useServerRouteData();
   const deferredContentLanguage = useDeferredValue(i18n.language);
   const [notifOpen, setNotifOpen] = useState(false);
@@ -217,35 +214,34 @@ export default function GuideDetail({ initialId }: { initialId?: string }) {
   const detailGuideCandidates = useMemo(() => {
     const current = realtimeGuides.find((item) => item.id === id);
     const related = realtimeGuides
-      .filter((item) => item.id !== id && isAvailableInVersion(item.versions, version))
+      .filter((item) => item.id !== id)
       .slice(0, 4);
     return current ? [current, ...related] : related;
-  }, [id, realtimeGuides, version]);
+  }, [id, realtimeGuides]);
   const localizedRealtimeGuides = useLocalizedGuideItems(detailGuideCandidates, i18n.language);
 
   const guideCard = useMemo(
     () => {
       if (!id) return null;
-      const candidate = localizedRealtimeGuides.find((item) => item.id === id) || grandisGuideFromId(id);
-      return candidate && isAvailableInVersion(candidate.versions, version) ? candidate : null;
+      return localizedRealtimeGuides.find((item) => item.id === id) || grandisGuideFromId(id);
     },
-    [id, localizedRealtimeGuides, version],
+    [id, localizedRealtimeGuides],
   );
   const guide = hydratedGuide?.id === guideCard?.id ? hydratedGuide : guideCard;
   const activeGuideSection = guideNavSections.find((section) => section.label === (guide?.guideSection || 'Content')) || guideNavSections[0];
   const backToGuideSectionLabel = t('guide_back_to_section', { section: activeGuideSection.label });
   const relatedGuides = useMemo(
     () => localizedRealtimeGuides
-      .filter((item) => item.id !== id && isAvailableInVersion(item.versions, version))
+      .filter((item) => item.id !== id)
       .slice(0, 4),
-    [id, localizedRealtimeGuides, version],
+    [id, localizedRealtimeGuides],
   );
   const isInitialGuidesSync = realtimeStatus === 'syncing' && realtimeGuides.length === 0;
   const copy = guide ? getGuideCardCopy(guide, i18n.language) : null;
   const sourceUrl = guide?.sourceUrl || 'https://grandislibrary.com/';
   usePageMetadata(
     copy?.title || 'MapleStory Guides',
-    guide?.excerpt || 'Version-aware MapleStory class, progression, and boss guides.',
+    guide?.excerpt || 'Shared MapleStory class, progression, and boss guides for every server.',
     {
       authorName: guide?.author,
       dateModified: guide?.sourceSyncedAt,
@@ -573,7 +569,7 @@ export default function GuideDetail({ initialId }: { initialId?: string }) {
                   <ShareButton title={copy?.title || 'MapleStory guide'} text={guide.excerpt} />
                 </div>
                 <div className="mx-auto mt-5 max-w-3xl text-left">
-                  <GuideFreshnessBar sourceSyncedAt={guide.sourceSyncedAt} versions={guide.versions} />
+                  <GuideFreshnessBar sourceSyncedAt={guide.sourceSyncedAt} />
                 </div>
               </div>
 

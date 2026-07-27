@@ -50,7 +50,7 @@ export default function CurrentVersionHighlights() {
   const topEventNews = localizedNews.find((item) => (
     item.category === 'Event' && isAvailableInVersion(item.versions, versionInfo.id)
   )) ?? null;
-  const topGuide = localizedGuides.find((item) => isAvailableInVersion(item.versions, versionInfo.id)) ?? null;
+  const topGuide = localizedGuides[0] ?? null;
 
   const newsCard = topNews ? {
     kind: 'live' as const,

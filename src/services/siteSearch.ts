@@ -204,7 +204,6 @@ export function getSiteSearchResults(query: string, language: string, version: s
         };
       }),
     ...liveGuides
-      .filter((item) => isAvailableInVersion(item.versions, version))
       .map((item) => {
         const copy = getGuideCardCopy(item, language);
         return {
@@ -311,7 +310,7 @@ export function getPopularSearchTerms(
   }
 
   // Guides: add 1-2 class/strategy names
-  const guides = liveGuides.filter((item) => isAvailableInVersion(item.versions, version));
+  const guides = liveGuides;
   for (const guide of guides.slice(0, 2)) {
     if (suggestions.length >= count) break;
     const copy = getGuideCardCopy(guide, language);

@@ -18,6 +18,7 @@ const common = {
   nav_shop: '상점',
   nav_community: '커뮤니티',
   nav_feedback: '피드백',
+  guides_series_wide: '모든 MapleStory 서버',
   nav_feedback_admin: '피드백 관리',
   shop_eyebrow: '외부 마켓플레이스',
   shop_title: '메이플스토리 상점',

@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 
 interface GuideFreshnessBarProps {
   sourceSyncedAt?: string;
-  versions?: string[];
   compact?: boolean;
 }
 
@@ -14,16 +13,15 @@ const formatSourceTime = (value: string | undefined, language: string) => {
   }).format(new Date(value));
 };
 
-export default function GuideFreshnessBar({ sourceSyncedAt, versions = ['gms'], compact = false }: GuideFreshnessBarProps) {
+export default function GuideFreshnessBar({ sourceSyncedAt, compact = false }: GuideFreshnessBarProps) {
   const { t, i18n } = useTranslation();
   const syncedLabel = formatSourceTime(sourceSyncedAt, i18n.language);
-  const versionLabels = versions.map((version) => version.toUpperCase()).join(' · ');
 
   return (
     <div className={`flex flex-wrap items-center gap-2 rounded-lg border border-background-300 bg-background-100 text-foreground-700 ${compact ? 'px-3 py-2 text-xs' : 'px-4 py-3 text-sm'}`}>
       <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-100 px-2.5 py-1 font-bold text-accent-800">
         <i className="ri-global-line" aria-hidden="true"></i>
-        {t('guides_applicable_to', { versions: versionLabels })}
+        {t('guides_series_wide')}
       </span>
       <span className="inline-flex items-center gap-1.5">
         <i className="ri-refresh-line text-primary-600" aria-hidden="true"></i>
@@ -38,4 +36,3 @@ export default function GuideFreshnessBar({ sourceSyncedAt, versions = ['gms'], 
     </div>
   );
 }
-

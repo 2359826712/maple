@@ -9,16 +9,8 @@ import { GUIDE_READING_PROGRESS_KEY } from '@/services/guideReadingProgress';
 import GuidesPage from './page';
 
 const mocks = vi.hoisted(() => ({
-  version: 'gms',
   fetchSection: vi.fn(),
   translateStaticText: vi.fn(),
-}));
-
-vi.mock('@/hooks/VersionContext', () => ({
-  useVersion: () => ({
-    version: mocks.version,
-    versionInfo: { id: mocks.version, shortLabel: mocks.version.toUpperCase() },
-  }),
 }));
 
 vi.mock('@/services/liveContent', async (importOriginal) => {
@@ -48,7 +40,6 @@ describe('guide freshness and applicability', () => {
   beforeEach(async () => {
     cleanup();
     localStorage.clear();
-    mocks.version = 'gms';
     mocks.fetchSection.mockReset();
     mocks.translateStaticText.mockReset();
     mocks.translateStaticText.mockImplementation(async (value: string) => value);
@@ -64,21 +55,20 @@ describe('guide freshness and applicability', () => {
 
   afterEach(() => cleanup());
 
-  it('labels GMS applicability and truthful source freshness', async () => {
+  it('labels guides as shared by every MapleStory server', async () => {
     renderPage();
     expect(await screen.findByRole('heading', { name: 'Player Guides' })).toBeTruthy();
-    expect(screen.getByText('Applies to GMS')).toBeTruthy();
+    expect(screen.getByText('All MapleStory servers')).toBeTruthy();
     expect(screen.getByText(/Source synced/)).toBeTruthy();
     expect(screen.getByText('Patch not independently verified')).toBeTruthy();
     await waitFor(() => expect(screen.getByText('Progression Guide')).toBeTruthy());
   });
 
-  it('filters a GMS-only source for another selected region and offers an honest override', async () => {
-    mocks.version = 'kms';
+  it('shows the shared guide library without a server filter', async () => {
     renderPage();
-    expect(await screen.findByRole('heading', { name: 'No source applies to KMS' })).toBeTruthy();
-    fireEvent.click(screen.getByRole('button', { name: 'Show GMS source' }));
     await waitFor(() => expect(screen.getByText('Progression Guide')).toBeTruthy());
+    expect(screen.queryByRole('button', { name: 'For GMS' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'All sources' })).toBeNull();
   });
 
   it('offers a local continue-reading destination', async () => {

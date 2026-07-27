@@ -1,8 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useVersion } from '@/hooks/VersionContext';
-import { isAvailableInVersion } from '@/domain/regionModel';
 import { useAuthSession } from '@/hooks/useAuthSession';
 import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { getGuideCardCopy, useLocalizedGuideItems } from '@/pages/guides/localizedGuides';
@@ -41,10 +40,6 @@ export default function TrendingGuides() {
     setLiked((s) => ({ ...s, [id]: !s[id] }));
   };
 
-  const filteredGuides = useMemo(
-    () => localizedGuides.filter((guide) => isAvailableInVersion(guide.versions, versionInfo.id)),
-    [localizedGuides, versionInfo.id],
-  );
   const isInitialGuidesSync = realtimeStatus === 'syncing' && realtimeGuides.length === 0;
 
   return (
@@ -80,7 +75,7 @@ export default function TrendingGuides() {
           </div>
         )}
 
-        {filteredGuides.length === 0 ? (
+        {localizedGuides.length === 0 ? (
           <div className="text-center py-16 text-foreground-600">
             <i className={`${isInitialGuidesSync ? 'ri-loader-4-line animate-spin' : 'ri-book-open-line'} text-4xl mb-3 block`}></i>
             <p className="text-lg font-semibold">
@@ -90,7 +85,7 @@ export default function TrendingGuides() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredGuides.map((g) => {
+            {localizedGuides.map((g) => {
               const copy = getGuideCardCopy(g, i18n.language);
               return (
                 <article
@@ -112,11 +107,6 @@ export default function TrendingGuides() {
                       <span className={`absolute top-3 right-3 px-2 py-1 rounded-md text-[11px] font-semibold ${difficultyColor[g.difficulty]}`}>
                         {copy.difficulty}
                       </span>
-                      {g.versions.length === 1 && (
-                        <span className="absolute bottom-3 left-3 px-2 py-1 rounded-md text-[10px] font-semibold bg-foreground-900/70 text-background-50">
-                          {g.versions[0].toUpperCase()}
-                        </span>
-                      )}
                     </div>
                   </Link>
                   <div className="p-5">
