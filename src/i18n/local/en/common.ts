@@ -1,5 +1,8 @@
 const common = {
   nav_news: 'News',
+  nav_home: 'Home',
+  nav_updates: 'Updates',
+  nav_knowledge: 'Knowledge',
   nav_upcoming: 'Upcoming Updates',
   nav_guides: 'Guides',
   nav_events: 'Events',

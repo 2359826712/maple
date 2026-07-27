@@ -4,7 +4,7 @@ import { getServerSideRouteProps } from '@/next/serverRoute';
 import { stripRouteSuffixes } from '@/i18n/languageRouting';
 import SeriesPage from './page';
 import SeriesResourceDetailPage from './SeriesResourceDetailPage';
-import { isSeriesModule } from './scope';
+import { getSeriesModuleFromPathSegment, isSeriesModule } from './scope';
 
 export default function SeriesNextRoute(props: NextRoutePageProps) {
   const [, , initialSeriesId, initialSeriesModule, initialSlug] = stripRouteSuffixes(props.pathname).split('/');
@@ -17,7 +17,12 @@ export default function SeriesNextRoute(props: NextRoutePageProps) {
         initialSlug={decodeURIComponent(initialSlug)}
       />
     )
-    : <SeriesPage initialSeriesId={initialSeriesId} initialSeriesModule={initialSeriesModule} />;
+    : (
+      <SeriesPage
+        initialSeriesId={initialSeriesId}
+        initialSeriesModule={getSeriesModuleFromPathSegment(initialSeriesModule)}
+      />
+    );
   return (
     <NextRoutePage
       {...props}

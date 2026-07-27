@@ -76,8 +76,8 @@ describe('SchemaOrgRoute', () => {
       '@type': 'BreadcrumbList',
       itemListElement: [
         expect.objectContaining({ position: 1, item: 'https://mpstorys.com/' }),
-        expect.objectContaining({ position: 2, item: 'https://mpstorys.com/guides/en/GMS' }),
-        expect.objectContaining({ position: 3, item: 'https://mpstorys.com/guides/level/en/GMS' }),
+        expect.objectContaining({ position: 2, item: 'https://mpstorys.com/guides' }),
+        expect.objectContaining({ position: 3, item: 'https://mpstorys.com/guides/level' }),
       ],
     }));
   });

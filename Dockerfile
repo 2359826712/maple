@@ -16,7 +16,7 @@ WORKDIR /app
 
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . ./
-RUN LIBRETRANSLATE_API_URL= LOCALIZATION_DATABASE_URL= npm run build
+RUN LIBRETRANSLATE_API_URL= CONTENT_READ_DATABASE_URL= LOCALIZATION_DATABASE_URL= npm run build
 
 FROM node:lts-alpine AS runtime
 

@@ -1,5 +1,8 @@
 const common = {
   nav_news: '资讯',
+  nav_home: '首页',
+  nav_updates: '更新',
+  nav_knowledge: '知识库',
   nav_upcoming: '未来版本',
   nav_guides: '攻略',
   nav_events: '活动',

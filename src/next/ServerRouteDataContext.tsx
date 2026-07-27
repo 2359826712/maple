@@ -9,6 +9,7 @@ import type {
   WikiEntry,
 } from '@/services/liveContent';
 import type { UpcomingUpdateArticle, UpcomingUpdateFeed } from '@/services/upcomingUpdates';
+import type { PublishedSeriesTranslation } from '@/services/publishedSeriesContent';
 
 type ServerRouteData = {
   initialEvents: EventItem[];
@@ -17,6 +18,7 @@ type ServerRouteData = {
   initialGuideSection: GrandisGuideSectionPage | null;
   initialNews: NewsItem[];
   initialOfficialArticle: OfficialArticleDocument | null;
+  initialSeriesTranslations: Record<string, PublishedSeriesTranslation>;
   initialTools: ToolResourceItem[];
   initialUpcomingArticle: UpcomingUpdateArticle | null;
   initialUpcomingFeed: UpcomingUpdateFeed | null;
@@ -31,6 +33,7 @@ const emptyServerRouteData: ServerRouteData = {
   initialGuideSection: null,
   initialNews: [],
   initialOfficialArticle: null,
+  initialSeriesTranslations: {},
   initialTools: [],
   initialUpcomingArticle: null,
   initialUpcomingFeed: null,
@@ -46,6 +49,7 @@ export function ServerRouteDataProvider({
   initialGuideSection = null,
   initialNews = [],
   initialOfficialArticle = null,
+  initialSeriesTranslations = {},
   initialTools = [],
   initialUpcomingArticle = null,
   initialUpcomingFeed = null,
@@ -59,6 +63,7 @@ export function ServerRouteDataProvider({
   initialGuideSection?: GrandisGuideSectionPage | null;
   initialNews?: NewsItem[];
   initialOfficialArticle?: OfficialArticleDocument | null;
+  initialSeriesTranslations?: Record<string, PublishedSeriesTranslation>;
   initialTools?: ToolResourceItem[];
   initialUpcomingArticle?: UpcomingUpdateArticle | null;
   initialUpcomingFeed?: UpcomingUpdateFeed | null;
@@ -73,6 +78,7 @@ export function ServerRouteDataProvider({
       initialGuideSection,
       initialNews,
       initialOfficialArticle,
+      initialSeriesTranslations,
       initialTools,
       initialUpcomingArticle,
       initialUpcomingFeed,

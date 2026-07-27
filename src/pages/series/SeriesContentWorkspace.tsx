@@ -17,15 +17,6 @@ type WorkspaceMap = Partial<Record<SeriesModule, WorkspaceDefinition>>;
 
 const workspaces: Record<string, WorkspaceMap> = {
   'maplestory-m': {
-    news: {
-      title: 'Current MapleStory M briefing',
-      description: 'The latest verified mobile update information, condensed for reading directly on MPStorys.',
-      facts: [
-        ['Patch cycle', 'July 8/9, 2026'],
-        ['Known issues', 'Tutorial, Adventure Mission, Maple Guide, and Liberation Quest notices are tracked separately'],
-        ['Gameplay focus', 'Main UI, Star Force Field, growth missions, and current event additions'],
-      ],
-    },
     upcoming: {
       title: 'Current update cycle',
       description: 'The official Global Forum is the source of record for MapleStory M updates and known issues.',
@@ -241,36 +232,6 @@ const workspaces: Record<string, WorkspaceMap> = {
 
 const workspaceExpansions: Record<string, WorkspaceMap> = {
   'maplestory-m': {
-    news: {
-      title: '',
-      description: '',
-      sections: [
-        {
-          title: 'Interface and quest changes',
-          items: [
-            'Character, combat power, location, party, and map information were reorganized in the main interface.',
-            "Quest access was divided into To Do, Event, and Miyo's Boost Mission tabs.",
-            'Content and Auto-Battle progress can replace quest information while those activities are running.',
-          ],
-        },
-        {
-          title: 'Hunting and progression',
-          items: [
-            "Party-member kills can award Sol Erda drops using the player's own Item Drop Rate.",
-            'Star Force Field and party-hunting behavior received changes in the July update.',
-            'Tutorial and Adventure Mission presentation and guidance were revised.',
-          ],
-        },
-        {
-          title: 'Events and limited sales',
-          items: [
-            'The PC MapleStory account-link event is scheduled through August 26, 2026.',
-            'The Crystal Treasure Box event changes the secondary-weapon rate during its announced window.',
-            'Time-limited ticket, crystal, enhancement, and custom packages are listed in the official patch notice.',
-          ],
-        },
-      ],
-    },
     upcoming: {
       title: '',
       description: '',

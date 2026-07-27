@@ -1,5 +1,8 @@
 const common = {
   nav_news: 'ニュース',
+  nav_home: 'ホーム',
+  nav_updates: '更新情報',
+  nav_knowledge: 'ナレッジ',
   nav_upcoming: '今後のアップデート',
   nav_guides: 'ガイド',
   nav_events: 'イベント',

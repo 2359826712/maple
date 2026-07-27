@@ -22,17 +22,11 @@ import { getSeriesVersions, getSeriesVersionShortLabel } from '@/pages/series/ve
 const UniversalSearchDialog = lazy(() => import('@/components/search/UniversalSearchDialog'));
 
 const navLinkKeys = [
-  { key: 'nav_news', href: '/news' },
-  { key: 'nav_upcoming', href: '/upcoming' },
-  { key: 'nav_guides', href: '/guides' },
+  { key: 'nav_updates', href: '/updates' },
   { key: 'nav_events', href: '/events' },
-  { key: 'nav_tools', href: '/mapler-house' },
-  { key: 'nav_checklist', href: '/checklist' },
-  { key: 'nav_wiki', href: '/wiki' },
-  { key: 'nav_rankings', href: '/rankings' },
-  { key: 'nav_shop', href: '/shop' },
-  { key: 'nav_community', href: '/community' },
-  { key: 'nav_feedback', href: '/feedback' },
+  { key: 'nav_knowledge', href: '/guides' },
+  { key: 'nav_tools', href: '/tools' },
+  { key: 'nav_series', href: '/series' },
 ];
 
 const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
@@ -347,7 +341,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     isSeriesModuleAvailable(activeSeries?.id, getSeriesRouteState(link.href).module)
   ));
 
-  const defaultToolValue = routePathname === '/mapler-house'
+  const defaultToolValue = routePathname === '/tools'
     ? (typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '') || 'dashboard'
     : '';
 
@@ -371,7 +365,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     emptyFavoritesLabel: t('mh_no_favorites'),
     options: defaultToolOptions,
     favoriteOptions: defaultToolOptions.filter((option) => option.favorite),
-    onSelect: (value: string) => navigate(`/mapler-house#${value}`),
+    onSelect: (value: string) => navigate(`/tools#${value}`),
     onToggleFavorite: (value: string) =>
       setDefaultToolFavorites((current) =>
         current.includes(value) ? current.filter((item) => item !== value) : [value, ...current],
@@ -523,7 +517,14 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
 
   const isNavActive = (href: string) => {
     if (href.startsWith('http')) return false;
+    if (href === '/series') return routePathname === '/series' || routePathname.startsWith('/series/');
     const navModule = getSeriesRouteState(href).module;
+    if (navModule === 'guides') {
+      return seriesRoute.module === 'guides' || seriesRoute.module === 'wiki';
+    }
+    if (navModule === 'tools') {
+      return seriesRoute.module === 'tools' || seriesRoute.module === 'checklist';
+    }
     return Boolean(navModule && seriesRoute.module === navModule);
   };
 
@@ -568,7 +569,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               const active = isNavActive(l.href);
               const destinationHref = getNavHref(l.href);
 
-              if (l.key === 'nav_guides' && guideMenu) {
+              if (l.key === 'nav_knowledge' && guideMenu) {
                 return (
                   <div
                     key={l.href}
@@ -1146,7 +1147,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 const active = isNavActive(l.href);
                 const destinationHref = getNavHref(l.href);
 
-                if (l.key === 'nav_guides' && guideMenu) {
+                if (l.key === 'nav_knowledge' && guideMenu) {
                   return (
                     <div key={l.href} className="py-1">
                       <button

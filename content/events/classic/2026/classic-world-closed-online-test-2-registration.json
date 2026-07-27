@@ -14,15 +14,15 @@
   "languages": [
     "en"
   ],
-  "content_type": "news",
-  "subcategory": "announcements",
+  "content_type": "event",
+  "subcategory": "closed-test",
   "official": true,
   "author": "Global MapleStory",
   "published_at": "2026-07-16",
   "updated_at": null,
   "discovered_at": "2026-07-18T00:00:00.000Z",
   "last_checked": "2026-07-18T00:00:00.000Z",
-  "summary": "Registration for the second Global MapleStory Classic World closed online test is open through July 29, 2026. The test is scheduled for August 4-12 and all interested players, including previous testers, must apply again.",
+  "summary": "The official campaign page records Global MapleStory Classic World Closed Online Test #2, with applications through July 29 and the test scheduled for August 4-12, 2026.",
   "body_text": null,
   "body_markdown": null,
   "storage_mode": "summary-and-metadata",
@@ -43,7 +43,7 @@
   "related_urls": [
     "https://www.nexon.com/mscw/classic-world-closed-online-test-2"
   ],
-  "content_hash": "6d8a4e4c9873148bcdbd4a1092813ba85fd7bbaade1ab9985acf1cfdcd0916db",
+  "content_hash": "656000a1c5acdc684c7fcc258cd39c984315dad96bb1176ef9a694fd1070c438",
   "status": "published",
   "translation_status": "not-requested",
   "metadata": {
@@ -75,5 +75,24 @@
       }
     ]
   },
-  "notes": "Original MPStorys summary and structured facts verified against Nexon's official news and campaign pages on 2026-07-18."
+  "notes": "Reclassified as an event on 2026-07-27 after verifying the registration and test dates against Nexon's official news and campaign pages. The prior structured record is retained in snapshots.",
+  "event_name": "Global MapleStory Classic World Closed Online Test #2",
+  "registration_start": "2026-07-16",
+  "registration_end": "2026-07-29",
+  "event_start": "2026-08-04",
+  "event_end": "2026-08-12",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": null,
+  "eligibility": ["Players selected after submitting the official test application"],
+  "requirements": ["Submit a new application, including if selected for the first closed test.", "Use the access instructions sent to the email registered to the selected Nexon account."],
+  "rewards": [],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": ["Submit the official application by July 29.", "Check the registered Nexon Account email for selection and access instructions.", "Install the supported test client and participate August 4-12."],
+  "related_announcement_id": null,
+  "related_patch_ids": [],
+  "calendar_status": "upcoming"
 }

@@ -1,21 +1,71 @@
 {
-  "total_content": 1600,
+  "total_content": 1627,
   "total_sources": 17,
   "enabled_sources": 11,
   "content_types": {
     "cash-shop": 233,
-    "creator-announcement": 134,
+    "creator-announcement": 133,
     "developer-note": 7,
-    "event": 317,
-    "guide": 42,
-    "maintenance": 384,
-    "news": 386,
-    "patch-note": 96,
+    "event": 330,
+    "guide": 48,
+    "maintenance": 387,
+    "news": 388,
+    "patch-note": 100,
     "roadmap": 1
   },
+  "series": {
+    "classic": 37,
+    "idle": 16,
+    "m": 22,
+    "maplestory": 957,
+    "n": 355,
+    "worlds": 240
+  },
+  "series_content_types": {
+    "classic": {
+      "event": 1,
+      "guide": 6,
+      "news": 30
+    },
+    "idle": {
+      "event": 6,
+      "guide": 6,
+      "patch-note": 3,
+      "roadmap": 1
+    },
+    "m": {
+      "event": 6,
+      "guide": 7,
+      "maintenance": 3,
+      "news": 3,
+      "patch-note": 3
+    },
+    "maplestory": {
+      "cash-shop": 233,
+      "event": 172,
+      "guide": 4,
+      "maintenance": 231,
+      "news": 280,
+      "patch-note": 37
+    },
+    "n": {
+      "developer-note": 7,
+      "event": 141,
+      "guide": 13,
+      "maintenance": 62,
+      "news": 75,
+      "patch-note": 57
+    },
+    "worlds": {
+      "creator-announcement": 133,
+      "event": 4,
+      "guide": 12,
+      "maintenance": 91
+    }
+  },
   "statuses": {
-    "expired": 3,
-    "published": 1595,
-    "updated": 2
+    "expired": 10,
+    "published": 1611,
+    "updated": 6
   }
 }

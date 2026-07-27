@@ -52,6 +52,7 @@ describe('language routing', () => {
 
   it('keeps language and server suffixes in a stable order', () => {
     expect(withRouteSuffixes('/', 'en', 'gms')).toBe('/');
+    expect(withRouteSuffixes('/updates', 'en', 'gms')).toBe('/updates');
     expect(withRouteSuffixes('/', 'zh', 'gms')).toBe('/zh/GMS');
     expect(withRouteSuffixes('/news', 'zh-Hant', 'kms')).toBe('/news/zh-hant/KMS');
     expect(withServerSuffix('/news/ja/GMS', 'msea')).toBe('/news/ja/MSEA');
@@ -61,7 +62,7 @@ describe('language routing', () => {
   it('keeps search parameters and hashes after the language suffix', () => {
     expect(localizeHref('/mapler-house#stats', 'ja')).toBe('/mapler-house/ja#stats');
     expect(localizeHref('/search?q=lotus', 'zh')).toBe('/search/zh?q=lotus');
-    expect(localizeHref('/news', 'en', 'gms')).toBe('/news/en/GMS');
+    expect(localizeHref('/updates', 'en', 'gms')).toBe('/updates');
     expect(localizeHref('/', 'en', 'gms')).toBe('/');
   });
 

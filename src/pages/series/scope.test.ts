@@ -10,16 +10,17 @@ import {
 } from './scope';
 
 describe('series module scope', () => {
-  it('keeps the real module route and stores the series in the query string', () => {
-    expect(getSeriesModuleHref('maplestory-m', 'guides')).toBe('/guides?series=maplestory-m');
-    expect(scopeModuleHref('maplestory-n', '/rankings')).toBe('/rankings?series=maplestory-n');
+  it('uses a clean, indexable route for every series module', () => {
+    expect(getSeriesModuleHref('maplestory-m', 'guides')).toBe('/series/maplestory-m/guides');
+    expect(getSeriesModuleHref('maplestory-n', 'news')).toBe('/series/maplestory-n/updates');
+    expect(scopeModuleHref('maplestory-n', '/rankings')).toBe('/series/maplestory-n/rankings');
   });
 
   it('preserves existing search and hash state', () => {
     expect(withSeriesScope('/news?q=Classic#latest', 'maplestory-classic'))
       .toBe('/news?q=Classic&series=maplestory-classic#latest');
     expect(scopeModuleHref('maplestory-m', '/mapler-house#enhance'))
-      .toBe('/mapler-house?series=maplestory-m#enhance');
+      .toBe('/series/maplestory-m/tools#enhance');
   });
 
   it('keeps shared shop, community, and feedback content scoped to the selected series', () => {
@@ -27,13 +28,13 @@ describe('series module scope', () => {
     expect(isSharedSeriesModule('community')).toBe(true);
     expect(isSharedSeriesModule('feedback')).toBe(true);
     expect(isSharedSeriesModule('news')).toBe(false);
-    expect(getSeriesModuleHref('maplestory-m', 'shop')).toBe('/shop?series=maplestory-m');
-    expect(getSeriesModuleHref('maplestory-n', 'community')).toBe('/community?series=maplestory-n');
-    expect(getSeriesModuleHref('maplestory-classic', 'feedback')).toBe('/feedback?series=maplestory-classic');
+    expect(getSeriesModuleHref('maplestory-m', 'shop')).toBe('/series/maplestory-m/shop');
+    expect(getSeriesModuleHref('maplestory-n', 'community')).toBe('/series/maplestory-n/community');
+    expect(getSeriesModuleHref('maplestory-classic', 'feedback')).toBe('/series/maplestory-classic/feedback');
     expect(scopeModuleHref('maplestory-idle', '/shop?ref=nav#offers'))
-      .toBe('/shop?ref=nav&series=maplestory-idle#offers');
+      .toBe('/series/maplestory-idle/shop?ref=nav#offers');
     expect(scopeModuleHref('maplestory-worlds', '/feedback'))
-      .toBe('/feedback?series=maplestory-worlds');
+      .toBe('/series/maplestory-worlds/feedback');
     expect(getSeriesResourceHref('maplestory-classic', 'community', 'classic-world-subreddit'))
       .toBe('/series/maplestory-classic/community/classic-world-subreddit');
   });

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
@@ -8,7 +8,8 @@ import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { normalizeStaticContentLanguage } from '@/services/staticTranslation';
-import { fetchPublishedSeriesTranslations } from '@/services/publishedSeriesContent';
+import { fetchLocalizedSeriesContentBySlug } from '@/services/publishedSeriesContent';
+import { prepareStaticHtmlForRender } from '@/services/sanitizeHtml';
 import { getSeriesProduct } from './catalog';
 import type { IndexedContentRecord } from '@/domain/contentIndex';
 import type { ContentSection } from './indexedContentDetail';
@@ -25,6 +26,12 @@ import { getSeriesVersionShortLabel } from './versionConfig';
 import ResourceDetailExperience from './ResourceDetailExperience';
 import { hasResourceDetailExperience } from './resourceToolRegistry';
 import { useSeriesToolMenu } from './useSeriesToolMenu';
+import {
+  getSeriesContentLocalization,
+  mergeLocalizedContentRecord,
+  type SeriesContentLocalization,
+} from './localizedContent';
+import { getIndexedContentSections } from './indexedContentDetail';
 
 const moduleLabels: Record<SeriesModule, string> = {
   news: 'nav_news',
@@ -44,10 +51,12 @@ const relatedModules: SeriesModule[] = ['news', 'upcoming', 'guides', 'events', 
 const emptyContentSections: ContentSection[] = [];
 
 export type SeriesResourceDetailData = {
+  bodyHtml?: string;
   contentModule?: string;
   contentRecord?: IndexedContentRecord;
   contentSections: ContentSection[];
   hasStructuredContent: boolean;
+  localization?: SeriesContentLocalization;
   resource?: VerifiedSeriesResource;
   resourceSlug?: string;
 };
@@ -79,8 +88,13 @@ export default function SeriesResourceDetailPage({
   const contentRecord = detail?.contentRecord;
   const contentSections = detail?.contentSections || emptyContentSections;
   const hasStructuredContent = detail?.hasStructuredContent || false;
-  const [localizedText, setLocalizedText] = useState<Record<string, string>>({});
   const localized = (href: string) => localizeHref(href, i18n.language, version);
+  const renderedBodyHtml = useMemo(
+    () => detail?.bodyHtml
+      ? prepareStaticHtmlForRender(detail.bodyHtml, resource?.sourceUrl)
+      : '',
+    [detail?.bodyHtml, resource?.sourceUrl],
+  );
 
   useEffect(() => {
     const decodedSlug = slug ? decodeURIComponent(slug) : '';
@@ -134,31 +148,41 @@ export default function SeriesResourceDetailPage({
 
   useEffect(() => {
     let active = true;
-    setLocalizedText({});
     if (!resource) return () => { active = false; };
     const targetLanguage = normalizeStaticContentLanguage(i18n.language);
-    if (targetLanguage === 'en') return () => { active = false; };
     if (!contentRecord) return () => { active = false; };
-    const sourceTitle = getIndexedContentDisplayTitle(contentRecord);
-    const sourceSummary = contentRecord.summary || resource.description;
-    void fetchPublishedSeriesTranslations([contentRecord.id], targetLanguage)
-      .then((translations) => {
-        if (!active) return;
-        const translation = translations[contentRecord.id];
-        if (!translation) return;
-        setLocalizedText({
-          [sourceTitle]: translation.title,
-          [sourceSummary]: translation.summary,
+    if (detail?.localization?.databaseLocale === targetLanguage) {
+      return () => { active = false; };
+    }
+    void fetchLocalizedSeriesContentBySlug(contentRecord.id, targetLanguage)
+      .then((localizedContent) => {
+        if (!active || !localizedContent) return;
+        setDetail((current) => {
+          if (!current?.contentRecord || !current.resource) return current;
+          const localizedRecord = mergeLocalizedContentRecord(current.contentRecord, localizedContent);
+          const sections = getIndexedContentSections(localizedRecord);
+          return {
+            ...current,
+            bodyHtml: localizedContent.body_html || undefined,
+            contentRecord: localizedRecord,
+            contentSections: sections.length > 0 ? sections : current.contentSections,
+            hasStructuredContent: sections.length > 0,
+            localization: getSeriesContentLocalization(localizedContent),
+            resource: {
+              ...current.resource,
+              title: localizedContent.title || current.resource.title,
+              description: localizedContent.summary || current.resource.description,
+            },
+          };
         });
       })
       .catch(() => undefined);
     return () => { active = false; };
-  }, [contentRecord, contentSections, i18n.language, resource]);
+  }, [contentRecord, detail?.localization?.databaseLocale, i18n.language, resource]);
 
-  const translateContent = (value: string) => localizedText[value] || value;
   const copy = {
-    title: translateContent(contentRecord ? getIndexedContentDisplayTitle(contentRecord) : resource?.title || ''),
-    description: translateContent(contentRecord?.summary || resource?.description || ''),
+    title: contentRecord ? getIndexedContentDisplayTitle(contentRecord) : resource?.title || '',
+    description: contentRecord?.summary || resource?.description || '',
   };
   const publishedAt = contentRecord?.published_at || resource?.publishedAt;
   const heroImage = resource?.imageUrl || (
@@ -212,7 +236,10 @@ export default function SeriesResourceDetailPage({
             </Link>
           </section>
         ) : (
-          <article>
+          <article
+            data-localization-kind={detail?.localization?.localizationKind || 'source'}
+            data-localization-locale={detail?.localization?.databaseLocale || ''}
+          >
             <header className="border-b border-background-200 bg-background-100">
               <div className="mx-auto max-w-4xl px-4 py-8 md:px-8 md:py-12">
                 <Link
@@ -267,6 +294,14 @@ export default function SeriesResourceDetailPage({
                 <p className="mt-4 text-base leading-8 text-foreground-700">{copy.description}</p>
               </section>
 
+              {renderedBodyHtml && (
+                <section
+                  className="wiki-content mt-10 text-base leading-8 text-foreground-700"
+                  aria-label={t('series_content_details')}
+                  dangerouslySetInnerHTML={{ __html: renderedBodyHtml }}
+                />
+              )}
+
               {contentSections.length > 0 && (
                 <section className="mt-12 border-t border-background-300 pt-8" aria-labelledby="resource-details-heading">
                   <div className="flex items-center gap-3">
@@ -278,12 +313,12 @@ export default function SeriesResourceDetailPage({
                   <div className="mt-7 divide-y divide-background-300 border-y border-background-300">
                     {contentSections.map((section) => (
                       <section key={`${section.title}-${section.items[0]}`} className="py-7">
-                        <h3 className="font-heading text-xl font-semibold">{translateContent(section.title)}</h3>
+                        <h3 className="font-heading text-xl font-semibold">{section.title}</h3>
                         <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground-700">
                           {section.items.map((item) => (
                             <li key={item} className="flex gap-3">
                               <i className="ri-checkbox-circle-line mt-1 text-base text-primary-700" aria-hidden="true" />
-                              <span>{translateContent(item)}</span>
+                              <span>{item}</span>
                             </li>
                           ))}
                         </ul>

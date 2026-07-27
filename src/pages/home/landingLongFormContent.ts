@@ -33,7 +33,7 @@ export const landingGuideSections: LandingGuideSection[] = [
       { title: 'Verify edge cases', body: 'Open the first-party source when account access, downloads, test eligibility, marketplace rules or service dates matter.' },
     ],
     links: [
-      { href: '/news', label: 'Browse MapleStory news and updates' },
+      { href: '/updates', label: 'Browse MapleStory news and updates' },
       { href: '/series', label: 'Compare every MapleStory series' },
     ],
   },
@@ -51,7 +51,7 @@ export const landingGuideSections: LandingGuideSection[] = [
       { title: 'Preserve regional context', body: 'A GMS announcement does not automatically describe KMS, JMS, TMS or MSEA timing, content or compensation.' },
     ],
     links: [
-      { href: '/news', label: 'Open the MapleStory news hub' },
+      { href: '/updates', label: 'Open the MapleStory updates hub' },
       { href: '/upcoming', label: 'Review upcoming MapleStory updates' },
     ],
   },
@@ -107,7 +107,7 @@ export const landingGuideSections: LandingGuideSection[] = [
       { title: 'Understand local storage', body: 'Browser-saved progress is convenient but may disappear when site data is cleared or the player changes devices.' },
     ],
     links: [
-      { href: '/mapler-house', label: 'Open MapleStory tools and calculators' },
+      { href: '/tools', label: 'Open MapleStory tools and calculators' },
       { href: '/checklist', label: 'Use the MapleStory checklist' },
       { href: '/rankings', label: 'Browse MapleStory rankings' },
     ],
@@ -126,7 +126,7 @@ export const landingGuideSections: LandingGuideSection[] = [
       { title: 'Compare explicitly', body: 'Cross-region comparisons are useful when differences are labeled; silent mixing produces unreliable MapleStory advice.' },
     ],
     links: [
-      { href: '/news', label: 'Filter regional MapleStory news' },
+      { href: '/updates', label: 'Filter regional MapleStory updates' },
       { href: '/search', label: 'Search MapleStory in your language' },
     ],
   },

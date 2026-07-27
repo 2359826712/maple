@@ -35,7 +35,7 @@ export default function ToolsShowcase() {
             </div>
             <div className="mt-5 flex gap-2">
               <button
-                onClick={() => navigate('/mapler-house')}
+                onClick={() => navigate('/tools')}
                 className="h-10 px-4 rounded-full bg-accent-500 hover:bg-accent-600 text-background-50 dark:text-foreground-950 font-semibold text-sm cursor-pointer whitespace-nowrap"
               >
                 {t('tools_workshop_open')}

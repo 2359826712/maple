@@ -34,7 +34,11 @@ describe('universal search command palette', () => {
     renderNavbar();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
 
-    const dialog = await screen.findByRole('dialog', { name: 'Search MPStorys' });
+    const dialog = await screen.findByRole(
+      'dialog',
+      { name: 'Search MPStorys' },
+      { timeout: 5_000 },
+    );
     expect(dialog).toBeTruthy();
     const input = await screen.findByRole('textbox', { name: 'Search MPStorys' });
     await waitFor(() => expect(document.activeElement).toBe(input));
@@ -63,7 +67,11 @@ describe('universal search command palette', () => {
   it('supports arrow-key result navigation', async () => {
     renderNavbar();
     fireEvent.keyDown(document, { key: 'k', ctrlKey: true });
-    const input = screen.getByRole('textbox', { name: 'Search MPStorys' });
+    const input = await screen.findByRole(
+      'textbox',
+      { name: 'Search MPStorys' },
+      { timeout: 5_000 },
+    );
     await waitFor(() => expect(document.activeElement).toBe(input));
     fireEvent.change(input, { target: { value: 'Normal' } });
 
@@ -83,6 +91,6 @@ describe('universal search command palette', () => {
     const characterLookup = await screen.findByRole('link', {
       name: 'Looking for a player? Open Character Lookup',
     });
-    expect(characterLookup.getAttribute('href')).toBe('/mapler-house#char-lookup');
+    expect(characterLookup.getAttribute('href')).toBe('/tools#char-lookup');
   });
 });

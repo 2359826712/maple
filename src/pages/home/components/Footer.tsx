@@ -88,10 +88,10 @@ const groups = [
   {
     titleKey: 'footer_group_tools',
     links: [
-      { nameKey: 'footer_character_lookup', href: '/mapler-house#char-lookup' },
-      { nameKey: 'footer_star_force_sim', href: '/mapler-house#enhance' },
-      { nameKey: 'footer_cube_simulator', href: '/mapler-house#enhance' },
-      { nameKey: 'footer_mapler_house', href: '/mapler-house' },
+      { nameKey: 'footer_character_lookup', href: '/tools#char-lookup' },
+      { nameKey: 'footer_star_force_sim', href: '/tools#enhance' },
+      { nameKey: 'footer_cube_simulator', href: '/tools#enhance' },
+      { nameKey: 'footer_mapler_house', href: '/tools' },
       { nameKey: 'footer_shop', href: '/shop' },
     ],
   },

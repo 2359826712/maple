@@ -46,7 +46,7 @@ export default function QuickTools() {
             </p>
           </div>
           <Link
-            to="/mapler-house"
+            to="/tools"
             className="hidden md:inline-flex items-center gap-1 text-sm font-semibold text-primary-700 hover:text-primary-800 cursor-pointer"
           >
             {t('tools_browse_all')}

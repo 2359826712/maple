@@ -76,7 +76,8 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
 
   const localizableRoutes: RouteObject[] = [
     { path: '/', element: <Home /> },
-    { path: '/news', element: <SeriesModuleRoute module="news"><NewsPage /></SeriesModuleRoute> },
+    { path: '/updates', element: <SeriesModuleRoute module="news"><NewsPage /></SeriesModuleRoute> },
+    { path: '/news', element: <InternalRedirect to="/updates" label="MapleStory updates" /> },
     { path: '/upcoming', element: <SeriesModuleRoute module="upcoming"><UpcomingUpdatesPage /></SeriesModuleRoute> },
     { path: '/upcoming/:postId', element: <UpcomingUpdateDetailPage /> },
     { path: '/search', element: <SearchPage /> },
@@ -99,14 +100,14 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     { path: '/rankings', element: <SeriesModuleRoute module="rankings"><RankingsPage /></SeriesModuleRoute> },
     {
       path: '/rankings/classes',
-      element: <InternalRedirect to="/mapler-house#stats" label="Mapler House class rankings" />,
+      element: <InternalRedirect to="/tools#stats" label="Mapler House class rankings" />,
     },
-    { path: '/mapler-house', element: <SeriesModuleRoute module="tools"><MaplerHouse /></SeriesModuleRoute> },
+    { path: '/mapler-house', element: <InternalRedirect to="/tools" label="MPStorys tools" /> },
     { path: '/wiki/redirect', element: <WikiRedirectPage /> },
     { path: '/wiki', element: <SeriesModuleRoute module="wiki"><WikiPage /></SeriesModuleRoute> },
     { path: '/checklist', element: <SeriesModuleRoute module="checklist"><ChecklistPage /></SeriesModuleRoute> },
     { path: '/guides/level', element: <LevelGuidePage /> },
-    { path: '/tools', element: <SeriesModuleRoute module="tools"><ToolsPage /></SeriesModuleRoute> },
+    { path: '/tools', element: <SeriesModuleRoute module="tools"><MaplerHouse /></SeriesModuleRoute> },
     { path: '/shop', element: <SeriesModuleRoute module="shop"><ShopPage /></SeriesModuleRoute> },
     { path: '/feedback', element: <SeriesModuleRoute module="feedback"><FeedbackPage /></SeriesModuleRoute> },
     { path: '/admin/feedback', element: <AdminFeedbackPage /> },

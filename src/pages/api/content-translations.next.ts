@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import {
+  normalizeDatabaseContentLocale,
   readLocalizedSeriesContent,
+  readLocalizedSeriesContentBySlug,
   readPublishedSeriesContentTranslationsBySlugs,
 } from '@/services/seriesContentTranslation';
-import type { StaticContentLanguage } from '@/services/staticTranslation';
 
-const locales = new Set<StaticContentLanguage>(['en', 'zh', 'zh-Hant', 'ja', 'ko']);
 const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const slugPattern = /^[a-z0-9](?:[a-z0-9-]{0,198}[a-z0-9])?$/;
 const maxBatchSize = 50;
@@ -17,13 +17,13 @@ export default async function contentTranslation(request: NextApiRequest, respon
     return;
   }
   const contentId = typeof request.query.content_id === 'string' ? request.query.content_id : '';
-  const locale = typeof request.query.locale === 'string'
-    ? request.query.locale as StaticContentLanguage
-    : undefined;
+  const slug = typeof request.query.slug === 'string' ? request.query.slug.trim() : '';
+  const requestedLocale = typeof request.query.locale === 'string' ? request.query.locale : '';
+  const locale = normalizeDatabaseContentLocale(requestedLocale);
   const slugs = typeof request.query.slugs === 'string'
     ? [...new Set(request.query.slugs.split(',').map((value) => value.trim()).filter(Boolean))]
     : [];
-  if (!locale || !locales.has(locale)) {
+  if (!locale) {
     response.status(400).json({ error: 'Invalid content translation request' });
     return;
   }
@@ -42,11 +42,13 @@ export default async function contentTranslation(request: NextApiRequest, respon
       response.status(200).json({ translations });
       return;
     }
-    if (!uuidPattern.test(contentId)) {
+    if (!uuidPattern.test(contentId) && !slugPattern.test(slug)) {
       response.status(400).json({ error: 'Invalid content translation request' });
       return;
     }
-    const content = await readLocalizedSeriesContent(contentId, locale);
+    const content = slug
+      ? await readLocalizedSeriesContentBySlug(slug, locale, requestedLocale)
+      : await readLocalizedSeriesContent(contentId, locale, requestedLocale);
     if (!content) {
       response.status(404).json({ error: 'Content not found' });
       return;
@@ -54,7 +56,7 @@ export default async function contentTranslation(request: NextApiRequest, respon
     response.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=86400');
     response.status(200).json({
       content,
-      fallback: content.localization_kind === 'source',
+      fallback: content.localization_kind !== 'translated',
     });
   } catch {
     response.status(503).json({ error: 'Translation database unavailable' });

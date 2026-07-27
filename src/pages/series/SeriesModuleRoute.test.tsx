@@ -150,12 +150,12 @@ describe('series module routes', () => {
   });
 
   it('shows the official article artwork on resource cards', async () => {
-    window.history.replaceState({}, '', '/news/en/GMS?series=maplestory-classic');
+    window.history.replaceState({}, '', '/events?series=maplestory-classic');
     render(
       <NextApplication
         language="en"
-        pathname="/news/en/GMS"
-        requestPath="/news/en/GMS?series=maplestory-classic"
+        pathname="/events"
+        requestPath="/events?series=maplestory-classic"
         server="gms"
         translation={translation}
       />,
@@ -182,13 +182,12 @@ describe('series module routes', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'MapleStory Classic World News' }, { timeout: 10_000 })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'MapleStory Classic World Updates' }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Rankings' })).toBeNull();
   }, 15_000);
 
   it('renders concrete module content for every other supported series', async () => {
     const cases = [
-      ['maplestory-m', '/guides/en/GMS', 'Official beginner guide index', 'MapleStory M Guides', 'Trade Station and inventory'],
       ['maplestory-n', '/wiki/en/GMS', 'MapleStory N documentation map', 'MapleStory N Wiki', 'Web and economy services'],
       ['maplestory-worlds', '/wiki/en/GMS', 'Creator Center reference', 'MapleStory Worlds Wiki', 'API and debugging'],
       ['maplestory-idle', '/wiki/en/GMS', 'Idle RPG system index', 'MapleStory: Idle RPG Wiki', 'Group and seasonal content'],
@@ -243,7 +242,7 @@ describe('series module routes', () => {
       },
       {
         series: 'maplestory-worlds',
-        expectedCount: 6,
+        expectedCount: 12,
         expectedHeading: 'MapleStory Worlds Basic Creation Guide',
       },
       {
@@ -279,19 +278,19 @@ describe('series module routes', () => {
     }
   }, 30_000);
 
-  it('provides full Wiki reading libraries across every non-PC series', async () => {
+  it('keeps Wiki pages on their independent reference layer instead of duplicating guides', async () => {
     const cases = [
-      ['maplestory-classic', 6, 'MapleStory Classic Beginner\'s First Steps'],
-      ['maplestory-m', 7, 'MapleStory M Maple Guide'],
-      ['maplestory-n', 13, 'MapleStory N Beginner\'s Guide'],
-      ['maplestory-worlds', 6, 'MapleStory Worlds Basic Creation Guide'],
-      ['maplestory-idle', 6, 'MapleStory: Idle RPG Official Gameplay FAQ'],
+      ['maplestory-classic', 'Classic World reference'],
+      ['maplestory-m', 'MapleStory M system reference'],
+      ['maplestory-n', 'MapleStory N documentation map'],
+      ['maplestory-worlds', 'Creator Center reference'],
+      ['maplestory-idle', 'Idle RPG system index'],
     ] as const;
 
-    for (const [series, expectedCount, expectedHeading] of cases) {
+    for (const [series, expectedHeading] of cases) {
       const wikiArticles = getVerifiedSeriesResources(series, 'wiki')
         .filter((resource) => resource.contentId);
-      expect(wikiArticles).toHaveLength(expectedCount);
+      expect(wikiArticles).toHaveLength(0);
 
       window.history.replaceState({}, '', `/wiki/en/GMS?series=${series}`);
       const view = render(
@@ -304,24 +303,19 @@ describe('series module routes', () => {
         />,
       );
 
-      expect(await screen.findByText(
-        `Showing ${expectedCount} of ${expectedCount} verified records`,
-        {},
-        { timeout: 10_000 },
-      )).toBeTruthy();
-      expect(screen.getByRole('heading', { name: expectedHeading })).toBeTruthy();
+      expect(await screen.findByRole('heading', { name: expectedHeading }, { timeout: 10_000 })).toBeTruthy();
       view.unmount();
     }
   }, 30_000);
 
-  it('makes thin News and Events modules readable from existing verified records', () => {
+  it('keeps readable records scoped to their intended series modules', () => {
     const expectedModules = [
-      ['maplestory-classic', 'upcoming', 1],
+      ['maplestory-classic', 'upcoming', 0],
       ['maplestory-classic', 'events', 1],
-      ['maplestory-m', 'news', 1],
-      ['maplestory-m', 'events', 1],
-      ['maplestory-idle', 'news', 3],
-      ['maplestory-idle', 'events', 2],
+      ['maplestory-m', 'news', 9],
+      ['maplestory-m', 'events', 6],
+      ['maplestory-idle', 'news', 0],
+      ['maplestory-idle', 'events', 6],
     ] as const;
 
     expectedModules.forEach(([seriesId, module, expectedCount]) => {
@@ -346,11 +340,11 @@ describe('series module routes', () => {
     );
 
     expect(await screen.findByText(`Showing 18 of ${resources.length} verified records`, {}, { timeout: 10_000 })).toBeTruthy();
-    expect(screen.getByText(`${resources.length} verified records in this module`)).toBeTruthy();
+    expect(screen.getByText('Events records').nextElementSibling?.textContent)
+      .toBe(String(resources.length));
     expect(screen.getByRole('searchbox', { name: 'Search this module' })).toBeTruthy();
-    const archiveHeading = screen.getByRole('heading', { name: 'Verified sources' });
-    const workspaceHeading = screen.getByRole('heading', { name: 'V Tracker mission reference' });
-    expect(archiveHeading.compareDocumentPosition(workspaceHeading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(screen.getByRole('heading', { level: 2, name: 'MapleStory N Events' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'V Tracker mission reference' })).toBeNull();
     const archiveButtons = screen.getAllByRole('button', { name: 'Show 18 more' });
     fireEvent.click(archiveButtons[archiveButtons.length - 1]);
     expect(await screen.findByText(`Showing 36 of ${resources.length} verified records`)).toBeTruthy();
@@ -358,11 +352,6 @@ describe('series module routes', () => {
 
   it('renders readable and usable workspaces when a series module has no on-site articles', async () => {
     const cases = [
-      {
-        series: 'maplestory-m',
-        pathname: '/news/en/GMS',
-        heading: 'Current MapleStory M briefing',
-      },
       {
         series: 'maplestory-n',
         pathname: '/rankings/en/GMS',
@@ -392,6 +381,62 @@ describe('series module routes', () => {
       view.unmount();
     }
   }, 30_000);
+
+  it('renders MapleStory M updates from indexed records without a fixed editorial briefing', async () => {
+    window.history.replaceState({}, '', '/updates?series=maplestory-m');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/updates"
+        requestPath="/updates?series=maplestory-m"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', {
+      name: 'Latest MapleStory M updates',
+    }, { timeout: 10_000 })).toBeTruthy();
+    expect(screen.getByText('Showing 9 of 9 verified records')).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Current MapleStory M briefing' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Events and limited sales' })).toBeNull();
+  });
+
+  it('hydrates a series archive with the same translations rendered by SSR', async () => {
+    const resource = getVerifiedSeriesResources('maplestory-m', 'news')
+      .find((item) => item.contentId);
+    expect(resource?.contentId).toBeTruthy();
+    window.history.replaceState({}, '', '/updates/zh/GMS?series=maplestory-m');
+    render(
+      <NextApplication
+        language="zh"
+        pathname="/updates/zh/GMS"
+        requestPath="/updates/zh/GMS?series=maplestory-m"
+        server="gms"
+        translation={translation}
+        initialSeriesTranslations={{
+          [resource!.contentId!]: {
+            slug: resource!.contentId!,
+            content_id: 'content-uuid',
+            locale: 'zh',
+            title: '服务器渲染的中文标题',
+            summary: '服务器渲染的中文摘要',
+            body_html: '',
+            source_revision: 'sha256:revision',
+            provider: 'local',
+            model: 'model',
+            glossary_version: '1',
+            quality_checks: {},
+            review_status: 'approved',
+            updated_at: '2026-07-27T00:00:00Z',
+          },
+        }}
+      />,
+    );
+
+    expect(screen.getByRole('heading', { name: '服务器渲染的中文标题' })).toBeTruthy();
+    expect(screen.getByText('服务器渲染的中文摘要')).toBeTruthy();
+  });
 
   it('calculates series shop budgets directly on the module page', async () => {
     window.history.replaceState({}, '', '/shop/en/GMS?series=maplestory-idle');
@@ -431,7 +476,7 @@ describe('series module routes', () => {
     const preview = screen.getByRole('tabpanel');
     expect(within(preview).getByRole('heading', { name: 'r/MSClassicWorld' })).toBeTruthy();
     expect(within(preview).getByRole('link', { name: /View details on MPStorys/ }).getAttribute('href'))
-      .toBe('/series/maplestory-classic/community/r-msclassicworld-classic-world-subreddit/en/GMS');
+      .toBe('/series/maplestory-classic/community/r-msclassicworld-classic-world-subreddit');
   });
 
   it('lets visitors choose a community and preview it instead of redirecting automatically', async () => {

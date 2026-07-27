@@ -1374,7 +1374,7 @@
     "record_type": "content",
     "id": "classic-world-closed-online-test-2-registration",
     "title": "Sign Up for Global MapleStory Classic World Closed Online Test #2",
-    "summary": "Registration for the second Global MapleStory Classic World closed online test is open through July 29, 2026. The test is scheduled for August 4-12 and all interested players, including previous testers, must apply again.",
+    "summary": "The official campaign page records Global MapleStory Classic World Closed Online Test #2, with applications through July 29 and the test scheduled for August 4-12, 2026.",
     "tags": [
       "closed-test",
       "macos",
@@ -1390,10 +1390,10 @@
       "en"
     ],
     "source": "classic-gms-official-news",
-    "content_type": "news",
+    "content_type": "event",
     "published_at": "2026-07-16",
-    "event_start": null,
-    "event_end": null,
+    "event_start": "2026-08-04",
+    "event_end": "2026-08-12",
     "class_name": null,
     "boss_name": null,
     "game_version": null,
@@ -30468,6 +30468,64 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-idle-april-9-2026-patch-notes",
+    "title": "MapleStory: Idle RPG April 9 Patch Notes",
+    "summary": "The April 9 update added collaboration events, Ancient T1 weapons, chapters 37-38, Growth Dungeon stages, guild seasons, quality-of-life improvements, and bug fixes.",
+    "tags": [
+      "collaboration",
+      "patch-notes",
+      "weapons"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-patch-notes",
+    "content_type": "patch-note",
+    "published_at": "2026-04-08T10:50:00+00:00",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3419649"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-arena-boost-event",
+    "title": "Arena Boost",
+    "summary": "Arena daily and weekly rewards were doubled from the June 22 settlement through the July 5 settlement for players who had unlocked Arena through Guide Quest 247.",
+    "tags": [
+      "arena",
+      "boost",
+      "event"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-events",
+    "content_type": "event",
+    "published_at": "2026-06-21T15:00:00+00:00",
+    "event_start": "2026-06-22",
+    "event_end": "2026-07-05",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3473866"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-idle-half-anniversary-special-mission-event",
     "title": "MapleStory: Idle RPG Half Anniversary Special Mission Event",
     "summary": "The half-anniversary event offered daily and achievement missions, cumulative rewards, Festival Coins and Points, and a time-limited Festival Shop for players who had cleared Chapter 3-4.",
@@ -30495,6 +30553,36 @@
     "official": true,
     "status": "expired",
     "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3434719"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-journey-token-power-up-festival",
+    "title": "Journey Token Power-Up Festival",
+    "summary": "Journey Token Power-Up Festival begins July 27 and runs for 35 days per account after Chapter 25-10, offering weekly and cumulative rewards for Journey Trail conversions.",
+    "tags": [
+      "event",
+      "heros-journey",
+      "journey-token",
+      "missions"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-events",
+    "content_type": "event",
+    "published_at": "2026-07-26T15:00:00+00:00",
+    "event_start": "2026-07-27",
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3509600"
   },
   {
     "record_type": "content",
@@ -30557,6 +30645,183 @@
     "official": true,
     "status": "updated",
     "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6675&thread=3474001"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-may-21-2026-patch-notes",
+    "title": "MapleStory: Idle RPG May 21 Patch Notes",
+    "summary": "The May 21 update added Party Quest Chaos difficulty, combat and artifact improvements, balance adjustments, new events, and multiple interface and stability fixes.",
+    "tags": [
+      "artifacts",
+      "party-quest",
+      "patch-notes"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-patch-notes",
+    "content_type": "patch-note",
+    "published_at": "2026-05-21",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3449161"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-ruler-of-the-beach-event",
+    "title": "Ruler of the Beach",
+    "summary": "Ruler of the Beach was a June 11-July 22 team minigame for players past Chapter 1-4, awarding Beach Hearts and achievement rewards for participation and wins.",
+    "tags": [
+      "beach-hearts",
+      "event",
+      "minigame",
+      "summer"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-events",
+    "content_type": "event",
+    "published_at": "2026-06-11",
+    "event_start": "2026-06-11",
+    "event_end": "2026-07-22",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3473860"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-summer-10-day-attendance-event",
+    "title": "Summer 10-Day Attendance Event",
+    "summary": "Players who cleared Chapter 1-4 could earn ten days of login rewards during the June 11-July 1 Summer Attendance event.",
+    "tags": [
+      "attendance",
+      "event",
+      "summer"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-events",
+    "content_type": "event",
+    "published_at": "2026-06-11",
+    "event_start": "2026-06-11",
+    "event_end": "2026-07-01",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?board=6676&thread=3473845"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-idle-water-balloon-summer-shop-event",
+    "title": "Splash Water Balloon Daily Mission and Summer Shop",
+    "summary": "The June 11-July 22 Water Balloon daily mission event awarded summer currencies and opened a Summer Shop through July 24 for players past Chapter 1-4.",
+    "tags": [
+      "daily-missions",
+      "event",
+      "event-shop",
+      "summer"
+    ],
+    "series": "idle",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "idle-nexon-official-events",
+    "content_type": "event",
+    "published_at": "2026-06-11",
+    "event_start": "2026-06-11",
+    "event_end": "2026-07-22",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/maplestoryidle/board_view?thread=3473836"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-account-link-event",
+    "title": "Maple M Account Link Event",
+    "summary": "MapleStory M players can link an eligible PC MapleStory account during the July 9-August 26 event window and claim an Auto-Battle Charge Ticket reward once per account.",
+    "tags": [
+      "account-link",
+      "event",
+      "reward"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "event",
+    "published_at": "2026-07-09",
+    "event_start": "2026-07-09",
+    "event_end": "2026-08-26",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?allBoard=1&board=2692&thread=3496447"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-aran-shade-growth-support-event",
+    "title": "Aran & Shade Growth Support Event",
+    "summary": "New Aran and Shade characters could register for the May 21-July 8 growth-support event, complete progression goals, and earn class growth rewards.",
+    "tags": [
+      "aran",
+      "event",
+      "growth",
+      "shade"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "event",
+    "published_at": "2026-05-20",
+    "event_start": "2026-05-21",
+    "event_end": "2026-07-08",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2692&thread=3448916"
   },
   {
     "record_type": "content",
@@ -30679,6 +30944,37 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-m-july-8-9-2026-known-issues",
+    "title": "MapleStory M July 8/9, 2026 Update Known Issues",
+    "summary": "The July 8/9 update known-issues notice tracks tutorial progression, Adventure Mission UI, Maple Guide display, equipment set-effect scrolling, Miyo's Boost Mission, and Liberation Quest problems reported after the update.",
+    "tags": [
+      "adventure-mission",
+      "known-issues",
+      "maple-guide",
+      "tutorial",
+      "updates"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "news",
+    "published_at": "2026-07-09",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "updated",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=7513&thread=3496977"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-m-july-8-9-2026-patch-notes",
     "title": "MapleStory M July 8/9, 2026 Patch Notes",
     "summary": "The July 8/9 update revised the main UI and quest tabs, improved tutorial and Adventure Mission flows, corrected Sol Erda party drops, adjusted Star Force Field party play, and introduced account-link, treasure-box, and package events.",
@@ -30710,6 +31006,98 @@
   },
   {
     "record_type": "content",
+    "id": "maplestory-m-june-17-18-2026-known-issues",
+    "title": "MapleStory M June 17/18, 2026 Update Known Issues",
+    "summary": "The June 17/18 known-issues notice tracks keyboard shortcut, Sunshine Gift, Steam maintenance notice, Guild Ability, Miyo's Boost Mission, Punch King, boss skill, and localized tutorial problems, with most marked fixed by July 9.",
+    "tags": [
+      "bug-fixes",
+      "known-issues",
+      "miyo",
+      "punch-king",
+      "updates"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "news",
+    "published_at": "2026-06-18",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "updated",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=7513&thread=3478244"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-june-17-18-2026-server-maintenance",
+    "title": "MapleStory M June 17/18, 2026 Server Maintenance",
+    "summary": "The June 17/18 maintenance prepared new Aftermath and Convergence quests, job balance and download improvements, refreshed interface screens, summer events, packages, and bug fixes.",
+    "tags": [
+      "aftermath",
+      "convergence",
+      "maintenance",
+      "summer-events",
+      "updates"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "maintenance",
+    "published_at": "2026-06-17",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3477876"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-june-24-2026-patch-notice",
+    "title": "MapleStory M June 24, 2026 Quick Patch",
+    "summary": "The June 24 quick patch restored access to party content, corrected several character skill effects and voice lines, fixed localized UI text, and included server stabilization.",
+    "tags": [
+      "bug-fixes",
+      "maintenance",
+      "quick-patch",
+      "server-stability"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "maintenance",
+    "published_at": "2026-06-24",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3482431"
+  },
+  {
+    "record_type": "content",
     "id": "maplestory-m-maple-guide",
     "title": "MapleStory M Maple Guide",
     "summary": "Official instructions for opening Maple Guide at level 50, browsing level-based hunting grounds and content, filtering by type or reward, and checking difficulty and obtainable rewards.",
@@ -30736,6 +31124,219 @@
     "official": true,
     "status": "published",
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2696&thread=2008054"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-maplers-adventure-log-event",
+    "title": "Mapler's Adventure Log",
+    "summary": "Maplers level 150 and above can complete daily missions in Adventure Log from June 19 through July 30, with an optional Adventure Pass+ claim period through August 6.",
+    "tags": [
+      "adventure-pass",
+      "daily-missions",
+      "event"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "event",
+    "published_at": "2026-06-18",
+    "event_start": "2026-06-19",
+    "event_end": "2026-07-30",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/maplestorymglobal/board_view?allBoard=1&board=2692&thread=3477955"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-may-20-21-2026-known-issues",
+    "title": "MapleStory M May 20/21, 2026 Update Known Issues",
+    "summary": "The May 20/21 known-issues notice records quest replay, Quest UI navigation, Character Stats, Buff Preset, Loaded Dice, HEXA Mastery, Burning-character deletion, and related update problems together with their fix status.",
+    "tags": [
+      "bug-fixes",
+      "hexa",
+      "known-issues",
+      "quests",
+      "updates"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "news",
+    "published_at": "2026-05-21",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "updated",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3449314"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-may-20-21-2026-patch-notes-part-1",
+    "title": "MapleStory M May 20/21, 2026 Patch Notes Part 1",
+    "summary": "Part 1 of the May 20/21 update remastered Aran and Shade, revised their skills, quests and regions, expanded character slots, improved Emblems and boss content, and reorganized Character Info and stat-source displays.",
+    "tags": [
+      "aran",
+      "boss-content",
+      "emblems",
+      "patch-notes",
+      "shade"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "patch-note",
+    "published_at": "2026-05-20",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "updated",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2690&thread=3448821"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-may-20-21-2026-patch-notes-part-2",
+    "title": "MapleStory M May 20/21, 2026 Patch Notes Part 2",
+    "summary": "Part 2 of the May 20/21 update detailed Aran and Shade growth support, Hyper Burning, M4U Boss Invitation Part 2, event shops, Boss Style Season 2, packages, and additional quality-of-life fixes.",
+    "tags": [
+      "aran",
+      "boss-style",
+      "events",
+      "hyper-burning",
+      "patch-notes",
+      "shade"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "patch-note",
+    "published_at": "2026-05-20",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2690&thread=3448834"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-may-20-21-2026-server-maintenance",
+    "title": "MapleStory M May 20/21, 2026 Server Maintenance",
+    "summary": "The May 20/21 maintenance introduced the Aran and Shade remaster, Kao's Memory Quest, Emblem and boss-content improvements, Character Info changes, growth events, M4U Boss Invitation Part 2, packages, and bug fixes.",
+    "tags": [
+      "aran",
+      "emblems",
+      "maintenance",
+      "shade",
+      "updates"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "maintenance",
+    "published_at": "2026-05-20",
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2691&thread=3448770"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-new-warrior-event",
+    "title": "New Warrior Event",
+    "summary": "The evergreen New Warrior Event gives newly created accounts a seven-day mission track, attendance rewards, expedition goals, and purchase support after the January 15 update.",
+    "tags": [
+      "attendance",
+      "event",
+      "missions",
+      "new-player"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "event",
+    "published_at": "2026-01-14T15:00:00+00:00",
+    "event_start": "2026-01-15",
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2692&thread=3346914"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-open-netts-safe-event",
+    "title": "Open Nett's Safe",
+    "summary": "Open Nett’s Safe is an account-wide three-digit code minigame running July 16-29, 2026, with two free entries available each day and rewards for solving the safe.",
+    "tags": [
+      "event",
+      "minigame",
+      "netts-safe"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "event",
+    "published_at": "2026-07-16T02:00:00+00:00",
+    "event_start": "2026-07-16",
+    "event_end": "2026-07-29",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2692&thread=3500291"
   },
   {
     "record_type": "content",
@@ -30794,6 +31395,35 @@
     "official": true,
     "status": "published",
     "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?board=2698&thread=3367170"
+  },
+  {
+    "record_type": "content",
+    "id": "maplestory-m-sunshine-gift-event",
+    "title": "Sunshine Gift Event",
+    "summary": "The Sunshine Gift Event awarded Sunshine Points and milestone rewards for eligible Crystal spending between June 18 and July 15, with reward claims available through July 22.",
+    "tags": [
+      "crystals",
+      "event",
+      "sunshine-points"
+    ],
+    "series": "m",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "m-nexon-official-news",
+    "content_type": "event",
+    "published_at": "2026-06-18",
+    "event_start": "2026-06-18",
+    "event_end": "2026-07-15",
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "expired",
+    "url": "https://forum.nexon.com/MapleStoryMGlobal/board_view?allBoard=1&board=2692&thread=3477944"
   },
   {
     "record_type": "content",
@@ -41788,6 +42418,36 @@
     "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=19"
   },
   {
+    "record_type": "content",
+    "id": "worlds-command-console-guide",
+    "title": "Using the MapleStory Worlds Command Console",
+    "summary": "The official Command Console lesson shows creators how to open the console, execute supported commands, inspect results, and use it safely during development.",
+    "tags": [
+      "command-console",
+      "creator",
+      "debugging",
+      "maker"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1194"
+  },
+  {
     "record_type": "resource",
     "id": "worlds-creator-center-news",
     "title": "MapleStory Worlds Creator Center",
@@ -41921,6 +42581,96 @@
     "game_version": null,
     "official": true,
     "url": "https://maplestoryworlds-creators.nexon.com/en/resource"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-datastorage-use-limits-2-guide",
+    "title": "Utilizing DataStorage Usage Limits 2",
+    "summary": "This advanced official lesson extends DataStorage limit guidance with additional design patterns for efficient data access and request budgeting.",
+    "tags": [
+      "creator",
+      "credits",
+      "datastorage",
+      "optimization"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1372"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-efficiently-utilizing-datastorage-guide",
+    "title": "Efficiently Utilizing DataStorage",
+    "summary": "This official creator guide explains practical patterns for reducing DataStorage requests, batching operations, and staying within storage and credit limits.",
+    "tags": [
+      "batching",
+      "creator",
+      "datastorage",
+      "optimization"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1073"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-finding-resources-guide",
+    "title": "Finding Resources in MapleStory Worlds",
+    "summary": "The official Creator Center lesson explains how to locate Maker resources by category, text, image, and RUID while organizing personal resources and favorites.",
+    "tags": [
+      "creator",
+      "maker",
+      "resources",
+      "ruid"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=211"
   },
   {
     "record_type": "content",
@@ -47111,10 +47861,12 @@
     "record_type": "content",
     "id": "worlds-global-creator-center-news-2026-04-23-3428817",
     "title": "MapleStory Worlds Global Launch One Year Anniversary Screenshot Contest",
-    "summary": "“MapleStory Worlds Global Launch One Year Anniversary Screenshot Contest” is an official creator announcement from MapleStory Worlds Creator Center News on 2026-04-23. Its canonical Nexon thread and publication metadata are retained for source-backed verification.",
+    "summary": "Creators in the United States and Canada excluding Quebec could enter the April 23-May 4 MapleStory Worlds anniversary screenshot contest by submitting a Creator Circle World photobooth image through Discord.",
     "tags": [
-      "creator-announcement",
-      "creator-notice"
+      "anniversary",
+      "contest",
+      "creator",
+      "screenshot"
     ],
     "series": "worlds",
     "regions": [
@@ -47124,15 +47876,15 @@
       "en"
     ],
     "source": "worlds-creator-center-news",
-    "content_type": "creator-announcement",
+    "content_type": "event",
     "published_at": "2026-04-23T18:00:00.000Z",
-    "event_start": null,
-    "event_end": null,
+    "event_start": "2026-04-23",
+    "event_end": "2026-05-04",
     "class_name": null,
     "boss_name": null,
     "game_version": null,
     "official": true,
-    "status": "published",
+    "status": "expired",
     "url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3428817"
   },
   {
@@ -48247,6 +48999,36 @@
   },
   {
     "record_type": "content",
+    "id": "worlds-learning-datastorage-use-limits-guide",
+    "title": "Learning DataStorage Use Limits",
+    "summary": "This official intermediate lesson explains DataStorage request credits, FunctionGroups, and how usage is calculated across a released World instance.",
+    "tags": [
+      "creator",
+      "credits",
+      "datastorage",
+      "optimization"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1044"
+  },
+  {
+    "record_type": "content",
     "id": "worlds-localizing-formats-guide",
     "title": "Localizing Dynamic Text Formats in MapleStory Worlds",
     "summary": "An official implementation guide for dynamic localized strings using argument holes, GetTextFormat, SmartFormat, Korean postpositions, plural rules, and validation of malformed formats.",
@@ -48506,5 +49288,35 @@
     "official": true,
     "status": "published",
     "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=951"
+  },
+  {
+    "record_type": "content",
+    "id": "worlds-utilizing-datastorage-use-limits-guide",
+    "title": "Utilizing DataStorage Use Limits",
+    "summary": "This official lesson documents DataStorage byte limits, credit budgets, accumulation rules, and request costs creators must account for in released Worlds.",
+    "tags": [
+      "creator",
+      "credits",
+      "datastorage",
+      "limits"
+    ],
+    "series": "worlds",
+    "regions": [
+      "global"
+    ],
+    "languages": [
+      "en"
+    ],
+    "source": "worlds-creator-center-guides",
+    "content_type": "guide",
+    "published_at": null,
+    "event_start": null,
+    "event_end": null,
+    "class_name": null,
+    "boss_name": null,
+    "game_version": null,
+    "official": true,
+    "status": "published",
+    "url": "https://maplestoryworlds-creators.nexon.com/en/docs?postId=1045"
   }
 ]

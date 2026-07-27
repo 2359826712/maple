@@ -27,7 +27,7 @@
         "zh-Hant": { "title": "MPStorys · 楓之谷攻略、工具與社群", "description": "彙整楓之谷、MapleStory Classic、MapleStory M、MapleStory Worlds、MapleStory N 與 MapleStory Idle 的新聞、更新、活動、攻略、工具、Wiki 和排行。" }
       }
     },
-    "/news": {
+    "/updates": {
       "index": true,
       "changefreq": "daily",
       "priority": "0.9",
@@ -38,6 +38,18 @@
         "ja": { "title": "メイプルストーリー最新情報・パッチノート", "description": "各地域のニュース、パッチノート、イベントに加え、MapleStory Classic と MapleStory Idle の情報を確認できます。" },
         "ko": { "title": "메이플스토리 뉴스 및 패치 노트", "description": "지역별 메이플스토리 뉴스, 패치 노트, 이벤트와 MapleStory Classic 및 MapleStory Idle 소식을 확인하세요." },
         "zh-Hant": { "title": "楓之谷新聞與版本更新", "description": "查看各地區楓之谷新聞、版本更新、活動及官方公告，並關注 MapleStory Classic 和 MapleStory Idle。" }
+      }
+    },
+    "/news": {
+      "index": false,
+      "follow": true,
+      "canonicalRoute": "/updates",
+      "copy": {
+        "en": { "title": "MapleStory Updates", "description": "MPStorys news now lives in the unified MapleStory Updates hub." },
+        "zh": { "title": "冒险岛更新中心", "description": "MPStorys 新闻现已整合到冒险岛更新中心。" },
+        "ja": { "title": "メイプルストーリー更新情報", "description": "MPStorys のニュースはアップデートハブに統合されました。" },
+        "ko": { "title": "메이플스토리 업데이트", "description": "MPStorys 뉴스는 통합 업데이트 허브에서 제공됩니다." },
+        "zh-Hant": { "title": "楓之谷更新中心", "description": "MPStorys 新聞現已整合至楓之谷更新中心。" }
       }
     },
     "/series": {
@@ -211,7 +223,7 @@
     "/rankings/classes": {
       "index": false,
       "follow": false,
-      "canonicalRoute": "/mapler-house",
+      "canonicalRoute": "/tools",
       "copy": {
         "en": { "title": "MapleStory Class Rankings Moved", "description": "MapleStory class ranking tools are now available in Mapler House." },
         "zh": { "title": "冒险岛职业排行已迁移", "description": "冒险岛职业排行工具现已移至 Mapler House。" },
@@ -221,10 +233,9 @@
       }
     },
     "/mapler-house": {
-      "index": true,
-      "changefreq": "monthly",
-      "priority": "0.9",
-      "schema": { "types": ["WebPage"] },
+      "index": false,
+      "follow": true,
+      "canonicalRoute": "/tools",
       "copy": {
         "en": { "title": "Mapler House — MapleStory Tools", "description": "Use MapleStory character lookup, progression planners, simulators, build tools, map data, and class resources in one workspace." },
         "zh": { "title": "Mapler House — 冒险岛工具箱", "description": "使用冒险岛角色查询、成长规划、模拟器、配装工具、地图数据和职业资料。" },

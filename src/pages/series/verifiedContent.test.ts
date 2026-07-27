@@ -74,12 +74,12 @@ describe('verified series content', () => {
       .forEach((content) => expect(visibleContentIds.has(content.id), content.id).toBe(true));
   });
 
-  it('reuses verified guides as full on-site Wiki reading libraries for every other series', () => {
+  it('keeps guide articles separate from each series Wiki data layer', () => {
     const expectedCounts = {
       'maplestory-classic': 6,
       'maplestory-m': 7,
       'maplestory-n': 13,
-      'maplestory-worlds': 6,
+      'maplestory-worlds': 12,
       'maplestory-idle': 6,
     };
 
@@ -90,20 +90,15 @@ describe('verified series content', () => {
         .flatMap((resource) => resource.contentId ? [resource.contentId] : []);
 
       expect(guideIds, seriesId).toHaveLength(expectedCount);
-      expect(wikiIds, seriesId).toEqual(expect.arrayContaining(guideIds));
+      expect(wikiIds, seriesId).not.toEqual(expect.arrayContaining(guideIds));
+      expect(guideIds.some((contentId) => wikiIds.includes(contentId)), seriesId).toBe(false);
     });
   });
 
-  it('places multi-purpose official updates in the other modules where they can be read', () => {
+  it('only aggregates official MapleStory M update records into Updates', () => {
     const placements = [
-      ['maplestory-classic', 'upcoming', 'classic-world-closed-online-test-2-registration'],
-      ['maplestory-classic', 'events', 'classic-world-closed-online-test-2-registration'],
       ['maplestory-m', 'news', 'maplestory-m-july-8-9-2026-patch-notes'],
-      ['maplestory-m', 'events', 'maplestory-m-july-8-9-2026-patch-notes'],
-      ['maplestory-idle', 'news', 'maplestory-idle-june-11-2026-patch-notes'],
-      ['maplestory-idle', 'news', 'maplestory-idle-july-23-2026-update-preview'],
-      ['maplestory-idle', 'news', 'maplestory-idle-half-anniversary-special-mission-event'],
-      ['maplestory-idle', 'events', 'maplestory-idle-june-11-2026-patch-notes'],
+      ['maplestory-m', 'news', 'maplestory-m-june-24-2026-patch-notice'],
     ] as const;
 
     placements.forEach(([seriesId, module, contentId]) => {
@@ -111,6 +106,15 @@ describe('verified series content', () => {
         expect.objectContaining({ contentId }),
       ]));
     });
+    expect(getVerifiedSeriesResources('maplestory-classic', 'events')).toEqual(expect.arrayContaining([
+      expect.objectContaining({ contentId: 'classic-world-closed-online-test-2-registration' }),
+    ]));
+    expect(getVerifiedSeriesResources('maplestory-m', 'events')
+      .some((resource) => resource.contentId === 'maplestory-m-july-8-9-2026-patch-notes')).toBe(false);
+    expect(getVerifiedSeriesResources('maplestory-idle', 'events')
+      .some((resource) => resource.contentId === 'maplestory-idle-june-11-2026-patch-notes')).toBe(false);
+    expect(getVerifiedSeriesResources('maplestory-idle', 'news')
+      .some((resource) => resource.contentId === 'maplestory-idle-half-anniversary-special-mission-event')).toBe(false);
   });
 
   it('keeps the core editorial modules populated and addressable on this site', () => {

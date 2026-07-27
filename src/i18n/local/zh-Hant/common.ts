@@ -1,5 +1,8 @@
 const common = {
   nav_news: '資訊',
+  nav_home: '首頁',
+  nav_updates: '更新',
+  nav_knowledge: '知識庫',
   nav_upcoming: '未來版本',
   nav_guides: '攻略',
   nav_events: '活動',

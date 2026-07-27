@@ -14,7 +14,12 @@ import siteKeywords from '@/seo/siteKeywords.json';
 import { getNewsCopy } from '@/pages/news/localizedNews';
 import type { NextRoutePageProps } from './routeData';
 import { getSeriesProduct } from '@/pages/series/catalog';
-import { isSeriesModule, seriesModuleByBaseHref, type SeriesModule } from '@/pages/series/scope';
+import {
+  getSeriesModuleFromPathSegment,
+  isSeriesModule,
+  seriesModuleByBaseHref,
+  type SeriesModule,
+} from '@/pages/series/scope';
 
 type MetadataCopy = { description: string; title: string };
 type RouteEntry = {
@@ -41,7 +46,7 @@ const getMetadataEntry = (route: string) => {
 const plainText = (value = '') => value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 const schemaBody = (value = '') => plainText(value).slice(0, 10_000);
 const seriesModuleLabelKeys: Record<SeriesModule, string> = {
-  news: 'nav_news',
+  news: 'nav_updates',
   upcoming: 'nav_upcoming',
   guides: 'nav_guides',
   events: 'nav_events',
@@ -86,18 +91,25 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
     : getSeriesProduct(seriesId);
   const legacyContentMatch = route.match(/^\/content\/([^/]+)\/([^/]+)$/);
   const scopedContentMatch = route.match(/^\/series\/([^/]+)\/([^/]+)\/([^/]+)$/);
+  const seriesModuleMatch = route.match(/^\/series\/[^/]+\/([^/]+)$/);
   const contentModuleValue = scopedContentMatch?.[2] || legacyContentMatch?.[1];
   const contentModule = isSeriesModule(contentModuleValue) ? contentModuleValue : undefined;
   const isSeriesResourceDetail = Boolean(scopedContentMatch || legacyContentMatch);
   const scopedRouteModule = seriesModuleByBaseHref[route as keyof typeof seriesModuleByBaseHref]
+    || getSeriesModuleFromPathSegment(seriesModuleMatch?.[1])
     || (route === '/tools' ? 'tools' : undefined);
   const seriesModule = scopedRouteModule || contentModule;
   const seriesModuleLabel = seriesModule ? translation[seriesModuleLabelKeys[seriesModule]] : undefined;
   const seriesPageTitle = seriesProduct
-    ? [seriesProduct.name, seriesModuleLabel].filter(Boolean).join(' ')
+    ? seriesModuleLabel
+      ? `${seriesProduct.name} ${seriesModuleLabel}`
+      : `${seriesProduct.name} News, Guides, Events, Wiki & Tools`
     : undefined;
   const seriesPageDescription = seriesProduct
-    ? plainText(`${seriesProduct.name}${seriesModuleLabel ? ` ${seriesModuleLabel}` : ''}: ${translation[seriesProduct.descriptionKey] || ''}`).slice(0, 180)
+    ? plainText(
+        `${seriesProduct.name}${seriesModuleLabel ? ` ${seriesModuleLabel}` : ' series hub'}: `
+        + `${translation[seriesProduct.descriptionKey] || ''} Browse verified updates, guides, events, wiki references, and practical tools.`,
+      ).slice(0, 180)
     : undefined;
   const resolved = getMetadataEntry(route);
   const entry = resolved?.entry;
@@ -138,7 +150,7 @@ export default function RouteHead({ page }: { page: NextRoutePageProps }) {
   const follow = entry?.follow !== false;
   const robots = `${index ? 'index' : 'noindex'}, ${follow ? 'follow' : 'nofollow'}, max-image-preview:large`;
   const languageConfig = metadataCatalog.languages[language];
-  const newsItemList = (route === '/news' || (route === '/events' && initialEvents.length === 0)) && initialNews.length > 0
+  const newsItemList = ((route === '/updates' || route === '/news') || (route === '/events' && initialEvents.length === 0)) && initialNews.length > 0
     ? {
         '@type': 'ItemList',
         '@id': `${canonicalUrl}#news-list`,

@@ -92,7 +92,7 @@ describe('Navbar mobile site search', () => {
     fireEvent.click(seriesButton);
     fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory M' }));
 
-    expect(screen.getByLabelText('Current path').textContent).toBe('/news/en/GMS?series=maplestory-m');
+    expect(screen.getByLabelText('Current path').textContent).toBe('/series/maplestory-m/updates');
   });
 
   it('keeps the current module when the selected series changes', () => {
@@ -101,7 +101,7 @@ describe('Navbar mobile site search', () => {
     fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
     fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory M' }));
 
-    expect(screen.getByLabelText('Current path').textContent).toBe('/guides/en/GMS?series=maplestory-m');
+    expect(screen.getByLabelText('Current path').textContent).toBe('/series/maplestory-m/guides');
   });
 
   it('keeps shared feedback content open when the selected series changes', () => {
@@ -110,22 +110,21 @@ describe('Navbar mobile site search', () => {
     fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
     fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory M' }));
 
-    expect(screen.getByLabelText('Current path').textContent).toBe('/feedback/en/GMS?series=maplestory-m');
+    expect(screen.getByLabelText('Current path').textContent).toBe('/series/maplestory-m/feedback');
   });
 
   it('scopes every desktop module link to the selected series', () => {
-    renderNavbar('/news/en/GMS?series=maplestory-m');
+    renderNavbar('/updates?series=maplestory-m');
 
     const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('href')).toBe('/news/en/GMS?series=maplestory-m');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('aria-current')).toBe('page');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('href')).toBe('/guides/en/GMS?series=maplestory-m');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop/en/GMS?series=maplestory-m');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback/en/GMS?series=maplestory-m');
-    expect(scopedNavigation.queryByRole('link', { name: 'nav_rankings' })).toBeNull();
+    expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('href')).toBe('/series/maplestory-m/updates');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/series/maplestory-m/guides');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_tools' })).toBeTruthy();
+    expect(scopedNavigation.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/series');
   });
 
   it('marks the owning navigation module active on article detail pages', () => {
@@ -135,8 +134,8 @@ describe('Navbar mobile site search', () => {
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_news' }).getAttribute('aria-current')).toBe('page');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_guides' }).getAttribute('aria-current')).toBeNull();
+    expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('aria-current')).toBeNull();
   });
 
   it('marks nested module pages active in the navigation', () => {
@@ -146,7 +145,7 @@ describe('Navbar mobile site search', () => {
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('aria-current')).toBe('page');
   });
 
   it('keeps rankings selected when the destination series supports them', () => {
@@ -155,24 +154,22 @@ describe('Navbar mobile site search', () => {
     fireEvent.click(screen.getByRole('button', { name: 'MapleStory' }));
     fireEvent.click(screen.getByRole('menuitem', { name: 'MapleStory N' }));
 
-    expect(screen.getByLabelText('Current path').textContent).toBe('/rankings/en/GMS?series=maplestory-n');
+    expect(screen.getByLabelText('Current path').textContent).toBe('/series/maplestory-n/rankings');
   });
 
-  it('shows the former More destinations directly in the desktop navigation', () => {
+  it('keeps the desktop navigation focused on the five primary journeys', () => {
     renderNavbar();
 
     const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.queryByRole('link', { name: 'nav_series' })).toBeNull();
+    expect(scopedNavigation.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/series');
     expect(screen.getByRole('button', { name: 'nav_series' })).toBeTruthy();
-    expect(scopedNavigation.getByRole('link', { name: 'nav_upcoming' }).getAttribute('href')).toBe('/upcoming/en/GMS');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_wiki' }).getAttribute('href')).toBe('/wiki/en/GMS');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings/en/GMS');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community/en/GMS');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback/en/GMS');
-    expect(scopedNavigation.queryByText('nav_more')).toBeNull();
+    expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('href')).toBe('/updates');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_events' }).getAttribute('href')).toBe('/events');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/guides');
+    expect(scopedNavigation.getByRole('button', { name: 'nav_tools' })).toBeTruthy();
   });
 
   it('offers Korean and persists it as the active language', () => {

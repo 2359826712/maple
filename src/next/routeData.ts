@@ -47,8 +47,17 @@ import { localizeEvents } from '@/pages/events/useLocalizedEvents';
 import { localizeGuideItem, localizeGuideItems } from '@/pages/guides/localizedGuides';
 import { localizeToolResources } from '@/pages/mapler-house/useLocalizedToolResources';
 import { localizeUpcomingArticle, localizeUpcomingFeed } from '@/pages/upcoming/localizedUpcoming';
-import { getVerifiedSeriesResource } from '@/pages/series/verifiedContent';
-import { isSeriesModule, isSeriesModuleAvailable } from '@/pages/series/scope';
+import {
+  getVerifiedSeriesResource,
+  getVerifiedSeriesResources,
+} from '@/pages/series/verifiedContent';
+import {
+  getSeriesModuleFromPathSegment,
+  getSeriesModuleHref,
+  isSeriesModule,
+  isSeriesModuleAvailable,
+  seriesModuleByBaseHref,
+} from '@/pages/series/scope';
 import { bosses } from '@/mocks/bosses';
 import {
   findIndexedContent,
@@ -58,6 +67,16 @@ import {
 } from '@/pages/series/indexedContentDetail';
 import type { SeriesResourceDetailData } from '@/pages/series/SeriesResourceDetailPage';
 import { applyPublishedWikiTranslation } from '@/services/wikiTranslation';
+import {
+  normalizeDatabaseContentLocale,
+  readLocalizedSeriesContentBySlug,
+  readPublishedSeriesContentTranslationsBySlugs,
+} from '@/services/seriesContentTranslation';
+import type { PublishedSeriesTranslation } from '@/services/publishedSeriesContent';
+import {
+  getSeriesContentLocalization,
+  mergeLocalizedContentRecord,
+} from '@/pages/series/localizedContent';
 
 export type RouteHeadBoss = {
   articleBody: string;
@@ -73,6 +92,7 @@ export type NextRoutePageProps = {
   initialNews?: NewsItem[];
   initialOfficialArticle?: OfficialArticleDocument;
   initialSeriesResourceDetail?: SeriesResourceDetailData;
+  initialSeriesTranslations?: Record<string, PublishedSeriesTranslation>;
   initialTools?: ToolResourceItem[];
   initialUpcomingArticle?: UpcomingUpdateArticle;
   initialUpcomingFeed?: UpcomingUpdateFeed;
@@ -111,7 +131,7 @@ type RouteEntry = {
 
 const catalogRoutes = metadataCatalog.routes as Record<string, RouteEntry>;
 
-export const runtimeRouteRoots = ['/news', '/upcoming', '/source', '/guides', '/events', '/wiki'] as const;
+export const runtimeRouteRoots = ['/updates', '/news', '/upcoming', '/source', '/guides', '/events', '/wiki'] as const;
 
 const dynamicRoutePatterns = [
   /^\/series\/[^/]+(?:\/[^/]+(?:\/[^/]+)?)?$/,
@@ -139,12 +159,50 @@ export const getLocalizedRedirect = (pathname: string) => {
   const language = getPathLanguage(normalized);
   const server = getPathServer(normalized);
   const routePath = stripRouteSuffixes(normalized);
+  const canonicalRoutePath = routePath === '/news'
+    ? '/updates'
+    : routePath === '/mapler-house'
+      ? '/tools'
+      : routePath;
   const seriesId = requestUrl.searchParams.get('series') || undefined;
-  if (routePath === '/rankings' && !isSeriesModuleAvailable(seriesId, 'rankings')) {
-    const destination = withRouteSuffixes('/news', language || 'en', server || 'gms');
+  const cleanSeriesModuleMatch = canonicalRoutePath.match(/^\/series\/([^/]+)\/([^/]+)$/);
+  const cleanSeriesModule = getSeriesModuleFromPathSegment(cleanSeriesModuleMatch?.[2]);
+  if (cleanSeriesModuleMatch && cleanSeriesModule && cleanSeriesModuleMatch[2] === 'news') {
+    const destination = withRouteSuffixes(
+      getSeriesModuleHref(cleanSeriesModuleMatch[1], cleanSeriesModule),
+      language || 'en',
+      server || 'gms',
+    );
     return `${destination}${requestUrl.search}${requestUrl.hash}`;
   }
-  const destination = withRouteSuffixes(stripRouteSuffixes(normalized), language || 'en', server || 'gms');
+  if (
+    cleanSeriesModuleMatch
+    && cleanSeriesModule
+    && !isSeriesModuleAvailable(cleanSeriesModuleMatch[1], cleanSeriesModule)
+  ) {
+    const destination = withRouteSuffixes(
+      getSeriesModuleHref(cleanSeriesModuleMatch[1], 'news'),
+      language || 'en',
+      server || 'gms',
+    );
+    return `${destination}${requestUrl.search}${requestUrl.hash}`;
+  }
+  const scopedModule = seriesModuleByBaseHref[canonicalRoutePath as keyof typeof seriesModuleByBaseHref];
+  if (seriesId && scopedModule) {
+    requestUrl.searchParams.delete('series');
+    const destinationModule = isSeriesModuleAvailable(seriesId, scopedModule) ? scopedModule : 'news';
+    const destination = withRouteSuffixes(
+      getSeriesModuleHref(seriesId, destinationModule),
+      language || 'en',
+      server || 'gms',
+    );
+    return `${destination}${requestUrl.search}${requestUrl.hash}`;
+  }
+  if (routePath === '/rankings' && !isSeriesModuleAvailable(seriesId, 'rankings')) {
+    const destination = withRouteSuffixes('/updates', language || 'en', server || 'gms');
+    return `${destination}${requestUrl.search}${requestUrl.hash}`;
+  }
+  const destination = withRouteSuffixes(canonicalRoutePath, language || 'en', server || 'gms');
   const localizedUrl = `${destination}${requestUrl.search}${requestUrl.hash}`;
   const requestPath = `${normalized}${requestUrl.search}${requestUrl.hash}`;
   return localizedUrl === requestPath ? null : localizedUrl;
@@ -300,10 +358,9 @@ const fallbackGuideForId = (guideId: string): GuideItem | undefined => {
 export async function createRoutePageProps(requestUrl: string): Promise<NextRoutePageProps | null> {
   ensureServerDom();
   const normalized = normalizeRequestPath(requestUrl);
-  const isDefaultHomepage = normalized === '/';
-  const language = getPathLanguage(normalized) || (isDefaultHomepage ? 'en' : null);
-  const server = getPathServer(normalized) || (isDefaultHomepage ? 'gms' : null);
-  if (!language || !server || !isKnownApplicationPath(normalized)) return null;
+  const language = getPathLanguage(normalized) || 'en';
+  const server = getPathServer(normalized) || 'gms';
+  if (!isKnownApplicationPath(normalized)) return null;
 
   const routePath = stripRouteSuffixes(normalized);
   const request = new URL(requestUrl, 'https://mpstorys.com');
@@ -311,7 +368,7 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
   const guideSection: GrandisGuideSection = sectionParam === 'classes' || sectionParam === 'events'
     ? sectionParam
     : 'content';
-  const initialNewsPromise = routePath === '/news'
+  const initialNewsPromise = routePath === '/updates' || routePath === '/news'
     ? fetchLiveNews(server)
         .then((payload) => payload.items.filter(isRenderableNewsItem).slice(0, 30))
         .catch(() => [] as NewsItem[])
@@ -366,10 +423,13 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
   const sourceUrl = request.searchParams.get('url') || '';
   const legacyContentMatch = routePath.match(/^\/content\/([^/]+)\/([^/]+)$/);
   const scopedContentMatch = routePath.match(/^\/series\/([^/]+)\/([^/]+)\/([^/]+)$/);
+  const scopedModulePageMatch = routePath.match(/^\/series\/([^/]+)\/([^/]+)$/);
   const contentModuleValue = scopedContentMatch?.[2] || legacyContentMatch?.[1];
   const contentSlug = scopedContentMatch?.[3] || legacyContentMatch?.[2];
   const contentSeriesId = scopedContentMatch?.[1] || request.searchParams.get('series') || '';
-  const contentModule = isSeriesModule(contentModuleValue) ? contentModuleValue : undefined;
+  const contentModule = getSeriesModuleFromPathSegment(contentModuleValue);
+  const scopedSeriesModule = getSeriesModuleFromPathSegment(scopedModulePageMatch?.[2]);
+  const scopedSeriesId = scopedModulePageMatch?.[1];
   const seriesResource = contentModule && contentSlug
     ? getVerifiedSeriesResource(
         contentSeriesId,
@@ -378,26 +438,23 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
       )
     : undefined;
   const requestTitle = request.searchParams.get('title')?.trim() || seriesResource?.title;
-  const requestDescription = seriesResource?.description;
+  const sourceRequestDescription = seriesResource?.description;
   const contentRecord = seriesResource
     ? findIndexedContent(seriesResource.contentId, seriesResource.resourceId, seriesResource.sourceUrl)
     : undefined;
-  const structuredContentSections = getIndexedContentSections(contentRecord);
-  const resourceContentSections = getIndexedResourceSections(seriesResource?.resourceRecord);
-  const initialSeriesResourceDetail: SeriesResourceDetailData | undefined = contentSlug
-    ? {
-        contentModule,
-        contentRecord,
-        contentSections: structuredContentSections.length > 0
-          ? structuredContentSections
-          : resourceContentSections.length > 0
-            ? resourceContentSections
-            : getSourceOverviewSections(seriesResource),
-        hasStructuredContent: structuredContentSections.length > 0,
-        resource: seriesResource,
-        resourceSlug: safeDecode(contentSlug),
-      }
-    : undefined;
+  const databaseLocale = normalizeDatabaseContentLocale(language);
+  const localizedSeriesContentPromise = contentRecord && databaseLocale
+    ? readLocalizedSeriesContentBySlug(contentRecord.id, databaseLocale, language).catch(() => null)
+    : Promise.resolve(null);
+  const scopedSeriesContentSlugs = scopedSeriesId && scopedSeriesModule
+    ? getVerifiedSeriesResources(scopedSeriesId, scopedSeriesModule)
+        .flatMap((resource) => resource.contentId ? [resource.contentId] : [])
+        .slice(0, 18)
+    : [];
+  const initialSeriesTranslationsPromise = databaseLocale && scopedSeriesContentSlugs.length > 0
+    ? readPublishedSeriesContentTranslationsBySlugs(scopedSeriesContentSlugs, databaseLocale)
+        .catch(() => ({}))
+    : Promise.resolve({});
   const bossSlug = routePath.startsWith('/wiki/boss/')
     ? safeDecode(routePath.slice('/wiki/boss/'.length)).replace(/_/g, ' ')
     : '';
@@ -418,7 +475,7 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
   const initialOfficialArticlePromise = routePath === '/source' && sourceUrl
     ? fetchOfficialArticleDocument(sourceUrl, server).catch(() => undefined)
     : Promise.resolve(undefined);
-  const initialToolsPromise = routePath === '/mapler-house'
+  const initialToolsPromise = routePath === '/tools' || routePath === '/mapler-house'
     ? fetchLiveToolResources().then((payload) => payload.items).catch(() => [] as ToolResourceItem[])
     : Promise.resolve(undefined);
   const [
@@ -434,6 +491,8 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialWikiEntry,
     initialOfficialArticle,
     initialTools,
+    localizedSeriesContent,
+    initialSeriesTranslations,
   ] = await Promise.all([
     loadRouteTranslations(language),
     routePath === '/' ? Promise.resolve() : prefetchRouteForPath(routePath),
@@ -447,7 +506,40 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialWikiEntryPromise,
     initialOfficialArticlePromise,
     initialToolsPromise,
+    withDeadline(localizedSeriesContentPromise, null),
+    withDeadline(initialSeriesTranslationsPromise, {}),
   ]);
+
+  const localizedContentRecord = contentRecord && localizedSeriesContent
+    ? mergeLocalizedContentRecord(contentRecord, localizedSeriesContent)
+    : contentRecord;
+  const localizedSeriesResource = seriesResource && localizedSeriesContent
+    ? {
+        ...seriesResource,
+        title: localizedSeriesContent.title || seriesResource.title,
+        description: localizedSeriesContent.summary || seriesResource.description,
+      }
+    : seriesResource;
+  const structuredContentSections = getIndexedContentSections(localizedContentRecord);
+  const resourceContentSections = getIndexedResourceSections(localizedSeriesResource?.resourceRecord);
+  const initialSeriesResourceDetail: SeriesResourceDetailData | undefined = contentSlug
+    ? {
+        contentModule,
+        contentRecord: localizedContentRecord,
+        contentSections: structuredContentSections.length > 0
+          ? structuredContentSections
+          : resourceContentSections.length > 0
+            ? resourceContentSections
+            : getSourceOverviewSections(localizedSeriesResource),
+        hasStructuredContent: structuredContentSections.length > 0,
+        resource: localizedSeriesResource,
+        resourceSlug: safeDecode(contentSlug),
+        ...(localizedSeriesContent?.body_html ? { bodyHtml: localizedSeriesContent.body_html } : {}),
+        ...(localizedSeriesContent
+          ? { localization: getSeriesContentLocalization(localizedSeriesContent) }
+          : {}),
+      }
+    : undefined;
 
   const targetLanguage = normalizeStaticContentLanguage(language);
   const sourceLanguage = getNewsSourceLanguageForVersion(server);
@@ -477,9 +569,12 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     initialOfficialArticle ? localizeOfficialArticle(initialOfficialArticle, language, sourceLanguage) : undefined,
     initialTools ? localizeToolResources(initialTools, language) : undefined,
     requestTitle && targetLanguage !== sourceLanguage
+      && !contentRecord
       ? translateStaticText(requestTitle, targetLanguage, { sourceLanguage }).catch(() => requestTitle)
       : requestTitle,
   ]);
+  const finalRequestTitle = initialSeriesResourceDetail?.resource?.title || localizedRequestTitle;
+  const finalRequestDescription = initialSeriesResourceDetail?.resource?.description || sourceRequestDescription;
 
   return {
     language,
@@ -487,9 +582,12 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     requestPath: `${request.pathname}${request.search}`,
     server,
     translation,
-    ...(requestDescription ? { requestDescription } : {}),
+    ...(finalRequestDescription ? { requestDescription: finalRequestDescription } : {}),
     ...(routeHeadBoss ? { routeHeadBoss: jsonValue(routeHeadBoss) } : {}),
     ...(initialSeriesResourceDetail ? { initialSeriesResourceDetail: jsonValue(initialSeriesResourceDetail) } : {}),
+    ...(Object.keys(initialSeriesTranslations).length > 0
+      ? { initialSeriesTranslations: jsonValue(initialSeriesTranslations) }
+      : {}),
     ...(localizedNews ? { initialNews: jsonValue(localizedNews) } : {}),
     ...(localizedEvents ? { initialEvents: jsonValue(localizedEvents) } : {}),
     ...(localizedUpcomingFeed ? { initialUpcomingFeed: jsonValue(localizedUpcomingFeed) } : {}),
@@ -500,7 +598,7 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
     ...(localizedWikiEntry ? { initialWikiEntry: jsonValue(localizedWikiEntry) } : {}),
     ...(localizedOfficialArticle ? { initialOfficialArticle: jsonValue(localizedOfficialArticle) } : {}),
     ...(localizedTools ? { initialTools: jsonValue(localizedTools) } : {}),
-    ...(localizedRequestTitle ? { requestTitle: localizedRequestTitle } : {}),
+    ...(finalRequestTitle ? { requestTitle: finalRequestTitle } : {}),
   };
 }
 
@@ -545,14 +643,15 @@ export function getSitemapEntries() {
       ),
     );
 
-  const seriesEntries = [
+  const seriesIds = [
     'maplestory-pc',
     'maplestory-classic',
     'maplestory-m',
     'maplestory-n',
     'maplestory-worlds',
     'maplestory-idle',
-  ].flatMap((seriesId) =>
+  ];
+  const seriesEntries = seriesIds.flatMap((seriesId) =>
     supportedLanguages.flatMap((language) =>
       supportedServers.map((server) => ({
         changefreq: 'weekly',
@@ -564,6 +663,22 @@ export function getSitemapEntries() {
       })),
     ),
   );
+  const seriesModuleEntries = seriesIds.flatMap((seriesId) =>
+    (['news', 'events', 'guides', 'wiki', 'tools', 'upcoming'] as const)
+      .filter((module) => isSeriesModuleAvailable(seriesId, module))
+      .flatMap((module) =>
+        supportedLanguages.flatMap((language) =>
+          supportedServers.map((server) => ({
+            changefreq: module === 'news' || module === 'events' ? 'daily' : 'weekly',
+            language,
+            pathname: withRouteSuffixes(getSeriesModuleHref(seriesId, module), language, server),
+            priority: module === 'news' ? '0.8' : '0.7',
+            server: serverPathSegments[server],
+            segment: languagePathSegments[language],
+          })),
+        ),
+      ),
+  );
 
-  return [...catalogEntries, ...seriesEntries];
+  return [...catalogEntries, ...seriesEntries, ...seriesModuleEntries];
 }

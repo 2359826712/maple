@@ -175,25 +175,14 @@ const getSupplementalContentModules = (
 ): SeriesModule[] => {
   const modules: SeriesModule[] = [];
 
-  // A guide is also a readable reference entry. Reuse the same canonical
-  // record in Wiki instead of creating a duplicate content file or a thin
-  // outbound-link card.
-  if (content.series !== 'maplestory' && content.content_type === 'guide') {
-    modules.push('wiki');
-  }
-
-  // Some official publications legitimately serve more than one module.
-  // Keep the content record's primary type intact while exposing the same
-  // on-site reader in the additional relevant module.
-  if (content.series === 'classic' && content.id === 'classic-world-closed-online-test-2-registration') {
-    modules.push('upcoming', 'events');
-  }
-  if (content.series === 'm' && content.content_type === 'patch-note') {
-    modules.push('news', 'events');
-  }
-  if (content.series === 'idle') {
-    if (content.content_type === 'patch-note') modules.push('news', 'events');
-    if (content.content_type === 'roadmap' || content.content_type === 'event') modules.push('news');
+  // "Updates" is the one intentional aggregate: official MapleStory M patch
+  // notes and maintenance notices belong beside its news and known-issue
+  // records. Events, guides, and Wiki records remain in their own modules.
+  if (
+    content.series === 'm'
+    && (content.content_type === 'patch-note' || content.content_type === 'maintenance')
+  ) {
+    modules.push('news');
   }
 
   return modules;

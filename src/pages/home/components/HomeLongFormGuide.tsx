@@ -13,7 +13,7 @@ const quickLinks = [
   ['ri-newspaper-line', '/news', 'News'],
   ['ri-calendar-event-line', '/events', 'Events'],
   ['ri-book-open-line', '/guides', 'Guides'],
-  ['ri-tools-line', '/mapler-house', 'Tools'],
+  ['ri-tools-line', '/tools', 'Tools'],
   ['ri-book-2-line', '/wiki', 'Wiki'],
   ['ri-bar-chart-box-line', '/rankings', 'Rankings'],
 ] as const;

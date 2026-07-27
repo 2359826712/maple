@@ -8,7 +8,7 @@ import RankingsPage from './page';
 
 export default function RankingsNextRoute(props: NextRoutePageProps) {
   const initialRouteElement = stripRouteSuffixes(props.pathname) === '/rankings/classes'
-    ? <InternalRedirect to="/mapler-house#stats" label="Mapler House class rankings" />
+    ? <InternalRedirect to="/tools#stats" label="Mapler House class rankings" />
     : <SeriesModuleRoute module="rankings"><RankingsPage /></SeriesModuleRoute>;
   return <NextRoutePage {...props} initialRouteElement={initialRouteElement} />;
 }

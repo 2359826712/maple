@@ -7,7 +7,7 @@ import {
 } from './routeData';
 import { stripRouteSuffixes } from '@/i18n/languageRouting';
 
-const liveContentRoutes = ['/news', '/events', '/guides', '/upcoming', '/wiki', '/rankings', '/mapler-house', '/source'];
+const liveContentRoutes = ['/updates', '/news', '/events', '/guides', '/upcoming', '/wiki', '/rankings', '/tools', '/mapler-house', '/source'];
 
 const routeCacheControl = (pathname: string) => {
   const routePath = stripRouteSuffixes(pathname);

@@ -5,32 +5,33 @@ import { useVersion } from '@/hooks/VersionContext';
 import { localizeHref } from '@/i18n/languageRouting';
 import { seriesProducts } from '@/pages/series/catalog';
 import { getSeriesModuleHref } from '@/pages/series/scope';
+import { formattedSiteSnapshot, getSeriesSnapshot } from '@/domain/siteSnapshot';
 import HomeLongFormGuide from './HomeLongFormGuide';
 
 const heroPaths = [
-  { href: '/news', module: 'news', tabKey: 'nav_news', icon: 'ri-newspaper-line', titleKey: 'landing_point_04_title', descriptionKey: 'landing_point_04_desc', score: '24/7' },
+  { href: '/updates', module: 'news', tabKey: 'nav_updates', icon: 'ri-newspaper-line', titleKey: 'landing_point_04_title', descriptionKey: 'landing_point_04_desc', score: '24/7' },
   { href: '/guides', module: 'guides', tabKey: 'nav_guides', icon: 'ri-compass-3-line', titleKey: 'landing_point_06_title', descriptionKey: 'landing_point_06_desc', score: '01' },
   { href: '/events', module: 'events', tabKey: 'nav_events', icon: 'ri-calendar-event-line', titleKey: 'landing_point_05_title', descriptionKey: 'landing_point_05_desc', score: 'LIVE' },
-  { href: '/mapler-house', module: 'tools', tabKey: 'nav_tools', icon: 'ri-tools-line', titleKey: 'landing_point_07_title', descriptionKey: 'landing_point_07_desc', score: '10+' },
+  { href: '/tools', module: 'tools', tabKey: 'nav_tools', icon: 'ri-tools-line', titleKey: 'landing_point_07_title', descriptionKey: 'landing_point_07_desc', score: '10+' },
 ] as const;
 
 const conversionPoints = [
-  { href: '/news', icon: 'ri-layout-grid-line', titleKey: 'landing_point_01_title', descriptionKey: 'landing_point_01_desc' },
-  { href: '/news', icon: 'ri-global-line', titleKey: 'landing_point_02_title', descriptionKey: 'landing_point_02_desc' },
-  { href: '/news', icon: 'ri-shield-check-line', titleKey: 'landing_point_03_title', descriptionKey: 'landing_point_03_desc' },
-  { href: '/news', icon: 'ri-flashlight-line', titleKey: 'landing_point_04_title', descriptionKey: 'landing_point_04_desc' },
+  { href: '/series', icon: 'ri-layout-grid-line', titleKey: 'landing_point_01_title', descriptionKey: 'landing_point_01_desc' },
+  { href: '/updates', icon: 'ri-global-line', titleKey: 'landing_point_02_title', descriptionKey: 'landing_point_02_desc' },
+  { href: '/source', icon: 'ri-shield-check-line', titleKey: 'landing_point_03_title', descriptionKey: 'landing_point_03_desc' },
+  { href: '/updates', icon: 'ri-flashlight-line', titleKey: 'landing_point_04_title', descriptionKey: 'landing_point_04_desc' },
   { href: '/events', icon: 'ri-calendar-event-line', titleKey: 'landing_point_05_title', descriptionKey: 'landing_point_05_desc' },
   { href: '/guides', icon: 'ri-compass-3-line', titleKey: 'landing_point_06_title', descriptionKey: 'landing_point_06_desc' },
-  { href: '/mapler-house', icon: 'ri-tools-line', titleKey: 'landing_point_07_title', descriptionKey: 'landing_point_07_desc' },
+  { href: '/tools', icon: 'ri-tools-line', titleKey: 'landing_point_07_title', descriptionKey: 'landing_point_07_desc' },
   { href: '/wiki', icon: 'ri-book-open-line', titleKey: 'landing_point_08_title', descriptionKey: 'landing_point_08_desc' },
   { href: '/rankings', icon: 'ri-bar-chart-box-line', titleKey: 'landing_point_09_title', descriptionKey: 'landing_point_09_desc' },
   { href: '/search', icon: 'ri-translate-2', titleKey: 'landing_point_10_title', descriptionKey: 'landing_point_10_desc' },
 ] as const;
 
 const indexSnapshot = [
-  { value: '1,540+', labelKey: 'landing_snapshot_content' },
-  { value: '31', labelKey: 'landing_snapshot_resources' },
-  { value: '6', labelKey: 'landing_snapshot_series' },
+  { value: formattedSiteSnapshot.content, labelKey: 'landing_snapshot_content' },
+  { value: formattedSiteSnapshot.resources, labelKey: 'landing_snapshot_resources' },
+  { value: formattedSiteSnapshot.series, labelKey: 'landing_snapshot_series' },
 ] as const;
 
 const comparisonColumns = [
@@ -129,9 +130,9 @@ export default function HomeSeriesGateway() {
                 <i className="ri-arrow-right-line" aria-hidden="true" />
               </a>
               <Link
-                to={localized('/news')}
+                to={localized('/updates')}
                 data-conversion-id="hero-latest-updates"
-                onClick={() => trackLandingConversion('hero_latest_updates', '/news')}
+                onClick={() => trackLandingConversion('hero_latest_updates', '/updates')}
                 className="inline-flex min-h-[3.25rem] items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-7 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-[#ffb000]/60 hover:bg-white/[0.08]"
               >
                 <i className="ri-play-circle-line text-[#ffb000]" aria-hidden="true" />
@@ -398,6 +399,16 @@ export default function HomeSeriesGateway() {
                     <span className="mt-1 text-[10px] font-extrabold uppercase tracking-wider text-[#2f7046]">● {t(product.statusKey)}</span>
                   </div>
                   <p className="mt-3 min-h-[4.5rem] text-sm leading-6 text-[#5f574f]">{t(product.descriptionKey)}</p>
+                  <dl className="mt-4 flex flex-wrap gap-2 text-[11px] font-bold text-[#5f574f]">
+                    <div className="rounded-full bg-[#eee6da] px-3 py-1.5">
+                      <dt className="sr-only">{t('landing_snapshot_content')}</dt>
+                      <dd>{getSeriesSnapshot(product.id).content.toLocaleString('en-US')} {t('landing_snapshot_content')}</dd>
+                    </div>
+                    <div className="rounded-full bg-[#eee6da] px-3 py-1.5">
+                      <dt className="sr-only">{t('landing_snapshot_resources')}</dt>
+                      <dd>{getSeriesSnapshot(product.id).resources.toLocaleString('en-US')} {t('landing_snapshot_resources')}</dd>
+                    </div>
+                  </dl>
                   <nav
                     aria-label={t('series_card_nav_label', { name: product.name })}
                     className="mt-5 grid grid-cols-3 gap-2"

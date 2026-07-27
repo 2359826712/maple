@@ -1,0 +1,86 @@
+{
+  "id": "worlds-global-creator-center-news-2026-04-23-3428817",
+  "source_id": "worlds-creator-center-news",
+  "canonical_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3428817",
+  "source_url": "https://maplestoryworlds-creators.nexon.com/en/community/5479/5485/3428817",
+  "external_id": "3428817",
+  "title": "MapleStory Worlds Global Launch One Year Anniversary Screenshot Contest",
+  "original_title": "MapleStory Worlds Global Launch One Year Anniversary Screenshot Contest",
+  "series": "worlds",
+  "regions": [
+    "global"
+  ],
+  "languages": [
+    "en"
+  ],
+  "content_type": "event",
+  "subcategory": "contest",
+  "official": true,
+  "author": "MSW_Creators",
+  "published_at": "2026-04-23T18:00:00.000Z",
+  "updated_at": null,
+  "discovered_at": "2026-07-20T04:02:53.873Z",
+  "last_checked": "2026-07-20T04:02:53.873Z",
+  "summary": "Creators in the United States and Canada excluding Quebec could enter the April 23-May 4 MapleStory Worlds anniversary screenshot contest by submitting a Creator Circle World photobooth image through Discord.",
+  "body_text": null,
+  "body_markdown": null,
+  "storage_mode": "summary-and-metadata",
+  "tags": ["anniversary", "contest", "creator", "screenshot"],
+  "images": [
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260421/0ab6c04e-d693-4a1e-9e64-856648b671e5/260417WGC3051MSWGlobalLaunch1yearAnniTHUMB582x352V5.png",
+      "alt": "MapleStory Worlds Global Launch One Year Anniversary Screenshot Contest"
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/8b2bfab5-b063-4cef-b3d1-c8d6c9577ba6/260420WGC3051MSWGlobalLaunch1yearAnni740x120V2.png",
+      "alt": null
+    },
+    {
+      "url": "https://dszw1qtcnsa5e.cloudfront.net/community/20260422/14e6a789-f9e3-4f85-8039-4e827acc6c07/image202604221429291.png",
+      "alt": null
+    }
+  ],
+  "attachments": [],
+  "related_content_ids": [],
+  "related_urls": [],
+  "content_hash": "143e972332d993fb987df2090868df8b016bf452d4e1149210a9724aed20e6e7",
+  "status": "expired",
+  "translation_status": "not-requested",
+  "metadata": {
+    "parser": "worlds-creator-center-news",
+    "api_record": true,
+    "body_extractable": true,
+    "fetched_at": "2026-07-20T04:05:01.347Z",
+    "headline_id": "3476",
+    "original_timezone": null,
+    "source_time_format": "unix-epoch-seconds",
+    "parser_warnings": [],
+    "unconfirmed_fields": [
+      "updated_at"
+    ],
+    "sections": [
+      {"title": "Contest period", "items": ["Entries were accepted from April 23 at 11:00 PT through May 4 at 23:59 PT.", "Three winners were selected from eligible Discord submissions."]},
+      {"title": "Entry", "items": ["Visit the Creator Circle World photobooth.", "Submit the screenshot through the official contest channel in Discord.", "Participation was limited to the United States and Canada excluding Quebec."]}
+    ]
+  },
+  "notes": "Reclassified as an event on 2026-07-27 after verifying the contest period, entry method, and eligibility against the official Creator Center notice. The prior structured record is retained in snapshots.",
+  "event_name": "MapleStory Worlds Global Launch One Year Anniversary Screenshot Contest",
+  "registration_start": "2026-04-23",
+  "registration_end": "2026-05-04",
+  "event_start": "2026-04-23",
+  "event_end": "2026-05-04",
+  "claim_start": null,
+  "claim_end": null,
+  "shop_start": null,
+  "shop_end": null,
+  "timezone": "America/Los_Angeles",
+  "eligibility": ["Residents of the United States and Canada, excluding Quebec"],
+  "requirements": ["Capture an eligible screenshot in the Creator Circle World photobooth.", "Submit the screenshot through the official MapleStory Worlds Discord contest channel."],
+  "rewards": ["World Coins, Noodle Bucks, or Chrono Credits for three selected winners"],
+  "event_currency": [],
+  "event_shop": null,
+  "participation_steps": ["Visit the Creator Circle World.", "Use the anniversary photobooth.", "Capture a screenshot.", "Submit it in the official Discord contest channel before the deadline."],
+  "related_announcement_id": "worlds-global-creator-center-news-2026-04-23-3428819",
+  "related_patch_ids": [],
+  "calendar_status": "ended"
+}

@@ -92,7 +92,7 @@ export const withServerSuffix = (pathname: string, server: string) => {
 
 export const withRouteSuffixes = (pathname: string, language: string, server: string) => {
   const route = stripRouteSuffixes(pathname);
-  if (route === '/' && normalizeLanguage(language) === 'en' && normalizeServer(server) === 'gms') return '/';
+  if (normalizeLanguage(language) === 'en' && normalizeServer(server) === 'gms') return route;
   return withServerSuffix(withLanguageSuffix(route, language), server);
 };
 

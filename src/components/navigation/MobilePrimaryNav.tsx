@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { localizeHref, stripRouteSuffixes } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
@@ -7,11 +7,11 @@ import { getSeriesProduct } from '@/pages/series/catalog';
 import { getSeriesRouteState, scopeModuleHref } from '@/pages/series/scope';
 
 const destinations = [
-  { href: '/', labelKey: 'dashboard_title', icon: 'ri-home-5-line' },
-  { href: '/series', labelKey: 'nav_series', icon: 'ri-apps-2-line' },
-  { href: '/checklist', labelKey: 'nav_checklist', icon: 'ri-checkbox-circle-line' },
+  { href: '/', labelKey: 'nav_home', icon: 'ri-home-5-line' },
+  { href: '/updates', labelKey: 'nav_updates', icon: 'ri-newspaper-line' },
+  { href: '/tools', labelKey: 'nav_tools', icon: 'ri-tools-line' },
   { href: '/search', labelKey: 'nav_search_button', icon: 'ri-search-2-line' },
-  { href: '/mapler-house', labelKey: 'nav_tools', icon: 'ri-tools-line' },
+  { href: '/series', labelKey: 'nav_series', icon: 'ri-apps-2-line' },
 ] as const;
 
 function isDestinationActive(pathname: string, href: string) {
@@ -41,11 +41,14 @@ export default function MobilePrimaryNav() {
         <div className="mx-auto grid max-w-lg grid-cols-5 px-2 py-1.5">
           {destinations.map((destination) => {
             const scopedHref = destination.href === '/series'
-              ? '/'
+              ? '/series'
               : scopeModuleHref(activeSeries?.id, destination.href);
-            const active = isDestinationActive(routePathname, scopedHref);
+            const destinationModule = getSeriesRouteState(destination.href).module;
+            const active = destinationModule
+              ? seriesRoute.module === destinationModule
+              : isDestinationActive(routePathname, scopedHref);
             return (
-              <NavLink
+              <Link
                 key={destination.href}
                 to={localizeHref(scopedHref, i18n.language, version)}
                 onMouseEnter={() => void prefetchRouteForPath(scopedHref)}
@@ -60,7 +63,7 @@ export default function MobilePrimaryNav() {
               >
                 <i className={`${destination.icon} text-xl`} aria-hidden="true" />
                 <span className="max-w-full truncate">{t(destination.labelKey)}</span>
-              </NavLink>
+              </Link>
             );
           })}
         </div>

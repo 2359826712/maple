@@ -152,7 +152,7 @@ export default function AccountPage() {
                     <span className="flex items-center gap-2"><i className="ri-checkbox-circle-line text-primary-600" />{t('account_open_checklist')}</span>
                     <i className="ri-arrow-right-s-line" />
                   </Link>
-                  <Link to="/mapler-house" className="flex min-h-11 items-center justify-between rounded-lg border border-background-200 px-4 text-sm font-semibold text-foreground-800 hover:border-primary-300 hover:bg-primary-50">
+                  <Link to="/tools" className="flex min-h-11 items-center justify-between rounded-lg border border-background-200 px-4 text-sm font-semibold text-foreground-800 hover:border-primary-300 hover:bg-primary-50">
                     <span className="flex items-center gap-2"><i className="ri-user-settings-line text-primary-600" />{t('account_manage_characters')}</span>
                     <i className="ri-arrow-right-s-line" />
                   </Link>

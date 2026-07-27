@@ -39,9 +39,9 @@ describe('HomeLongFormGuide', () => {
       expect(document.querySelector(href || 'missing')).toBeTruthy();
     });
 
-    expect(container.querySelector('a[href="/news/en/GMS"]')).toBeTruthy();
-    expect(container.querySelector('a[href="/events/en/GMS"]')).toBeTruthy();
-    expect(container.querySelector('a[href="/guides/en/GMS"]')).toBeTruthy();
-    expect(container.querySelector('a[href="/mapler-house/en/GMS"]')).toBeTruthy();
+    expect(container.querySelector('a[href="/updates"]')).toBeTruthy();
+    expect(container.querySelector('a[href="/events"]')).toBeTruthy();
+    expect(container.querySelector('a[href="/guides"]')).toBeTruthy();
+    expect(container.querySelector('a[href="/tools"]')).toBeTruthy();
   });
 });

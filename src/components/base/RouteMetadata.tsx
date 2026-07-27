@@ -29,6 +29,7 @@ const pageManagedRoutes = [
   /^\/guides\/(?!level$)[^/]+$/,
   /^\/source$/,
   /^\/content\//,
+  /^\/series\//,
   /^\/upcoming(?:\/[^/]+)?$/,
   /^\/wiki\/article\//,
   /^\/wiki\/boss(?:\/.*)?$/,

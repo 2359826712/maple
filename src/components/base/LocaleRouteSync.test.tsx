@@ -28,11 +28,11 @@ beforeEach(async () => {
 afterEach(cleanup);
 
 describe('LocaleRouteSync', () => {
-  it('redirects a legacy URL to its static English route', async () => {
+  it('redirects a legacy URL to the canonical default updates route', async () => {
     renderRoute('/news?category=event#latest');
 
     await waitFor(() => {
-      expect(screen.getByLabelText('Current route').textContent).toBe('/news/en/GMS?category=event#latest');
+      expect(screen.getByLabelText('Current route').textContent).toBe('/updates?category=event#latest');
     });
   });
 

@@ -4,11 +4,18 @@ import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
-import InternalRedirect from '@/components/feature/InternalRedirect';
 import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { getSeriesProduct, seriesProducts, type SeriesCategory } from './catalog';
-import { getSeriesModuleHref, isSeriesModule } from './scope';
+import {
+  getSeriesModuleFromPathSegment,
+  getSeriesModuleHref,
+  isSeriesModuleAvailable,
+  type SeriesModule,
+} from './scope';
+import { getSeriesSnapshot } from '@/domain/siteSnapshot';
+import { ScopedModulePage } from './SeriesModuleRoute';
+import MaplerHousePage from '@/pages/mapler-house/page';
 
 type SeriesFilter = 'all' | SeriesCategory;
 
@@ -17,6 +24,50 @@ const filters: Array<{ value: SeriesFilter; labelKey: string; icon: string }> = 
   { value: 'pc', labelKey: 'series_filter_pc', icon: 'ri-computer-line' },
   { value: 'mobile', labelKey: 'series_filter_mobile', icon: 'ri-smartphone-line' },
   { value: 'platform', labelKey: 'series_filter_platform', icon: 'ri-shapes-line' },
+];
+
+const hubModules: Array<{
+  module: SeriesModule;
+  labelKey: string;
+  description: string;
+  icon: string;
+}> = [
+  {
+    module: 'news',
+    labelKey: 'nav_updates',
+    description: 'Official news, patch notes, maintenance notices, developer notes, and service announcements.',
+    icon: 'ri-newspaper-line',
+  },
+  {
+    module: 'events',
+    labelKey: 'nav_events',
+    description: 'Current and archived event records with source links, dates, requirements, and reward context.',
+    icon: 'ri-calendar-event-line',
+  },
+  {
+    module: 'guides',
+    labelKey: 'nav_guides',
+    description: 'Verified guides and reference material for progression, systems, classes, and creator workflows.',
+    icon: 'ri-book-open-line',
+  },
+  {
+    module: 'wiki',
+    labelKey: 'nav_wiki',
+    description: 'A readable knowledge archive assembled from structured first-party and verified reference records.',
+    icon: 'ri-book-2-line',
+  },
+  {
+    module: 'tools',
+    labelKey: 'nav_tools',
+    description: 'Use calculators, planners, trackers, checklists, and other on-site utilities built for this series.',
+    icon: 'ri-tools-line',
+  },
+  {
+    module: 'upcoming',
+    labelKey: 'nav_upcoming',
+    description: 'Review announced changes, roadmaps, patch previews, and maintenance information before release.',
+    icon: 'ri-calendar-schedule-line',
+  },
 ];
 
 export default function SeriesPage({
@@ -42,12 +93,128 @@ export default function SeriesPage({
   );
 
   if (selectedProduct) {
-    const module = isSeriesModule(seriesModule) ? seriesModule : 'news';
+    const module = getSeriesModuleFromPathSegment(seriesModule);
+    if (module) {
+      const availableModule = isSeriesModuleAvailable(selectedProduct.id, module) ? module : 'news';
+      if (selectedProduct.id === 'maplestory-pc' && availableModule === 'tools') {
+        return <MaplerHousePage />;
+      }
+      return <ScopedModulePage product={selectedProduct} module={availableModule} />;
+    }
+
+    const snapshot = getSeriesSnapshot(selectedProduct.id);
+    const availableModules = hubModules.filter(({ module: candidate }) => (
+      isSeriesModuleAvailable(selectedProduct.id, candidate)
+    ));
     return (
-      <InternalRedirect
-        to={localizeHref(getSeriesModuleHref(selectedProduct.id, module), i18n.language, version)}
-        label={selectedProduct.name}
-      />
+      <div className="min-h-screen bg-background-50 text-foreground-950">
+        <Navbar onOpenNotifications={() => setNotificationOpen(true)} unread={0} />
+        <NotificationDrawer open={notificationOpen} onClose={() => setNotificationOpen(false)} />
+
+        <main id="main-content" tabIndex={-1} className="pt-20 md:pt-24">
+          <header className="relative overflow-hidden bg-foreground-950 text-background-50">
+            <img
+              src={selectedProduct.image}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover opacity-45"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-foreground-950 via-foreground-950/90 to-foreground-950/45" aria-hidden="true" />
+            <div className="relative mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-200">
+                MPStorys Series Hub
+              </p>
+              <h1 className="mt-3 max-w-4xl font-heading text-4xl font-semibold md:text-6xl">
+                {selectedProduct.name} news, guides, events, wiki, and tools
+              </h1>
+              <p className="mt-5 max-w-3xl text-base leading-7 text-background-100 md:text-lg">
+                {t(selectedProduct.descriptionKey)} Use this hub to browse verified updates, learn the systems that
+                matter, and open practical tools without losing the source trail.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  to={localizeHref(getSeriesModuleHref(selectedProduct.id, 'news'), i18n.language, version)}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-md bg-primary-500 px-5 text-sm font-semibold text-foreground-950 hover:bg-primary-400"
+                >
+                  Browse latest updates
+                  <i className="ri-arrow-right-line" aria-hidden="true" />
+                </Link>
+                <Link
+                  to={localizeHref(getSeriesModuleHref(selectedProduct.id, 'tools'), i18n.language, version)}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-md border border-background-50/30 bg-background-50/10 px-5 text-sm font-semibold text-background-50 hover:bg-background-50/20"
+                >
+                  Use {selectedProduct.name} tools
+                </Link>
+              </div>
+            </div>
+          </header>
+
+          <section className="border-b border-background-200 bg-background-100">
+            <dl className="mx-auto grid max-w-6xl grid-cols-2 px-4 md:grid-cols-4 md:px-8">
+              {[
+                ['Structured content', snapshot.content.toLocaleString('en-US')],
+                ['Verified resources', snapshot.resources.toLocaleString('en-US')],
+                ['Product status', t(selectedProduct.statusKey)],
+                ['Platform', t(selectedProduct.platformKey)],
+              ].map(([label, value]) => (
+                <div key={label} className="border-b border-background-200 px-3 py-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-foreground-500">{label}</dt>
+                  <dd className="mt-1 font-heading text-xl font-semibold text-foreground-950">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          <section className="mx-auto max-w-6xl px-4 py-12 md:px-8 md:py-16" aria-labelledby="series-hub-modules">
+            <div className="max-w-3xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary-700">Explore the archive</p>
+              <h2 id="series-hub-modules" className="mt-2 font-heading text-3xl font-semibold md:text-4xl">
+                Choose what you need for {selectedProduct.name}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-foreground-600 md:text-base">
+                Each section is a server-rendered destination with its own focused copy, verified records, internal
+                navigation, and direct access to the underlying source.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {availableModules.map((item) => (
+                <article key={item.module} className="flex min-h-64 flex-col rounded-xl border border-background-300 bg-background-50 p-6 shadow-sm">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-100 text-xl text-primary-700">
+                    <i className={item.icon} aria-hidden="true" />
+                  </span>
+                  <h3 className="mt-5 font-heading text-xl font-semibold">{selectedProduct.name} {t(item.labelKey)}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-foreground-600">{item.description}</p>
+                  <Link
+                    to={localizeHref(getSeriesModuleHref(selectedProduct.id, item.module), i18n.language, version)}
+                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-700 hover:text-primary-800"
+                  >
+                    Open {t(item.labelKey)}
+                    <i className="ri-arrow-right-line" aria-hidden="true" />
+                  </Link>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="border-y border-background-200 bg-background-100">
+            <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-3 md:px-8">
+              {[
+                ['Source-backed', 'Every indexed record retains a canonical source link and verification metadata.'],
+                ['Useful on arrival', 'Tools and checklists run on MPStorys; indexed calculators open as native detail experiences.'],
+                ['Translation-safe', 'Published translations are preferred, while missing fields fall back to the original content.'],
+              ].map(([title, description]) => (
+                <div key={title}>
+                  <h2 className="font-heading text-xl font-semibold">{title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-foreground-600">{description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
     );
   }
 

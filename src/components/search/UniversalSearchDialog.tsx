@@ -175,7 +175,7 @@ export default function UniversalSearchDialog({ open, onClose }: Props) {
 
         <div className="flex flex-col gap-2 border-t border-background-200 bg-background-100 px-4 py-3 text-xs text-foreground-600 sm:flex-row sm:items-center sm:justify-between">
           <span>{t('search_palette_keyboard_help')}</span>
-          <Link to="/mapler-house#char-lookup" onClick={onClose} className="font-semibold text-primary-700 hover:underline">
+          <Link to="/tools#char-lookup" onClick={onClose} className="font-semibold text-primary-700 hover:underline">
             <i className="ri-user-search-line mr-1" aria-hidden="true" />
             {t('search_palette_character_lookup')}
           </Link>

@@ -7,15 +7,31 @@ export function createContentIndexes(contentRecords, sourceRecords) {
   const sources = sourceRecords.map((record) => record.data).sort((left, right) => compare(left.id, right.id));
   const byType = {};
   const byStatus = {};
+  const bySeries = {};
+  const bySeriesAndType = {};
   for (const record of content) {
     byType[record.content_type] = (byType[record.content_type] || 0) + 1;
     byStatus[record.status] = (byStatus[record.status] || 0) + 1;
+    bySeries[record.series] = (bySeries[record.series] || 0) + 1;
+    bySeriesAndType[record.series] ||= {};
+    bySeriesAndType[record.series][record.content_type] =
+      (bySeriesAndType[record.series][record.content_type] || 0) + 1;
   }
+  const sortedSeriesContentTypes = Object.fromEntries(
+    Object.entries(bySeriesAndType)
+      .sort(([left], [right]) => compare(left, right))
+      .map(([series, counts]) => [
+        series,
+        Object.fromEntries(Object.entries(counts).sort(([left], [right]) => compare(left, right))),
+      ]),
+  );
   const statistics = {
     total_content: content.length,
     total_sources: sources.length,
     enabled_sources: sources.filter((source) => source.enabled).length,
     content_types: Object.fromEntries(Object.entries(byType).sort(([left], [right]) => compare(left, right))),
+    series: Object.fromEntries(Object.entries(bySeries).sort(([left], [right]) => compare(left, right))),
+    series_content_types: sortedSeriesContentTypes,
     statuses: Object.fromEntries(Object.entries(byStatus).sort(([left], [right]) => compare(left, right))),
   };
   const search = content.map((record) => ({

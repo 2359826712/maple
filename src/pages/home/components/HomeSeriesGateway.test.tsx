@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import HomeSeriesGateway from './HomeSeriesGateway';
+import { formattedSiteSnapshot } from '@/domain/siteSnapshot';
 
 vi.mock('react-i18next', () => ({
   useTranslation: () => ({
@@ -42,8 +43,8 @@ describe('HomeSeriesGateway landing page', () => {
     render(<MemoryRouter><HomeSeriesGateway /></MemoryRouter>);
 
     expect(screen.getAllByTestId('snapshot-stat')).toHaveLength(3);
-    expect(screen.getByText('1,540+')).toBeTruthy();
-    expect(screen.getByText('31')).toBeTruthy();
+    expect(screen.getByText(formattedSiteSnapshot.content)).toBeTruthy();
+    expect(screen.getByText(formattedSiteSnapshot.resources)).toBeTruthy();
     expect(screen.getAllByTestId('comparison-row')).toHaveLength(6);
     expect(screen.getByRole('columnheader', { name: 'landing_compare_mpstorys' })).toBeTruthy();
     expect(screen.getByRole('columnheader', { name: 'landing_compare_official' })).toBeTruthy();
@@ -58,7 +59,7 @@ describe('HomeSeriesGateway landing page', () => {
     expect(screen.getByText('landing_voice_01_quote')).toBeTruthy();
     expect(screen.getByText('landing_voice_note')).toBeTruthy();
     expect(document.querySelector('[data-conversion-id="player-voice-feedback"]')?.getAttribute('href'))
-      .toBe('/feedback/en/GMS');
+      .toBe('/feedback');
   });
 
   it('routes every supported series into its scoped news hub', () => {
@@ -75,7 +76,7 @@ describe('HomeSeriesGateway landing page', () => {
 
     expectedSeries.forEach(([name, id]) => {
       expect(screen.getByRole('link', { name: `${name} — series_enter_hub` }).getAttribute('href'))
-        .toBe(`/news/en/GMS?series=${id}`);
+        .toBe(`/series/${id}/updates`);
     });
   });
 
@@ -101,10 +102,10 @@ describe('HomeSeriesGateway landing page', () => {
   it('keeps the four high-intent content paths one click away', () => {
     render(<MemoryRouter><HomeSeriesGateway /></MemoryRouter>);
 
-    expect(document.querySelector('a[href="/news/en/GMS"]')).toBeTruthy();
-    expect(document.querySelector('a[href="/guides/en/GMS"]')).toBeTruthy();
-    expect(document.querySelector('a[href="/mapler-house/en/GMS"]')).toBeTruthy();
-    expect(document.querySelector('a[href="/events/en/GMS"]')).toBeTruthy();
+    expect(document.querySelector('a[href="/updates"]')).toBeTruthy();
+    expect(document.querySelector('a[href="/guides"]')).toBeTruthy();
+    expect(document.querySelector('a[href="/tools"]')).toBeTruthy();
+    expect(document.querySelector('a[href="/events"]')).toBeTruthy();
   });
 
   it('switches the hero workflow preview between content paths', () => {
@@ -117,7 +118,7 @@ describe('HomeSeriesGateway landing page', () => {
 
     expect(eventsTab.getAttribute('aria-selected')).toBe('true');
     expect(document.querySelector('[data-conversion-id="hero-preview-events"]')?.getAttribute('href'))
-      .toBe('/events/en/GMS');
+      .toBe('/events');
   });
 
   it('emits a privacy-safe conversion event for the primary CTA', () => {

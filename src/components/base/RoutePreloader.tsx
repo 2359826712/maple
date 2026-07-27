@@ -96,7 +96,7 @@ const prefetchPageData = async (pathname: string, language: string, version: Gam
     return;
   }
 
-  if (routePath === '/mapler-house') {
+  if (routePath === '/tools' || routePath === '/mapler-house') {
     const [{ prefetchRealtimeCollection }, liveContent] = await Promise.all([
       import('@/hooks/useRealtimeCollection'),
       import('@/services/liveContent'),

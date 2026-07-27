@@ -282,7 +282,7 @@ export default function TodayInMapleSection() {
               {t('dashboard_backup_data')}
             </Link>
             <Link
-              to="/mapler-house"
+              to="/tools"
               className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-full border border-primary-200 bg-background-50 px-4 text-sm font-semibold text-primary-700 hover:border-primary-300 hover:bg-primary-50"
             >
               <i className="ri-user-settings-line" />

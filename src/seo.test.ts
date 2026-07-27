@@ -96,7 +96,7 @@ describe('search and social metadata', () => {
       series.forEach((name) => expect(value).toContain(name));
     });
     series.forEach((name) => expect(metadataCatalog.routes['/'].copy.en.description).toContain(name));
-    expect(metadataCatalog.routes['/news'].copy.en.description).toContain('MapleStory Idle');
+    expect(metadataCatalog.routes['/updates'].copy.en.description).toContain('MapleStory Idle');
   });
 
   it('gives each scoped series page distinct metadata and canonical URLs', () => {
@@ -140,9 +140,12 @@ describe('search and social metadata', () => {
 
   it('serves the bare root as the canonical default homepage', () => {
     const routeData = read('src/next/routeData.ts');
+    const languageRouting = read('src/i18n/languageRouting.ts');
     const serverRoute = read('src/next/serverRoute.ts');
 
-    expect(routeData).toContain("const isDefaultHomepage = normalized === '/'");
+    expect(routeData).toContain("const language = getPathLanguage(normalized) || 'en'");
+    expect(routeData).toContain("const server = getPathServer(normalized) || 'gms'");
+    expect(languageRouting).toContain("normalizeLanguage(language) === 'en' && normalizeServer(server) === 'gms'");
     expect(routeData).toContain('return localizedUrl === requestPath ? null : localizedUrl');
     expect(serverRoute).toContain('permanent: true');
   });
@@ -160,7 +163,7 @@ describe('search and social metadata', () => {
   it('defines unique localized metadata for every static route', () => {
     const expectedRoutes = [
       '/', '/account', '/admin/feedback', '/auth/login', '/checklist', '/community', '/events', '/feedback', '/guides',
-      '/guides/level', '/mapler-house', '/maps', '/news', '/rankings', '/rankings/classes',
+      '/guides/level', '/mapler-house', '/maps', '/news', '/updates', '/rankings', '/rankings/classes',
       '/search', '/series', '/source', '/tools', '/upcoming', '/wiki', '/wiki/boss', '/wiki/redirect',
       '/shop',
     ];

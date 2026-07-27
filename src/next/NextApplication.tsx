@@ -58,6 +58,7 @@ function ApplicationProviders({
       initialGuideSection={page.initialGuideSection}
       initialNews={page.initialNews}
       initialOfficialArticle={page.initialOfficialArticle}
+      initialSeriesTranslations={page.initialSeriesTranslations}
       initialTools={page.initialTools}
       initialUpcomingArticle={page.initialUpcomingArticle}
       initialUpcomingFeed={page.initialUpcomingFeed}

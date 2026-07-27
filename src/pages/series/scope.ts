@@ -1,9 +1,11 @@
 export const seriesModuleByBaseHref = {
   '/news': 'news',
+  '/updates': 'news',
   '/upcoming': 'upcoming',
   '/guides': 'guides',
   '/events': 'events',
   '/mapler-house': 'tools',
+  '/tools': 'tools',
   '/checklist': 'checklist',
   '/wiki': 'wiki',
   '/rankings': 'rankings',
@@ -13,6 +15,20 @@ export const seriesModuleByBaseHref = {
 } as const;
 
 export type SeriesModule = (typeof seriesModuleByBaseHref)[keyof typeof seriesModuleByBaseHref];
+
+const seriesModulePathSegments: Record<SeriesModule, string> = {
+  news: 'updates',
+  upcoming: 'upcoming',
+  guides: 'guides',
+  events: 'events',
+  tools: 'tools',
+  checklist: 'checklist',
+  wiki: 'wiki',
+  rankings: 'rankings',
+  shop: 'shop',
+  community: 'community',
+  feedback: 'feedback',
+};
 
 export const sharedSeriesModules = ['shop', 'community', 'feedback'] as const satisfies readonly SeriesModule[];
 
@@ -39,6 +55,14 @@ export const SERIES_QUERY_PARAM = 'series';
 export const isSeriesModule = (value?: string): value is SeriesModule => (
   Boolean(value && Object.values(seriesModuleByBaseHref).includes(value as SeriesModule))
 );
+
+export const getSeriesModuleFromPathSegment = (value?: string): SeriesModule | undefined => {
+  if (!value) return undefined;
+  if (value === 'updates' || value === 'news') return 'news';
+  return isSeriesModule(value) ? value : undefined;
+};
+
+export const getSeriesModulePathSegment = (module: SeriesModule) => seriesModulePathSegments[module];
 
 export const getSeriesIdFromSearch = (search = '') => {
   const seriesId = new URLSearchParams(search).get(SERIES_QUERY_PARAM) || undefined;
@@ -82,12 +106,12 @@ export const getSeriesRouteState = (pathname: string, search = '') => {
   }
   return {
     seriesId: segments[1] || getSeriesIdFromSearch(search),
-    module: isSeriesModule(segments[2]) ? segments[2] : undefined,
+    module: getSeriesModuleFromPathSegment(segments[2]),
   };
 };
 
 export const getSeriesModuleHref = (seriesId: string, module: SeriesModule) => (
-  withSeriesScope(baseHrefBySeriesModule[module], seriesId)
+  `/series/${encodeURIComponent(seriesId)}/${getSeriesModulePathSegment(module)}`
 );
 
 export const getSeriesResourceHref = (seriesId: string, module: SeriesModule, slug: string) => (
@@ -97,5 +121,8 @@ export const getSeriesResourceHref = (seriesId: string, module: SeriesModule, sl
 export const scopeModuleHref = (seriesId: string | undefined, baseHref: string) => {
   const pathname = baseHref.split(/[?#]/, 1)[0];
   const module = seriesModuleByBaseHref[pathname as keyof typeof seriesModuleByBaseHref];
-  return module ? withSeriesScope(baseHref, seriesId) : baseHref;
+  if (!module || !seriesId) return baseHref;
+  const source = new URL(baseHref, 'https://mpstorys.com');
+  source.searchParams.delete(SERIES_QUERY_PARAM);
+  return `${getSeriesModuleHref(seriesId, module)}${source.search}${source.hash}`;
 };
