@@ -170,14 +170,41 @@ export const getIndexedContentDisplayTitle = (
   return scrapedChrome && original ? original : content.title;
 };
 
+const getSupplementalContentModules = (
+  content: (typeof indexedContent)[number],
+): SeriesModule[] => {
+  const modules: SeriesModule[] = [];
+
+  // A guide is also a readable reference entry. Reuse the same canonical
+  // record in Wiki instead of creating a duplicate content file or a thin
+  // outbound-link card.
+  if (content.series !== 'maplestory' && content.content_type === 'guide') {
+    modules.push('wiki');
+  }
+
+  // Some official publications legitimately serve more than one module.
+  // Keep the content record's primary type intact while exposing the same
+  // on-site reader in the additional relevant module.
+  if (content.series === 'classic' && content.id === 'classic-world-closed-online-test-2-registration') {
+    modules.push('upcoming', 'events');
+  }
+  if (content.series === 'm' && content.content_type === 'patch-note') {
+    modules.push('news', 'events');
+  }
+  if (content.series === 'idle') {
+    if (content.content_type === 'patch-note') modules.push('news', 'events');
+    if (content.content_type === 'roadmap' || content.content_type === 'event') modules.push('news');
+  }
+
+  return modules;
+};
+
 const indexedArticleContent = indexedContent.reduce<Record<string, SeriesContent>>((seriesContent, content) => {
   if (content.status === 'removed') return seriesContent;
   const seriesId = contentSeriesIds[content.series];
-  const module = contentTypeModules[content.content_type];
   const modules = seriesContent[seriesId] || {};
-  const moduleResources = modules[module] || [];
   const displayTitle = getIndexedContentDisplayTitle(content);
-  moduleResources.push({
+  const verifiedResource: VerifiedSeriesResource = {
     contentId: content.id,
     title: displayTitle,
     description: content.summary || `Verified ${content.content_type.replaceAll('-', ' ')} from ${sourceNames.get(content.source_id) || 'an official source'}.`,
@@ -189,8 +216,18 @@ const indexedArticleContent = indexedContent.reduce<Record<string, SeriesContent
     category: content.content_type,
     status: content.status,
     lastChecked: content.last_checked,
+  };
+
+  const targetModules = new Set<SeriesModule>([
+    contentTypeModules[content.content_type],
+    ...getSupplementalContentModules(content),
+  ]);
+  targetModules.forEach((module) => {
+    const moduleResources = modules[module] || [];
+    moduleResources.push(verifiedResource);
+    modules[module] = moduleResources;
   });
-  modules[module] = moduleResources;
+
   seriesContent[seriesId] = modules;
   return seriesContent;
 }, {});

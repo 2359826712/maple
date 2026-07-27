@@ -74,6 +74,45 @@ describe('verified series content', () => {
       .forEach((content) => expect(visibleContentIds.has(content.id), content.id).toBe(true));
   });
 
+  it('reuses verified guides as full on-site Wiki reading libraries for every other series', () => {
+    const expectedCounts = {
+      'maplestory-classic': 6,
+      'maplestory-m': 7,
+      'maplestory-n': 13,
+      'maplestory-worlds': 6,
+      'maplestory-idle': 6,
+    };
+
+    Object.entries(expectedCounts).forEach(([seriesId, expectedCount]) => {
+      const guideIds = getVerifiedSeriesResources(seriesId, 'guides')
+        .flatMap((resource) => resource.contentId ? [resource.contentId] : []);
+      const wikiIds = getVerifiedSeriesResources(seriesId, 'wiki')
+        .flatMap((resource) => resource.contentId ? [resource.contentId] : []);
+
+      expect(guideIds, seriesId).toHaveLength(expectedCount);
+      expect(wikiIds, seriesId).toEqual(expect.arrayContaining(guideIds));
+    });
+  });
+
+  it('places multi-purpose official updates in the other modules where they can be read', () => {
+    const placements = [
+      ['maplestory-classic', 'upcoming', 'classic-world-closed-online-test-2-registration'],
+      ['maplestory-classic', 'events', 'classic-world-closed-online-test-2-registration'],
+      ['maplestory-m', 'news', 'maplestory-m-july-8-9-2026-patch-notes'],
+      ['maplestory-m', 'events', 'maplestory-m-july-8-9-2026-patch-notes'],
+      ['maplestory-idle', 'news', 'maplestory-idle-june-11-2026-patch-notes'],
+      ['maplestory-idle', 'news', 'maplestory-idle-july-23-2026-update-preview'],
+      ['maplestory-idle', 'news', 'maplestory-idle-half-anniversary-special-mission-event'],
+      ['maplestory-idle', 'events', 'maplestory-idle-june-11-2026-patch-notes'],
+    ] as const;
+
+    placements.forEach(([seriesId, module, contentId]) => {
+      expect(getVerifiedSeriesResources(seriesId, module)).toEqual(expect.arrayContaining([
+        expect.objectContaining({ contentId }),
+      ]));
+    });
+  });
+
   it('keeps the core editorial modules populated and addressable on this site', () => {
     const coreModules = ['news', 'upcoming', 'guides', 'events', 'wiki'] as const;
     seriesProducts.forEach((product) => {

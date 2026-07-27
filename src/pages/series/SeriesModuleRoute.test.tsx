@@ -279,6 +279,57 @@ describe('series module routes', () => {
     }
   }, 30_000);
 
+  it('provides full Wiki reading libraries across every non-PC series', async () => {
+    const cases = [
+      ['maplestory-classic', 6, 'MapleStory Classic Beginner\'s First Steps'],
+      ['maplestory-m', 7, 'MapleStory M Maple Guide'],
+      ['maplestory-n', 13, 'MapleStory N Beginner\'s Guide'],
+      ['maplestory-worlds', 6, 'MapleStory Worlds Basic Creation Guide'],
+      ['maplestory-idle', 6, 'MapleStory: Idle RPG Official Gameplay FAQ'],
+    ] as const;
+
+    for (const [series, expectedCount, expectedHeading] of cases) {
+      const wikiArticles = getVerifiedSeriesResources(series, 'wiki')
+        .filter((resource) => resource.contentId);
+      expect(wikiArticles).toHaveLength(expectedCount);
+
+      window.history.replaceState({}, '', `/wiki/en/GMS?series=${series}`);
+      const view = render(
+        <NextApplication
+          language="en"
+          pathname="/wiki/en/GMS"
+          requestPath={`/wiki/en/GMS?series=${series}`}
+          server="gms"
+          translation={translation}
+        />,
+      );
+
+      expect(await screen.findByText(
+        `Showing ${expectedCount} of ${expectedCount} verified records`,
+        {},
+        { timeout: 10_000 },
+      )).toBeTruthy();
+      expect(screen.getByRole('heading', { name: expectedHeading })).toBeTruthy();
+      view.unmount();
+    }
+  }, 30_000);
+
+  it('makes thin News and Events modules readable from existing verified records', () => {
+    const expectedModules = [
+      ['maplestory-classic', 'upcoming', 1],
+      ['maplestory-classic', 'events', 1],
+      ['maplestory-m', 'news', 1],
+      ['maplestory-m', 'events', 1],
+      ['maplestory-idle', 'news', 3],
+      ['maplestory-idle', 'events', 2],
+    ] as const;
+
+    expectedModules.forEach(([seriesId, module, expectedCount]) => {
+      expect(getVerifiedSeriesResources(seriesId, module)
+        .filter((resource) => resource.contentId)).toHaveLength(expectedCount);
+    });
+  });
+
   it('paginates the complete readable archive without presenting metadata indexes as articles', async () => {
     const resources = getVerifiedSeriesResources('maplestory-n', 'events')
       .filter((resource) => resource.contentId || hasResourceDetailExperience(resource));
