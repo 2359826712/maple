@@ -145,10 +145,20 @@ export const findIndexedContentIn = (
   sourceUrl?: string,
 ) => {
   const targetUrl = sourceUrl ? normalizedUrl(sourceUrl) : undefined;
-  return records.find((record) => (
+  const exactIdentity = records.find((record) => (
     (contentId && record.id === contentId)
     || (resourceId && record.metadata.resource_id === resourceId)
-    || (targetUrl && recordUrls(record).includes(targetUrl))
+  ));
+  if (exactIdentity) return exactIdentity;
+
+  const exactUrl = records.find((record) => (
+    targetUrl
+    && [record.canonical_url, record.source_url].map(normalizedUrl).includes(targetUrl)
+  ));
+  if (exactUrl) return exactUrl;
+
+  return records.find((record) => (
+    targetUrl && recordUrls(record).includes(targetUrl)
   ));
 };
 

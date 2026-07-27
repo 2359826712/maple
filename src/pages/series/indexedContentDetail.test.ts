@@ -19,6 +19,26 @@ describe('indexed series content details', () => {
     expect(findIndexedContentIn([record], undefined, undefined, 'https://EXAMPLE.com/campaign')).toBe(record);
   });
 
+  it('prefers the exact canonical record when another record links to it as related content', () => {
+    const relatedRecord = {
+      id: 'beginner',
+      canonical_url: 'https://example.com/beginner',
+      source_url: 'https://example.com/beginner',
+      related_urls: ['https://example.com/grind-maps'],
+      metadata: {},
+    } as IndexedContentRecord;
+    const exactRecord = {
+      id: 'grind-maps',
+      canonical_url: 'https://example.com/grind-maps',
+      source_url: 'https://example.com/grind-maps',
+      related_urls: [],
+      metadata: {},
+    } as IndexedContentRecord;
+
+    expect(findIndexedContentIn([relatedRecord, exactRecord], undefined, undefined, 'https://example.com/grind-maps'))
+      .toBe(exactRecord);
+  });
+
   it('builds factual sections for resource directories without article bodies', () => {
     const sections = getIndexedResourceSections({
       website: 'Nexon MapleStory',
