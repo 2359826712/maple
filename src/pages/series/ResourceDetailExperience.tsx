@@ -15,17 +15,6 @@ type CostRow = {
   totalCost: number;
 };
 
-type GuideGroup = 'tool' | 'reference' | 'community' | 'developer' | 'ranking' | 'content';
-
-const getGuideGroup = (category?: string): GuideGroup => {
-  if (['calculator', 'simulator', 'planner', 'builder', 'optimizer', 'character-lookup', 'guild-lookup'].includes(category || '')) return 'tool';
-  if (['wiki', 'database', 'guide', 'downloads'].includes(category || '')) return 'reference';
-  if (['community', 'discord', 'reddit', 'youtube', 'media'].includes(category || '')) return 'community';
-  if (['api', 'sdk', 'library', 'developer-tool', 'github'].includes(category || '')) return 'developer';
-  if (category === 'rankings') return 'ranking';
-  return 'content';
-};
-
 const combination = (n: number, k: number) => {
   if (k > n) return 0;
   let result = 1;
@@ -354,77 +343,6 @@ function MaterialCostPlanner({ resource }: { resource: VerifiedSeriesResource })
   );
 }
 
-function ResourcePracticalGuide({ resource }: { resource: VerifiedSeriesResource }) {
-  const { t } = useTranslation();
-  const record = resource.resourceRecord;
-  if (!record) return null;
-  const group = getGuideGroup(record.category);
-  const steps = [1, 2, 3].map((index) => t(`resource_guide_${group}_step_${index}`));
-
-  return (
-    <section className="mb-12 overflow-hidden rounded-2xl border border-background-300 bg-background-50 shadow-sm" aria-labelledby="resource-practical-guide-heading">
-      <div className="border-b border-background-200 bg-background-100 px-5 py-5 md:px-7">
-        <p className="text-xs font-semibold uppercase tracking-wide text-primary-700">{t('resource_guide_eyebrow')}</p>
-        <h2 id="resource-practical-guide-heading" className="mt-1 font-heading text-2xl font-semibold">
-          {t('resource_guide_title')}
-        </h2>
-      </div>
-      <div className="grid gap-6 p-5 md:grid-cols-2 md:p-7">
-        <div>
-          <h3 className="flex items-center gap-2 font-heading text-lg font-semibold">
-            <i className="ri-compass-3-line text-primary-700" aria-hidden="true" />
-            {t('resource_guide_scope')}
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-foreground-700">{resource.description}</p>
-          {record.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {record.tags.map((tag) => (
-                <span key={tag} className="rounded-full bg-primary-100 px-2.5 py-1 text-xs font-semibold text-primary-800">
-                  {tag.replaceAll('-', ' ')}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-        <div>
-          <h3 className="flex items-center gap-2 font-heading text-lg font-semibold">
-            <i className="ri-route-line text-primary-700" aria-hidden="true" />
-            {t('resource_guide_steps')}
-          </h3>
-          <ol className="mt-3 space-y-3">
-            {steps.map((step, index) => (
-              <li key={step} className="flex gap-3 text-sm leading-6 text-foreground-700">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-semibold text-primary-800">
-                  {index + 1}
-                </span>
-                <span>{step}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-        <div className="rounded-xl border border-background-200 bg-background-100 p-4">
-          <h3 className="text-sm font-semibold text-foreground-950">{t('resource_guide_access')}</h3>
-          <ul className="mt-2 space-y-1.5 text-xs leading-5 text-foreground-600">
-            <li>{t('resource_guide_regions', { regions: record.regions.join(', ') })}</li>
-            <li>{t('resource_guide_languages', { languages: record.languages.join(', ') })}</li>
-            <li>{t(record.login_required ? 'resource_guide_login_required' : 'resource_guide_login_open')}</li>
-          </ul>
-        </div>
-        <div className="rounded-xl border border-background-200 bg-background-100 p-4">
-          <h3 className="text-sm font-semibold text-foreground-950">{t('resource_guide_verification')}</h3>
-          <p className="mt-2 text-xs leading-5 text-foreground-600">
-            {t('resource_guide_verified', {
-              source: record.website,
-              date: record.last_checked,
-              status: record.status,
-            })}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function ResourceDetailExperience({
   resource,
 }: {
@@ -442,5 +360,5 @@ export default function ResourceDetailExperience({
   if (getResourceToolKind(resource)) {
     return <UniversalResourceTool resource={resource} />;
   }
-  return <ResourcePracticalGuide resource={resource} />;
+  return null;
 }

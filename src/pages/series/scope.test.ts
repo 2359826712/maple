@@ -76,4 +76,10 @@ describe('series module scope', () => {
       .forEach((seriesId) => expect(isSeriesModuleAvailable(seriesId, 'rankings')).toBe(false));
     expect(isSeriesModuleAvailable('maplestory-idle', 'news')).toBe(true);
   });
+
+  it('does not expose a shop for Classic World before a verified shop exists', () => {
+    expect(isSeriesModuleAvailable('maplestory-classic', 'shop')).toBe(false);
+    ['maplestory-pc', 'maplestory-m', 'maplestory-n', 'maplestory-worlds', 'maplestory-idle']
+      .forEach((seriesId) => expect(isSeriesModuleAvailable(seriesId, 'shop')).toBe(true));
+  });
 });

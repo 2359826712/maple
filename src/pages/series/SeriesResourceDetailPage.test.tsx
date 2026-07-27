@@ -246,7 +246,7 @@ describe('series resource details', () => {
     expect(screen.getByRole('heading', { name: 'Practical steps' })).toBeTruthy();
   });
 
-  it('gives every indexed resource an actionable on-site detail guide', async () => {
+  it('renders indexed resource facts without replacing them with a usage-and-redirect guide', async () => {
     const slug = 'maplestory-m-star-force-rate-table-m-star-force-rate-table';
     const pathname = `/series/maplestory-m/wiki/${slug}/en/GMS`;
     window.history.replaceState({}, '', pathname);
@@ -267,11 +267,10 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'What this page contains and how to use it' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Recommended workflow' })).toBeTruthy();
-    expect(screen.getByText(/Search for the exact class, item, map, monster, skill, or system/)).toBeTruthy();
-    expect(screen.getAllByText(/Verified against MapleStory M Tools/).some(
-      (element) => element.textContent?.includes('2026-07-25'),
-    )).toBe(true);
+    expect(await screen.findByRole('heading', { name: 'Verified resource information' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'What this official resource covers' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Availability' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Verification record' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Recommended workflow' })).toBeNull();
   });
 });

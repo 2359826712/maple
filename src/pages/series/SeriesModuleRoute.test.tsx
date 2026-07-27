@@ -6,6 +6,7 @@ import translation from '@/i18n/local/en/common';
 import NextApplication from '@/next/NextApplication';
 import { prefetchRouteForPath } from '@/router/config';
 import { getVerifiedSeriesResources } from './verifiedContent';
+import { hasResourceDetailExperience } from './resourceToolRegistry';
 
 vi.mock('@/services/mapleSqlApi', () => ({
   mapleSqlApi: {
@@ -189,8 +190,9 @@ describe('series module routes', () => {
     }
   });
 
-  it('paginates the complete official archive instead of hiding metadata-only records', async () => {
-    const resources = getVerifiedSeriesResources('maplestory-n', 'events');
+  it('paginates the complete readable archive without presenting metadata indexes as articles', async () => {
+    const resources = getVerifiedSeriesResources('maplestory-n', 'events')
+      .filter((resource) => resource.contentId || hasResourceDetailExperience(resource));
     expect(resources.length).toBeGreaterThan(12);
     window.history.replaceState({}, '', '/events/en/GMS?series=maplestory-n');
     render(
@@ -213,6 +215,62 @@ describe('series module routes', () => {
     fireEvent.click(archiveButtons[archiveButtons.length - 1]);
     expect(await screen.findByText(`Showing 36 of ${resources.length} verified records`)).toBeTruthy();
   });
+
+  it('renders readable and usable workspaces when a series module has no on-site articles', async () => {
+    const cases = [
+      {
+        series: 'maplestory-m',
+        pathname: '/news/en/GMS',
+        heading: 'Current MapleStory M briefing',
+      },
+      {
+        series: 'maplestory-n',
+        pathname: '/rankings/en/GMS',
+        heading: 'Ranking progress planner',
+      },
+      {
+        series: 'maplestory-worlds',
+        pathname: '/shop/en/GMS',
+        heading: 'Purchase budget planner',
+      },
+    ];
+
+    for (const item of cases) {
+      window.history.replaceState({}, '', `${item.pathname}?series=${item.series}`);
+      const view = render(
+        <NextApplication
+          language="en"
+          pathname={item.pathname}
+          requestPath={`${item.pathname}?series=${item.series}`}
+          server="gms"
+          translation={translation}
+        />,
+      );
+
+      expect(await screen.findByRole('heading', { name: item.heading }, { timeout: 10_000 })).toBeTruthy();
+      expect(screen.queryByRole('link', { name: 'View details on MPStorys' })).toBeNull();
+      view.unmount();
+    }
+  }, 30_000);
+
+  it('calculates series shop budgets directly on the module page', async () => {
+    window.history.replaceState({}, '', '/shop/en/GMS?series=maplestory-idle');
+    render(
+      <NextApplication
+        language="en"
+        pathname="/shop/en/GMS"
+        requestPath="/shop/en/GMS?series=maplestory-idle"
+        server="gms"
+        translation={translation}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'Purchase budget planner' }, { timeout: 10_000 })).toBeTruthy();
+    fireEvent.change(screen.getByLabelText('Total budget'), { target: { value: '100' } });
+    fireEvent.change(screen.getByLabelText('Planned spending'), { target: { value: '125' } });
+    expect(screen.getByText('Over budget by')).toBeTruthy();
+    expect(screen.getByText('25')).toBeTruthy();
+  }, 15_000);
 
   it('keeps newly indexed community resources inside MPStorys', async () => {
     window.history.replaceState({}, '', '/community/en/GMS?series=maplestory-classic');

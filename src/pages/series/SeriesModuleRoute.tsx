@@ -68,13 +68,19 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
   const { version } = useVersion();
   const [notificationOpen, setNotificationOpen] = useState(false);
   const resources = getVerifiedSeriesResources(product.id, module);
+  const readableResources = useMemo(
+    () => resources.filter((resource) => (
+      Boolean(resource.contentId) || hasResourceDetailExperience(resource)
+    )),
+    [resources],
+  );
   const [visibleCount, setVisibleCount] = useState(18);
   const [resourceQuery, setResourceQuery] = useState('');
   const seriesToolMenu = useSeriesToolMenu(product.id, undefined, module === 'tools');
   const filteredResources = useMemo(() => {
     const query = resourceQuery.trim().toLocaleLowerCase(i18n.language);
-    if (!query) return resources;
-    return resources.filter((resource) => (
+    if (!query) return readableResources;
+    return readableResources.filter((resource) => (
       [
         resource.title,
         resource.description,
@@ -85,7 +91,7 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
         .filter(Boolean)
         .some((value) => String(value).toLocaleLowerCase(i18n.language).includes(query))
     ));
-  }, [i18n.language, resourceQuery, resources]);
+  }, [i18n.language, readableResources, resourceQuery]);
   const visibleResources = useMemo(
     () => filteredResources.slice(0, visibleCount),
     [filteredResources, visibleCount],
@@ -110,7 +116,14 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
       localizeHref={localized}
     />
   ) : null;
-  const workspaceFirst = module === 'tools' || module === 'checklist' || module === 'community';
+  const workspaceFirst = (
+    module === 'tools'
+    || module === 'checklist'
+    || module === 'community'
+    || module === 'shop'
+    || module === 'rankings'
+    || readableResources.length === 0
+  );
 
   useEffect(() => {
     setVisibleCount(18);
@@ -182,10 +195,10 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
                     summary: t(product.descriptionKey),
                   })}
                 </p>
-                {resources.length > 0 && (
+                {readableResources.length > 0 && (
                   <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-background-50/20 bg-foreground-950/35 px-3 py-1.5 text-xs font-semibold text-background-50 backdrop-blur-sm">
                     <i className="ri-stack-line text-primary-200" aria-hidden="true" />
-                    {t('series_archive_total', { total: resources.length })}
+                    {t('series_archive_total', { total: readableResources.length })}
                   </div>
                 )}
               </div>
@@ -199,7 +212,7 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
         <section className="mx-auto max-w-7xl px-4 py-8 md:px-8 md:py-10">
           {communitySelector}
           {workspaceFirst && workspace}
-          {resources.length > 0 && (
+          {readableResources.length > 0 && (
             <div className={workspaceFirst ? 'mb-5 mt-10' : 'mb-5'}>
               <div className="flex flex-wrap items-end justify-between gap-2">
                 <div>
@@ -215,7 +228,7 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
                   })}
                 </p>
               </div>
-              {resources.length > 6 && (
+              {readableResources.length > 6 && (
                 <label className="relative mt-5 block max-w-xl">
                   <span className="sr-only">{t('series_archive_search')}</span>
                   <i
@@ -233,7 +246,7 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
               )}
             </div>
           )}
-          {resources.length > 0 ? (
+          {readableResources.length > 0 ? (
             <>
               {filteredResources.length > 0 ? (
                 <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -311,7 +324,7 @@ function ScopedModulePage({ product, module }: { product: SeriesProduct; module:
               </p>
             </div>
           ) : null}
-          {!workspaceFirst && <div className={resources.length > 0 ? 'mt-12' : ''}>{workspace}</div>}
+          {!workspaceFirst && <div className={readableResources.length > 0 ? 'mt-12' : ''}>{workspace}</div>}
         </section>
       </main>
 
@@ -337,7 +350,7 @@ export default function SeriesModuleRoute({ module, children }: Props) {
   if (
     !product
     || product.id === 'maplestory-pc'
-    || (isSharedSeriesModule(module) && !hasScopedResources)
+    || (isSharedSeriesModule(module) && module !== 'shop' && !hasScopedResources)
   ) return children;
   if (unavailable) return <ScopedModulePage product={product} module="news" />;
   return <ScopedModulePage product={product} module={module} />;

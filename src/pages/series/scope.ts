@@ -21,9 +21,13 @@ export const isSharedSeriesModule = (module?: SeriesModule): module is (typeof s
 );
 
 const seriesWithRankings = new Set(['maplestory-pc', 'maplestory-n', 'maplestory-idle']);
+const seriesWithShop = new Set(['maplestory-pc', 'maplestory-m', 'maplestory-worlds', 'maplestory-n', 'maplestory-idle']);
 
 export const isSeriesModuleAvailable = (seriesId?: string, module?: SeriesModule) => (
-  !module || module !== 'rankings' || !seriesId || seriesWithRankings.has(seriesId)
+  !module
+  || !seriesId
+  || (module !== 'rankings' && module !== 'shop')
+  || (module === 'rankings' ? seriesWithRankings.has(seriesId) : seriesWithShop.has(seriesId))
 );
 
 export const baseHrefBySeriesModule = Object.fromEntries(
