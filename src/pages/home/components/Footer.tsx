@@ -12,6 +12,7 @@ const PRODUCT_HUNT_URL = 'https://www.producthunt.com/products/mpstorys?embed=tr
 const PRODUCT_HUNT_BADGE_URL = 'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1197969&theme=light&t=1784682160254';
 const PRODUCT_HUNT_BADGE_ALT = 'MPStorys - MapleStory tools, MapleStory guides, MapleStory calculator | Product Hunt';
 const AIBESTTOP_URL = 'https://aibesttop.com';
+const WEBSITE_HUNT_URL = 'https://www.websitehunt.co';
 const OPENHUNTS_URL = 'https://openhunts.com';
 const OPENHUNTS_BADGE_URL = 'https://cdn.openhunts.com/badges/club.webp';
 const AIDIRS_URL = 'https://aidirs.best/item/mp-storys';
@@ -261,6 +262,15 @@ export default function Footer() {
             className="inline-flex h-6 shrink-0 items-center whitespace-nowrap rounded border border-accent-200/25 bg-background-50 px-2.5 text-[10px] font-medium text-foreground-950 transition-opacity hover:opacity-90"
           >
             {t('footer_listed_aibesttop')}
+          </a>
+          <a
+            href={WEBSITE_HUNT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MPStorys on WebsiteHunt"
+            className="inline-flex h-6 shrink-0 items-center whitespace-nowrap rounded border border-accent-200/25 bg-background-50 px-2.5 text-[10px] font-medium text-foreground-950 transition-opacity hover:opacity-90"
+          >
+            Listed on WebsiteHunt
           </a>
           <a
             href={OPENHUNTS_URL}
