@@ -14,7 +14,7 @@ export type RouteComponents = {
   AdminFeedbackPage: ComponentType;
   BossDetailPage: ComponentType;
   ChecklistPage: ComponentType;
-  CommunityLandingPage: ComponentType;
+  CommunityPage: ComponentType;
   EventsPage: ComponentType;
   FeedbackPage: ComponentType;
   GuideDetail: ComponentType;
@@ -47,7 +47,7 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     AdminFeedbackPage,
     BossDetailPage,
     ChecklistPage,
-    CommunityLandingPage,
+    CommunityPage,
     EventsPage,
     FeedbackPage,
     GuideDetail,
@@ -92,7 +92,7 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
     { path: '/events', element: <SeriesModuleRoute module="events"><EventsPage /></SeriesModuleRoute> },
     {
       path: '/community',
-      element: <SeriesModuleRoute module="community"><CommunityLandingPage /></SeriesModuleRoute>,
+      element: <SeriesModuleRoute module="community"><CommunityPage /></SeriesModuleRoute>,
     },
     { path: '/auth/login', element: <LoginPage /> },
     { path: '/account', element: <AccountPage /> },

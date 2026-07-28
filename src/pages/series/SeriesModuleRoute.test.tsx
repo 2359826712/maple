@@ -479,7 +479,7 @@ describe('series module routes', () => {
       .toBe('/series/maplestory-classic/community/r-msclassicworld-classic-world-subreddit');
   });
 
-  it('lets visitors choose a community and preview it instead of redirecting automatically', async () => {
+  it('restores the standalone community submissions page for the primary navigation', async () => {
     window.history.replaceState({}, '', '/community/en/GMS');
     await prefetchRouteForPath('/community/en/GMS');
     render(
@@ -494,34 +494,10 @@ describe('series module routes', () => {
 
     expect(await screen.findByRole('heading', {
       level: 1,
-      name: 'Choose your MapleStory community',
+      name: 'Community Submissions',
     }, { timeout: 10_000 })).toBeTruthy();
-    expect(screen.getAllByRole('tab')).toHaveLength(5);
-    fireEvent.click(screen.getByRole('tab', { name: /r\/MapleStory/ }));
-
-    const preview = screen.getByRole('tabpanel');
-    expect(within(preview).getByRole('heading', { name: 'r/MapleStory' })).toBeTruthy();
-    expect(within(preview).getByText('Player-run community')).toBeTruthy();
-    expect(within(preview).getByText('New player questions')).toBeTruthy();
-    expect(within(preview).getByText(/pinned New Players & General Questions thread/)).toBeTruthy();
-    expect(within(preview).getByText('Verified content snapshot')).toBeTruthy();
-    expect(within(preview).getByText('[Megathread] New Players & General Questions Thread')).toBeTruthy();
-    expect(within(preview).getByText('Verified external destination')).toBeTruthy();
-    expect(within(preview).getByText(/Exact link checked on 2026-07-25/)).toBeTruthy();
-    expect(within(preview).getByRole('link', { name: /Visit selected community/ }).getAttribute('href'))
-      .toBe('https://www.reddit.com/r/Maplestory/');
-
-    const verifiedDestinations = [
-      ['MapleStory Forums', 'https://forums.maplestory.nexon.net/categories'],
-      ['MapleStory on X', 'https://x.com/MapleStory'],
-      ['MapleStory YouTube', 'https://www.youtube.com/@MapleStory'],
-      ['Official MapleStory Discord', 'https://discord.com/invite/maplestory'],
-    ];
-    for (const [name, href] of verifiedDestinations) {
-      fireEvent.click(screen.getByRole('tab', { name: new RegExp(name) }));
-      expect(within(preview).getByRole('link', { name: /Visit selected community/ }).getAttribute('href'))
-        .toBe(href);
-    }
+    expect(screen.getByText('Review player-submitted guide asset proposals and use likes to surface useful changes.')).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'Submit proposal' })).toBeTruthy();
     expect(window.location.pathname).toBe('/community/en/GMS');
   });
 });
