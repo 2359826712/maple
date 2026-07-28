@@ -150,7 +150,28 @@ describe('Navbar mobile site search', () => {
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('aria-current')).toBeNull();
+    expect(scopedNavigation.getByRole('link', { name: 'boss_index_title' }).getAttribute('aria-current')).toBe('page');
+  });
+
+  it('navigates from maps to checklist and highlights only the current utility page', () => {
+    renderNavbar('/maps/en/GMS');
+
+    const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
+    expect(desktopNavigation).toBeTruthy();
+    const scopedNavigation = within(desktopNavigation as HTMLElement);
+    const mapsLink = scopedNavigation.getByRole('link', { name: 'nav_maps' });
+    const checklistLink = scopedNavigation.getByRole('link', { name: 'nav_checklist' });
+
+    expect(mapsLink.getAttribute('aria-current')).toBe('page');
+    expect(checklistLink.getAttribute('aria-current')).toBeNull();
+    expect(scopedNavigation.getByRole('button', { name: 'nav_tools' }).getAttribute('aria-current')).toBeNull();
+
+    fireEvent.click(checklistLink);
+
+    expect(screen.getByLabelText('Current path').textContent).toBe('/checklist');
+    expect(checklistLink.getAttribute('aria-current')).toBe('page');
+    expect(mapsLink.getAttribute('aria-current')).toBeNull();
   });
 
   it('keeps rankings selected when the destination series supports them', () => {
@@ -175,6 +196,7 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.getByRole('link', { name: 'nav_events' }).getAttribute('href')).toBe('/events');
     expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/guides');
     expect(scopedNavigation.getByRole('button', { name: 'nav_tools' })).toBeTruthy();
+    expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings');
     for (const key of ['nav_checklist', 'nav_maps', 'boss_index_title', 'nav_community', 'nav_shop', 'nav_feedback']) {
       expect(scopedNavigation.getByRole('link', { name: key })).toBeTruthy();
     }

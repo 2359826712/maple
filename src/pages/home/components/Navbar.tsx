@@ -26,6 +26,7 @@ const navLinkKeys = [
   { key: 'nav_events', href: '/events' },
   { key: 'nav_knowledge', href: '/guides' },
   { key: 'nav_tools', href: '/tools' },
+  { key: 'nav_rankings', href: '/rankings' },
 ];
 
 const utilityLinks = [
@@ -344,7 +345,11 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
     navigate(localizeHref(href, i18n.language, versionInfo.id));
   };
 
-  const getNavHref = (href: string) => scopeModuleHref(activeSeries?.id, href);
+  const getNavHref = (href: string) => (
+    href === '/rankings' && activeSeries?.id === 'maplestory-pc'
+      ? href
+      : scopeModuleHref(activeSeries?.id, href)
+  );
   const visibleNavLinkKeys = navLinkKeys.filter((link) => (
     isSeriesModuleAvailable(activeSeries?.id, getSeriesRouteState(link.href).module)
   ));
@@ -526,6 +531,10 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const isNavActive = (href: string) => {
     if (href.startsWith('http')) return false;
     if (href === '/series') return routePathname === '/series' || routePathname.startsWith('/series/');
+    const activeUtilityLink = utilityLinks.find((link) => (
+      routePathname === link.href || routePathname.startsWith(`${link.href}/`)
+    ));
+    if (activeUtilityLink) return href === activeUtilityLink.href;
     const navModule = getSeriesRouteState(href).module;
     if (navModule === 'guides') {
       return seriesRoute.module === 'guides' || seriesRoute.module === 'wiki';
