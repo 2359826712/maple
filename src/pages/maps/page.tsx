@@ -7,6 +7,7 @@ import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
 import { useVersion } from '@/hooks/VersionContext';
 import { bosses } from '@/mocks/bosses';
 import { isAvailableInVersion, millisecondsUntilReset } from '@/domain/regionModel';
+import MapExplorer from '@/pages/mapler-house/components/MapExplorer';
 
 type TrainingSpot = {
   level: string;
@@ -79,6 +80,8 @@ export default function MapsPage() {
 
       <main id="main-content" tabIndex={-1} className="pt-16 md:pt-20">
         <div className="mx-auto max-w-5xl px-4 py-8 md:px-8 md:py-12">
+          <MapExplorer />
+
           {/* Header */}
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-3">
