@@ -52,7 +52,7 @@ const AccountPage = lazyWithPreload(() => import("../pages/account/page"));
 const SearchPage = lazyWithPreload(() => import("../pages/search/page"));
 const OfficialSourcePage = lazyWithPreload(() => import("../pages/source/page"));
 const ChecklistPage = lazyWithPreload(() => import("../pages/checklist/page"));
-const CommunityPage = lazyWithPreload(() => import("../pages/community/page"));
+const CommunityLandingPage = lazyWithPreload(() => import("../pages/community/CommunityLandingPage"));
 const LevelGuidePage = lazyWithPreload(() => import("../pages/guides/level/page"));
 const ToolsPage = lazyWithPreload(() => import("../pages/tools/page"));
 const ShopPage = lazyWithPreload(() => import("../pages/shop/page"));
@@ -83,7 +83,7 @@ const routePrefetchers: Array<[string, { preload: () => Promise<unknown> }]> = [
   ["/source", OfficialSourcePage],
   ["/guides", preloadSeriesModuleRoute(GuidesPage)],
   ["/events", preloadSeriesModuleRoute(EventsPage)],
-  ["/community", preloadSeriesModuleRoute(CommunityPage)],
+  ["/community", preloadSeriesModuleRoute(CommunityLandingPage)],
   ["/auth/login", LoginPage],
   ["/account", AccountPage],
   ["/maps", MapsPage],
@@ -116,7 +116,7 @@ export default createRoutes({
   AdminFeedbackPage,
   BossDetailPage,
   ChecklistPage,
-  CommunityPage,
+  CommunityLandingPage,
   EventsPage,
   FeedbackPage,
   GuideDetail,
