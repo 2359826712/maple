@@ -25,8 +25,16 @@ export const serverPathSegments: Record<GameVersion, string> = {
   msea: 'MSEA',
 };
 
+export const serverPathAliases: Partial<Record<string, GameVersion>> = {
+  glb: 'gms',
+  global: 'gms',
+};
+
 const pathSegmentServers = Object.fromEntries(
-  supportedServers.map((server) => [serverPathSegments[server].toLowerCase(), server]),
+  [
+    ...supportedServers.map((server) => [serverPathSegments[server].toLowerCase(), server] as const),
+    ...Object.entries(serverPathAliases),
+  ],
 ) as Record<string, GameVersion>;
 
 export const normalizeLanguage = (language?: string | null): SupportedLanguage => {

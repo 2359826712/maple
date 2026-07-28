@@ -28,6 +28,7 @@ describe('language routing', () => {
     ['/news/zh/KMS', 'kms'],
     ['/guides/level/ja/JMS', 'jms'],
     ['/wiki/ko/MSEA', 'msea'],
+    ['/series/maplestory-classic/events/en/GLB', 'gms'],
   ] as const)('reads the static server suffix from %s', (pathname, server) => {
     expect(getPathServer(pathname)).toBe(server);
   });
@@ -43,6 +44,7 @@ describe('language routing', () => {
     expect(stripLanguageSuffix('/news/ja')).toBe('/news');
     expect(stripLanguageSuffix('/news/ja/JMS')).toBe('/news/JMS');
     expect(stripRouteSuffixes('/news/ja/JMS')).toBe('/news');
+    expect(stripRouteSuffixes('/series/maplestory-classic/events/en/GLB')).toBe('/series/maplestory-classic/events');
   });
 
   it('uses a language-only URL for the home page', () => {

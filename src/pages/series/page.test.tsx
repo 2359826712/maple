@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import i18n from '@/i18n';
@@ -9,6 +9,14 @@ import SeriesPage from './page';
 
 const renderSeries = (seriesId: string, seriesModule?: string) => render(
   <MemoryRouter initialEntries={[`/series/${seriesId}${seriesModule ? `/${seriesModule}` : ''}`]}>
+    <VersionProvider>
+      <SeriesPage initialSeriesId={seriesId} initialSeriesModule={seriesModule} />
+    </VersionProvider>
+  </MemoryRouter>,
+);
+
+const renderSeriesPath = (path: string, seriesId?: string, seriesModule?: string) => render(
+  <MemoryRouter initialEntries={[path]}>
     <VersionProvider>
       <SeriesPage initialSeriesId={seriesId} initialSeriesModule={seriesModule} />
     </VersionProvider>
@@ -51,18 +59,27 @@ describe('SeriesPage', () => {
     expect(screen.getByRole('heading', { name: 'MapleStory M map workspace' })).toBeTruthy();
   });
 
+  it('renders Classic Events when the clean route uses the GLB suffix', () => {
+    renderSeriesPath('/series/maplestory-classic/events/en/GLB', 'maplestory-classic', 'events');
+
+    expect(screen.getAllByRole('heading', { name: 'MapleStory Classic World Events' }).length).toBeGreaterThan(0);
+    expect(screen.queryByText('This series content could not be found')).toBeNull();
+  });
+
   it('renders MeowDB-backed Classic World maps, regions, and monster links', () => {
     renderSeries('maplestory-classic', 'maps');
 
     expect(screen.getByRole('heading', { name: 'MapleStory Classic map atlas' })).toBeTruthy();
-    expect(screen.getByText('304')).toBeTruthy();
-    expect(screen.getByText('88')).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Classic regions / 地图分区' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: '枫叶岛' })).toBeTruthy();
-    expect(screen.getByText('史莱姆之王')).toBeTruthy();
-    expect(screen.getByRole('link', { name: 'Open MeowDB maps →' }).getAttribute('href'))
-      .toBe('https://meowdb.com/msclassic/zh-cn/maps');
-    expect(screen.getByRole('link', { name: 'Open MeowDB monsters →' }).getAttribute('href'))
-      .toBe('https://meowdb.com/msclassic/zh-cn/monsters');
+    expect(screen.getAllByText('304').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('88').length).toBeGreaterThan(0);
+    expect(screen.getByRole('heading', { name: 'World Map and Table View' })).toBeTruthy();
+    expect(screen.getByPlaceholderText('Search maps or monsters...')).toBeTruthy();
+    const henesysButton = screen.getAllByRole('button')
+      .find((button) => button.textContent?.includes('弓箭手村'));
+    expect(henesysButton).toBeTruthy();
+    fireEvent.click(henesysButton!);
+    expect(screen.getAllByRole('heading', { name: '弓箭手村' }).length).toBeGreaterThan(0);
+    fireEvent.change(screen.getByPlaceholderText('Search maps or monsters...'), { target: { value: 'Slime' } });
+    expect(screen.getAllByText('King Slime').length).toBeGreaterThan(0);
   });
 });

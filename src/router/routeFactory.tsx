@@ -4,6 +4,7 @@ import InternalRedirect from '@/components/feature/InternalRedirect';
 import type { SeriesModule } from '@/pages/series/scope';
 import {
   languagePathSegments,
+  serverPathAliases,
   serverPathSegments,
   supportedLanguages,
   supportedServers,
@@ -131,8 +132,11 @@ export function createRoutes(components: RouteComponents): RouteObject[] {
 
   const localizedServerRoutes: RouteObject[] = supportedLanguages.flatMap((language) => {
     const languageSegment = languagePathSegments[language];
-    return supportedServers.flatMap((server) => {
-      const serverSegment = serverPathSegments[server];
+    const serverRouteSegments = [
+      ...supportedServers.map((server) => serverPathSegments[server]),
+      ...Object.keys(serverPathAliases).map((alias) => alias.toUpperCase()),
+    ];
+    return serverRouteSegments.flatMap((serverSegment) => {
       return [
         ...localizableRoutes.map((route) => ({
           ...route,
