@@ -50,4 +50,19 @@ describe('SeriesPage', () => {
     expect(screen.getByRole('heading', { name: 'MapleStory M Maps' })).toBeTruthy();
     expect(screen.getByRole('heading', { name: 'MapleStory M map workspace' })).toBeTruthy();
   });
+
+  it('renders MeowDB-backed Classic World maps, regions, and monster links', () => {
+    renderSeries('maplestory-classic', 'maps');
+
+    expect(screen.getByRole('heading', { name: 'MapleStory Classic map atlas' })).toBeTruthy();
+    expect(screen.getByText('304')).toBeTruthy();
+    expect(screen.getByText('88')).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Classic regions / 地图分区' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: '枫叶岛' })).toBeTruthy();
+    expect(screen.getByText('史莱姆之王')).toBeTruthy();
+    expect(screen.getByRole('link', { name: 'Open MeowDB maps →' }).getAttribute('href'))
+      .toBe('https://meowdb.com/msclassic/zh-cn/maps');
+    expect(screen.getByRole('link', { name: 'Open MeowDB monsters →' }).getAttribute('href'))
+      .toBe('https://meowdb.com/msclassic/zh-cn/monsters');
+  });
 });
