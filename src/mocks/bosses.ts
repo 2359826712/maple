@@ -1383,5 +1383,5 @@ export const bosses: BossInfo[] = bossDefinitions.map((boss) => ({
   dataSource:
     "Planning only · detailed rewards and mechanics withheld pending verification",
   sourceUrl: officialBossGuideUrl,
-  regions: ["gms"],
+  regions: ["all"],
 }));

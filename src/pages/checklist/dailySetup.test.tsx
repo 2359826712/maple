@@ -26,6 +26,7 @@ describe('DAILY-01 first-run setup', () => {
   afterEach(() => cleanup());
   beforeEach(async () => {
     localStorage.clear();
+    window.history.replaceState({}, '', '/');
     await i18n.changeLanguage('en');
   });
 
@@ -68,6 +69,26 @@ describe('DAILY-01 first-run setup', () => {
     expect(eligibleAt250.some((boss) => boss.id === 'zakum')).toBe(true);
     expect(eligibleAt250.some((boss) => boss.id === 'kalos')).toBe(false);
     expect(eligibleTasksForLevel(bosses, 260).some((boss) => boss.id === 'kalos')).toBe(true);
+  });
+
+  it('shows eligible boss tasks for a saved Lv.300 JMS character', async () => {
+    localStorage.setItem('maplehub-game-version', 'jms');
+    localStorage.setItem('maplehub-characters:v2', JSON.stringify([{
+      id: 'local-jms',
+      name: 'JmsHero',
+      className: '',
+      level: 300,
+      server: 'JMS',
+      world: '',
+      isDefault: true,
+    }]));
+    renderChecklist();
+
+    await waitFor(() => {
+      expect(screen.queryByRole('heading', { name: 'No bosses are available at Lv.300 yet' })).toBeNull();
+      expect(screen.getAllByText('Zakum').length).toBeGreaterThan(0);
+    });
+    expect(screen.getByText('Daily Boss Checklist')).toBeTruthy();
   });
 
   it('explains why setup cannot be submitted when the name is blank', async () => {
