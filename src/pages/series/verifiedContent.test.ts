@@ -118,7 +118,7 @@ describe('verified series content', () => {
   });
 
   it('keeps the core editorial modules populated and addressable on this site', () => {
-    const coreModules = ['news', 'upcoming', 'guides', 'events', 'wiki'] as const;
+    const coreModules = ['news', 'upcoming', 'guides', 'events', 'maps', 'wiki'] as const;
     seriesProducts.forEach((product) => {
       coreModules.forEach((module) => {
         const resources = verifiedSeriesContent[product.id]?.[module] || [];
@@ -170,6 +170,7 @@ describe('verified series content', () => {
       'events',
       'tools',
       'checklist',
+      'maps',
       'wiki',
       'rankings',
       'shop',

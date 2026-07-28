@@ -28,6 +28,7 @@ import {
 } from './verifiedContent';
 import { getSeriesVersionShortLabel } from './versionConfig';
 import SeriesToolsWorkspace from './SeriesToolsWorkspace';
+import SeriesMapsWorkspace from './SeriesMapsWorkspace';
 import ClassicModuleWorkspace from './ClassicModuleWorkspace';
 import SeriesContentWorkspace from './SeriesContentWorkspace';
 import CommunitySelector from '@/pages/community/CommunitySelector';
@@ -47,6 +48,7 @@ const moduleLabels: Record<SeriesModule, string> = {
   events: 'nav_events',
   tools: 'nav_tools',
   checklist: 'nav_checklist',
+  maps: 'nav_maps',
   wiki: 'nav_wiki',
   rankings: 'nav_rankings',
   shop: 'nav_shop',
@@ -61,6 +63,7 @@ const moduleIcons: Record<SeriesModule, string> = {
   events: 'ri-calendar-event-line',
   tools: 'ri-tools-line',
   checklist: 'ri-checkbox-circle-line',
+  maps: 'ri-map-2-line',
   wiki: 'ri-book-2-line',
   rankings: 'ri-bar-chart-box-line',
   shop: 'ri-shopping-bag-3-line',
@@ -134,6 +137,7 @@ export function ScopedModulePage({ product, module }: { product: SeriesProduct; 
     <>
       {module === 'tools' && <SeriesToolsWorkspace product={product} />}
       {module === 'checklist' && <SeriesToolsWorkspace product={product} />}
+      {module === 'maps' && <SeriesMapsWorkspace product={product} />}
       {product.id === 'maplestory-classic' && !useDynamicContentArchive && (
         <ClassicModuleWorkspace module={module} />
       )}
@@ -157,6 +161,8 @@ export function ScopedModulePage({ product, module }: { product: SeriesProduct; 
     ['guides', 'nav_guides', 'ri-book-open-line'],
     ['wiki', 'nav_wiki', 'ri-book-2-line'],
     ['tools', 'nav_tools', 'ri-tools-line'],
+    ['checklist', 'nav_checklist', 'ri-checkbox-circle-line'],
+    ['maps', 'nav_maps', 'ri-map-2-line'],
     ['upcoming', 'nav_upcoming', 'ri-calendar-schedule-line'],
   ] as const).filter(([destination]) => isSeriesModuleAvailable(product.id, destination));
 

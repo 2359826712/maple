@@ -124,9 +124,8 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('aria-current')).toBe('page');
     expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/series/maplestory-m/guides');
     expect(scopedNavigation.getByRole('link', { name: 'nav_tools' })).toBeTruthy();
-    expect(scopedNavigation.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_maps' }).getAttribute('href')).toBe('/maps');
-    expect(scopedNavigation.getByRole('link', { name: 'boss_index_title' }).getAttribute('href')).toBe('/wiki/boss');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/series/maplestory-m/checklist');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_maps' }).getAttribute('href')).toBe('/series/maplestory-m/maps');
     expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community');
     expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop');
     expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback');
@@ -150,8 +149,8 @@ describe('Navbar mobile site search', () => {
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('aria-current')).toBeNull();
-    expect(scopedNavigation.getByRole('link', { name: 'boss_index_title' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('aria-current')).toBe('page');
+    expect(scopedNavigation.queryByRole('link', { name: 'boss_index_title' })).toBeNull();
   });
 
   it('navigates from maps to checklist and highlights only the current utility page', () => {
@@ -172,6 +171,20 @@ describe('Navbar mobile site search', () => {
     expect(screen.getByLabelText('Current path').textContent).toBe('/checklist');
     expect(checklistLink.getAttribute('aria-current')).toBe('page');
     expect(mapsLink.getAttribute('aria-current')).toBeNull();
+  });
+
+  it('keeps checklist and maps scoped on clean series module routes', () => {
+    renderNavbar('/series/maplestory-m/maps/en/GMS');
+
+    const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
+    expect(desktopNavigation).toBeTruthy();
+    const scopedNavigation = within(desktopNavigation as HTMLElement);
+    const mapsLink = scopedNavigation.getByRole('link', { name: 'nav_maps' });
+    const checklistLink = scopedNavigation.getByRole('link', { name: 'nav_checklist' });
+
+    expect(mapsLink.getAttribute('href')).toBe('/series/maplestory-m/maps');
+    expect(mapsLink.getAttribute('aria-current')).toBe('page');
+    expect(checklistLink.getAttribute('href')).toBe('/series/maplestory-m/checklist');
   });
 
   it('keeps rankings selected when the destination series supports them', () => {
@@ -197,9 +210,10 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/guides');
     expect(scopedNavigation.getByRole('button', { name: 'nav_tools' })).toBeTruthy();
     expect(scopedNavigation.getByRole('link', { name: 'nav_rankings' }).getAttribute('href')).toBe('/rankings');
-    for (const key of ['nav_checklist', 'nav_maps', 'boss_index_title', 'nav_community', 'nav_shop', 'nav_feedback']) {
+    for (const key of ['nav_checklist', 'nav_maps', 'nav_community', 'nav_shop', 'nav_feedback']) {
       expect(scopedNavigation.getByRole('link', { name: key })).toBeTruthy();
     }
+    expect(scopedNavigation.queryByRole('link', { name: 'boss_index_title' })).toBeNull();
   });
 
   it('offers Korean and persists it as the active language', () => {

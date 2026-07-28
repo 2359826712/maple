@@ -664,7 +664,7 @@ export function getSitemapEntries() {
     ),
   );
   const seriesModuleEntries = seriesIds.flatMap((seriesId) =>
-    (['news', 'events', 'guides', 'wiki', 'tools', 'upcoming'] as const)
+    (['news', 'events', 'guides', 'wiki', 'tools', 'checklist', 'maps', 'upcoming'] as const)
       .filter((module) => isSeriesModuleAvailable(seriesId, module))
       .flatMap((module) =>
         supportedLanguages.flatMap((language) =>

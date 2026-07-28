@@ -66,6 +66,17 @@ describe('realtime text cache import boundary', () => {
     expect(atob(descriptor.body)).toContain('regionData');
   });
 
+  it('shares concurrent JSON loads for the same cache key', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ maps: [1, 2, 3] }) });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const first = cachedJsonFetch('https://example.com/maps', { cacheKey: 'concurrent-map-data' });
+    const second = cachedJsonFetch('https://example.com/maps', { cacheKey: 'concurrent-map-data' });
+
+    await expect(Promise.all([first, second])).resolves.toEqual([{ maps: [1, 2, 3] }, { maps: [1, 2, 3] }]);
+    expect(fetchMock).toHaveBeenCalledOnce();
+  });
+
   it('routes the WordPress KMS fallback through the static-content proxy', async () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ posts: [] }) });
     vi.stubGlobal('fetch', fetchMock);

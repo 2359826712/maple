@@ -7,6 +7,7 @@ export const seriesModuleByBaseHref = {
   '/mapler-house': 'tools',
   '/tools': 'tools',
   '/checklist': 'checklist',
+  '/maps': 'maps',
   '/wiki': 'wiki',
   '/rankings': 'rankings',
   '/shop': 'shop',
@@ -23,6 +24,7 @@ const seriesModulePathSegments: Record<SeriesModule, string> = {
   events: 'events',
   tools: 'tools',
   checklist: 'checklist',
+  maps: 'maps',
   wiki: 'wiki',
   rankings: 'rankings',
   shop: 'shop',
@@ -72,8 +74,6 @@ export const getSeriesIdFromSearch = (search = '') => {
 const getSeriesModuleFromPathname = (pathname: string): SeriesModule | undefined => {
   const contentMatch = pathname.match(/^\/content\/([^/]+)(?:\/|$)/);
   if (contentMatch && isSeriesModule(contentMatch[1])) return contentMatch[1];
-
-  if (pathname === '/maps' || pathname.startsWith('/maps/')) return 'tools';
 
   const matchingEntry = Object.entries(seriesModuleByBaseHref).find(([baseHref]) => (
     pathname === baseHref || pathname.startsWith(`${baseHref}/`)

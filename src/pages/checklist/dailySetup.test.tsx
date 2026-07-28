@@ -70,6 +70,15 @@ describe('DAILY-01 first-run setup', () => {
     expect(eligibleTasksForLevel(bosses, 260).some((boss) => boss.id === 'kalos')).toBe(true);
   });
 
+  it('explains why setup cannot be submitted when the name is blank', async () => {
+    renderChecklist();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Create my checklist' }));
+
+    expect(screen.getByRole('alert').textContent).toBe('Enter a character name.');
+    expect(screen.getByRole('heading', { name: 'Set up your daily checklist' })).toBeTruthy();
+  });
+
   it('reveals all tasks in edit mode and persists a difficulty selection across reload', async () => {
     localStorage.setItem('maplehub-characters:v2', JSON.stringify([{
       id: 'local-1',
@@ -357,6 +366,8 @@ describe('DAILY-07 post-setup empty states', () => {
     renderChecklist();
 
     expect(screen.getByRole('heading', { name: 'No bosses are available at Lv.1 yet' })).toBeTruthy();
+    expect(screen.getByText('Next unlock: Zakum at Lv.50')).toBeTruthy();
+    expect(screen.getByText('Daily and weekly reset timers are shown in the cards above.')).toBeTruthy();
     expect(screen.queryByText('0/0')).toBeNull();
     expect(screen.queryByText('No tasks')).toBeNull();
     const emptyRegion = screen.getByRole('region', { name: 'No bosses are available at Lv.1 yet' });

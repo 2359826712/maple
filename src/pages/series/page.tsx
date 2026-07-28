@@ -16,6 +16,8 @@ import {
 import { getSeriesSnapshot } from '@/domain/siteSnapshot';
 import { ScopedModulePage } from './SeriesModuleRoute';
 import MaplerHousePage from '@/pages/mapler-house/page';
+import MapsPage from '@/pages/maps/page';
+import ChecklistPage from '@/pages/checklist/page';
 
 type SeriesFilter = 'all' | SeriesCategory;
 
@@ -63,6 +65,18 @@ const hubModules: Array<{
     icon: 'ri-tools-line',
   },
   {
+    module: 'checklist',
+    labelKey: 'nav_checklist',
+    description: 'Open the planning checklist that belongs to this series instead of the main MapleStory boss tracker.',
+    icon: 'ri-checkbox-circle-line',
+  },
+  {
+    module: 'maps',
+    labelKey: 'nav_maps',
+    description: 'Browse map, route, and world references scoped to the selected MapleStory series.',
+    icon: 'ri-map-2-line',
+  },
+  {
     module: 'upcoming',
     labelKey: 'nav_upcoming',
     description: 'Review announced changes, roadmaps, patch previews, and maintenance information before release.',
@@ -98,6 +112,12 @@ export default function SeriesPage({
       const availableModule = isSeriesModuleAvailable(selectedProduct.id, module) ? module : 'news';
       if (selectedProduct.id === 'maplestory-pc' && availableModule === 'tools') {
         return <MaplerHousePage />;
+      }
+      if (selectedProduct.id === 'maplestory-pc' && availableModule === 'checklist') {
+        return <ChecklistPage />;
+      }
+      if (selectedProduct.id === 'maplestory-pc' && availableModule === 'maps') {
+        return <MapsPage />;
       }
       return <ScopedModulePage product={selectedProduct} module={availableModule} />;
     }

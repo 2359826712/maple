@@ -78,6 +78,7 @@ const MAP_API_VERSION = '253';
 const MAPLESTORY_IO_API_BASE = 'https://maplestory.io/api';
 const MAPLEMAPS_ASSET_BASE = 'https://d3uzjcc4cyf4cj.cloudfront.net';
 const MAP_IMAGE_SOURCE = 'Maplemaps map render';
+const MAP_TABLE_PAGE_SIZE = 40;
 
 const MAPLEMAPS_HOME_REGION_IMAGES = {
   maple: '/static/images/vendor/d3uzjcc4cyf4cj.cloudfront.net/maple_world_select-8888b64182.webp',
@@ -635,17 +636,25 @@ export default function MapExplorer() {
   const [showFrenzy, setShowFrenzy] = useState(false);
   const [personalRates, setPersonalRates] = useState(true);
   const [sortKey, setSortKey] = useState<SortKey>('level');
-  const [selectedMapName, setSelectedMapName] = useState<string | null>(null);
+  const [selectedMapId, setSelectedMapId] = useState<number | null>(null);
   const [selectedMapIdOverride, setSelectedMapIdOverride] = useState<number | null>(null);
   const [expandedMaps, setExpandedMaps] = useState<MapLocation[]>([]);
-  const [isLoadingExpandedMaps, setIsLoadingExpandedMaps] = useState(true);
+  const [isLoadingExpandedMaps, setIsLoadingExpandedMaps] = useState(false);
   const [mapLoadError, setMapLoadError] = useState<string | null>(null);
   const [liveMonsterCache, setLiveMonsterCache] = useState<Record<number, MonsterVisual[]>>({});
   const [isLoadingMonsterData, setIsLoadingMonsterData] = useState(false);
   const [monsterDataError, setMonsterDataError] = useState<string | null>(null);
+  const [tablePage, setTablePage] = useState(0);
 
   useEffect(() => {
     let isActive = true;
+
+    // The world-map landing view only needs the small local index. Loading the
+    // complete MapleStory.io map list here makes every visit parse and cache a
+    // ~2 MB payload before the user has asked for the table.
+    if (navigatorNode !== 'table') return () => {
+      isActive = false;
+    };
 
     const loadExpandedMaps = async () => {
       setIsLoadingExpandedMaps(true);
@@ -686,7 +695,7 @@ export default function MapExplorer() {
     return () => {
       isActive = false;
     };
-  }, [i18n.language]);
+  }, [i18n.language, navigatorNode]);
 
   useEffect(() => {
     setLiveMonsterCache({});
@@ -730,8 +739,27 @@ export default function MapExplorer() {
       });
   }, [level, personalRates, query, regionRows, selectedZone, showFrenzy, sortKey]);
 
+  const tablePageCount = Math.max(1, Math.ceil(filteredRows.length / MAP_TABLE_PAGE_SIZE));
+  const tableRows = useMemo(
+    () => filteredRows.slice(tablePage * MAP_TABLE_PAGE_SIZE, (tablePage + 1) * MAP_TABLE_PAGE_SIZE),
+    [filteredRows, tablePage],
+  );
+
+  useEffect(() => {
+    setTablePage((current) => Math.min(current, tablePageCount - 1));
+  }, [tablePageCount]);
+
+  useEffect(() => {
+    if (navigatorNode !== 'table' || selectedMapId == null) return;
+    const selectedIndex = filteredRows.findIndex((row) => row.mapId === selectedMapId);
+    if (selectedIndex < 0) return;
+    setTablePage(Math.floor(selectedIndex / MAP_TABLE_PAGE_SIZE));
+  }, [filteredRows, navigatorNode, selectedMapId]);
+
   const selectedMap = useMemo(() => {
-    const explicitMap = filteredRows.find((row) => row.name === selectedMapName);
+    const explicitMap = selectedMapId == null
+      ? undefined
+      : filteredRows.find((row) => row.mapId === selectedMapId);
     if (explicitMap) return explicitMap;
     if (selectedMapIdOverride) {
       const existingMap = rows.find((row) => row.mapId === selectedMapIdOverride);
@@ -739,7 +767,7 @@ export default function MapExplorer() {
       return maplemapsMetaToRow(selectedMapIdOverride, maplemapsMapsData[String(selectedMapIdOverride)]);
     }
     return navigatorNode === 'table' ? filteredRows[0] : null;
-  }, [filteredRows, maplemapsMapsData, navigatorNode, rows, selectedMapIdOverride, selectedMapName]);
+  }, [filteredRows, maplemapsMapsData, navigatorNode, rows, selectedMapId, selectedMapIdOverride]);
 
   const currentWorldMap = navigatorNode !== 'table' && navigatorNode !== 'root' ? worldMapStack[worldMapStack.length - 1]?.worldMap : null;
   const currentWorldMapMapIds = useMemo(
@@ -757,15 +785,15 @@ export default function MapExplorer() {
     if (navigatorNode === 'table') return;
     if (navigatorNode === 'root') return;
     if (!currentWorldMapMapIds.length) return;
-    if (!selectedMapName) return;
+    if (selectedMapId == null) return;
     if (selectedMapIdOverride) return;
 
     const selectedId = selectedMap?.mapId;
     if (selectedId && currentWorldMapMapIds.includes(selectedId)) return;
 
-    setSelectedMapName(null);
+    setSelectedMapId(null);
     setSelectedMapIdOverride(null);
-  }, [currentWorldMapMapIds, navigatorNode, selectedMap, selectedMapIdOverride, selectedMapName]);
+  }, [currentWorldMapMapIds, navigatorNode, selectedMap, selectedMapId, selectedMapIdOverride]);
 
   useEffect(() => {
     let isActive = true;
@@ -857,25 +885,27 @@ export default function MapExplorer() {
 
   const selectRelativeMap = (direction: -1 | 1) => {
     if (filteredRows.length === 0) return;
-    const currentIndex = filteredRows.findIndex((row) => row.name === selectedMapName);
+    const currentIndex = selectedMapId == null
+      ? -1
+      : filteredRows.findIndex((row) => row.mapId === selectedMapId);
     const baseIndex = currentIndex >= 0 ? currentIndex : 0;
     const nextIndex = (baseIndex + direction + filteredRows.length) % filteredRows.length;
     setSelectedMapIdOverride(null);
-    setSelectedMapName(filteredRows[nextIndex].name);
+    setSelectedMapId(filteredRows[nextIndex].mapId);
   };
 
   const selectMapById = (mapId: number) => {
     const row = rows.find((candidate) => candidate.mapId === mapId);
     if (row) {
       setSelectedMapIdOverride(null);
-      setSelectedMapName(row.name);
+      setSelectedMapId(row.mapId);
       return;
     }
 
     const meta = maplemapsMapsData[String(mapId)];
     const fallbackRow = maplemapsMetaToRow(mapId, meta);
+    setSelectedMapId(mapId);
     setSelectedMapIdOverride(mapId);
-    setSelectedMapName(fallbackRow.name);
   };
 
   const mapPins = useMemo<MapPin[]>(
@@ -922,7 +952,7 @@ export default function MapExplorer() {
   const enterRegion = (region: MajorRegion) => {
     setSelectedRegion(region);
     setSelectedZone('all');
-    setSelectedMapName(null);
+    setSelectedMapId(null);
     setSelectedMapIdOverride(null);
     if (region === 'maple') setWorldMapStack([{ worldMap: 'WorldMap', parentWorld: '' }]);
     if (region === 'arcane') setWorldMapStack([{ worldMap: 'WorldMap082', parentWorld: '' }]);
@@ -931,12 +961,12 @@ export default function MapExplorer() {
   };
 
   const backToRoot = () => {
-    setSelectedMapName(null);
+    setSelectedMapId(null);
     setSelectedMapIdOverride(null);
     setNavigatorNode('root');
   };
 
-  const isWorldMapDetail = navigatorNode !== 'table' && navigatorNode !== 'root' && Boolean(selectedMapName && selectedMap);
+  const isWorldMapDetail = navigatorNode !== 'table' && navigatorNode !== 'root' && Boolean(selectedMapId != null && selectedMap);
 
   return (
     <div className="space-y-4">
@@ -1073,20 +1103,34 @@ export default function MapExplorer() {
                       {filteredRows.length === 1 ? t('mh_map_count_one', { count: filteredRows.length }) : t('mh_map_count_other', { count: filteredRows.length })}
                     </span>
                   </div>
+                  {isLoadingExpandedMaps && (
+                    <p className="mt-2 text-xs text-foreground-500">
+                      Loading the live map index…
+                    </p>
+                  )}
+                  {mapLoadError && (
+                    <p className="mt-2 text-xs text-red-700">
+                      Live map index unavailable; showing the built-in map list.
+                    </p>
+                  )}
                 </div>
 
                 <div className="p-3 md:p-4">
                   <MapTable
-                    rows={filteredRows}
-                    selectedName={selectedMapName || undefined}
+                    rows={tableRows}
+                    totalRows={filteredRows.length}
+                    page={tablePage}
+                    pageCount={tablePageCount}
+                    selectedMapId={selectedMapId ?? undefined}
                     selectedMonsters={selectedMapMonsters}
-                    onSelect={(name) => {
+                    onSelect={(row) => {
                       setSelectedMapIdOverride(null);
-                      setSelectedMapName((current) => (current === name ? null : name));
+                      setSelectedMapId((current) => (current === row.mapId ? null : row.mapId));
                     }}
+                    onPageChange={setTablePage}
                     onNavigate={(direction) => selectRelativeMap(direction)}
                     onCollapse={() => {
-                      setSelectedMapName(null);
+                      setSelectedMapId(null);
                       setSelectedMapIdOverride(null);
                     }}
                   />
@@ -1112,7 +1156,7 @@ export default function MapExplorer() {
                   onChangeAdditionalExpPct={setAdditionalExpPct}
                   onChangeMesoObtainedPct={setMesoObtainedPct}
                   onBackToWorldMap={() => {
-                    setSelectedMapName(null);
+                    setSelectedMapId(null);
                     setSelectedMapIdOverride(null);
                   }}
                   onPrevious={() => selectRelativeMap(-1)}
@@ -1125,12 +1169,12 @@ export default function MapExplorer() {
                   stack={worldMapStack}
                   worldMapsData={maplemapsWorldMapsData}
                   onNavigate={(next) => {
-                    setSelectedMapName(null);
+                    setSelectedMapId(null);
                     setSelectedMapIdOverride(null);
                     setWorldMapStack((current) => [...current, next]);
                   }}
                   onBack={() => {
-                    setSelectedMapName(null);
+                    setSelectedMapId(null);
                     setSelectedMapIdOverride(null);
                     setWorldMapStack((current) => (current.length > 1 ? current.slice(0, -1) : current));
                   }}
@@ -1201,20 +1245,28 @@ export default function MapExplorer() {
 
 function MapTable({
   rows,
-  selectedName,
+  totalRows,
+  page,
+  pageCount,
+  selectedMapId,
   selectedMonsters,
   onSelect,
+  onPageChange,
   onNavigate,
   onCollapse,
 }: {
   rows: TableRow[];
-  selectedName?: string;
+  totalRows: number;
+  page: number;
+  pageCount: number;
+  selectedMapId?: number;
   selectedMonsters: MonsterVisual[];
-  onSelect: (name: string) => void;
+  onSelect: (row: TableRow) => void;
+  onPageChange: (page: number) => void;
   onNavigate: (direction: -1 | 1) => void;
   onCollapse: () => void;
 }) {
-  if (rows.length === 0) {
+  if (totalRows === 0) {
     return (
       <div className="mt-4 rounded-md border border-dashed border-background-300 bg-background-100 p-10 text-center text-sm text-foreground-500">
         No maps match the current table filters.
@@ -1241,17 +1293,17 @@ function MapTable({
         </thead>
         <tbody className="divide-y divide-background-200">
           {rows.map((row) => {
-            const isSelected = selectedName === row.name;
+            const isSelected = selectedMapId === row.mapId;
 
             return (
-              <Fragment key={row.name}>
+              <Fragment key={row.mapId}>
                 <tr
                   className={isSelected ? 'bg-primary-50' : 'hover:bg-background-100'}
                 >
                   <td className="px-3 py-2">
                     <button
                       type="button"
-                      onClick={() => onSelect(row.name)}
+                      onClick={() => onSelect(row)}
                       className={`h-8 w-8 rounded-md border cursor-pointer inline-flex items-center justify-center ${
                         isSelected
                           ? 'border-primary-500 bg-primary-600 text-background-50'
@@ -1263,7 +1315,7 @@ function MapTable({
                     </button>
                   </td>
                   <td className="px-3 py-2">
-                    <button type="button" onClick={() => onSelect(row.name)} className="text-left font-semibold text-foreground-950 hover:text-primary-700 cursor-pointer">
+                    <button type="button" onClick={() => onSelect(row)} className="text-left font-semibold text-foreground-950 hover:text-primary-700 cursor-pointer">
                       {row.mapName}
                     </button>
                   </td>
@@ -1291,6 +1343,30 @@ function MapTable({
           })}
         </tbody>
       </table>
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-background-200 bg-background-100 px-3 py-2 text-xs text-foreground-600">
+        <span>
+          Showing {page * MAP_TABLE_PAGE_SIZE + 1}–{Math.min((page + 1) * MAP_TABLE_PAGE_SIZE, totalRows)} of {totalRows.toLocaleString()} maps
+        </span>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => onPageChange(Math.max(0, page - 1))}
+            disabled={page === 0}
+            className="h-8 rounded-md border border-background-300 bg-background-50 px-3 font-semibold text-foreground-700 hover:bg-primary-50 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <span className="tabular-nums">Page {page + 1} / {pageCount}</span>
+          <button
+            type="button"
+            onClick={() => onPageChange(Math.min(pageCount - 1, page + 1))}
+            disabled={page >= pageCount - 1}
+            className="h-8 rounded-md border border-background-300 bg-background-50 px-3 font-semibold text-foreground-700 hover:bg-primary-50 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

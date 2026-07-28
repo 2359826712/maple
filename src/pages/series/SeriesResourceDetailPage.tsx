@@ -40,6 +40,7 @@ const moduleLabels: Record<SeriesModule, string> = {
   events: 'nav_events',
   tools: 'nav_tools',
   checklist: 'nav_checklist',
+  maps: 'nav_maps',
   wiki: 'nav_wiki',
   rankings: 'nav_rankings',
   shop: 'nav_shop',
@@ -47,7 +48,7 @@ const moduleLabels: Record<SeriesModule, string> = {
   feedback: 'nav_feedback',
 };
 
-const relatedModules: SeriesModule[] = ['news', 'upcoming', 'guides', 'events', 'tools', 'wiki'];
+const relatedModules: SeriesModule[] = ['news', 'upcoming', 'guides', 'events', 'tools', 'checklist', 'maps', 'wiki'];
 const emptyContentSections: ContentSection[] = [];
 
 export type SeriesResourceDetailData = {

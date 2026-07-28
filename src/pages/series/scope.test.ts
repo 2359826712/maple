@@ -14,6 +14,7 @@ describe('series module scope', () => {
     expect(getSeriesModuleHref('maplestory-m', 'guides')).toBe('/series/maplestory-m/guides');
     expect(getSeriesModuleHref('maplestory-n', 'news')).toBe('/series/maplestory-n/updates');
     expect(scopeModuleHref('maplestory-n', '/rankings')).toBe('/series/maplestory-n/rankings');
+    expect(scopeModuleHref('maplestory-m', '/maps')).toBe('/series/maplestory-m/maps');
   });
 
   it('preserves existing search and hash state', () => {
@@ -61,7 +62,7 @@ describe('series module scope', () => {
     });
     expect(getSeriesRouteState('/maps/arcane-river')).toEqual({
       seriesId: undefined,
-      module: 'tools',
+      module: 'maps',
     });
     expect(getSeriesRouteState('/series/maplestory-idle/tools/hero-token-calculator')).toEqual({
       seriesId: 'maplestory-idle',

@@ -18,11 +18,20 @@ export default function FirstRunSetup({ initialVersion, onComplete }: FirstRunSe
   const [version, setVersion] = useState<GameVersion>(initialVersion);
   const [name, setName] = useState('');
   const [level, setLevel] = useState(1);
+  const [validationError, setValidationError] = useState<string | null>(null);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const normalizedName = name.trim();
-    if (!normalizedName || !Number.isInteger(level) || level < 1 || level > 300) return;
+    if (!normalizedName) {
+      setValidationError(t('daily_setup_name_required', 'Enter a character name.'));
+      return;
+    }
+    if (!Number.isInteger(level) || level < 1 || level > 300) {
+      setValidationError(t('daily_setup_level_invalid', 'Enter a level from 1 to 300.'));
+      return;
+    }
+    setValidationError(null);
     onComplete({ version, name: normalizedName, level });
   };
 
@@ -37,7 +46,7 @@ export default function FirstRunSetup({ initialVersion, onComplete }: FirstRunSe
         </h1>
         <p className="mt-2 text-sm leading-6 text-foreground-600">{t('daily_setup_description')}</p>
 
-        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+        <form className="mt-6 space-y-4" noValidate onSubmit={handleSubmit}>
           <div>
             <label htmlFor="daily-setup-version" className="mb-1 block text-sm font-medium text-foreground-950">
               {t('daily_setup_version')}
@@ -59,11 +68,15 @@ export default function FirstRunSetup({ initialVersion, onComplete }: FirstRunSe
             <input
               id="daily-setup-name"
               value={name}
-              onChange={(event) => setName(event.target.value)}
+              onChange={(event) => {
+                setName(event.target.value);
+                if (validationError) setValidationError(null);
+              }}
               maxLength={24}
               autoComplete="off"
               autoFocus
               required
+              aria-invalid={Boolean(validationError)}
               className="h-11 w-full rounded border border-background-300 bg-white px-3 text-sm focus:border-primary-600"
             />
           </div>
@@ -78,11 +91,19 @@ export default function FirstRunSetup({ initialVersion, onComplete }: FirstRunSe
               max={300}
               step={1}
               value={level}
-              onChange={(event) => setLevel(event.target.valueAsNumber || 1)}
+              onChange={(event) => {
+                setLevel(event.target.valueAsNumber || 1);
+                if (validationError) setValidationError(null);
+              }}
               required
               className="h-11 w-full rounded border border-background-300 bg-white px-3 text-sm focus:border-primary-600"
             />
           </div>
+          {validationError && (
+            <p className="text-sm text-red-700" role="alert">
+              {validationError}
+            </p>
+          )}
           <button type="submit" className="h-11 w-full rounded bg-primary-600 px-4 text-sm font-semibold text-white hover:bg-primary-700">
             {t('daily_setup_submit')}
           </button>

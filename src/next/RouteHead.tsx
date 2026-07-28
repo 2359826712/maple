@@ -52,6 +52,7 @@ const seriesModuleLabelKeys: Record<SeriesModule, string> = {
   events: 'nav_events',
   tools: 'nav_tools',
   checklist: 'nav_checklist',
+  maps: 'nav_maps',
   wiki: 'nav_wiki',
   rankings: 'nav_rankings',
   shop: 'nav_shop',

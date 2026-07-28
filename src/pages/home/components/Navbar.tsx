@@ -32,7 +32,6 @@ const navLinkKeys = [
 const utilityLinks = [
   { key: 'nav_checklist', href: '/checklist', icon: 'ri-checkbox-circle-line' },
   { key: 'nav_maps', href: '/maps', icon: 'ri-map-2-line' },
-  { key: 'boss_index_title', href: '/wiki/boss', icon: 'ri-skull-2-line' },
   { key: 'nav_community', href: '/community', icon: 'ri-group-line' },
   { key: 'nav_shop', href: '/shop', icon: 'ri-shopping-bag-3-line' },
   { key: 'nav_feedback', href: '/feedback', icon: 'ri-feedback-line' },
@@ -346,9 +345,16 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   };
 
   const getNavHref = (href: string) => (
-    href === '/rankings' && activeSeries?.id === 'maplestory-pc'
+    (activeSeries?.id === 'maplestory-pc' && (
+      href === '/checklist'
+      || href === '/maps'
+      || href === '/rankings'
+    ))
       ? href
       : scopeModuleHref(activeSeries?.id, href)
+  );
+  const getUtilityHref = (href: string) => (
+    href === '/checklist' || href === '/maps' ? getNavHref(href) : href
   );
   const visibleNavLinkKeys = navLinkKeys.filter((link) => (
     isSeriesModuleAvailable(activeSeries?.id, getSeriesRouteState(link.href).module)
@@ -746,7 +752,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               );
             })}
             {utilityLinks.map((link) => {
-              const destinationHref = link.href;
+              const destinationHref = getUtilityHref(link.href);
               const active = isNavActive(link.href);
               return (
                 <Link
@@ -1308,7 +1314,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               })}
               <div className="mt-2 grid grid-cols-2 gap-1 border-t border-background-200 pt-3">
             {utilityLinks.map((link) => {
-              const destinationHref = link.href;
+              const destinationHref = getUtilityHref(link.href);
                   const active = isNavActive(link.href);
                   return (
                     <Link

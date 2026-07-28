@@ -32,6 +32,7 @@ type CachedValueLoadOptions<T> = Pick<CachedJsonFetchOptions, 'freshMs' | 'stale
 const realtimeCachePrefix = 'maplehub-realtime-cache:';
 const realtimeFailurePrefix = 'maplehub-realtime-failure:';
 const inFlightValueLoads = new Map<string, Promise<unknown>>();
+const inFlightJsonLoads = new Map<string, Promise<unknown>>();
 
 export const realtimeCacheDurations = {
   refresh: 5 * 60 * 1000,
@@ -219,39 +220,56 @@ export async function cachedJsonFetch<T>(url: string, options: CachedJsonFetchOp
     throw new Error('Realtime request is cooling down after a recent failure');
   }
 
-  const controller = new AbortController();
   const externalSignal = requestInit.signal;
-  const timeout = globalThis.setTimeout(() => controller.abort(), timeoutMs);
+  // React StrictMode intentionally mounts effects twice in development. Share
+  // requests that have no caller-owned abort signal so a large JSON payload is
+  // only fetched, parsed, and persisted once.
+  if (!externalSignal) {
+    const existingLoad = inFlightJsonLoads.get(cacheKey);
+    if (existingLoad) return existingLoad as Promise<T>;
+  }
 
-  const onExternalAbort = () => {
-    controller.abort(externalSignal?.reason);
+  const load = async () => {
+    const controller = new AbortController();
+    const timeout = globalThis.setTimeout(() => controller.abort(), timeoutMs);
+
+    const onExternalAbort = () => {
+      controller.abort(externalSignal?.reason);
+    };
+
+    if (externalSignal?.aborted) {
+      controller.abort(externalSignal.reason);
+    } else {
+      externalSignal?.addEventListener('abort', onExternalAbort, { once: true });
+    }
+
+    const { signal: _signal, ...fetchInit } = requestInit;
+    const transport = resolveContentTransport(url, { ...fetchInit, signal: controller.signal });
+
+    try {
+      const response = await fetch(transport.url, { ...transport.requestInit, cache: 'no-store', signal: controller.signal });
+      if (!response.ok) throw new Error(`Realtime request failed with ${response.status}`);
+
+      const data = (await response.json()) as T;
+      writeRealtimeCache(cacheKey, data);
+      return data;
+    } catch (error) {
+      if (externalSignal?.aborted) throw error;
+      writeRecentFailure(cacheKey);
+      if (staleCache.hit) return staleCache.data as T;
+      throw error instanceof Error ? error : new Error('Realtime request failed');
+    } finally {
+      globalThis.clearTimeout(timeout);
+      externalSignal?.removeEventListener('abort', onExternalAbort);
+    }
   };
 
-  if (externalSignal?.aborted) {
-    controller.abort(externalSignal.reason);
-  } else {
-    externalSignal?.addEventListener('abort', onExternalAbort, { once: true });
+  const request = load();
+  if (!externalSignal) {
+    inFlightJsonLoads.set(cacheKey, request);
+    request.finally(() => inFlightJsonLoads.delete(cacheKey)).catch(() => undefined);
   }
-
-  const { signal: _signal, ...fetchInit } = requestInit;
-  const transport = resolveContentTransport(url, { ...fetchInit, signal: controller.signal });
-
-  try {
-    const response = await fetch(transport.url, { ...transport.requestInit, cache: 'no-store', signal: controller.signal });
-    if (!response.ok) throw new Error(`Realtime request failed with ${response.status}`);
-
-    const data = (await response.json()) as T;
-    writeRealtimeCache(cacheKey, data);
-    return data;
-  } catch (error) {
-    if (externalSignal?.aborted) throw error;
-    writeRecentFailure(cacheKey);
-    if (staleCache.hit) return staleCache.data as T;
-    throw error instanceof Error ? error : new Error('Realtime request failed');
-  } finally {
-    globalThis.clearTimeout(timeout);
-    externalSignal?.removeEventListener('abort', onExternalAbort);
-  }
+  return request;
 }
 
 export async function cachedTextFetch(url: string, options: CachedTextFetchOptions = {}) {

@@ -43,4 +43,11 @@ describe('SeriesPage', () => {
     expect(screen.getByRole('heading', { name: 'Creator release checklist' })).toBeTruthy();
     expect(screen.getAllByRole('checkbox').length).toBeGreaterThan(0);
   });
+
+  it('renders a per-series maps route instead of falling back to the generic series hub', () => {
+    renderSeries('maplestory-m', 'maps');
+
+    expect(screen.getByRole('heading', { name: 'MapleStory M Maps' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'MapleStory M map workspace' })).toBeTruthy();
+  });
 });

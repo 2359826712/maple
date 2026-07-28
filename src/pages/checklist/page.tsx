@@ -321,6 +321,12 @@ export default function ChecklistPage() {
     () => bosses.filter((boss) => isAvailableInVersion(boss.regions, version)),
     [version],
   );
+  const nextUnlockBoss = useMemo(() => {
+    const currentLevel = activeCharacter?.level ?? 0;
+    return [...regionBosses]
+      .filter((boss) => boss.minLevel > currentLevel)
+      .sort((a, b) => a.minLevel - b.minLevel)[0] ?? null;
+  }, [activeCharacter?.level, regionBosses]);
   const eligibleBosses = useMemo(
     () => eligibleTasksForLevel(regionBosses, activeCharacter?.level ?? 0),
     [activeCharacter?.level, regionBosses],
@@ -460,6 +466,7 @@ export default function ChecklistPage() {
     <ChecklistEmptyState
       reason={emptyStateReason}
       characterLevel={activeCharacter?.level ?? 1}
+      nextBoss={nextUnlockBoss}
       query={searchQuery.trim()}
       filterLabel={activeFilterLabel}
       onEdit={() => {
