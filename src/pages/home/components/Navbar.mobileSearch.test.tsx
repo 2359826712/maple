@@ -113,7 +113,7 @@ describe('Navbar mobile site search', () => {
     expect(screen.getByLabelText('Current path').textContent).toBe('/series/maplestory-m/feedback');
   });
 
-  it('scopes every desktop module link to the selected series', () => {
+  it('scopes desktop module links and utility destinations to the selected series', () => {
     renderNavbar('/updates?series=maplestory-m');
 
     const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
@@ -124,7 +124,12 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('aria-current')).toBe('page');
     expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/series/maplestory-m/guides');
     expect(scopedNavigation.getByRole('link', { name: 'nav_tools' })).toBeTruthy();
-    expect(scopedNavigation.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/series');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/series/maplestory-m/checklist');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_maps' }).getAttribute('href')).toBe('/maps');
+    expect(scopedNavigation.getByRole('link', { name: 'boss_index_title' }).getAttribute('href')).toBe('/wiki/boss');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/series/maplestory-m/community');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/series/maplestory-m/shop');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/series/maplestory-m/feedback');
   });
 
   it('marks the owning navigation module active on article detail pages', () => {
@@ -157,19 +162,22 @@ describe('Navbar mobile site search', () => {
     expect(screen.getByLabelText('Current path').textContent).toBe('/series/maplestory-n/rankings');
   });
 
-  it('keeps the desktop navigation focused on the five primary journeys', () => {
+  it('keeps utility destinations in the desktop navigation', () => {
     renderNavbar();
 
     const desktopNavigation = document.querySelector('header nav[class*="2xl:flex"]');
     expect(desktopNavigation).toBeTruthy();
     const scopedNavigation = within(desktopNavigation as HTMLElement);
 
-    expect(scopedNavigation.getByRole('link', { name: 'nav_series' }).getAttribute('href')).toBe('/series');
+    expect(scopedNavigation.queryByRole('link', { name: 'nav_series' })).toBeNull();
     expect(screen.getByRole('button', { name: 'nav_series' })).toBeTruthy();
     expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('href')).toBe('/updates');
     expect(scopedNavigation.getByRole('link', { name: 'nav_events' }).getAttribute('href')).toBe('/events');
     expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/guides');
     expect(scopedNavigation.getByRole('button', { name: 'nav_tools' })).toBeTruthy();
+    for (const key of ['nav_checklist', 'nav_maps', 'boss_index_title', 'nav_community', 'nav_shop', 'nav_feedback']) {
+      expect(scopedNavigation.getByRole('link', { name: key })).toBeTruthy();
+    }
   });
 
   it('offers Korean and persists it as the active language', () => {

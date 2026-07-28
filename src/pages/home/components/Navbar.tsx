@@ -26,7 +26,6 @@ const navLinkKeys = [
   { key: 'nav_events', href: '/events' },
   { key: 'nav_knowledge', href: '/guides' },
   { key: 'nav_tools', href: '/tools' },
-  { key: 'nav_series', href: '/series' },
 ];
 
 const utilityLinks = [
@@ -102,7 +101,6 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [guideMenuOpen, setGuideMenuOpen] = useState(false);
   const [toolMenuOpen, setToolMenuOpen] = useState(false);
-  const [utilityMenuOpen, setUtilityMenuOpen] = useState(false);
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(unread);
   const [searchModule, setSearchModule] = useState<typeof import('@/services/siteSearch') | null>(null);
@@ -128,7 +126,6 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
   const langRef = useRef<HTMLDivElement | null>(null);
   const guideMenuRef = useRef<HTMLDivElement | null>(null);
   const toolMenuRef = useRef<HTMLDivElement | null>(null);
-  const utilityMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileToolMenuRef = useRef<HTMLDivElement | null>(null);
   const accountMenuRef = useRef<HTMLDivElement | null>(null);
   const guideMenuCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -188,9 +185,6 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
       }
       if (accountMenuRef.current && !accountMenuRef.current.contains(e.target as Node)) {
         setAccountMenuOpen(false);
-      }
-      if (utilityMenuRef.current && !utilityMenuRef.current.contains(e.target as Node)) {
-        setUtilityMenuOpen(false);
       }
       const target = e.target as Node;
       const insideGuideMenu = guideMenuRef.current?.contains(target);
@@ -742,54 +736,28 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 </Link>
               );
             })}
-            <div ref={utilityMenuRef} className="relative">
-              <button
-                type="button"
-                onClick={() => setUtilityMenuOpen((open) => !open)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Escape') setUtilityMenuOpen(false);
-                }}
-                aria-haspopup="menu"
-                aria-expanded={utilityMenuOpen}
-                className={`inline-flex items-center gap-1 rounded-md px-2 py-2 text-xs font-semibold transition-colors 2xl:px-3 2xl:text-sm ${
-                  utilityMenuOpen || utilityLinks.some((link) => isNavActive(link.href))
-                    ? 'bg-primary-100 text-primary-700 shadow-sm'
-                    : 'text-foreground-800 hover:bg-primary-50 hover:text-primary-600'
-                }`}
-              >
-                {t('footer_group_explore')}
-                <i className="ri-arrow-down-s-line text-xs" aria-hidden="true" />
-              </button>
-              {utilityMenuOpen && (
-                <div className="absolute left-0 top-full z-50 w-64 pt-2">
-                  <div className="grid grid-cols-2 gap-1 rounded-xl border border-background-200 bg-background-50 p-2 shadow-xl">
-                    {utilityLinks.map((link) => {
-                      const destinationHref = getNavHref(link.href);
-                      const active = isNavActive(link.href);
-                      return (
-                        <Link
-                          key={link.href}
-                          to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
-                          onMouseEnter={() => prefetchNav(destinationHref)}
-                          onFocus={() => prefetchNav(destinationHref)}
-                          onTouchStart={() => prefetchNav(destinationHref)}
-                          onClick={() => setUtilityMenuOpen(false)}
-                          aria-current={active ? 'page' : undefined}
-                          className={`flex min-h-11 items-center gap-2 rounded-lg px-3 py-2 text-sm ${
-                            active
-                              ? 'bg-primary-100 font-semibold text-primary-700'
-                              : 'font-medium text-foreground-800 hover:bg-primary-50 hover:text-primary-700'
-                          }`}
-                        >
-                          <i className={`${link.icon} text-base text-primary-600`} aria-hidden="true" />
-                          {t(link.key)}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-            </div>
+            {utilityLinks.map((link) => {
+              const destinationHref = getNavHref(link.href);
+              const active = isNavActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
+                  onMouseEnter={() => prefetchNav(destinationHref)}
+                  onFocus={() => prefetchNav(destinationHref)}
+                  onTouchStart={() => prefetchNav(destinationHref)}
+                  aria-current={active ? 'page' : undefined}
+                  className={`inline-flex items-center gap-1 rounded-md px-2 py-2 text-xs font-semibold transition-colors 2xl:px-3 2xl:text-sm ${
+                    active
+                      ? 'bg-primary-100 text-primary-700 shadow-sm'
+                      : 'text-foreground-800 hover:bg-primary-50 hover:text-primary-600'
+                  }`}
+                >
+                  <i className={`${link.icon} text-base text-primary-600`} aria-hidden="true" />
+                  {t(link.key)}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="ml-2 flex items-center gap-2 md:gap-3 xl:ml-1 xl:gap-1 2xl:ml-2 2xl:gap-3">
