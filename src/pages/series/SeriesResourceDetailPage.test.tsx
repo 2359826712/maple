@@ -22,7 +22,7 @@ vi.mock('@/services/mapleSqlApi', () => ({
 afterEach(cleanup);
 
 describe('series resource details', () => {
-  it('renders a complete researched article for a summary-only indexed news item', async () => {
+  it('keeps summary-only indexed news as a source record instead of a generated article', async () => {
     const slug = 'jul-11-2026-china-shengquchina-gets-a-launch-date-cms-cl-classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-';
     const pathname = `/series/maplestory-classic/news/${slug}/en/GMS`;
     window.history.replaceState({}, '', pathname);
@@ -44,15 +44,14 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Key takeaway' })).toBeTruthy();
-    expect(screen.queryByRole('heading', { name: 'Overview' })).toBeNull();
-    expect(screen.getByRole('heading', { name: 'Launch date and server status' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Trading and the Free Market' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'What this means for Global MapleStory Classic' })).toBeTruthy();
-    expect(screen.getByText(/different operators, test schedules, and service rules/)).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Key takeaway' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Launch date and server status' })).toBeNull();
+    expect(screen.getByRole('link', { name: /Open verified source/ })).toBeTruthy();
   });
 
-  it('renders structured first-party facts instead of only the resource summary', async () => {
+  it('keeps first-party guide content as a source record instead of a generated article', async () => {
     const pathname = '/series/maplestory-worlds/guides/welcome-to-maplestory-worlds-worlds-creator-center-welcome-to-msw/en/GMS';
     const requestPath = pathname;
     window.history.replaceState({}, '', requestPath);
@@ -74,10 +73,10 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Detailed content' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: '2. Basic concepts and LuaScript' })).toBeTruthy();
-    expect(screen.getByText('Learn property synchronization and function execution control across client and server contexts.')).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Practical steps' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: '2. Basic concepts and LuaScript' })).toBeNull();
+    expect(screen.getByRole('link', { name: /Open verified source/ })).toBeTruthy();
   });
 
   it('matches a content record through a related official URL', async () => {
@@ -102,9 +101,9 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Detailed content' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Key dates' })).toBeTruthy();
-    expect(screen.getByText('Applications close Wednesday, July 29, 2026.')).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Key dates' })).toBeNull();
     expect(screen.getByRole('img', { name: 'Classic World Closed Online Test #2' }).getAttribute('src'))
       .toBe('https://g.nexonstatic.com/mscw/static/classic-world-closed-online-test2/share_fb.jpg');
   });
@@ -219,7 +218,7 @@ describe('series resource details', () => {
     }
   });
 
-  it('renders the complete official API reference guide for MapleStory Worlds', async () => {
+  it('keeps the official API reference guide as a source record unless it has a real on-site tool', async () => {
     const slug = 'maplestory-worlds-api-reference-worlds-official-api-reference';
     const pathname = `/series/maplestory-worlds/guides/${slug}/en/GMS`;
     window.history.replaceState({}, '', pathname);
@@ -240,10 +239,10 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Detailed content' })).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Reference families' })).toBeTruthy();
-    expect(screen.getByText(/LIA identifies informational log messages/)).toBeTruthy();
-    expect(screen.getByRole('heading', { name: 'Practical steps' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Reference families' })).toBeNull();
+    expect(screen.getByRole('link', { name: /Open verified source/ })).toBeTruthy();
   });
 
   it('renders indexed resource facts without replacing them with a usage-and-redirect guide', async () => {

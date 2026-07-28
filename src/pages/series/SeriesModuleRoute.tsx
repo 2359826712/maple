@@ -261,7 +261,7 @@ export function ScopedModulePage({ product, module }: { product: SeriesProduct; 
                 </h2>
                 <p className="mt-3 max-w-3xl text-sm leading-7 text-foreground-600">
                   Browse the verified {product.name} {moduleLabel.toLocaleLowerCase(i18n.language)} archive, compare
-                  official notices by date, and open each complete record directly on MPStorys.
+                  official notices by date, and open the verified source or the available MPStorys tool for each record.
                 </p>
               </div>
               <div className="rounded-xl border border-background-300 bg-background-50 p-5 shadow-sm">
@@ -346,53 +346,62 @@ export function ScopedModulePage({ product, module }: { product: SeriesProduct; 
                     ? 'max-w-4xl'
                     : 'md:grid-cols-2 xl:grid-cols-3'
                 }`}>
-                {localizedResources.map((resource) => (
-                  <article
-                    key={`${resource.sourceUrl}-${resource.title}`}
-                    className="group flex min-h-56 flex-col overflow-hidden rounded-xl border border-background-300 bg-background-50 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-md"
-                  >
-                    <div className="relative aspect-[16/7] overflow-hidden bg-background-200">
-                      <img
-                        src={resource.imageUrl || moduleArtwork}
-                        alt={resource.imageAlt || `${resource.title} · ${product.name}`}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-                      />
-                      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-foreground-950/55 to-transparent" aria-hidden="true" />
-                    </div>
-                    <div className="flex flex-1 flex-col p-5">
-                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-                        <span className="inline-flex items-center gap-1 font-semibold text-primary-700">
-                          <i className="ri-verified-badge-line" aria-hidden="true" />
-                          {resource.sourceLabel}
-                        </span>
-                        {resource.publishedAt && (
-                          <time className="text-foreground-500" dateTime={resource.publishedAt}>{resource.publishedAt.slice(0, 10)}</time>
+                {localizedResources.map((resource) => {
+                  const hasOnSiteDetail = hasResourceDetailExperience(resource);
+                  return (
+                    <article
+                      key={`${resource.sourceUrl}-${resource.title}`}
+                      className="group flex min-h-56 flex-col overflow-hidden rounded-xl border border-background-300 bg-background-50 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-primary-300 hover:shadow-md"
+                    >
+                      <div className="relative aspect-[16/7] overflow-hidden bg-background-200">
+                        <img
+                          src={resource.imageUrl || moduleArtwork}
+                          alt={resource.imageAlt || `${resource.title} · ${product.name}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-foreground-950/55 to-transparent" aria-hidden="true" />
+                      </div>
+                      <div className="flex flex-1 flex-col p-5">
+                        <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+                          <span className="inline-flex items-center gap-1 font-semibold text-primary-700">
+                            <i className="ri-verified-badge-line" aria-hidden="true" />
+                            {resource.sourceLabel}
+                          </span>
+                          {resource.publishedAt && (
+                            <time className="text-foreground-500" dateTime={resource.publishedAt}>{resource.publishedAt.slice(0, 10)}</time>
+                          )}
+                        </div>
+                        <h3 className="mt-4 font-heading text-xl font-semibold leading-snug">{resource.title}</h3>
+                        <p className="mt-3 flex-1 text-sm leading-6 text-foreground-600">{resource.description}</p>
+                        {hasOnSiteDetail ? (
+                          <Link
+                            to={localized(getSeriesResourceHref(
+                              product.id,
+                              module,
+                              getVerifiedSeriesResourceSlug(resource),
+                            ))}
+                            className="mt-5 inline-flex h-9 w-fit items-center gap-1.5 rounded-md bg-primary-600 px-3 text-xs font-semibold text-background-50 hover:bg-primary-700"
+                          >
+                            {t('series_use_on_site')}
+                            <i className="ri-arrow-right-line" aria-hidden="true" />
+                          </Link>
+                        ) : (
+                          <a
+                            href={resource.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-5 inline-flex h-9 w-fit items-center gap-1.5 rounded-md border border-background-300 bg-background-50 px-3 text-xs font-semibold text-foreground-700 hover:border-primary-400 hover:text-primary-700"
+                          >
+                            {t('series_check_source')}
+                            <i className="ri-external-link-line" aria-hidden="true" />
+                          </a>
                         )}
                       </div>
-                      <h3 className="mt-4 font-heading text-xl font-semibold leading-snug">{resource.title}</h3>
-                      <p className="mt-3 flex-1 text-sm leading-6 text-foreground-600">{resource.description}</p>
-                      <Link
-                        to={localized(getSeriesResourceHref(
-                          product.id,
-                          module,
-                          getVerifiedSeriesResourceSlug(resource),
-                        ))}
-                        className="mt-5 inline-flex h-9 w-fit items-center gap-1.5 rounded-md bg-primary-600 px-3 text-xs font-semibold text-background-50 hover:bg-primary-700"
-                      >
-                        {t(
-                          hasResourceDetailExperience(resource)
-                            ? 'series_use_on_site'
-                            : resource.contentId
-                              ? 'series_read_on_site'
-                              : 'series_view_details_on_site',
-                        )}
-                        <i className="ri-arrow-right-line" aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  );
+                })}
                 </div>
               ) : (
                 <div className="rounded-xl border border-dashed border-background-300 bg-background-100 px-5 py-10 text-center">

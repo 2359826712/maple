@@ -193,6 +193,7 @@ export default function SeriesResourceDetailPage({
   );
   const heroImageAlt = resource?.imageAlt || copy.title;
   const hasOnSiteExperience = hasResourceDetailExperience(resource);
+  const shouldUseSourceHandoff = Boolean(resource && contentRecord && !hasOnSiteExperience);
   const seriesToolMenu = useSeriesToolMenu(
     product?.id,
     module === 'tools' ? resource?.resourceId : undefined,
@@ -283,50 +284,86 @@ export default function SeriesResourceDetailPage({
                   />
                 </figure>
               )}
-              <ResourceDetailExperience resource={resource} />
-              <section aria-labelledby="resource-summary-heading">
-                <h2 id="resource-summary-heading" className="font-heading text-2xl font-semibold">
-                  {t(hasOnSiteExperience
-                    ? 'series_content_explanation'
-                    : hasStructuredContent
-                      ? 'series_content_key_takeaway'
-                      : 'series_content_summary')}
-                </h2>
-                <p className="mt-4 text-base leading-8 text-foreground-700">{copy.description}</p>
-              </section>
-
-              {renderedBodyHtml && (
+              {shouldUseSourceHandoff ? (
                 <section
-                  className="wiki-content mt-10 text-base leading-8 text-foreground-700"
-                  aria-label={t('series_content_details')}
-                  dangerouslySetInnerHTML={{ __html: renderedBodyHtml }}
-                />
-              )}
-
-              {contentSections.length > 0 && (
-                <section className="mt-12 border-t border-background-300 pt-8" aria-labelledby="resource-details-heading">
-                  <div className="flex items-center gap-3">
-                    <i className="ri-article-line text-2xl text-primary-700" aria-hidden="true" />
-                    <h2 id="resource-details-heading" className="font-heading text-2xl font-semibold">
-                      {t(hasStructuredContent ? 'series_content_details' : 'series_resource_details')}
-                    </h2>
-                  </div>
-                  <div className="mt-7 divide-y divide-background-300 border-y border-background-300">
-                    {contentSections.map((section) => (
-                      <section key={`${section.title}-${section.items[0]}`} className="py-7">
-                        <h3 className="font-heading text-xl font-semibold">{section.title}</h3>
-                        <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground-700">
-                          {section.items.map((item) => (
-                            <li key={item} className="flex gap-3">
-                              <i className="ri-checkbox-circle-line mt-1 text-base text-primary-700" aria-hidden="true" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </section>
-                    ))}
+                  aria-labelledby="resource-source-record-heading"
+                  className="rounded-2xl border border-background-300 bg-background-100 p-6 shadow-sm md:p-8"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-700">
+                    {t('series_verified_by_source', { source: resource.sourceLabel })}
+                  </p>
+                  <h2 id="resource-source-record-heading" className="mt-3 font-heading text-2xl font-semibold">
+                    {t('series_source_record_title')}
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground-600">
+                    {t('series_source_record_body')}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href={resource.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex h-10 items-center gap-1.5 rounded-md bg-primary-600 px-4 text-sm font-semibold text-background-50 hover:bg-primary-700"
+                    >
+                      {t('series_source_record_open')}
+                      <i className="ri-external-link-line" aria-hidden="true" />
+                    </a>
+                    <Link
+                      to={localized(getSeriesModuleHref(product.id, module))}
+                      className="inline-flex h-10 items-center gap-1.5 rounded-md border border-background-300 px-4 text-sm font-semibold text-foreground-700 hover:border-primary-400 hover:text-primary-700"
+                    >
+                      {t('series_source_record_back', { module: t(moduleLabels[module]) })}
+                    </Link>
                   </div>
                 </section>
+              ) : (
+                <>
+                  <ResourceDetailExperience resource={resource} />
+                  <section aria-labelledby="resource-summary-heading">
+                    <h2 id="resource-summary-heading" className="font-heading text-2xl font-semibold">
+                      {t(hasOnSiteExperience
+                        ? 'series_content_explanation'
+                        : hasStructuredContent
+                          ? 'series_content_key_takeaway'
+                          : 'series_content_summary')}
+                    </h2>
+                    <p className="mt-4 text-base leading-8 text-foreground-700">{copy.description}</p>
+                  </section>
+
+                  {renderedBodyHtml && (
+                    <section
+                      className="wiki-content mt-10 text-base leading-8 text-foreground-700"
+                      aria-label={t('series_content_details')}
+                      dangerouslySetInnerHTML={{ __html: renderedBodyHtml }}
+                    />
+                  )}
+
+                  {contentSections.length > 0 && (
+                    <section className="mt-12 border-t border-background-300 pt-8" aria-labelledby="resource-details-heading">
+                      <div className="flex items-center gap-3">
+                        <i className="ri-article-line text-2xl text-primary-700" aria-hidden="true" />
+                        <h2 id="resource-details-heading" className="font-heading text-2xl font-semibold">
+                          {t(hasStructuredContent ? 'series_content_details' : 'series_resource_details')}
+                        </h2>
+                      </div>
+                      <div className="mt-7 divide-y divide-background-300 border-y border-background-300">
+                        {contentSections.map((section) => (
+                          <section key={`${section.title}-${section.items[0]}`} className="py-7">
+                            <h3 className="font-heading text-xl font-semibold">{section.title}</h3>
+                            <ul className="mt-4 space-y-3 text-sm leading-7 text-foreground-700">
+                              {section.items.map((item) => (
+                                <li key={item} className="flex gap-3">
+                                  <i className="ri-checkbox-circle-line mt-1 text-base text-primary-700" aria-hidden="true" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+                </>
               )}
 
               <section className="mt-12 border-t border-background-300 pt-8" aria-labelledby="resource-scope-heading">
