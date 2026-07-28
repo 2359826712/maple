@@ -7,6 +7,8 @@ import {
   indexedResources,
   type ResourceIndexRecord,
 } from '@/domain/resourceIndex';
+import { getVerifiedSeriesResourceSlug } from './verifiedContentSlug';
+export { getVerifiedSeriesResourceSlug } from './verifiedContentSlug';
 
 export type VerifiedSeriesResource = {
   contentId?: string;
@@ -269,18 +271,6 @@ export const getSeriesModuleArtwork = (
     ?.imageUrl
   || fallbackImage
 );
-
-export const getVerifiedSeriesResourceSlug = (resource: VerifiedSeriesResource) => {
-  const titleSlug = resource.title
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, resource.resourceId || resource.contentId ? 56 : 96);
-  const recordId = resource.contentId || resource.resourceId;
-  return recordId ? `${titleSlug}-${recordId}`.slice(0, 120) : titleSlug;
-};
 
 export const getVerifiedSeriesResource = (
   seriesId: string,

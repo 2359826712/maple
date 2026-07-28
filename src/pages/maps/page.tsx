@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@/pages/home/components/Navbar';
 import Footer from '@/pages/home/components/Footer';
 import NotificationDrawer from '@/pages/home/components/NotificationDrawer';
+import { useVersion } from '@/hooks/VersionContext';
+import { bosses } from '@/mocks/bosses';
+import { isAvailableInVersion, millisecondsUntilReset } from '@/domain/regionModel';
 
 type TrainingSpot = {
   level: string;
@@ -32,11 +35,36 @@ const trainingSpots: TrainingSpot[] = [
   { level: '275+', region: 'Grandis: Hotel Arcus / Odium', maps: ['Arcus Lobby', 'Odium Ruins', 'Shangri-La'], monsters: 'Arcus mobs, Odium creatures, Sol Janus', note: '6th job content; highest EXP density in the game', wikiTitle: 'Hotel_Arcus' },
 ];
 
+const formatCountdown = (milliseconds: number) => {
+  const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
+  const days = Math.floor(totalSeconds / 86_400);
+  const hours = Math.floor((totalSeconds % 86_400) / 3_600);
+  const minutes = Math.floor((totalSeconds % 3_600) / 60);
+  const seconds = totalSeconds % 60;
+  return [
+    days > 0 ? `${days}d` : '',
+    `${String(hours).padStart(2, '0')}h`,
+    `${String(minutes).padStart(2, '0')}m`,
+    `${String(seconds).padStart(2, '0')}s`,
+  ].filter(Boolean).join(' ');
+};
+
 export default function MapsPage() {
   const { t, i18n } = useTranslation();
+  const { version } = useVersion();
   const [notifOpen, setNotifOpen] = useState(false);
   const [filter, setFilter] = useState('');
+  const [now, setNow] = useState(() => Date.now());
   const isZh = i18n.language.startsWith('zh');
+  const regionBosses = useMemo(
+    () => bosses.filter((boss) => isAvailableInVersion(boss.regions, version)),
+    [version],
+  );
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const filtered = filter
     ? trainingSpots.filter((s) =>
@@ -147,6 +175,99 @@ export default function MapsPage() {
               <p>{isZh ? '没有匹配的练级地图' : 'No matching training spots found'}</p>
             </div>
           )}
+
+          <section id="boss-resets" className="mt-12 scroll-mt-24">
+            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-primary-600">
+                  {isZh ? `${version.toUpperCase()} 服务器时间` : `${version.toUpperCase()} server time`}
+                </p>
+                <h2 className="mt-1 font-heading text-2xl font-semibold text-foreground-950">
+                  {isZh ? 'Boss 重置倒计时与主要掉落' : 'Boss reset countdowns and notable drops'}
+                </h2>
+                <p className="mt-2 max-w-3xl text-sm leading-6 text-foreground-600">
+                  {isZh
+                    ? '这里显示每日或每周副本重置倒计时，不代表野外 Boss 的刷新时间；掉落信息来自站内 Boss 资料记录。'
+                    : 'These timers track daily or weekly instance resets, not open-world respawn times. Drops come from the site boss records.'}
+                </p>
+              </div>
+              <Link
+                to="/checklist"
+                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg bg-primary-600 px-4 text-sm font-semibold text-white hover:bg-primary-700"
+              >
+                <i className="ri-checkbox-circle-line" aria-hidden="true" />
+                {t('nav_checklist')}
+              </Link>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {regionBosses.map((boss) => {
+                const resetType = boss.weeklyLimit > 0 ? 'weekly' : 'daily';
+                const countdown = millisecondsUntilReset(resetType, version, now);
+                return (
+                  <article
+                    key={boss.id}
+                    className="rounded-xl border border-background-200 bg-white p-5 shadow-sm"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="font-heading text-xl font-semibold text-foreground-950">
+                          {isZh ? boss.nameZh : boss.name}
+                        </h3>
+                        <p className="mt-1 text-xs text-foreground-500">
+                          {boss.difficulty.join(' / ')}
+                        </p>
+                      </div>
+                      <span className="rounded-full bg-primary-50 px-2.5 py-1 text-xs font-bold text-primary-700">
+                        {resetType === 'weekly'
+                          ? (isZh ? '每周' : 'Weekly')
+                          : (isZh ? '每日' : 'Daily')}
+                      </span>
+                    </div>
+
+                    <div className="mt-4 rounded-lg bg-foreground-950 px-4 py-3 text-white">
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-white/60">
+                        {isZh ? '距离重置' : 'Resets in'}
+                      </div>
+                      <div className="mt-1 font-mono text-lg font-bold text-secondary-300" aria-live="off">
+                        {formatCountdown(countdown)}
+                      </div>
+                    </div>
+
+                    <div className="mt-4">
+                      <div className="text-xs font-bold uppercase tracking-wider text-foreground-500">
+                        {t('boss_drops')}
+                      </div>
+                      {boss.drops.length > 0 ? (
+                        <ul className="mt-2 space-y-2">
+                          {boss.drops.slice(0, 4).map((drop) => (
+                            <li key={`${boss.id}-${drop.name}`} className="flex items-start justify-between gap-3 text-sm">
+                              <span className="font-medium text-foreground-800">{drop.name}</span>
+                              <span className="shrink-0 rounded bg-background-100 px-2 py-0.5 text-[11px] font-semibold text-foreground-600">
+                                {drop.rarity}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="mt-2 text-sm text-foreground-500">
+                          {isZh ? '暂无已验证掉落记录' : 'No verified drop records yet'}
+                        </p>
+                      )}
+                    </div>
+
+                    <Link
+                      to={`/wiki/boss/${encodeURIComponent(boss.name)}`}
+                      className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary-700 hover:text-primary-800"
+                    >
+                      {isZh ? '查看完整 Boss 资料与掉落' : 'View full boss guide and drops'}
+                      <i className="ri-arrow-right-line" aria-hidden="true" />
+                    </Link>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
 
           {/* External resources */}
           <div className="mt-10 rounded-lg border border-background-200 bg-background-100 p-5">

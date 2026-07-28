@@ -56,6 +56,15 @@ const playerVoices = [
   { quoteKey: 'landing_voice_03_quote', contextKey: 'landing_voice_03_context', icon: 'ri-tools-line' },
 ] as const;
 
+const utilityDestinations = [
+  { href: '/checklist', labelKey: 'nav_checklist', icon: 'ri-checkbox-circle-line' },
+  { href: '/maps', labelKey: 'nav_maps', icon: 'ri-map-2-line' },
+  { href: '/wiki/boss', labelKey: 'boss_index_title', icon: 'ri-skull-2-line' },
+  { href: '/community', labelKey: 'nav_community', icon: 'ri-group-line' },
+  { href: '/shop', labelKey: 'nav_shop', icon: 'ri-shopping-bag-3-line' },
+  { href: '/feedback', labelKey: 'nav_feedback', icon: 'ri-feedback-line' },
+] as const;
+
 const seriesCardLinks = [
   { module: 'guides', labelKey: 'nav_guides', icon: 'ri-book-open-line' },
   { module: 'events', labelKey: 'nav_events', icon: 'ri-calendar-event-line' },
@@ -183,9 +192,11 @@ export default function HomeSeriesGateway() {
                     alt={featuredSeries.name}
                     width={960}
                     height={478}
-                    loading="lazy"
+                    // This preview is visible in the first mobile viewport and
+                    // is a likely LCP candidate, so it must not be lazy-loaded.
+                    loading="eager"
                     decoding="async"
-                    fetchPriority="low"
+                    fetchPriority="high"
                     className="absolute inset-0 h-full w-full object-cover opacity-60"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-[#171513]" />
@@ -227,6 +238,25 @@ export default function HomeSeriesGateway() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="border-b border-[#d9d0c2] bg-[#fffaf2] py-6">
+        <nav
+          aria-label={t('footer_group_explore')}
+          className="mx-auto grid max-w-[90rem] grid-cols-2 gap-2 px-4 sm:grid-cols-3 md:px-8 lg:grid-cols-6"
+        >
+          {utilityDestinations.map((destination) => (
+            <Link
+              key={destination.href}
+              to={localized(destination.href)}
+              className="group flex min-h-14 items-center gap-3 rounded-xl border border-[#e1d9ce] bg-white px-4 text-sm font-extrabold text-[#3f3933] shadow-[0_5px_18px_rgba(44,35,25,.04)] transition hover:-translate-y-0.5 hover:border-[#ffb000] hover:text-[#815000]"
+            >
+              <i className={`${destination.icon} text-xl text-[#a66500]`} aria-hidden="true" />
+              <span>{t(destination.labelKey)}</span>
+              <i className="ri-arrow-right-up-line ml-auto text-[#a79d91] transition group-hover:text-[#a66500]" aria-hidden="true" />
+            </Link>
+          ))}
+        </nav>
       </section>
 
       <section className="landing-render-deferred border-b border-[#d9d0c2] bg-[#fffaf2] py-14 md:py-20">

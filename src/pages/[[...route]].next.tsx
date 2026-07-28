@@ -1,10 +1,12 @@
 import NextRoutePage from '@/next/NextRoutePage';
 import type { NextRoutePageProps } from '@/next/routeData';
 import type { GetServerSideProps } from 'next';
+import dynamic from 'next/dynamic';
 import { stripRouteSuffixes } from '@/i18n/languageRouting';
-import SeriesResourceDetailPage from './series/SeriesResourceDetailPage';
 import NotFound from './NotFound';
 import Home from './home/page';
+
+const SeriesResourceDetailPage = dynamic(() => import('./series/SeriesResourceDetailPage'));
 
 export default function HomeNextRoute(props: NextRoutePageProps) {
   const routePath = stripRouteSuffixes(props.pathname);

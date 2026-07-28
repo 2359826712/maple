@@ -8,7 +8,6 @@ import { useRealtimeCollection } from '@/hooks/useRealtimeCollection';
 import { fetchLiveNews, liveStorageKeys, type NewsItem } from '@/services/liveContent';
 import { useServerRouteData } from '@/next/ServerRouteDataContext';
 import { isRenderableNewsItem } from '@/services/contentCacheValidation';
-import { getPopularSearchTerms } from '@/services/siteSearch';
 import FloatingLeaves from '@/components/feature/FloatingLeaves';
 import { useLocalizedNewsItems } from '@/pages/news/useLocalizedNewsItems';
 import { isStaticHydration, scheduleAfterStaticHydration } from '@/ssg/hydration';
@@ -31,10 +30,29 @@ export default function Hero() {
   });
   const { items: localizedNews } = useLocalizedNewsItems(realtimeNews, i18n.language);
 
-  const searchChips = useMemo(
-    () => browserStateReady ? getPopularSearchTerms(i18n.language, versionInfo.id, 4) : [],
-    [browserStateReady, i18n.language, versionInfo.id],
-  );
+  const [searchChips, setSearchChips] = useState<string[]>([]);
+
+  // The search index includes the complete resource catalog and is intentionally
+  // loaded after the initial hero has hydrated. Keeping it out of the route's
+  // critical module avoids shipping several megabytes of JSON before the user
+  // can interact with the page.
+  useEffect(() => {
+    if (!browserStateReady) {
+      setSearchChips([]);
+      return undefined;
+    }
+
+    let cancelled = false;
+    void import('@/services/searchSuggestions').then(({ getPopularSearchTerms }) => {
+      if (!cancelled) {
+        setSearchChips(getPopularSearchTerms(i18n.language, versionInfo.id, 4));
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [browserStateReady, i18n.language, versionInfo.id]);
 
   useEffect(() => {
     if (!deferBrowserState) return;

@@ -1,4 +1,10 @@
-import { useEffect, useRef } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ImgHTMLAttributes,
+  type RefAttributes,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { communityLinks } from '@/constants/communityLinks';
@@ -74,6 +80,59 @@ const STARTUP_FAME_BADGE_URL = 'https://startupfa.me/badges/featured-badge.webp'
 const SAASGROW_URL = 'https://saasgrow.app?ref=mpstorys.com';
 const SAASGROW_BADGE_URL = 'https://saasgrow.app/api/badge?type=featured&style=light';
 
+const TRANSPARENT_BADGE_PIXEL =
+  'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
+
+type DeferredBadgeProps = ImgHTMLAttributes<HTMLImageElement> & RefAttributes<HTMLImageElement> & {
+  src: string;
+};
+
+/**
+ * Keep third-party listing badges out of the critical request waterfall.
+ * The footer is usually far below the fold, so badges only start fetching
+ * when the row is approaching the viewport. Tests and older browsers fall
+ * back to loading immediately when IntersectionObserver is unavailable.
+ */
+function DeferredBadge({ src, alt, ...props }: DeferredBadgeProps) {
+  const [isNearViewport, setIsNearViewport] = useState(false);
+  const badgeRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const badge = badgeRef.current;
+    if (!badge) return undefined;
+
+    if (!('IntersectionObserver' in window)) {
+      setIsNearViewport(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsNearViewport(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px 0px' },
+    );
+    observer.observe(badge);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <img
+      ref={badgeRef}
+      src={isNearViewport ? src : TRANSPARENT_BADGE_PIXEL}
+      data-deferred-src={isNearViewport ? undefined : src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      fetchPriority="low"
+      {...props}
+    />
+  );
+}
+
 const groups = [
   {
     titleKey: 'footer_group_explore',
@@ -84,6 +143,8 @@ const groups = [
       { nameKey: 'footer_events_calendar', href: '/events' },
       { nameKey: 'footer_update_videos', href: '/community' },
       { nameKey: 'footer_wiki', href: '/wiki' },
+      { nameKey: 'nav_maps', href: '/maps' },
+      { nameKey: 'boss_index_title', href: '/wiki/boss' },
     ],
   },
   {
@@ -93,6 +154,7 @@ const groups = [
       { nameKey: 'footer_star_force_sim', href: '/tools#enhance' },
       { nameKey: 'footer_cube_simulator', href: '/tools#enhance' },
       { nameKey: 'footer_mapler_house', href: '/tools' },
+      { nameKey: 'nav_checklist', href: '/checklist' },
       { nameKey: 'footer_shop', href: '/shop' },
     ],
   },
@@ -114,6 +176,7 @@ const groups = [
       { nameKey: 'footer_careers', href: communityLinks.official },
       { nameKey: 'footer_contact', href: communityLinks.contact },
       { nameKey: 'footer_press_kit', href: communityLinks.official },
+      { nameKey: 'nav_feedback', href: '/feedback' },
     ],
   },
 ];
@@ -144,12 +207,10 @@ export default function Footer() {
       return clone;
     });
 
-    const firstOriginal = originalItems[0];
-    const firstClone = clonedItems[0];
-    const measuredCycleWidth = firstOriginal && firstClone
-      ? firstClone.offsetLeft - firstOriginal.offsetLeft
-      : 0;
-    const cycleWidth = measuredCycleWidth > 0 ? measuredCycleWidth : listings.scrollWidth / 2;
+    // Reading scrollWidth once is enough because the cloned track is exactly
+    // one cycle long. Avoid offsetLeft reads, which force a synchronous layout
+    // after appending every clone.
+    const cycleWidth = listings.scrollWidth / 2;
 
     if (cycleWidth > 0) {
       listings.style.setProperty('--featured-listings-distance', `${cycleWidth}px`);
@@ -280,7 +341,7 @@ export default function Footer() {
             aria-label="MPStorys on OpenHunts"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="OpenHunts Club Member"
               width="111"
               height="24"
@@ -297,7 +358,7 @@ export default function Footer() {
             aria-label="MPStorys on Aidirs"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="MPStorys - MapleStory news and guide hub | Aidirs"
               width="86"
               height="24"
@@ -314,7 +375,7 @@ export default function Footer() {
             aria-label="MPStorys listed on AIDirs.org"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Listed on AIDirs"
               width="72"
               height="24"
@@ -332,7 +393,7 @@ export default function Footer() {
             aria-label="MPStorys on AI Agents Directory"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on AI Agents Directory"
               width="96"
               height="24"
@@ -349,7 +410,7 @@ export default function Footer() {
             aria-label="MPStorys on Product Hunt"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt={PRODUCT_HUNT_BADGE_ALT}
               width="111"
               height="24"
@@ -366,7 +427,7 @@ export default function Footer() {
             aria-label="MPStorys on AI Tool Fame"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on aitoolfame.com"
               width="84"
               height="24"
@@ -383,7 +444,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Artificin"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on Artificin"
               width="84"
               height="24"
@@ -400,7 +461,7 @@ export default function Footer() {
             aria-label="MPStorys featured on BestskyTools"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on BestskyTools"
               width="74"
               height="24"
@@ -417,7 +478,7 @@ export default function Footer() {
             aria-label="MPStorys verified on DANG"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Verified on DANG!"
               width="66"
               height="24"
@@ -434,7 +495,7 @@ export default function Footer() {
             aria-label="MPStorys featured on DeepLaunch.io"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on DeepLaunch.io"
               width="89"
               height="24"
@@ -451,7 +512,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Dofollow.Tools"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on Dofollow.Tools"
               width="89"
               height="24"
@@ -468,7 +529,7 @@ export default function Footer() {
             aria-label="MPStorys domain rating on DomainRank"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="mpstorys.com Domain Rating"
               width="149"
               height="24"
@@ -485,7 +546,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Findly.tools"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on Findly.tools"
               width="76"
               height="24"
@@ -502,7 +563,7 @@ export default function Footer() {
             aria-label="MPStorys on Lovable App"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Lovable App Badge"
               width="80"
               height="24"
@@ -529,7 +590,7 @@ export default function Footer() {
             aria-label="MPStorys featured on ShowMeBestAI"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on ShowMeBestAI"
               width="96"
               height="24"
@@ -546,7 +607,7 @@ export default function Footer() {
             aria-label="MPStorys featured on SaaSFame"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on saasfame.com"
               width="76"
               height="24"
@@ -564,7 +625,7 @@ export default function Footer() {
             aria-label="MPStorys powered by Startup Fast"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Powered by Startup Fast"
               width="57"
               height="24"
@@ -591,7 +652,7 @@ export default function Footer() {
             aria-label="MPStorys on Submit AI Tools"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Submit AI Tools"
               width="72"
               height="24"
@@ -609,7 +670,7 @@ export default function Footer() {
             aria-label="MPStorys listed on Submito"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Listed on Submito"
               width="84"
               height="24"
@@ -626,7 +687,7 @@ export default function Footer() {
             aria-label="MPStorys featured on ToolFame"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on toolfame.com"
               width="71"
               height="24"
@@ -643,7 +704,7 @@ export default function Footer() {
             aria-label="MPStorys listed on Turbo0"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Listed on Turbo0"
               width="72"
               height="24"
@@ -660,7 +721,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Wired Business"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on Wired Business"
               width="89"
               height="24"
@@ -677,7 +738,7 @@ export default function Footer() {
             aria-label="Verified domain rating for MPStorys"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Verified DR - Verified Domain Rating for mpstorys.com"
               width="85"
               height="24"
@@ -694,7 +755,7 @@ export default function Footer() {
             aria-label="MPStorys listed on BuildWay"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Listed on BuildWay"
               width="24"
               height="24"
@@ -711,7 +772,7 @@ export default function Footer() {
             aria-label="Monitor MPStorys domain rating with FrogDR"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Monitor your Domain Rating with FrogDR"
               width="111"
               height="24"
@@ -728,7 +789,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Fazier"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Fazier badge"
               width="111"
               height="24"
@@ -745,7 +806,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Twelve Tools"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on Twelve Tools"
               width="89"
               height="24"
@@ -762,7 +823,7 @@ export default function Footer() {
             aria-label="MPStorys featured on LaunchIgniter"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="Featured on LaunchIgniter"
               width="93"
               height="24"
@@ -779,7 +840,7 @@ export default function Footer() {
             aria-label="MPStorys featured on Startup Fame"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="MPStorys - Featured on Startup Fame"
               width="76"
               height="24"
@@ -796,7 +857,7 @@ export default function Footer() {
             aria-label="MPStorys featured on SaaSGrow"
             className="inline-flex shrink-0 rounded transition-opacity hover:opacity-90"
           >
-            <img
+            <DeferredBadge
               alt="MPStorys on SaaSGrow"
               width="107"
               height="24"

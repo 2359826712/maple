@@ -489,6 +489,14 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
+/* The third-party badge rail is decorative and sits at the very bottom of
+   every route. Let the browser skip its initial paint/layout until it nears
+   the viewport. */
+.featured-listings-marquee {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 32px;
+}
+
 /* ── Accessibility: focus-visible ring for interactive elements ── */
 button:focus-visible,
 a:focus-visible,

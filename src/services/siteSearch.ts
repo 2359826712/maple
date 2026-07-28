@@ -19,7 +19,8 @@ import {
 } from '@/domain/resourceIndex';
 import { indexedContent } from '@/domain/contentIndex';
 import { getSeriesResourceHref } from '@/pages/series/scope';
-import { getVerifiedSeriesResourceSlug } from '@/pages/series/verifiedContent';
+import { getVerifiedSeriesResourceSlug } from '@/pages/series/verifiedContentSlug';
+export { getPopularSearchTerms } from '@/services/searchSuggestions';
 
 export type SearchSection = 'news' | 'guides' | 'events' | 'tools' | 'wiki' | 'maps' | 'bosses';
 
@@ -278,55 +279,4 @@ export function getSiteSearchResults(query: string, language: string, version: s
     .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))
     .slice(0, 24)
     .map(({ haystack: _haystack, ...result }) => result);
-}
-
-/**
- * Generate popular search suggestions from actual indexed data.
- * Picks diverse terms across wiki, guides, and events so every suggestion
- * is guaranteed to produce results when searched.
- */
-export function getPopularSearchTerms(
-  language: string,
-  version: string,
-  count = 5,
-): string[] {
-  const liveGuides = readLiveItems<GuideItem>(liveStorageKeys.guides);
-  const liveEvents = readLiveItems<EventItem>(liveStorageKeys.events);
-  const liveWiki = readLiveItems<WikiEntry>(liveStorageKeys.wiki);
-
-  const suggestions: string[] = [];
-
-  // Wiki: pick popular entries from different categories
-  const wikiEntries = liveWiki.filter((item) => isAvailableInVersion(item.versions, version));
-  const seenCategories = new Set<string>();
-  for (const entry of wikiEntries) {
-    if (suggestions.length >= count) break;
-    if (seenCategories.has(entry.category)) continue;
-    seenCategories.add(entry.category);
-    const title = localizedWikiTitle(entry, language);
-    if (title && title.length <= 40) {
-      suggestions.push(title);
-    }
-  }
-
-  // Guides: add 1-2 class/strategy names
-  const guides = liveGuides;
-  for (const guide of guides.slice(0, 2)) {
-    if (suggestions.length >= count) break;
-    const copy = getGuideCardCopy(guide, language);
-    if (copy.classLabel && !suggestions.includes(copy.classLabel)) {
-      suggestions.push(copy.classLabel);
-    }
-  }
-
-  // Events: add 1 event name if available
-  const events = liveEvents.filter((item) => isAvailableInVersion(item.regions, version));
-  if (events.length > 0 && suggestions.length < count) {
-    const eventName = events[0].name;
-    if (eventName && !suggestions.includes(eventName)) {
-      suggestions.push(eventName);
-    }
-  }
-
-  return suggestions.slice(0, count);
 }

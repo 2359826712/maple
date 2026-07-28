@@ -29,6 +29,15 @@ const navLinkKeys = [
   { key: 'nav_series', href: '/series' },
 ];
 
+const mobileUtilityLinks = [
+  { key: 'nav_checklist', href: '/checklist', icon: 'ri-checkbox-circle-line' },
+  { key: 'nav_maps', href: '/maps', icon: 'ri-map-2-line' },
+  { key: 'boss_index_title', href: '/wiki/boss', icon: 'ri-skull-2-line' },
+  { key: 'nav_community', href: '/community', icon: 'ri-group-line' },
+  { key: 'nav_shop', href: '/shop', icon: 'ri-shopping-bag-3-line' },
+  { key: 'nav_feedback', href: '/feedback', icon: 'ri-feedback-line' },
+] as const;
+
 const TOOL_FAVORITES_KEY = 'maplehub-tool-favorites';
 
 const defaultToolSections = [
@@ -1267,6 +1276,31 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                   </Link>
                 );
               })}
+              <div className="mt-2 grid grid-cols-2 gap-1 border-t border-background-200 pt-3">
+                {mobileUtilityLinks.map((link) => {
+                  const destinationHref = getNavHref(link.href);
+                  const active = isNavActive(link.href);
+                  return (
+                    <Link
+                      key={link.href}
+                      to={localizeHref(destinationHref, i18n.language, versionInfo.id)}
+                      onMouseEnter={() => prefetchNav(destinationHref)}
+                      onFocus={() => prefetchNav(destinationHref)}
+                      onTouchStart={() => prefetchNav(destinationHref)}
+                      onClick={() => setMenuOpen(false)}
+                      aria-current={active ? 'page' : undefined}
+                      className={`flex min-h-11 items-center gap-2 rounded-md px-3 py-2 text-sm ${
+                        active
+                          ? 'bg-primary-100 font-semibold text-primary-700'
+                          : 'font-medium text-foreground-800 hover:bg-primary-50 hover:text-primary-600'
+                      }`}
+                    >
+                      <i className={`${link.icon} text-base text-primary-600`} aria-hidden="true" />
+                      {t(link.key)}
+                    </Link>
+                  );
+                })}
+              </div>
               <div className="mt-3 pt-3 border-t border-background-200 flex flex-col gap-2">
                 <div className="flex items-center gap-1.5 text-xs font-medium text-foreground-700">
                   <i className="ri-leaf-fill text-primary-500 text-xs"></i>
