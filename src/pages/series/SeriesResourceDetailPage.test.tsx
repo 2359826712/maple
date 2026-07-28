@@ -22,7 +22,7 @@ vi.mock('@/services/mapleSqlApi', () => ({
 afterEach(cleanup);
 
 describe('series resource details', () => {
-  it('keeps summary-only indexed news as a source record instead of a generated article', async () => {
+  it('opens summary-only indexed news on MPStorys without generated article sections', async () => {
     const slug = 'jul-11-2026-china-shengquchina-gets-a-launch-date-cms-cl-classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-';
     const pathname = `/series/maplestory-classic/news/${slug}/en/GMS`;
     window.history.replaceState({}, '', pathname);
@@ -44,14 +44,15 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Summary' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Article body is not archived yet' })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Key takeaway' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Launch date and server status' })).toBeNull();
     expect(screen.getByRole('link', { name: /Open verified source/ })).toBeTruthy();
   });
 
-  it('keeps first-party guide content as a source record instead of a generated article', async () => {
+  it('opens first-party guide content on MPStorys instead of jumping straight to the source', async () => {
     const pathname = '/series/maplestory-worlds/guides/welcome-to-maplestory-worlds-worlds-creator-center-welcome-to-msw/en/GMS';
     const requestPath = pathname;
     window.history.replaceState({}, '', requestPath);
@@ -73,7 +74,8 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Summary' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Article body is not archived yet' })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
     expect(screen.queryByRole('heading', { name: '2. Basic concepts and LuaScript' })).toBeNull();
     expect(screen.getByRole('link', { name: /Open verified source/ })).toBeTruthy();
@@ -101,7 +103,8 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Summary' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Article body is not archived yet' })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Key dates' })).toBeNull();
     expect(screen.getByRole('img', { name: 'Classic World Closed Online Test #2' }).getAttribute('src'))
@@ -218,7 +221,7 @@ describe('series resource details', () => {
     }
   });
 
-  it('keeps the official API reference guide as a source record unless it has a real on-site tool', async () => {
+  it('keeps the official API reference guide as an MPStorys article shell unless it has a real on-site tool', async () => {
     const slug = 'maplestory-worlds-api-reference-worlds-official-api-reference';
     const pathname = `/series/maplestory-worlds/guides/${slug}/en/GMS`;
     window.history.replaceState({}, '', pathname);
@@ -239,10 +242,46 @@ describe('series resource details', () => {
       />,
     );
 
-    expect(await screen.findByRole('heading', { name: 'Verified source record' })).toBeTruthy();
+    expect(await screen.findByRole('heading', { name: 'Summary' })).toBeTruthy();
+    expect(screen.getByRole('heading', { name: 'Article body is not archived yet' })).toBeTruthy();
     expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Reference families' })).toBeNull();
     expect(screen.getByRole('link', { name: /Open verified source/ })).toBeTruthy();
+  });
+
+  it('renders archived full article body when the content record provides text', async () => {
+    const slug = 'jul-11-2026-china-shengquchina-gets-a-launch-date-cms-cl-classic-china-niameowdb-news-2026-07-11-cms-launch-date-august-';
+    const pathname = `/series/maplestory-classic/news/${slug}/en/GMS`;
+    window.history.replaceState({}, '', pathname);
+    const routeProps = await createRoutePageProps(pathname);
+    const detail = routeProps!.initialSeriesResourceDetail!;
+
+    render(
+      <NextApplication
+        {...routeProps!}
+        translation={translation}
+        initialRouteElement={(
+          <SeriesResourceDetailPage
+            initialContentModule="news"
+            initialDetail={{
+              ...detail,
+              contentRecord: {
+                ...detail.contentRecord!,
+                body_text: 'Full archived paragraph one.\n\nFull archived paragraph two.',
+              },
+            }}
+            initialSeriesId="maplestory-classic"
+            initialSlug={slug}
+          />
+        )}
+      />,
+    );
+
+    expect(await screen.findByRole('heading', { name: 'Article body' })).toBeTruthy();
+    expect(screen.getByText('Full archived paragraph one.')).toBeTruthy();
+    expect(screen.getByText('Full archived paragraph two.')).toBeTruthy();
+    expect(screen.queryByRole('heading', { name: 'Article body is not archived yet' })).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Detailed content' })).toBeNull();
   });
 
   it('renders indexed resource facts without replacing them with a usage-and-redirect guide', async () => {

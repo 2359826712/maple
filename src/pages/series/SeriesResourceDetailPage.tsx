@@ -51,6 +51,22 @@ const moduleLabels: Record<SeriesModule, string> = {
 const relatedModules: SeriesModule[] = ['news', 'upcoming', 'guides', 'events', 'tools', 'checklist', 'maps', 'wiki'];
 const emptyContentSections: ContentSection[] = [];
 
+const escapeHtml = (value: string) => value
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;')
+  .replaceAll("'", '&#39;');
+
+const plainTextToHtml = (value?: string | null) => {
+  const text = value?.trim();
+  if (!text) return '';
+  return text
+    .split(/\n{2,}/)
+    .map((paragraph) => `<p>${escapeHtml(paragraph.trim()).replace(/\n/g, '<br />')}</p>`)
+    .join('');
+};
+
 export type SeriesResourceDetailData = {
   bodyHtml?: string;
   contentModule?: string;
@@ -95,6 +111,12 @@ export default function SeriesResourceDetailPage({
       ? prepareStaticHtmlForRender(detail.bodyHtml, resource?.sourceUrl)
       : '',
     [detail?.bodyHtml, resource?.sourceUrl],
+  );
+  const archivedBodyHtml = useMemo(
+    () => renderedBodyHtml
+      || plainTextToHtml(contentRecord?.body_markdown)
+      || plainTextToHtml(contentRecord?.body_text),
+    [contentRecord?.body_markdown, contentRecord?.body_text, renderedBodyHtml],
   );
 
   useEffect(() => {
@@ -193,7 +215,7 @@ export default function SeriesResourceDetailPage({
   );
   const heroImageAlt = resource?.imageAlt || copy.title;
   const hasOnSiteExperience = hasResourceDetailExperience(resource);
-  const shouldUseSourceHandoff = Boolean(resource && contentRecord && !hasOnSiteExperience);
+  const shouldRenderArticleRecord = Boolean(resource && contentRecord && !hasOnSiteExperience);
   const seriesToolMenu = useSeriesToolMenu(
     product?.id,
     module === 'tools' ? resource?.resourceId : undefined,
@@ -284,38 +306,56 @@ export default function SeriesResourceDetailPage({
                   />
                 </figure>
               )}
-              {shouldUseSourceHandoff ? (
-                <section
-                  aria-labelledby="resource-source-record-heading"
-                  className="rounded-2xl border border-background-300 bg-background-100 p-6 shadow-sm md:p-8"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-700">
-                    {t('series_verified_by_source', { source: resource.sourceLabel })}
-                  </p>
-                  <h2 id="resource-source-record-heading" className="mt-3 font-heading text-2xl font-semibold">
-                    {t('series_source_record_title')}
-                  </h2>
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground-600">
-                    {t('series_source_record_body')}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <a
-                      href={resource.sourceUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex h-10 items-center gap-1.5 rounded-md bg-primary-600 px-4 text-sm font-semibold text-background-50 hover:bg-primary-700"
+              {shouldRenderArticleRecord ? (
+                <>
+                  {copy.description && (
+                    <section aria-labelledby="series-article-summary-heading">
+                      <h2 id="series-article-summary-heading" className="font-heading text-2xl font-semibold">
+                        {t('series_article_summary_title')}
+                      </h2>
+                      <p className="mt-4 text-base leading-8 text-foreground-700">{copy.description}</p>
+                    </section>
+                  )}
+
+                  {archivedBodyHtml ? (
+                    <section className="mt-10 border-t border-background-300 pt-8" aria-labelledby="series-article-body-heading">
+                      <div className="flex items-center gap-3">
+                        <i className="ri-article-line text-2xl text-primary-700" aria-hidden="true" />
+                        <h2 id="series-article-body-heading" className="font-heading text-2xl font-semibold">
+                          {t('series_article_body_title')}
+                        </h2>
+                      </div>
+                      <div
+                        className="wiki-content mt-7 text-base leading-8 text-foreground-700"
+                        dangerouslySetInnerHTML={{ __html: archivedBodyHtml }}
+                      />
+                    </section>
+                  ) : (
+                    <section
+                      aria-labelledby="series-article-body-missing-heading"
+                      className="mt-10 rounded-2xl border border-background-300 bg-background-100 p-6 shadow-sm md:p-8"
                     >
-                      {t('series_source_record_open')}
-                      <i className="ri-external-link-line" aria-hidden="true" />
-                    </a>
-                    <Link
-                      to={localized(getSeriesModuleHref(product.id, module))}
-                      className="inline-flex h-10 items-center gap-1.5 rounded-md border border-background-300 px-4 text-sm font-semibold text-foreground-700 hover:border-primary-400 hover:text-primary-700"
-                    >
-                      {t('series_source_record_back', { module: t(moduleLabels[module]) })}
-                    </Link>
-                  </div>
-                </section>
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-700">
+                        {t('series_verified_by_source', { source: resource.sourceLabel })}
+                      </p>
+                      <h2 id="series-article-body-missing-heading" className="mt-3 font-heading text-2xl font-semibold">
+                        {t('series_article_body_unavailable_title')}
+                      </h2>
+                      <p className="mt-4 max-w-2xl text-sm leading-7 text-foreground-600">
+                        {t('series_article_body_unavailable_body')}
+                      </p>
+                      <a
+                        href={resource.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-6 inline-flex h-10 items-center gap-1.5 rounded-md bg-primary-600 px-4 text-sm font-semibold text-background-50 hover:bg-primary-700"
+                      >
+                        {t('series_source_record_open')}
+                        <i className="ri-external-link-line" aria-hidden="true" />
+                      </a>
+                    </section>
+                  )}
+                </>
               ) : (
                 <>
                   <ResourceDetailExperience resource={resource} />

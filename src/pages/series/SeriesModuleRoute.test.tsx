@@ -398,8 +398,8 @@ describe('series module routes', () => {
       name: 'Latest MapleStory M updates',
     }, { timeout: 10_000 })).toBeTruthy();
     expect(screen.getByText('Showing 9 of 9 verified records')).toBeTruthy();
-    expect(screen.getAllByRole('link', { name: 'Check official source' }).length).toBeGreaterThan(0);
-    expect(screen.queryByRole('link', { name: 'Read on MPStorys' })).toBeNull();
+    expect(screen.getAllByRole('link', { name: 'Read on MPStorys' }).length).toBeGreaterThan(0);
+    expect(screen.queryByRole('link', { name: 'Check official source' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Current MapleStory M briefing' })).toBeNull();
     expect(screen.queryByRole('heading', { name: 'Events and limited sales' })).toBeNull();
   });
