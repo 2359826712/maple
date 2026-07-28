@@ -737,7 +737,7 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
               );
             })}
             {utilityLinks.map((link) => {
-              const destinationHref = getNavHref(link.href);
+              const destinationHref = link.href;
               const active = isNavActive(link.href);
               return (
                 <Link
@@ -1298,8 +1298,8 @@ export default function Navbar({ onOpenNotifications, unread, guideMenu, toolMen
                 );
               })}
               <div className="mt-2 grid grid-cols-2 gap-1 border-t border-background-200 pt-3">
-                {utilityLinks.map((link) => {
-                  const destinationHref = getNavHref(link.href);
+            {utilityLinks.map((link) => {
+              const destinationHref = link.href;
                   const active = isNavActive(link.href);
                   return (
                     <Link

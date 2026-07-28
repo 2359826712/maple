@@ -124,12 +124,12 @@ describe('Navbar mobile site search', () => {
     expect(scopedNavigation.getByRole('link', { name: 'nav_updates' }).getAttribute('aria-current')).toBe('page');
     expect(scopedNavigation.getByRole('link', { name: 'nav_knowledge' }).getAttribute('href')).toBe('/series/maplestory-m/guides');
     expect(scopedNavigation.getByRole('link', { name: 'nav_tools' })).toBeTruthy();
-    expect(scopedNavigation.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/series/maplestory-m/checklist');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_checklist' }).getAttribute('href')).toBe('/checklist');
     expect(scopedNavigation.getByRole('link', { name: 'nav_maps' }).getAttribute('href')).toBe('/maps');
     expect(scopedNavigation.getByRole('link', { name: 'boss_index_title' }).getAttribute('href')).toBe('/wiki/boss');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/series/maplestory-m/community');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/series/maplestory-m/shop');
-    expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/series/maplestory-m/feedback');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_community' }).getAttribute('href')).toBe('/community');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_shop' }).getAttribute('href')).toBe('/shop');
+    expect(scopedNavigation.getByRole('link', { name: 'nav_feedback' }).getAttribute('href')).toBe('/feedback');
   });
 
   it('marks the owning navigation module active on article detail pages', () => {
