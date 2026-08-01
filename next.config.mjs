@@ -56,11 +56,10 @@ const nextConfig = {
       beforeFiles: [
         { source: '/health', destination: '/api/health' },
         { source: '/rss.xml', destination: '/api/rss' },
-        ...(apiOrigin
-          ? [{ source: '/api/:path*', destination: `${apiOrigin}/api/:path*` }]
-          : []),
       ],
-      afterFiles: [],
+      afterFiles: apiOrigin
+        ? [{ source: '/api/:path*', destination: `${apiOrigin}/api/:path*` }]
+        : [],
       fallback: [],
     };
   },
