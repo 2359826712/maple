@@ -28,7 +28,7 @@ vi.mock('@/services/upcomingUpdates', () => ({
 vi.mock('@/services/serverDom', () => ({ ensureServerDom: vi.fn() }));
 
 import { fetchLiveEvents, fetchLiveGuides, fetchLiveNews, type NewsItem } from '@/services/liveContent';
-import { createRoutePageProps, getLocalizedRedirect } from './routeData';
+import { compactSerializable, createRoutePageProps, getLocalizedRedirect } from './routeData';
 
 const newsItem: NewsItem = {
   id: 'news-1',
@@ -53,6 +53,19 @@ describe('Next route data', () => {
     vi.mocked(fetchLiveEvents).mockResolvedValue({ items: [], replace: true });
     vi.mocked(fetchLiveGuides).mockReset();
     vi.mocked(fetchLiveGuides).mockResolvedValue({ items: [], replace: true });
+  });
+
+  it('removes unsupported values without JSON-copying unchanged large branches', () => {
+    const stable = { html: '<p>large article body</p>' };
+    const value = compactSerializable({
+      optional: undefined,
+      nested: { missing: undefined, value: 'kept' },
+      stable,
+    });
+
+    expect(value).not.toHaveProperty('optional');
+    expect(value.nested).toEqual({ value: 'kept' });
+    expect(value.stable).toBe(stable);
   });
 
   it('includes official news in the server props for the news route', async () => {

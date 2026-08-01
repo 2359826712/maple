@@ -11,6 +11,7 @@ import {
 } from '@/domain/contentSchemas';
 import { sanitizeMirroredHtml } from './sanitizeHtml';
 import type { GameVersion } from '@/domain/regionModel';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 export type { WikiCategory, WikiEntry } from '@/mocks/wiki';
 
@@ -532,7 +533,7 @@ const parseWikiHtml = (html = '', host = ''): ParsedWikiPage => {
       const titleFromQuery = url.searchParams.get('title');
       const rawTitle = titleFromPath || titleFromQuery;
       if (rawTitle) {
-        node.setAttribute('href', `/wiki/article/${encodeURIComponent(decodeURIComponent(rawTitle).replace(/_/g, ' '))}`);
+        node.setAttribute('href', `/wiki/article/${encodeURIComponent(safeDecodeURIComponent(rawTitle).replace(/_/g, ' '))}`);
         node.removeAttribute('target');
         node.removeAttribute('rel');
         return;

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import ExternalRedirect from '@/components/feature/ExternalRedirect';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 const wikiOrigin = 'https://maplestorywiki.net';
 
@@ -33,7 +34,7 @@ export function WikiRedirectPage() {
 export function WikiArticleRedirectPage() {
   const { '*': titleParam } = useParams<{ '*': string }>();
   const target = useMemo(() => {
-    const title = titleParam ? decodeURIComponent(titleParam).replace(/\s+/g, '_') : 'MapleStory_Wiki';
+    const title = titleParam ? safeDecodeURIComponent(titleParam).replace(/\s+/g, '_') : 'MapleStory_Wiki';
     return `${wikiOrigin}/w/${encodeURIComponent(title)}`;
   }, [titleParam]);
 

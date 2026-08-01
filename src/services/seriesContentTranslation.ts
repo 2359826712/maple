@@ -37,7 +37,8 @@ export type CurrentSeriesContentTranslation = {
   updated_at: string;
 };
 
-export type PublishedSeriesContentTranslation = CurrentSeriesContentTranslation & {
+export type PublishedSeriesContentTranslation = Omit<CurrentSeriesContentTranslation, 'body_html'> & {
+  body_html?: string;
   slug: string;
 };
 
@@ -128,10 +129,11 @@ export async function readPublishedSeriesContentTranslationsBySlugs(
 ) {
   const pool = getPool();
   if (!pool) throw new Error('translation database is unavailable');
-  if (slugs.length === 0 || locale === 'en') return {};
+  const uniqueSlugs = [...new Set(slugs.filter(Boolean))];
+  if (uniqueSlugs.length === 0 || locale === 'en') return {};
   const result = await pool.query<PublishedSeriesContentTranslation>(`
     select content.slug, translation.content_id, translation.locale,
-           translation.title, translation.summary, translation.body_html,
+           translation.title, translation.summary,
            translation.source_revision, translation.provider, translation.model,
            translation.glossary_version, translation.quality_checks,
            translation.review_status, translation.updated_at
@@ -142,7 +144,7 @@ export async function readPublishedSeriesContentTranslationsBySlugs(
       and translation.locale = $2
       and translation.source_revision = content.source_revision
       and translation.review_status in ('automatic', 'approved')
-  `, [slugs, locale]);
+  `, [uniqueSlugs, locale]);
   return Object.fromEntries(result.rows.map((row) => [row.slug, row]));
 }
 

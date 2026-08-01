@@ -58,6 +58,7 @@ import {
 } from '@/pages/series/indexedContentDetail';
 import type { SeriesResourceDetailData } from '@/pages/series/SeriesResourceDetailPage';
 import { applyPublishedWikiTranslation } from '@/services/wikiTranslation';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 export type RouteHeadBoss = {
   articleBody: string;
@@ -150,11 +151,53 @@ export const getLocalizedRedirect = (pathname: string) => {
   return localizedUrl === requestPath ? null : localizedUrl;
 };
 
-const jsonValue = <T,>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
+export const compactSerializable = <T,>(value: T): T => {
+  const memo = new WeakMap<object, unknown>();
+  const visiting = new WeakSet<object>();
+  const visit = (input: unknown, arrayItem = false): unknown => {
+    if (input === undefined || typeof input === 'function' || typeof input === 'symbol') {
+      return arrayItem ? null : undefined;
+    }
+    if (typeof input === 'bigint') return input.toString();
+    if (typeof input === 'number' && !Number.isFinite(input)) return null;
+    if (input === null || typeof input !== 'object') return input;
+    if (input instanceof Date) return input.toISOString();
+    if (visiting.has(input)) throw new TypeError('Route props cannot contain circular references');
+    if (memo.has(input)) return memo.get(input);
 
-const safeDecode = (value: string) => {
-  try { return decodeURIComponent(value); } catch { return value; }
+    visiting.add(input);
+    if (Array.isArray(input)) {
+      let output: unknown[] | undefined;
+      input.forEach((current, index) => {
+        const next = visit(current, true);
+        if (next !== current) {
+          output ||= [...input];
+          output[index] = next;
+        }
+      });
+      const result = output || input;
+      visiting.delete(input);
+      memo.set(input, result);
+      return result;
+    }
+
+    let output: Record<string, unknown> | undefined;
+    for (const [key, current] of Object.entries(input)) {
+      const next = visit(current);
+      if (next === current && next !== undefined) continue;
+      output ||= { ...(input as Record<string, unknown>) };
+      if (next === undefined) delete output[key];
+      else output[key] = next;
+    }
+    const result = output || input;
+    visiting.delete(input);
+    memo.set(input, result);
+    return result;
+  };
+  return visit(value) as T;
 };
+
+const safeDecode = safeDecodeURIComponent;
 
 const withDeadline = <T,>(promise: Promise<T>, fallback: T, milliseconds = 20_000) => new Promise<T>((resolve) => {
   const timer = globalThis.setTimeout(() => resolve(fallback), milliseconds);
@@ -481,27 +524,27 @@ export async function createRoutePageProps(requestUrl: string): Promise<NextRout
       : requestTitle,
   ]);
 
-  return {
+  return compactSerializable({
     language,
     pathname: normalized,
     requestPath: `${request.pathname}${request.search}`,
     server,
     translation,
     ...(requestDescription ? { requestDescription } : {}),
-    ...(routeHeadBoss ? { routeHeadBoss: jsonValue(routeHeadBoss) } : {}),
-    ...(initialSeriesResourceDetail ? { initialSeriesResourceDetail: jsonValue(initialSeriesResourceDetail) } : {}),
-    ...(localizedNews ? { initialNews: jsonValue(localizedNews) } : {}),
-    ...(localizedEvents ? { initialEvents: jsonValue(localizedEvents) } : {}),
-    ...(localizedUpcomingFeed ? { initialUpcomingFeed: jsonValue(localizedUpcomingFeed) } : {}),
-    ...(localizedUpcomingArticle ? { initialUpcomingArticle: jsonValue(localizedUpcomingArticle) } : {}),
-    ...(localizedGuideSection ? { initialGuideSection: jsonValue(localizedGuideSection) } : {}),
-    ...(localizedGuideCards ? { initialGuides: jsonValue(localizedGuideCards) } : {}),
-    ...(localizedGuide ? { initialGuide: jsonValue(localizedGuide) } : {}),
-    ...(localizedWikiEntry ? { initialWikiEntry: jsonValue(localizedWikiEntry) } : {}),
-    ...(localizedOfficialArticle ? { initialOfficialArticle: jsonValue(localizedOfficialArticle) } : {}),
-    ...(localizedTools ? { initialTools: jsonValue(localizedTools) } : {}),
+    ...(routeHeadBoss ? { routeHeadBoss } : {}),
+    ...(initialSeriesResourceDetail ? { initialSeriesResourceDetail } : {}),
+    ...(localizedNews ? { initialNews: localizedNews } : {}),
+    ...(localizedEvents ? { initialEvents: localizedEvents } : {}),
+    ...(localizedUpcomingFeed ? { initialUpcomingFeed: localizedUpcomingFeed } : {}),
+    ...(localizedUpcomingArticle ? { initialUpcomingArticle: localizedUpcomingArticle } : {}),
+    ...(localizedGuideSection ? { initialGuideSection: localizedGuideSection } : {}),
+    ...(localizedGuideCards ? { initialGuides: localizedGuideCards } : {}),
+    ...(localizedGuide ? { initialGuide: localizedGuide } : {}),
+    ...(localizedWikiEntry ? { initialWikiEntry: localizedWikiEntry } : {}),
+    ...(localizedOfficialArticle ? { initialOfficialArticle: localizedOfficialArticle } : {}),
+    ...(localizedTools ? { initialTools: localizedTools } : {}),
     ...(localizedRequestTitle ? { requestTitle: localizedRequestTitle } : {}),
-  };
+  });
 }
 
 export function pathnameFromStaticContext(context: GetStaticPropsContext) {

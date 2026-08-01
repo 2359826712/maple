@@ -8,6 +8,7 @@ import { localizeHref } from '@/i18n/languageRouting';
 import { useVersion } from '@/hooks/VersionContext';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { normalizeStaticContentLanguage } from '@/services/staticTranslation';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 import { fetchPublishedSeriesTranslations } from '@/services/publishedSeriesContent';
 import { getSeriesProduct } from './catalog';
 import type { IndexedContentRecord } from '@/domain/contentIndex';
@@ -81,7 +82,7 @@ export default function SeriesResourceDetailPage({
   const localized = (href: string) => localizeHref(href, i18n.language, version);
 
   useEffect(() => {
-    const decodedSlug = slug ? decodeURIComponent(slug) : '';
+    const decodedSlug = slug ? safeDecodeURIComponent(slug) : '';
     if (!product || !module || !decodedSlug) {
       setDetail(undefined);
       setResolving(false);
@@ -172,7 +173,7 @@ export default function SeriesResourceDetailPage({
     copy.description || t('series_verified_content_note'),
     {
       canonicalPath: product && module && resource
-        ? localized(getSeriesResourceHref(product.id, module, detail?.resourceSlug || decodeURIComponent(slug || '')))
+        ? localized(getSeriesResourceHref(product.id, module, detail?.resourceSlug || safeDecodeURIComponent(slug || '')))
         : undefined,
       datePublished: publishedAt,
       includeAlternates: false,

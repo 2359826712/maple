@@ -5,6 +5,7 @@ import { stripRouteSuffixes } from '@/i18n/languageRouting';
 import SeriesResourceDetailPage from './series/SeriesResourceDetailPage';
 import NotFound from './NotFound';
 import Home from './home/page';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 export default function HomeNextRoute(props: NextRoutePageProps) {
   const routePath = stripRouteSuffixes(props.pathname);
@@ -14,9 +15,9 @@ export default function HomeNextRoute(props: NextRoutePageProps) {
     : contentMatch
       ? (
         <SeriesResourceDetailPage
-          initialContentModule={decodeURIComponent(contentMatch[1])}
+          initialContentModule={safeDecodeURIComponent(contentMatch[1])}
           initialDetail={props.initialSeriesResourceDetail}
-          initialSlug={decodeURIComponent(contentMatch[2])}
+          initialSlug={safeDecodeURIComponent(contentMatch[2])}
         />
       )
       : <NotFound />;

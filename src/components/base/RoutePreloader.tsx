@@ -4,23 +4,18 @@ import { prefetchRouteForPath } from '@/router/config';
 import { stripRouteSuffixes } from '@/i18n/languageRouting';
 import { useVersion, type GameVersion } from '@/hooks/VersionContext';
 import type { NewsItem } from '@/services/liveContent';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 const wikiTitleFromPath = (pathname: string) => {
   const routePath = stripRouteSuffixes(pathname);
   const match = routePath.match(/^\/wiki\/article\/(.+)$/);
   if (!match) return null;
-  try {
-    return decodeURIComponent(match[1]).replace(/_/g, ' ');
-  } catch {
-    return match[1].replace(/_/g, ' ');
-  }
+  return safeDecodeURIComponent(match[1]).replace(/_/g, ' ');
 };
 
 const pathResourcePrefetches = new Map<string, Promise<void>>();
 
-const decodePathSegment = (value: string) => {
-  try { return decodeURIComponent(value); } catch { return value; }
-};
+const decodePathSegment = safeDecodeURIComponent;
 
 const prefetchPageData = async (pathname: string, language: string, version: GameVersion) => {
   const url = new URL(pathname, window.location.origin);

@@ -6,11 +6,12 @@ import SeriesModuleRoute from '@/pages/series/SeriesModuleRoute';
 import GuideDetail from './detail/page';
 import LevelGuidePage from './level/page';
 import GuidesPage from './page';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 export default function GuidesNextRoute(props: NextRoutePageProps) {
   const routePath = stripRouteSuffixes(props.pathname);
   const guideId = routePath.startsWith('/guides/')
-    ? decodeURIComponent(routePath.slice('/guides/'.length))
+    ? safeDecodeURIComponent(routePath.slice('/guides/'.length))
     : undefined;
   const initialRouteElement = routePath === '/guides/level'
     ? <LevelGuidePage />

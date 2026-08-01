@@ -9,7 +9,7 @@ export type PublishedSeriesTranslation = {
   locale: StaticContentLanguage;
   title: string;
   summary: string;
-  body_html: string;
+  body_html?: string;
   source_revision: string;
   provider: string;
   model: string;

@@ -212,6 +212,6 @@ describe('search and social metadata', () => {
     expect(serverRoute).toContain('GetServerSideProps');
     expect(serverRoute).toContain("s-maxage=43200");
     expect(dockerfile).toContain('/app/.next/standalone');
-    expect(dockerfile).toContain('CMD ["node", "server.js"]');
+    expect(dockerfile).toContain('CMD ["node", "start-railway-all.mjs"]');
   });
 });

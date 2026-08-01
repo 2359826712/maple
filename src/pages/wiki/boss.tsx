@@ -9,6 +9,7 @@ import { useVersion } from '@/hooks/VersionContext';
 import { isAvailableInVersion } from '@/domain/regionModel';
 import ShareButton from '@/components/feature/ShareButton';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 const rarityColors: Record<string, string> = {
   Common: 'bg-background-100 text-foreground-950',
@@ -25,7 +26,7 @@ export default function BossDetailPage() {
   const { version } = useVersion();
 
   const bossParam = localizedBossParam || legacyBossParam;
-  const bossName = bossParam ? decodeURIComponent(bossParam).replace(/_/g, ' ') : '';
+  const bossName = bossParam ? safeDecodeURIComponent(bossParam).replace(/_/g, ' ') : '';
 
   const boss = useMemo(
     () =>

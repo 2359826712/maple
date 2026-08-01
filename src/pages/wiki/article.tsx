@@ -15,6 +15,7 @@ import { usePageMetadata } from '@/hooks/usePageMetadata';
 import { useTranslatedWikiEntry } from './useTranslatedWikiEntry';
 import { useServerRouteData } from '@/next/ServerRouteDataContext';
 import { getWikiArticleImageFallbacks } from './articleImageFallbacks';
+import { safeDecodeURIComponent } from '@/utils/safeDecodeURIComponent';
 
 const articleTitleKeys: Record<string, string> = {
   Classes: 'wiki_art_classes',
@@ -70,7 +71,7 @@ export default function WikiArticlePage() {
   const [imgLoadFailed, setImgLoadFailed] = useState(false);
 
   const titleParam = articlePath || legacyTitleParam;
-  const title = titleParam ? decodeURIComponent(titleParam).replace(/_/g, ' ') : '';
+  const title = titleParam ? safeDecodeURIComponent(titleParam).replace(/_/g, ' ') : '';
 
   // Detect File: namespace pages
   const isFilePage = title.startsWith('File:');
@@ -324,7 +325,7 @@ export default function WikiArticlePage() {
     if (!rawTitle) return;
 
     event.preventDefault();
-    const decoded = decodeURIComponent(rawTitle).replace(/_/g, ' ');
+    const decoded = safeDecodeURIComponent(rawTitle).replace(/_/g, ' ');
     navigate(`/wiki/article/${encodeURIComponent(decoded)}`);
   };
 
